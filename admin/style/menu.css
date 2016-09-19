@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import url(common.css);
+.page-menu { float:right; width:100%; height:auto; display:table;clear:both; margin:0 auto; cursor:hand; clear:both; }
+.page-menu a { width:100%; /*padding-left:30px;*/}
+.page-menu a:link    { color: #333333; text-decoration: none;}
+.page-menu a:visited { color: #333333; text-decoration: none;}
+.page-menu a:hover   { color: #157C10; text-decoration: none; }
+.page-menu a:active  { color: #157C10; text-decoration: none;};
+.page-menu li.menu{border-bottom:1px solid #C0D4DB; cursor:pointer;}
+.page-menu li.menu strong{width:100%;display:block;padding-left:30px;cursor:pointer;}
+.page-menu li.open { background:url(../images/-.gif) no-repeat 10px 11px; line-height:35px;}
+.page-menu li.open ul{display:block;border-bottom: 1px solid #C0D4DB;/*border-top: 1px dotted #C0D4DB;*/}
+.page-menu li.close { background:url(../images/+.gif) no-repeat 10px 11px; line-height:35px;border-bottom: 1px solid #C0D4DB;}
+.page-menu li.close ul{display:none;}
+.menu-item { background:#FFF; width:100%; font-weight:normal;}
+.menu-item li{height:25px; line-height:25px; text-indent:35px; background:url(../images/user-down-h5-ico.gif) no-repeat 25px 8px; }
+.menu-item li.active a{color:#FF3300;font-weight:bold;};
