@@ -1,0 +1,24 @@
+<{assign var="min_ititle" value="选择户型图"}>
+<{include file="block/mini-header.html"}>
+<h4 class="tips">小区：<b><{$home.name}></b></h4>
+<table width="100%" border="0" cellspacing="0" class="list">
+<tr><th>户型图</th><th>户型</th></tr>
+<{foreach $items as $item}>
+<tr>
+    <td>
+    <{if $pager.multi == 'Y'}>
+    <label><input type="checkbox" name="itemId[]" value="<{$item.photo_id}>" data="{'itemId':'<{$item.photo_id}>','title':'<{$item.title}>','photo':'<{$pager.img}>/<{$item.photo}>'}" CK="PRI"/><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50"/></td></label>
+    <{else}>
+    <label><input type="radio" name="itemId" value="<{$item.photo_id}>" data="{'itemId':'<{$item.photo_id}>','title':'<{$item.title}>','photo':'<{$pager.img}>/<{$item.photo}>'}" CK="PRI" style="float:left;margin-top:20px;"/><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50" style="float:left;"/></label>
+    <{/if}>
+    </td>
+    <td><{$item.title}></td>
+</tr>
+<{foreachelse}>
+ <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+<{/foreach}>
+<tr>
+    <td  colspan="20" class="page-list"><div class="page"><{$pager.pagebar}></div></td>
+</tr>
+</table>
+<{include file="block/mini-footer.html"}>

@@ -1,0 +1,103 @@
+<tr>
+    <th>免费刷新：</th>
+    <td><input type="text" class="input w-100" name="priv[day_free_count]" value="<{$priv.day_free_count|default:1}>" />
+        <span class="tip-comment">每天可免费刷新排名数,0：不可刷新, 支持商品、店铺、优惠券</span>
+    </td>
+</tr>
+<tr>
+    <th>回复点评：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_reply]" <{if $priv.allow_reply < 0}>checked="checked"<{/if}> value="-1"/>号码隐藏</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_reply]" <{if $priv.allow_reply > 0}>checked="checked"<{/if}> value="1"/>号码可见</label>
+    </td>
+</tr>
+<tr>
+    <th>查看预约：</th>
+    <td>
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile < 0}>checked="checked"<{/if}> value="-1"/>号码隐藏</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile > 0}>checked="checked"<{/if}> value="1"/>号码可见</label>
+		<span class="tip-comment">影响预约、下载优惠券</span>
+    </td>
+</tr>
+<tr>
+    <th>联系方式：</th>
+    <td>
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone < 0}>checked="checked"<{/if}> value="-1"/>禁止显示</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone > 0}>checked="checked"<{/if}> value="1"/>允许显示</label>
+    </td>
+</tr>
+<tr>
+    <th>预约商铺：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue < 0}>checked="checked"<{/if}> value="-1"/>禁止预约</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue > 0}>checked="checked"<{/if}> value="1"/>允许预约</label>
+    </td>
+</tr>
+<tr>
+    <th>招标投标：</th>
+    <td>
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look < 0}>checked="checked"<{/if}> value="-1"/>禁止投标</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look > 0}>checked="checked"<{/if}> value="1"/>允许投标</label>
+    </td>
+</tr>
+<tr>
+    <th>店铺模板：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_skin]" <{if $priv.allow_skin < 0}>checked="checked"<{/if}> value="-1"/>禁止更换</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_skin]" <{if $priv.allow_skin > 0}>checked="checked"<{/if}> value="1"/>允许更换</label>
+    </td>
+</tr>
+<tr>
+    <th>轮转广告：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_banner]" <{if $priv.allow_banner < 0}>checked="checked"<{/if}> value="-1"/>禁止添加</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_banner]" <{if $priv.allow_banner > 0}>checked="checked"<{/if}> value="1"/>允许添加</label>
+    </td>
+</tr>
+<tr>
+    <th>个性域名：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_domain]" <{if $priv.allow_domain < 0}>checked="checked"<{/if}> value="-1"/>禁止设置</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_domain]" <{if $priv.allow_domain > 0}>checked="checked"<{/if}> value="1"/>允许设置</label>
+    </td>
+</tr>
+<tr>
+    <th>发布商品：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_product]" <{if $priv.allow_product < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_product]" <{if empty($priv.allow_product)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_product]" <{if $priv.allow_product > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>可购买商品：</th>
+    <td>
+        <label><input type="radio" name="priv[product_payment]" <{if $priv.product_payment < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[product_payment]" <{if empty($priv.product_payment)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[product_payment]" <{if $priv.product_payment > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>优惠券：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_coupon]" <{if $priv.allow_coupon < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_coupon]" <{if empty($priv.allow_coupon)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_coupon]" <{if $priv.allow_coupon > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>活动资讯：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_news]" <{if $priv.allow_news < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_news]" <{if empty($priv.allow_news)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_news]" <{if $priv.allow_news > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>门店展示：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_mendian]" <{if $priv.allow_mendian < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_mendian]" <{if empty($priv.allow_mendian)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_mendian]" <{if $priv.allow_mendian > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>

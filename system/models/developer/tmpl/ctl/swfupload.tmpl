@@ -1,0 +1,27 @@
+    public function upload()
+    {
+
+    	if(!$order_sn = $this->GP('order_sn')){
+    		$this->err->add('非法的参数请求', 201);
+    	}else if(!$detail = __::M('trade/order')->detail($order_sn)){
+    		$this->err->add('订单不存在或已经删除', 202);
+    	}else if(!$attach = $_FILES['Filedata']){
+    		$this->err->add('上传图片失败', 401);
+    	}else if(UPLOAD_ERR_OK != $attach['error']){
+    		$this->err->add('上传图片失败', 402);
+    	}else{
+            $d = date('Ym');
+    		$dir = __CFG::IMG_DIR.'photo'.DIRECTORY_SEPARATOR.$d.DIRECTORY_SEPARATOR;
+    		if($F = __::M('helper/upload')->upload($attach,$dir, $fname)){
+                $oImage = __::M('image/gd');
+                $oImage->thumb($F, $F, 800, 1000);
+                $oImage->thumb($F, $F.'_thumb.jpg', 200, 200);
+                $a = array('order_sn'=>$order_sn);
+                $a['photo'] = "photo/{$d}/{$fname}";
+                __::M('trade/photo')->add($a);
+                $this->err->set_data('thumb', __CFG::IMG_URL.$a['photo'].'_thumb.jpg');
+                $this->err->add('上传图片成功');
+    		}
+    	}
+        $this->err->json();
+    }

@@ -1,0 +1,46 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/comment:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?company/comment-edit.html" mini-form="comment-form" method="post" >
+<input type="hidden" name="id" value="<{$detail.comment_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>公司：</th>
+    <td>
+      <b class="blue"><{$company.name}></b>
+    </td>
+</tr>
+<tr><th>所属会员：</th>
+    <td>
+        <b class="blue"><a ucard="@<{$detail.uid}>"><{$member.uname}></a></b>
+    </td>
+</tr>
+    <th>点评：</th>
+    <td>
+        <{foreach $score.company as $k=>$v}>
+        <{if $v}><label><{$v}>:<input type="text" name="data[<{$k}>]" value="<{$detail[$k]|default:'0'}>" class="input w-50"/></label><{/if}>
+        <{/foreach}>
+    </td>
+</tr>
+<tr><th>评价内容：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+
+<tr><th>是否审核</th><td>
+<ul class="group-list">
+<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+	<label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>否</label>
+<div class="clear-both"></div>
+</ul>
+</td></tr>
+<tr><th>装修公司回复：</th><td><textarea name="data[reply]" class="textarea"><{$detail.reply}></textarea><br /></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="fenzhan:common/footer.html"}>

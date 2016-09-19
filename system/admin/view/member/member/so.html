@@ -1,0 +1,50 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="member/member:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<{if $pager.target == 'dialog'}>
+<form action="?member/member-dialog-<{$pager.from}>.html&MINI=LoadIframe" id="SO-form" method="post">
+<input type="hidden" name="multi" value="<{$pager.multi}>" />
+<{else}>
+<form action="?member/member-index.html" id="SO-form" method="post">
+<{/if}>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>UID：</th><td><input type="text" name="SO[uid]" value="<{$detail.uid}>" class="input w-100"/></td></tr>
+<tr><th>用户名：</th><td><input type="text" name="SO[uname]" value="<{$detail.uname}>" class="input w-200"/></td></tr>
+<tr><th>邮箱：</th><td><input type="text" name="SO[mail]" value="<{$detail.mail}>" class="input w-200"/></td></tr>
+<tr><th>手机：</th><td><input type="text" name="SO[mobile]" value="<{$detail.mobile}>" class="input w-200"/></td></tr>
+<{if $pager.target != 'dialog'}>
+<tr><th>真实姓名：</th><td><input type="text" name="SO[realname]" value="<{$detail.realname}>" class="input w-200"/></td></tr>
+<tr><th>注册IP：</th><td><input type="text" name="SO[regip]" value="<{$detail.regip}>" class="input w-200"/></td></tr>
+<tr><th>类型：</th><td>
+   <select name="SO[from]" class="w-100"><option value="">全部</option><{html_options options=$from_list}></select>
+</td></tr>
+<tr><th>状态：</th><td>
+	<select name="SO[closed]" class="select w-100">
+		<option value="">全部</option>
+		<option value="0">正常</option>
+		<option value="1">禁言</option>
+		<option value="2">锁定</option>
+	</select>
+</td></tr>
+<tr><th>最后登录时间：</th><td>
+	<input type="text" name="SO[lastlogin][0]" value="" class="input w-100" date="lastlogin" readonly/>~
+	<input type="text" name="SO[lastlogin][1]" value="" class="input w-100" date="lastlogin" readonly/>
+</td></tr>
+<{/if}>
+<tr><th>注册时间：</th><td>
+	<input type="text" name="SO[dateline][0]" value="" class="input w-100" date="dateline" readonly/>~
+	<input type="text" name="SO[dateline][1]" value="" class="input w-100" date="dateline" readonly/>
+</td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>

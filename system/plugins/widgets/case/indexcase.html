@@ -1,0 +1,19 @@
+<ul>
+  <{foreach $data.case_new as $item}>
+        <li>
+            <a target="_blank" title="<{$item.title}>" href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" width="180" height="145" /></a>
+            <p><a target="_blank" title="<{$item.title}>" href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>"><{$item.title|cutstr:18:''}></a></p>
+            <p>来自:<a target="_blank" title="<{$data.case_new_company_list[$item.company_id].name}>" href="<{link ctl='company' arg0=$item.company_id}>"><{$data.case_new_company_list[$item.company_id].sort_name}></a></p>
+            <p class="joyful_like none"><a href="<{link ctl='case'}>">喜欢</a></p>
+        </li>
+ <{/foreach}>     
+</ul>
+                        <script>
+					$(document).ready(function(){
+						$(".joyful_case_b_all ul li").mouseover(function(){
+							$(this).find(".joyful_like").show();
+						}).mouseout(function(){
+							$(this).find(".joyful_like").hide();
+						});
+					});
+				</script>

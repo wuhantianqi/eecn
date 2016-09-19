@@ -1,0 +1,61 @@
+<{if $request.MINI=='load'}>
+<script type="text/javascript">(function(){$(".ui-dialog .ui-dialog-content .page-title").hide();$(".ui-dialog .ui-dialog-content .page-data").css({margin:"0px"});
+/* 
+$("[date],[datepicker]").datepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+$("[datetime],[timepicker]").datetimepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",timeFormat: "HH:mm:ss",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+*/
+})(window.KT, window.jQuery);</script>
+<{elseif $request.MINI=='LoadIframe'}>
+<script type="text/javascript">
+(function(T, $){
+$(":checkbox[CKA]").die("click").live("click",function(){
+    var $cks = $(":checkbox[CK='"+$(this).attr("CKA")+"']");;
+    if($(this).attr("checked")){
+        $cks.each(function(){$(this).attr("checked",true);});
+    }else{
+        $cks.each(function(){$(this).attr("checked",false);});
+    }
+});
+$(".page-title").hide();$(".page-data").css({margin:"0px"});
+/* 
+$("[date],[datepicker]").datepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+$("[datetime],[timepicker]").datetimepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",timeFormat: "HH:mm:ss",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+*/
+$("[date],[datepicker]").die("click").live("click", function(){$(this).addClass("Wdate ");WdatePicker({el:this,dateFmt:'yyyy-MM-dd'});});
+$("[datetime],[timepicker]").die("click").live("click", function(){$(this).addClass("Wdate ");WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'});});
+window.parent.Widget.MsgBox.hide();
+if(typeof(window.parent.Dialog_Iframe) == 'object'){
+    window.parent.Dialog_Iframe.dialog({height: $("body").height()+50});
+}else{
+
+}
+})(window.KT, window.jQuery);
+</script>
+</body>
+</html>
+<{else}>
+<p class="s-50"></p>
+<script type="text/javascript">
+(function(T, $){
+/* 
+$("[date],[datepicker]").datepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+$("[datetime],[timepicker]").datetimepicker({changeYear:true,showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd",timeFormat: "HH:mm:ss",beforeShow: function () {setTimeout(function () {$('#ui-datepicker-div').css("z-index", 115);}, 100);}});
+*/
+$("[date],[datepicker]").die("click").live("click", function(){$(this).addClass("Wdate ");WdatePicker({el:this,dateFmt:'yyyy-MM-dd'});});
+$("[datetime],[timepicker]").die("click").live("click", function(){$(this).addClass("Wdate ");WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'});});
+	$(":checkbox[CKA]").die("click").live("click",function(){
+		var $cks = $(":checkbox[CK='"+$(this).attr("CKA")+"']");;
+		if($(this).attr("checked")){
+			$cks.each(function(){$(this).attr("checked",true);});
+		}else{
+			$cks.each(function(){$(this).attr("checked",false);});
+		}
+	});
+	if (window.parent == window){
+		$(".page-data").css({margin:"45px 10px 10px 10px"});
+	}
+})(window.KT, window.jQuery);
+</script>
+</body>
+</html>
+<{/if}>

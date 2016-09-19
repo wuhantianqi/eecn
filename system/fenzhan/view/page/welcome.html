@@ -1,0 +1,45 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+            <th>系统管理平台首页</th>
+            <td class="right"></td>
+            <td width="15"></td>
+        </tr>
+    </table>
+</div>
+<div class="page-data">
+    <{if $ADMIN.admin_name=='ijianghu' && $ADMIN.passwd==md5('ijianghu')}>
+    <h4 class="tip-error">老兄！据我所知你使用的还是默认帐号密码，请尽快修改以免发生安全问题</h4>
+    <{/if}>
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+          <tr><th colspan="4" class="left">平台数据统计</th></tr>
+        <tr>
+
+            <td class="w-150 left"><a href="?ctl=company/company&SO[audit]=0">待审核公司:<{$count.company}></a></td>
+            <td class="w-150 left"><a href="?ctl=designer/designer&SO[audit]=0">待审核设计师:<{$count.designer}></a></td>
+            <td class="w-150 left"><a href="?ctl=shop/shop&SO[audit]=0">等待审核材料商:<{$count.shop}></a></td>
+            <td class="w-150 left"><a href="?ctl=mechanic/mechanic&SO[audit]=0">等待审核工人:<{$count.mechanic}></a></td>
+        </tr>
+        <tr>
+            <td class="w-150 left"><a href="?ctl=tenders/tenders&SO[audit]=0">总共等待审核的招标:<{$count.tenders}></a></td>
+            <td class="w-150 left"><a href="?ctl=tenders/tenders&SO[audit]=0">今日等待审核招标:<{$count.tenders2}></a></td>
+             <td class="w-150 left"><a href="?tenders/track-index.html">今日招标反馈：<{$count.tracking}></a></td>
+            <td class="w-150 left"><a href="?designer/yuyue-index.html">今日设计师预约:<{$count.designer_yuyue}></a></td>            
+        </tr>
+        <tr>
+            <td class="w-150 left"><a href="?shop/yuyue-index.html">今日商铺产品预约:<{$count.shop_yuyue}></a></td>
+            <td class="w-150 left"><a href="?trade/order-index.html">今日商城订单数:<{$count.order}></a></td>
+            <td class="w-150 left"><a href="?trade/order-index.html">待审核订单：<{$count.order2}></a></td>
+            <td class="w-150 left"><a href="?member/verify-audit.html">等待审核的认证:<{$count.verify}></a></td>
+        </tr>
+        <tr>
+            <td class="w-150 left"><a href="?company/yuyue-index.html">今日预约公司:<{$count.company_yuyue}></a></td>
+            <td class="w-150 left"></td>
+            <td class="w-150 left"></td>
+            <td class="w-150 left"></td>
+        </tr>
+    </table>
+    
+<{include file="admin:common/footer.html"}>

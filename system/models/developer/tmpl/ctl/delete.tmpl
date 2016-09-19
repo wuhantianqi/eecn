@@ -1,0 +1,18 @@
+    public function delete($#pk#=null)
+    {
+        if($#pk# = (int)$#pk#){
+            if(!$detail = K::M('#module#/#mdl#')->detail($comment_id)){
+                $this->err->add('你要删除的内容不存在或已经删除', 211);
+            }else{
+                if(K::M('#module#/#mdl#')->delete($#pk#)){
+                    $this->err->add('删除内容成功');
+                }
+            }
+        }else if($ids = $this->GP('#pk#')){
+            if(K::M('#module#/#mdl#')->delete($ids)){
+                $this->err->add('批量删除内容成功');
+            }
+        }else{
+            $this->err->add('未指定要删除的内容ID', 401);
+        }
+    }  

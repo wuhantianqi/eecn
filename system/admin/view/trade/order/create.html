@@ -1,0 +1,59 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="trade/order:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?trade/order-create.html" mini-form="order-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>订单号：</th><td><input type="text" name="data[order_no]" value="<{$detail.order_no|default:''}>" class="input w-100"/></td></tr>
+<tr>
+    <th><span class="red">*</span>会员：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr>
+    <th>商家：</th>
+    <td>
+        <input type="hidden" name="data[shop_id]" value="<{$detail.shop_id}>" id="select_shop_shop_id_id" />
+        <input type="text" value="<{$shop.title}>" id="select_shop_shop_id_title" class="input w-300" readonly/>
+        <{link ctl="shop/shop:dialog"  select="mini:#select_shop_shop_id_id,#select_shop_shop_id_title/N/选择商铺" title="选择商铺" class="button"}>
+    </td>
+</tr>
+<tr><th>商品总数：</th><td><input type="text" name="data[product_count]" value="<{$detail.product_count|default:''}>" class="input w-100"/></td></tr>
+<tr><th>商品种类：</th><td><input type="text" name="data[product_number]" value="<{$detail.product_number|default:''}>" class="input w-100"/></td></tr>
+<tr><th>商品总价：</th><td><input type="text" name="data[product_amount]" value="<{$detail.product_amount|default:'0.00'}>" class="input w-100"/></td></tr>
+<tr><th>运费：</th><td><input type="text" name="data[freight]" value="<{$detail.freight|default:'0.00'}>" class="input w-100"/></td></tr>
+<tr><th>订单金额：</th><td><input type="text" name="data[amount]" value="<{$detail.amount|default:'0.00'}>" class="input w-100"/></td></tr>
+<tr><th><span class="red">*</span>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>联系电话：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>收货地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-300"/></td></tr>
+<tr><th>订单备注：</th><td><textarea name="data[note]" class="textarea"><{$detail.note}></textarea><br /></td></tr>
+<tr>
+	<th>支付状态：</th>
+	<td>
+		<label><input type="radio" name="data[pay_status]" <{if $detail.pay_status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[pay_status]" <{if isset($detail.pay_status) && empty($detail.pay_status)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr><th class="w-100">订单状态：</th><td><select name="data[order_status]"><option value="">NULL</option></select></td></tr>
+<tr>
+	<th>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" checked="checked" value="1"/>发布</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" value="0"/>待审</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

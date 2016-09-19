@@ -1,0 +1,27 @@
+<div class="footer_t">
+    <div class="link w1000">
+        <{foreach from=$data.cate_list item=item}>
+        <{if $item.from=='help' && $item.parent_id!=0}>
+        <div class="link_l lt mt20 ">
+            <span class="red f14"><b><{$item.title}></b></span><br />
+            <{foreach from=$data.content_list item=it}>
+            <{if $it.cat_id == $item.cat_id}>
+            <a title="<{$it.title}>" target="_blank" href="<{link ctl='help' arg0=$it.page}>"><{$it.title}></a><br />
+            <{/if}>
+            <{/foreach}>
+        </div>
+        <{/if}>
+        <{/foreach}>
+       
+        <div class="link_r lt">
+            <div class="weixin lt">
+                <h3><a href="http://www.ijh.cc/">关注江湖微信</a></h3>
+                <a href="http://www.ijh.cc/"><img src="<{$pager.theme}>/default/static/pic/weixin.jpg" width="105" height="105" /></a>
+            </div>
+            <div class="kongjian lt">
+                <h3><a href="http://www.ijh.cc/">关注江湖空间</a></h3>
+                <a href="http://www.ijh.cc/"><img src="<{$pager.theme}>/default/static/pic/kj.png" width="32" height="31" /></a>
+            </div>
+        </div>
+    </div>
+</div>

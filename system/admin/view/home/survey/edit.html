@@ -1,0 +1,55 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="home/survey:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?home/survey-edit.html" mini-form="survey-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="survey_id" value="<{$detail.survey_id}>"/>
+
+<tr><th class="w-100">城市：</th><td>
+<label>城市:<select name="data[city_id]" class="w-100"><{widget id="data/city" value=$detail.city_id}></select></label>
+<label>地区:<select name="data[area_id]" class="w-100"><{widget id="data/area" value=$detail.area_id city_id=$detail.city_id}></select></label>
+</td></tr>
+<tr>
+    <th>用户：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr><th><span class="red">*</span>小区名称：</th><td><input type="text" name="data[home_name]" value="<{$detail.home_name|default:''}>" class="input w-300"/></td></tr>
+<tr><th>称呼：</th><td><input type="text" name="data[name]" value="<{$detail.name|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>联系方式：</th><td><input type="text" name="data[tel]" value="<{$detail.tel|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

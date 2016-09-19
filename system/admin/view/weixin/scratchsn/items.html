@@ -1,0 +1,40 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="weixin/scratchsn:create" args=$detail.scratch_id class="button" title="添加"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">成员</th><th class="w-50">刮刮卡</th><th class="w-100">用户ID</th><th class="w-100">奖项</th><th>昵称</th><th>sn号</th><th class="w-100">创建时间</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><label><input type="checkbox" value="<{$item.sn_id}>" name="sn_id[]" CK="PRI"/><{$item.sn_id}><label></td>
+<td><{$detail.title}></td>
+<td><{$member_list[$item.uid].uname}></td>
+<td><{$item.prize_title}></td>
+<td><{$item.nickname}></td>
+<td><{$item.sn}></td>
+<td><{$item.dateline|format}></td>
+<td><{link ctl="weixin/scratchsn:edit" args=$item.sn_id title="修改" class="button"}><{link ctl="weixin/scratchsn:delete" args=$item.sn_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}></td></tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="weixin/scratchsn:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>&nbsp;&nbsp;&nbsp;<{link ctl="weixin/scratchsn:doaudit" type="button" submit="mini:#items-form" confirm="mini:确定要批量审核选中的内容吗?" priv="hide" value="批量审核"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

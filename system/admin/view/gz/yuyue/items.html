@@ -1,0 +1,49 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="gz/yuyue:create" class="button" title="添加"}>&nbsp;&nbsp;&nbsp;<{link ctl="gz/yuyue:so" load="mini:搜索内容" width="mini:500" class="button" title="搜索"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th><th>工长</th><th>业主</th><th>城市</th><th>联系人</th><th>手机号</th>
+        <th>状态</th><th class="w-150">来源IP</th><th class="w-150">预约时间</th><th class="w-150">操作</th>
+    </tr>    
+    <{foreach $items as $item}>
+    <tr>
+        <td><label><input type="checkbox" value="<{$item.yuyue_id}>" name="yuyue_id[]" CK="PRI"/><{$item.yuyue_id}><label></td>
+        <td><a ucard="@<{$item.gz_id}>"><b class="blue"><{$gz_list[item.gz_id].name|default:'--'}>(UID:<{$item.gz_id}>)</b></a></td>
+        <td><{if !empty($item.uid)}><{$member_list[$item.uid].uname}><{else}>游客<{/if}></td><td><{$item.city_name}></td>
+        <td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.status_title}></td>
+        <td><{$item.clientip}>(<{$item.clientip|iplocal}>)</td><td><{$item.dateline|format}></td>
+        <td>
+            <{link ctl="gz/yuyue:detail" args=$item.yuyue_id title="查看" class="button"}>
+            <{link ctl="gz/yuyue:edit" args=$item.yuyue_id title="修改" class="button"}>
+            <{link ctl="gz/yuyue:delete" args=$item.yuyue_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left">
+                <{link ctl="gz/yuyue:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>
+            </td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

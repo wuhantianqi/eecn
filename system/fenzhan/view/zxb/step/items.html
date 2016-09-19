@@ -1,0 +1,299 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">
+<div class="tip-notice">
+    装修保信息
+</div>
+	<table  border="0" cellspacing="0" width="100%" class="table-data form">
+    	<tr>
+            <th width="10%">装修保</th><td width="40%"><{$detail.zxb_id}></td>
+            <th width="10%">城市</th><td width="40%"><{$cityList[$detail.city_id].city_name}></td>
+        </tr>
+        <tr>
+            <th>业主联系人</th><td><{$detail.contact}></td>
+            <th>业主电话</th><td><{$detail.mobile}></td>
+        </tr>
+        <tr>
+            <th>公司名称</th><td><{$company.title}></td>
+            <th>公司联系电话</th><td><{$company.mobile}></td>
+        </tr>
+         <tr>
+            <th>合同价格</th><td><{$hetong.total_price}>元</td>
+            <th>当前状态</th><td><{$status[$detail.status]}></td>
+        </tr>
+        <tr>
+            <th>业主备注</th><td><{$detail.remark|cutstr:30}></td>
+            <th>公司留言</th><td><{$tenders_look.content|cutstr:30}></td>
+            
+        </tr>
+      
+        <tr>
+            <th>创建IP</th><td><{$detail.clientip}></td>
+            <th>提交时间</th><td><{$detail.dateline|format}></td>
+        </tr>
+    </table>
+</div>
+<{if $hetong}>
+<div class="page-data">
+	<div class="tip-notice">
+        合同信息 
+    </div>
+	<table  border="0" cellspacing="0" width="100%" class="table-data form">
+    	<tr>
+        	<th rowspan="5" width="10%">业主打款证据：</th>
+            <td rowspan="5"> <{if $step[3].yezhu_photo}><img src="<{$pager.img}>/<{$step[3].yezhu_photo}>" photo="<{$pager.img}>/<{$step[3].yezhu_photo}>"/><{/if}></td>
+        
+        
+        <th width="10%">业主电话：</th><td width="40%"><{$hetong.yezhu_phone|default:''}></td>
+         </tr>
+        <tr><th>业主卡号：</th><td><{$hetong.yezhu_bank|default:''}></td></tr>
+        <tr><th>业主描述内容：</th><td><{$step[3].yezhu_content}></td></tr>
+        <tr><th>业主是否确认：</th><td><{if $hetong.yezhu_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td></tr>
+        <tr><th>业主确认时间：</th><td><{$hetong.yezhu_time|format}></td></tr>
+       
+    	
+        <tr><th>公司电话：</th><td><{$hetong.company_phone|default:''}></td><th>公司卡号：</th><td><{$hetong.company_bank|default:''}></td></tr>
+        <tr><th>公司是否确认：</th><td><{if $hetong.company_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td><th>公司确认时间：</th><td><{$hetong.company_time|format}></td></tr>
+        
+        
+         <tr><th>合同下载：</th>
+            <td>
+              <a href="<{$pager.img}>/<{$hetong.hetong}>"><span class="red">公司已上传合同请下载</span></a>
+            </td>
+        </tr>
+        <{if $step[3].status == 1}>
+        <tr><th>管理员是否确认：</th><td>已确认</td><th>管理员内容：</th><td><{$step[3].content}></td></tr>
+        <tr><th>管理员确认时间：</th><td><{$step[3].time|format}></td></tr>
+        <{else}>
+        <form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+        	<input type="hidden" name="step_id" value="<{$step[3].step_id}>"/>
+            <tr><th>管理员确认：</th><td colspan="3"><label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;<label><input type="radio" name="data[status]" value="0"/>否</label></td></tr>
+             <tr>
+             <th>管理员描述：</th>
+                <td colspan="3">
+                     <textarea name="data[content]"  style="width:600px;height:200px;"><{$step[3].content}></textarea>
+                </td>
+            </tr>
+             <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+        </form>
+        <{/if}>
+    </table>
+</div>
+<{/if}>
+<{if $step[4]}>
+	<div class="page-data">
+        <div class="tip-notice">
+            水电验收 
+        </div>
+        <table  border="0" cellspacing="0" width="100%" class="table-data form">
+        	    <tr><th rowspan="3" width="10%">业主打款证据：</th>
+                    <td rowspan="3" width="40%">
+                         <{if $step[4].yezhu_photo}><img src="<{$pager.img}>/<{$step[4].yezhu_photo}>" photo="<{$pager.img}>/<{$step[4].yezhu_photo}>"/><{/if}>
+                    </td>
+                    <th width="10%">业主内容：</th><td width="40%"><{$step[4].yezhu_content}></td>
+                </tr>
+                
+                
+                  <tr><th>业主是否确认：</th><td><{if $step[4].yezhu_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td></tr>
+                 <tr><th>业主确认时间：</th><td><{$step[4].yezhu_time|format}></td></tr>
+                 <tr><th>公司完工图片：</th><td colspan="3">
+                 		<{foreach $step[4]['photo'] as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>"  photo="<{$pager.img}>/<{$v.photo}>">
+                        <{/foreach}>
+                 </td></tr>
+                <tr><th>公司是否确认：</th><td><{if $step[4].company_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td><th>公司确认时间：</th><td><{$step[4].company_time|format}></td></tr>
+                
+            <tr><th>公司描述：</th><td colspan="3"><{$step[4].company_content}></td></tr>
+            <{if $step[4].status == 1}>
+                <tr><th>管理员是否确认：</th><td>已确认</td><th>管理员内容：</th><td><{$step[4].content}></td></tr>
+                <tr><th>管理员确认时间：</th><td><{$step[4].time|format}></td></tr>
+                <{else}>
+                <form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+                    <input type="hidden" name="step_id" value="<{$step[4].step_id}>"/>
+                    <tr><th>管理员确认：</th><td colspan="3"><label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;<label><input type="radio" name="data[status]" value="0"/>否</label></td></tr>
+                     <tr>
+                     <th>管理员描述：</th>
+                        <td>
+                             <textarea name="data[content]"  style="width:600px;height:200px;"><{$step[4].content}></textarea>
+                        </td>
+                    </tr>
+                     <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+                </form>
+                <{/if}>
+        </table>
+    </div>
+<{/if}>
+
+<{if $step[5]}>
+	<div class="page-data">
+        <div class="tip-notice">
+            泥木验收
+        </div>
+        <table  border="0" cellspacing="0" width="100%" class="table-data form">
+        	  <tr><th rowspan="3" width="10%">业主打款证据：</th>
+                    <td rowspan="3" width="40%">
+                         <{if $step[5].yezhu_photo}><img src="<{$pager.img}>/<{$step[5].yezhu_photo}>" photo="<{$pager.img}>/<{$step[5].yezhu_photo}>"/><{/if}>
+                    </td>
+                    <th width="10%">业主内容：</th><td width="40%"><{$step[5].yezhu_content}></td>
+                </tr>
+                
+                
+                  <tr><th>业主是否确认：</th><td><{if $step[5].yezhu_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td></tr>
+                 <tr><th>业主确认时间：</th><td><{$step[5].yezhu_time|format}></td></tr>
+                 <tr><th>公司完工图片：</th><td colspan="3">
+                 		<{foreach $step[5]['photo'] as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>"  photo="<{$pager.img}>/<{$v.photo}>">
+                        <{/foreach}>
+                 </td></tr>
+                <tr><th>公司是否确认：</th><td><{if $step[5].company_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td><th>公司确认时间：</th><td><{$step[5].company_time|format}></td></tr>
+                
+            <tr><th>公司描述：</th><td colspan="3"><{$step[5].company_content}></td></tr>
+            <{if $step[5].status == 1}>
+                <tr><th>管理员是否确认：</th><td>已确认</td><th>管理员内容：</th><td><{$step[5].content}></td></tr>
+                <tr><th>管理员确认时间：</th><td><{$step[5].time|format}></td></tr>
+                <{else}>
+                <form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+                    <input type="hidden" name="step_id" value="<{$step[5].step_id}>"/>
+                    <tr><th>管理员确认：</th><td colspan="3"><label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;<label><input type="radio" name="data[status]" value="0"/>否</label></td></tr>
+                     <tr>
+                     <th>管理员描述：</th>
+                        <td colspan="3">
+                             <textarea name="data[content]"  style="width:600px;height:200px;"><{$step[5].content}></textarea>
+                        </td>
+                    </tr>
+                     <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+                </form>
+                <{/if}>
+        </table>
+    </div>
+<{/if}>
+
+<{if $step[6]}>
+	<div class="page-data">
+        <div class="tip-notice">
+            油漆验收 
+        </div>
+        <table  border="0" cellspacing="0" width="100%" class="table-data form">
+        	 <tr><th rowspan="3" width="10%">业主打款证据：</th>
+                    <td rowspan="3" width="40%">
+                         <{if $step[6].yezhu_photo}><img src="<{$pager.img}>/<{$step[6].yezhu_photo}>" photo="<{$pager.img}>/<{$step[6].yezhu_photo}>"/><{/if}>
+                    </td>
+                    <th width="10%">业主内容：</th><td width="40%"><{$step[6].yezhu_content}></td>
+                </tr>
+                
+                
+                  <tr><th>业主是否确认：</th><td><{if $step[6].yezhu_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td></tr>
+                 <tr><th>业主确认时间：</th><td><{$step[6].yezhu_time|format}></td></tr>
+                 <tr><th>公司完工图片：</th><td colspan="3">
+                 		<{foreach $step[6]['photo'] as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>"  photo="<{$pager.img}>/<{$v.photo}>">
+                        <{/foreach}>
+                 </td></tr>
+                <tr><th>公司是否确认：</th><td><{if $step[6].company_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td><th>公司确认时间：</th><td><{$step[6].company_time|format}></td></tr>
+                
+            <tr><th>公司描述：</th><td colspan="3"><{$step[6].company_content}></td></tr>
+            <{if $step[6].status == 1}>
+                <tr><th>管理员是否确认：</th><td>已确认</td><th>管理员内容：</th><td><{$step[6].content}></td></tr>
+                <tr><th>管理员确认时间：</th><td><{$step[6].time|format}></td></tr>
+                <{else}>
+                <form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+                    <input type="hidden" name="step_id" value="<{$step[6].step_id}>"/>
+                    <tr><th>管理员确认：</th><td colspan="3"><label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;<label><input type="radio" name="data[status]" value="0"/>否</label></td></tr>
+                     <tr>
+                     <th>管理员描述：</th >
+                        <td colspan="3">
+                             <textarea name="data[content]"  style="width:600px;height:200px;"><{$step[6].content}></textarea>
+                        </td>
+                    </tr>
+                     <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+                </form>
+                <{/if}>
+        </table>
+    </div>
+<{/if}>
+
+<{if $step[7]}>
+	<div class="page-data">
+        <div class="tip-notice">
+            竣工后30天 
+        </div>
+        <table  border="0" cellspacing="0" width="100%" class="table-data form">
+        	 <tr><th rowspan="3" width="10%">业主打款证据：</th>
+                    <td rowspan="3" width="40%">
+                         <{if $step[7].yezhu_photo}><img src="<{$pager.img}>/<{$step[7].yezhu_photo}>" photo="<{$pager.img}>/<{$step[7].yezhu_photo}>"/><{/if}>
+                    </td>
+                    <th width="10%">业主内容：</th><td width="40%"><{$step[7].yezhu_content}></td>
+                </tr>
+                
+                
+                  <tr><th>业主是否确认：</th><td><{if $step[7].yezhu_status}>已确认<{else}><b class="red">等待确认</b><{/if}></td></tr>
+                 <tr><th>业主确认时间：</th><td><{$step[7].yezhu_time|format}></td></tr>
+                 
+            <{if $step[7].status == 1}>
+                <tr><th>管理员是否确认：</th><td>已确认</td><th>管理员内容：</th><td><{$step[7].content}></td></tr>
+                <tr><th>管理员确认时间：</th><td><{$step[7].time|format}></td></tr>
+                <{else}>
+                <form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+                    <input type="hidden" name="step_id" value="<{$step[7].step_id}>"/>
+                    <tr><th>管理员确认：</th><td  colspan="3"><label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;<label><input type="radio" name="data[status]" value="0"/>否</label></td></tr>
+                     <tr>
+                     <th>管理员描述：</th>
+                        <td  colspan="3">
+                             <textarea name="data[content]"  style="width:600px;height:200px;"><{$step[7].content}></textarea>
+                        </td>
+                    </tr>
+                     <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+                </form>
+                <{/if}>
+        </table>
+    </div>
+<{/if}>
+<{if $detail.status == 8}>
+	<div class="page-data">
+        <div class="tip-notice">
+            交易完成 
+        </div>
+    </div>
+<{/if}>
+
+<script>
+	jQuery(window).load(function () {
+            jQuery("img").each(function () {
+                DrawImage(this,300,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+
+<{include file="fenzhan:common/footer.html"}>

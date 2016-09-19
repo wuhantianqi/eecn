@@ -1,0 +1,61 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"> &nbsp; &nbsp;<{link ctl="tenders/look:create" arg0=$tenders_id load="mini:分标" height="mini:600" width="mini:600"  class="button" title="分标"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+    <div class="tip-notice" style="margin-bottom:10px;">招标：<{$tenders.title}> ---- 业主：<{$tenders.name}> --- 电话:<{$tenders.mobile}></div>
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th>公司</th><th>联系人</th><th>电话</th><th>IP</th><th>创建时间</th><th>是否签单</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><b style=" color: red; font-size: 18px;"><{$company_list[$item.company_id].name}></b></td>
+            <td><{$company_list[$item.company_id].contact}></td>
+            <td><{$company_list[$item.company_id].tel}></td>            
+            <td><{$item.clientip}></td>
+            <td><{$item.dateline|format}></td>
+            <td><{if $item.is_signed}>签单<{else}>未签单<{/if}></td>
+            <td>
+                <{if !$tenders.status}>
+                <{if !$item.is_signed}>
+                <{link ctl="tenders/look:update" act="mini:删除" arg0=$item.look_id class="button" title="设为签单"}>
+                <{/if}>
+                <{/if}>
+                <{link ctl="tenders/tracking:create" load="mini:跟踪反馈" arg0=$item.look_id class="button" title="跟踪反馈"}>                
+            </td>
+    </tr>
+    <tr>
+        <td style="padding: 5px; background: #ffffff; " colspan="7">
+             <table width="100%" border="0" cellspacing="0" class="table-data table">
+            <tr><th>装修公司反馈</th><th>IP</th><th>跟踪日期</th><th>客服回复</th><th>回复时间</th><th class="w-150">操作</th></tr>
+            <{foreach $item.tracking as $item2}>
+                <td><{$item2.content}></td>
+                <td><{$item2.clientip}></td>
+                <td><{$item2.dateline|format}></td>
+                <td><{$item2.reply}></td>
+                <td><{$item2.reply_time|format}></td>
+                <td><{link ctl="tenders/tracking:edit" load="mini:回复" args=$item2.tracking_id title="回复" class="button"}></td>
+            </tr>
+            <{foreachelse}>
+             <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+            <{/foreach}>
+            </table>
+        </td>        
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+
+</div>
+<{include file="admin:common/footer.html"}>

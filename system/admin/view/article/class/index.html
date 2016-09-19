@@ -1,0 +1,69 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right">&nbsp;<{link ctl="article/class:create" class="button" priv="hide" load="mini:添加文章分类"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+	<form action="?article/class-update.html" mini-form="article-class" method="post"/>
+	<input type="hidden" name="batch" value="orderby" />
+	<table align="center" width="100%" cellpadding="0" cellspacing="0" class="table-data list">
+		<tr>
+			<th style="width:50px;padding-left:5px;text-align:left;">ID</th>
+			<th>分类名称</th>
+			<th class="w-150">排序</th>
+			<th class="w-200">操作</th>
+		</tr>
+		<{foreach $class_tree as $v}>
+		<tr id="class-<{$v.class_id}>">
+			<td><{$v.class_id}></td>
+			<td style="text-align:left;">&nbsp;&nbsp;<strong><{$v.title}></strong></td>
+			<td class="left">&nbsp;<input type="text" name="orderby[<{$v.class_id}>]" value="<{$v.orderby}>" class="input w-50" /></td>
+			<td>
+				<{link ctl="article/class:create" args="<{$v.class_id}>" load="mini:添加子分类" title="添加子分类" class="button"}>
+				<{link ctl="article/class:edit" args="<{$v.class_id}>" load="mini:编辑分类" title="编辑分类" class="button"}>
+				<{if $v.type == 'article'}>
+				<{link ctl="article/class:delete" args="<{$v.class_id}>" act="mini:remove:#mod-<{$v.mod_id}>" title="删除分类" class="button"}>
+				<{else}>
+				<label title="删除分类" class="button disabled" tips="系统分类不能删除" disabled="disabled">删除分类</label>
+				<{/if}>
+			</td>
+		</tr>
+		<{foreach $v.children as $vv}>
+		<tr id="class-<{$vv.class_id}>">
+			<td><{$vv.class_id}></td>
+			<td style="text-align:left;padding-left:30px;">&nbsp;&nbsp;|----<strong><{$vv.title}></strong></td>
+			<td class="left">&nbsp;&nbsp;|----<input type="text" name="orderby[<{$vv.class_id}>]" value="<{$vv.orderby}>" class="input w-50" /></td>
+			<td>
+				<{link ctl="article/class:create" args="<{$vv.class_id}>" load="mini:添加子分类" title="添加子分类" class="button"}>
+				<{link ctl="article/class:edit" args="<{$vv.class_id}>" load="mini:编辑分类" title="编辑分类" class="button"}>
+				<{link ctl="article/class:delete" args="<{$vv.class_id}>" act="mini:remove:#mod-<{$vv.class_id}>" title="删除分类" class="button"}>
+			</td>
+		</tr>
+		<{foreach $vv.children as $vvv}>
+		<tr id="class-<{$vvv.class_id}>">
+			<td><{$vvv.class_id}></td>
+			<td style="text-align:left;padding-left:60px;">&nbsp;&nbsp;|----<strong><{$vvv.title}></strong></td>
+			<td class="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|----<input type="text" name="orderby[<{$vvv.class_id}>]" value="<{$vvv.orderby}>" class="input w-50" /></td>
+			<td>
+				<label title="添加子分类" class="button disabled" tips="该分类不能添加子分类" disabled="disabled">添加子分类</label>
+				<{link ctl="article/class:edit" args="<{$vvv.class_id}>" load="mini:编辑分类" title="编辑分类" class="button"}>
+				<{link ctl="article/class:delete" args="<{$vvv.class_id}>" act="mini:remove:#mod-<{$vvv.class_id}>" title="删除分类" class="button"}>
+		</tr>
+		<{/foreach}>
+		<{/foreach}>
+		<{/foreach}>
+	</table>
+	<div class="page-bar">
+		<table>
+			<tr><td></td><td class="w-200"><input type="submit" class="bt-big" value="更 新 排 序" /></td></tr>
+		</table>
+	</div>
+	</form>
+</div>
+<{include file="admin:common/footer.html"}>

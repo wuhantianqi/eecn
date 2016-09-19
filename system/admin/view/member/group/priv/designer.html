@@ -1,0 +1,58 @@
+<tr>
+    <th>免费刷新：</th>
+    <td><input type="text" class="input w-100" name="priv[day_free_count]" value="<{$priv.day_free_count|default:1}>" />
+        <span class="tip-comment">每天可免费刷新排名数,0：不可刷新, 支持设计师、案例、工地</span>
+    </td>
+</tr>
+<tr>
+    <th>回复点评：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_reply]" <{if $priv.allow_reply < 0}>checked="checked"<{/if}> value="-1"/>号码隐藏</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_reply]" <{if $priv.allow_reply > 0}>checked="checked"<{/if}> value="1"/>号码可见</label>
+    </td>
+</tr>
+<tr>
+    <th>查看预约：</th>
+    <td>
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile < 0}>checked="checked"<{/if}> value="-1"/>号码隐藏</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile > 0}>checked="checked"<{/if}> value="1"/>号码可见</label>
+    </td>
+</tr>
+<tr>
+    <th>联系方式：</th>
+    <td>
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone < 0}>checked="checked"<{/if}> value="-1"/>禁止显示</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone > 0}>checked="checked"<{/if}> value="1"/>允许显示</label>
+        <span class="tip-comment">电话、手机、QQ</span>
+    </td>
+</tr>
+<tr>
+    <th>预约设计：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue < 0}>checked="checked"<{/if}> value="-1"/>禁止预约</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue > 0}>checked="checked"<{/if}> value="1"/>允许预约</label>
+    </td>
+</tr>
+<tr>
+    <th>设计投标：</th>
+    <td>
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look < 0}>checked="checked"<{/if}> value="-1"/>禁止投标</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look > 0}>checked="checked"<{/if}> value="1"/>允许投标</label>
+    </td>
+</tr>
+<tr>
+    <th>发布案例：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_case]" <{if $priv.allow_case < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_case]" <{if empty($priv.allow_case)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_case]" <{if $priv.allow_case > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>发表文章：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_article]" <{if $priv.allow_article < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_article]" <{if empty($priv.allow_article)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_article]" <{if $priv.allow_article > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>

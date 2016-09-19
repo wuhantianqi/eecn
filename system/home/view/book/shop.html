@@ -1,0 +1,24 @@
+<{assign var="min_ititle" value="立即预约"}>
+<{include file="block/mini-header.html"}>
+<h4 class="tips red" style="margin:5px auto;">预约：<{$shop.title}></h4>
+<form id="book-form">
+<input type="hidden" name="shop_id" value="<{$shop.shop_id}>" />
+<input type="hidden" name="data[product_id]" value="<{$product.product_id}>" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="book">
+	<tr>
+		<th><span class="red"> * </span>联系人：</th>
+		<td><input name="data[contact]" type="text" class="input w-200" value="<{$pager.contact}>" /><span class="tip-comment">填写真实姓名，才能享受投诉保障</span></td>
+	</tr>
+	<tr>
+		<th><span class="red"> * </span>手机：</th>
+		<td><input name="data[mobile]" type="text" class="input w-200" value="<{$pager.mobile}>" /><span class="tip-comment">方便商家与您取得联系</span></td>
+	</tr>
+	<tr><th>联系地址：</th><td><input name="data[address]" type="text" class="input w-400" value="" /></td></tr>
+	<tr>
+		<th>备注要求：</th>
+		<td><textarea name="data[note]" class="textarea" style="width:400px;height:80px;"></textarea></td>
+	</tr>
+	<tr><th></th><td><a action="<{link ctl='mall/shop:book'}>" mini-submit="#book-form" class="yellow_btn">立即预约</a></tr>
+</table>
+</form>
+<{include file="block/mini-header.html"}>

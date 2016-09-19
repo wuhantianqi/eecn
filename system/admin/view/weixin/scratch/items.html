@@ -1,0 +1,38 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="weixin/scratch:create" class="button" title="添加"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">刮刮卡</th><th>微信号</th><th>标题</th><th>封面图片</th><th class="w-100">开始时间</th><th class="w-100">结束时间</th><th class="w-50">可参与人数</th><th class="w-50">最多抽奖次数</th><th class="w-50">已领取人数</th><th class="w-50">浏览人数</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><label><input type="checkbox" value="<{$item.scratch_id}>" name="scratch_id[]" CK="PRI"/><{$item.scratch_id}><label></td>
+<td><{$item.wx_id}></td>
+<td><{$item.title}></td>
+<td><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50" /></td>
+<td><{$item.stime|format:'Y-m-d'}></td>
+<td><{$item.ltime|format:'Y-m-d'}></td>
+<td><{$item.predict_num}></td>
+<td><{$item.max_num}></td>
+<td><{$item.collect_count}></td>
+<td><{$item.views}></td>
+<td><{link ctl="weixin/scratchsn:items" args=$item.scratch_id title="中奖管理" class="button"}><{link ctl="weixin/prize:items" args=$item.scratch_id title="奖品" class="button"}>
+<{link ctl="weixin/scratch:edit" args=$item.scratch_id title="修改" class="button"}><{link ctl="weixin/scratch:delete" args=$item.scratch_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}></td></tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

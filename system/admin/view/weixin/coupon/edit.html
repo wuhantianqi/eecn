@@ -1,0 +1,63 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="weixin/coupon:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?weixin/coupon-edit.html" mini-form="coupon-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="coupon_id" value="<{$detail.coupon_id}>"/>
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th>封面简介：</th><td><textarea name="data[intro]" class="textarea"><{$detail.intro}></textarea><br /></td></tr>
+<tr><th>封面图片：</th><td><input type="text" name="data[photo]" value="<{$detail.photo}>" <{if $detail.photo}>photo="<{$pager.img}>/<{$detail.photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[photo]" class="input w-100" /></td></tr>
+<tr><th>发布时间：</th><td> <input type="text" name="data[stime]" value="<{if $detail.stime}><{$detail.stime|format:'Y-m-d'}><{/if}>" class="input w-100" date="stime" readonly/> </td></tr>
+<tr><th>结束时间：</th><td> <input type="text" name="data[ltime]" value="<{if $detail.ltime}><{$detail.ltime|format:'Y-m-d'}><{/if}>" class="input w-100" date="ltime" readonly/></td></tr>
+<tr><th>使用说明：</th><td><input type="text" name="data[use_tips]" value="<{$detail.use_tips|default:''}>" class="input w-300"/></td></tr>
+<tr><th>过期说明：</th><td><input type="text" name="data[end_tips]" value="<{$detail.end_tips|default:''}>" class="input w-300"/></td></tr>
+<tr><th>过期提示图片：</th><td><input type="text" name="data[end_photo]" value="<{$detail.end_photo}>" <{if $detail.end_photo}>photo="<{$pager.img}>/<{$detail.end_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[end_photo]" class="input w-100" /></td></tr>
+<tr><th>优惠券数量：</th><td><input type="text" name="data[num]" value="<{$detail.num|default:''}>" class="input w-100"/><span class="tip-comment">数量</span></td></tr>
+<tr><th>每人最多允许获取次数：</th><td><input type="text" name="data[max_count]" value="<{$detail.max_count|default:''}>" class="input w-100"/></td></tr>
+<tr><th>已领取数：</th><td><input type="text" name="data[down_count]" value="<{$detail.down_count|default:''}>" class="input w-100"/></td></tr>
+<tr><th>已使用：</th><td><input type="text" name="data[use_count]" value="<{$detail.use_count|default:''}>" class="input w-100"/></td></tr>
+<tr><th>浏览量：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:''}>" class="input w-100"/></td></tr>
+<tr>
+	<th>粉丝状态</th>
+	<td>
+	<ul class="group-list">
+		<li>
+        	<label><input type="radio" name="data[follower_condtion]" <{if $detail.follower_condtion == 1}>checked="checked"<{/if}> value="1"/>关注</label>&nbsp;&nbsp;
+            <label><input type="radio" name="data[follower_condtion]" <{if !$detail.follower_condtion}>checked="checked"<{/if}> value="0"/>不关注</label>
+        </li>
+		<div class="clear-both"></div>
+	</ul>
+	</td>
+</tr>
+<tr>
+	<th>会员要求</th>
+	<td>
+	<ul class="group-list">
+        	<label><input type="radio" name="data[member_condtion]" <{if $detail.member_condtion == 1}>checked="checked"<{/if}> value="1"/>会员</label>&nbsp;&nbsp;
+            <label><input type="radio" name="data[member_condtion]" <{if !$detail.member_condtion}>checked="checked"<{/if}> value="0"/>不限</label>
+        </li>
+		<div class="clear-both"></div>
+	</ul>
+	</td>
+</tr>
+
+
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

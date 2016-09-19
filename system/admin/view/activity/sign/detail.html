@@ -1,0 +1,30 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="sign/activity/sign:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>ID：</th><td><{$detail.sign_id}></td></tr>
+<tr><th>活动：</th><td><{$detail.activity_id}></td></tr>
+<tr><th>城市：</th><td><{$detail.city_id}></td></tr>
+<tr><th>用户：</th><td><{$detail.uid}></td></tr>
+<tr><th>联系人：</th><td><{$detail.contact}></td></tr>
+<tr><th>联系电话：</th><td><{$detail.mobile}></td></tr>
+<tr><th>邮箱：</th><td><{$detail.mail}></td></tr>
+<tr><th>联系QQ：</th><td><{$detail.qq}></td></tr>
+<tr><th>地址：</th><td><{$detail.address}></td></tr>
+<tr><th>人数：</th><td><{$detail.num}></td></tr>
+<tr><th>备注：</th><td><{$detail.note}></td></tr>
+<tr><th>状态：</th><td><{$detail.status}></td></tr>
+<tr><th>备注：</th><td><{$detail.remark}></td></tr>
+<tr><th>创建IP：</th><td><{$detail.clientip}></td></tr>
+<tr><th>创建时间：</th><td><{$detail.dateline|format}></td></tr>
+</table></div>
+
+<{include file="admin:common/footer.html"}>

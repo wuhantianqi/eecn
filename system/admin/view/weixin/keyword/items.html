@@ -1,0 +1,55 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{if $weixin}><{link ctl="weixin/keyword:create" arg0=$weixin.wx_id class="button" title="添加"}><{/if}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">
+    <{if $weixin}><p class="tip-notice"><b class="red">公众号：<{$weixin.wx_name}>(<{$weixin.wx_sid}>)</b></p><{/if}>
+    <form action="?weixin/keyword-index.html" id="SO-form" method="post">
+    <table width="100%" border="0" cellspacing="0" class="table-data form">
+        <tr><th class="w-100">搜索：</th>
+            <td class="w-300"><input type="text" name="SO[keyword]" value="<{$pager.SO.keyword}>" class="input w-300"/></td>
+            <td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td>
+        </tr>
+    </table>
+    </form>
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th><th class="w-300">公众号</th><th class="w-200">关键字</th>
+        <th>回复内容</th><th class="w-50">请求数</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><label><input type="checkbox" value="<{$item.kw_id}>" name="kw_id[]" CK="PRI"/><{$item.kw_id}><label></td>
+        <td><{$weixin_list[$item.wx_id].wx_name}>(<{$weixin_list[$item.wx_id].wx_sid}>)</td>
+        <td><{$item.keyword}></td>
+        <td><{if $item.reply_id}>图文素材(ID:<{$item.reply_id}>)<{else}><{$item.content}><{/if}></td>
+        <td><{$item.hits}></td>
+        <td>
+            <{link ctl="weixin/keyword:edit" args=$item.kw_id title="修改" class="button"}>
+            <{link ctl="weixin/keyword:delete" args=$item.kw_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="weixin/keyword:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

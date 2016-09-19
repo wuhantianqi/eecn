@@ -1,0 +1,26 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="system/config:sms" class="button" title="短息配置"}></td>
+		<td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<h4 class="tip-notice">需要短息服务的用户通过官方客服 330680860、330682860联系购买。</h4>
+<form action="?system/config-tmplsms.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="tmplsms" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>下载优惠券：</th>
+	<td>
+		<textarea name="config[downloadcoupon]" class="textarea"><{$config.downloadcoupon|default:''}></textarea><br />
+		<span class="tip-comment">支持变量{coupon}优惠券名,{shop}商铺名,{content}联系人,{number}优惠码,{date}有效期</span>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>

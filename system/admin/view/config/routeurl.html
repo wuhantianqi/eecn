@@ -1,0 +1,74 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<div class="tip-notice">
+URL格式说明<br />
+默认URL格式： /article.html, /article-items.html, /article-detail-1-1.html<br />
+目录URL格式： /article/,  /article/items,  /article/detail-1-1.html
+</div>
+<form action="?system/config-routeurl.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="routeurl" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr>
+    <th class="w-100">URL格式：</th>
+    <td colspan="3">
+        <select name="config[route_type]" class="w-200">
+            <option value="0">默认URL格式</option>
+            <option value="1" <{if $config.route_type}>selected<{/if}>>目录URL格式</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <th>公司：</th><td><input type="text" name="config[gs]" value="<{$config.gs|default:''}>" class="input w-100"/></td>
+    <th>工长：</th><td><input type="text" name="config[gz]" value="<{$config.gz|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>设计师：</th><td><input type="text" name="config[designer]" value="<{$config.designer|default:''}>" class="input w-100"/></td>
+    <th>技工：</th><td><input type="text" name="config[mechanic]" value="<{$config.mechanic|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>小区：</th><td><input type="text" name="config[home]" value="<{$config.home|default:''}>" class="input w-100"/></td>
+    <th>工地：</th><td><input type="text" name="config[site]" value="<{$config.site|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>问答：</th><td><input type="text" name="config[ask]" value="<{$config.ask|default:''}>" class="input w-100"/></td>
+    <th>日记：</th><td><input type="text" name="config[diray]" value="<{$config.diray|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>优惠：</th><td><input type="text" name="config[youhui]" value="<{$config.youhui|default:''}>" class="input w-100"/></td>
+    <th>活动：</th><td><input type="text" name="config[activity]" value="<{$config.activity|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>学堂：</th><td><input type="text" name="config[article]" value="<{$config.article|default:''}>" class="input w-100"/></td>
+    <th>新闻：</th><td><input type="text" name="config[news]" value="<{$config.news|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>商铺：</th><td><input type="text" name="config[mall/store]" value="<{$config.mall/store|default:''}>" class="input w-100"/></td>
+    <th>商品：</th><td><input type="text" name="config[product]" value="<{$config.product|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>招标：</th><td><input type="text" name="config[tenders]" value="<{$config.tenders|default:''}>" class="input w-100"/></td>
+    <th>装修保：</th><td><input type="text" name="config[zxb]" value="<{$config.zxb|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>案例：</th><td><input type="text" name="config[case]" value="<{$config.case|default:''}>" class="input w-100"/></td>
+    <th>设计师主页：</th><td><input type="text" name="config[blog]" value="<{$config.blog|default:''}>" class="input w-100"/></td>
+</tr>
+<tr>
+    <th>公司主页：</th><td><input type="text" name="config[company]" value="<{$config.company|default:''}>" class="input w-100"/></td>
+    <th>商铺主页：</th><td><input type="text" name="config[mall/shop]" value="<{$config.mall/shop|default:''}>" class="input w-100"/></td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,8 @@
+<ul>
+<{foreach $data.diary as $item}>
+    <li>
+        <a title="<{$data.diary_company_list[$item.company_id].name|default:'--'}>" class="red" target="_blank" href="<{link ctl='company' arg0=$item.company_id}>">[<{$data.diary_company_list[$item.company_id].sort_name|default:'--'}>]</a>
+        <a target="_blank" href="<{link ctl='content:diaryDetail' arg0=$item.diary_id}>" title="<{$item.title}>" class="black"><{$item.title|cutstr:24:'..'}> </a>
+    </li>
+<{/foreach}>
+</ul>

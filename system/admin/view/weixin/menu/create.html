@@ -1,0 +1,79 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<p class="tip-notice">可创建最多 3 个一级菜单，每个一级菜单下可创建最多 5 个二级菜单。编辑中的菜单不会马上被用户看到，请放心调试。</p>
+<form action="?weixin/menu-create.html" mini-form="menu-form" method="post" >
+<input type="hidden" name="wx_id" value="<{$weixin.wx_id}>" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>菜单名：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-200"/></td></tr>
+<tr>
+    <th>父级：</th>
+    <td>
+        <select name="data[parent_id]" class="select w-200">
+            <option value="0">顶级菜单</option>
+            <{foreach $menu_list as $v}><{if !$v.parent_id}><option value="<{$v.menu_id}>"><{$v.title}></option><{/if}><{/foreach}>
+        </select>
+    </td>
+</tr>
+<tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:'0'}>" class="input w-100"/></td></tr>
+<tr><th>事件响应:</th>
+    <td>
+        <ul class="group-list">
+            <li><label><input type="radio" name="data[type]" value="link" <{if !$detail.type || $detail.type == 'link'}> checked="checked"<{/if}> >打开链接</label></li>
+            <li><label><input type="radio" name="data[type]" value="text" <{if $detail.type == 'text'}> checked="checked"<{/if}>>回复文本</label></li>
+            <li><label><input type="radio" name="data[type]" value="reply" <{if $detail.type == 'reply'}> checked="checked"<{/if}> >回复图文</label></li>
+            <div class="clear-both"></div>
+        </ul>
+    </td>
+</tr>
+<tr wxtype="reply" <{if $detail.type!='reply'}>class="hide"<{/if}>>
+    <th>回复图文：</th>
+    <td>
+        <input type="hidden" name="data[reply_id]" value="<{$detail.reply_id}>" id="weixin_reply_id" class="input w-100"/>
+        <div class="weixin-preview<{if !$reply}> hide<{/if}>" style="float:left;">
+            <div class="weixin-box">
+                <p class="weixin-title" id="weixin_reply_title"><{$reply.title}></p>
+                <div class="weixin-cover"><img class="weixin-cover-pic" id="weixin_reply_photo" src="<{$pager.img}>/<{$reply.photo}>"></div>
+            </div>
+        </div><br />
+        <{link ctl="weixin/reply:dialog" arg0=$weixin.wx_id id="weixin_reply_btn" title="选择微信素材" class="button"}>
+    </td>
+</tr>
+<tr wxtype="text" <{if $detail.type!='text'}>class="hide"<{/if}>><th>回复文本：</th>
+    <td><textarea name="data[content]" class="textarea w-300"><{$detail.content|default:''}></textarea></td>
+</tr>
+<tr wxtype="link" <{if $detail.type && $detail.type!='link'}>class="hide"<{/if}>><th>链接：</th>
+    <td><input type="text" name="data[link]" value="<{$detail.link|default:''}>" class="input w-500"/></td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+(function(K, $){
+$("input[name='data[type]']").click(function(){
+    $("tr[wxtype]").hide();
+    $("tr[wxtype='"+$(this).val()+"']").show();
+});
+$("#weixin_reply_btn").click(function(e){
+    e.stopPropagation(); e.preventDefault();
+    var link = $(this).attr("action") || $(this).attr("href");
+    Widget.Dialog.Select(link, 'N', function(ret){
+        $("#weixin_reply_id").val(ret[0]);
+        $("#weixin_reply_title").html(ret[1].title);
+        $("#weixin_reply_photo").attr("src", "<{$pager.img}>/"+ret[1].photo);
+        $(".weixin-preview").show();
+    }, {title:"选择微信素材",width:720});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

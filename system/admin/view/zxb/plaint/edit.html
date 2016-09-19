@@ -1,0 +1,33 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="zxb/plaint:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?zxb/plaint-edit.html" mini-form="plaint-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="plaint_id" value="<{$detail.plaint_id}>"/>
+
+<tr><th>投诉方式：</th><td><{if $detail.type == 1}>业主投诉公司<{else}>公司投诉业主<{/if}></td></tr>
+<tr><th>业主上传证据：</th><td><input type="text" name="data[yezhu_photo]" value="<{$detail.yezhu_photo}>" <{if $detail.yezhu_photo}>photo="<{$pager.img}>/<{$detail.yezhu_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[yezhu_photo]" class="input w-100" /></td></tr>
+<tr><th>业主描述内容：</th><td><textarea name="data[yezhu_content]" class="textarea"><{$detail.yezhu_content}></textarea><br /></td></tr>
+<tr><th>公司上传证据：</th><td><input type="text" name="data[company_photo]" value="<{$detail.company_photo}>" <{if $detail.company_photo}>photo="<{$pager.img}>/<{$detail.company_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[company_photo]" class="input w-100" /></td></tr>
+<tr><th>公司描述内容：</th><td><textarea name="data[company_content]" class="textarea"><{$detail.company_content}></textarea><br /></td></tr>
+<tr><th>内容：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+<tr>
+	<th>平台确认：</th>
+	<td>
+		<label><input type="radio" name="data[status]" <{if $detail.status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[status]" <{if isset($detail.status) && empty($detail.status)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

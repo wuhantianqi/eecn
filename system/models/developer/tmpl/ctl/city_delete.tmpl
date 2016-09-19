@@ -1,0 +1,29 @@
+    public function delete($#pk#=null)
+    {
+        if($#pk# = (int)$#pk#){
+            if(!$detail = K::M('#module#/#mdl#')->detail($#pk#)){
+                $this->err->add('你要删除的内容不存在或已经删除', 211);
+            }else if(!$this->check_city($detail['city_id'])){
+                $this->err->add('不可越权操作', 403);
+            }else{
+                if(K::M('#module#/#mdl#')->delete($#pk#)){
+                    $this->err->add('删除内容成功');
+                }
+            }
+        }else if($ids = $this->GP('#pk#')){
+            if($items = K::M('#module#/#mdl#')->items_by_ids($ids)){
+                $aids = array();
+                foreach($items as $v){
+                    if(CITY_ID && CITY_ID != $v['city_id']){
+                        continue;
+                    }
+                    $aids[$v['#pk#']] = $v['#pk#'];
+                }
+                if(K::M('#module#/#mdl#')->delete($aids)){
+                    $this->err->add('批量删除内容成功');
+                }
+            }
+        }else{
+            $this->err->add('未指定要删除的内容ID', 401);
+        }
+    }  

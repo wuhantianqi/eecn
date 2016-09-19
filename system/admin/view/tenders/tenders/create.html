@@ -1,0 +1,64 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="tenders/tenders:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?tenders/tenders-create.html" mini-form="tenders-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">城市：</th><td><{widget id="data/region" city_id=$CONFIG.site.city_id}></td></tr>
+<tr><th class="w-100"><span class="red">*</span>类型：</th><td><select name="data[from]"class="w-150"><{widget id="tenders/from" value=$detail.from}></select></td></tr>
+<tr><th>会员：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr><th>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>手机号：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th>小区：</th>
+    <td>
+        <input type="hidden" name="data[home_id]" value="<{$detail.home_id}>" id="select_home_home_id_id" />
+        <input type="text" name="data[home_name]" value="<{$detail.home_name|default:''}>" value="<{$home.name}>" id="select_home_home_id_name" class="input w-300" />
+        <{link ctl="home/home:dialog" select="mini:#select_home_home_id_id,#select_home_home_id_name/N/选择小区" title="选择小区" class="button"}>
+    </td>
+</tr>
+<tr><th>装修方式：</th><td><select name="data[way_id]" class="select w-150"><{widget id="tenders/setting" type="way" value=$detail.way_id}></select></td></tr>
+<tr><th>招标类型：</th><td><select name="data[type_id]" class="select w-150"><{widget id="tenders/setting" type="type" value=$detail.type_id}></select></td></tr>
+<tr><th>喜欢风格：</th><td><select name="data[style_id]" class="select w-150"><{widget id="tenders/setting" type="style" value=$detail.style_id}></select></td></tr>
+<tr><th>预算范围：</th><td><select name="data[budget_id]" class="select w-150"><{widget id="tenders/setting" type="budget" value=$detail.budget_id}></select></td></tr>
+<tr><th>服务需求：</th><td><select name="data[service_id]" class="select w-150"><{widget id="tenders/setting" type="service" value=$detail.service_id}></select></td></tr>
+<tr><th>空间户型：</th><td><select name="data[house_type_id]" class="select w-150"><{widget id="tenders/setting" type="house_type" value=$detail.house_type_id}></select></td></tr>
+
+<tr><th>面积：</th><td><input type="text" name="data[house_mj]" value="<{$detail.house_mj|default:''}>" class="input w-100"/><span class="tip-comment">平米</span></td></tr>
+<tr><th>户型图：</th><td><input type="file" name="huxing" class="input w-300" />
+ <{if $detail.huxing}><img src="<{$pager.img}>/<{$detail.huxing}>" photo="<{$pager.img}>/<{$detail.huxing}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}></td></tr>
+<tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-500"/></td></tr>
+<tr><th>业主要求：</th><td><textarea name="data[comment]" class="textarea"><{$detail.comment}></textarea><br /></td></tr>
+<tr><th>装修时间：</th><td><input type="text" name="data[zx_time]" value="<{$detail.zx_time|default:''}>" class="input w-100" date="zx_time" readonly/></td></tr>
+<tr><th>提醒跟踪：</th><td><input type="text" name="data[tx_time]" value="<{$detail.tx_time|default:''}>" class="input w-100" date="tx_time" readonly/></td></tr>
+<tr><th>招标售价：</th><td><input type="text" name="data[gold]" value="<{$detail.gold|default:''}>" class="input w-100"/></td></tr>
+<tr><th>最大投标数：</th><td><input type="text" name="data[max_look]" value="<{$detail.max_look|default:'3'}>" class="input w-100"/></td></tr>
+<tr><th>已投标数：</th><td><input type="text" name="data[looks]" value="<{$detail.looks|default:''}>" class="input w-100"/><span class="tip-comment">已经有几家查看了</span></td></tr>
+<tr><th>浏览数：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:''}>" class="input w-100"/></td></tr>
+<tr><th>跟进状态：</th><td><select name="data[status]" class="select w-100"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+<tr><th>管理员备注：</th><td><textarea name="data[remark]" class="textarea"><{$detail.remark}></textarea><br /></td></tr>
+<tr>
+	<th>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" checked="checked" value="1"/>发布</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" value="0"/>待审</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,8 @@
+<tr>
+    <th>#label#：</th>
+    <td>
+        <input type="hidden" name="data[#field#]" value="<{$detail.#field#}>" id="select_shop_#field#_id" />
+        <input type="text" value="<{$shop.title}>" id="select_shop_#field#_title" class="input w-300" readonly/>
+        <{link ctl="shop/shop:dialog"  select="mini:#select_shop_#field#_id,#select_shop_#field#_title/N/选择商铺" title="选择商铺" class="button"}>#comment#
+    </td>
+</tr>

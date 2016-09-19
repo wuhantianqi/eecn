@@ -1,0 +1,47 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="shop/coupon:downloadSo" load="mini:搜索下载日志" width="mini:450" class="button" title="搜索"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<h4 class="tip-notice" style="margin-bottom:10px;">优惠券：<{$coupon.title}></h4>
+    <form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th>
+        <th class="w-100">联系人</th><th class="w-100">手机</th><th class="w-100">优惠码</th>
+        <th class="w-50">使用</th><th class="w-100">状态</th><th class="w-150">来源IP</th><th class="w-150">下载时间</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><label><input type="checkbox" value="<{$item.download_id}>" name="download_id[]" CK="PRI"/><{$item.download_id}><label></td>
+        <td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.number}></td>
+        <td><{if $item.used}><b class="green">未用</b><{else}><b>已用</b><{/if}></td><td><{$item.status_title}></td>
+        <td><{$item.clientip}>(<{$item.clientip|iplocal}>)</td><td><{$item.dateline|format}></td>
+        <td>
+            <{link ctl="shop/coupon:downloadEdit" args=$item.download_id title="修改" class="button"}>
+            <{link ctl="shop/coupon:downloadDelete" args=$item.download_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="/:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

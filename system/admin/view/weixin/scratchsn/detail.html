@@ -1,0 +1,25 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="weixin/scratchsn:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>成员：</th><td><{$detail.sn_id}></td></tr>
+<tr><th>刮刮卡：</th><td><{$detail.scratch_id}></td></tr>
+<tr><th>用户ID：</th><td><{$detail.uid}></td></tr>
+<tr><th>微信号：</th><td><{$detail.wx_id}></td></tr>
+<tr><th>openid：</th><td><{$detail.openid}></td></tr>
+<tr><th>昵称：</th><td><{$detail.nickname}></td></tr>
+<tr><th>sn号：</th><td><{$detail.sn}></td></tr>
+<tr><th>是否使用：</th><td><{$detail.is_use}></td></tr>
+<tr><th>使用时间：</th><td><{$detail.use_time}></td></tr>
+<tr><th>创建时间：</th><td><{$detail.dateline|format}></td></tr>
+</table></div>
+
+<{include file="admin:common/footer.html"}>

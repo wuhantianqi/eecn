@@ -1,0 +1,22 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<div class="tip-notice">用户的pid,必须是mm_xxxx_0_0这种格式中间的'xxxx'. 。请确保填写正确，否则得不到返利佣金。</div>
+<form action="?system/config-taobaoapp.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="taobaoapp" />
+<table width="100%" border="0" cellspacing="0" class="table-data form"><tr>
+<tr><th>淘宝客PID：</th><td><input type="text" name="config[taoke_pid]" value="<{$config.taoke_pid}>" class="input w-300"/><span class="tip-comment">淘宝客PID返利到的帐户</span></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

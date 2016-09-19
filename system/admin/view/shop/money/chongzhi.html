@@ -1,0 +1,23 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th><td align="right"><{link ctl="shop/money:shop" arg0=$shop.shop_id  priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?shop/money-chongzhi.html" mini-form="money-form" method="post">
+    <input type="hidden" name="shop_id" value="<{$shop.shop_id}>" />
+    <table width="100%" border="0" cellspacing="0" class="table-data form">
+        <tr><th>店铺名称：</th><td><b><{$shop.name}></b></td></tr>
+        <tr><th>商铺余额：</th><td><b class="red">￥<{$shop.money}></b></td></tr>
+        <tr><th>充值金额：</th><td><input type="text" name="data[money]" value="" class="input w-100"/>&nbsp;<span class="tip-comment"> 输入大于0的数字,最多两位小数</span></td></tr>
+        <tr><th>备注说明：</th><td><textarea name="data[log]" class="textarea" style="width:300px;height:80px;"></textarea></td></tr>
+        <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提现操作" /></td></tr>
+    </table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,54 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="zxb/plaint:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?zxb/plaint-create.html" mini-form="plaint-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>投诉ID：</th><td><input type="text" name="data[plaint_id]" value="<{$detail.plaint_id|default:''}>" class="input w-100"/></td></tr>
+<tr><th><span class="red">*</span>装修保ID：</th><td><input type="text" name="data[zxb_id]" value="<{$detail.zxb_id|default:''}>" class="input w-100"/></td></tr>
+<tr>
+    <th><span class="red">*</span>用户ID：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr>
+    <th><span class="red">*</span>公司ID：</th>
+    <td>
+        <input type="hidden" name="data[company_id]" value="<{$detail.company_id}>" id="select_company_company_id_id" />
+        <input type="text" value="<{$company.name}>" id="select_company_company_id_name" class="input w-300" readonly/>
+        <{link ctl="company/company:dialog"  select="mini:#select_company_company_id_id,#select_company_company_id_name/N/选择装修公司" title="选择装修公司" class="button"}>
+    </td>
+</tr>
+<tr><th>类型：</th><td><input type="text" name="data[type]" value="<{$detail.type|default:''}>" class="input w-100"/><span class="tip-comment">1是用户投诉公司 2是公司投诉业主</span></td></tr>
+<tr><th>业主上传证据：</th><td><input type="text" name="data[yezhu_photo]" value="<{$detail.yezhu_photo}>" <{if $detail.yezhu_photo}>photo="<{$pager.img}>/<{$detail.yezhu_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[yezhu_photo]" class="input w-100" /></td></tr>
+<tr><th>业主描述内容：</th><td><textarea name="data[yezhu_content]" class="textarea"><{$detail.yezhu_content}></textarea><br /></td></tr>
+<tr><th>业主签订时间：</th><td><input type="text" name="data[yezhu_time]" value="<{$detail.yezhu_time|default:''}>" class="input w-300"/></td></tr>
+<tr><th>公司上传证据：</th><td><input type="text" name="data[company_photo]" value="<{$detail.company_photo}>" <{if $detail.company_photo}>photo="<{$pager.img}>/<{$detail.company_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[company_photo]" class="input w-100" /></td></tr>
+<tr><th>公司描述内容：</th><td><textarea name="data[company_content]" class="textarea"><{$detail.company_content}></textarea><br /></td></tr>
+<tr><th>公司签订时间：</th><td><input type="text" name="data[company_time]" value="<{$detail.company_time|default:''}>" class="input w-300"/></td></tr>
+<tr><th>内容：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+<tr>
+	<th>平台确认：</th>
+	<td>
+		<label><input type="radio" name="data[status]" <{if $detail.status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[status]" <{if isset($detail.status) && empty($detail.status)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr><th>平台确认时间：</th><td><input type="text" name="data[time]" value="<{$detail.time|default:''}>" class="input w-300"/></td></tr>
+<tr><th>创建IP：</th><td><input type="text" name="data[clientip]" value="<{$detail.clientip|default:''}>" class="input w-300"/></td></tr>
+<tr><th>创建时间：</th><td><input type="text" name="data[dateline]" value="<{$detail.dateline|default:''}>" class="input w-300"/></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="fenzhan:common/footer.html"}>

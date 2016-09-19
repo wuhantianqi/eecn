@@ -1,0 +1,56 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="activity/main:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?activity/main-index.html" id="SO-form" method="post">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+    <tr><th>id：</th><td><input type="text" name="SO[id]" value="<{$detail.id}>" class="input w-100"/></td></tr>
+    <tr><th>标题：</th><td><input type="text" name="SO[title]" value="<{$detail.title}>" class="input w-300"/></td></tr>
+    <tr><th>选择分类：</th><td>
+             <select class="input w-100" name="SO[cate_id]">
+            <option value="0">请选择....</option>
+            <{foreach from=$cates item=item}>
+            <option value="<{$item.cat_id}>"><{$item.title}></option>
+            <{/foreach}>
+        </select>
+        </td></tr>
+    <tr><th>城市：</th>
+        <td><select name="SO[city_id]" class="w-150"><option value="">--城市--</option><{widget id="data/city"}></select></td>
+    </tr>
+    <tr><th>报名截止日期：</th><td><input type="text" name="SO[reg_time]" value="<{$detail.reg_time}>" date="reg_time" class="input w-100"/></td></tr>
+    <tr><th>活动开始日期：</th><td><input type="text" name="SO[bg_time]" value="<{$detail.bg_time}>" date="bg_time" class="input w-100"/></td></tr>
+    <tr><th>活动结束日期：</th><td><input type="text" name="SO[end_time]" value="<{$detail.end_time}>" date="end_time" class="input w-100"/></td></tr>
+    <tr><th>地图经度：</th><td><input type="text" name="SO[lng]" value="<{$detail.lng}>" class="input w-300"/>使用百度地图经纬度拾取工具</td></tr>
+    <tr><th>地图维度：</th><td><input type="text" name="SO[lat]" value="<{$detail.lat}>" class="input w-300"/></td></tr>  
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='SO[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			//Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "<option value=\"0\">请选择</option>";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='SO[area_id]']").html(html);		
+		}else{
+			$("select[name='SO[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

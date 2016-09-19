@@ -1,0 +1,101 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+            <th><{$MOD.title}></th>
+            <td align="right"><{link ctl="diary/diary:index" priv="hidden" class="button"}></td>
+            <td width="15"></td>
+        </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?diary/diary-edit.html" mini-form="diary-form" method="post" ENCTYPE="multipart/form-data">
+<input type="hidden" name="diary_id" value="<{$detail.diary_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+    <tr><th class="w-100">城市：</th>
+        <td>
+            <b class="blue"><{$detail.city_name}></b>
+            
+        </td>
+    </tr>
+
+    <tr><th><span class="red">*</span>缩略图：</th>
+        <td>
+            <input type="file" name="data[thumb]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+            <{if $detail.thumb}><img src="<{$pager.img}>/<{$detail.thumb}>" photo="<{$pager.img}>/<{$detail.thumb}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="red">*</span>用户：</th>
+        <td>
+            <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+            <input type="text"  value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+            <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="red">*</span>小区：</th>
+        <td>
+            <input type="hidden" name="data[home_id]" value="<{$detail.home_id}>" id="select_home_home_id_id" />
+            <input type="text" name="data[home_name]" value="<{$detail.home_name}>" id="select_home_home_id_name" class="input w-300" readonly/>
+            <{link ctl="home/home:dialog" select="mini:#select_home_home_id_id,#select_home_home_id_name/N/选择小区" title="选择小区" class="button"}>
+        </td>
+    </tr>
+    <tr>
+        <th><span class="red">*</span>公司：</th>
+        <td>
+            <input type="hidden" name="data[company_id]" value="<{$detail.company_id}>" id="select_company_company_id_id" />
+            <input type="text" value="<{$company.name}>" id="select_company_company_id_name" class="input w-300" readonly/>
+            <{link ctl="company/company:dialog"  select="mini:#select_company_company_id_id,#select_company_company_id_name/N/选择装修公司" title="选择装修公司" class="button"}>
+        </td>
+    </tr>
+    <tr><th>空间户型：</th>
+        <td>
+            <select name="data[type_id]" class="select w-150">
+                <option value="0">请选择</option>
+                <{foreach from=$setting[$type['house_type']] item=item key=key}>
+                <option <{if $detail.type_id == $key}> selected="selected" <{/if}> value="<{$key}>"><{$item}></option>
+                <{/foreach}>
+            </select>
+            <span class="tip-comment">此处通用了招标里面的设置！可以在招标设置中增加选项</span>
+        </td>
+    </tr>
+    <tr><th>装修方式：</th>
+        <td>
+            <select name="data[way_id]" class="select w-150">
+                <option value="0">请选择</option>
+                <{foreach from=$setting[$type['way']] item=item key=key}>
+                <option <{if $detail.way_id == $key}> selected="selected" <{/if}> value="<{$key}>"><{$item}></option>
+                <{/foreach}>
+            </select>
+            <span class="tip-comment">此处通用了招标里面的设置！可以在招标设置中增加选项</span>
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>合同总价：</th><td><input type="text" name="data[total_price]" value="<{$detail.total_price|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>开工日期：</th><td><input type="text" name="data[start_date]" value="<{$detail.start_date|default:''}>" class="input w-100" date="start_date" readonly/></td></tr>
+    <tr><th>完工日期：</th><td><input type="text" name="data[end_date]" value="<{$detail.end_date|default:''}>" class="input w-100" date="end_date" readonly/></td></tr>
+    <tr><th>文章数：</th><td><input type="text" name="data[content_num]" value="<{$detail.content_num|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>浏览量：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>评论数：</th><td><input type="text" name="data[comments]" value="<{$detail.comments|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>状态：</th>
+        <td>  
+            <select name="data[status]" class="select w-150">
+                <option value="">请选择</option>
+                <{foreach from=$status item=item key=key}>
+                <option value="<{$key}>" <{if $detail.status ==$key}>selected="selected"<{/if}>><{$item}></option>
+                <{/foreach}>
+            </select>
+        </td>
+    </tr> 
+    <tr><th>是否审核：</th>
+        <td>
+            <label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>发布</label>&nbsp;&nbsp;
+            <label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>待审</label>
+        </td>
+    </tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

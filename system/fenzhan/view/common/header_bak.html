@@ -1,0 +1,81 @@
+<{if $request.MINI=='load'}>
+<style type="text/css">
+.ui-dialog .ui-dialog-content{padding:5px;}
+.ui-hack-widget-dialog .page-clew {margin:50px auto; width:500px;}
+.ui-hack-widget-dialog .page-clew table{ width:500px;}
+.ui-hack-widget-dialog .page-data table.form{margin:0px;border-width:0px;}
+.ui-hack-widget-dialog .page-data table.form th{width:120px;}
+.ui-hack-widget-dialog div.ui-dialog-content{padding:0px;}
+</style>
+<{elseif $request.MINI=='LoadIframe'}>
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title><{$pager.title|default:'江湖家居门户系统管理平台'}></title>
+<link href="style/style.css"rel="stylesheet" type="text/css" />
+<link href="<{$pager.res}>/style/kt.widget.css" rel="stylesheet" type="text/css" />
+<link href="<{$pager.res}>/ui/j.ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<{$pager.res}>/script/kt.j.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/kt.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.msgbox.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/ui/j.ui.js"></script>
+<script type="text/javascript" src="script/kt.admin.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.cate_select.js"></script>
+<link type="text/css" href="<{$pager.res}>/ui/j.ui.timepicker.css" rel="stylesheet" />
+<script type="text/javascript" src="<{$pager.res}>/ui/j.ui.timepicker.js"></script>
+<!--
+<script type="text/javascript">
+window.jQuery = window.parent.jQuery;
+window.$ = window.jQuery;
+window.KT = window.parent.KT;
+window.Widget = window.parent.Widget;
+</script>
+-->
+<style type="text/css">
+html{overflow-x:visible;overflow-y: scroll;overflow:-moz-scrollbars-vertical;}
+/* jQuery ui hack nowrap*/
+body div.ui-tooltip{border:1px solid #D7D7D7;padding:5px;}
+body div.ui-tooltip-content{white-space:normal;}
+.ui-tabs .ui-tabs-panel{display:table;border-width:1px;padding:0px;}
+.ui-tabs-anchor{outline:none;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {cursor:default;}
+.ui-tooltip{max-width:800px;overflow: hidden;border: 1px solid #D7D7D7;border-radius: 4px;background: #FFF;box-shadow: 0 1px 10px rgba(0,0,0,0.4);}
+.page-data{margin:0;}
+</style>
+</head>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<{else}>
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title><{$pager.title|default:'江湖家居门户系统管理平台'}></title>
+<link href="style/style.css"rel="stylesheet" type="text/css" />
+<link href="<{$pager.res}>/style/kt.widget.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<{$pager.res}>/script/kt.j.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/kt.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.msgbox.js"></script>
+<link href="<{$pager.res}>/ui/j.ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<{$pager.res}>/ui/j.ui.js"></script>
+<script type="text/javascript" src="script/kt.admin.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.cate_select.js"></script>
+<link type="text/css" href="<{$pager.res}>/ui/j.ui.timepicker.css" rel="stylesheet" />
+<script type="text/javascript" src="<{$pager.res}>/ui/j.ui.timepicker.js"></script>
+<style type="text/css">
+/* jQuery ui hack nowrap*/
+body div.ui-tooltip{border:1px solid #D7D7D7;padding:5px;}
+body div.ui-tooltip-content{white-space:normal;}
+.ui-tabs .ui-tabs-panel{display:table;border-width:1px;padding:0px;}
+.ui-tabs-anchor{outline:none;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {cursor:default;}
+.ui-tooltip{max-width:800px;overflow: hidden;border: 1px solid #D7D7D7;border-radius: 4px;background: #FFF;box-shadow: 0 1px 10px rgba(0,0,0,0.4);}
+</style>
+<script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","res":"<{$pager.res}>"};</script>
+</head>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<{/if}>

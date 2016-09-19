@@ -1,0 +1,14 @@
+<{assign var="min_ititle" value="立即预约"}>
+<{include file="block/mini-header.html"}>
+<form id="book-form">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="book">
+	<tr><th><span class="red"> * </span>联系人：</th><td><input name="data[contact]" type="text" class="input" value="" /></td></tr>
+	<tr><th><span class="red"> * </span>手机：</th><td><input name="data[mobile]" type="text" class="input" value="" /></td></tr>
+	<tr>
+		<th>备注要求：</th>
+		<td><textarea name="data[notice]" class="textarea" style="width:277px;height:80px;"></textarea></td>
+	</tr>
+	<tr><th></th><td><input action="<{link ctl='magic:fastbook'}>" mini-submit="#book-form" type="button" value="提交" class="btn_red" /></td></tr>
+</table>
+</form>
+<{include file="block/mini-footer.html"}>

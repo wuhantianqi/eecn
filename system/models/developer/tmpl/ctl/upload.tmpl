@@ -1,0 +1,15 @@
+        if($_FILES['data']){
+            foreach($_FILES['data'] as $k=>$v){
+                foreach($v as $kk=>$vv){
+                    $attachs[$kk][$k] = $vv;
+                }
+            }
+            $upload = K::M('magic/upload');
+            foreach($attachs as $k=>$attach){
+                if($attach['error'] == UPLOAD_ERR_OK){
+                    if($a = $upload->upload($attach, '#module#')){
+                        $data[$k] = $a['photo'];
+                    }
+                }
+            }
+        }

@@ -1,0 +1,56 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="data/city:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?data/city-edit.html" mini-form="city-form" method="post" >
+<input type="hidden" name="city_id" value="<{$detail.city_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th class="w-100">省份：</th><td><select name="data[province_id]"  class="select w-200"><{widget id="data/province" value=$detail.province_id}></select></td></tr>
+<tr><th class="w-100">城市：</th><td><input type="text" name="data[city_name]" value="<{$detail.city_name}>" class="input w-200"/></td></tr>
+<tr><th class="w-100">拼音：</th><td><input type="text" name="data[pinyin]" value="<{$detail.pinyin}>" class="input w-200"/><span class="tip-comment">如果开启多城市为城市站点的域名前缀</b></span></td></tr>
+<tr><th class="w-100">模板：</th>
+    <td>
+        <select name="data[theme_id]" class="w-300"><{html_options options=$themes selected=$detail.theme_id}></select>
+        <span class="tip-comment">可以为每个城市指定模板实现不同的城市不同风格</b></span>
+    </td>
+</tr>
+<tr><th>分站LOGO：</th>
+    <td>
+        <input type="hidden" name="data[logo]" value="<{$detail.logo}>" />
+        <input type="file" name="data[logo]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+        <{if $detail.logo}><img src="<{$pager.img}>/<{$detail.logo}>" photo="<{$pager.img}>/<{$detail.logo}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+        <span class="tip-comment">城市分站LOGO，不传将使用总站设置</b></span>
+    </td>
+</tr>
+<tr><th>微信二维码：</th>
+    <td>
+        <input type="hidden" name="data[weixinqr]" value="<{$detail.weixinqr}>" />
+        <input type="file" name="data[weixinqr]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+        <{if $detail.weixinqr}><img src="<{$pager.img}>/<{$detail.weixinqr}>" photo="<{$pager.img}>/<{$detail.weixinqr}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+        <span class="tip-comment">城市分站微信二维码，不传将使用总站设置</b></span>
+    </td>
+</tr>
+<tr><th class="w-100">电话：</th><td><input type="text" name="data[phone]" value="<{$detail.phone}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">手机：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">联系邮箱：</th><td><input type="text" name="data[mail]" value="<{$detail.mail}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">客服QQ：</th><td><input type="text" name="data[kfqq]" value="<{$detail.kfqq}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">seo标题：</th><td><input type="text" name="data[seo_title]" value="<{$detail.seo_title}>" class="input w-500"/></td></tr>
+<tr><th class="w-100">seo关键词：</th><td><input type="text" name="data[seo_keywords]" value="<{$detail.seo_keywords}>" class="input w-500"/></td></tr>
+<tr><th>seo描述：</th><td><textarea name="data[seo_description]" class="textarea"><{$detail.seo_description}></textarea></td></tr>
+<tr><th>统计代码：</th><td><textarea name="data[tongji]" class="textarea"><{$detail.tongji}></textarea></td></tr>
+<tr><th>状态：</th><td>
+	<label><input type="radio" name="data[audit]" value="1" <{if $detail.audit}>checked="checked"<{/if}>/> 开启</label>&nbsp;&nbsp;
+	<label><input type="radio" name="data[audit]" value="0" <{if empty($detail.audit)}>checked="checked"<{/if}>/> 关闭</label>&nbsp;&nbsp;
+</td></tr>
+<tr><th class="w-100">排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby}>" class="input w-100"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>

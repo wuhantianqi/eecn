@@ -1,0 +1,14 @@
+    public function doaudit($#pk#=null)
+    {
+        if($#pk# = (int)$#pk#){
+            if(K::M('#module#/#mdl#')->batch($#pk#, array('audit'=>1))){
+                $this->err->add('审核内容成功');
+            }
+        }else if($ids = $this->GP('#pk#')){
+            if(K::M('#module#/#mdl#')->batch($ids, array('audit'=>1))){
+                $this->err->add('批量审核内容成功');
+            }
+        }else{
+            $this->err->add('未指定要审核的内容', 401);
+        }
+    }

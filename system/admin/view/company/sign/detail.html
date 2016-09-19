@@ -1,0 +1,41 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/sign:youhui" arg0=$youhui.youhui_id priv="hidden" class="button" title="优惠报名"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?company/sign-edit.html" mini-form="sign-form" method="post" >
+<input type="hidden" name="sign_id" value="<{$detail.sign_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr>
+    <th>优惠活动：</th><td class="w-300"><{$youhui.title}>(ID:<{$detail.youhui_id}>)</td>
+    <th></th><td rowspan="2"><img src="<{$pager.img}>/<{$youhui.face_pic}>" photo="<{$pager.img}>/<{$youhui.face_pic}>" class="wh-50" /></td>
+</tr>
+<tr>
+    <th>活动时间：</th><td><{$youhui.bg_date}> ~ <{$youhui.end_date}></td><th></th>
+</tr>
+<tr>
+    <th>装修公司：</th><td><a href="<{$company.company_url}>" target="_blank"><{$company.sort_name|default:'--'}>(<{$detail.company_id}>)</a></td>
+    <th>报名会员：</th><td><{if $member}><a ucard="@<{$detail.uid}>"><{$member.uname}>(<{$detail.uid}>)</a><{else}>游客<{/if}></td>
+</tr>
+<tr>
+    <th>预约时间：</th><td><{$detail.dateline|format}></td>
+    <th>来源IP：</th><td><{$detail.clientip}>(<{$detail.clientip|iplocal}>)</td>
+</tr>
+<tr>
+    <th>联系人：</th><td><{$detail.contact|default:'--'}></td>
+    <th>手机号：</th><td><b class="red"><{$detail.mobile|default:'--'}></b></td>
+</tr>
+<tr><th>跟进状态：</th><td><select name="data[status]" class="select w-100"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+<tr><th>商家备注：</th><td><textarea name="data[remark]" class="textarea w-400"><{$detail.remark}></textarea></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

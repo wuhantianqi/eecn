@@ -1,0 +1,40 @@
+<{assign var="min_ititle" value="立即预约"}>
+<{include file="block/mini-header.html"}>
+
+<form action="<{link ctl='mall/shop:book' http='empty'}>" mini-form="book-form" method="post" >
+<input type="hidden" name="shop_id" value="<{$shop.shop_id}>" />
+<input type="hidden" name="data[product_id]" value="<{$product.product_id}>" />
+<h2>预约：<{$shop.title}></h2>
+<div class="yuyBook">
+	<dl>
+		<dt class="name">
+			您的称呼
+		</dt>
+		<dd>
+		<input name="data[contact]" type="text" class="input w-200" value="<{$pager.contact}>" /><span class="tip-comment">填写真实姓名，才能享受投诉保障</span>
+		</dd>
+	</dl>
+	<dl>
+		<dt class="tel">
+			手机号码
+		</dt>
+		<dd>
+		<input name="data[mobile]" type="text" class="input w-200" value="<{$pager.mobile}>" /><span class="tip-comment">方便商家与您取得联系</span>
+		</dd>
+	</dl>
+	<dl>
+		<dt class="yzm">
+			联系地址
+		</dt>
+		<dd class="short">
+		<input name="data[address]" type="text" class="input w-400" value="" />
+	</dl>
+	 <div class="yuyue_bottom"><input type="submit" value="立即报名" class="btn btn_sub_big" /><b class="yuyue_tel">装修热线：<font class="fontcl2"><{$CONFIG.site.phone}></font></b></div>
+</div>
+</form>
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<{include file="block/mini-footer.html"}>

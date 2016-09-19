@@ -1,0 +1,42 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{if $uid}><{link ctl="designer/article:create" arg0=$uid class="button" title="添加"}><{/if}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">ID</th><th class="w-50">城市ID</th><th class="w-50">用户ID</th><th>标题</th><th class="w-50">置顶</th><th class="w-50">浏览数</th><th class="w-50">审核</th><th>创建IP</th><th class="w-100">创建时间</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><label><input type="checkbox" value="<{$item.article_id}>" name="article_id[]" CK="PRI"/><{$item.article_id}><label></td>
+<td><{$item.city_id}></td>
+<td><{$item.uid}></td>
+<td><{$item.title}></td>
+<td><{if $item.is_top}><b class="blue">是</b><{else}>否<{/if}></td>
+<td><{$item.views}></td>
+<td><{if $item.audit}><b class="blue">是</b><{else}>否<{/if}></td>
+<td><{$item.clientip}></td>
+<td><{$item.dateline|format}></td>
+<td><{link ctl="designer/article:edit" args=$item.article_id title="修改" class="button"}><{link ctl="designer/article:delete" args=$item.article_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}></td></tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="designer/article:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>&nbsp;&nbsp;&nbsp;<{link ctl="designer/article:doaudit" type="button" submit="mini:#items-form" confirm="mini:确定要批量审核选中的内容吗?" priv="hide" value="批量审核"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

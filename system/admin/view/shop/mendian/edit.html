@@ -1,0 +1,54 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/mendian:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?shop/mendian-edit.html" mini-form="mendian-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="mendian_id" value="<{$detail.mendian_id}>"/>
+<tr><th>名称：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th><span class="red">*</span>商铺：</th>
+    <td>
+        <input type="hidden" name="data[shop_id]" value="<{$detail.shop_id}>" id="select_shop_shop_id_id" />
+        <input type="text" value="<{$shop.title}>" id="select_shop_shop_id_title" class="input w-300" readonly/>
+        <{link ctl="shop/shop:dialog"  select="mini:#select_shop_shop_id_id,#select_shop_shop_id_title/N/选择商铺" title="选择商铺" class="button"}>
+    </td>
+</tr>
+<tr><th>门店图片：</th>
+    <td>
+        <input type="file" name="data[thumb]" class="input w-300" />
+        <{if $detail.thumb}>
+        <img src="<{$pager.img}>/<{$detail.thumb}>" photo="<{$pager.img}>/<{$detail.thumb}>" class="wh-30" style="vertical-align:middle;display:inline;"/>
+        <{/if}>
+        <span class="tip-comment">建议尺寸大小：200X150</span>
+    </td>
+</tr>
+<tr><th>电话：</th><td><input type="text" name="data[phone]" value="<{$detail.phone|default:''}>" class="input w-300"/></td></tr>
+<tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-300"/></td></tr>
+<tr><th>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th>描述：</th><td><textarea name="data[desc]" class="textarea"><{$detail.desc}></textarea><span class="tip-comment">填写50字以内的简介，或者服务口号</span></td></tr>
+<tr><th>门店介绍：</th><td><textarea name="data[content]" kindeditor="full" style="width:800px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+<tr>
+    <th><span class="red">*</span>审核：</th>
+    <td>
+        <label><input type="radio" name="data[audit]" checked="checked" value="1"/>发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="data[audit]" value="0"/>待审</label>
+    </td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script> 
+<{include file="admin:common/footer.html"}>

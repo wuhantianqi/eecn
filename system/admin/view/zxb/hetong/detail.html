@@ -1,0 +1,33 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="zxb/hetong/hetong:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>ID：</th><td><{$detail.hetong_id}></td></tr>
+<tr><th>装修保ID：</th><td><{$detail.zxb_id}></td></tr>
+<tr><th>业主UID：</th><td><{$detail.uid}></td></tr>
+<tr><th>公司ID：</th><td><{$detail.company_id}></td></tr>
+<tr><th>工程总价：</th><td><{$detail.total_price}></td></tr>
+<tr><th>合同压缩包：</th><td><img src="<{$pager.img}>/<{$detail.hetong}>" class="wh-200" /></td></tr>
+<tr><th>业主姓名：</th><td><{$detail.yezhu}></td></tr>
+<tr><th>业主电话：</th><td><{$detail.yezhu_phone}></td></tr>
+<tr><th>业主银行卡：</th><td><{$detail.yezhu_bank}></td></tr>
+<tr><th>业主状态：</th><td><{$detail.yezhu_status}></td></tr>
+<tr><th>业主签订时间：</th><td><{$detail.yezhu_time}></td></tr>
+<tr><th>公司名：</th><td><{$detail.company}></td></tr>
+<tr><th>公司电话：</th><td><{$detail.company_phone}></td></tr>
+<tr><th>公司银行卡：</th><td><{$detail.company_bank}></td></tr>
+<tr><th>公司状态：</th><td><{$detail.company_status}></td></tr>
+<tr><th>公司签订时间：</th><td><{$detail.company_time}></td></tr>
+<tr><th>平台确认：</th><td><{$detail.status}></td></tr>
+<tr><th>创建时间：</th><td><{$detail.dateline|format}></td></tr>
+</table></div>
+
+<{include file="admin:common/footer.html"}>

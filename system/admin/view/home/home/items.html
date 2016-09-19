@@ -1,0 +1,47 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="home/home:so" class="button" title="搜索"}> &nbsp; &nbsp;<{link ctl="home/home:create" class="button" title="添加"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">ID</th><th>城市</th><th>区域</th><th>小区名称</th><th>地址</th><th>联系电话</th><th>QQ群</th><th>交房时间</th><th>开盘时间</th><th>开发商</th><th>浏览量</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><label><input type="checkbox" value="<{$item.home_id}>" name="home_id[]" CK="PRI"/><{$item.home_id}><label></td>                    
+                    <td><{$cityList[$item.city_id].city_name}></td><td><{$areaList[$item.area_id].area_name}></td>                   
+                    <td><{$item.name}></td><td><{$item.addr}></td><td><{$item.phone}></td><td><{$item.qq_qun}></td><td><{$item.jf_date}></td><td><{$item.kp_date}></td><td><{$item.kfs}></td><td><{$item.views}></td>
+                    <td>
+                        <{link ctl="block/item:push" arg0='home' arg1=$item.home_id title="推送" load="mini:推送小区" class="button"}>
+                        <{link ctl="home/photo:index" arg0=$item.home_id  arg1=1 title="户型图" class="button"}>
+                        <{link ctl="home/photo:index" arg0=$item.home_id  arg1=2 title="实景图" class="button"}>
+                        <{link ctl="home/photo:index" arg0=$item.home_id  arg1=3 title="样板间" class="button"}>
+                        <{link ctl="home/home:edit" args=$item.home_id title="修改" class="button"}>
+                        <{link ctl="home/home:delete" args=$item.home_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+                    </td></tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left">
+                <{link ctl="home/home:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>
+                <{link ctl="block/item:batch" args='home' type="button" load="mini:批量推荐小区" batch="mini:PRI" priv="hide" value="批量推荐"}>
+                <{link ctl="home/home:doaudit" type="button" submit="mini:#items-form" confirm="mini:批量审核?" priv="hide" value="批量审核"}>
+            </td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

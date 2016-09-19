@@ -1,0 +1,8 @@
+<tr>
+    <th>#label#：</th>
+    <td>
+        <input type="hidden" name="data[#field#]" value="<{$detail.#field#}>" id="select_member_#field#_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_#field#_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_#field#_id,#select_member_#field#_name/N/选择用户" title="选择用户" class="button"}>#comment#
+    </td>
+</tr>

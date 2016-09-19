@@ -1,0 +1,59 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="designer/designer:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+ <{if $pager.target == 'dialog'}>
+<form action="?designer/designer-dialog.html&MINI=LoadIframe" id="SO-form" method="post">
+<input type="hidden" name="multi" value="<{$pager.multi}>" />
+<{else}>
+<form action="?designer/designer-index.html" id="SO-form" method="post">
+<{/if}>       
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>用户ID：</th><td><input type="text" name="SO[uid]" value="" class="input w-100"/></td></tr>
+<tr><th>用户名：</th><td><input type="text" name="SO[uname]" value="" class="input w-100"/></td></tr>
+<tr><th>装修公司ID：</th><td><input type="text" name="SO[company_id]" value="" class="input w-100"/></td></tr>
+<tr><th>城市：</th>
+    <td><select name="SO[city_id]" class="w-150"><option value="">--城市--</option><{widget id="data/city"}></select></td>
+</tr>
+<tr><th>QQ：</th><td><input type="text" name="SO[qq]" value="<{$detail.qq}>" class="input w-300"/></td></tr>
+<tr><th>是否审核：</th><td>
+    <select name="SO[audit]" class="w-100">
+        <option value="">全部</option>
+        <option value="1">正常</option>
+        <option value="0">待审</option>
+    </select>
+    </td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

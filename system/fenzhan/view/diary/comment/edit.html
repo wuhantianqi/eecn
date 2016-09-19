@@ -1,0 +1,46 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="diary/comment:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?diary/comment-edit.html" mini-form="comment-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+<tr><th><span class="red">*</span>日记ID：</th>
+ <td>
+ 		<b class="blue"><{$diary.title}></b>
+      
+ </td>
+</tr>
+<tr><th class="w-100">城市：</th>
+    <td>
+        <b class="blue"><{$detail.city_name}></b>
+       
+    </td>
+</tr>
+<tr>
+    <th><span class="red">*</span>用户：</th>
+    <td>
+    	<b class="blue"><a ucard="@<{$detail.uid}>"><{$member.uname}></a></b>
+    </td>
+</tr>
+<tr><th><span class="red">*</span>内容：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+
+<tr>
+	<th>是否审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>发布</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>待审</label><span class="tip-comment">1代表显示</span>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="fenzhan:common/footer.html"}>

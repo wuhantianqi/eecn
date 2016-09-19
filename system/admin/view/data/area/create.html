@@ -1,0 +1,52 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="data/area:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<h4 class="tip-notice">批量添加地区，一行一个</h4>
+<form action="?data/area-create.html" mini-form="area-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th class="w-100">城市：</th><td>
+    <label><select name="province_id" class="w-150"><{widget id="data/province" city_id=$detail.city_id}></select></label>&nbsp;&nbsp;&nbsp;
+    <label><select name="data[city_id]" class="w-150"><{widget id="data/city" value=$detail.city_id}></select></label>
+    </td>
+</tr>
+<tr>
+    <th><span class="red">*</span>地区：</th>
+    <td><textarea name="data[area_name]" class="textarea w-300"></textarea></td>
+</tr>
+<tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:'50'}>" class="input w-100"/></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='province_id']").live('change', function(){
+    var province_id = $(this).val();
+    if(!province_id){return false;}
+    $.getJSON(link = "?data/city-province-"+province_id+".html", function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else if(ret.citys.length>0){
+            var html = "";
+            for(var i=0; i<ret.citys.length; i++){
+                html += '<option value="'+ret.citys[i].city_id+'">'+ret.citys[i].city_name+'</option>';
+            }
+            $("select[name='data[city_id]']").html(html);
+            $("select[name='data[city_id]']").change();
+        }else{
+            $("select[name='data[city_id]']").html('<option value="">--</option>');
+            $("select[name='data[city_id]']").change();
+        }
+    });
+}).change();
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

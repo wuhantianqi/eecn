@@ -1,0 +1,51 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right">
+                <{link ctl="company/sign:index" class="button" title="所有活动报名"}>
+                <{link ctl="company/sign:create" arg0=$youhui_id class="button" title="添加报名"}>
+            </td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+    <h4 class="tip-notice" style="margin-bottom:10px;">活动：<{$youhui.title}></h4>
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th><th>城市</th><th>优惠信息</th><th class="w-100">用户</th><th class="w-100">手机</th><th class="w-100">联系人</th>
+        <th class="w-100">状态</th><th class="w-150">报名时间</th><th class="w-150">报名IP</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><label><input type="checkbox" value="<{$item.sign_id}>" name="sign_id[]" CK="PRI"/><{$item.sign_id}><label></td>
+        <td><{$cityList[$item.city_id].city_name}></td>
+        <td><{$youhui.title}></td><td><{$member_list[$item.uid].uname|default:'游客'}> (ID <{$item.uid}>)</td>
+        <td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.status_title}></td>
+        <td><{$item.dateline|format}></td><td><{$item.clientip}>(<{$item.clientip|iplocal}>)</td>
+        <td>
+           
+            <{link ctl="company/sign:edit" args=$item.sign_id title="修改" class="button"}>
+            <{link ctl="company/sign:delete" args=$item.sign_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="company/sign:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

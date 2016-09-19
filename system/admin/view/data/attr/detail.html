@@ -1,0 +1,65 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"> &nbsp; &nbsp;<{link ctl="data/attr:index" class="button" title="返回属性列表"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+	<input type="hidden" name="attr_id" value="<{$attr.attr_id}>" />
+    <table width="100%" border="0" cellspacing="0" class="table-data table" id="attr-item-table">
+    <tr><th class="w-100">ID</th><th class="w-100">模块</th><th class="w-120">属性</th><th>属性值</th><th class="w-50">排序</th>
+	<th class="w-150"><a href="###" batch="add_new_line" >新增一行</a></th></tr>
+    <{foreach $items as $item}>
+    <tr>
+		<td class="left"><label><input type="checkbox" value="<{$item.attr_value_id}>" name="attr_value_id[<{$item.attr_value_id}>]" CK="PRI"/><{$item.attr_value_id}><label></td>
+		<td><{$attr.from_title|default:'--'}></td>
+		<td><{$attr.title}></td>
+		<td><input type="text" name="data[<{$item.attr_value_id}>][title]" value="<{$item.title}>" class="input w-300"/></td>
+		<td><input type="text" name="data[<{$item.attr_value_id}>][orderby]" value="<{$item.orderby}>" class="input w-50"/></td>
+		<td><{link ctl="data/attr:delvalue" args=$item.attr_value_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}></td>
+	</tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left">
+			<{link ctl="data/attr:delvalue" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}></td>
+			<td class="w-200"><{link ctl="data/attr:updatevalue" type="button" submit="mini:#items-form" title="保存数据"}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<script type="text/paint" id="item-line-tmpl">
+	<tr>
+		<td class="left"><label><input type="checkbox" value="" disabled="disabled" />New<label></td>
+		<td><{$attr.from_title}></td>
+		<td><{$attr.title}></td>
+		<td><input type="text" name="value[{index}][title]" class="input w-300" value=""></td>
+		<td><input type="text" name="value[{index}][orderby]" value="50" class="input w-50" value=""></td>
+		<td><a href="###" batch="remove_item_line">移除</a></td>
+	</tr>
+</script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+	var tmpl = $("#item-line-tmpl").html();
+	$("a[batch='add_new_line']").click(function(){
+		var k = K.Guid();
+		$("#attr-item-table").append(tmpl.replace(new RegExp("{index}","gm"),k));
+	}).click();
+	$("a[batch='remove_item_line']").die().live('click',function(){
+		$(this).parent().parent('tr').remove();
+	});
+});
+})(window.KT, window.jQuery)
+</script>
+<{include file="admin:common/footer.html"}>

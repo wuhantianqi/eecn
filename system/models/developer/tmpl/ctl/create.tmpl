@@ -1,0 +1,12 @@
+    public function create()
+    {
+        if($data = $this->checksubmit('data')){
+            #upload#
+            if($#pk# = K::M('#module#/#mdl#')->create($data)){
+                $this->err->add('添加内容成功');
+                $this->err->set_data('forward', '?#module#/#ctl#-index.html');
+            } 
+        }else{
+           $this->tmpl = 'admin:#view#/create.html';
+        }
+    }

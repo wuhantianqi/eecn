@@ -1,0 +1,42 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="activity/sign:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<div class="tip-notice"><b>活动：<{$activity.title}></b></div>
+<form action="?activity/sign-edit.html" mini-form="sign-form" method="post" >
+<input type="hidden" name="sign_id" value="<{$detail.sign_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>电话：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th>用户：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_uid_id" />
+        <input type="text" value="<{$member.uname}>" id="select_member_uid_name" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="member" select="mini:#select_member_uid_id,#select_member_uid_name/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr><th>邮箱：</th><td><input type="text" name="data[mail]" value="<{$detail.mail|default:''}>" class="input w-300"/></td></tr>
+<tr><th>Q Q：</th><td><input type="text" name="data[qq]" value="<{$detail.qq|default:''}>" class="input w-300"/></td></tr>
+<tr><th>地址：</th><td><input type="text" name="data[address]" value="<{$detail.address|default:''}>" class="input w-300"/></td></tr>
+<tr><th>人数：</th>
+    <td>
+        <input type="text" name="data[num]" value="<{$detail.num|default:'1'}>" class="input w-100"/>
+    </td>
+</tr>
+<tr><th>客户备注：</th><td><textarea name="data[note]" class="textarea"><{$detail.note}></textarea><br /></td></tr>
+<tr><th>跟进状态：</th><td><select name="data[status]" class="select w-100"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+<tr><th>管理备注：</th><td colspan="10"><textarea name="data[remark]" class="textarea"><{$detail.remark}></textarea></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

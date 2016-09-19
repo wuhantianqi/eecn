@@ -1,0 +1,38 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+            <th><{$MOD.title}></th>
+            <td align="right"><{link ctl="diary/detail:index" arg0=$detail.diary_id priv="hidden" class="button"}></td>
+            <td width="15"></td>
+        </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?diary/detail-edit.html" mini-form="detail-form" method="post" >
+        <table width="100%" border="0" cellspacing="0" class="table-data form">
+            <input type="hidden" name="detail_id" value="<{$detail.detail_id}>"/>
+
+<tr>
+      <th>状态：</th>
+      <td>  
+          <select name="data[status]">
+                <option value="">请选择</option>
+                <{foreach from=$status item=item key=key}>
+                <option value="<{$key}>" <{if $detail.status ==$key}>selected="selected"<{/if}>><{$item}></option>
+                <{/foreach}>
+            </select>
+      </td>
+  </tr> 
+  <tr><th><span class="red">*</span>内容：</th><td><textarea name="data[contents]" kindeditor="full" style="width:800px;height:350px;"><{$detail.contents}></textarea><br /></td></tr>
+
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+    (function(K, $) {
+        var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+    })(window.KT, window.jQuery);
+</script> 
+<{include file="admin:common/footer.html"}>

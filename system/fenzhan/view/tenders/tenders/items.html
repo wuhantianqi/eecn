@@ -1,0 +1,49 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="tenders/tenders:so" load="mini:搜索内容" width="mini:500" class="button" title="搜索"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th><th>类型</th><th>城市</th><th>标题</th><th>联系人</th>
+        <th>小区名</th><th>装修时间</th><th>提醒跟踪</th>
+        <th class="w-100">发布时间</th><th class="w-100">是否签单</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><label><input type="checkbox" value="<{$item.tenders_id}>" name="tenders_id[]" CK="PRI"/><{$item.tenders_id}><label></td>
+        <td><{$item.from_title}></td><td><{$item.city_name}></td><td><{$item.title}></td>
+        <td><{$item.contact}></td><td><{$item.home_name}></td>
+        <td><{$item.zx_time|format:"Y-m-d"}></td><td><{$item.tx_time|format:"Y-m-d"}></td>
+        <td><{$item.dateline|format}></td>
+        <td><{if $item.sign_uid}><b class="blue">已签</b><{else}><b>未签</b><{/if}></td>
+        <td>
+            <{link ctl="tenders/tenders:detail" args=$item.tenders_id class="button" title="查看"}>
+            <{link ctl="tenders/tenders:edit" args=$item.tenders_id title="修改" class="button"}>
+            <{link ctl="tenders/tenders:delete" args=$item.tenders_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+        </td>
+    </tr>
+    <{foreachelse}>
+    <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left"><{link ctl="tenders/tenders:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>&nbsp;&nbsp;&nbsp;<{link ctl="tenders/tenders:doaudit" type="button" submit="mini:#items-form" confirm="mini:确定要批量审核选中的内容吗?" priv="hide" value="批量审核"}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

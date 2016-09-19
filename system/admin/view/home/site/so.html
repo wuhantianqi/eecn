@@ -1,0 +1,63 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="home/site:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?home/site-index.html" id="SO-form" method="post">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+    <tr><th>ID：</th><td><input type="text" name="SO[site_id]" value="<{$detail.site_id}>" class="input w-100"/></td></tr>
+<tr><th class="w-100">城市：</th><td>
+<label>城市:<select name="data[city_id]" class="w-100"><{widget id="data/city" value=$detail.city_id}></select></label>
+<label>地区:<select name="data[area_id]" class="w-100"><{widget id="data/area" value=$detail.area_id city_id=$detail.city_id}></select></label>
+</td></tr>
+<tr><th>小区：</th>
+	<td>
+		<input type="hidden" name="data[home_id]" value="0" id="case_home_id"/>
+		<input type="text"  value="" id="case_home_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="home/home:dialog" select="mini:#case_home_id,#case_home_name/N/选择设计师" class="button"}>
+	</td>
+</tr>
+ <tr><th>装修公司：</th>
+    <td>
+        <input type="hidden" name="data[company_id]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>    
+    </td>
+</tr>
+    <tr><th>工地的状态：</th><td>  <select name="SO[status]">
+            <option value="">请选择</option>
+            <{foreach from=$status item=item key=key}>
+            <option value="<{$key}>" <{if $detail.status ==$key}>selected="selected"<{/if}>><{$item}></option>
+            <{/foreach}>
+        </select></td></tr> 
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

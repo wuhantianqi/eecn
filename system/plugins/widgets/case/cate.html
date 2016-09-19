@@ -1,0 +1,5 @@
+<{foreach from=$data.url item=item name=loop}>
+<{if $smarty.foreach.loop.index < 10}>
+<a target="_blank"  title="<{$item.title}>"  href="<{$item.link}>"><{$item.title}></a>
+<{/if}>
+<{/foreach}>

@@ -1,0 +1,30 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/comment:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?shop/comment-reply.html" mini-form="comment-form" method="post" >
+<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+	<tr><th>商铺：</th><td><{$shop.title|default:'--'}>(ID:<{$detail.shop_id}>)</td></tr>
+	<tr><th>用户：</th><td><a ucard="@<{$detail.uid}>"><b class="blue"><{$member.uname|default:'--'}>(ID:<{$detail.uid}>)</b></a></td></tr>
+	<tr><th>评分：</th><td><{$detail.score|default:'--'}></td></tr>
+	<tr><th>内容：</th><td><p class="w-400 tip-notice"><{$detail.content|nl2br}></p></td></tr>
+	<tr><th>回复：</th><td><textarea name="data[reply]" class="textarea w-400"><{$detail.reply}></textarea><br /></td></tr>	
+	<tr>
+		<th>审核：</th><td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>正常</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" <{if !$detail.audit}>checked="checked"<{/if}> value="0"/>待审</label>
+		</td>
+	</tr>
+	<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>

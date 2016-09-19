@@ -1,0 +1,49 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">
+<form action="?tenders/look-tongji.html" id="SO-form" method="post">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+ <tr><th class="w-100"><span class="red">*</span>城市：</th><td><{widget id="data/region" city_id=$detail.city_id level="2"}></td></tr>    
+<tr>
+    <th>时间：</th>
+    <td>
+        <input type="text" name="SO[bg_time]" value="<{$SO.bg_time|default:''}>" class="input w-100" date="bg_time" readonly/>~
+        <input type="text" name="SO[end_time]" value="<{$SO.end_time|default:''}>" class="input w-100" date="end_time" readonly/>
+    </td>
+</tr> 
+<tr><th>公司：</th>
+    <td>
+        <input type="hidden" name="SO[company_id]" value="<{$SO.company_id}>" id="select_company_company_id_id" />
+        <input type="text" value="<{$company.name}>" id="select_company_company_id_name" class="input w-300" readonly/>
+        <{link ctl="company/company:dialog"  select="mini:#select_company_company_id_id,#select_company_company_id_name/N/选择装修公司" title="选择装修公司" class="button"}>
+    </td>
+</tr>    
+<tr><th class="clear-th-bottom"></th>
+    <td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td>
+</tr>
+</table>
+</form>
+<form id="items-form">
+<table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100"></th><th>公司</th><th class="w-100">阶段时间内分单数</th></tr>
+    <{foreach $items as $item}>
+    <tr>  
+        <td><img src="<{$pager.img}>/<{$item.logo}>" width="100" height="50"/></td>
+        <td><{$item.name}></td><td><{$item.num|default:'0'}></td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

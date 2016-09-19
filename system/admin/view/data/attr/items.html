@@ -1,0 +1,45 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right">
+			<{link ctl="data/attr:so" load="mini:搜索属性" width="mini:350" class="button" title="搜索"}> &nbsp; &nbsp;
+			<{link ctl="data/attr:create" load="mini:添加属性" class="button"  width="mini:400" title="添加"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">ID</th><th class="w-150">关联模块</th><th>属性名称</th><th class="w-150">多选</th><th class="w-150">搜索</th><th class="w-50">排序</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr>
+		<td class="left"><label><input type="checkbox" value="<{$item.attr_id}>" name="attr_id[]" CK="PRI"/><{$item.attr_id}><label></td>
+		<td><{$from_list[$item.from_id].title}></td>
+		<td><input type="test" name="data[<{$item.attr_id}>][title]" value="<{$item.title}>" class="input w-300" /></td>
+		<td><label><input type="checkbox" name="data[<{$item.attr_id}>][multi]" value="Y" <{if $item.multi == 'Y'}>checked="checked"<{/if}> />多选</label></td>
+		<td><label><input type="checkbox" name="data[<{$item.attr_id}>][filter]" value="Y" <{if $item.filter == 'Y'}>checked="checked"<{/if}> />搜索</label></td>
+		<td><input type="test" name="data[<{$item.attr_id}>][orderby]" value="<{$item.orderby}>" class="input w-50" /></td>
+		<td>
+			<{link ctl="data/attr:detail" args=$item.attr_id  title="选项" class="button"}>
+			<{link ctl="data/attr:delete" args=$item.attr_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+		</td>
+	</tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td class="w-200"><{link ctl="data/attr:update" type="button" submit="mini:#items-form" title="更新内容"}></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

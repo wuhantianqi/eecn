@@ -1,0 +1,81 @@
+<div class="rightNav">
+    <ul>
+        <li>
+            <div class="show qq">
+                <span class="ico icoQq"></span>
+                <p><!-- 53聊天弹出框 -->
+<script> (function () {var _53code=document.createElement("script");_53code.src = '//tb.53kf.com/code/code/10141854/1'; var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(_53code, s);})(); </script>
+</body></p>
+            </div>
+            
+        </li>
+	<li>
+            <a class="show baojia" href="/tenders.html">
+                <span class="ico icoTel"></span>
+                <p>设计报价</p>
+            </a>
+            
+        </li>
+        <li>
+            <div class="show weixin">
+                <span class="ico icoWx"></span>
+                <p>官方微信</p>
+            </div>
+            <div kefu='wx' class="hidden">
+                <div class="hidden_cont hiddenWx">
+                    <span class="span_ab"></span>
+                    <img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" width="86" height="86"/>
+                    <p class="title">微信扫一扫</p>
+                </div>
+            </div>
+        </li>
+        
+        <li class="re_top">
+            <div class="show top">
+                <span class="ico icoTop"></span>
+                <p>返回顶部</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E"));
+</script> -->
+<script type="text/javascript">
+$(function(){
+    
+    $(".rightNav ul li .show.qq").click(function(){
+	$("nb_invite_wrap").hide();
+	$("#nb_invite_ok").trigger("click");
+        $("#nbWebImLightContainer").addClass('maxMessageContainer');
+        $('#nbWebImLightContainer').removeClass('minMessageContainer');
+        $('#nbwlToggle').removeClass('nb-webim-light-hide');
+    });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".rightNav ul li").mouseenter(function(){
+        $(this).find(".show").addClass('current');
+        $(this).find("[kefu]").stop(true,true).fadeIn();
+    }).mouseleave(function(){
+        $(this).find(".show").removeClass('current');
+        $(this).find("[kefu]").stop(true,true).fadeOut();
+    });
+    $(".rightNav ul li [kefu]").mouseenter(function(){
+        $(this).show();
+        $(this).prev("li").addClass("current");
+    }).mouseleave(function(){
+        $(this).stop(true).fadeOut();
+        $(this).prev("li").removeClass("current");
+    });     
+    $('.rightNav li.re_top').click(function(event) {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 200);
+        return false;
+    }); 
+});
+</script>

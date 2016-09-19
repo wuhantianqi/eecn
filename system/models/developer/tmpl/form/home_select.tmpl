@@ -1,0 +1,8 @@
+<tr>
+    <th>#label#：</th>
+    <td>
+        <input type="hidden" name="data[#field#]" value="<{$detail.#field#}>" id="select_home_#field#_id" />
+        <input type="text" value="<{$home.name}>" id="select_home_#field#_name" class="input w-300" readonly/>
+        <{link ctl="home/home:dialog" select="mini:#select_home_#field#_id,#select_home_#field#_name/N/选择小区" title="选择小区" class="button"}>#comment#
+    </td>
+</tr>

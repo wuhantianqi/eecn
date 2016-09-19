@@ -1,0 +1,53 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+<form id="items-form">
+    <ul class="group-list" style="width:auto;">
+        <{foreach $items as $item}>
+        <li style="width:auto;height:auto;margin-top:10px;">        
+        <div class="weixin-preview" style="margin:2px;">
+            <div class="weixin-box">
+                <p class="weixin-title"><{$item.title}></p>
+                <div class="weixin-cover"><img class="weixin-cover-pic" src="<{$pager.img}>/<{$item.photo}>"></div>
+                <div class="weixin-mask"></div>
+                <div class="icon-wxreply-selected"></div>
+                <input type="radio" name="itemId" value="<{$item.reply_id}>" data="{'itemId':'<{$item.reply_id}>','title':'<{$item.title}>','photo':'<{$item.photo}>'}" CK="PRI" style="display:none;"/>
+            </div>
+        </div>
+        </li>
+        <{/foreach}>
+        <div class="clear-both"></div>
+    </ul>
+    <div class="clear-both"></div>
+	</form>
+    <{if $pager.pagebar}>
+    <div class="page-bar">
+        <table>
+            <tr>
+            <td class="w-100"></td>
+            <td class="page-list"><{$pager.pagebar}></td>
+        </tr>
+        </table>
+    </div>
+    <{/if}>
+</div>
+<script type="text/javascript">
+(function(K, $){
+$(".weixin-box").click(function(){
+$(".weixin-box").removeClass("selected");
+$(this).addClass("selected");
+//$(".weixin-box input:radio").attr("checked", false)
+$(this).find(":radio").attr("checked", true);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

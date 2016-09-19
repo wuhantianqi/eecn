@@ -1,0 +1,41 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}> 选择商品分类 </th>
+        <td align="right"><{link ctl="product/product:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+    <style type="text/css">.J_cate_select{height:200px;min-width:150px;}</style>
+    <table width="100%" border="0" cellspacing="0" class="table-data form">
+        <tr>
+            <td colspan="10"><input type="hidden" name="cat_id" value="0" id="J_cate_id"/>                
+                <select class="J_cate_select mgr10" size="12" data-pids="<{$pager.cat_pids|default:$COOKIE.LAST_product_pids|default:''}>" data-pid="0" data-uri="?shop/cate-children-#pid#.html"></select>
+            </td>
+        </tr>
+        <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom"><input type="button" class="bt-big" id="select_cate_btn" value="选择分类" /></td></tr>
+    </table>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $('.J_cate_select').cate_select({attrs:"size=12",first_option:false,top_option:null});
+    $("#select_cate_btn").click(function(){
+        <{if $pager.type == 'edit'}>
+        var link = "?product/product-edit-<{$pager.product_id}>-#cat_id#.html";
+        <{else}>
+        var link = "?product/product-create-<{$shop.shop_id}>-#cat_id#.html";
+        <{/if}>
+        var cat_id = parseInt($("#J_cate_id").val(), 10);
+        if(cat_id > 0){
+            window.location = link.replace("#cat_id#", cat_id);
+        }else{
+            Widget.MsgBox.error("请选择商品分类");
+        }
+    });
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

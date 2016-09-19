@@ -1,0 +1,22 @@
+<{assign var="min_ititle" value="选择微信素材"}>
+<{include file="block/mini-header.html"}>
+<div>
+    <ul class="group-list" style="width:auto;">
+        <{foreach $items as $item}>
+        <li style="width:auto;height:auto;margin-top:10px;">        
+        <div class="weixin-preview" style="margin:2px;">
+            <div class="weixin-box">
+                <p class="weixin-title"><{$item.title}></p>
+                <div class="weixin-cover"><img class="weixin-cover-pic" src="<{$pager.img}>/<{$item.photo}>"></div>
+                <div class="weixin-mask"></div>
+                <div class="icon-wxreply-selected"></div>
+                <input type="radio" name="itemId" value="<{$item.reply_id}>" data="{'itemId':'<{$item.reply_id}>','title':'<{$item.title}>','photo':'<{$item.photo}>'}" CK="PRI" style="display:none;"/>
+            </div>
+        </div>
+        </li>
+        <{/foreach}>
+        <div class="clear-both"></div>
+    </ul>
+    <div class="clear-both"></div>
+</div>
+<{include file="block/mini-footer.html"}>

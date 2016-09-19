@@ -1,0 +1,36 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?system/config-wechat.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="wechat" />
+<table width="100%" border="0" cellspacing="0" class="table-data form"><tr><th>微信Token：</th><td><input type="text" name="config[wechat_token]" value="<{$config.wechat_token|default:md5(__CFG::SECRET_KEY|cat:__CFG::Authorize)}>" class="input w-300"/><span class="tip-comment">微信接口Token,全站统一Token</span></td></tr>
+<tr>
+	<th>启用机器人：</th>
+	<td>
+		<label><input type="radio" name="config[robot_open]" <{if $config.robot_open}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[robot_open]" <{if isset($config.robot_open) && empty($config.robot_open)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr><th>图灵机器人KEY：</th>
+    <td>
+        <input type="text" name="config[tuling_key]" value="<{$config.tuling_key|default:''}>" class="input w-300"/>
+        <span class="tip-comment">申请KEY地址：<a href="http://www.tuling123.com/openapi/record.do?channel=33853" target="_blank">http://www.tuling123.com/openapi/</a></span>
+    </td>
+</tr>
+<tr><th>随机回复内容：</th><td><textarea name="config[rand_reply]" class="textarea w-300"><{$config.rand_reply|default:'我今天累了，明天再陪你聊天吧
+哈哈~~
+你话好多啊，不跟你聊了
+虽然不懂，但觉得你说得很对'}></textarea><br /><span class="tip-comment">当上面接口返回内容异常时会随机取当前的内容进行回复，按行一条回复输入</span></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

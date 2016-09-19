@@ -1,0 +1,36 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="gz/comment:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?gz/comment-edit.html" mini-form="comment-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+<tr><th>工长：</th><td><a ucard="@<{$gz.uid}>"><b class="blue"><{$gz.name|default:$gz.uname}></b></a></td></tr>
+<tr><th>业主：</th><td><a ucard="@<{$member.uid}>"><b><{$member.uname}></b></a></td></tr>
+<tr><th>评分：</th>
+    <td>
+        <{foreach $CONFIG.score.designer as $k=>$v}>
+        <label><{$v}>:<input type="text" name="data[<{$k}>]" value="<{$detail[$k]|default:'0'}>" class="input w-100"/>&nbsp;&nbsp;</label>
+        <{/foreach}>
+    </td>
+</tr>
+<tr><th><span class="red">*</span>评论：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea></td></tr>
+<tr>
+	<th><span class="red">*</span>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>发布</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>待审</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,37 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/comment:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?shop/comment-create.html" mini-form="comment-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+	<tr><th>商铺ID：</th><td><input type="text" name="data[shop_id]" value="<{$detail.shop_id}>" class="input w-100"/></td></tr>
+	<tr><th>用户UID：</th><td><input type="text" name="data[uid]" value="<{$detail.uid}>" class="input w-100"/></td></tr>
+	<tr><th>评分：</th><td><input type="text" name="data[score]" value="<{$detail.score}>" class="input w-100"/></td></tr>
+	<tr><th>花费：</th><td><input type="text" name="data[cost]" value="<{$detail.cost}>" class="input w-100"/></td></tr>
+	<tr><th>内容：</th><td><textarea name="data[content]" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+	<tr><th>回复：</th><td><textarea name="data[reply]" class="textarea"><{$detail.reply}></textarea><br /></td></tr>
+	<tr><th>推荐：</th>
+		<td>
+			<label><input type="radio" name="data[digg]" <{if $detail.digg}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+			<label><input type="radio" name="data[digg]" <{if empty($detail.digg)}>checked="checked"<{/if}> value="0"/>否</label>
+		</td>
+	</tr>	
+	<tr>
+		<th>审核：</th><td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>正常</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" <{if !$detail.audit}>checked="checked"<{/if}> value="0"/>待审</label>
+		</td>
+	</tr>
+	<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+
+<{include file="admin:common/footer.html"}>

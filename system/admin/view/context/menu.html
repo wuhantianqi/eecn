@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<link rel="stylesheet" href="style/menu.css" type="text/css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="<{$pager.res}>/script/kt.j.js"></script>
+<title>管理菜单</title>
+</head>
+<body style="background:#F5F9FA;overflow-x:hidden;">
+    <ul class="page-menu">        
+	<{foreach from=$menu_tree item=menu}>
+	<li class="menu close" rel="menu_tree"><strong title="<{$menu.title}>"><{$menu.title}></strong></span>
+	   <ul class="menu-item">
+			<{foreach $menu.menu as $v}>
+			<li title="<{$v.title}>"><a href="?<{$v.ctl}>-<{$v.act}>.html" target="admin_main" title="<{$v.title}>"><{$v.title}></a></li>
+			<{/foreach}>
+		</ul>
+	</li>
+	<{/foreach}>
+	</ul>
+<div style="clear:both;"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("li[rel='menu_tree']>strong").click(function(){
+		//$("li[rel='menu_tree']").not($(this).parent()).removeClass('open').addClass('close').children('ul').hide();
+		if($(this).parent().hasClass('open')){
+			$(this).parent().removeClass('open').addClass('close').children('ul').hide();
+		}else{
+			$(this).parent().removeClass('close').addClass('open').children('ul').show();
+		}
+	});//.last().click();
+	$(".menu-item>li a").click(function(){
+		$(".menu-item>li").not($(this).parent("li")).removeClass('active');
+		$(this).parent("li").addClass("active");
+	});
+});
+</script>
+</body>
+</html>

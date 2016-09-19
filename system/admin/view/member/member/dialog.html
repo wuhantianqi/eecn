@@ -1,0 +1,38 @@
+<{include file="admin:common/header.html"}>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table left">
+    <tr>
+        <th>会员名(UID)</th><th>类型</th><th>邮箱</th><th>手机</th><th>金币</th>
+        <th><{link ctl="member/member:so" arg0="dialog" arg1=$pager.multi arg2=$pager.from class="button" title="搜索" load="mini:搜索会员" width="mini:500"}></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+		<td>		
+		<{if $pager.multi == 'Y'}>
+		<label><input type="checkbox" name="itemId[]" value="<{$item.uid}>" data="{'itemId':'<{$item.uid}>','title':'<{$item.uname}>'}" CK="PRI"/><{$item.uname_v}>(UID:<{$item.uid}>)</label>
+		<{else}>
+		<label><input type="radio" name="itemId" value="<{$item.uid}>" data="{'itemId':'<{$item.uid}>','title':'<{$item.uname}>'}" CK="PRI"/><{$item.uname}>(UID:<{$item.uid}>)</label>
+		<{/if}>
+        </td>
+		<td><b <{if $item.from != 'member'}>class="blue"<{/if}>><{$item.from_title}></b></td>
+		<td><{$item.mail}><{if $item.verify_mail}><span class="red">[已验证]</span><{/if}></td>
+		<td><{$item.mobile|default:'--'}><{if $item.verify_mobile}><span class="red">[已验证]</span><{/if}></td>
+		<td><b class="red"><{$item.gold|default:'0'}></b></td>
+		<td><{if $item.closed == '3'}>删除<{elseif $item.closed == '2'}>锁定<{elseif $item.closed == '1'}>禁言<{else}>正常<{/if}></td>
+	</tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><{if $pager.multi == 'Y'}><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label><{/if}></td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

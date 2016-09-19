@@ -1,0 +1,41 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/attr:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?shop/attr-create.html" mini-form="attr-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>属性：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-200"/></td></tr>
+<tr><th><span class="red">*</span>分类：</th>
+    <td><input type="hidden" name="data[cat_id]" value="0" id="J_cate_id"/>
+        <select class="J_cate_select mgr10" style="min-width:100px;" data-pids="" data-pid="0" data-uri="?shop/cate-children-#pid#.html"></select>
+    </td>
+</tr>
+</td></tr><tr><th>是否多选：</th><td>
+<select name="data[multi]" class="w-100">
+	<option value="Y">多选</option>
+	<option value="N">单选</option>
+</select>
+</td></tr>
+</td></tr><tr><th>可搜索：</th><td>
+<select name="data[filter]" class="w-100">
+	<option value="Y">是</option>
+	<option value="N">否</option>
+</select>
+<tr><th class="w-100">排序：</th><td><input type="text" name="data[orderby]" value="50" class="input w-100"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$('.J_cate_select').cate_select();
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,7 @@
+<tr>
+	<th>#label#：</th>
+	<td>
+		<label><input type="radio" name="data[#field#]" <{if $detail.#field#}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[#field#]" <{if isset($detail.#field#) && empty($detail.#field#)}>checked="checked"<{/if}> value="0"/>否</label>#comment#
+	</td>
+</tr>

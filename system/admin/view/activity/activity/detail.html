@@ -1,0 +1,32 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="activity/activity:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>ID：</th><td><{$detail.activity_id}></td></tr>
+<tr><th>标题：</th><td><{$detail.title}></td></tr>
+<tr><th>城市ID：</th><td><{$detail.city_id}></td></tr>
+<tr><th>缩略图：</th><td><{$detail.thumb}></td></tr>
+<tr><th>电话：</th><td><{$detail.phone}></td></tr>
+<tr><th>咨询QQ：</th><td><{$detail.qq}></td></tr>
+<tr><th>模板：</th><td><{$detail.tmpl}></td></tr>
+<tr><th>活动开始日期：</th><td><{$detail.bg_time}></td></tr>
+<tr><th>活动结束日期：</th><td><{$detail.end_time}></td></tr>
+<tr><th>报名截止日期：</th><td><{$detail.end_sign}></td></tr>
+<tr><th>报名人数：</th><td><{$detail.sign_num}></td></tr>
+<tr><th>浏览数：</th><td><{$detail.views}></td></tr>
+<tr><th>活动具体时间：</th><td><{$detail.sj}></td></tr>
+<tr><th>排序：</th><td><{$detail.orderby}></td></tr>
+<tr><th>审核：</th><td><{$detail.audit}></td></tr>
+<tr><th>创建IP：</th><td><{$detail.clientip}></td></tr>
+<tr><th>创建时间：</th><td><{$detail.dateline|format}></td></tr>
+</table></div>
+
+<{include file="admin:common/footer.html"}>

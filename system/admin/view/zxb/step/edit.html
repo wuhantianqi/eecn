@@ -1,0 +1,50 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="zxb/step:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?zxb/step-edit.html" mini-form="step-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="step_id" value="<{$detail.step_id}>"/>
+<tr><th>业主上传证据：</th><td><input type="text" name="data[yezhu_photo]" value="<{$detail.yezhu_photo}>" <{if $detail.yezhu_photo}>photo="<{$pager.img}>/<{$detail.yezhu_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[yezhu_photo]" class="input w-100" /></td></tr>
+<tr><th>业主描述内容：</th><td><textarea name="data[yezhu_content]" class="textarea"><{$detail.yezhu_content}></textarea><br /></td></tr>
+<tr>
+	<th>业主状态</th>
+	<td>
+    	<label><input type="radio" name="data[yezhu_status]" <{if $detail.yezhu_status}> checked="checked" <{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[yezhu_status]" <{if !$detail.yezhu_status}> checked="checked" <{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr><th>公司描述内容：</th><td><textarea name="data[company_content]" kindeditor="full" class="textarea"><{$detail.company_content}></textarea><br /></td></tr>
+<tr>
+	<th>公司状态</th>
+	<td>
+    	<label><input type="radio" name="data[company_status]" <{if $detail.company_status}> checked="checked" <{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[company_status]" <{if !$detail.company_status}> checked="checked" <{/if}> value="0"/>否</label>
+	</td>
+</tr>
+
+<tr><th>平台描述内容：</th><td><textarea name="data[content]" kindeditor="full" class="textarea"><{$detail.content}></textarea><br /></td></tr>
+<tr>
+	<th>平台确认</th>
+	<td>
+    	<label><input type="radio" name="data[status]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[status]" value="0"/>否</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

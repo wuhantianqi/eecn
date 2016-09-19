@@ -1,0 +1,57 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/youhui:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?company/youhui-index.html" id="SO-form" method="post">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+    <tr><th>ID：</th><td><input type="text" name="SO[youhui_id]" value="<{$detail.youhui_id}>" class="input w-100"/></td></tr>
+     
+       <tr><th>公司：</th><td><input type="hidden" name="SO[company_id]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>    
+    </td></tr>
+    <tr><th>优惠标题：</th><td><input type="text" name="SO[title]" value="<{$detail.title}>" class="input w-300"/></td></tr>
+    <tr><th>开始日期：</th>
+        <td>
+            <input type="text" name="SO[bg_date][0]" value="" class="input w-100" date="bg_date" readonly/>~
+            <input type="text" name="SO[bg_date][1]" value="" class="input w-100" date="bg_date" readonly/>
+        </td>
+    </tr>
+    <tr><th>结束日期：</th><td><input type="text" name="SO[end_date][0]" value="" class="input w-100" date="end_date" readonly/>~<input type="text" name="SO[end_date][1]" value="" class="input w-100" date="end_date" readonly/></td></tr>
+    <tr><th>审核：</th>
+        <td>
+            <select name="SO[audit]" class="w-100"><option value="">全部</option><option value="1">发布</option><option value="0">待审</option></select>
+        </td>
+    </tr> 
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,35 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="member/member:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>UID：</th><td><{$detail.uid}></td></tr>
+<tr><th>用户名：</th><td><{$detail.uname}></td></tr>
+<tr><th>密码：</th><td><{$detail.passwd}></td></tr>
+<tr><th>邮箱：</th><td><{$detail.mail}></td></tr>
+<tr><th>手机：</th><td><{$detail.mobile}></td></tr>
+<tr><th>积分：</th><td><{$detail.credits}></td></tr>
+<tr><th>真实姓名：</th><td><{$detail.realname}></td></tr>
+<tr><th>头像180：</th><td><img src="<{$pager.img}>/<{$detail.face}>" class="wh-200" /></td></tr>
+<tr><th>头像80：</th><td><{$detail.face_80}></td></tr>
+<tr><th>头像32：</th><td><{$detail.face_32}></td></tr>
+<tr><th>年：</th><td><{$detail.Y}></td></tr>
+<tr><th>月：</th><td><{$detail.M}></td></tr>
+<tr><th>日：</th><td><{$detail.D}></td></tr>
+<tr><th>地区：</th><td><{$detail.region_id}></td></tr>
+<tr><th>地址：</th><td><{$detail.area}></td></tr>
+<tr><th>验证：</th><td><{$detail.verify}></td></tr>
+<tr><th>注册IP：</th><td><{$detail.regip}></td></tr>
+<tr><th>状态：</th><td><{$detail.closed}></td></tr>
+<tr><th>最后登录时间：</th><td><{$detail.lastlogin}></td></tr>
+<tr><th>最后活动时间：</th><td><{$detail.lasactive}></td></tr>
+<tr><th>注册时间：</th><td><{$detail.dateline}></td></tr>
+</table></div>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,44 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/pic:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?company/pic-edit.html" mini-form="pic-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="pic_id" value="<{$detail.pic_id}>"/>
+<tr>
+    <th><span class="red">*</span>装修公司：</th>
+    <td>
+        <input type="hidden" name="data[company_id]" value="<{$detail.company_id}>" id="select_company_company_id_id" />
+        <input type="text" value="<{$company.name}>" id="select_company_company_id_name" class="input w-300" readonly/>
+        <{link ctl="company/company:dialog"  select="mini:#select_company_company_id_id,#select_company_company_id_name/N/选择装修公司" title="选择装修公司" class="button"}>
+    </td>
+</tr>
+<tr>
+    <th class="w-100"><span class="red">*</span>类型：</th>
+    <td>
+        <select name="data[type]">
+            <{foreach from=$type item=item key=key}>
+             <option value="<{$key}>" <{if $key == $detail.type}>selected="selected"<{/if}> ><{$item}></option>
+            <{/foreach}>
+        </select>
+    </td>
+</tr>
+<tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>图片：</th>
+    <td>
+        <input type="text" name="data[pic]" value="<{$detail.pic}>" <{if $detail.pic}>photo="<{$pager.img}>/<{$detail.pic}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;
+        <input type="file" name="data[pic]" class="input w-100" />
+    </td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,33 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="tenders/track:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+
+<div class="page-data">	
+<table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">ID</th><th>反馈内容</th><th>回复内容</th><th>回复IP</th><th>回复时间</th>
+        <th>反馈IP</th><th>反馈时间</th><th class="w-150">操作</th>
+    </tr>
+
+ <{foreach $items as $item}>
+    <tr>
+        <td><{$item.track_id}></td>
+        <td><{$item.content}></td><td><{$item.reply}></td><td><{$item.replyip}></td>
+        <td><{$item.replytime|format}></td><td><{$item.clientip}></td>
+        <td><{$item.dateline|format:"Y-m-d"}></td>
+        <td>
+            <{link ctl="tenders/track:reply" load="mini:回复" args=$item.track_id class="button" title="回复"}>
+        </td>
+    </tr>
+<{/foreach}>
+</table>
+</div>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,216 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<h4 class="tip-notice">图片大小设置 800X1000 表示生成图片有宽高双重限制，设置为800 表示只有宽限制，高度等比例</h4>
+<form action="?system/config-attach.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="attach" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr>
+	<th>附件保存位置：</th>
+	<td>
+		<input type="text" name="config[dir]" value="<{$config.dir|default:'./attachs'}>" class="input w-300"/>
+		<span class="tip-comment">"./" 表示站点根目录，除填写服务器绝对地址外请用"./"开头</span>
+	</td>
+</tr>
+<tr>
+	<th>附件URL地址：</th>
+	<td>
+		<input type="text" name="config[url]" value="<{$config.url|default:'./attachs'}>" class="input w-300"/>
+		<span class="tip-comment">"./" 表示站点根目录,也可填写"http://"开头的绝对地址</span>
+	</td>
+</tr>
+<tr><th>附件类型限制：</th>
+	<td>
+		<input type="text" name="config[allow_exts]" value="<{$config.allow_exts|default:'jpg,gif,png,jpeg'}>" class="input w-300"/>
+		<span class="tip-comment">通常只为图片扩展名,为了安全程序限制了只能上传图片</span>
+	</td>
+</tr>
+<tr><th>附件大小限制：</th>
+    <td>
+        <input type="text" name="config[allow_size]" value="<{$config.allow_size|default:'2048'}>" class="input w-200"/>
+        <span class="tip-comment">单位KB, 1M = 1024KB</span>
+    </td>
+</tr>
+<tr>
+	<th>水印类型：</th>
+	<td>
+		<label><input type="radio" name="config[watermarktype]" value="" <{if !$config.watermarktype}>checked<{/if}>/>关闭水印</label><span></span><br/>
+		<label><input type="radio" name="config[watermarktype]" value="png" <{if $config.watermarktype=='png'}>checked<{/if}>/>图片水印</label>
+		<span class="tip-comment">水印文件：system/data/watermark/watermark.png</span><br/>
+		<label><input type="radio" name="config[watermarktype]" value="text" <{if $config.watermarktype=='text'}>checked<{/if}>/>文字水印</label>
+		<span class="tip-comment">文字水印</span>
+	</td>
+</tr>
+<tr watermarktext="font" <{if $config.watermarktype != 'text'}> style="display:none;"<{/if}>><th>文字水印字体：</th>
+	<td>
+		<input type="text" name="config[watermarktext][font]" value="<{$config.watermarktext.font|default:'msyh.ttf'}>" class="input w-100"/>
+		<span class="tip-comment">字体文件目录:system/data/watermark/*.ttf</span>
+	</td>
+</tr>
+<tr watermarktext="size" <{if $config.watermarktype != 'text'}> style="display:none;"<{/if}>><th>文字水印大小：</th>
+	<td>
+		<input type="text" name="config[watermarktext][size]" value="<{$config.watermarktext.size|default:'14'}>" class="input w-100"/>
+	</td>
+</tr>
+<tr watermarktext="color" <{if $config.watermarktype != 'text'}> style="display:none;"<{/if}>><th>文字水印颜色：</th>
+	<td>
+		<input type="text" name="config[watermarktext][color]" value="<{$config.watermarktext.color|default:'#FFFFFF'}>" class="input w-100"/>
+		<span class="tip-comment">16进制RGB颜色 如:#FF3300</span>
+	</td>
+</tr>
+<tr watermarktext="text" <{if $config.watermarktype != 'text'}> style="display:none;"<{/if}>><th>文字水印内容：</th>
+	<td>
+		<input type="text" name="config[watermarktext][text]" value="<{$config.watermarktext.text|default:'@{name}'}>" class="input w-300"/>
+		<span class="tip-comment">支持变量{name}上传者(用户/商家)</span>
+	</td>
+</tr>
+<tr>
+	<th>水印位置：</th>
+	<td>
+		<label><input type="radio" name="config[watermarkstatus]" value="1" <{if $config.watermarkstatus == '1'}>checked<{/if}>/>1#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="2" <{if $config.watermarkstatus == '2'}>checked<{/if}>/>2#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="3" <{if $config.watermarkstatus == '3'}>checked<{/if}>/>3#</label><br/>
+		<label><input type="radio" name="config[watermarkstatus]" value="4" <{if $config.watermarkstatus == '4'}>checked<{/if}>/>4#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="5" <{if $config.watermarkstatus == '5'}>checked<{/if}>/>5#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="6" <{if $config.watermarkstatus == '6'}>checked<{/if}>/>6#</label><br />
+		<label><input type="radio" name="config[watermarkstatus]" value="7" <{if $config.watermarkstatus == '7'}>checked<{/if}>/>7#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="8" <{if $config.watermarkstatus == '8'}>checked<{/if}>/>8#</label>
+		<label><input type="radio" name="config[watermarkstatus]" value="9" <{if $config.watermarkstatus == '9'}>checked<{/if}>/>9#</label>
+	</td>
+</tr>
+<tr><th>水印质量：</th>
+    <td>
+        <input type="text" name="config[watermarkquality]" value="<{$config.watermarkquality|default:'90'}>" class="input w-100"/>
+        <span class="tip-comment">设置 JPEG 类型的图片附件添加水印后的质量参数，范围为 0～100 的整数，数值越大结果图片效果越好，但尺寸也越大。</span>
+    </td>
+</tr>
+<tr><th>图片质量：</th>
+    <td>
+        <input type="text" name="config[thumbquality]" value="<{$config.thumbquality|default:'90'}>" class="input w-100"/>
+        <span class="tip-comment">设置 JPEG 类型的图片修改尺寸后的质量参数，范围为 0～100 的整数，数值越大结果图片效果越好，但尺寸也越大。</span>
+    </td>
+</tr>
+<tr><th>全局缩略图：</th>
+	<td>
+		<input type="text" name="config[thumb]" value="<{$config.thumb|default:'200'}>" class="input w-100"/>
+	</td>
+</tr>
+<tr><th>在建工地缩略图：</th>
+	<td>
+		<input type="text" name="config[site][photo]" value="<{$config.site.photo|default:'200'}>" class="input w-100"/>
+	
+	</td>
+</tr>
+<tr><th>装修公司优惠信息图片：</th>
+	<td>
+		<input type="text" name="config[youhui][photo]" value="<{$config.youhui.photo|default:'200'}>" class="input w-100"/>
+	
+	</td>
+</tr>
+<tr><th>装修日记缩略图：</th>
+	<td>
+		<input type="text" name="config[diary][photo]" value="<{$config.diary.photo|default:'200'}>" class="input w-100"/>
+	
+	</td>
+</tr>
+<tr><th>装修公司：</th>
+    <td>
+    <ul class="group-list">
+        <li style="width:200px;">长方形:
+            <input type="text" name="config[company][logo]" value="<{$config.company.logo|default:'200X100'}>" class="input w-100"/>
+        </li>
+        <li>正方形：<input type="text" name="config[company][thumb]" value="<{$config.company.thumb|default:'200X200'}>" class="input w-100"/></li>
+        <div class="clear-both"></div>
+    </ul>
+    </td>
+</tr>
+<tr><th>材料商家：</th>
+	<td>
+    <ul class="group-list">
+        <li style="width:200px;">长方形:
+            <input type="text" name="config[shop][logo]" value="<{$config.shop.logo|default:'200X100'}>" class="input w-100"/>
+        </li>
+        <li>正方形：<input type="text" name="config[shop][thumb]" value="<{$config.shop.thumb|default:'200X200'}>" class="input w-100"/></li>
+        <div class="clear-both"></div>
+    </ul>	
+	</td>
+</tr>
+<tr><th>小区相册：</th>
+	<td>
+		<ul class="group-list">
+            <li style="width:320px;">大:
+                <input type="text" name="config[homepics][photo]" value="<{$config.homepics.photo|default:'600'}>" class="input w-100"/>
+                <label><input type="checkbox" name="config[homepics][watermark]" value="1" <{if $config.homepics.watermark}>checked="checked"<{/if}>/>水印</label>
+                <span class="tip-comment">全局水印开启才生效</span>
+            </li>
+            <li>中：<input type="text" name="config[homepics][thumb]" value="<{$config.homepics.thumb|default:'200'}>" class="input w-100"/></li>
+            <div class="clear-both"></div>
+        </ul>
+	</td>
+</tr>
+<tr><th>案例图片：</th>
+	<td>
+		<ul class="group-list">
+            <li style="width:320px;">大:
+                <input type="text" name="config[casephoto][photo]" value="<{$config.casephoto.photo|default:'720'}>" class="input w-100"/>
+                <label><input type="checkbox" name="config[casephoto][watermark]" value="1" <{if $config.casephoto.watermark}>checked="checked"<{/if}>/>水印</label>
+                <span class="tip-comment">全局水印开启才生效</span>
+            </li>
+            <li>中：<input type="text" name="config[casephoto][thumb]" value="<{$config.casephoto.thumb|default:'200'}>" class="input w-100"/></li>
+            <li>小：<input type="text" name="config[casephoto][small]" value="<{$config.casephoto.small|default:'60X60'}>" class="input w-100"/></li>
+            <div class="clear-both"></div>
+        </ul>
+	</td>
+</tr>
+<tr><th>商品图片：</th>
+	<td>
+		<ul class="group-list">
+            <li style="width:320px;">大:
+                <input type="text" name="config[product][photo]" value="<{$config.product.photo|default:'720'}>" class="input w-100"/>
+                <label><input type="checkbox" name="config[product][watermark]" value="1" <{if $config.product.watermark}>checked="checked"<{/if}>/>水印</label>
+                <span class="tip-comment">全局水印开启才生效</span>
+            </li>
+            <li>中：<input type="text" name="config[product][thumb]" value="<{$config.product.thumb|default:'200'}>" class="input w-100"/></li>
+            <li>小：<input type="text" name="config[product][small]" value="<{$config.product.small|default:'60X60'}>" class="input w-100"/></li>
+            <div class="clear-both"></div>
+        </ul>
+	</td>
+</tr>
+<tr><th>编辑器图片：</th>
+	<td>
+		<ul class="group-list">
+            <li style="width:320px;">大:
+                <input type="text" name="config[editor][photo]" value="<{$config.editor.photo|default:'600'}>" class="input w-100"/>
+                <label><input type="checkbox" name="config[editor][watermark]" value="1" <{if $config.editor.watermark}>checked="checked"<{/if}>/>水印</label>
+                <span class="tip-comment">全局水印开启才生效</span>
+            </li>
+            <li>小：<input type="text" name="config[editor][thumb]" value="<{$config.editor.thumb|default:'200'}>" class="input w-100"/></li>
+            <div class="clear-both"></div>
+        </ul>
+	</td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+(function(K, $){
+	$("input[name='config[watermarktype]']").on('click', function(){
+		if($(this).val() == 'text'){
+			$("tr[watermarktext]").show();
+		}else{
+			$("tr[watermarktext]").hide();
+		}
+	});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

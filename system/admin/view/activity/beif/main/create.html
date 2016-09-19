@@ -1,0 +1,77 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="activity/main:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?activity/main-create.html" mini-form="main-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th>选择分类：</th><td>
+        <select class="input w-100" name="data[cate_id]">
+            <option value="0">请选择....</option>
+            <{foreach from=$cates item=item}>
+            <option value="<{$item.cat_id}>"><{$item.title}></option>
+            <{/foreach}>
+        </select>
+  
+    
+    </td></tr>
+<tr><th class="w-100">城市：</th><td>
+<label>城市:<select name="data[city_id]" class="w-100"><{widget id="data/city" value=$detail.city_id}></select></label>&nbsp;&nbsp;
+<label>地区:<select name="data[area_id]" class="w-100"><{widget id="data/area" value=$detail.area_id}></select></label>
+</td></tr>
+<tr><th>报名截止日期：</th><td><input type="text" name="data[reg_time]" value="<{$detail.reg_time|default:''}>" class="input w-100" date="reg_time" readonly/></td></tr>
+<tr><th>活动开始日期：</th><td><input type="text" name="data[bg_time]" value="<{$detail.bg_time|default:''}>" class="input w-100" date="bg_time" readonly/></td></tr>
+<tr><th>活动结束日期：</th><td><input type="text" name="data[end_time]" value="<{$detail.end_time|default:''}>" class="input w-100" date="end_time" readonly/></td></tr>
+<tr><th>活动简述：</th><td><textarea name="data[intro]" class="textarea"><{$detail.intro}></textarea><br /></td></tr>
+<tr><th>交通：</th><td><textarea name="data[traffic]" class="textarea"><{$detail.traffic}></textarea><br /></td></tr>
+<tr><th>活动缩略图：</th><td><input type="file" name="data[face_pic]" class="input w-300" /><span class="tip-comment">建议要1920宽度以上 高度320PX</span></td></tr>
+<tr><th>BANNER：</th><td><input type="file" name="data[banner]" class="input w-300" /></td></tr>
+
+<tr><th>报名人数：</th><td><input type="text" name="data[sign_num]" value="<{$detail.sign_num|default:''}>" class="input w-100"/></td></tr>
+<tr><th>活动联系电话：</th><td><input type="text" name="data[tel]" value="<{$detail.tel|default:''}>" class="input w-300"/></td></tr>
+<tr><th>活动地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-300"/></td></tr>
+<tr><th>指定静态模板地址：</th><td><input type="text" name="data[template]" value="<{$detail.template|default:''}>" class="input w-300"/><span class="tip-comment">请留空</span></td></tr>
+<tr><th>活动流程：</th><td><textarea name="data[process]" kindeditor="full" style="width:520px;height:350px;"><{$detail.process}></textarea><br /></td></tr>
+<tr><th>百度地图：</th>
+	<td>
+		<label>经度:<input type="text" name="data[lng]" value="<{$detail.lng|default:''}>" id="Bmap_marker_lng" class="input w-100"/></label>
+		<label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat|default:''}>" id="Bmap_marker_lat" class="input w-100"/></label>	
+		<span class="tip-comment">使用百度地图经纬度<a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" ><b>拾取工具</b></a></span>
+	</td>
+</tr>
+<tr><th>活动具体时间：</th><td><input type="text" name="data[sj]" value="<{$detail.sj|default:''}>" class="input w-300"/><span class="tip-comment">例如：8:00至18:00</span></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script> 
+<{include file="admin:common/footer.html"}>

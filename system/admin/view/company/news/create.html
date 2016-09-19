@@ -1,0 +1,41 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/news:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?company/news-create.html" mini-form="news-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>城市：</th><td><{widget id="data/region" level=2}></td></tr>
+<tr><th><span class="red">*</span>公司：</th>
+    <td>
+        <input type="hidden" name="data[company_id]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>
+    </td>
+</tr>
+<tr><th><span class="red">*</span>内容：</th><td><textarea name="data[content]" kindeditor="full" style="width:800px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+<tr><th>审核</th><td>
+    <ul class="group-list">
+        <li><label><input type="radio" name="data[audit]" value="0">待审核</label></li>
+        <li><label><input type="radio" name="data[audit]" value="1" checked="checked">已审核</label></li>
+        <div class="clear-both"></div>
+    </ul>
+    </td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script> 
+<{include file="admin:common/footer.html"}>

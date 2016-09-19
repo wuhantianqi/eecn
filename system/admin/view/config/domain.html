@@ -1,0 +1,87 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?system/config-domain.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="domain" />
+<{if $CONFIG.site.domain}>
+<p class="tip-notice">您的根域名是：<b class="red"><{$CONFIG.site.domain}></b>, 设置时不可与城市分站域名冲突,全部不要以"http"开头，结尾不要'/'</p>
+<{else}>
+<p class="tip-error"><b>您没有设置网站根域名，请在设置-&gt;网站设置-&gt;基本设置 设置站网站根域名，否则会导致网站无法打开</b></p>
+<{/if}>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr>
+    <th>案例：</th>
+    <td>
+        <input type="text" name="config[case]" value="<{$config.case|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>学堂：</th>
+    <td>
+        <input type="text" name="config[article]" value="<{$config.article|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>小区：</th>
+    <td>
+        <input type="text" name="config[home]" value="<{$config.home|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>问答：</th>
+    <td>
+        <input type="text" name="config[ask]" value="<{$config.ask|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>商城：</th>
+    <td>
+        <input type="text" name="config[mall]" value="<{$config.mall|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>商品：</th>
+    <td>
+        <input type="text" name="config[product]" value="<{$config.product|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用， 填写的域名必须是网站设置的根域名的子域名</span>
+    </td>
+</tr>
+<tr>
+    <th>公司主页：</th>
+    <td>
+        <input type="text" name="config[company]" value="<{$config.company|default:''}>" class="input w-300"/>
+        <span class="tip-comment">留空表示不启用,如公司的个性域名是"test.ijh.cc", 则要填写"ijh.cc"，支持三域名域名</span>
+    </td>
+</tr>
+<tr>
+    <th>商家主页：</th>
+    <td>
+        <input type="text" name="config[shop]" value="<{$config.shop|default:''}>" class="input w-300"/>
+         <span class="tip-comment">留空表示不启用,如商铺的个性域名是"test.ijh.cc", 则要填写"ijh.cc"，支持三域名域名</span>
+    </td>
+</tr>
+<tr>
+    <th>保留域名：</th>
+    <td>
+        <input type="text" name="config[holddomain]" value="<{$config.holddomain|default:'www|*admin*|shop|company|mall|*blog*|*space*|*bbs*'}>" class="input w-500"/>
+        <span class="tip-comment">多个之间用 | 隔开，可以使用通配符*</span>
+    </td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

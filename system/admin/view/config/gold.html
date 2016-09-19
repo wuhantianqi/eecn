@@ -1,0 +1,34 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?system/config-gold.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="gold" />
+<table width="100%" border="0" cellspacing="0" class="table-data form"><tr>
+	<th>是否开启：</th>
+	<td>
+		<label><input type="radio" name="config[open]" <{if $config.open}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[open]" <{if isset($config.open) && empty($config.open)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr>
+	<th>开启在线充值：</th>
+	<td>
+		<label><input type="radio" name="config[onpay]" <{if $config.onpay}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[onpay]" <{if isset($config.onpay) && empty($config.onpay)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+<tr><th>金币汇率：</th><td><input type="text" name="config[huilv]" value="<{$config.huilv|default:''}>" class="input w-100"/><span class="tip-comment">1RMB兑换多少金币</span></td></tr>
+<tr><th>最小充值：</th><td><input type="text" name="config[minpay]" value="<{$config.minpay|default:''}>" class="input w-100"/><span class="tip-comment">RMB</span></td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,169 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/shop:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?shop/shop-edit.html" mini-form="shop-form" method="post" ENCTYPE="multipart/form-data">
+<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+    <li><a href="#table-info">基本信息</a></li>
+	<li><a href="#table-gmsm">购买说明</a><li>
+    <li><a href="#table-seo">SEO设置</a></li>
+</ul>
+<input type="hidden" name="shop_id" value="<{$detail.shop_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form" id="table-info">
+<tr><th><span class="red">*</span>店铺标题：</th><td><input type="text" name="data[title]" value="<{$detail.title}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>商家名称：</th>
+	<td><input type="text" name="data[name]" value="<{$detail.name}>" class="input w-300"/><span class="tip-comment">店铺短名称、简称</span></td>
+</tr>
+<tr><th>等级：</th><td><select name="data[group_id]" class="w-150"><{widget id="member/group" from='shop' value=$detail.group_id}></select></td></tr>
+<tr>
+    <th>所属会员：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="<{$detail.uid}>" id="select_member_id" />
+        <input type="text" value="<{if $detail.uid}><{$member.uname}><{/if}>" id="select_member_uname" class="input w-300" readonly/>
+        <{link ctl="member/member:dialog" arg0="shop" select="mini:#select_member_id,#select_member_uname/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr> <th>分类：</th><td><select name="data[cat_id]" class="w-150"><{widget id="shop/cate" parent_id=0 value=$detail.cat_id}></select></td></tr>
+<tr>
+    <th class="w-100">城市：</th>
+    <td>
+       <b class="blue"><{$detail.city_name}></b>
+         <select name="data[area_id]" class="w-150"><{widget id="data/area" city_id=$detail.city_id value=$detail.area_id}></select>
+    </td>
+</tr>
+<tr><th>长方形LOGO：</th>
+    <td>
+        <input type="file" name="data[logo]" class="input w-300" />
+        <{if $detail.logo}>
+        <img src="<{$pager.img}>/<{$detail.logo}>" photo="<{$pager.img}>/<{$detail.logo}>" class="wh-30" style="vertical-align:middle;display:inline;"/>
+        <{/if}>
+        <span class="tip-comment">尺寸大小：<{$CONFIG.attach.shop.logo|default:'200X100'}></span>
+    </td>
+</tr>
+<tr><th>正方形LOGO：</th>
+    <td>
+        <input type="file" name="data[thumb]" class="input w-300" />
+     <{if $detail.thumb}>
+     <img src="<{$pager.img}>/<{$detail.thumb}>" photo="<{$pager.img}>/<{$detail.thumb}>" class="wh-30" style="vertical-align:middle;display:inline;"/>
+     <{/if}>
+     <span class="tip-comment">尺寸大小：<{$CONFIG.attach.shop.thumb|default:'200X200'}></span>
+    </td>
+</tr>
+<tr><th>banner：</th>
+    <td>
+        <input type="text" name="fields[banner]"<{if $detail.banner}> photo="<{$pager.img}>/<{$detail.logo}>"<{/if}> value="<{$detail.banner}>" class="input w-300">
+        <label><input type="file" name="fields[banner]" class="input w-100" /></label>
+    </td>
+</tr>
+<tr>
+    <th>消保：</th>
+    <td>
+        <input type="text" name="data[xiaobao]" value="<{$detail.xiaobao}>" class="input w-100"/>
+        <span class="tip-comment">消费保证金，0：表示未参加消保</span>
+    </td>
+</tr>
+<tr>
+    <th>评分：</th>
+    <td>
+        <label>总评分:<input type="text" name="data[score]" value="<{$detail.score}>" class="input w-100"/></label>
+        <label>评论数:<input type="text" name="data[comments]" value="<{$detail.comments}>" class="input w-100"/></label>
+    </td>
+</tr>
+<tr>
+    <th>统计：</th>
+    <td>     
+        <label>商品数:<input type="text" name="data[products]" value="<{$detail.products}>" class="input w-100"/></label>
+        <label>浏览数:<input type="text" name="data[views]" value="<{$detail.views}>" class="input w-100"/></label>
+    </td>
+</tr>
+<tr><th>电话：</th><td><input type="text" name="data[phone]" value="<{$detail.phone}>" class="input w-300"/></td></tr>
+<tr><th>传真：</th><td><input type="text" name="fields[fox]" value="<{$detail.fox}>" class="input w-300"/></td></tr>
+<tr><th>公司邮箱：</th><td><input type="text" name="fields[mail]" value="<{$detail.mail}>" class="input w-300"/></td></tr>
+<tr><th>QQ：</th><td><input type="text" name="fields[qq]" value="<{$detail.qq}>" class="input w-300"/><span class="tip-comment">多个用逗号分隔</span></td></tr>
+<tr><th>营业时间：</th><td><input type="text" name="fields[hours]" value="<{$detail.hours}>" class="input w-300"/><span class="tip-comment">如9:00 - 18:00</span></td></tr>
+<tr><th>百度地图：</th>
+	<td>
+		<label>经度:<input type="text" name="data[lng]" value="<{$detail.lng}>" id="Bmap_marker_lng" class="input w-100"/></label>
+		<label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat}>" id="Bmap_marker_lat" class="input w-100"/></label>	
+		<span class="tip-comment">使用百度地图经纬度<a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="button"><b>拾取工具</b></a></span>
+	</td>
+</tr>
+<tr><th>地址：</th><td><input type="text" name="fields[addr]" value="<{$detail.addr}>" class="input w-500"/></td></tr>
+<tr><th>交通：</th><td><input type="text" name="fields[jiaotong]" value="<{$detail.jiaotong}>" class="input w-500"/></td></tr>
+<tr><th>店铺公告：</th><td><textarea name="fields[bulletin]" class="textarea"><{$detail.bulletin}></textarea><br /></td></tr>
+<tr><th>商铺介绍：</th><td><textarea name="fields[info]" kindeditor="full" style="width:800px;height:350px;"><{$detail.info}></textarea></td></tr>
+<tr><th>VIP店铺：</th>
+    <td>
+        <ul class="group-list">
+            <li><label><input type="radio" name="data[is_vip]" <{if !$detail.is_vip}>checked="checked"<{/if}> value="0" >普通商铺</label></li>
+            <li><label><input type="radio" name="data[is_vip]" <{if $detail.is_vip}>checked="checked"<{/if}> value="1">旗舰商铺</label></li>
+            <div class="clear-both"></div>
+        </ul>
+    </td>
+</tr>
+<tr><th>实名认证：</th>
+    <td>
+        <ul class="group-list">
+            <li><label><input type="radio" name="data[verify_name]" <{if !$detail.verify_name}>checked="checked"<{/if}> value="0" >未认证</label></li>
+            <li><label><input type="radio" name="data[verify_name]" <{if $detail.verify_name}>checked="checked"<{/if}> value="1">已认证</label></li>
+            <div class="clear-both"></div>
+        </ul>
+    </td>
+</tr>
+<tr><th>审核：</th><td>
+    <ul class="group-list">
+        <li><label><input type="radio" name="data[audit]" value="0" <{if $detail.audit ==0}> checked="checked"<{/if}>  ck="MOD-6">待审核</label></li>
+        <li><label><input type="radio" name="data[audit]" value="1" <{if $detail.audit ==1}> checked="checked"<{/if}>  ck="MOD-6">已审核</label></li>
+        <div class="clear-both"></div>
+    </ul>
+</td>
+<tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby}>" class="input w-100"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table-data form" id="table-gmsm">
+<tr><th>订购须知：</th><td><textarea name="fields[dgxz]" kindeditor="full" style="width:800px;height:350px;"><{$detail.dgxz}></textarea></td></tr>
+<tr><th>配送安装：</th><td><textarea name="fields[psaz]" kindeditor="full" style="width:800px;height:350px;"><{$detail.psaz}></textarea></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table-data form" id="table-seo">
+<tr><th>SEO标题：</th><td><input type="text" name="fields[seo_title]" value="<{$detail.seo_title|default:''}>" class="input w-400"/></td></tr>
+<tr><th>SEO关键字：</th><td><input type="text" name="fields[seo_keywords]" value="<{$detail.seo_keywords|default:''}>" class="input w-400"/></td></tr>
+<tr><th>SEO描述：</th><td><textarea name="fields[seo_description]" class="textarea w-400"><{$detail.seo_description}></textarea><br /></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$("div.page-data").tabs();
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,57 @@
+<{assign var="min_ititle" value="立即预约"}>
+<{include file="block/mini-header.html"}>
+<form action="<{link ctl='ucenter/misc/select:company'}>" method="post" id="so-home-form">
+<input type="hidden" name="multi" value="<{$pager.multi}>" />
+<div style="margin:10px 5px;">
+    <input type="hidden" name="city_id" value="<{$pager.city_id}>" />
+    <label><b>地区：</b><{$pager.city.city_name}>&nbsp;&nbsp;&nbsp;
+        <select name="SO[area_id]" class="input w-100"><option value="">-全部-</option><{widget id="data/area" city_id=$pager.city.city_id value="<{$pager.SO.area_id}>"}></select></label>&nbsp;&nbsp;&nbsp;
+    <label><b>标题：</b><input type="text" name="SO[name]" value="<{$pager.SO.name}>" class="input w-150"/></label>&nbsp;&nbsp;&nbsp;
+    <label><input type="submit" class="pbtn" value="搜索公司"/></label>
+</div>
+</form>
+<table width="100%" border="0" cellspacing="0" class="list">
+<tr><th>装修公司</th><th class="w-100">城市</th><th class="w-100">地区</th></tr>
+<{foreach $items as $item}>
+<tr>
+    <td>
+    <{if $pager.multi == 'Y'}>
+    <label><input type="checkbox" name="itemId[]" value="<{$item.company_id}>" data="{'itemId':'<{$item.company_id}>','title':'<{$item.name}>'}" CK="PRI"/><{$item.name}></label>
+    <{else}>
+    <label><input type="radio" name="itemId" value="<{$item.company_id}>" data="{'itemId':'<{$item.company_id}>','title':'<{$item.name}>'}" CK="PRI"/><{$item.name}></label>
+    <{/if}>
+    </td>
+    <td><{$item.city_name}></td><td><{$item.area_name}></td>
+</tr>
+<{foreachelse}>
+ <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+<{/foreach}>
+<tr>
+    <td  colspan="20" class="page-list"><div class="page"><{$pager.pagebar}></div></td>
+</tr>
+</table>
+<script type="text/javascript">
+<{if empty($pager.city_id)}>
+(function(K, $){
+$("select[name='SO[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+    var link = "<{link ctl='magic:area' arg0='#city_id#' http=true}>"
+	$.getJSON(link.replace("#city_id#", city_id), function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "<option value=''>-全部-</option>";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='SO[area_id]']").html(html);		
+		}else{
+			$("select[name='SO[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="block/mini-footer.html"}>

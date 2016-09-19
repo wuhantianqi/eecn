@@ -1,0 +1,14 @@
+<script type="text/javascript"  src="<{$pager.res}>/script/jqcloud-1.0.4.min.js"></script>
+            <script type="text/javascript">
+                var word_list = [
+                         <{$data.cloud_words}>
+                ];
+                $(function() {
+                     $("#my_favorite_latin_words").jQCloud(word_list);
+                });
+        </script>
+        <div class="union_case_b_r_r_b">
+            <div  id="my_favorite_latin_words" style=" width: 260px; height: 300px;">
+
+            </div>
+        </div>

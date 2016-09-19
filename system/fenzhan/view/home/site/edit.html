@@ -1,0 +1,59 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="home/site:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?home/site-edit.html" mini-form="site-form" method="post" >
+<input type="hidden" name="site_id" value="<{$detail.site_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">城市：</th>
+    <td>
+        <b class="blue"><{$detail.city_name}></b>
+         <select name="data[area_id]" class="w-150"><{widget id="data/area" city_id=$detail.city_id value=$detail.area_id}></select>
+    </td>
+</tr>
+<tr><th>小区：</th>
+	<td>
+    	 <b class="blue"><{$detail.home_name}></b>
+	</td>
+</tr>
+<tr><th>装修公司：</th>
+    <td>
+    	<b class="blue"><{$company.name}></b>
+    </td>
+</tr>
+<tr><th>装修案例：</th>
+    <td>
+    	<b class="blue"><{$case.title}></b>
+    </td>
+</tr>
+<tr><th>百度地图：</th>
+	<td>
+		<label>经度:<input type="text" name="data[lng]" value="<{$detail.lng|default:''}>" id="Bmap_marker_lng" class="input w-100"/></label>
+		<label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat|default:''}>" id="Bmap_marker_lat" class="input w-100"/></label>	
+		<span class="tip-comment">使用百度地图经纬度<a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="button"><b>拾取工具</b></a></span>
+	</td>
+</tr>
+<tr><th>缩略图：</th><td><input type="text" name="data[thumb]" value="<{$detail.thumb}>" <{if $detail.thumb}>photo="<{$pager.img}>/<{$detail.thumb}>"<{/if}> class="input w-200" /> &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="data[thumb]" class="input w-100" /></td></tr>
+<tr><th>面积：</th><td><input type="text" name="data[house_mj]" value="<{$detail.house_mj|default:''}>" class="input w-100"/></td></tr>
+<tr><th>价格：</th><td><input type="text" name="data[price]" value="<{$detail.price|default:''}>" class="input w-300"/><span class="tip-comment">价格万元</span></td></tr>
+
+<tr>
+	<th><span class="red">*</span>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+	<label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>否</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<{include file="fenzhan:common/footer.html"}>

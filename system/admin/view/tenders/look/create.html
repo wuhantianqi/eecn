@@ -1,0 +1,57 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="tenders/look:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?tenders/look-create-<{$tenders_id}>.html" mini-form="look-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>选择类型：</th><td><select id="fromSelector" name="data[from]" class="w-100">
+<{foreach $from_list as $from_type => $from_name}><{if $from_type != 'member'}><option value="<{$from_type}>"><{$from_name}></option><{/if}><{/foreach}>
+</select></td>
+<tr id="company" name="selectInput" class=""><th><span class="red">*</span>公司：</th><td>  <input type="hidden" name="data[tid]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>
+</td></tr>
+<tr>
+<tr id="designer" name="selectInput" class="none"><th><span class="red">*</span>设计师：</th><td>  <input type="hidden"  value="0" id="case_designer_id"/>
+        <input type="text"  value="" id="case_designer_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="designer/designer:dialog" select="mini:#case_designer_id,#case_designer_name/N/设计师" class="button"}>
+</td></tr>
+<tr>
+<tr id="shop" name="selectInput" class="none"><th><span class="red">*</span>商家：</th><td>  <input type="hidden"  value="0" id="case_shop_id"/>
+        <input type="text"  value="" id="case_designer_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="shop/shop:dialog" select="mini:#case_shop_id,#case_shop_name/N/商家" class="button"}>
+</td></tr>
+<tr id="gz" name="selectInput" class="none"><th><span class="red">*</span>工长：</th><td>  <input type="hidden"  value="0" id="case_gz_id"/>
+        <input type="text"  value="" id="case_designer_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="gz/gz:dialog" select="mini:#case_gz_id,#case_gz_name/N/工长" class="button"}>
+</td></tr>
+<tr id="mechanic" name="selectInput" class="none"><th><span class="red">*</span>工长：</th><td>  <input type="hidden"  value="0" id="case_mechanic_id"/>
+        <input type="text"  value="" id="case_designer_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="mechanic/mechanic:dialog" select="mini:#case_mechanic_id,#case_mechanic_name/N/工人" class="button"}>
+</td></tr>
+<tr id="setGold" class="">
+    <th>扣费：</th>
+    <td><label><input type="checkbox" name="gold" value="1" /><b class="blue">勾选将直接扣除该用户的账户余额</b></label></td>
+</tr>
+
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>
+<script>
+(function(K, $){
+$("#fromSelector").change(function(){
+    var a = $(this).attr("value");
+    $("tr[name='selectInput']").hide().find("input:hidden").attr("name", "");
+    $("#"+a).show().find("input:hidden").attr("name", "data[tid]");
+});
+})(window.KT, window.jQuery);
+</script>

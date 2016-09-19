@@ -1,0 +1,24 @@
+<div class="union_shejifangan_b_all union_zjgd">
+    <ul>
+
+        <{foreach $data.site  as $item}>
+        <li>
+            <a target="_blank" title="<{$item.title}>" href="<{link ctl='site:detail' arg0=$item.site_id}>"><img src="<{$pager.img}>/<{$item.face_pic}>" width="145" height="100"/></a>
+            <p class="tl"><a target="_blank" title="<{$item.title}>" href="<{link ctl='site:detail' arg0=$item.site_id}>"><{$item.title|cutstr:30:''}></a></p>
+            <p class="tr"><span class="lt">进度&nbsp;:&nbsp;</span><a title="<{$item.title}>" href="<{link ctl='site:detail' arg0=$item.site_id}>" class="block_lt jungongyansjou"><{$item.status_means}></a></p>
+            <a target="_blank" title="<{$item.title}>" href="<{link ctl='site:detail' arg0=$item.site_id}>" class="block union_tuanzhuang none">我要参观</a>
+        </li>
+        <{/foreach}>
+
+    </ul>
+</div>
+<script>
+    $(document).ready(function() {
+        $(".union_shejifangan_b_all ul li").mouseover(function() {
+            $(this).find(".union_tuanzhuang").show();
+        }).mouseout(function() {
+            $(this).find(".union_tuanzhuang").hide();
+        });
+        $(".union_jcsc_b_b ul li").last().css('border-right', 'none');
+    });
+</script>

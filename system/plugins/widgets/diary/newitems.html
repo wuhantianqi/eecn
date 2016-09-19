@@ -1,0 +1,31 @@
+<p class="mt20 ml20">
+    <span class="lt f22">日记分享</span>
+    <span class="rt mt10"><a href="<{link ctl='content:diary'}>" class="f12 black">更多>></a></span>
+</p>
+<div class="cl"></div>
+<div class="rijifenxaing_l_ul">
+    <ul>
+        <{foreach from=$data.cfg_status item=item key=key name=loop}>
+        <{if $smarty.foreach.loop.index < 6}>
+        <li> <a target="_blank" href="<{link ctl='content:diary' arg0=$key}>"><{$item}></a></li>
+        <{/if}>
+        <{/foreach}>  
+    </ul>
+</div>
+<div class="cl"></div>
+<div class="rijifenxiang_content hauto mt10">
+    <{calldata mdl="diary/diary" order="pv_num:desc" limit="3"}> 
+    <a title="<{$item.title}>"  target="_blank" style="float: left; margin-right: 10px;" href="<{link ctl='content:diaryDetail' arg0=$item.diary_id}>"><img src="<{$pager.img}>/<{$item.face_pic}>" width="140" height="85"/></a>
+    <{/calldata}>
+    <div class="cl"></div>
+    <p class="h10 bodr_b"></p>
+    <div class="rijifenxiang_content_ul hauto">
+        <ul>
+            <{calldata mdl="diary/diary" order="diary_id:desc" limit="5"}> 
+            <li><font>[<{$data.cfg_status[$item.status]}>]</font><a target="_blank" title="<{$item.title}>" href="<{link ctl='content:diaryDetail' arg0=$item.diary_id}>"><{$item.title}></a></li>
+            <{/calldata}>    
+        </ul>
+    </div>
+</div>
+<div class="cl"></div>
+<div class="h10"></div>

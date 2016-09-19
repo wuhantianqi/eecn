@@ -1,0 +1,90 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?system/config-site.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="site" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th class="w-100">网站名称：</th><td><input type="text" name="config[title]" value="<{$config.title}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">网站网址：</th><td><input type="text" name="config[siteurl]" value="<{$config.siteurl}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">网站密钥：</th><td><input type="text" name="config[secret]" value="<{$config.secret}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">联系邮箱：</th><td><input type="text" name="config[mail]" value="<{$config.mail}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">客服QQ：</th><td><input type="text" name="config[kfqq]" value="<{$config.kfqq}>" class="input w-300"/><span class="tip-comment">多个QQ用","分隔</span></td></tr>
+<tr><th class="w-100">联系电话：</th><td><input type="text" name="config[phone]" value="<{$config.phone}>" class="input w-300"/></td></tr>
+<tr><th>网站LOGO：</th>
+    <td>
+        <input type="hidden" name="config[logo]" value="<{$config.logo}>" />
+        <input type="file" name="config[logo]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+        <{if $config.logo}><img src="<{$pager.img}>/<{$config.logo}>" photo="<{$pager.img}>/<{$config.logo}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+    </td>
+</tr>
+<tr><th>微信二维码：</th>
+    <td>
+        <input type="hidden" name="config[weixinqr]" value="<{$config.weixinqr}>" />
+        <input type="file" name="config[weixinqr]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+        <{if $config.weixinqr}><img src="<{$pager.img}>/<{$config.weixinqr}>" photo="<{$pager.img}>/<{$config.weixinqr}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+    </td>
+</tr>
+<tr><th class="w-100">开启3G版：</th>
+	<td>
+		<label><input type="radio" name="config[mobile]" <{if $config.mobile}>checked="checked"<{/if}> value="1"/>开启</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[mobile]" <{if empty($config.mobile)}>checked="checked"<{/if}> value="0"/>关闭</label>
+		<span class="tip-comment">请务必在 网站设置->3G版设置中配置正确，否刚网站可能无法运行</span>
+	</td>
+</tr>
+<tr><th class="w-100">UCenter：</th>
+	<td>
+		<label><input type="radio" name="config[ucenter]" <{if $config.ucenter}>checked="checked"<{/if}> value="1"/>开启</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[ucenter]" <{if empty($config.ucenter)}>checked="checked"<{/if}> value="0"/>关闭</label>
+		<span class="tip-comment">请务必在 会员->登录接口->UCenter设置中配置正确，否则网站可能无法运行</span>
+	</td>
+</tr>
+<tr><th class="w-100">默认城市：</th><td><select name="config[city_id]" class="w-100"><{widget id="data/city" value=$config.city_id}></select></td></tr>
+<tr>
+	<th>开启多城市：</th>
+	<td>
+		<label><input type="radio" name="config[multi_city]" <{if $config.multi_city}>checked="checked"<{/if}> value="1"/>开启</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[multi_city]" <{if isset($config.multi_city) && empty($config.multi_city)}>checked="checked"<{/if}> value="0"/>关闭</label>
+	</td>
+</tr>
+<tr><th class="w-100">根域名：</th>
+    <td>
+        <input type="text" name="config[domain]" value="<{$config.domain}>" class="input w-300"/>
+        <span class="tip-comment">开启多城市或设置频道域名，必须设置此项否则网站无法打开</span>
+    </td>
+</tr>
+<!--
+<tr><th class="w-100">首次访问页面：</th>
+    <td>
+        <select name="config[first_index]" class="input w-200">
+            <option value="city">城市切换页</option>
+            <option value="index">默认分站页面</option>
+            <option value="301index">301跳转城市站</option>
+        </select>
+        <input type="text" name="config[domain]" value="<{$config.domain}>" class="input w-300"/>
+        <span class="tip-comment">第一次访问默认域名， 仅开始多城市功能后有效</span>
+    </td>
+</tr>
+-->
+<tr>
+	<th>开启伪静态：</th><td>
+		<label><input type="radio" name="config[rewrite]" <{if $config.rewrite}>checked="checked"<{/if}> value="1"/>开启</label>&nbsp;&nbsp;
+		<label><input type="radio" name="config[rewrite]" <{if empty($config.rewrite)}>checked="checked"<{/if}> value="0"/>关闭</label>
+	</td>
+</tr>
+<tr><th>网站简介：</th><td><textarea name="config[intro]" class="textarea"><{$config.intro}></textarea><br /></td></tr>
+<tr><th>统计代码：</th><td><textarea name="config[tongji]" class="textarea"><{$config.tongji}></textarea><br /></td></tr>
+<tr><th class="w-100">备案信息：</th><td><input type="text" name="config[icp]" value="<{$config.icp}>" class="input w-300"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

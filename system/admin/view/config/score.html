@@ -1,0 +1,35 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<h4 class="tip-notice">留空表示不启用该评分项</h4>
+<form action="?system/config-score.html" mini-form="config-form" method="post" >
+<input type="hidden" name="K" value="score" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>评分设置：</th><td>装修公司</td></tr>
+<tr><th>score1：</th><td><input type="text" name="config[company][score1]" value="<{$config.company.score1|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score2：</th><td><input type="text" name="config[company][score2]" value="<{$config.company.score2|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score3：</th><td><input type="text" name="config[company][score3]" value="<{$config.company.score3|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score4：</th><td><input type="text" name="config[company][score4]" value="<{$config.company.score4|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score5：</th><td><input type="text" name="config[company][score5]" value="<{$config.company.score5|default:''}>" class="input w-300"/></td></tr>
+<tr><th>评分设置：</th><td>设计师</td></tr>
+<tr><th>score1：</th><td><input type="text" name="config[designer][score1]" value="<{$config.designer.score1|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score2：</th><td><input type="text" name="config[designer][score2]" value="<{$config.designer.score2|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score3：</th><td><input type="text" name="config[designer][score3]" value="<{$config.designer.score3|default:''}>" class="input w-300"/></td></tr>
+<tr><th>评分设置：</th><td>工长</td></tr>
+<tr><th>score1：</th><td><input type="text" name="config[gz][score1]" value="<{$config.gz.score1|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score2：</th><td><input type="text" name="config[gz][score2]" value="<{$config.gz.score2|default:''}>" class="input w-300"/></td></tr>
+<tr><th>score3：</th><td><input type="text" name="config[gz][score3]" value="<{$config.gz.score3|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

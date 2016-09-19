@@ -1,0 +1,118 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="member/group:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?member/group-priv.html" mini-form="group-form" method="post" >
+<style type="text/css"> table.form td label{display: inline-block;width:100px;}</style>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="group_id" value="<{$group.group_id}>"/>
+<tr><th>组名称：</th><td><{$group.group_name}></td></tr>
+<tr><th>类型：</th>
+    <td><b<{if $group.from != 'member'}> class="blue"<{/if}>><{$group.from_title}></b></td>
+</tr>
+<tr>
+    <th>访问网站：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_access]" <{if $priv.allow_access < 0}>checked="checked"<{/if}> value="-1"/>禁止访问</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_access]" <{if $priv.allow_access > 0}>checked="checked"<{/if}> value="1"/>允许访问</label>
+    </td>
+</tr>
+<tr>
+    <th>发布招标：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_tenders]" <{if $priv.allow_tenders < 0}>checked="checked"<{/if}> value="-1"/>禁止招标</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_tenders]" <{if $priv.allow_tenders > 0}>checked="checked"<{/if}> value="1"/>允许招标</label>
+    </td>
+</tr>
+<tr>
+    <th>购买商品：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_order]" <{if $priv.allow_order < 0}>checked="checked"<{/if}> value="-1"/>禁止购买</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_order]" <{if $priv.allow_order > 0}>checked="checked"<{/if}> value="1"/>允许购买</label>        
+    </td>
+</tr>
+<tr>
+    <th>发布问题：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_ask]" <{if $priv.allow_ask < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_ask]" <{if empty($priv.allow_ask)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_ask]" <{if $priv.allow_ask > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>回答问题：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_answer]" <{if $priv.allow_answer < 0}>checked="checked"<{/if}> value="-1"/>禁止回答</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_answer]" <{if empty($priv.allow_answer)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_answer]" <{if $priv.allow_answer > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>装修日记：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_diary]" <{if $priv.allow_diary < 0}>checked="checked"<{/if}> value="-1"/>禁止发布</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_diary]" <{if empty($priv.allow_diary)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_diary]" <{if $priv.allow_diary > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+    </td>
+</tr>
+<tr>
+    <th>口碑评价：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_score]" <{if $priv.allow_score < 0}>checked="checked"<{/if}> value="-1"/>禁止评价</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_score]" <{if empty($priv.allow_score)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_score]" <{if $priv.allow_score > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+        <span class="tip-comment">设计师、工长、公司、商铺</span>
+    </td>
+</tr>
+<tr>
+    <th>内容评价：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_comment]" <{if $priv.allow_comment < 0}>checked="checked"<{/if}> value="-1"/>禁止评论</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_comment]" <{if empty($priv.allow_comment)}>checked="checked"<{/if}> value="0"/>需要审核</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_comment]" <{if $priv.allow_comment > 0}>checked="checked"<{/if}> value="1"/>直接发布</label>
+        <span class="tip-comment">文章、案例、工地、日记</span>
+    </td>
+</tr>
+<{if $group.from == 'shop' || $group.from == 'company'}>
+<tr>
+    <th>微信公众号：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_weixin]" <{if $priv.allow_weixin < 0}>checked="checked"<{/if}> value="-1"/>禁止使用</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_weixin]" <{if $priv.allow_weixin > 0}>checked="checked"<{/if}> value="1"/>允许使用</label>
+        <span class="tip-comment">需要安装微信模块有效</span>
+    </td>
+</tr>
+<tr>
+    <th>微信网站：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_msite]" <{if $priv.allow_msite < 0}>checked="checked"<{/if}> value="-1"/>禁止使用</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_msite]" <{if $priv.allow_msite > 0}>checked="checked"<{/if}> value="1"/>允许使用</label>
+        <span class="tip-comment">需要安装微信模块有效</span>
+    </td>
+</tr>
+<{/if}>
+<{if $group.from == 'designer'}>
+<{include file="admin:member/group/priv/designer.html"}>
+<{elseif $group.from == 'gz'}>
+<{include file="admin:member/group/priv/gz.html"}>
+<{elseif $group.from == 'company'}>
+<{include file="admin:member/group/priv/company.html"}>
+<{elseif $group.from == 'shop'}>
+<{include file="admin:member/group/priv/shop.html"}>
+<{elseif $group.from == 'mechanic'}>
+<{include file="admin:member/group/priv/mechanic.html"}>
+<{/if}>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<{include file="admin:common/footer.html"}>
+
+

@@ -1,0 +1,39 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}></th>
+			<td align="right"><{link ctl="weixin/coupon:create" class="button" title="添加"}>&nbsp;&nbsp;&nbsp;<{link ctl="weixin/coupon:so" load="mini:搜索内容" width="mini:500" class="button" title="搜索"}></td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr><th class="w-100">优惠券</th><th class="w-50">微信号</th><th>标题</th><th>封面图片</th><th class="w-100">发布时间</th><th class="w-100">结束时间</th><th class="w-50">优惠券数量</th><th class="w-50">每人最多允许获取次数</th><th class="w-50">已领取数</th><th class="w-50">已使用</th><th class="w-50">浏览量</th><th>粉丝状态</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><label><input type="checkbox" value="<{$item.coupon_id}>" name="coupon_id[]" CK="PRI"/><{$item.coupon_id}><label></td>
+<td><{$item.wx_id}></td>
+<td><{$item.title}></td>
+<td><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50" /></td>
+<td><{$item.stime}></td>
+<td><{$item.ltime}></td>
+<td><{$item.num}></td>
+<td><{$item.max_count}></td>
+<td><{$item.down_count}></td>
+<td><{$item.use_count}></td>
+<td><{$item.views}></td>
+<td><{$item.follower_condtion}></td>
+<td><{link ctl="weixin/couponsn:items" args=$item.coupon_id title="成员" class="button"}><{link ctl="weixin/coupon:edit" args=$item.coupon_id title="修改" class="button"}><{link ctl="weixin/coupon:delete" args=$item.coupon_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}></td></tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

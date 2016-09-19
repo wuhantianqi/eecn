@@ -1,0 +1,36 @@
+<{assign var="min_ititle" value="立即预约"}>
+<{include file="block/mini-header.html"}>
+<h4 class="tips red" style="margin:5px auto;">预约：<{$hotel.title}></h4>
+<form id="order-form">
+<input type="hidden" name="hotel_id" value="<{$hotel.hotel_id}>" />
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="booking">
+	<tr>
+		<th><span class="red"> * </span>联系人：</th>
+		<td><input name="data[contact]" type="text" class="input w-200" value="" /><span class="tip-comment">填写真实姓名，才能享受投诉保障</span></td>
+	</tr>
+	<tr>
+		<th><span class="red"> * </span>手机：</th>
+		<td><input name="data[mobile]" type="text" class="input w-200" value="" /><span class="tip-comment">用于接收预约验证码</span></td>
+	</tr>
+	<tr>
+		<th>联系QQ：</th>
+		<td><input name="data[qq]" type="text" class="input w-200" value="" /><span class="tip-comment">填写常用QQ，方便网络沟通</span></td>
+	</tr>
+	<tr>
+		<th>预约时间：</th>
+		<td><input name="data[date]" type="text" class="input w-200" date="order" readonly value="" /><span class="tip-comment">选择需要商家提供服务的时间。</span></td>
+	</tr>
+	<tr><th>联系地址：</th><td><input name="data[address]" type="text" class="input w-400" value="" /></td></tr>
+	<tr>
+		<th>备注要求：</th>
+		<td><textarea name="data[notice]" class="textarea" style="width:400px;height:80px;"></textarea></td>
+	</tr>
+	<tr><th></th><td><input action="<{link ctl='hotel:booking'}>" mini-submit="#order-form" type="button" value="提交" class="btn_red" /></td></tr>
+</table>
+</form>
+<script type="text/javascript">
+(function(K, $){
+$("[date],[datepicker]").datepicker({showOtherMonths:true,selectOtherMonths:true,dateFormat:"yy-mm-dd"});
+})(window.KT, window.jQuery)
+</script>
+<{include file="block/mini-footer.html"}>

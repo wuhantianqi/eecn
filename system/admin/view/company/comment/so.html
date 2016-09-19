@@ -1,0 +1,35 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="company/dianping:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?company/comment-index.html" id="SO-form" method="post">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+    <tr><th>公司：</th><td><input type="hidden" name="SO[company_id]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>    
+    </td></tr>
+    <tr><th>用户ID：</th><td> <input type="hidden" name="SO[uid]" value="0" id="company_member_id" class="input w-100"/>
+        <input type="text" value="" id="company_member_uname" class="input w-300"/>
+        <{link ctl="member/member:dialog"  select="mini:#company_member_id,#company_member_uname/N/选择用户" title="选择用户" class="button"}>
+        </td></tr>
+ 
+    <tr><th>是否审核</th><td>
+<ul class="group-list">
+<li><label><input type="radio" name="SO[audit]" value="0"  ck="MOD-6">待审核</label></li>
+<li><label><input type="radio" name="SO[audit]" value="1" ck="MOD-6">已审核</label></li>
+<div class="clear-both"></div>
+</ul>
+</td></tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10">
+            <input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,27 @@
+<div id="citynav_layer"><{foreach $data.citys as $v}><{if $v@index>=5}><span class="citynav-more"><a  id="citynav_more">更多城市</a></span><{break}><{/if}><span><a href="<{$v.siteurl}>"><{$v.city_name}></a></span><{/foreach}></div>
+<div class="citynav-menu" id="citynav_menu" style="top:28px;display:none;"> 
+	<{foreach $data.py_list as $k=>$v}>
+	<div class="py">
+		<b><{$k}></b>              
+		<{foreach $v as $vv}><a title="<{$vv.seo_title|default:$vv.city_name}>" href="<{$vv.siteurl}>"><{$vv.city_name}></a><{/foreach}>                            
+	</div>
+	<{/foreach}>
+</div>
+<script type="text/javascript">
+(function(K, $){
+	$("#citynav_more").click(function(event){
+		event.stopPropagation();
+		event.preventDefault();		
+		var o = $("#citynav_layer").offset();
+		$("#citynav_menu").css("left", o.left).slideDown();//.show("slow");
+		$("body").on("click.citynav_menu",function(event){
+			$("#citynav_menu").slideUp();
+			$("body").off("click.citynav_menu");
+		});
+		$("#citynav_menu").click(function(event){
+			event.stopPropagation();
+			//event.preventDefault();	
+		});
+	});
+})(window.KT, window.jQuery);
+</script>

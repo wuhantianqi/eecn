@@ -1,0 +1,58 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="weixin/weixin:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<p class="tip-notice">平台公众号设置</p>   
+<form action="?weixin/weixin-admin.html" mini-form="weixin-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<{if $weixin}>
+<tr><th></th>
+    <td>
+        <{link ctl='weixin/weixin:leaflets' arg0=$weixin.wx_id title="推广页" class="button"}>
+        <{link ctl='weixin/weixin:welcome' arg0=$weixin.wx_id title="关注回复" class="button"}>
+        <{link ctl='weixin/weixin:menu' arg0=$weixin.wx_id title="菜单设置" class="button"}>
+        <{link ctl='weixin/weixin:reply' arg0=$weixin.wx_id title="素材设置" class="button"}>
+        <{link ctl='weixin/weixin:keyword' arg0=$weixin.wx_id title="关键字设置" class="button"}>
+    </td>
+</tr>
+<{/if}>
+<tr><th>公众号名称：</th><td><input type="text" name="data[wx_name]" value="<{$weixin.wx_name|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th><span class="red">*</span>微信原始ID：</th>
+    <td><input type="text" name="data[wx_sid]" value="<{$weixin.wx_sid|default:''}>" class="input w-200"/><span class="tip-comment">微信公众号的原始ID</span></td>
+</tr>
+<tr><th>微信号：</th><td><input type="text" name="data[weixin]" value="<{$weixin.weixin|default:''}>" class="input w-200"/></td></tr>
+<tr>
+    <th>公众号类型：</th>
+    <td>
+        <label><input type="radio" name="data[type]" <{if empty($weixin.type)}>checked="checked"<{/if}> value="0"/>订阅号</label>
+        <label><input type="radio" name="data[type]" <{if $weixin.type}>checked="checked"<{/if}> value="1"/>服务号</label>&nbsp;&nbsp;       
+    </td>
+</tr>
+<tr><th>头像：</th>
+    <td>
+        <{if $weixin.face}><img src="<{$pager.img}>/<{$weixin.face}>" photo="<{$pager.img}>/<{$weixin.face}>" class="wh-100"/><br /><{/if}>
+        <input type="file" name="weixin_face" class="input w-200"/>        
+    </td>
+</tr>
+<tr>
+    <th>AppID：</th>
+    <td><input type="text" name="data[appid]" value="<{$weixin.appid|default:''}>" class="input w-300"/><span class="tip-comment">AppID(应用ID)</span></td>
+</tr>
+<tr>
+    <th>AppSecret：</th>
+    <td><input type="text" name="data[secret]" value="<{$weixin.secret|default:''}>" class="input w-300"/><span class="tip-comment">AppSecret(应用密钥)</span></td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="admin:common/footer.html"}>

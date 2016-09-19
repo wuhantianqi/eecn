@@ -1,0 +1,87 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+	<table width="100%" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+			<th><{$MOD.title}>&nbsp;&nbsp;(案例:<b class="red"><{$case.title}></b>)</th>
+			<td align="right">
+				<{link ctl="case/case:index" class="button" title="返回案例列表"}>
+			</td>
+			<td width="15"></td>
+		</tr>
+	</table>
+</div>
+<div class="page-data">	
+	<div class="tip-notice">
+		<div class="SWF_Widget" rel="__SWF_Widget" params='{"submit":"true","case_id":"<{$case.case_id}>","OATOKEN":"<{$OATOKEN}>"}'>
+			<span rel="__SWF_ctl" class="SWF_Ctl" style="float:left;">控件加载中...</span>
+			<span style="display:none;" class="SWF_Loading" rel="l"><span rel="m"></span><span rel="n"></span></span>
+		</div>
+	</div>
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+		<th class="w-100">ID</th><th>案例</th><th>图片</th>
+		<th>标题</th><th>排序</th><th>大小</th><th>IP</th><th>上传时间</th>
+		<th class="w-150">操作</th>
+	</tr>
+    <{foreach $items as $item}>
+    <tr>
+		<td class="left"><label><input type="checkbox" value="<{$item.photo_id}>" name="photo_id[]" CK="PRI"/><{$item.photo_id}><label></td>
+		<td><{$case.title}></td><td><img src="<{$pager.img}>/<{$item.photo}>_small.jpg" class="wh-50" photo="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></td>
+		<td><input type="text" name="data[<{$item.photo_id}>][title]" value="<{$item.title}>" class="input w-300"/></td>
+		<td><input type="text" name="data[<{$item.photo_id}>][orderby]" value="<{$item.orderby}>" class="input w-50"/></td>
+		<td><{$item.size|format:"size"}></td><td class="w-100"><{$item.clientip}></td><td class="w-150"><{$item.dateline|format}></td>
+		<td>
+			<{link ctl="case/photo:delete" args=$item.photo_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+		</td>
+	</tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			<td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+			<td colspan="10" class="left">
+				<{link ctl="case/photo:delete" type="button" submit="mini:#items-form" confirm="mini:确定要删除选中的内容吗?" priv="hide" value="批量删除"}>
+				<{link ctl="case/photo:update" args=$item.case_id  type="button" submit="mini:#items-form" priv="hide" value="批量更新"}>
+			</td>
+			<td class="page-list"><{$pager.pagebar}></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<script src="<{$pager.res}>/swfupload/swfupload.js" type="text/javascript"></script>
+<script src="<{$pager.res}>/script/kt.upload.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+var Events = {
+	upload_all_complete : function(event,files){
+		Widget.MsgBox.success("全部图片上传完成！");
+		window.location.reload(true);
+	}
+};
+$("div[rel='__SWF_Widget']").each(function(){
+	$(this).SWFUpload({
+		file_size_limit	: "30 MB",
+		file_upload_limit : 30,
+		upload_url: "?case/photo-upload.html",
+		file_types : "*.jpg;*.gif;*.jpeg;*.png;",
+		file_types_description : "添加图片",
+		flash_url : "<{$pager.res}>/swfupload/swfupload.swf",
+		button_image_url : "<{$pager.res}>/swfupload/photo.jpg",
+		button_placeholder :$("[rel='__SWF_ctl']",this)[0],
+		button_width: 84,
+		button_height: 24,
+		events:Events,
+		debug : false
+	});
+});
+});
+})(window.KT, window.jQuery)
+</script>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,33 @@
+<form method="post" action="<{link ctl=$data.sotype.ctl}>" id="top-search">
+    <div class="search_cont">
+        <a href="javascript:void(0);" id="top_select" class="lt"><{$data.sotype.title}><span class="search_ico index_ico"></span></a>
+        <div class="search_cont_list none">
+            <{foreach $data.all_sotype as $v}>
+            <a href="javascript:void(0);" rel="<{link ctl=$v.ctl}>"><{$v.title}></a>
+            <{/foreach}>
+        </div>
+    </div>
+    <input type="text" name="kw" class="text lt" placeholder="请输入你要搜索的关键字" value="<{$pager.sokw}>"  x-webkit-speech speech/>
+    <input type="submit" class="btn rt" value="搜索"/>
+</form>
+<script type="text/javascript">
+(function(K, $){
+    $(".search_box .search_cont").mouseover(function(){
+        var o = $("#top_select").offset();
+        $(this).find(".search_cont_list").css({left:o.left-2,top:o.top+36}).show();
+    }).mouseleave(function(){
+        $(this).find(".search_cont_list").hide();
+    });
+    $(".search_cont_list a").click(function(){
+        $(".search_box .search_cont #top_select").html($(this).text()+'<span class="search_ico index_ico"></span>');
+        $(".search_box form").attr('action',$(this).attr('rel'));
+        $(".search_box .search_cont_list").hide();
+    });
+    //绿色头部搜索框
+    $(".search_cont").mouseover(function(){
+        $(this).find(".search_cont_list").show();
+    }).mouseleave(function(){
+        $(this).find(".search_cont_list").hide();
+    });
+})(window.KT, window.jQuery);
+</script>

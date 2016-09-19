@@ -1,0 +1,56 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="mechanic/mechanic:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+ <{if $pager.target == 'dialog'}>
+<form action="?mechanic/mechanic-dialog.html&MINI=LoadIframe" id="SO-form" method="post">
+<input type="hidden" name="multi" value="<{$pager.multi}>" />
+<{else}>
+<form action="?mechanic/mechanic-index.html" id="SO-form" method="post">
+<{/if}>       
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>用户ID：</th><td><input type="text" name="SO[uid]" value="" class="input w-100"/></td></tr>
+<tr><th>用户名：</th><td><input type="text" name="SO[uname]" value="" class="input w-100"/></td></tr>
+  
+    <tr><th class="w-100">城市：</th>
+        <td>
+            <label>城市:<select name="SO[city_id]" class="w-100"><option value="0">请选择</option><{widget id="data/city" value=$detail.city_id}></select></label>
+            <label>地区:<select name="SO[area_id]" class="w-100"><option value="0">请选择</option><{widget id="data/area" value=$detail.area_id city_id=$detail.city_id}></select></label>
+        </td>
+    </tr>
+   
+<tr><th>QQ：</th><td><input type="text" name="SO[qq]" value="<{$detail.qq}>" class="input w-300"/></td></tr>
+
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="搜 索" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript">
+(function(K, $){
+$("select[name='SO[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='SO[area_id]']").html(html);		
+		}else{
+			$("select[name='SO[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

@@ -1,0 +1,35 @@
+<tr>
+    <th>免费刷新：</th>
+    <td><input type="text" class="input w-100" name="priv[day_free_count]" value="<{$priv.day_free_count|default:1}>" />
+        <span class="tip-comment">每天可免费刷新排名数,0：不可刷新, 刷新技工排名</span>
+    </td>
+</tr>
+<tr>
+    <th>查看预约：</th>
+    <td>
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile < 0}>checked="checked"<{/if}> value="-1"/>号码隐藏</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_yuyue_mobile]" <{if $priv.show_yuyue_mobile > 0}>checked="checked"<{/if}> value="1"/>号码可见</label>
+    </td>
+</tr>
+<tr>
+    <th>联系方式：</th>
+    <td>
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone < 0}>checked="checked"<{/if}> value="-1"/>禁止显示</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[show_phone]" <{if $priv.show_phone > 0}>checked="checked"<{/if}> value="1"/>允许显示</label>
+        <span class="tip-comment">手机、QQ</span>
+    </td>
+</tr>
+<tr>
+    <th>预约装修：</th>
+    <td>
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue < 0}>checked="checked"<{/if}> value="-1"/>禁止预约</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[allow_yuyue]" <{if $priv.allow_yuyue > 0}>checked="checked"<{/if}> value="1"/>允许预约</label>
+    </td>
+</tr>
+<tr>
+    <th>装修投标：</th>
+    <td>
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look < 0}>checked="checked"<{/if}> value="-1"/>禁止投标</label>&nbsp;&nbsp;
+        <label><input type="radio" name="priv[tenders_look]" <{if $priv.tenders_look > 0}>checked="checked"<{/if}> value="1"/>允许投标</label>
+    </td>
+</tr>

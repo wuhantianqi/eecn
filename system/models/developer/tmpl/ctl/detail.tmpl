@@ -1,0 +1,11 @@
+    public function detail($#pk# = null)
+    {
+        if(!$#pk# = (int)$#pk#){
+            $this->err->add('未指定要查看内容的ID', 211);
+        }else if(!$detail = K::M('#module#/#mdl#')->detail($#pk#)){
+            $this->err->add('您要查看的内容不存在或已经删除', 212);
+        }else{
+            $this->pagedata['detail'] = $detail;
+            $this->tmpl = 'admin:#view#/detail.html';
+        }
+    }

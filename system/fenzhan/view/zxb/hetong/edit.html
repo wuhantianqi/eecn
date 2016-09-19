@@ -1,0 +1,51 @@
+<{include file="fenzhan:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="zxb/hetong/hetong:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?zxb/hetong-edit.html" mini-form="hetong-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="hetong_id" value="<{$detail.hetong_id}>"/>
+<tr><th>工程总价：</th><td><input type="text" name="data[total_price]" value="<{$detail.total_price|default:''}>" class="input w-100"/><span class="tip-comment">工程总价</span></td></tr>
+<tr><th>合同压缩包：</th><td><input type="text" name="data[hetong]" value="<{$detail.hetong}>" <{if $detail.hetong}>photo="<{$pager.img}>/<{$detail.hetong}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[hetong]" class="input w-100" /><span class="tip-comment">合同压缩包，装修公司上传的</span></td></tr>
+<tr><th>业主姓名：</th><td><input type="text" name="data[yezhu]" value="<{$detail.yezhu|default:''}>" class="input w-300"/><span class="tip-comment">业主：甲方</span></td></tr>
+<tr><th>业主电话：</th><td><input type="text" name="data[yezhu_phone]" value="<{$detail.yezhu_phone|default:''}>" class="input w-300"/></td></tr>
+<tr><th>业主银行卡：</th><td><input type="text" name="data[yezhu_bank]" value="<{$detail.yezhu_bank|default:''}>" class="input w-300"/></td></tr>
+
+<tr><th>业主上传证据：</th><td><input type="text" name="step[yezhu_photo]" value="<{$step.yezhu_photo}>" <{if $step.yezhu_photo}>photo="<{$pager.img}>/<{$step.yezhu_photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="step[yezhu_photo]" class="input w-100" /></td></tr>
+<tr><th>业主描述内容：</th><td><textarea name="step[yezhu_content]" class="textarea"><{$step.yezhu_content}></textarea><br /></td></tr>
+
+<tr><th class="w-100">业主状态：</th><td>
+<label><input type="radio" name="data[yezhu_status]" <{if $detail.yezhu_status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+<label><input type="radio" name="data[yezhu_status]" <{if empty($detail.yezhu_status)}>checked="checked"<{/if}> value="0"/>否</label>
+</td></tr>
+<tr><th>公司名：</th><td><input type="text" name="data[company]" value="<{$detail.company|default:''}>" class="input w-300"/><span class="tip-comment">公司：乙方</span></td></tr>
+<tr><th>公司电话：</th><td><input type="text" name="data[company_phone]" value="<{$detail.company_phone|default:''}>" class="input w-300"/></td></tr>
+<tr><th>公司银行卡：</th><td><input type="text" name="data[company_bank]" value="<{$detail.company_bank|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">公司状态：</th><td>
+ <label><input type="radio" name="data[company_status]" <{if $detail.company_status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+<label><input type="radio" name="data[company_status]" <{if empty($detail.company_status)}>checked="checked"<{/if}> value="0"/>否</label>
+</td></tr>
+
+<tr><th>平台内容：</th><td><input type="text" name="step[content]" value="<{$step.content|default:''}>" class="input w-300"/></td></tr>
+<tr>
+	<th>平台确认</th>
+	<td>
+	<ul class="group-list">
+        <label><input type="radio" name="data[status]" <{if $step.status}>checked="checked"<{/if}> value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[status]" <{if empty($step.status)}>checked="checked"<{/if}> value="0"/>否</label>
+		<div class="clear-both"></div>
+	</ul>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+
+<{include file="fenzhan:common/footer.html"}>

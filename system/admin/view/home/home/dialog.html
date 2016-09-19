@@ -1,0 +1,36 @@
+<{include file="admin:common/header.html"}>
+<div class="page-data">	
+	<form id="items-form">
+    <table width="100%" border="0" cellspacing="0" class="table-data table">
+    <tr>
+        <th class="w-100">小区名称(ID)</th><th>城市</th><th>区域</th><th>联系电话</th><th>交房时间</th><th>均价</th>
+        <th><{link ctl="home/home:so" arg0="dialog" arg1=$pager.multi load="mini:搜索小区" width="mini:500" class="button" title="搜索"}></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+		<td>
+		<{if $pager.multi == 'Y'}>
+		<label><input type="checkbox" name="itemId[]" value="<{$item.home_id}>" data="{'itemId':'<{$item.home_id}>','title':'<{$item.name}>'}" CK="PRI"/><{$item.name}>(ID:<{$item.home_id}>)</label>
+		<{else}>
+		<label><input type="radio" name="itemId" value="<{$item.home_id}>" data="{'itemId':'<{$item.home_id}>','title':'<{$item.name}>'}" CK="PRI"/><{$item.name}>(ID:<{$item.home_id}>)</label>
+		<{/if}>
+        </td>
+		<td><{$cityList[$item.city_id].city_name}></td><td><{$areaList[$item.area_id].area_name}></td>
+        <td><{$item.phone}></td><td><{$item.jf_date}></td><td>￥<{$item.price|default:'--'}>/㎡</td>
+        <td></td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+	</form>
+	<div class="page-bar">
+		<table>
+			<tr>
+			    <td class="w-100"><{if $pager.multi == 'Y'}><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label><{/if}></td>
+			    <td class="page-list"><{$pager.pagebar}></td>
+		    </tr>
+		</table>
+	</div>
+</div>
+<{include file="admin:common/footer.html"}>

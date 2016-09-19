@@ -1,0 +1,20 @@
+ <li>
+	<span class="choose_l">区域:</span>	
+	<span class="choose_r">
+		<a <{if $data.areas.checked}>href="<{$data.areas.link}>"<{else}>class="on"<{/if}>>不限</a>
+		<{foreach $data.areas.items as $v}><a <{if $v.checked}>class="on"<{else}>href="<{$v.link}>"<{/if}>><{$v.area_name}></a><{/foreach}>
+		<div class="clear"></div>
+	</span>
+	<div class="clear"></div>
+</li>
+<{foreach $data.attrs as $v}>
+<li<{if $v@last}> style="border-bottom:none;"<{/if}>>
+	<span class="choose_l"><{$v.title}>:</span>
+	<span class="choose_r">
+		<a <{if $v.checked}>href="<{$v.link}>"<{else}>class="on"<{/if}>>不限</a>
+		<{foreach $v.values as $vv}><a <{if $vv.checked}>class="on"<{else}>href="<{$vv.link}>"<{/if}>><{$vv.title}></a><{/foreach}>
+		<div class="clear"></div>
+	</span>
+	<div class="clear"></div>
+</li>
+<{/foreach}>

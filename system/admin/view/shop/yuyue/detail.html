@@ -1,0 +1,41 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/yuyue:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+    <form action="?shop/yuyue-edit.html" mini-form="yuyue-form" method="post" >
+    <input type="hidden" name="yuyue_id" value="<{$detail.yuyue_id}>"/>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-data form">
+        <{if $product}>
+        <tr><th></th><td colspan="10"><b class="red">商品信息</b></td></tr>
+        <tr>
+            <th>名称：</th><td class="w-300"><{$product.name}></td>
+            <th></th><td rowspan="3"><img src="<{$pager.img}>/<{$product.photo}>_thumb.jpg" photo="<{$pager.img}>/<{$product.photo}>_thumb.jpg" class="wh-100"/></td>
+        </tr>
+        <tr><th>价格：</th><td>￥<{$product.price}></td><th></th></tr>
+        <tr><th>分类：</th><td><{$product.cat_title}></td><th></th></tr>
+        <{/if}>
+        <tr><th></th><td colspan="10"><b class="red">预约信息</b></td></tr>
+        <tr>
+            <th>商铺：</th><td><{$shop.name}></td><th>会员：</th><td><{if $member}><{$member.uname}><{else}>访客<{/if}></td>
+        </tr>
+        <tr>
+            <th>联系人：</th><td><{$detail.contact}></td><th>电话：</th><td><{$detail.mobile}></td>
+        </tr>
+        <tr><th>预约时间：</th><td><{$detail.dateline|format}></td><th>来源IP：</th><td><{$detail.clientip}>(<{$detail.clientip|iplocal}>)</td></tr>        
+        <tr><th>地址：</th><td colspan="10"><{$detail.addr|default:'--'}></td></tr>
+        <tr><th>客户要求：</th><td colspan="10"><{$detail.note|default:'--'}></td></tr>
+        <tr><th>跟进状态：</th><td colspan="10"><select name="data[status]" class="select w-150"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+        <tr><th>商家备注：</th><td colspan="10"><textarea name="data[remark]" class="textarea w-400"><{$detail.remark}></textarea></td></tr>
+        <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+    </table>
+    </form>
+</div>
+<{include file="admin:common/footer.html"}>

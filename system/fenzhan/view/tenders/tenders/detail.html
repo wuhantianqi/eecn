@@ -1,0 +1,104 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right">
+            <{link ctl="tenders/look:create" arg0=$detail.tenders_id load="mini:添加竞标" width="mini:600" class="button" title="添加竞标"}>
+            <{link ctl="tenders/tenders:index" priv="hidden" class="button"}>
+        </td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<h4 class="tip-notice">竞标日志</h4>
+<table width="100%" border="0" cellspacing="0" class="table-data table">
+<tr>
+    <th class="w-100">ID</th><th>预约(联系人:电话:ID)</th><th class="w-150">用户</th><th class="w-100">金币</th>
+    <th class="w-150">来源IP</th><th class="w-150">竞标时间</th><th class="w-150">操作</th>
+</tr>
+<{foreach $look_list as $item}>
+<tr>
+    <td class="left"><label><{$item.look_id}><label></td>
+    <td class="left"><{$detail.contact|default:'--'}>:<{$detail.mobile|default:'--'}>:<{$item.book_id}></td>
+    <td><{$member_list[$item.uid].uname}>(<{$item.uid}>)</td><td><{$item.gold}></td>
+    <td><{$item.clientip}>(<{$item.clientip|iplocal}>)</td><td><{$item.dateline|format}></td>
+    <td>
+         <{link ctl="tenders/track:create"  arg0=$item.look_id class="button" title="查看反馈"}>  
+        <{if !$detail.sign_uid}><{link ctl="tenders/look:update" act="mini:设为签单" arg0=$item.look_id class="button" title="设为签单"}><{else}><{if $detail.sign_uid == $item.uid}><b class="blue">中标</b><{else}><b>淘汰</b><{/if}><{/if}>
+        </td>
+</tr>
+<{foreachelse}>
+ <tr><td colspan="20"><p class="text-align">还没有查看预约</p></td></tr>
+<{/foreach}>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>标题：</th><td colspan="10"><b class="blue"><{$detail.title}></b>(ID:<{$detail.tenders_id}>)</td></tr>
+<tr>
+    <th class="w-200">类型：</th><td class="w-400"><{$detail.from}></td>
+    <th class="w-200">状态：</th><td class="w-400"><{if $detail.sign_uid}><b class="">已签约</b><{else}>未签约<{/if}></td>
+</tr>
+<{if $detail.sign_uid}>
+<tr>
+    <th>签约者：</th><td><{$member_list[$detail.sign_uid].uname}>(UID:<{$detail.sign_uid}>)</td>
+    <th>签约时间：</th><td><{$detail.sign_time|format}></td>
+</tr>
+<{/if}>
+<tr>
+    <th>联系人：</th><td><{$detail.contact|default:'--'}><{if $detail.uid}>[<{$member_list[$detail.uid].uname}>(UID:<{$detail.uid}>)]<{/if}></td>
+    <th>电话：</th><td><{$detail.mobile|default:'--'}></td>
+
+</tr>
+<tr>
+    <th>地区：</th><td><{$detail.city_name|default:'--'}>  <{$detail.area_name|default:'--'}></td>
+    <th>地址：</th><td><{$detail.addr|default:'--'}></td>
+</tr>
+<tr>
+    <th>装修时间：</th><td><{$detail.zx_time|default:'--'}></td>
+    <th>下次联系时间：</th><td><{$detail.tx_time|default:'--'}></td><td colspan="10"></td>
+</tr>
+<tr>
+    <th>最大查看数：</th><td><{$detail.max_look}></td>
+    <th>售价/金币：</th><td><{$detail.gold}></td>
+</tr>
+<tr>
+    <th>已查看数：</th><td><{$detail.look_count}></td>
+    <th>收益金币：</th><td><{$detail.look_gold}></td>
+</tr>
+<tr><th>浏览数：</th><td><{$detail.views}></td></tr>
+<tr><th>反馈数：</th><td><{$detail.tracks}></td><th>新反馈：</th><td><{$detail.new_track}></td>
+
+<tr>
+    <th>发布时间：</th><td><{$detail.dateline|format}></td>
+    <th>发布IP：</th><td><{$detail.clientip}><{$detail.clientip|iplocal}></td>
+</tr>
+<tr><th></th><td colspan="10"><b class="red">装修需求</b></td></tr>
+<tr><th>装修方式：</th><td><{$detail.way_title}></td><th>招标类型：</th><td><{$detail.type_title}></td></tr>
+<tr><th>喜欢风格：</th><td><{$detail.style_title}></td><th>预算范围：</th><td><{$detail.budget_title}></td></tr>
+<tr><th>服务需求：</th><td><{$detail.service_title}></td><th>空间户型：</th><td><{$detail.house_type_title}></td></tr>
+<{widget id="attr/info" from=$detail.from_attr_key value=$detail.attrvalues}>
+<tr><td colspan="10" style="height:5px;"></td></tr>
+<tr><th>客户要求：</th><td colspan="10"><{$detail.content|default:'--'}></td></tr>
+<tr>
+    <th>状态：</th><td><{$detail.status_title}></td>
+    <th>审核：</th><td><{if $detail.audit}><b class="blue">通过</b><{else}><span class="red">待审</span><{/if}></td>   
+    <td colspan="10"></td>
+</tr>
+<tr><th>管理员备注：</th><td colspan="10"><{$detail.remark|default:'--'}></td></tr>
+<tr>
+    <th>发布时间：</th><td><{$detail.dateline|format}></td>
+    <th>发布IP：</th><td><{$detail.clientip}><{$detail.clientip|iplocal}></td>
+    <td colspan="10"></td>
+</tr>
+<tr>
+    <th class="clear-th-bottom"></th>
+    <td class="clear-td-bottom" colspan="10">
+        <{link ctl="tenders/tenders:edit" arg0=$detail.tenders_id class="button" title="修改预约"}>
+        <{link ctl="tenders/look:create" arg0=$detail.tenders_id load="mini:添加竞标" width="mini:600" class="button" title="添加竞标"}>
+    </td>
+</tr>
+</table>
+</div>
+<{include file="admin:common/footer.html"}>

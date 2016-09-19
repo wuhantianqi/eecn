@@ -1,0 +1,16 @@
+<h2><a title='最新上传方案' href="<{link ctl='case'}>">最新上传设计方案</a></h2>
+<div class="home_buildings_laest_designfa_show hauto bgwhite mt15">
+    <ul>
+        <{foreach $data.case_new as $item}>
+        <li>
+            <a target="_blank" title="<{$item.title}>" href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>"><img src="<{$pager.img}>/<{$item.photo}>_small.jpg" width="80" height="50" /></a>
+            <p>
+                <font><a target="_blank" title="<{$item.title}>" href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="red"><{$item.title|cutstr:18:''}></a></font><br />
+                <font>提供者：<a target="_blank" title="<{$data.case_new_company_list[$item.company_id].name}>" href="<{link ctl='company' arg0=$item.company_id}>" class="black8"><{$data.case_new_company_list[$item.company_id].sort_name}></a></font><br />
+                <font>图片：（<{$item.photos}>）张</font>
+            </p>
+        </li>
+        <{/foreach}>
+
+    </ul>
+</div>

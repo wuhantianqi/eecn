@@ -1,0 +1,100 @@
+<?php
+/**
+ * Copy Right IJH.CC
+ * Each engineer has a duty to keep the code elegant
+ * Author @shzhrui<Anhuike@gmail.com>
+ * $Id: ctl-all.tmpl 2034 2013-12-07 03:08:33Z $
+ */
+
+class Ctl_#module#_#ctl# extends Ctl
+{
+    
+    public function index($page=1)
+    {
+    	$filter = $pager = array();
+    	$pager['page'] = max(intval($page), 1);
+    	$pager['limit'] = $limit = 50;
+        if($SO = $this->GP('SO')){
+            $pager['SO'] = $SO;
+            $filter = K::M('helper/so')->filter($SO);
+        }
+        if($items = K::M('#module#/view')->items($filter, null, $page, $limit, $count)){
+        	$pager['count'] = $count;
+        	$pager['pagebar'] = K::M('helper/page')->page($count, $limit, $page);
+        }
+        $this->pagedata['items'] = $items;
+        $this->pagedata['pager'] = $pager;
+        $this->tmpl = 'admin:#view#/items.html';
+    }
+
+    public function detail($pk)
+    {
+    	$this->pagedata['detail'] = K::M('#module#/view')->detail($pk);
+    	$this->tmpl = 'admin:#view#/detail.html';
+    }
+
+    public function create()
+    {
+        if($this->checksubmit()){
+            if(!$data = $this->GP('data')){
+                $this->err->add('非法的数据提交', 201);
+            }else if($#pk# = K::M('#module#/handler')->create($data)){
+                $this->err->add('修改内容成功');
+#upload#
+            }
+        }else{
+           $this->tmpl = 'admin:#view#/create.html';
+        }
+    }
+
+    public function save()
+    {
+        $success = false;
+        if(!$this->checksubmit()){
+            $this->err->add('非法的请求', 201);
+        }else if(!$data = $this->GP('data')){
+            $this->err->add('非法的请求', 202);
+        }else if($#pk# = $this->GP('#pk#')){
+            if(K::M('#module#/handler')->update($#pk#, $data)){
+                $success = true;
+                $this->err->add('修改内容成功');
+            }
+        }else if($#pk# = K::M('#module#/handler')->create($data)){
+            $success = true;
+            $this->err->add('添加内容成功');
+        }
+#upload#
+    }
+
+    public function edit($pk=null)
+    {
+        if($this->checksubmit()){
+            if(!$data = $this->GP('data')){
+                $this->err->add('非法的数据提交', 201);
+            }else if($#pk# = $this->GP('#pk#')){
+                $this->err->add('未指要修改ID', 202);
+            }else if(K::M('#module#/handler')->update($#pk#, $data)){
+                $this->err->add('修改内容成功');
+#upload#
+            }
+        }else{
+        	$this->pagedata['detail'] = K::M('#module#/view')->detail($pk);
+        	$this->tmpl = 'admin:#view#/edit.html';
+        }
+    }
+
+    public function delete($#pk#)
+    {
+        if($#pk# = (int)$#pk#){
+            if(K::M('#module#/handler')->delete($#pk#)){
+                $this->err->add('删除成功');
+            }
+        }else if($ids = $this->GP('#pk#')){
+            if(K::M('#module#/handler')->delete($ids)){
+                $this->err->add('批量删除成功');
+            }
+        }else{
+            $this->err->add('未指定要删除的内容ID', 401);
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="mechanic/mechanic:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?mechanic/mechanic-create.html" mini-form="mechanic-form" method="post" ENCTYPE="multipart/form-data">
+<input type="hidden" name="account[from]" value="mechanic"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr>
+    <th><span class="red">*</span>登录名：</th>
+    <td><input type="text" name="account[uname]" value="<{$detail.uname}>" class="input w-300"/><span class="tip-comment">登录网站的帐号</span></td>
+</tr>
+<tr>
+    <th><span class="red">*</span>密码：</th>
+    <td><input type="text" name="account[passwd]" value="<{$detail.passwd}>" class="input w-300"/><span class="tip-comment">登录网站的密码</span></td>
+</tr>
+<tr><th><span class="red">*</span>邮箱：</th><td><input type="text" name="account[mail]" value="<{$detail.mail}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>名称：</th><td><input type="text" name="data[name]" value="<{$detail.name|default:''}>" class="input w-300"/></td></tr>
+<tr><th>等级：</th><td><select name="data[group_id]" class="w-150"><{widget id="member/group" from='mechanic' value=$detail.group_id}></select></td></tr>
+<tr><th>QQ：</th><td><input type="text" name="data[qq]" value="<{$detail.qq|default:''}>" class="input w-300"/></td></tr>
+<tr><th>手机：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="w-100"><span class="red">*</span>城市：</th><td><{widget id="data/region" city_id=$detail.city_id}></td></tr>
+<{widget id="attr/form" from="zx:mechanic"}>
+<tr><th>简介：</th><td><textarea name="data[about]" kindeditor="full" style="width:800px;height:350px;"><{$detail.about}></textarea></td></tr>
+<tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:50}>" class="input w-100"/></td></tr>
+<tr><th>浏览数：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:'0'}>" class="input w-100"/></td></tr>
+<tr><th>审核：</th>
+    <td>
+        <ul class="group-list">
+            <li><label><input type="radio" name="data[audit]" value="0" />待审核</label></li>
+            <li><label><input type="radio" name="data[audit]" value="1" checked="checked" />已审核</label></li>
+            <div class="clear-both"></div>
+        </ul>
+    </td>
+</tr> 
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

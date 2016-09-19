@@ -1,0 +1,67 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="home/site:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?home/site-create.html" mini-form="site-form" method="post" >
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="" class="input w-300"/></td></tr>
+<tr><th class="w-100">城市：</th><td><{widget id="data/region" city_id=$detail.city_id area_id=$detail.area_id}></td></tr>
+<tr>
+    <th>所属会员：</th>
+    <td>
+        <input type="hidden" name="data[uid]" value="0" id="site_member_id" />
+        <input type="text" value="" id="site_member_uname" class="input w-300"/>
+        <{link ctl="member/member:dialog" arg0="cygz" select="mini:#site_member_id,#site_member_uname/N/选择用户" title="选择用户" class="button"}>
+    </td>
+</tr>
+<tr><th>小区：</th>
+    <td>
+        <input type="hidden" name="data[home_id]" value="0" id="case_home_id"/>
+        <input type="text" name="data[home_name]"  value="" id="case_home_name" class="input w-300"/>
+        <{link ctl="home/home:dialog" select="mini:#case_home_id,#case_home_name/N/选择小区" class="button"}>
+    </td>
+</tr>
+<tr><th>装修公司：</th>
+    <td>
+        <input type="hidden" name="data[company_id]" value="0" id="case_company_id"/>
+        <input type="text"  value="" id="case_company_name" class="input w-300" readonly="readonly"/>
+        <{link ctl="company/company:dialog" select="mini:#case_company_id,#case_company_name/N/选择装修公司" class="button"}>    
+    </td>
+</tr>
+<tr><th>装修案例：</th>
+    <td>
+        <input type="hidden" name="data[case_id]" value="0" id="case_case_id"/>
+        <input type="text"  value="" id="case_case_title" class="input w-300" readonly="readonly"/>
+        <{link ctl="case/case:dialog" select="mini:#case_case_id,#case_case_title/N/选择装修案例" class="button"}>    
+    </td>
+</tr>
+<tr><th>百度地图：</th>
+	<td>
+		<label>经度:<input type="text" name="data[lng]" value="<{$detail.lng|default:''}>" id="Bmap_marker_lng" class="input w-100"/></label>
+		<label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat|default:''}>" id="Bmap_marker_lat" class="input w-100"/></label>	
+		<span class="tip-comment">使用百度地图经纬度<a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="button"><b>拾取工具</b></a></span>
+	</td>
+</tr>
+<tr><th>缩略图：</th><td><input type="file" name="data[thumb]" class="input w-300" /></td></tr>
+<tr><th>面积：</th><td><input type="text" name="data[house_mj]" value="<{$detail.house_mj|default:''}>" class="input w-100"/></td></tr>
+<tr><th>价格：</th><td><input type="text" name="data[price]" value="<{$detail.price|default:''}>" class="input w-300"/><span class="tip-comment">价格万元</span></td></tr>
+
+<tr>
+	<th><span class="red">*</span>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" checked="checked" value="1"/>是</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" value="0"/>否</label></td></tr>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<{include file="admin:common/footer.html"}>

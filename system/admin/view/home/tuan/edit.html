@@ -1,0 +1,86 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+            <th><{$MOD.title}></th>
+            <td align="right"><{link ctl="home/tuan:index" priv="hidden" class="button"}></td>
+            <td width="15"></td>
+        </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?home/tuan-edit.html" mini-form="tuan-form" method="post" >
+        <table width="100%" border="0" cellspacing="0" class="table-data form">
+            <input type="hidden" name="tuan_id" value="<{$detail.tuan_id}>"/>
+            <tr><th><span class="red">*</span>团装标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+            <tr><th class="w-100"><span class="red">*</span>城市：</th>
+                 <td>
+                    <b class="blue"><{$cityList[$detail.city_id].city_name}></b>
+                     <select name="data[area_id]" class="w-150"><{widget id="data/area" city_id=$detail.city_id value=$detail.area_id}></select>
+                 </td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>小区：</th>
+                <td>
+                    <input type="hidden" name="data[home_id]" value="<{$detail.home_id}>" id="select_home_home_id_id" />
+                    <input type="text" value="<{$home.name}>" id="select_home_home_id_name" class="input w-300" readonly/>
+                    <{link ctl="home/home:dialog" select="mini:#select_home_home_id_id,#select_home_home_id_name/N/选择小区" title="选择小区" class="button"}>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="red">*</span>公司：</th>
+                <td>
+                    <input type="hidden" name="data[company_id]" value="<{$detail.company_id}>" id="select_company_company_id_id" />
+                    <input type="text" value="<{$company.name}>" id="select_company_company_id_name" class="input w-300" readonly/>
+                    <{link ctl="company/company:dialog"  select="mini:#select_company_company_id_id,#select_company_company_id_name/N/选择装修公司" title="选择装修公司" class="button"}>
+                </td>
+            </tr>
+            <tr><th>节约多少钱：</th><td><input type="text" name="data[jieyue]" value="<{$detail.jieyue|default:''}>" class="input w-100"/></td></tr>
+            <tr><th>报名数：</th><td><input type="text" name="data[sign_num]" value="<{$detail.sign_num|default:''}>" class="input w-100"/></td></tr>
+            <tr><th>签约数：</th><td><input type="text" name="data[qy_num]" value="<{$detail.qy_num|default:''}>" class="input w-100"/></td></tr>
+            <tr><th>施工数：</th><td><input type="text" name="data[sg_num]" value="<{$detail.sg_num|default:''}>" class="input w-100"/></td></tr>
+            <tr><th><span class="red">*</span>日期：</th>
+                <td>
+                    <input type="text" name="data[stime]" value="<{$detail.stime|format:'Y-m-d'}>" class="input w-100" date="stime" readonly/>~
+                    <input type="text" name="data[ltime]" value="<{$detail.ltime|format:'Y-m-d'}>" class="input w-100" date="ltime" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <th>是否审核：</th>
+                <td>
+                    <label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>发布</label>&nbsp;&nbsp;
+                    <label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>待审</label>
+                </td>
+            </tr>
+            <tr><th>团装介绍：</th><td><textarea name="data[content]" kindeditor="full" style="width:800px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+            <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+        </table>
+    </form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+    (function(K, $) { 
+        
+        var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+        
+        $("select[name='data[city_id]']").live('change', function() {
+            var city_id = $(this).val();
+            if (!city_id) {
+                return false;
+            }
+            $.getJSON("?data/area-city-" + city_id + ".html", function(ret) {
+                if (ret.error) {
+                    Widget.MsgBox.error(ret.message.join(","));
+                } else if (ret.areas.length > 0) {
+                    var html = "";
+                    for (var i = 0; i < ret.areas.length; i++) {
+                        html += '<option value="' + ret.areas[i].area_id + '">' + ret.areas[i].area_name + '</option>';
+                    }
+                    $("select[name='data[area_id]']").html(html);
+                } else {
+                    $("select[name='data[area_id]']").html('<option value="">--</option>');
+                }
+            });
+        });
+    })(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

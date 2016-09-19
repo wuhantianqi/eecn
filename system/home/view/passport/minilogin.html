@@ -1,0 +1,64 @@
+<{assign var="min_ititle" value="立即登录"}>
+<{include file="block/mini-header.html"}>
+<div style="padding-bottom:30px;">
+<form action="<{link ctl='passport:login' http='ajax'}>" method="post" id="login-form">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><td colspan="5">&nbsp;</td></tr>
+    <tr>
+        <td width="60%" align="right" valign="top">
+            <table width="100%" brder="0" cellspacing="0" cellpadding="0" class="minform" style="border-right:1px solid #ddd;">
+                <tr>
+                    <th>用户名：</th>
+                    <td><input name="account[uname]" type="text" class="input w-200" value="" placeholder="邮箱/用户名"/></td>
+                </tr>
+                <tr>
+                    <th>密 码：</th>
+                    <td><input name="account[passwd]" type="password" class="input w-200" value="" placeholder="请输入登录密码"/></td>
+                </tr>
+                <{if $CONFIG.access.verifycode.login}>
+                <tr>
+                    <th>验证码:</th>
+                    <td>
+                        <input type="text" class="input w-50" name="verifycode"/> 
+                        <label style="display:inline-block;">
+                            <img verify="#pass-verify" id="pass-verify" title="点击刷新验证码" src="<{$pager.url}>/index.php?magic-verify&_=<{$smarty.now}>" style="width:120px;height:35px;" height="32" align="AbsBottom"/>
+                        </label>
+                    </td>
+                </tr>
+                <{/if}>              
+                <tr><th></th>
+                    <td><label><input name="account[remlogin]" type="checkbox" value="1" />&nbsp;&nbsp;自动登录</label>
+                    <a href="<{link ctl='passport:forgot'}>" style="margin-left:50px;">忘记密码？</a></td>
+                </tr>
+                <tr><th></th>
+                    <td><a mini-submit="#login-form" id="min-login-btn" class="green_btn">登 录</a></td>
+                </tr>
+            </table>    
+        </td>
+        <td width="35%" valign="top">
+            <div style="color:#888;padding-left:25px;">
+                <div class="share">
+                   <a href="<{link ctl='passport:weibo'}>" class="weibo_login" style="color:#FFF;">微博账号登录</a>
+                   <a href="<{link ctl='passport:qqlogin'}>"  class="QQ_login" style="color:#FFF;">QQ账号登录</a>
+                </div>
+                <p style="margin-top:12px;">还没有网站帐号?</p>
+                <a class="" href="<{link ctl='passport:signup'}>" style="margin-top:20px;"><b>立即注册&gt;&gt;</b></a>               
+            </div>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+(function(K, $){
+$("[verify]").click(function(){$($(this).attr("verify")).attr("src", "<{$pager.url}>/index.php?magic-verify&_"+Math.random());});
+$("#login-form input.input").keydown(function(event){
+    if(event.keyCode == 13){
+        event.stopPropagation();event.preventDefault();
+        $("#min-login-btn").trigger("click");
+        return false;
+    }
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="block/mini-footer.html"}>

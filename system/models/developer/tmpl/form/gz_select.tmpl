@@ -1,0 +1,8 @@
+<tr>
+    <th>#label#：</th>
+    <td>
+        <input type="hidden" name="data[#field#]" value="<{$detail.#field#}>" id="select_gz_#field#_id" />
+        <input type="text" value="<{$gz.name}>" id="select_gz_#field#_name" class="input w-300" readonly/>
+        <{link ctl="gz/gz:dialog" select="mini:#select_gz_#field#_id,#select_gz_#field#_name/N/选择工长" title="选择工长" class="button"}>#comment#
+    </td>
+</tr>

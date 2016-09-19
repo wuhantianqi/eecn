@@ -1,0 +1,30 @@
+<script src="<{$pager.res}>/swfupload/swfupload.js" type="text/javascript"></script>
+<script src="<{$pager.res}>/script/kt.upload.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+var Events = {
+	upload_all_complete : function(event,files){
+		Widget.MsgBox.success("全部图片上传完成！");
+		window.location.reload(true);
+	}
+};
+$("div[rel='__SWF_Widget']").each(function(){
+	$(this).SWFUpload({
+		file_size_limit	: "30 MB",
+		file_upload_limit : 30,
+		upload_url: "#uploadurl#",
+		file_types : "*.jpg;*.gif;*.jpeg;*.png;",
+		file_types_description : "添加图片",
+		flash_url : "<{$pager.res}>/swfupload/swfupload.swf",
+		button_image_url : "<{$pager.res}>/swfupload/photo.jpg",
+		button_placeholder :$("[rel='__SWF_ctl']",this)[0],
+		button_width: 84,
+		button_height: 24,
+		events:Events,
+		debug : false
+	});
+});
+});
+})(window.KT, window.jQuery)
+</script>

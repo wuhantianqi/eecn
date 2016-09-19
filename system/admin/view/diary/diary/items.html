@@ -1,0 +1,69 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+            <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+            <th><{$MOD.title}></th>
+            <td align="right"><{link ctl="diary/diary:create" class="button" title="添加"}>&nbsp;&nbsp;&nbsp;<{link ctl="diary/diary:so" class="button" title="搜索"}></td>
+            <td width="15"></td>
+        </tr>
+    </table>
+</div>
+<div class="page-data">	
+    <form id="items-form">
+        <table width="100%" border="0" cellspacing="0" class="table-data table">
+            <tr>
+                <th class="w-100">ID</th>
+                <th>城市</th>
+                <th>用户</th>
+                <th>标题</th>
+                <th>小区</th>
+                <th>缩略图</th>
+                <th>公司</th>
+                <th class="w-50">合同总价</th>
+                <th>开工日期</th>
+                <th>完工日期</th>
+                <th class="w-50">状态</th>
+                <th>创建IP</th>
+                <th class="w-100">创建时间</th>
+                <th class="w-50">是否审核</th>
+                <th class="w-150">操作</th>
+            </tr>
+            <{foreach $items as $item}>
+            <tr>
+                <td><label><input type="checkbox" value="<{$item.diary_id}>" name="diary_id[]" CK="PRI"/><{$item.diary_id}><label></td>
+                			<td><{$cityList[$item.city_id].city_name}></td>
+                            <td><{$member_list[$item.uid].uname|default:'游客'}>(ID:<{$item.uid}>)</td>
+                            <td><{$item.title}></td>
+                            <td><{$home_list[$item.home_id].name|default:'--'}></td>
+                            <td><img src="<{$pager.img}>/<{$item.thumb}>" class="wh-50" /></td>
+                            <td><{$company_list[$item.company_id].name|default:'--'}></td>
+                            <td><{$item.total_price}></td>
+                            <td><{$item.start_date}></td>
+                            <td><{$item.end_date}></td>
+                            <td><{$status[$item.status]}></td>
+                            <td><{$item.clientip}></td>
+                            <td><{$item.dateline|format}></td>
+                            <td><{if $item.audit}>正常<{else}><b class="red">待审</b><{/if}></td>
+                            <td>
+                                <{link ctl="diary/item:index" args=$item.diary_id title="写日记" class="button"}>
+                                <{link ctl="diary/diary:edit" args=$item.diary_id title="修改" class="button"}>
+                                <{link ctl="diary/diary:delete" args=$item.diary_id act="mini:删除" confirm="mini:确定要删除吗？" title="删除" class="button"}>
+                            </td>
+                            </tr>
+                            <{foreachelse}>
+                            <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+                            <{/foreach}>
+                </table>
+        </form>
+    <div class="page-bar">
+        <table>
+            <tr>
+                <td class="w-100"><label><input type="checkbox" CKA="PRI"/>&nbsp;&nbsp;全选</label></td>
+                <td colspan="10" class="left"><{link ctl="diary/diary:delete" type="button" submit="mini:#items-form" confirm="mini:确定要批量删除选中的内容吗?" priv="hide" value="批量删除"}>&nbsp;&nbsp;&nbsp;<{link ctl="diary/diary:doaudit" type="button" submit="mini:#items-form" confirm="mini:确定要批量审核选中的内容吗?" priv="hide" value="批量审核"}></td>
+                <td class="page-list"><{$pager.pagebar}></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <{include file="admin:common/footer.html"}>

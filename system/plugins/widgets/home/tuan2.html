@@ -1,0 +1,11 @@
+<ul>
+	  <{foreach from=$data.tuan item=item}>
+            <li>
+                <a target="_blank" title="<{$item.title}>" href="<{link ctl='home:tuanDetail' arg0=$item.tuan_id}>"><img src="<{$pager.theme}>/joyful/static/pic/tuan_1.png" width="45" height="45"/></a>
+                <div class="joyful_tuan_l_b_r lt">
+                    <span>立省￥<{$item.jieyue}>元</span>
+                    <p><span><{$item.sign_num}>人已经参团&nbsp;&nbsp;<a target="_blank" title="<{$item.title}>" href="<{link ctl='home:tuanDetail' arg0=$item.tuan_id}>" class="red">去看看>></a></span></p>
+                </div>
+            </li>
+       <{/foreach}>   
+</ul>

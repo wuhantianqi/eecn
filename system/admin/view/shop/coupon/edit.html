@@ -1,0 +1,72 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="shop/coupon:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data"><form action="?shop/coupon-edit.html" mini-form="coupon-form" method="post" ENCTYPE="multipart/form-data">
+<input type="hidden" name="coupon_id" value="<{$detail.coupon_id}>"/>
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th>商铺：</th>
+    <td>
+        <input type="hidden" name="data[shop_id]" value="<{$detail.shop_id}>" id="select_shop_shop_id_id" />
+        <input type="text" value="<{$shop.title}>" id="select_shop_shop_id_name" class="input w-300" readonly/>
+        <{link ctl="shop/shop:dialog"  select="mini:#select_shop_shop_id_id,#select_shop_shop_id_name/N/选择商铺" title="选择商铺" class="button"}>
+    </td>
+</tr>
+
+<tr><th>图片：</th><td><input type="text" name="data[photo]" value="<{$detail.photo}>" <{if $detail.photo}>photo="<{$pager.img}>/<{$detail.photo}>"<{/if}> class="input w-300" />&nbsp;&nbsp;&nbsp;<input type="file" name="data[photo]" class="input w-100" /></td></tr>
+<tr><th>优惠金额：</th><td><input type="text" name="data[money]" value="<{$detail.money|default:''}>" class="input w-100"/></td></tr>
+<tr><th>最低消费：</th><td><input type="text" name="data[min_amount]" value="<{$detail.min_amount|default:''}>" class="input w-100"/></td></tr>
+<tr><th>描述：</th><td><textarea name="data[content]" kindeditor="full" style="width:800px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+<tr><th>有效期：</th>
+    <td>
+        <input type="text" name="data[stime]" value="<{if $detail.stime}><{$detail.stime|format:'Y-m-d'}><{/if}>" date="stime" class="input w-100"/>~
+        <input type="text" name="data[ltime]" value="<{if $detail.ltime}><{$detail.ltime|format:'Y-m-d'}><{/if}>" date="ltime" class="input w-100"/>
+        <span class="tip-comment">"0"或空不限</span>
+     </td>
+</tr>
+<tr><th>查看数：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:''}>" class="input w-100"/></td></tr>
+<tr><th>下载数：</th><td><input type="text" name="data[downloads]" value="<{$detail.downloads|default:''}>" class="input w-100"/></td></tr>
+<tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:''}>" class="input w-100"/></td></tr>
+<tr>
+	<th>审核：</th>
+	<td>
+		<label><input type="radio" name="data[audit]" <{if $detail.audit}>checked="checked"<{/if}> value="1"/>发布</label>&nbsp;&nbsp;
+		<label><input type="radio" name="data[audit]" <{if empty($detail.audit)}>checked="checked"<{/if}> value="0"/>待审</label>
+	</td>
+</tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form></div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+ var editor = KindEditor.create('textarea[kindeditor]', {uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+$("select[name='data[city_id]']").live('change', function(){
+	var city_id = $(this).val();
+	if(!city_id){return false;}
+	$.getJSON("?data/area-city-"+city_id+".html", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else if(ret.areas.length>0){
+			var html = "";
+			for(var i=0; i<ret.areas.length; i++){
+				html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+			}
+			$("select[name='data[area_id]']").html(html);		
+		}else{
+			$("select[name='data[area_id]']").html('<option value="">--</option>');
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

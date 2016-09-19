@@ -1,0 +1,10 @@
+<script type="text/javascript" src="<{$pager.res}>/xheditor/xheditor.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/xheditor/xheditor_lang/zh-cn.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$("textarea[xheditor]").each(function(){
+	var tool = $(this).attr('xheditor');
+	$(this).xheditor({tools:tool});
+});
+})(window.KT, window.jQuery);
+</script>

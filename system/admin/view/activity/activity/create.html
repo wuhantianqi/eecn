@@ -1,0 +1,86 @@
+<{include file="admin:common/header.html"}>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="activity/activity:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">   
+<form action="?activity/activity-create.html" mini-form="activity-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form" id="table-info">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+    <tr><th><span class="red">*</span>城市：</th><td><{widget id="data/region" level=2}></td></tr>
+    <tr><th>选择分类：</th><td>
+        <select class="input w-100" name="data[cate_id]">
+            <option value="0">请选择....</option>
+            <{foreach from=$cates item=item}>
+            <option value="<{$item.cat_id}>"><{$item.title}></option>
+            <{/foreach}>
+        </select> </td></tr>
+    <tr><th>缩略图：</th>
+        <td><input type="text" name="data[thumb]" value="<{$detail.thumb}>" <{if $detail.thumb}>photo="<{$pager.img}>/<{$detail.thumb}>"<{/if}> class="input w-300" />
+            &nbsp;&nbsp;&nbsp;<input type="file" name="data[thumb]" class="input w-100" /><span class="tip-comment">建议尺寸:320x280</span>
+        </td>
+    </tr>
+    <tr><th>Banner：</th>
+        <td>
+            <input type="text" name="data[banner]" value="<{$detail.banner}>" <{if $detail.banner}>photo="<{$pager.img}>/<{$detail.banner}>"<{/if}> class="input w-300" />
+            &nbsp;&nbsp;&nbsp;<input type="file" name="data[banner]" class="input w-100" />
+            <span class="tip-comment">建议要1920宽度以上 高度320PX</span>
+        </td>
+    </tr>
+    <tr><th>电话：</th><td><input type="text" name="data[phone]" value="<{$detail.phone|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>咨询QQ：</th>
+        <td><input type="text" name="data[qq]" value="<{$detail.qq|default:''}>" class="input w-300"/><span class="tip-comment">多个QQ用逗号分隔</span></td>
+    </tr>
+    <tr><th>活动时间：</th>
+        <td>
+            <input type="text" name="data[bg_time]" value="<{if $detail.bg_time}><{$detail.bg_time|format:'Y-m-d'}><{/if}>" class="input w-100" date="bg_time" readonly/> ~
+            <input type="text" name="data[end_time]" value="<{if $detail.end_time}><{$detail.end_time|format:'Y-m-d'}><{/if}>" class="input w-100" date="end_time" readonly/>
+        </td>
+    </tr>
+    <tr><th>报名截止日期：</th><td><input type="text" name="data[end_sign]" value="<{if $detail.end_sign}><{$detail.end_sign|format:'Y-m-d'}><{/if}>" class="input w-100" date="end_sign" readonly/></td></tr>
+    <tr><th>活动具体时间：</th><td><input type="text" name="data[sj]" value="<{if $detail.sj}><{$detail.sj|format:'Y-m-d'}><{/if}>" class="input w-100" date="end_sign" readonly/></td></tr>
+    <tr><th>报名人数：</th><td><input type="text" name="data[sign_num]" value="<{$detail.sign_num|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>浏览数：</th><td><input type="text" name="data[views]" value="<{$detail.views|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>百度地图：</th>
+        <td>
+            <label>经度:<input type="text" name="data[lng]" value="<{$detail.lng}>" id="Bmap_marker_lng" class="input w-100"/></label>
+            <label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat}>" id="Bmap_marker_lat" class="input w-100"/></label>    
+            <span class="tip-comment">使用百度地图经纬度<a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="button"><b>拾取工具</b></a></span>
+        </td>
+    </tr>
+    <tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>交通：</th><td><input type="text" name="data[jt]" value="<{$detail.jt|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>活动介绍：</th><td><textarea name="data[intro]" class="textarea"><{$detail.intro}></textarea></td></tr>
+    <tr><th>活动详情：</th><td><textarea name="data[info]" kindeditor="full" style="width:800px;height:350px;"><{$detail.info}></textarea></td></tr>
+    <tr><th>活动模板：</th>
+        <td>
+            <input type="text" name="data[tmpl]" value="<{$detail.tmpl|default:''}>" class="input w-500"/>
+            <span class="tip-comment">留空则使用默认活动模板</span>
+        </td>
+    </tr>
+    <tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:'50'}>" class="input w-100"/></td></tr>    
+    <tr>
+        <th>审核：</th>
+        <td>
+            <label><input type="radio" name="data[audit]" checked="checked" value="1"/>发布</label>&nbsp;&nbsp;
+            <label><input type="radio" name="data[audit]" value="0"/>待审</label>
+        </td>
+    </tr>
+    <tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '?magic/upload-editor.html', extraFileUploadParams:{OATOKEN:"<{$OATOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>

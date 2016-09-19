@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title><{$CONFIG.site.title}>分站管理系统 - Powered by IJH.CC</title>
+<link rel="stylesheet" href="<{$pager.url}>/style/common.css" type="text/css" charset="utf-8" />
+<link href="style/style.css"rel="stylesheet" type="text/css" />
+<link href="<{$pager.res}>/style/kt.widget.css" rel="stylesheet" type="text/css" />
+<link href="<{$pager.res}>/ui/j.ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<{$pager.res}>/script/kt.j.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/kt.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.msgbox.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/ui/j.ui.js"></script>
+<script type="text/javascript" src="script/kt.admin.js"></script>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script type="text/javascript">if (window.parent != window){window.top.location.href = location.href;}</script>
+</head>
+<body style=" background:#1c77ac url(<{$pager.url}>/images/light.png) 445px 0px no-repeat; overflow: hidden;">
+<div id="mainBody">
+		<div id="cloud1" class="cloud" style="background-position: -367.6999999999956px 100px;"></div>
+		<div id="cloud2" class="cloud" style="background-position: -387px 460px;"></div>
+	</div>
+<div class="loginbody">	
+	<div class="login_top">
+		<p class="float-l"><span class="login_top_ico"></span><{$CONFIG.site.title}>分站管理系统</p>
+		<a href="<{$CONFIG.site.siteurl}>" class="float-r">返回首页</a>
+	</div>
+	<div class="login_logo"></div>
+	<div class="login_box">
+		<form action="?index-login" method="post">
+			<ul>
+				<li>
+					<input name="admin_name" id="admin_name" type="text" class="loginuser" value="" placeholder="请输入您的用户名"/>
+				</li>
+				<li>
+					<input  name="admin_pwd" type="password" class="loginpwd" value=""  placeholder="请输入您的密码"/>
+				</li>
+				<li>
+					<input name="verify_code" type="text" class="logincheckcode" id="textfield3" value=""  maxlength="4"  placeholder="请输入验证码"/>
+					<img src="?index-verify" alt="请输入验证码" width="100" height="30" onClick="this.src='?index-verify&_'+Math.random()" />
+				</li>
+				<li>
+					<input type="submit" class="loginbtn" value="登录" />					
+					<input type="checkbox" tabindex="5" id="chkAutoLogin" name="chkAutoLogin" onChange="javascript:f_AutoLogin_change();">
+					一周内免登录</label>
+				</li>
+			</ul>
+		</form>
+		<div class="login_foot loginfot"><a href="<{$CONFIG.site.siteurl}>" target="_blank">@<{$CONFIG.site.title}> 版权所有</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="<{$pager.url}>/script/cloud.js"></script>
+<script type="text/javascript">document.getElementById('admin_name').focus();</script>
+</body>
+</html>

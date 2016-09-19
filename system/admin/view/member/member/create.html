@@ -1,0 +1,59 @@
+<{include file="admin:common/header.html"}>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.YMD.js"></script>
+<div class="page-title">
+    <table width="100%" align="center" cellpadding="0" cellspacing="0" >
+      <tr>
+        <td width="30" align="right"><img src="<{$pager.url}>/images/main-h5-ico.gif" alt="" /></td>
+        <th><{$MOD.title}></th>
+        <td align="right"><{link ctl="member/member:index" priv="hidden" class="button"}></td>
+        <td width="15"></td>
+      </tr>
+    </table>
+</div>
+<div class="page-data">
+<form action="?member/member-create.html" mini-form="member-form" method="post" ENCTYPE="multipart/form-data">
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<tr><th><span class="red">*</span>帐号：</th><td><input type="text" name="data[uname]" value="<{$detail.uname}>" class="input w-200"/></td></tr>
+<tr><th><span class="red">*</span>邮箱：</th><td><input type="text" name="data[mail]" value="<{$detail.mail}>" class="input w-200"/></td></tr>
+<tr><th><span class="red">*</span>密码：</th><td><input type="text" name="data[passwd]" value="<{$detail.passwd}>" class="input w-200"/></td></tr>
+<tr><th><span class="red">*</span>类型：</th><td><select name="data[from]" class="w-100"><{widget id="member/from" value="member"}></select></td>
+<tr><th>手机：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile}>" class="input w-200"/></td></tr>
+<tr><th>生日：</th><td><{YMD name="data"}></td></tr>
+<tr><th>真实姓名：</th><td><input type="text" name="data[realname]" value="<{$detail.realname}>" class="input w-200"/></td></tr>
+<tr><th>邮箱验证：</th>
+    <td>
+        <ul class="group-list">
+            <li style="width:80px;"><label><input type="radio" name="data[verify_mail]" value="0"<{if !$detail.verify_mail}>checked<{/if}> />未认证</label></li>
+            <li style="width:80px;"><label><input type="radio" name="data[verify_mail]" value="1"<{if $detail.verify_mail}>checked<{/if}> />已认证</label></li>
+        </ul>
+    </td>
+</tr>
+<tr><th>手机验证：</th>
+    <td>
+        <ul class="group-list">
+            <li style="width:80px;"><label><input type="radio" name="data[verify_mobile]" value="0"<{if !$detail.verify_mobile}>checked<{/if}> />未认证</label></li>
+            <li style="width:80px;"><label><input type="radio" name="data[verify_mobile]" value="1"<{if $detail.verify_mobile}>checked<{/if}> />已认证</label></li>
+        </ul>
+    </td>
+</tr>
+<tr><th>状态：</th>
+    <td>
+        <ul class="group-list">
+            <li style="width:80px;"><label><input type="radio" name="data[closed]" value="0"<{if !$detail.closed}>checked<{/if}> />正常</label></li>
+            <li style="width:80px;"><label><input type="radio" name="data[closed]" value="1"<{if $detail.closed==1}>checked<{/if}> />禁言</label></li>
+            <li style="width:80px;"><label><input type="radio" name="data[closed]" value="2"<{if $detail.closed==2}>checked<{/if}> />锁定</label></li>
+        </ul>
+    </td>
+</tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+(function(K, $){
+$("#member_dialog").click(function(){
+	Widget.Dialog.Select("?article/article-dialog-0.html", "选择用户", 700, function(ret){$("#member_ids").val(ret[0].join(":"));})
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="admin:common/footer.html"}>
