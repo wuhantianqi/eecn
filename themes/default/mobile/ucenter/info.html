@@ -1,0 +1,83 @@
+<{assign var="tpl_page_title" value="用户信息页"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding admin_cont">
+	<form id='login-form'>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="title">姓名</td>
+				<td > <{if $MEMBER.verify_name}><{$MEMBER.uname}>  <font class="yz_color">已验证</font>
+                <{else}><input type="text" name="account[uname]" value="<{$MEMBER.uname}>" class="text"/> <{/if}></td>
+			</tr>
+			<tr>
+				<td class="title">手机</td>
+				<td > <{if $MEMBER.verify_mobile}><{$MEMBER.mobile}>  <font class="yz_color">已验证</font>
+                <{else}><input type="text" name="account[mobile]" value="<{$MEMBER.mobile}>" class="text"/> <{/if}>
+                </td>
+			</tr>
+			<tr>
+				<td class="title">邮箱</td>
+				<td><{if $MEMBER.verify_mail}><{$MEMBER.mail}><font class="yz_color">已验证</font>
+                <{else}><input type="text" name="account[mail]" value="<{$MEMBER.mail}>" class="text"/><{/if}></td>
+			</tr>
+			<tr>
+				<td class="title">性别</td>
+				<td>
+                 <label><input type="radio" name="account[gender]" value="man" <{if $MEMBER.gender == 'man'}>checked="checked"<{/if}>/>&nbsp;男&nbsp;</label>
+                 <label><input type="radio" name="account[gender]" value="womain" <{if $MEMBER.gender == 'woman'}>checked="checked"<{/if}>/>&nbsp;女&nbsp;&nbsp;</label>
+				</td>
+			</tr>
+             <{if $MEMBER.from=='member'}>
+                <tr><td class="title">类型：</td>
+                    <td>
+                        <select class="text" name="account[from]">
+
+                            <{foreach from=$fromlist key=key item=item}> 
+                            <{if $key != 'mechanic'}>
+                            <option value="<{$key}>" <{if $MEMBER.from == $key}>selected="selected"<{/if}>  ><{$item}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                        业主可以选择更换用户类型！更换后不能变更回来！
+                    </td>
+                </tr>
+                <{/if}>
+			<tr>
+				<td class="title">生日</td>
+				<td >
+                <{YMD Y=$MEMBER.Y M=$MEMBER.M D=$MEMBER.D  name="account" class="text third"}>
+					
+				</td>
+			</tr>
+			<tr>
+				<td class="title">城市</td>
+				<td>
+				<div class="clearfix">
+		<label>
+                <select name="account[city_id]" class="text full"><option value="0">选择城市</option><{widget id="data/city" value=$MEMBER.city_id}></select>
+				</label>
+		</div>
+				</td>
+			</tr>
+		</table>
+		<input type="button" id='login-btn' class="btn subbtn_full" value="修改信息" />
+	</form>
+</div>
+
+<script>
+        $(document).ready(function() {
+            function showmsg(message) {
+                $("#showErr").show();$("#showTxt").html(message);
+            }
+            $("#login-btn").click(function() {
+                $.post('<{link ctl="mobile/ucenter:info"}>', $("#login-form").serialize(), function(data) {
+                    if (data.error) {
+                        showmsg(data.message);
+                    } else {
+                        window.location = "<{link ctl='mobile/ucenter:info'}>";
+                    }
+                }, 'json');
+            });
+
+        });
+    </script>
+<{include file="mobile/block/footer.html"}>

@@ -1,0 +1,70 @@
+<div class="main_footer">
+	<div class="main_footer_top">
+		<div class="subwd ">
+			<{calldata mdl="article/cate" parent_id="2" limit=10}>
+			<ul>
+				<li><span><{$item.title}></span></li>
+				<{calldata mdl='article/article' from="help" hidden="0" cat_id=$item.cat_id}>
+				<li><a href="<{link ctl='help' arg0=$item.page}>"><{$item.title}></a></li>
+				<{/calldata}>
+			</ul>
+			<{/calldata}>
+			<ul class="main_footer_weixin">
+				<li><img src="%THEME%/static/images/weixin1.png" width="86" height="86"/></li>
+				<li><span>商家互动群</span></li>
+			</ul>
+			<ul class="main_footer_weixin">
+				<li><img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" width="86" height="86"/></li>
+				<li><span>站长微信</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+    <{include file="block/sfooter.html"}>
+</div>
+<div class="foot_zhaobiao_bar foot_fixed" id="foot_zhaobiao_bar" style="display: block;">
+    <div class="foot_mode">
+        <div class="foot_zhaobiao_bg"></div>
+        <div class="foot_zhaobiao">
+            <div class="foot_zhaobiao_text"></div>
+            <form action="/tenders/save" mini-form="tenders_tzx" id="tenders-tzx" method="post">
+              <input type="hidden" name="data[from]" value="TZX">
+              <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
+                <a onclick="closediv()" href="javascript:;" class="foot_zhaobiao_close"></a>
+                <dl>
+                    <dt><label for="hchenghu">称呼:</label><input type="text" name="data[contact]"></dt>
+                    <dt><label for="htel">手机:</label><input type="text" name="data[mobile]"></dt>
+                    <dd><input type="submit" value="马上发布"></dd>
+                </dl>
+            </form>
+            <div class="foot_price">
+                <strong>立省半年工资</strong>
+                <p>已有<span>681</span>人报名</p>
+            </div>
+            <div class="foot_weixin">装修网<br>微信二维码</div>
+        </div>
+    </div>
+</div>
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<script type="text/javascript">
+function closediv() {
+            document.getElementById('foot_zhaobiao_bar').style.display = 'none';
+        }
+$(window).scroll(function(){ 
+var topBar=$(window).scrollTop(); 
+var bodyHeigth =  (document.body.scrollHeight)*0.268;
+    if(topBar> bodyHeigth){ 
+$("#foot_zhaobiao_bar").fadeIn();                  
+}else{ 
+ $("#foot_zhaobiao_bar").fadeOut(); 
+} 
+}); 
+</script>
+<!--底部内容结束-->
+<{widget id="public/kefu"}>
+</body>
+</html>

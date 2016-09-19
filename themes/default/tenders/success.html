@@ -1,0 +1,28 @@
+<style type="text/css">/*
+    .ui-hack-widget-dialog{border:none;}
+    .ui-hack-widget-dialog .ui-dialog-titlebar{background:#FFF;border:none;}*/
+</style> 
+<{if $wx_tenders_qr}>
+<div class=" menu_list_ok_tenders">
+	<h1 class="fontcl1"><span class="index_ico lt"></span>恭喜您，申请成功！</h1>
+	<div class="s1_hd_sub"><{$CONFIG.site.title}>客服将于24小时内联系您，请您保持手机畅通。</div>
+	<img src="%THEME%/static/images/box_service.png" />
+	<div class="service_img"><img src="<{$wx_tenders_qr}>" /></div>
+</div>
+<{else}>
+<div class=" menu_list_ok_tenders">
+	<h1 class="fontcl1"><span class="index_ico lt"></span>恭喜您，申请成功！</h1><br />
+	<div class="s1_hd_sub"><{$CONFIG.site.title}>客服将于24小时内与您联系！</div>
+    <{if $MEMBER.uid}>
+    <p class="colorbg"><a href="<{link ctl='ucenter/member/yuyue:tendersDetail' arg0=$tenders_id}>" >查看招标详情>></a></p>
+    <{/if}>
+	<br />
+</div>
+<{/if}>
+<div id="Tenders_success_dd" class="none"></div>
+<script type="text/javascript">
+(function(){
+$(".ui-hack-widget-dialog").css({"border":"none"});
+$(".ui-hack-widget-dialog .ui-dialog-titlebar").css({"border":"none","background":"#FFF"});
+})(window.KT, window.jQuery);
+<\/script>

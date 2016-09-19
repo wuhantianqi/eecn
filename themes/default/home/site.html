@@ -1,0 +1,32 @@
+<{include file="home/block/header.html"}>
+<div class="subwd">
+	<div class="sub_home_lt lt">
+		<div class="mb20 area">
+			<ul class="block_type main_site">
+				<{foreach $items as $item}>
+         		<li>
+                	<a href="<{link ctl='site:detail' arg0=$item.site_id}>" class="lt pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+                    <div class=" main_list_rt home_site rt">
+                        <h3><b><a href="<{link ctl='site:detail' arg0=$item.site_id}>"><{$item.title}></a></b></h3>
+                        <p><span class="ico_list company_ico"></span>
+                        <{if $company_list}>
+                        承接公司：<a href="<{$company_list[$item.company_id].company_url}>"><font class="fontcl2"> <{$company_list[$item.company_id].name}> </font></a>
+                        <{elseif $gz_list}>
+                        承接工长：<a href="<{link ctl='gz:detail' arg0=$item.uid}>"><font class="fontcl2"> <{$gz_list[$item.uid].name}> </font></a>
+                        <{elseif $designer_list}>
+                        承接设计师：<a href="<{link ctl='blog' arg0=$item.uid}>" ><font class="fontcl2"> <{$designer_list[$item.uid].name}> </font></a>
+                        <{/if}>
+                        </p>
+                        <p><span class="ico_list telephone_ico"></span>小区名称 : <{$item.home_name}></p>
+                        <p class="bottom"><span class="lt">阶段：<font class="colorbg"> <{$status[$item.status]}></font></span><a href="<{link ctl='site:detail' arg0=$item.site_id}>" class="btn_main_big btn rt">我要参观</a> </p>
+                        <div class="cl"></div>
+                    </div>
+                    <div class="cl"></div>
+                </li>
+              	<{/foreach}>
+			</ul>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+	</div>
+</div>
+<{include file="home/block/footer.html"}>

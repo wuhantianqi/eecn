@@ -1,0 +1,27 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">微网站文章</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/msite/article:create'}>" class="pbtn">添加文章</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th>标题</th><th class="w-100">浏览量</th><th class="w-150">添加时间</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.article_id}><label></td>
+        <td><a href="<{link ctl='weixin/msite:article' arg0=$item.article_id}>" target="_blank"></b><{$item.title}></a></td>
+		<td><{$item.views}></td><td><{$item.dateline|format}></td>
+        <td>
+            <a href="<{link ctl='ucenter/weixin/msite/article:edit' arg0=$item.article_id}>"  class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/weixin/msite/article:delete' arg0=$item.article_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+	<div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

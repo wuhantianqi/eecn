@@ -1,0 +1,21 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/member/verify:name'}>">实名认证</a></li>
+        <li class="on">邮箱认证</li>
+        <li><a href="<{link ctl='ucenter/member/verify:mobile'}>">手机认证</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <div class="cl h30"></div>
+    <{if $MEMBER.verify_mail}>
+    <div class="tip"><span class="success">您的邮箱【<b class="red"><{$MEMBER.mail}></b>】已经验证 </span></div>
+    <{else}>
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>&nbsp;</th><td><h2 style="font-size:24px;">验证邮件已经发送到您的邮箱</h2></td></tr>
+        <tr><th></th><td>如果没有收到请重新验证，<a href="<{link ctl='ucenter/member/verify:mail' arg0='verify'}>" mini-act="立即验证邮箱" class="pbtn">立即验证邮箱</a></td></tr>
+        <tr><th></th><td><a href="<{$mailLogin}>" class="green_btn" target="_blank">去邮箱验证</a></td></tr>
+    </table>
+    <{/if}>
+</div>
+<{include file="ucenter/block/footer.html"}>

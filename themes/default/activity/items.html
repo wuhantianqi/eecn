@@ -1,0 +1,174 @@
+<{include file="block/header.html"}>
+        <link rel="stylesheet" href="/themes/default/static/css/event.css?<{$VER}>" />
+		<div class="banner">
+			<div class="jiancai banner-side">
+				<span></span>
+				<h2>团购装修建材</h2>
+				<p>畅销装修品牌一站购齐</p>
+				<p>建材-家居-家电</p>
+				<a href="#" target="_blank">去看看</a>
+			</div>
+			<div class="runbox">
+				<ul>
+					<li><img src="%THEME%/static/images/ban1.jpg"/></li>
+					<li><img src=""/></li>
+					<li><img src=""/></li>
+				</ul>
+			</div>
+			<div class="zhuangxiu banner-side">
+				<span></span>
+				<h2>找装修公司</h2>
+				<p>1分钟找到靠谱装修公司</p>
+				<p>好设计-好材料-好施工-好服务</p>
+				<a href="<{link ctl='tenders'}>" target="_blank">去看看</a>
+			</div>
+			<div class="benefit">
+				<ul>
+					<li>
+						<span></span>
+						<h2>省时</h2>
+						<p>精选品牌，正品保证，装修材料一站购齐</p>
+					</li>
+					<li>
+						<span></span>
+						<h2>省钱</h2>
+						<p>精选品牌，正品保证，装修材料一站购齐</p>
+					</li>
+					<li>
+						<span></span>
+						<h2>省心</h2>
+						<p>精选品牌，正品保证，装修材料一站购齐</p>
+					</li><li>
+						<span></span>
+						<h2>省力</h2>
+						<p>精选品牌，正品保证，装修材料一站购齐</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="team-purchasing1">
+				<div class="bg">
+					<h1>
+						优惠活动
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+					</h1>
+				</div>
+				<p>精选建材、家居、家电品牌，爆款抢购</p>
+				<ul>
+					<{foreach $items as $item}>
+	                    <li>
+							<a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+							<p><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><{$item.title}></a></p>
+							<p>时间：<{$item.bg_time|format:'Y-m-d'}></p>
+							<p>地点：<{$item.addr}></p>
+						</li>
+	                <{/foreach}> 
+				</ul>
+			</div>
+			<div class="team-purchasing2">
+				<div class="bg">
+					<h1>
+						优惠信息
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+					</h1>
+				</div>
+				<p>精选建材、家居、家电品牌，爆款抢购</p>
+				<div class="sales-list">
+					<ul>
+						<{foreach from=$itemses item=item}>           	
+			                <li>
+								<div class="img-wrap"><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" /></a></div>
+								<p><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><{$item.title|cutstr:25}></a></p>
+								<div><p remaintime="<{$item.ltime}>"></p><span class="time-ico"></span></div>
+				                <{if $item.ltime>time() && $item.stime<time()}>
+				                <span class="i-ing"></span>
+								<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="ing">立即参团</a>
+				                <{else}>
+				                <span class="i-end"></span>
+								<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="end">已结束</a>
+				                <{/if}>
+			                </li>
+			            <{/foreach}>
+
+						<!-- <li>
+							<div class="img-wrap"><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" /></a></div>
+							<p><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><{$item.title|cutstr:25}></a></p>
+							<p><span class="time-ico" remaintime="<{$item.ltime}>"></span></p>
+							<span class="i-ing"></span>
+							<a href="" class="ing">立即参团</a>
+						</li>
+
+
+
+						<li>
+							<div class="img-wrap"><img src="%THEME%/static/images/sales2.gif"/></div>
+							<p>奥华金牌家装限量抢定会</p>
+							<p><span class="time-ico"></span>22天17时56分</p>
+							<span class="i-ing"></span>
+							<a href="" class="ing">立即参团</a>
+						</li>
+						<li>
+							<div class="img-wrap"><img src="%THEME%/static/images/sales3.gif"/></div>
+							<p>奥华金牌家装限量抢定会</p>
+							<p><span class="time-ico"></span>22天17时56分</p>
+							<span class="i-ing"></span>
+							<a href="" class="ing">立即参团</a>
+						</li>
+						<li>
+							<div class="img-wrap"><img src="%THEME%/static/images/sales1.jpg"/></div>
+							<p>奥华金牌家装限量抢定会</p>
+							<p><span class="time-ico"></span>真遗憾，您来晚了抢购已结束</p>
+							<span class="i-end"></span>
+							<a href="javascript:volid(0);" class="end">已结束</a>
+						</li>
+						<li>
+							<div class="img-wrap"><img src="%THEME%/static/images/sales2.gif"/></div>
+							<p>奥华金牌家装限量抢定会</p>
+							<p><span class="time-ico"></span>22天17时56分</p>
+							<span class="i-ing"></span>
+							<a href="" class="ing">立即参团</a>
+						</li>
+						<li>
+							<div class="img-wrap"><img src="%THEME%/static/images/sales3.gif"/></div>
+							<p>奥华金牌家装限量抢定会</p>
+							<p><span class="time-ico"></span>22天17时56分</p>
+							<span class="i-ing"></span>
+							<a href="" class="ing">立即参团</a>
+						</li> -->
+					</ul>
+				</div>
+			</div>			
+		</div>
+		<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
+		<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+		<script type="text/javascript">
+		(function(K, $){
+		    $(function(){
+		    var dateTime = new Date();
+		    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+		    setInterval(function(){
+		      $("[remaintime]").each(function(){
+		        var obj = $(this);
+		        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+		        var nowTime = new Date();
+		        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+		        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+		        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+		        var myM=Math.floor(nMS/(1000*60)) % 60;
+		        var myS=Math.floor(nMS/1000) % 60;
+		        var myMS=Math.floor(nMS/100) % 10;
+		        if(myD>= 0){
+					var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+		        }else{
+					var str = "真遗憾您来晚了，抢购已经结束。";	
+				}
+				obj.html(str);
+		      });
+		    }, 100);
+		});
+		})(window.KT, window.jQuery);
+		</script>
+    <{include file="block/footer.html"}>

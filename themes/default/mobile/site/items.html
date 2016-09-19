@@ -1,0 +1,22 @@
+<{assign var="tpl_page_title" value="在建工地列表"}>
+<{include file="mobile/block/header.html"}>
+<ul class="app_menu site_menu">
+    <{foreach $items as $item}>
+    <li>
+        <a href="<{link ctl='mobile/site:detail' arg0=$item.site_id}>">
+        <img src="<{$pager.img}>/<{$item.thumb}>" class="lt pic" />
+        <h2><{$item.title|cutstr:15}></h2>
+        <p class="site_p"><span class="lt">进度：<font class="site_step"><{$item.status_title|default:'等待开工'}></font></span><span class="rt">&gt;</span></p>
+        <{if $company_list}>
+            <p class="nowrap">承接公司：<{$company_list[$item.company_id].name}></p>
+        <{elseif $gz_list}>
+           <p class="nowrap"> 承接工长：<{$gz_list[$item.uid].name}></p>
+        <{elseif $designer_list}>
+            <p class="nowrap">设计师:<{$designer_list[$item.uid].name}> </p>
+        <{/if}>
+        </a>
+    </li>          
+    <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

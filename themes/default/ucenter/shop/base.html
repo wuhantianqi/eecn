@@ -1,0 +1,38 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/shop:base'}>">基本设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>
+        <li><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/shop:base'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+   <tr><th>商铺名称：</th><td><{$shop.title}></td></tr>
+    <tr><th></th><td><img src="<{$pager.img}>/<{$shop.logo}>" width="200" height="100"/></td></tr>
+    <tr>
+        <th class="w-100">商铺长方形Logo：</th>
+        <td><input type="file" name="shop_logo"  class="input w-200"/><span class="tip-comment" style="inline-block">长方形LOGO，建议尺寸<span class="tip-comment">尺寸大小：<{$CONFIG.attach.shop.logo|default:'200X100'}></span>像素</span></td>
+    </tr>
+    <tr><th></th><td><img src="<{$pager.img}>/<{$shop.thumb}>" width="200" height="200"/></td></tr>
+    <tr>
+        <th class="w-100">商铺正方形Logo：</th>
+        <td><input type="file" name="shop_thumb"  class="input w-200"/><span class="tip-comment" style="inline-block">长方形LOGO，建议尺寸<{$CONFIG.attach.shop.thumb|default:'200X200'}>像素</span></td>
+    </tr>
+    <tr><th></th><td><img src="<{$pager.img}>/<{$shop.banner}>" width="600" height="100"/></td></tr>
+    <tr>
+        <th class="w-100">商铺Banner：</th>
+        <td><input type="file" name="shop_banner"  class="input w-200"/><span class="tip-comment" style="inline-block">显示在列表中，建议尺寸1000*200像素</span></td>
+    </tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

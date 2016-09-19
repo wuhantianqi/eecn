@@ -1,0 +1,148 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='ask'}>">知识问答</a>
+			><a href="<{link ctl='ask:detail' arg0=$detail.ask_id}>"><{$detail.title|cutstr:50}></a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="mb10 area ">
+		<div class="question_top">
+			<h2><{if !$detail.answer_id}><span class="ico_list color_qu"></span><{else}><span class="ico_list over_qu"></span><{/if}><b><{$detail.title|cutstr:77}></b></h2>
+           <{if !empty($detail.thumb)}> <p class="buc_tit"><img src="<{$pager.img}>/<{$detail.thumb}>"/></p><{/if}>
+            <{if !empty($detail.intro)}>
+            <p class="buc_tit" style="word-break:break-all"><{$detail.intro|nl2br}></p>
+            <{/if}>
+            
+			<p><span class="lt"><label>提问者：<{$member_list[$detail.uid].uname}></label><label>分类：<{$cate_list[$detail.cat_id].title}></label><label><font class="ico_list dy_liulan"></font>浏览(<font class="fontcl2"><{$detail.views}></font>)</label>
+					<label><font class="ico_list dy_pinglun"></font>评论(<font class="fontcl2"><{if !$detail.answer_id}><{$pager.count|default:'0'}><{else}><{$pager.count+1|default:'0'}><{/if}></font>)</label></span><span class="rt graycl"><{$detail.dateline|format}></span></p>
+			<p class="cl"></p>
+			<p class="lt">分享到：<{widget id="public/share" size="small"}></p>
+			<p class="cl"></p>
+		</div>
+            <{if !$detail.answer_id}>
+            <{if $uid == $detail.uid}>
+			<div class="question_box  qu_buchong">
+            	<h2><b>问题补充</b></h2>
+                <form  mini-form="ask"  method="post" action="<{link ctl='ask:supply' arg0=$detail.ask_id}>">
+                    <textarea class="mb10" name='content' placeholder="请在这里输入您的补充内容"></textarea>
+                    	<{if $ask_yz}>
+                            <span style="color:#00F">验证码:</span>
+                                <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                                <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+                                
+                        <{/if}>
+                    <div class="rt">
+                        <input type="submit" class="btn" value="我要补充"  />
+                    </div>
+                    <div class="cl"></div>
+                </form>
+                </div>
+            <{else}>
+			<div class="question_box huida_box ">
+                <h2><b>我来帮他解答</b></h2>
+                <form  mini-form="ask"  method="post" action="<{link ctl='ask:answer' arg0=$detail.ask_id}>">
+                    <textarea class="mb10" name='contents' placeholder="请在这里输入您的答案"></textarea>
+                    <{if $ask_yz}>
+                            <span style="color:#00F">验证码:</span>
+                                <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                                <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+                                
+                        <{/if}>
+                    <div class="rt">
+                        <input type="submit" class="btn" value="我要回答"  />
+                    </div>
+                    <div class="cl"></div>
+                </form>
+                </div>
+            <{/if}>
+            
+            <{else}>
+            	<div class="knows_box colorbg">
+                    <span class="ico_list caina_ico"></span>
+                    <h2><b class="lt">提问者采纳</b><span class="rt graycl"><{$answer.dateline|format}></span></h2>
+                    <p class="cl mb10"></p>
+                   		<{$answer.contents|nl2br}>
+                    <p class="tit"><img src="<{$pager.img}>/<{$member_list[$answer.uid].face_32}>" /><span><{$member_list[$answer.uid].uname}></span></p>
+				</div>
+             <{/if}>
+             <{if !empty($answers)}>
+                <div class="new_pinglun pding">
+                    <p class="tit">其他<{$pager.count|default:'0'}>条回答</p>
+                    <ul>
+                         <{foreach $answers as $item}>
+                                <li>
+                                    <img src="<{$pager.img}>/<{$member_list[$item.uid].face_32}>" class="lt" />
+                                    <div class="rt">
+                                        <p><span class="lt name"><{$member_list[$item.uid].uname}></span><span class="rt graycl"><{$item.dateline|format}></span>&nbsp;&nbsp;&nbsp;&nbsp;<{if  $detail.uid == $MEMBER.uid && empty($detail.answer_id) && $item.audit==1}><a href="<{link ctl='ask:yes' arg0=$item.answer_id}>"  mini-act="confirm:您确定要设为最佳答案吗？" class="pbtn red">设为最佳答案</a><{/if}></p>
+                                        <{if $item.audit == 0}>
+                                            <p class="tips"><span class="lock">该内容正在审核中</span></p>
+                                        <{else}>
+                                        	<p><{$item.contents|nl2br}></p>
+                                        <{/if}>
+                                    </div>
+                                </li>
+                                 
+                         <{/foreach}>
+                    </ul>
+                </div>
+            <{/if}>
+		</div>
+		<div class="area pding mb20">
+			<h2 class="qita_question">其它热门问题</h2>
+			<ul class="question_list">
+            	 <{calldata mdl="ask/ask" city_id=$request.city_id audit=1  order="answer_num:desc"  limit="6"}> 
+                        <li><a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="lt"> <{$item.title|cutstr:50}></a>
+                            <span class="graycl rt"><{$item.dateline|format}></span>
+                        </li>
+                 <{/calldata}>
+				
+			</ul>
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--主体左边内容结束-->
+    
+    <script>
+	jQuery(window).load(function () {
+            jQuery(".buc_tit img").each(function () {
+                DrawImage(this, 680, 1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<script>
+	$("[verify]").click(function(){
+		$($(this).attr("verify")).attr("src", "index.php?magic-verify&_"+Math.random());
+	});
+	</script>
+	<{include file="ask/block/right.html"}>
+<{include file="block/footer.html"}>

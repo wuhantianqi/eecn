@@ -1,0 +1,19 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li><a href="<{link ctl='ucenter/member:info'}>">基本信息</a></li>
+		<li><a href="<{link ctl='ucenter/member:passwd'}>">修改密码</a></li>
+		<li><a href="<{link ctl='ucenter/member:mail'}>">更换邮箱</a></li>
+		<li class="on"><a>修改头像</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">
+<div id="member-avatar" style="height:500px;"></div>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.avatar.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$("#member-avatar").Avatar({"uid":"<{$MEMBER.uid}>","upload":"<{link ctl='ucenter/member:upload'}>","face":"<{$pager.img}>/<{$MEMBER.face}>"});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

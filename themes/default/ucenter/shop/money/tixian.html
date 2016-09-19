@@ -1,0 +1,22 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+		<li><a href="<{link ctl='ucenter/shop/money:shop'}>">收支明细</a></li>
+		<li class="on">申请体现</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">
+	<div class="tips"><span class="notice">提交提现申请后，财务审核后即可以安排给您进行转账</span></div>
+	<form action="<{link ctl='ucenter/shop/money:tixian'}>" mini-form="uenter" method="post">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>帐户余额：</th><td><b class="red">￥<{$shop.money}></b></td></tr>
+        <tr><th>提现金额：</th>
+			<td>
+				<input type="text" name="data[money]" value="" class="input w-200"/>
+				<span class="tip-comment">输入大于0的数字，最多两位小数</span>
+			</td>
+		</tr>
+        <tr><th></th><td><input type="submit" value="申请体现" class="green_btn" /></td></tr>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

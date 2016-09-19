@@ -1,0 +1,102 @@
+/*装修公司头部样式开始 */
+.com_ico{ display:inline-block; vertical-align:middle; background:url(com_ico.png) no-repeat; margin:0px 3px;}
+.company_top{ background:#fc9539; padding:15px 0px; width:100%;}
+.company_top img.pic{ width:160px; height:80px; border:5px solid #fff;}
+.company_top_lt{ margin-left:20px; color:#fff;}
+.company_top_lt h1 a{color:#fff; margin-right:10px;}
+.company_top_lt h2{ margin-top:20px;}
+.company_top_lt h2 span{ margin-right:20px; color:#fff;}
+.company_top_rt{ padding:5px; background:#fc9539; color:#fff;}
+.company_top_rt p{ line-height:20px;}
+.company_top_rt p.title{ text-align:center; font-size:14px;}
+.com_tel{ width:24px; height:24px; background-position:0px 0px;}
+.com_phone{ width:18px; height:24px; background-position:-27px 0px;}
+.company_nav{ width:100%; background:#c86812; }
+.company_nav ul li{ float:left; margin-right:1px;}
+.company_nav ul a{ display:inline-block; padding:8px 20px; color:#fff; font-size:14px;}
+.company_nav ul a.current,.company_nav ul a:hover{ background:#666;}
+.company_nav_rt{ background:#666; color:#fff; padding:8px 10px;}
+/*装修公司头部样式结束*/
+
+/*装修公司首页样式开始*/
+.sub_com_lt{ width:720px;}
+.sub_com_rt{ width:260px;}
+.com_intro_top{ width:350px;}
+.com_intro_top .com_box{ height:130px;}
+.com_banner{ width:720px; height:250px; overflow:hidden;}
+.more_ico{width:12px; height:12px; background-position:-51px -1px;}
+.com_title a{ font-size:12px;}
+.com_box{ border-top:1px solid #ccc; background:#ffffff;}
+.com_pinglun ul li{ padding:2px 0px;}
+.sub_com_design{ height:210px; overflow:hidden;    margin-top: 10px;}
+.sub_com_design li img{ width:150px; height:150px;}
+.sub_com_design li{ width:150px; margin:0px 8px; float:left;} 
+.sub_com_design li p{ line-height:30px;}
+.sub_com_design li .btn{ width:100%; height:26px; background:#666; border-radius:0px; font-size:14px; line-height:26px;}
+.sub_com_design li .btn:hover{ background:#fe7902;}
+
+.bz_metals{ display:inline-block; border:1px solid #03bb98; color:#03bb98; font-size:12px; line-height:22px; height:18px; background:#fff;}
+.bz_metals font{ width:18px; height:19px; background-position:-51px -63px; margin-right:0px; vertical-align:top;}
+
+.sub_com_list{ border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;}
+.sub_com_list td{ width:85px; font-size:14px; border:1px solid #e3e3e3; text-align:center; float:left; border-bottom:none;border-right:none;}
+.sub_com_list b{ font-size:18px;}
+.sub_com_add{ padding:2px 10px;height:78px;}
+.com_add{ width:14px; height:20px; background-position:-67px 0px; }
+.sub_com_tpbt{ margin-bottom:5px;}
+.sub_com_tpbt .btn{ margin-right:10px;}
+.com_youhui{ height:130px;padding-top: 7px;}
+.com_youhui div.rt{ width:90px;}
+.com_youhui p{ text-align:center;}
+.com_youhui p.center{ width:60px; font-size:14px; margin:5px auto; }
+.com_youhui .opacity_img,.com_youhui .opacity_img img{ width:145px; height:120px;}
+.time_ico{ width:19px; height:19px; background-position:-83px 0px;}
+.com_pinglun{ height:200px; overflow:hidden; padding:0px 10px;}
+.video{ background:#f5f5f5; width:260px; height:200px; overflow:hidden;}
+.com_yuyue span,.com_yuyue_title span{ display:inline-block; width:30%;text-align:center; line-height:32px;}
+.com_yuyue_title{ background:#ddd; border-bottom:1px solid #e3e3e3;}
+.com_yuyue span.mid,.com_yuyue_title span.mid{ width:40%;}
+.com_yuyue_box{ height:195px; overflow:hidden;}
+
+ul.com_case li{ margin:10px 5px; float:left;}
+ul.com_case li img{ width:240px; height:180px;}
+ul.com_case li a.yuyue{ font-size:14px; position:absolute; left:10px; top:10px; display:none; padding:0px 5px; background:#fe7902; color:#fff;}
+.com_site li{ border-bottom:1px solid #e3e3e3; margin:5px 0px; padding:5px 0px;}
+/*装修公司首页样式结束*/
+
+/*装修公司其它页面样式开始*/
+ul.com_youhui_ul li,ul.com_youhui_ul li img{ width:310px;}
+ul.com_youhui_ul li img{ height:230px;}
+ul.com_youhui_ul li{ margin-left:20px;}
+
+.company_lt{ width:200px;}
+.company_lt_intro{ background:#f8f8f8; padding:10px 20px;font-size:14px;}
+.company_lt_intro .pic{ width:160px; height:160px; border:1px solid #e3e3e3;}
+.company_lt_intro .com_pingf{ margin-top:10px; border-top:1px dashed #ccc; }
+.company_lt_intro .com_pingf p.title{ text-align:center;}
+.company_lt_intro .com_pingf p{ line-height:22px;}
+.company_rt{ width:100%;}
+.sub_com_title{ border-bottom:1px solid #e3e3e3;}
+.sub_com_title b{ border-bottom:2px solid #fe7902; padding-bottom:2px;}
+
+ul.sub_com_de_list li{ width:207px; padding:8px; float:left; margin:5px 17px 5px 8px;text-align:center;    box-shadow: none;
+    -webkit-box-shadow: 3px 3px 3px #ccc;
+    -moz-box-shadow: 3px 3px 3px #ccc;
+    box-shadow: 3px 3px 3px #ccc;}
+ul.sub_com_de_list li.first{ margin-left:0px;}
+ul.sub_com_de_list li a.pic{width:93%; height:100%; padding:10px;display:block;}
+ul.sub_com_de_list li a.pic img{ width:150px; height:150px; border:1px solid #e3e3e3;}
+.sub_com_de_rt{ width:93%;}
+.sub_com_contro{ padding:10px 0px;}
+.sub_com_contro img.video{ float:left; margin-right:10px;}
+.zizhi_box { float:left; margin:8px; }
+.zizhi_box img{ border:3px solid #ccc;width:230px; height:180px;}
+.zizhi_box p{ text-align:center;}
+.sub_com_contro img.map{ width:750px; height:300px; padding:2px; border:1px solid #ccc;}
+.huifu{ color:#976701;}
+
+.sub_com_pinglun table{ width:99%;}
+.sub_com_pinglun td{ vertical-align:top; padding:5px 0px;}
+.sub_com_pinglun input.long{ width:50%;}
+.sub_com_pinglun input.full,.sub_com_pinglun textarea.full{ width:100%;}
+/*装修公司其它页面样式结束*/

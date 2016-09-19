@@ -1,0 +1,18 @@
+<{assign var="tpl_page_title" value="公司案例"}>
+<{include file="mobile/company/block/header.html"}>
+<ul class="case_menu">
+<{foreach $items as $item}>
+<li>
+    <a href="<{link ctl='mobile/case:detail' arg0=$item.case_id}>">
+        <div class="opacity_img">
+            <img src="<{$pager.img}>/<{$item.photo}>" />
+            <p class="bg"></p>
+            <p class="text"><{$item.title}></p>
+        </div>
+    </a>
+</li>
+<{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+
+<{include file="mobile/block/footer.html"}>

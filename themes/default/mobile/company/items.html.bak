@@ -1,0 +1,60 @@
+<{assign var="tpl_page_title" value="装修公司列表"}>
+<{include file="mobile/block/header.html"}>
+<div class="choose_menu">
+    <ul>
+        <li>
+            <div class="choose_menu_cont" id="choose_menu_cont1">
+                <a href="#"><{if $pager.area_id}><{$area_list[$pager.area_id].area_name}><{else}>全部区域<{/if}><span class="app_ico"></span></a>
+                <div class="sub_choose_menu" id='sub_choose_menu1'>
+                    <ul>
+                        <li><a href="<{link ctl='mobile/company:items' arg0=0 arg1=$pager.group_id arg2=$pager.order arg3=1}>">全部区域</a></li>
+                         <{foreach $area_list  as $k=>$v}>
+                        <li><a href="<{link ctl='mobile/company:items' arg0=$k arg1=$pager.group_id arg2=$pager.order arg3=1}>"><{$v.area_name}></a></li>
+                         <{/foreach}>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="choose_menu_cont" id="choose_menu_cont1">
+                <a href="#"><{if $pager.group_id}><{$group_list[$pager.group_id]}><{else}>全部分类<{/if}><span class="app_ico"></span></a>
+                <div class="sub_choose_menu" id='sub_choose_menu1'>
+                    <ul>
+                        <li><a  href="<{link ctl='mobile/company:items' arg0=$pager.area_id arg1=0 arg2=$pager.order arg3=1}>">全部分类</a></li>
+                         <{foreach $group_list  as $k=>$v}>
+                        <li><a href="<{link ctl='mobile/company:items' arg0=$pager.area_id arg1=$k arg2=$pager.order arg3=1}>"><{$v}></a></li>
+                         <{/foreach}>
+                    </ul>
+                </div>
+            </div>
+        </li>       
+        <li>
+            <div class="choose_menu_cont">
+                <a href="#"><{if $pager.order}><{$order_list[$pager.order]}><{else}>默认排序<{/if}><span class="app_ico"></span></a>
+                <div class="sub_choose_menu">
+                    <ul>
+                        <{foreach $order_list as $k=>$v}>
+                        <li><a  href="<{link ctl='mobile/company:items' arg0=$pager.area_id arg1=$pager.group_id arg2=$k arg3=1}>"><{$v}></a></li>
+                        <{/foreach}>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="cl"></div>
+</div>
+<ul class="app_menu">
+    <{foreach $items as $item}>
+        <li>
+            <a href="<{link ctl='mobile/company' arg0=$item.company_id}>">
+            <img src="<{$pager.img}>/<{$item.thumb}>" class="lt pic" />
+            <h2><{$item.name}></h2>
+<p class="nowrap">口号：<{$item.slogan}></p>
+            <p class="nowrap"><span>案例(<font class="fontcl2"><{$item.case_num}></font>)</span><span>在建工地(<font class="fontcl2"><{$item.site_num}></font>)</span></p>
+            <div class="cl"></div>
+            </a>
+        </li>       
+    <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

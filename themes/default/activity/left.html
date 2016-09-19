@@ -1,0 +1,24 @@
+
+    <div id='allmap' style="width: 316px; height: 236px">
+    
+    </div>
+    
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=824a595f958e444b737a5bc6325ad44f"></script>
+      
+         <div id="mapshowcontent" style="display: none;">
+            <p style="font-size: 14px; font-weight: bold;color: #3399ff;">名称：<{$detail.title}></p>
+            <p  style="font-size: 14px; font-weight: bold; margin-top: 5px; color: #3399ff; ">咨询电话：<{$company.show_phone}></p>
+        </div>
+         <script type="text/javascript">
+            // 百度地图API功能
+            var map = new BMap.Map("allmap");
+            map.centerAndZoom(new BMap.Point(<{$detail.lng}>, <{$detail.lat}>), 14);
+            map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+            var marker1 = new BMap.Marker(new BMap.Point(<{$detail.lng}>, <{$detail.lat}>));  // 创建标注
+            map.addOverlay(marker1);              // 将标注添加到地图中
+            marker1.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+            //创建信息窗口
+            var infoWindow1 = new BMap.InfoWindow($("#mapshowcontent").html());
+            marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
+        </script>
+   

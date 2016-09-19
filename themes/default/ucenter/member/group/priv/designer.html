@@ -1,0 +1,42 @@
+<tr>
+    <th>回复点评：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.allow_reply < 0}>禁止回复<{else}>允许回复<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>查看预约：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.show_yuyue_mobile < 0}>号码隐藏<{else}>号码可见<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>联系方式：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.show_phone < 0}>禁止显示<{else}>允许显示<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>预约设计：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.allow_yuyue < 0}>禁止预约<{else}>允许预约<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>设计投标：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.tenders_look < 0}>禁止投标<{else}>允许投标<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>发布案例：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.allow_case < 0}>禁止发布<{elseif empty($v.priv.allow_case)}>需要审核<{else}>直接发布<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>发表文章：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.allow_article < 0}>禁止发布<{elseif empty($v.priv.allow_article)}>需要审核<{else}>直接发布<{/if}></td>
+    <{/foreach}>
+</tr>

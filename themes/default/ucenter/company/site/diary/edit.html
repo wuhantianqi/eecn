@@ -1,0 +1,26 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加日记</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/diary:site' arg0=$site.site_id}>" class="pbtn">返回工地日记</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/company/diary:edit'}>" mini-form="ucenter-form" method="post">
+<input type="hidden" name="item_id" value="<{$detail.item_id}>" />
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th>工地名称：</th><td><b class="blue"><{$site.title}></b></td></tr>
+    <tr><th>施工阶段：</th><td><{$detail.status_title}></td></tr>
+    <tr><th><span class="red">*</span>日记标题：</th><td><input type="text" name="data[title]" class="input w-300" value="<{$detail.title}>"/></td></tr>
+    <tr><th><span class="red">*</span>日记内容：</th>
+        <td><textarea name="data[content]" kindeditor="full" style="width:700px;height:350px;"><{$detail.content}></textarea></td>
+    </tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

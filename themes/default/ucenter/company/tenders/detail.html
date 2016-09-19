@@ -1,0 +1,68 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/company/tenders:index'}>">预约招标</a></li>
+        <li class="on">招标详情</li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <{if $group.priv.tenders_look <= 0}><p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】不能进行投标</span></p><{/if}>
+    <table width="100%" border="0" cellspacing="0" class="info">
+    <tr><th>标题：</th>
+        <td colspan="5"><{$detail.title|default:'--'}></td>
+    </tr>        
+    <tr>
+        <th>ID：</th><td><{$detail.id}></td>
+        <th>会员：</th><td class="w-200"><{if $detail.uid}><{$member.uname}>(UID:<{$detail.uid}>)<{else}>--<{/if}></td>        
+    </tr>
+    </tr>
+    <tr><th>开始时间：</th><td><{$detail.start_time|default:'--'}></td><th>售价/金币：</th><td><{$detail.gold}></td></tr>
+    <tr><th>最大投标数：</th><td><{$detail.num}></td><th>已投标数：</th><td><{$detail.looks}></td></tr>
+    <tr>
+        <th>发布时间：</th><td><{$detail.dateline|format}></td>
+        <th>发布IP：</th><td><b class="red"><{$item.create_ip|cutstr:6:"******"}></b>(<{$item.create_ip|iplocal}>)</td>        
+    </tr>
+    <tr><th>联系人：</th><td><{$detail.name|default:'--'}></td>
+        <th>状态：</th><td><{if $detail.status}><b>已签单</b><{else}><b class="blue">招标中</b><{/if}></td>
+    </tr>
+      <tr><th>地址：</th>
+        <td colspan="5"><{$detail.city_name|default:'--'}>  <{$detail.area_name|default:'--'}>  
+            <{if $detail.islook}><{$detail.addr|default:'--'}><{else}><b class="red">* * * * * *</b><{/if}>
+        </td>
+    </tr>
+    <tr><th>电话：</th>
+        <td colspan="5">
+            <{if $detail.gold <= 0 && $pager.audit_tenders >=0}><{$detail.mobile}><{elseif $detail.looked}><{$detail.mobile}> &nbsp;&nbsp;[<strong class="red">已购买</strong>]<{else}><b class="red"><{$detail.mobile|cutstr:6:'* * * * * *'}></b>&nbsp;&nbsp;&nbsp;
+            <{if $group.priv.tenders_look <= 0}>
+            <input type="button" class="pbtn" value="您没有权限投标" disabled="disabled"/>
+            <{else}>
+            <a href="<{link ctl='tenders:look' arg0=$detail.tenders_id http='ajax'}>"  mini-load="立即投标" mini-width="400" class="pbtn"/>购买后可以查看联系方式</a>
+            <{/if}>
+			<{/if}>
+        </td>
+    </tr>
+    <tr><td colspan="10" style="height:10px;"></td></tr>
+    <tr><th>小区名称：</th><td><{$detail.home_name|default:'--'}></td><th>房屋面积：</th><td><{$detail.area|default:'--'}>㎡</td></tr>
+    <tr><th>招标类型：</th><td><{$detail.type_title|default:'--'}></td><th>喜欢风格：</th><td><{$detail.style_title|default:'--'}></td></tr>
+    <tr><th>预算范围：</th><td><{$detail.budget_title|default:'--'}></td><th>服务需求：</th><td><{$detail.service_title|default:'--'}></td></tr>
+    <tr><th>空间户型：</th><td><{$detail.house_type_title|default:'--'}></td><th>装修方式：</th><td><{$detail.way_title|default:'--'}></td></tr>           
+    <tr><th>备注：</th><td colspan="10"><{$detail.demand|default:'--'}></td></tr>
+    <tr><td colspan="10" style="height:5px;"></td></tr>
+    </table>
+    <h4 class="tips">已经参于竞标公司</h4>
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th>商家</th><th class="w-150">竞标时间</th><th class="w-100">状态</th>
+    </tr>
+    <{foreach $look_list as $item}>
+    <tr>
+        <td class="left"><label><{$item.look_id}><label></td>
+        <td><{$company_list[$item.company_id].sort_name|default:'--'}></td>
+		<td><{$item.dateline|format}></td><td><{if $item.is_signed}><b class="blue">已签单</b><{else}><b>未签单</b><{/if}></td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align">还没有公司投标</p></td></tr>
+    <{/foreach}>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,30 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on">我的招标</li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th class="w-100">城市</th><th class="w-100">称呼</th><th>电话</th>
+        <th class="w-100">已投标</th><th class="w-50">状态</th><th class="w-150">发布时间</th>
+        <th class="w-100">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.tenders_id}><label></td><td><{$item.city_name}></td>
+        <td><{$item.name|default:$MEMBER.uname}></td><td><{$item.mobile}></td><td><{$item.looks}></td>
+        <td><{if $item.sign_uid}><b class="green">已签单</b><{elseif $item.status<0}><b>已作废</b><{elseif $item.audit}><b class="blue">招标中</b><{else}><b class="red">待审核</b><{/if}></td>
+        <td><{$item.dateline|format}></td>
+        <td>
+            <a href="<{link ctl='ucenter/member/yuyue:tendersDetail' arg0=$item.tenders_id}>" class="pbtn">查看</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+    </form>
+</div>
+<{include file="ucenter/block/footer.html"}>

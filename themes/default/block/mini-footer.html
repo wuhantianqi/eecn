@@ -1,0 +1,8 @@
+<{if $request.MINI!='load'}>
+<{if $request.MINI == 'LoadIframe'}>
+<script type="text/javascript">window.parent.Widget.MsgBox.hide();if(typeof(window.parent.Dialog_Iframe) == 'object'){window.parent.Dialog_Iframe.dialog({height: $("body").height()+60});}</script>
+<{/if}>
+        </div>
+    </body>
+</html>
+<{/if}>

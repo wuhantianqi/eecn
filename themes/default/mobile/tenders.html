@@ -1,0 +1,26 @@
+<{assign var="tpl_page_title" value="免费发招标"}>
+<{include file="mobile/block/header.html"}>
+<div class="banner">
+	<img src="/themes/default/mobile/static/images/tenders_banner.png" />
+</div>
+<div class="pding">
+	<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
+		<input type="hidden" name="data[from]" value="TZB" />
+		<input type="text" name="data[contact]" class="text full" placeholder="您的姓名" />
+		<input type="text" name="data[mobile]" class="text full" placeholder="联系方式" />
+		<input type="text" name="data[house_mj]" class="text full" placeholder="装修面积" />
+		<div class="clearfix">
+		<label>
+		<select name="data[budget_id]" class="text full"><{widget id="tenders/setting" type="budget"}></select>
+		</label>
+		</div>
+		<{widget id="data/region" city_id=$request.city_id level=2 class="text two"}>
+		<input type="text" class="text full" placeholder="请输入小区名称" />
+		<input type="submit" class="btn mainbtn_full" value="立即申请 " />
+	</form>
+</div>
+<div class="tenders_pic">
+<img src="/themes/default/mobile/static/images/zxsj-p1.png" />
+<img src="/themes/default/mobile/static/images/zxsj-p2.png" />
+</div>
+<{include file="mobile/block/footer.html"}>

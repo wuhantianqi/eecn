@@ -1,0 +1,27 @@
+<{assign var="tpl_page_title" value="手机支付"}>
+<{include file="mobile/block/header.html"}>
+<!--头部内容结束-->
+<!--购物流程图开始-->
+<div class="subwd">
+	<div class="pding shop_apply_top">
+		<p><span class="lt">订单提交成功，请您尽快付款！ 订单号：<font class="pointcl"><{$order.order_no}></font></span><span class="rt">应付金额<font class="pointcl"><{$order.amount}></font>元</span></p>
+        <p class="cl"></p>
+        <p>请您在提交订单后24小时内完成支付，否则订单会自动取消。</p>
+	</div>
+	<div class="shop_apply_bottom">
+        <form action="<{link ctl='trade/payment:order'}>" id="payment-form" method="post">
+        <input type="hidden" name="order_no" value="<{$order.order_no}>" />
+		<div class="shop_apply_bt_cont pding mb20">
+			<h2>在线支付</h2>
+            <{foreach $pay_list as $pay}>
+            <{if $pay.status==1}>
+            <label><input type="radio" name="code" value="<{$pay.payment}>" <{if $pay@first}>checked<{/if}> title="<{$pay.title}>"/><img src="<{$pager.img}>/<{$pay.logo}>" style="width:135px;height:45px;" title="<{$pay.title}>"/></label>
+            <{/if}>
+            <{/foreach}>
+            <div class="cl"></div>
+		</div>
+		<p class="bt"><b>应付<font class="pointcl"><{$order.amount}></font>元</b><button class="btn subbtn">立即付款</button></a></p>
+        </form>
+	</div>	
+</div>
+<{include file="mobile/block/footer.html"}>

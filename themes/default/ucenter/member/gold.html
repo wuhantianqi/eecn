@@ -1,0 +1,36 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul><li class="on">充值金币</li></ul>
+	<span class="r"><a href="<{link ctl='ucenter/member:logs'}>" class="pbtn">金币日志</a></span>
+</div>
+<div class="ucenter_c">
+<h4 class="tips" >我的金币：&nbsp;<span class="red"><{$MEMBER.gold}></span></h4>
+<{if $CONFIG.gold.onpay}>
+<form action="<{link ctl='trade/payment:gold'}>" method="post" >
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr>
+        <th>冲值金额：</th>
+        <td>
+            <input type="text" name="amount" class="input w-100" value="<{$CONFIG.gole.mini_amount}>" />
+            <span class="tip-commont">1RMB=<{$CONFIG.gold.huilv}>金币, 最小充值￥<{$CONFIG.gold.minpay}></span>
+        </td>
+    </tr>
+    <tr><th>支付平台：</th>
+        <td style="padding:10px">
+            <{foreach $pay_list as $pay}>
+            <{if $pay.status==1}>
+            <label><input type="radio" name="code" value="<{$pay.payment}>" <{if $pay@first}>checked<{/if}>/><img src="<{$pager.img}>/<{$pay.logo}>" style="width:135px;height:45px;vertical-align:middle;"/></label>
+            <{/if}>
+            <{/foreach}>
+        </td>
+    </tr>
+    <tr>
+        <th></th><td><input type="submit" value="提交数据" class="green_btn" /></td>
+    </tr>
+</table>
+</form>
+<{else}>
+<p class="tips"><span class="lock">管理员关闭了金币在线充值</span></p>
+<{/if}>
+</div>
+<{include file="ucenter/block/footer.html"}>

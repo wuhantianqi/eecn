@@ -1,0 +1,212 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_c">
+	<div class="ucenter_bao_box">
+		<p class="title"><font class="lt">我的交易流程</font><span class="rt"><a href="<{link ctl='ucenter/company/zxb:plaint' arg0=$item.zxb_id http='ajax'}>" mini-width='550' mini-load="我要投诉" title="我要投诉">我要投诉</a>
+        <a href="<{link ctl='ucenter/company/zxb:plaintlists' arg0=$item.zxb_id}>" title="我的投诉记录" >我的投诉记录</a></span></p>
+		<div class="zxbflowbar">
+			<ul>
+				<li> 发布装修保 <span id="zxblowmenu1" onmouseover="switchzxbmenu(1)" class="no"><a target="_blank" href="<{link ctl='zxb:index'}>" class="tit" >1</a></span>
+				</li>
+				<li> 确认公司 <span id="zxblowmenu2" onmouseover="switchzxbmenu(2)" class="no">
+                <{if $item.status+1<2}>
+                	2
+                <{else}>
+                	<a href="<{link ctl='ucenter/misc/tenders-index.html' arg0=$item.tenders_id}>" class="tit">2</a>
+                <{/if}>
+                </span>
+				</li>
+				<li> 合同签订 <span id="zxblowmenu3" onmouseover="switchzxbmenu(3)" class="no">
+                <{if $item.status+1<3}>
+                	3
+                <{else}>
+                	 <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=3}>" class="tit">3</a>
+                <{/if}>
+               	</span>
+				</li>
+				<li> 水电验收 <span id="zxblowmenu4" onmouseover="switchzxbmenu(4)" class="no">
+                 <{if $item.status+1<4}>
+                	4
+                <{else}>
+                	  <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=4}>" class="tit">4</a>
+                <{/if}>
+               	</span>
+				</li>
+				<li> 泥木验收 <span id="zxblowmenu5" onmouseover="switchzxbmenu(5)" class="no">
+                 <{if $item.status+1<5}>
+                	5
+                <{else}>
+                	  <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=5}>" class="tit">5</a>
+                <{/if}>
+               	</span>
+                
+				</li>
+				<li> 油漆验收 <span id="zxblowmenu6" onmouseover="switchzxbmenu(6)" class="no">
+                 <{if $item.status+1<6}>
+                	6
+                <{else}>
+                	  <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=6}>" class="tit">6</a>
+                <{/if}>
+               	</span>
+				</li>
+				<li> 竣工后30天 <span id="zxblowmenu7" onmouseover="switchzxbmenu(7)" class="no">
+                <{if $item.status+1<7}>
+                	7
+                <{else}>
+                	  <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=7}>" class="tit">7</a>
+                <{/if}>
+               	</span>
+				</li>
+				<li> 交易结束 <span id="zxblowmenu8" onmouseover="switchzxbmenu(8)" class="no">
+                 <{if $item.status+1<8}>
+                	8
+                <{else}>
+                	  <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=8}>" class="tit">8</a>
+                <{/if}>
+               	</span>
+				</li>
+			</ul>
+			<div class="cl"></div>
+			<div class="zxbflowbar_bt">
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon1">
+					<div class="tit"></div>
+					<div class="con">
+						<p>业主正在选择满意的竞标公司</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon2">
+					<div class="tit"></div>
+					<div class="con">
+						<p>业主确认贵公司装修请尽快上传合同</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon3">
+					<div class="tit"></div>
+					<div class="con">
+						<p>签订合同后会收到合同总价的20%</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon4">
+					<div class="tit"></div>
+					<div class="con">
+						<p>水电验收后会收到合同总价的20%</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:collapse" id="zxblowcon5">
+					<div class="tit"></div>
+					<div class="con">
+						<p>泥土验收后会收到合同总价的20%</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon6">
+					<div class="tit"></div>
+					<div class="con">
+						<p> 油漆验收后会收到合同总价的20%</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon7">
+					<div class="tit"></div>
+					<div class="con">
+						<p> 竣工满30天后业主满意收到合同总价的20%</p>
+					</div>
+				</div>
+				<div class="zxbips" style="visibility:hidden" id="zxblowcon8">
+					<div class="tit"></div>
+					<div class="con">
+						<p>双方满意并无任何问题交易结束</p>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+	</div>
+	<script language="javascript" type="text/javascript">
+	
+	$(document).ready(function () {
+		var status = <{$item.status}>;
+		var next = status+1;
+		for(i=0;i<next;i++){
+			$("#zxblowmenu"+i).attr("class","no");	
+		}
+		for(i=next;i<=8;i++){
+            $("#zxblowmenu"+i).attr("class","");
+        }
+		
+		$("#zxblowcon"+next).css('visibility','');
+	});
+    function switchzxbmenu(s){
+       
+		var status = <{$item.status}>;
+		var next = status+1;
+		for(i=0;i<next;i++){
+			$("#zxblowmenu"+i).attr("class","no");
+			$("#zxblowcon"+i).css('visibility','hidden');
+			
+		}
+		for(i=next;i<=8;i++){
+            $("#zxblowmenu"+i).attr("class","");
+			$("#zxblowcon"+i).css('visibility','hidden');
+			
+        }	
+		if(s>=next){
+			$("#zxblowmenu"+s).attr("class","sel");	
+		}
+        $("#zxblowcon"+s).css('visibility','');
+    }
+	</script>
+    <div class="ucenter_bao_box">
+	<p class="title"><font class="lt">装修保信息</font><span class="rt">
+   
+     <a href="<{link ctl='ucenter/company/zxb:lists' arg0=$item.zxb_id}>"  title="装修保详情">装修保详情</a>
+    
+    </span></p>
+    <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="info info_ch">
+        <tr>
+            <th>业主姓名：</th><td><{$item.contact}></td>
+            <th>公司名称：</th><td><{$company.title}></td>
+        </tr>
+         <tr>
+            <th>业主电话：</th><td><{$item.mobile}></td>
+           	<th>公司电话：</th><td><{$company.mobile}></td>
+        </tr>
+        <tr>
+           <th>合同总价：</th><td><{$total_price}>元</td>
+           <th>当前状态：</th><td><span class="green"><{$status[$item.status]}><{if $item.status <8}>已完成<{/if}></span></td>
+        </tr>
+        <tr>
+        	<th>业主备注：</th><td><{$item.comment}></td>
+            <th>公司备注：</th><td><{$tenders_look.content}></td></tr>
+        <{if $item.status < '7' && $item.status > '1'}>
+        <tr><th></th><td colspan="5">
+             <{if $now_status == ($item.status+1)}>
+                 	<{if $now_status>=3 && $now_status<=7}>
+                    	<{if $now_status == '3'}>
+                 			<{if $hetong.company_status == 0 }>
+                            	<span class="red">请尽快上传装修合同</span>
+                            <{elseif $hetong.company_status == 1 && $hetong.yezhu_status == 0 && $step.status == 0}>
+                            	<span class="red">请等待用户确认</span>
+                            <{elseif $hetong.company_status == 1 && $hetong.yezhu_status == 1 && $step.status == 0}>
+                            	<span class="red">请等待平台确认</span>
+                            <{/if}>
+                        <{else if $now_status == '7'}>
+                            <{if $step.yezhu_status == 0 && $step.status == 0}>
+                            	<span class="red">请等待用户确认</span>
+                            <{elseif $step.yezhu_status == 1 && $step.status == 0}>
+                            	<span class="red">请等待平台确认</span>
+                            <{/if}>
+                        <{else}>
+                        	<{if $step.company_status == 0 }>
+                            	<span class="red">请尽快上传<{$status[$item.status+1]}>的完工证明</span>
+                            <{elseif $step.company_status == 1 && $step.yezhu_status == 0 && $step.status == 0}>
+                            	<span class="red">请等待用户确认</span>
+                            <{elseif $step.company_status == 1 && $step.yezhu_status == 1 && $step.status == 0}>
+                            	<span class="red">请等待平台确认</span>
+                            <{/if}>
+                        <{/if}>	
+                    <{/if}>
+                 <{else}>
+                 <a href="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=$item.status+1}>" class="pbtn"><{$status[$item.status+1]}>>></a>
+                 <{/if}>
+        </td></tr>
+        <{/if}>
+	</table>
+</div>

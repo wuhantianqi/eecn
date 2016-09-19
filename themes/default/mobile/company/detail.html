@@ -1,0 +1,8 @@
+<{assign var="tpl_page_title" value="公司详情"}>
+<{include file="mobile/company/block/header.html"}>
+<div class="pding">
+	<p>联系电话：<{$company.show_phone}></p>
+	<p>联系地址：<{$company.addr}></p>
+    <div><{$company.info}></div>
+</div>
+<{include file="mobile/block/footer.html"}>

@@ -1,0 +1,44 @@
+<{assign var="tpl_page_title" value="修改邮箱"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding admin_cont">
+	<form id='login-form'>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="title">用户名</td>
+				<td><{$MEMBER.uname}></td>
+			</tr>
+			<tr>
+				<td class="title">原邮箱</td>
+				<td><{$MEMBER.mail}><{if $MEMBER.verify_mail}><font class="yz_color">已验证</font><{/if}></td>
+			</tr>
+			<tr>
+				<td class="title">新邮箱</td>
+				<td><input value="" type="text" name="account[new_mail]" class="text full" /></td>
+			</tr>
+			<tr>
+				<td class="title">登录密码</td>
+				<td ><input value="" type="password" name="account[passwd]" class="text full" /></td>
+			</tr>
+		</table>
+		<input type="button" id='login-btn' class="btn subbtn_full" value="修改邮箱" />
+	</form>
+</div>
+
+ <script>
+        $(document).ready(function() {
+            function showmsg(message) {
+                 $("#showErr").show();$("#showTxt").html(message);
+            }
+            $("#login-btn").click(function() {
+                $.post('<{link ctl="mobile/ucenter:mail"}>', $("#login-form").serialize(), function(data) {
+                    if (data.error) {
+                        showmsg(data.message);
+                    } else {
+                        window.location = "<{link ctl='mobile/ucenter:mail'}>";
+                    }
+                }, 'json');
+            });
+
+        });
+ </script>
+<{include file="mobile/block/footer.html"}>

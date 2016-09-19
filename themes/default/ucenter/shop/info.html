@@ -1,0 +1,73 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/shop:base'}>" >基本设置</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>
+        <li><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<{if $shop_no_open}><div class="tips"><span class="notice">您还没有开通商铺，请先填写商铺资料</span></div><{/if}>
+<form action="<{link ctl='ucenter/shop:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+   <tr><th><span class="red">*</span>商铺标题：</th><td><input type="text" name="data[title]" value="<{$shop.title|default:''}>" class="input w-300"/></td></tr>
+    <tr><th><span class="red">*</span>商铺名称：</th>
+		<td><input type="text" name="data[name]" value="<{$shop.name|default:''}>" class="input w-300"/>
+			<span class="tip-comment">店铺短名称、简称</span>
+		</td>
+	</tr>
+    <tr><th><span class="red">*</span>商铺分类：</th><td><select name="data[cat_id]" class="select w-150"><{widget id="shop/cate" value=$shop.cat_id}></select></td></tr>
+    <{if $shop.city_id}>
+    <tr>
+        <th class="w-100"><span class="red">*</span>地区：</th>
+        <td>
+            <label><b class="blue"><{$shop.city_name}></b></label>&nbsp;&nbsp;&nbsp;
+            <label><select name="data[area_id]" class="select w-100"><{widget id="data/area" value=$shop.area_id city_id=$shop.city_id|default:$MEMBER.city_id}></select></label>
+        </td>
+    </tr>
+    <{else}>
+    <tr>
+        <th class="w-100"><span class="red">*</span>地区：</th>
+        <td><{widget id="data/region" city_id=$request.city_id class="select w-150"}></td>
+    </tr>
+    <{/if}>
+    <tr><th><span class="red">*</span>联系人：</th><td><input type="text" name="data[contact]" value="<{$shop.contact|default:''}>" class="input w-300"/></td></tr>
+<!--    
+    <tr><th><span class="red">*</span>手机：</th><td><input type="text" name="data[mobile]" value="<{$shop.mobile|default:''}>" class="input w-300"/></td></tr>
+-->
+    <tr><th><span class="red">*</span>电话：</th><td><input type="text" name="data[phone]" value="<{$shop.phone|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>传真：</th><td><input type="text" name="fields[fox]" value="<{$shop.fox|default:''}>" class="input w-300"/></td></tr>
+    <tr>
+        <th>客服QQ：</th><td><input type="text" name="fields[qq]" value="<{$shop.qq|default:''}>" class="input w-300"/><span class="tip-comment">多个QQ用","分隔</span></td>
+    </tr>
+    <tr><th>公司邮箱：</th><td><input type="text" name="fields[mail]" value="<{$shop.mail|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>营业时间：</th><td><input type="text" name="fields[hours]" value="<{$shop.hours}>" class="input w-300"/><span class="tip-comment">如9:00 - 18:00</span></td></tr>
+    <tr><th>店铺公告：</th><td><textarea name="fields[bulletin]" class="textarea"><{$shop.bulletin}></textarea></td></tr>
+    <tr><th>地图坐标：</th>
+        <td>
+            <label>经度:<input type="text" name="data[lng]" value="<{$shop.lng|default:''}>" id="Bmap_marker_lng" class="input w-100"/></label>
+            <label>纬度:<input type="text" name="data[lat]" value="<{$shop.lat|default:''}>" id="Bmap_marker_lat" class="input w-100"/></label> 
+            <span class="tip-comment"><a class="pbtn" map-marker="#Bmap_marker_lng,#Bmap_marker_lat" >拾取工具</a></span>
+        </td>
+    </tr>
+    <tr><th>地址：</th><td><input type="text" name="fields[addr]" value="<{$shop.addr|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>交通：</th><td><input type="text" name="fields[jiaotong]" value="<{$shop.jiaotong}>" class="input w-500"/></td></tr>
+    <tr><th>公司介绍：</th><td><textarea name="fields[info]" kindeditor="simple" style="width:700px;height:350px;"><{$shop.info}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

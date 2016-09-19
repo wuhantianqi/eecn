@@ -1,0 +1,76 @@
+/*左边内容样式开始*/
+.shop_banner{ width:1000px; overflow:hidden; margin-bottom:1px;}
+.shop_nav{ width:100%; background:#333; height:40px; line-height:40px;}
+.shop_nav li{ float:left; margin-right:1px;}
+.shop_nav a{ padding:0px 20px; color:#fff; display:inline-block; font-size:14px;}
+.shop_nav a.current,.shop_nav a:hover{ background:#666;}
+.shop_lt{ width:200px;}
+.shop_rt{ width:780px;}
+.shop_intro{ background:#f8f8f8; padding:10px 18px;}
+.shop_intro img.pic{ width:160px; height:160px; border:1px solid #e3e3e3;}
+.shop_fenlei li{ overflow:hidden; font-size:14px; border-bottom:1px #e3e3e3;}
+.side_shop_ul a.pic img{ width:180px; height:135px;}
+/*左边内容样式结束*/
+
+/*右边内容样式开始*/
+.shop_lunzhuan{ width:780px; height:200px; overflow:hidden;}
+.shop_ico{ display:inline-block; background:url(shop_ico.png) no-repeat; vertical-align:middle; width:12px; height:12px; margin:0px 3px;}
+.shop_box{ height:180px; width: 360px;}
+.shop_tit{ border-bottom:1px solid #e3e3e3; overflow:hidden;}
+.shop_tit b{ font-size:15px; color:#333;}
+.shop_news li{ overflow:hidden;}
+.shop_list{ width:auto;}
+.shop_list li{ margin:10px 7px 0px ;}
+.coupon li{ float:left; margin:5px 6px;}
+.coupon_box{ width:220px; height:108px; background:url(youhui_bg.png) no-repeat; padding:10px; color:#fff;}
+.coupon_box p.price{ line-height:40px;}
+.coupon_box p{ line-height:30px;}
+.coupon_box p.price b.lt{ font-size:30px;}
+p.sub_shop_tit{ border-bottom:1px solid #e3e3e3;}
+p.sub_shop_tit b{ font-size:16px; color:#333; border-bottom:2px solid #fe7902; line-height:28px; display:inline-block; padding-bottom:2px;}
+.shop_intro_box{ margin:10px 0px;}
+.shop_intro_box p span{ width:50%; display:inline-block;}
+.sub_shop_at ul{ width:100%;}
+.sub_shop_intro h2{ text-align:center;}
+.coupon_box_intro{ width:65%;}
+.coupon_box_intro p{ line-height:22px;}
+.sub_coupon div.rt{ width:62%;}
+.sub_coupon div.rt p{ font-size:14px;}
+.goods_top_img img{ width:360px; height:270px;}
+.goods_tit_ul{ margin-top:4px;}
+.goods_tit_ul li{ float:left; margin-right:3px;}
+.goods_tit_ul li.last{ margin-right:0px;}
+.goods_tit_ul li img{ width:68px; height:68px; border:1px solid #fff;}
+.goods_tit_ul li img:hover{border:1px solid #fe7902;}
+.goods_intro{ width:50%;}
+.goods_intro p.point_p{ border:1px dashed #FF9F49; background:#fdead8; padding:0px 10px; margin:5px 0px 10px 0px; font-weight:bold;}
+.point_ico{ width:17px; height:17px; background-position:-14px 0px;}
+.goods_intro p{ font-size:14px; line-height:30px;}
+.goods_intro p a.btn{ margin-right:10px; border-radius:0px; font-size:16px; height:36px; line-height:36px;}
+.goods_intro p a.gwc_btn{ width:114px;background:#ff9f49;}
+.goods_intro p a.gm_btn{width:100px; background:#fe7902;}
+.goods_intro p b.fontcl2{ font-size:20px;}
+.goods_buy_cont{ padding:10px; background:#f9f9f9; border:1px dashed #ccc;}
+p.shuxing span{ display:inline-block; width:33%;}
+p.sub_shop_fl{ border-bottom:1px solid #e3e3e3; background:#f8f8f8;}
+p.sub_shop_fl a{ display:inline-block; font-size:16px; padding:5px 20px;margin-bottom:-1px;}
+p.sub_shop_fl a.current{ background:#fff;  border-top:2px solid #00ad28; border-left:1px solid #e3e3e3; border-right:1px solid #e3e3e3;}
+p.sub_shop_fl a.first{border-left:none;}
+p.goods_buy_count a{display:inline-block;float:left;width:26px;height:25px;line-height:24px;text-align:center;color:#888;text-decoration:none;font-size:22px;background:#E9E9E9; border:1px solid #e3e3e3;}
+p.goods_buy_count a:hover{opacity:0.8}
+p.goods_buy_count a.jian{line-height:4px;}
+.buy_count_text{float:left;width:36px;height:25px;border:1px solid #e3e3e3;line-height:20px;text-align:center;}
+.goods_intro p .btn{ margin-top:10px;}
+.jh-spec dt{ font-size:14px;}
+#product_spec_ul li.sp-txt{ float:left; margin:5px 8px 5px 0px; position:relative;}
+#product_spec_ul li.sp-txt a{ display:block; border:2px solid #ccc; padding:0px 10px;}
+#product_spec_ul li.sp-txt a:hover,#product_spec_ul li.sp-txt a.hovered{ border:2px solid #ff6600; text-decoration:none;}
+#product_spec_ul li.sp-txt i{ position:absolute; width:9px; height:9px; background:url(guige.png) no-repeat; right:0px; bottom:0px; display:none;}
+#product_spec_ul { margin-bottom:10px; overflow:hidden;}
+
+ul.mendian_list li{ border:1px solid #e0e0e0; overflow:hidden; padding:5px; margin:5px 0px; font-size:14px;}
+ul.mendian_list li a.pic img{ margin-right:10px; width:200px; height:150px;}
+ul.mendian_list li h2{ font-weight:bold;}
+ul.mendian_list li div.text{ width:530px; height:140px; overflow:hidden;}
+.menmianDet h2{ font-weight:bold; margin-bottom:10px;}
+/*右边内容样式结束*/

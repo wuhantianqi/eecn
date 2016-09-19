@@ -1,0 +1,60 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li<{if $pager.type=='all'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member/order:index'}>" >全部订单</a></li>
+        <li<{if $pager.type=='unpay'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member/order:index' arg0='unpay'}>">未付款</a></li>
+        <li<{if $pager.type=='payed'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member/order:index' arg0='payed'}>">已付款</a></li>
+        <li<{if $pager.type=='ship'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member/order:index' arg0='ship'}>">已发货</a></li>
+        <li<{if $pager.type=='finish'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member/order:index' arg0='finish'}>">已完成</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="order_table">
+    <{foreach $items as $order}>
+    <tbody class="tbody">
+    <tr class="th">
+        <td colspan="10">
+            <label class="no">订单号：<b class="red"><{$order.order_no}></b></label>
+            <label class="time">下单时间：<{$order.dateline|format:"Y-m-d H:i:s"}></label>
+            <label class="shop">卖家：<a href="<{$shop_list[$order.shop_id].shop_url}>" target="_blank" /><{$shop_list[$order.shop_id].name|default:'--'}></a></label>
+            <span class="order"><a href="<{link ctl='trade/order:detail' arg0=$order.order_no}>" target="_blank">订单详情</a></span>
+        </td>
+    </tr>
+    <{assign var="first" value=true}>
+    <{foreach $product_list as $product}>
+    <{if $product.order_id == $order.order_id}>
+    <tr class="td">
+        <td class="order-product w-50">
+            <a href="<{link ctl='mall/product:detail' arg0=$product.product_id}>" target="_blank"><img src="<{$pager.img}>/<{$product.photo}>_small.jpg" photo="<{$pager.img}>/<{$product.photo}>_thumb.jpg" class="wh-50" style="margin:3px;"></a>
+        </td>
+        <td><a href="<{link ctl='mall/product:detail' arg0=$product.product_id}>" target="_blank"><{$product.product_name}></a><{if $product.spec_id}><br/>规格：<{$product.spec_name}><{/if}></td>
+        <td>￥<{$product.product_price}> x <{$product.number}></td>
+        <{if $first}>
+        <td rowspan="<{$order.product_number}>" class="pay-status w-150">
+        ￥<{$order.amount }><span class="gray">(<{if $order.freight>0}>运费：￥<{$order.freight}><{else}>包邮<{/if}>)</span><br/>
+         <{if $order.order_status < 2 && $order.order_status >=0}>
+            <{if $order.pay_status}><b><a>已经支付</a></b><{else}><a href="<{link ctl='trade/order:payment' arg0=$order.order_no}>" target="_blank" class="btn_pay">立即支付</a><{/if}>
+         <{/if}>
+        </td>
+        <td rowspan="<{$order.product_number}>" class="order-status w-150">
+            <{if $order.order_status == 2}><b class="gray">订单完成</b>
+            <{elseif $order.order_status == 1}><a href="<{link ctl='ucenter/member/order:update' arg0='ship' arg1=$order.order_no}>" mini-act="确认收货" mini-confirm="确定已经收到货后，再确认收货" class="btn_ship">确认收货</a>
+            <{elseif $order.order_status < 0}><b class="gray">订单已经取消</b>
+            <{elseif empty($order.pay_status)}><a href="<{link ctl='ucenter/member/order:update' arg0='cancel' arg1=$order.order_no}>" mini-act="取消订单" mini-confirm="您确定要取消该订单" class="btn_cancel">取消订单</span>
+            <{else}><b class="gray">等待卖家发货</b>
+            <{/if}>
+        </td>
+        <{/if}>
+    </tr>
+    <{assign var="first" value=false}>
+    <{/if}>
+    <{/foreach}>
+    </tbody>
+    <tr><td colspan="10" style="border:none;height:5px">&nbsp;</td></tr>
+	<{foreachelse}>
+    <tr><td colspan="10"><p class="tips"><span class="notice">没有您要找的订单</span></p></td></tr>
+    <{/foreach}>
+</table>
+<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

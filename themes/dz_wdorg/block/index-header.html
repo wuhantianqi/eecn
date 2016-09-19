@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><{include file="block/sheader.html"}>
+<script type="text/javascript"  src="%THEME%/static/js/index.js"></script>
+</head>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<!--头部内容开始-->
+<{include file="block/top-header.html"}>
+<div class="main_header">
+	<div class="mainwd top_bottom">
+		<div class="logo lt">
+			<a href="<{link ctl='index'}>"><img src="<{if $CONFIG.site.logo}><{$pager.img}>/<{$CONFIG.site.logo}><{else}>/themes/default/static/images/logo.png<{/if}>" class="logo lt" /></a>
+			<p class="lt"><font class="fontcl1"><{$request.city.city_name}></font>
+				<{if $CONFIG.site.multi_city}><a href="<{link ctl='city'}>">[切换城市]</a>
+				<{/if}>
+			</p>
+		</div>
+		<div class="search_box lt">
+			<form method="post" action="<{link ctl=$pager.sotype.ctl}>" id="top-search">
+				<div class="search_cont">
+					<a href="javascript:void(0);" id="top_select" class="lt"><{$pager.sotype.title}><span class="search_ico index_ico"></span></a>
+					<div class="search_cont_list none">
+						<a href="javascript:void(0);" rel="<{link ctl='designer'}>">设计师</a>
+						<a href="javascript:void(0);" rel="<{link ctl='gs'}>">公司</a>
+						<a href="javascript:void(0);" rel="<{link ctl='home'}>">小区</a>
+						<a href="javascript:void(0);" rel="<{link ctl='home:tuan'}>">团装</a>
+						<a href="javascript:void(0);" rel="<{link ctl='case'}>">案例</a>
+						<a href="javascript:void(0);" rel="<{link ctl='mall/product'}>">商品</a>
+						<a href="javascript:void(0);" rel="<{link ctl='mall/store'}>">材料商</a>
+						<a href="javascript:void(0);" rel="<{link ctl='article'}>">学装修</a>
+					</div>
+				</div>
+				<input type="text" name="kw" class="text lt" placeholder="请输入你要搜索的关键字" value="<{$pager.sokw}>"  x-webkit-speech speech/>
+				<input type="submit" class="btn rt" value="搜索"/>
+			</form>
+		</div>
+		<div class="site_commitment rt">
+			<ul>
+				<li><a href="<{link ctl='zxb'}>"><span class="index_ico ico1"></span></a>
+				</li>
+				<li><a href="<{link ctl='zxb'}>"><span class="index_ico ico2"></span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="main_nav">
+		<div class="mainwd hoverno main_nav_cont">
+			<ul class="index_nav">
+				<li><a href="<{link ctl='index'}>" <{if $request.ctl=='index'}>class="current"<{/if}>>首页</a>
+				</li>
+				<li><a <{if $request.ctl=='tenders'}>class="current"<{/if}> href="<{link ctl='tenders'}>">我要装修</a>
+				</li>
+				<li>
+					<a <{if $request.ctl=='gs' || $request.ctl=='designer' || $request.ctl=='gz'   || $request.ctl=='mechanic' || $request.ctl=='youhui'  }>class="current"<{/if}> href="<{link ctl='gs'}>">找装修公司</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='gs'}>">找装修公司</a>
+						</li>
+						<li><a href="<{link ctl='designer'}>">找设计师</a>
+						</li>
+						<li><a href="<{link ctl='gz'}>">找工长</a>
+						</li>
+						<li><a href="<{link ctl='mechanic'}>">找工人</a>
+						</li>
+						<li><a href="<{link ctl='youhui'}>">优惠信息</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a <{if $request.ctl=='home' || $request.ctl=='site'}>class="current"<{/if}> href="<{link ctl='home'}>">我搜我家</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='home'}>">小区楼盘</a>
+						</li>
+						<li><a href="<{link ctl='home:map'}>">楼盘地图</a>
+						</li>
+						<li><a href="<{link ctl='site'}>">在建工地 </a>
+						</li>
+						<li><a href="<{link ctl='home:tuan'}>">团装小区</a>
+						</li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='case'}>class="current"<{/if}> href="<{link ctl='case'}>">装修案例</a>
+				</li>
+				<li>
+					<a <{if $request.ctl=='article' || $request.ctl=='diary' || $request.ctl=='ask' }>class="current"<{/if}> href="<{link ctl='article'}>">学装修</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='diary'}>">装修日记</a>
+						</li>
+						<li><a href="<{link ctl='ask'}>">知识问答</a>
+						</li>
+						<li><a href="<{link ctl='article'}>">装修课堂</a>
+						</li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="current"<{/if}> href="<{link ctl='activity'}>">优惠活动</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='mall/coupon-items'}>">优惠券</a>
+						</li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='news'}>class="current"<{/if}> href="<{link ctl='news'}>">本地新闻</a>
+				</li>
+				<li class="last">
+					<a <{if $request.ctl=='mall/index' || $request.ctl=='mall/store'}>class="current"<{/if}>  href="<{link ctl='mall'}>">家居商城</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='mall/index'}>">商城主页</a>
+						</li>
+						<li><a  href="<{link ctl='mall/store'}>">商家列表</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="index_nav_lt">
+				<ul>
+					<li>
+						<p><a  href="<{link ctl='activity'}>">近期活动</a>
+						</p>
+						<{calldata mdl="activity/main"  city_id=$request.city_id  order="id:desc" limit=2}>
+						<a title="<{$item.title}>" target="_blank" href="<{link ctl='activity:detail' arg0=$item.id}>"><{$item.title|cutstr:12:''}></a>
+						<{/calldata}>
+					</li>
+					<li>
+						<p><a  href="<{link ctl='case'}>">案例</a>
+						</p>
+						<{calldata mdl="case/case" order="views:desc" limit=2}>
+						<a title="<{$item.title}>" target="_blank" href="<{link ctl='case:detail' arg0=$item.case_id}>"><{$item.title|cutstr:12:''}></a>
+						<{/calldata}>
+					</li>
+					<li>
+						<p><a  href="<{link ctl='site'}>">在建工地</a>
+						</p>
+						<{calldata  mdl='home/site' order='site_id:desc' limit=2}>
+						<a title="<{$item.title}>" target="_blank" href="<{link ctl='site:detail' arg0=$item.site_id}>"><{$item.title|cutstr:12:''}></a>
+						<{/calldata}>
+					</li>
+					<li>
+						<p><a  href="<{link ctl='mall/index'}>">平价材料</a>
+						</p>
+						<{calldata mdl="product/product"  city_id=$request.city_id limit="2"}>
+						<a href="<{link ctl='mall/product:detail' arg0=$item.product_id}>" title='<{$item.name}>' ><{$item.name|cutstr:12:''}></a>
+						<{/calldata}>
+					</li>
+					<li>
+						<p><a href="/mobile/">手机端</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".search_box .search_cont").mouseover(function(){
+        var o = $("#top_select").offset();
+        $(this).find(".search_cont_list").css({left:o.left-2,top:o.top+36}).show();
+    }).mouseleave(function(){
+        $(this).find(".search_cont_list").hide();
+    });
+    $(".search_cont_list a").click(function(){
+        $(".search_box .search_cont #top_select").html($(this).text()+'<span class="search_ico index_ico"></span>');
+        $(".search_box form").attr('action',$(this).attr('rel'));
+        $(".search_box .search_cont_list").hide();
+    });
+    //绿色导航
+    $(".main_nav ul li").mouseover(function(){
+        $(this).find(".main_nav_son").show();
+		$(this).addClass('current');
+    }).mouseleave(function(){
+	$(this).removeClass('current');
+        $(this).find(".main_nav_son").hide();
+    });
+});
+</script>

@@ -1,0 +1,38 @@
+<{assign var="tpl_page_title" value="商铺优惠券"}>
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$shop.logo}>" class="lt pic" />
+		<h2><{$shop.name}></h2>
+		<p class="nowrap">信誉指数：<{$shop.score}></p>
+		<p class="nowrap">联系电话：<a  href="tel:<{$shop.show_phone}>"><{$shop.show_phone}></a></p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="shop_nav">
+	<ul>
+		<li><a href="<{link ctl='mobile/shop' arg0=$shop.shop_id}>">商家简介</a></li>
+		<li><a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=0}>">所有商品</a></li>
+		<li><a href="<{link ctl='mobile/shop:coupon' arg0=$shop.shop_id arg1=1}>" class="current">优惠券</a></li>
+		<li><a href="<{link ctl='mobile/shop:news' arg0=$shop.shop_id arg1=1}>">活动资讯</a></li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="pding">
+	<ul class="coupon_menu">
+    <{foreach $items as $item}>
+		<li class="lt">
+			<a href="<{link ctl='mobile/coupon:detail' arg0=$item.coupon_id}>">
+			<div class="coupon_menu_cont">
+				<b>¥ <{$item.money}></b>
+				<p>满<{$item.min_amount}>元减<{$item.money}>元</p>
+				<p class="bg">立即领取</p>
+			</div>
+			</a>
+		</li>
+        <{/foreach}>
+	</ul>
+</div>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

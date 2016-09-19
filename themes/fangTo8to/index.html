@@ -1,0 +1,329 @@
+<{include file="block/header.html"}>
+	<div class="banner banner_nav">
+		<div class="banner_left">
+				<h1>免费设计与报价</h1>
+				<p class="banner_p">10秒登记,免费获取方案报价</p>
+				<form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
+					<div class="ten_top">
+		            	<input type="hidden" name="data[from]" value="TZX" />
+						<input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
+						<input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
+						<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+					</div>
+					<div class="checkbox">
+					  <label>
+					    <input type="checkbox" value="" checked="checked">
+					    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
+					  </label>
+				</div>
+					<div class="menu_list_ep">
+						<input type="button" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
+					</div>
+				</form>
+		</div>
+		<div class="banner_content"><{adv id="43" name="首页123" city_id=$request.city_id}></div>
+		<div class="banner_right">
+			<ul>
+				<li>
+					<a class="list-item" href="<{link ctl='newactivity'}>" target="_blank">
+			          <span class="item-img-1"></span>
+			          <p class="item-p-1">装修小白学装修</p>
+			          <p class="item-p-2">专注优质装修服务，三分钟学装修</p>
+			        </a>
+				</li>
+				<li>
+					<a class="list-item" href="<{link ctl='newactivity:housekeeper'}>" target="_blank" style="height: 114px;">
+			          <span class="item-img-2"></span>
+			          <p class="item-p-1">装修管家全程监管</p>
+			          <p class="item-p-2">一对一帮您解决装修中的大小麻烦事</p>
+			        </a>
+				</li>
+				<li>
+					<a class="list-item" href="<{link ctl='zxb'}>" target="_blank">
+			          <span class="item-img-3"></span>
+			          <p class="item-p-1">优优美家装修保</p>
+			          <p class="item-p-2">提供一站式装修资金安全解决方案</p>
+			        </a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="banner_bottom">
+		<div class="product-list">
+	        <a class="product-item provider" href="<{link ctl='tenders'}>" target="_blank"><span class="product-title">免费设计报价</span> <span class="product-color">3家装修公司同台PK<span class="triangle-right">&nbsp;</span></span> <span class="product-describe">先比较 再装修</span> </a> 
+			<a class="product-item zbh" href="<{link ctl='case'}>" target="_blank"> <span class="product-title">海量装修效果图</span> <span class="product-color">看图找灵感<span class="triangle-right">&nbsp;</span></span> <span class="product-describe">装修灵感蹭蹭来</span> </a> 
+			<a class="product-item jubu" href="<{link ctl='gs'}>" target="_blank"> <span class="product-title">靠谱装修公司</span> <span class="product-color">满意方案您做主<span class="triangle-right">&nbsp;</span></span> <span class="product-describe">优质装修公司放心挑</span> </a> 
+			<a class="product-item guanjia" href="<{link ctl='newactivity:loan'}>" target="_blank"> <span class="product-title">低息装修贷款</span> <span class="product-color">急速放款分期还<span class="triangle-right">&nbsp;</span></span> <span class="product-describe">帮您解决装修中的资金问题</span> </a>
+	      </div>
+	</div>
+	<div class="clear"></div>
+	<div class="technologicalP">
+		<h2 class="slash1"><p>装修流程</p></h2>
+		<p class="slash_p">业主权益第一，优优美家装修网 始终保障着业主装修每一步！</p>
+		<ul>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>收房量房</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>前期准备</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>选装修公司</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>设计阶段</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>材料选购</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>施工阶段</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>竣工验收</p>
+				</a>
+			</li>
+			<li>
+				<a href="#" target="_blank">
+					<p></p>
+					<p>软装配饰</p>
+				</a>
+			</li>
+			<li>
+				<a href="<{link ctl='zxb'}>" target="_blank">
+					<p></p>
+					<p>装修保障</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="designS">
+		<h2 class="slash2"><p>装修效果图 所见即所得</p></h2>
+		<p class="slash_p">看图找灵感，海量装修效果图，激发无限装修创意！</p>
+		<ul>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r1.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r2.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li><li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r3.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li><li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r4.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li><li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r5.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li><li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/r6.jpg" alt="" /></a>
+				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="xpicture">
+		<ul>
+			<li>客厅</li>
+			<li>卧室</li>
+			<li>餐厅</li>
+			<li>厨房</li>
+			<li>卫生间</li>
+			<li>阳台</li>
+			<li>背景墙</li>
+			<li>吊顶</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="Reliable">
+		<h2 class="slash3"><p>精选装修公司</p></h2>
+		<p class="slash_p">3家装修公司同台PK,满意方案您做主。</p>
+		<ul>
+			<{KT name="仿土巴兔首页推荐装修公司" city_id=$request.city_id limit="12"}>
+				<li <{if $index%6==0}>style="margin-left:16px"<{/if}>><a href="<{$item.link}>" target="_blank"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+				</li>
+			<{/KT}>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="knowledge">
+		<ul>
+			<li>
+				<h3>如何选择装修公司</h3>
+				<div>
+					<p><a href="/article-detail-150.html" target="_blank">什么样的装修公司是好装修公司?</a></p>
+					<p><a href="/article-detail-147.html" target="_blank">装修队与装修公司有哪些区别？</a></p>
+					<p><a href="/article-detail-151.html" target="_blank">找熟人装修到底好不好啊?</a></p>
+				</div>
+			</li>
+			<li>
+				<h3>新手如何轻松完成新家装修</h3>
+				<div>
+					<p><a href="/article-detail-148.html" target="_blank">家庭装修怎么样才能省钱？</a></p>
+					<p><a href="/article-detail-127.html" target="_blank">房子装修颜色搭配要点！</a></p>
+					<p><a href="/article-detail-48.html" target="_blank">家装中绝对不能碰的9大敏感禁区！</a></p>
+				</div>
+			</li>
+			<li>
+				<h3>家居装修小常识</h3>
+				<div>
+					<p><a href="/article-detail-156.html" target="_blank">设计方案技巧有哪些呢？</a></p>
+					<p><a href="/article-detail-161.html" target="_blank">装修合同要注意哪些细节？</a></p>
+					<p><a href="/article-detail-159.html" target="_blank">签订装修合同需要注意的陷阱！</a></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="experience">
+		<h2 class="slash4"><p>装修经验</p></h2>
+		<p class="slash_p">学习实用装修经验，避免装修猫腻！</p>
+		<ul>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/jy-img1.jpg" alt=""></a>
+				<div>
+					<p><a href="/article-detail-187.html" target="_blank">那些你一定要知道的验房标准程序。</a></p>
+					<p><a href="/article-detail-188.html" target="_blank">史上最强二手房验收重点总结。</a></p>
+					<p><a href="/article-detail-189.html" target="_blank">验房收房签字应该留意的文件有哪些？</a></p>
+					<p><a href="/article-detail-154.html" target="_blank">房屋保险有包括哪些？</a></p>
+				</div>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/jy-img2.jpg" alt=""></a>
+				<div>
+					<p><a href="/article-detail-190.html" target="_blank">一分钟学会瓷砖选购小技巧。</a></p>
+					<p><a href="/article-detail-191.html" target="_blank">如何节省装修中瓷砖的用量。</a></p>
+					<p><a href="/article-detail-192.html" target="_blank">瓷砖清洁如何做到更高效。</a></p>
+					<p><a href="/article-detail-175.html" target="_blank">厨房瓷砖选择有哪些注意事项？</a></p>
+				</div>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/jy-img3.jpg" alt=""></a>
+				<div>
+					<p><a href="/article-detail-193.html" target="_blank">如何选择最适合的油漆？</a></p>
+					<p><a href="/article-detail-194.html" target="_blank">涂料市场存在的猫腻！</a></p>
+					<p><a href="/article-detail-195.html" target="_blank">难闻的油漆味如何除掉？</a></p>
+					<p><a href="/article-detail-83.html" target="_blank">涂料乳胶漆用量计算方法。</a></p>
+				</div>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="%THEME%/static/images/jy-img4.jpg" alt=""></a>
+				<div>
+					<p><a href="/article-detail-197.html" target="_blank">装修木材该如何购买？</a></p>
+					<p><a href="/article-detail-197.html" target="_blank">木工装修时候不得不注意的事项。</a></p>
+					<p><a href="/article-detail-198.html" target="_blank">家庭中木门的保养。</a></p>
+					<p><a href="/article-detail-106.html" target="_blank">木材、板材选购大全。</a></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="experience experience_bor">
+		<h2 class="slash4"><p>优惠活动</p></h2>
+		<p class="slash_p">在优优美家,优惠活动从没停过。</p>
+		<ul>
+			<{calldata mdl="activity/activity" city_id=$request.city_id  limit="4"}>
+			<li>
+				<a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" alt=""></a>
+				<div>
+					<p><a href="#" target="_blank"><{$item.title}></a></p>
+					<p><a href="#" target="_blank">活动时间:<{$item.bg_time|format:'Y-m-d'}></a></p>
+				</div>
+			</li>
+			<{/calldata}>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="Hotspot">
+		<h2 class="slash4"><p>热点新闻</p></h2>
+		<p class="slash_p">关注装修圈的人和事，健康装修，健康居家。</p>
+		<ul class="Hotspot_ul">
+			<li class="Hotspot_li"><a href="#" target="_blank"><img src="%THEME%/static/images/rd.jpg" alt=""></a></li>
+			<li class="Hotspot_li">
+				<ul>
+					<{KT name="仿土巴兔首页热点新闻" city_id=$request.city_id limit=4}>
+					<li>
+						<h4><a href="<{link ctl='article:detail' arg0=$item.article_id}>" target="_blank"><{$item.title|cutstr:30}></a></h4>
+						<p><{$item.desc|cutstr:70}></p>
+					</li>
+					<{/KT}>
+				</ul>
+			</li>
+			<li class="Hotspot_li">
+				<h3><p>武汉新闻</p></h3>
+				<{calldata mdl="company/news" city_id=$request.city_id order="views:DESC" limit="7"}>
+				<p><a href="<{link ctl='news:detail' arg0=$item.news_id}>" target="_blank"><{$item.title|cutstr:25}></a>
+				</p>
+				<{/calldata}>
+			</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+	<div class="tool">
+		<p></p>
+		<ul>
+			<li><a href="<{link ctl='tools:tuliao'}>" target="_blank"><span></span>涂料计算器</a></li>
+			<li><a href="<{link ctl='tools:diban'}>" target="_blank"><span></span>地板计算器</a></li>
+			<li><a href="<{link ctl='tools:bizhi'}>" target="_blank"><span></span>壁纸计算器</a></li>
+			<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
+			<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
+			<li><a href="<{link ctl='tools:dizhuan'}>" target="_blank"><span></span>地砖计算器</a></li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+    <div class="link">
+        <ul>
+            <li>友情链接:</li>
+            <{calldata mdl='market/links' city_id=$request.city_id limit="500"}>
+            <li><a href="<{$item.link}>" target="_blank"><{$item.title}></a></li>
+            <{/calldata}>
+        </ul>
+    </div>
+    <script type="text/javascript">
+	(function(K, $){
+	$("[mini-tenders]").click(function(){
+	    Widget.MsgBox.load("数据处理中。。。");
+	    var ident = $(this).attr("mini-tenders");
+	    $.post("<{link ctl='tenders:save' http='base'}>", $("#"+ident).serialize(), function(ret){
+	        if(ret.error){
+	            Widget.MsgBox.error(ret.message.join(","));
+	        }else{
+	            $("#"+ident).html($("#tenders_ok").html());
+	            if(ret.wx_tenders_qr){
+	                $("[lay='"+ident+"'] .erweima_box img").attr("src", ret.wx_tenders_qr);
+	                $("[lay='"+ident+"'] .erweima_box").show();
+	            }
+				Widget.MsgBox.hide();
+	        }
+	        
+	    }, 'json');
+	});
+
+	})(window.KT, window.jQuery);
+		
+	</script>
+<{include file="block/footer.html"}>

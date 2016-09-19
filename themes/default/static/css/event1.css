@@ -1,0 +1,321 @@
+.banner{
+	width: 1200px;
+	margin:20px auto;
+	overflow: hidden;
+}
+.banner-side h2{
+	line-height: 50px;
+	font-size: 22px;
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+.banner-side p:nth-of-type(2){
+	font-size: 14px;
+	color: #888;
+	margin: 10px 0;
+}
+
+.banner-side{
+	width:200px;
+	height: 287px;
+	padding: 50px 22px 20px;
+	border: 1px solid #f1f1f1;
+	border-top: 2px solid;
+	float: left;
+	position:relative;
+	background: url("../images/left-bar-bg.jpg") repeat-y;
+	text-align: center;
+}
+
+.banner-side>span{
+	width: 70px;
+	height: 58px;
+	display: inline-block;
+	background-image: url("../images/event-ico.png");
+}
+.jiancai{
+	border-top-color: #ff8c1b;
+}
+.zhuangxiu{
+	border-top-color: #00b7b2;
+}
+.jiancai h2{
+	color: #ff8c1b;
+}
+.zhuangxiu h2{
+	color: #00b7b2;
+}
+.jiancai span{
+	background-position: 0 0;
+}
+.zhuangxiu span{
+	background-position: 0 -408px;
+}
+.banner-side>a{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	display: inline-block;
+	color: #fff;
+}
+.jiancai a{
+	background-color: #ff8c1b;
+}
+.zhuangxiu a{
+	background-color: #00b7b2;
+}
+.runbox{
+	width:650px;
+	height:360px;
+	margin: 0 29px;
+	float: left;
+}
+.benefit{
+	float: left;
+	margin-top: 20px;
+}
+.benefit ul{
+	overflow: hidden;
+}
+.benefit ul li{
+	float: left;
+	width: 152px;
+	height: 83px;
+	padding: 22px 20px 12px 100px;
+	margin-right: 24px;
+	border: 5px solid #f3f3f3;
+	position: relative;
+}
+.benefit ul li:hover{
+	border-color: lightgray;
+}
+.benefit ul li:last-child{
+	margin-right: 0;
+}
+.benefit ul li h2{
+	margin-bottom: 10px;
+}
+.benefit ul li p{
+	font-size: 14px;
+	line-height: 20px;
+	color: #888;
+}
+.benefit ul li>span{
+	width: 51px;
+	height: 51px;
+	position: absolute;
+	top: 31px;
+	left: 23px;
+	background-image: url("../images/event-ico.png");
+	background-repeat: no-repeat;
+}
+.benefit ul li:nth-child(1) span{
+	background-position: 0 -58px;
+}
+.benefit ul li:nth-child(2) span{
+	height: 48px;
+	background-position: 0 -466px;
+}
+.benefit ul li:nth-child(3) span{
+	height: 50px;
+	background-position: 0 -358px;
+}
+.benefit ul li:nth-child(4) span{
+	width: 61px;
+	background-position: 0 -1650px;
+}
+.content{
+	width:1180px;
+	margin: 0 auto;
+}
+.bg{
+	width: 1180px;
+	margin:  0 auto;
+	background: url(../images/line-bg.png) no-repeat 0 15px;
+	text-align: center;
+}
+.bg h1{
+	text-align: center;
+	display: inline-block;
+	font-size: 26px;
+	padding: 0 46px;
+	line-height: 40px;
+	background-color: #fff;
+	position: relative;
+}
+.bg h1 span{
+	width: 13px;
+	height: 12px;
+	position: absolute;
+	
+}
+.left-bg{
+	background: url(../images/left-bg.jpg) no-repeat;
+	left: -5px;
+	top: 16px;
+	
+}
+.right-bg{
+	background: url(../images/right-bg.jpg) no-repeat;
+	right: -3px;
+	top: 16px;
+}
+.content{
+	margin-top: 30px;
+}
+.team-purchasing1>p,.team-purchasing2>p{
+	margin: 10px 0;
+	line-height: 30px;
+	width: 100%;
+	text-align: center;
+}
+.team-purchasing1 ul{
+	overflow: hidden;
+}
+.team-purchasing1 ul li{
+	float: left;
+	width: 378px;
+	padding-bottom: 15px;
+	margin-right: 20px;
+	border: 1px solid #f8f8f8;
+}
+
+.team-purchasing1 ul li img{
+	width: 100%;
+	height: 219px;
+	vertical-align: bottom;
+}
+.team-purchasing1 ul>li:nth-child(-n+3){
+	margin-bottom: 20px;
+}
+.team-purchasing1 ul>li:nth-child(3n){
+	margin-right: 0;
+}
+.team-purchasing1 ul li p{
+	line-height: 25px;
+	font-size: 14px;
+	text-indent: 1.5em;
+	color: #888;
+}
+.team-purchasing1 ul li p:first-of-type{
+	line-height: 35px;
+	font-size: 16px;
+	background-color: #f8f8f8;
+	color: #ff8b1c;
+}
+
+.team-purchasing2{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+
+.sales-list{
+	margin-top: 30px;
+}
+.sales-list ul li{
+	float: left;
+	width: 378px;
+	overflow: hidden;
+	padding: 3px 3px 15px;
+	margin-right: 14px;
+	background-color: #f0f0f0;
+	position: relative;
+}
+.sales-list ul li:nth-child(3n){
+	margin-right: 0;
+}
+.sales-list ul li:nth-child(-n+3){
+	margin-bottom: 20px;
+}
+.sales-list ul li img{
+	width: 378px;
+}
+.sales-list ul li>p{
+	font-size: 16px;
+	margin-top: 10px;
+}
+.sales-list ul li>div {
+	position: relative;
+}
+.sales-list ul li>div>p{
+	font-size: 14px;
+	height: 30px;
+	color: #888;
+	margin-top: 15px;
+	padding-left: 23px;
+}
+.time-ico{
+	width: 17px;
+	height: 17px;
+	background: url(../images/ico1.png) no-repeat 0 -16px;
+	position: absolute;
+	left: 3px;
+	top: 6px;
+}
+.sales-list ul li>a{
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	width: 82px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+a.end{
+	background-color: #888;
+}
+a.ing{
+	background-color: #ff4301;
+}
+.friend-wrap{
+	width: 100%;
+	border-top: 1px solid #888;
+	padding-top: 20px;
+	margin-bottom: 30px;
+}
+.friend{
+	width: 1180px;
+	margin: 0 auto;
+}
+.friend ul li{
+	float: left;
+	margin-right: 20px;
+	line-height: 30px;
+}
+.friend ul li a{
+	color: #888;
+}
+.friend ul li:first-child{
+	font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

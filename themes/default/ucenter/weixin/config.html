@@ -1,0 +1,41 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/weixin:info'}>">公众号设置</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/weixin:config'}>">接口设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:welcome'}>">关注回复</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:leaflets'}>">宣传页设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin/menu:index'}>">微信菜单</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+<style>
+.wechat-content{ margin:10px;font-size: 14px;}
+.wechat-content h5{ font-weight:bold; font-size:16px; line-height:50px;}
+.wechat-content p{ line-height:26px; color:#666; margin-bottom:10px;font-size: 14px;}
+.wechat-content p,.wechat-content span, .wechat-content a{font-size: 14px;}
+</style>
+    <div class="wechat-content">
+        <h5>在公众号设置中按如下设置</h5>
+        <p>1.点击进入<a href="https://mp.weixin.qq.com" target="_blank"><b class="red">微信公众平台</b></a>并进入公众号信息页面</p>
+        <p><img src="/themes/default/weixin/static/images/help01.png" ></p>
+        <p>2.在会员中心设置公众号, 需要填写的信息来源如下图所示。图中左边是网站公众设置页面，右边边是上一步打开的公众号信息页面</p>
+        <div> <img src="/themes/default/weixin/static/images/help02.png" ></div>
+        <div> <img src="/themes/default/weixin/static/images/help03.png" ></div>
+        <p>&nbsp;</p>
+        <h5>微信接口配置<a name="weixin_set"></a></h5>
+        <p>1.先从这里公众号管理列表里进入接口配置</p>
+        <div> <img src="/themes/default/weixin/static/images/help05.png" ></div>     
+        <p>&nbsp;</p>
+        <p>2.以下是你的公众号的配置信息<br>
+        <div class="tips" style="width:800px;margin:0px;">
+          你的接口URL是&nbsp;&nbsp;&nbsp;&nbsp;：<b class="red"><{link ctl='weixin/api' http="www"}></b><br>
+          您的接口Token是：<b class="red"><{$CONFIG.wechat.wechat_token|default:md5(__CFG::SECRET_KEY|cat:__CFG::Authorize)}></b>
+      </div>
+      </p>
+        <p>3. 在微信公众管理平台里进入开发模式，并把开发模型开启，开启后成为开发者，接着配置URL和Token,这两个值就是上面标红的内容</p>
+        <p>至此配置完毕，如果配置过程中有问题，可查看<a href="http://mp.weixin.qq.com/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97" target="_blank"><b class="red">微信的说明文档</b></a> </p>
+        <div> <img src="/themes/default/weixin/static/images/help04.png" ></div>
+    </div>
+</div>
+<{include file="ucenter/block/footer.html"}>

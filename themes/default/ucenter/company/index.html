@@ -1,0 +1,52 @@
+<{include file="ucenter/block/header.html"}>
+<div style="width:923px;padding:12px;margin:0 auto;">
+    <div class="index_rt_top">
+        <a href="#" class="lt"><img src="<{$pager.img}>/<{$company.thumb}>" width="120" height="120"/></a>
+        <div class="shop_top_lt lt">
+            <p class="title"><{$company.name}></p>
+            <p>公司名称：<a href="<{$company.company_url}>" target="_blank"><{$company.title}></a> 
+            </p>
+            <p>服务口号：<{$company.slogan}></a></p>
+            <p>公司地址：<{$company.city_name}> <{$company.area_name}> <{$company.addr}></p>
+        </div>
+        <div class="shop_top_rt lt">
+            <p>公司评分</p>
+            <p><span class="starswx"><em style="width:<{$company.avg_score*20}>%;"></em></span><span></span><span class="block_lt"><{$company.avg_score}>分</span></p>
+            <p>入住时间：<{$company.dateline|format:"Y-m-d"}></p>
+            <p>公司等级：<{$company.group_name}></p>
+        </div>
+		<div class="shop_top_rt_fresh rt">
+		<p class="refresh"><a href="<{link ctl='ucenter/company:refresh' http='ajax'}>" mini-load="刷新排名"  mini-width="400">刷新排名</a><span>最新刷新时间为：<br /><{$company.flushtime|format}></span></p>
+		</div>
+    </div>
+    <div class="index_cont_lt lt">
+        <div class="index_c_lt">
+            <p class="title"><font class="index_c_lt_icon1"></font>公司统计</p>
+            <p class="txt">您需要关注的情况</p>
+            <p class="txt">
+                <a href="<{link ctl='ucenter/company/yuyue:company'}>" class="green">业主预约(<{$company.yuyue_num}>)</a>
+                <a href="<{link ctl='ucenter/company/youhui:sign'}>" class="green">活动报名(<{$youhui_sign_count}>)</a>
+                <a href="<{link ctl='ucenter/company/comment:company'}>" class="green">评论数(<{$company.comments}>)</a>
+            </p>         
+            <p class="txt">
+                <a href="<{link ctl='ucenter/company/case:index'}>">公司案例(<{$company.case_num}>)</a>               
+                <a href="<{link ctl='ucenter/company/case:index'}>">在建工地(<{$company.site_num}>)</a>               
+                <a href="<{link ctl='ucenter/company/youhui:index'}>">优惠活动(<{$company.youhui_num}>)</a>
+            </p>             
+        </div>
+    </div>
+    <div class="index_cont_rt rt">
+        <{if $CONFIG.bulletin.company}>
+        <div class="index_c_rt">
+            <p class="title"><font class="index_c_rt_icon1"></font>公告</p>
+            <p class="txt"><{$CONFIG.bulletin.company}></p>
+        </div>
+        <{/if}>
+        <div class="index_c_rt">
+            <p class="title"><font class="index_c_rt_icon2"></font>平台联系方式</p>
+            <p class="txt">客服电话: <font class="green"><{$CONFIG.site.phone}></font></p>
+            <p>服务时间:9:00-18:00(周一至周日)</p>          
+        </div>
+    </div>
+</div>
+<{include file="ucenter/block/footer.html"}>

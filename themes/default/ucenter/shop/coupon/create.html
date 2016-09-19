@@ -1,0 +1,47 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加优惠券</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/coupon:index'}>" class="pbtn">优惠券管理</a></span>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_coupon < 0}>
+    <div class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限添加优惠券</span></div>
+<{elseif !$group.priv.allow_coupon}>
+    <div class="tips"><span class="notice">您是【<b class="red"><{$group.group_name}></b>】添加优惠券需要审核</span></div>
+<{/if}>
+<form action="<{link ctl='ucenter/shop/coupon:create'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="" class="input"/></td></tr>
+    <tr><th><span class="red">*</span>地区：</th>
+        <td>
+            <label><b class="blue"><{$shop.city_name}></b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <label><select name="data[area_id]" class="select w-100"><{widget id="data/area" value=$shop.area_id city_id=$shop.city_id}></select></label>
+        </td>
+    </tr>
+    <tr><th>图片：</th><td><input type="file" name="coupon_photo" class="input" /></td></tr>
+    <tr><th>优惠金额：</th><td><input type="text" name="data[money]" value="<{$detail.money|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>最低消费：</th><td><input type="text" name="data[min_amount]" value="<{$detail.min_amount|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>有效期：</th>
+        <td>
+            <input type="text" name="data[stime]" value="" date="stime" class="input w-100"/>~
+            <input type="text" name="data[ltime]" value="" date="ltime" class="input w-100"/>
+            <span class="tip-comment">"0"或空不限</span>
+         </td>
+    </tr>
+    <tr><th>描述：</th><td><textarea name="data[content]" kindeditor="full" style="width:700px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+    <tr><th></th><td><{if $group.priv.allow_coupon<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $group.priv.allow_coupon < 0}>
+var editor = KindEditor.create('textarea[kindeditor]',{readonlyMode : true});
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+<{else}>
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

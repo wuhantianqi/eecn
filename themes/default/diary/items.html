@@ -1,0 +1,114 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='diary:items'}>">装修日记</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="mb10 pding area choose_option">
+			<table>
+                <tr>
+                    <td class="tit">阶段：</td>
+                    <td>
+                     <a href="<{$status_all_link}>" class="block_lt <{if empty($pager.status)}>current<{/if}>">不限</a>
+                    <{foreach $status_list as $k=>$v}>
+                    <a href="<{$v.link}>" class="block_lt<{if $pager.status == $k}> current<{/if}>"><{$v.title}></a>
+                    <{/foreach}>
+                    </td>
+                </tr>                
+				<tr>
+					<td class="tit">装修：</td>
+					<td>
+                    	<a href="<{$way_all_link}>" class="block_lt <{if empty($pager.way_id)}>current<{/if}>">不限</a>
+						<{foreach $way_list as $k=>$v}>
+                       	 <a href="<{$v.link}>" class="block_lt  <{if $pager.way_id == $k}>current<{/if}>"><{$v.title}></a>
+        				<{/foreach}>
+					</td>
+				</tr>
+				<tr>
+					<td class="tit">户型：</td>
+					<td>
+                    	<a href="<{$type_all_link}>" class="block_lt <{if empty($pager.type_id)}>current<{/if}>">不限</a>
+						<{foreach $type_list as $k=>$v}>
+                       	 <a href="<{$v.link}>" class="block_lt <{if $pager.type_id == $k}>current<{/if}>"><{$v.title}></a>
+        				<{/foreach}>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="mb20">
+			<h2>装修日记</h2>
+			<div class="sort_box">
+				<p class="sort_list hoverno">
+                    <{foreach $order_list as $k=>$v}>
+                    <a href="<{$v.link}>"><{$v.title}><span <{if $pager.order == $k}>class="sort_ico ico_list sort_on_ico"<{else}>class="sort_ico ico_list"<{/if}>></span></a>
+                    <{/foreach}>
+				</p>
+			</div>
+			<div class="area">
+				<ul class="block_type">
+                <{foreach $items as $item}>
+                	<li>
+						<div class="main_diary">
+							<div class="lt">
+								<a href="<{link ctl='diary:detail' arg0=$item.diary_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+							</div>
+							<div class="main_diary_rt rt">
+								<p class="title"><span class="lt"><a href="<{link ctl='diary:detail' arg0=$item.diary_id}>"  target="_blank"><{$item.title}></a>[<{$item.content_num}>篇]</span><span class="rt"><label><font class="ico_list dy_liulan"></font>浏览(<font class="fontcl2"><{$item.views}></font>)</label><label><font class="ico_list dy_pinglun"></font>评论(<font class="fontcl2"><{$item.comments}></font>)</label></span></p>
+								<div class="cl"></div>
+                                <p class="sp_list"><span>楼盘： <{$item.home_name|default:'--'}></span><span>装修：<{$item.way_title}></span><span>户型：<{$item.type_title}> </span><span>均价：<{$item.total_price}>元</span></p>
+								
+                                <p class="sp_list"><span>开始时间：<{$item.start_date}> </span><span>结束时间：<{$item.end_date}></span></p>
+                                <p class="sp_list"><span>状态：<{$item.status_title}> </span><span>时间：<{$item.dateline|format:"Y-m-d"}> </span></p>
+							</div>
+							<div class="cl"></div>
+						</div>
+					</li>
+                <{/foreach}>
+				</ul>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="side_content rt">
+		<div class="mb10">
+			<p class="diary_btn"><a href="<{link ctl='ucenter/member/diary'}>" class="btn"><span class="ico_list write_ico"></span>写日记</a></p>
+		</div>
+	<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+		<div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">设计师排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+		<div class="mb20"><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+	</div>
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

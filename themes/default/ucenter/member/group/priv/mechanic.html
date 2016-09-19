@@ -1,0 +1,24 @@
+<tr>
+    <th>查看预约：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.show_yuyue_mobile < 0}>号码隐藏<{else}>号码可见<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>联系方式：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.show_phone < 0}>禁止显示<{else}>允许显示<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>预约装修：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.allow_yuyue < 0}>禁止预约<{else}>允许预约<{/if}></td>
+    <{/foreach}>
+</tr>
+<tr>
+    <th>装修投标：</th>
+    <{foreach $group_list as $v}>
+    <td><{if $v.priv.tenders_look < 0}>禁止投标<{else}>允许投标<{/if}></td>
+    <{/foreach}>
+</tr>

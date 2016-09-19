@@ -1,0 +1,107 @@
+/*公共样式修改*/
+.fontcl1{ color:#FF7200;}
+.fontcl2{ color:#67c12b;}
+.btn_main_big{ width:100px; line-height:32px; background:#FF7200; font-size:16px; border:none;}
+.btn_main_sm{  width:80px;line-height:26px; background:#FF7200; font-size:14px;border:none; }
+.btn_sub_smler{ width:60px; line-height:20px; background:#67c12b; font-size:12px; border:1px solid #67c12b;}
+.btn_sub_sm{ width:80px; line-height:26px;background:#67c12b;  font-size:14px;   border:1px solid #67c12b; }
+.btn_sub_big{ width:110px;line-height:36px;background:#67c12b;  font-size:16px;   border:1px solid #67c12b; }
+.btn_sub_tuan{ width:130px;line-height:36px;background:#67c12b;  font-size:18px;  border:1px solid #67c12b; }
+.btn_sub_apply{ width:100%;line-height:32px; height:36px;background:#67c12b; font-size:18px; border:none; }
+.choose_option a.current, .choose_option a:hover{ background:#67c12b;}
+.tenders_zb_form{ border:2px solid #67c12b;}
+.zbform{ border:2px solid #67c12b; background:#fff;}
+ul.tenders_zb_list li.current{ background:#67c12b; border:none;}
+ul.paihang li .ph_num_cl{ background:#67c12b;}
+.mall_top{ border-top:2px solid #FF7200;}
+.mall_box{ border-top:2px solid #67c12b; }
+.zbform input.btn{ border:none;}
+.home_nav{ border-top:3px solid #67c12b;}
+.home_nav a.current, .home_nav a:hover{ background:#67c12b;}
+.home_box{ border-top:2px solid #67c12b;}
+.city_top .btn{ background:#67c12b;}
+.pinyin_px p.rt a.current, .pinyin_px p.rt a:hover{ background:#67c12b;}
+/*ul样式1*/
+ul.line_type li:hover{ border:1px solid #67c12b;}
+
+/*首页样式修改*/
+.top_bottom .logo p font.fontcl1{ display:block; border:1px solid #ccc; padding:0px 10px; height:24px; line-height:24px;}
+.search_box{ border:2px solid #67c12b; margin:8px 0px 0px 80px;}
+.search_box input.btn{ background:#67c12b;}
+.index_ico{ background:url(../images/ico1.png) no-repeat;}
+.search_cont_list{border:2px solid #67c12b; left:-1px; border-top:none; width:74px;}
+.main_nav{ background:#67c12b;}
+.main_nav ul li{ background:none;}
+.top_nav font.fontcl1{ color:#67c12b; margin:0px;}
+.main_nav ul li a.current, .main_nav ul li a:hover{ background:#48a00d;}
+ul.main_nav_son{ border:none;}
+.main_nav ul li.current{background:#48a00d;}
+ul.main_nav_son li a{ background:#48a00d;}
+ul.main_nav_son li a:hover{ background:#65c229;}
+.rightNav li .show.current{ background:#67c12b;}
+.site_commitment ul span.ico1{ width:180px; height:38px; background-position:-297px -77px;}
+.site_commitment ul span.ico2{ width:140px; height:38px; background-position:-337px -130px;}
+
+h2.index_tit{ border-bottom:1px solid #999; background:#f3f3f3; padding:0px 10px; height:36px; line-height:36px;}
+.add_area{ border:1px solid #e0e0e0; border-top:none;}
+.add_index_company{ overflow:hidden;}
+ul.add_index_company li{ margin:6px 0px 6px 7px;}
+ul.add_index_home li{ margin:10px 0px 10px 2px}
+ul.add_index_tuanz li{ margin:8px 5px 8px 6px;}
+h2.index_tit span.tit_list a.current{border-bottom:2px solid #333; background:url(../images/hover_ico.png) center bottom no-repeat;}
+ul.add_index_designer li{ margin:10px 0px 10px 9px;}
+ul.add_index_shop li img{ width:160px; height:80px;}
+ul.add_index_shop li{ margin:6px 0px 6px 8px;}
+.add_index_school{width: 350px; margin:0px 21px; float:left;}  
+.add_index_school .opacity_img img{width:350px; height:200px;}
+.add_index_school ul li{ height:35px; line-height:35px; border-bottom:1px solid #ddd; font-size:14px;}
+.like_ico{ width:14px; height:15px; background-position:0px -33px;}
+ul.add_case_list li img{ width:226px; height:170px;}
+ul.add_case_list li{ margin:10px 0px 0px 11px;}
+ul.add_case_list li.first img{ height:350px;}
+.head_sq_ico{background-position:0px -189px; width:10px; height:15px;}
+.banner_lunz{ width:660px; height:300px; overflow:hidden;}
+.index_banner_lt{ border:2px solid #67c12b; overflow:hidden;}
+.index_banner_lt{ width:530px;}
+.add_sideNav li{ height:50px; line-height:50px; width:90px; text-align:center;}
+.add_sideNav li a{ display:block; background:#f9eeee; border:1px solid #ffabab; font-size:14px; margin-top:-1px;}
+.add_sideNav li a.current{ background:#fff; border-right:none;}
+.index_menu_con{ float:left; width:440px;}
+.menu_list_top div.text b{ color:#333;}
+.menu_list_top form dl{ overflow:hidden; display:block;}
+.menu_list_top dt, .menu_list_top dd{ margin:3px 0px 6px;}
+.menu_list_ok_top{ width:300px; margin:20px auto 0px auto; padding:0px;}
+.menu_list_ok_top .erweima_box{ top:80px; right:110px;}
+.menu_list_ok_top .erweima_box img{ width:120px; height:120px;}
+.menu_ok_link{ position:absolute; top:210px; left:-35px; width:400px;}
+.menu_ok_link li{ float:left; margin-right:10px;}
+.menu_ok_link li a{ display:inline-block; border:1px solid #ffabab; overflow:hidden; font-size:12px;width:180px; height:40px;}
+.menu_ok_link li p{ margin-left:0px; line-height:20px; font-size:12px;}
+.menu_ok_link li p.title{ color:#000; font-size:14px;}
+.menu_ok_link li .link_ico{ display:inline-block; background:url(../images/red_ico2.jpg) no-repeat; width:32px; height:32px; vertical-align:middle; margin:2px 5px;}
+.menu_ok_link li .link_ico1{ background-position:0px 0px;}
+.menu_ok_link li .link_ico2{background-position:0px -33px;}
+
+.add_side{ width:300px;}
+.add_side_mid{ width:570px; margin-left:12px;}
+.add_index_paih p.tit a{ margin-top:-1px; padding:5px 25px; font-size:18px;}
+.add_index_paih p.tit a.current, .add_index_paih p.tit a:hover{background:#fff url(../images/add_side_ico.png) center top no-repeat;}
+.index_new_order h2.add_new_order{  padding:0px;}
+.add_new_order{margin-top:-1px;}
+.add_new_order font{background: url(../images/add_side_ico.png) center top no-repeat; padding:0px 20px; text-align:center; display:inline-block;}
+h2.add_new_order a{ margin-top:8px; padding-right:10px; font-size:14px; }
+p.add_new_order_tit span{ background:#999; color:#fff;width:20%;}
+.add_index_nwod_box{ height:205px; width:570px;}
+.add_tool_title{ height:35px; line-height:35px; background:#f3f3f3;}
+ul.index_nwod_list li.grayBg{ background:#f5f5f5;}
+.add_index_tool ul li{ margin:20px;}
+.add_index_paihang{ height:245px; overflow:hidden;}
+
+.main_footer_top ul li span{ color:#333;}
+.main_footer a, .main_footer p{ color:#666;}
+.main_footer{ border-top:1px solid #999999;}
+.main_footer_top{ background:#f0f0f0;}
+.main_footer_bottom{ background:#777;}
+.main_footer_bottom a, .main_footer_bottom p{ color:#fff;}
+.top_nav_login li a{ color:#333;}
+ul.index_nwod_list li span{ width:20%;}

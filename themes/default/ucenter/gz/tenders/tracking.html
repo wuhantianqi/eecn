@@ -1,0 +1,69 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/gz/tenders:looked'}>">我的竞标</a></li>
+        <li class="on">竞标详情</li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <div class="tips"><{if $look.is_signed}>恭喜您已签单<{elseif $detail.status}>很遗憾被其他公司签单<{else}>还在竞标中<{/if}></div>
+    <table width="100%" border="0" cellspacing="0" class="info">
+    <tr><th>标题：</th>
+        <td colspan="5"><{$detail.title|default:'--'}></td>
+    </tr>        
+    <tr>
+        <th>ID：</th><td><{$detail.tenders_id}></td>
+        <th>会员：</th><td class="w-200"><{if $detail.uid}><{$member.uname}>(UID:<{$detail.uid}>)<{else}>--<{/if}></td>        
+    </tr>
+    </tr>
+    <tr><th>装修时间：</th><td><{$detail.zx_time|default:'--'}></td><th>售价/金币：</th><td><{$detail.gold}></td></tr>
+    <tr><th>最大投标数：</th><td><{$detail.max_look}></td><th>已投标数：</th><td><{$detail.looks}></td></tr>
+    <tr>
+        <th>发布时间：</th><td><{$detail.dateline|format}></td>
+        <th>发布IP：</th><td><b class="red"><{$item.clientip|cutstr:6:"******"}></b>(<{$item.create_ip|iplocal}>)</td>        
+    </tr>
+    <tr><th>联系人：</th><td><{$detail.contact|default:'--'}></td>
+        <th>状态：</th><td><{if $detail.status}><b>已签单</b><{else}><b class="blue">招标中</b><{/if}></td>
+    </tr>
+      <tr><th>地址：</th>
+        <td colspan="5"><{$detail.city_name|default:'--'}>  <{$detail.area_name|default:'--'}><{$detail.addr|default:'--'}></td>
+    </tr>
+    <tr><th>电话：</th><td colspan="5"><{$detail.mobile}></td></tr>
+    <tr><td colspan="10" style="height:10px;"></td></tr>
+    <tr><th>小区名称：</th><td><{$detail.home_name|default:'--'}></td><th>房屋面积：</th><td><{$detail.area|default:'--'}>㎡</td></tr>
+    <tr><th>招标类型：</th><td><{$detail.type_title|default:'--'}></td><th>喜欢风格：</th><td><{$detail.style_title|default:'--'}></td></tr>
+    <tr><th>预算范围：</th><td><{$detail.budget_title|default:'--'}></td><th>服务需求：</th><td><{$detail.service_title|default:'--'}></td></tr>
+       <tr><th>空间户型：</th><td><{$detail.house_type_title|default:'--'}></td>
+        <th>设计奖金：</th><td><{$detail.money|default:'--'}></td>
+    </tr>    
+    <tr><th>定金：</th><td><{$detail.dingjin|default:'--'}></td>
+        <th>是否已托管：</th><td><{if $detail.is_pay}>已托管<{else}>未托管<{/if}></td>
+    </tr>    
+    <tr><th>备注：</th><td colspan="10"><{$detail.demand|default:'--'}></td></tr>
+    <tr><td colspan="10" style="height:5px;"></td></tr>
+    </table>
+    <h4 class="tips">我的反馈</h4>
+    <table width="100%" border="0" cellspacing="0" class="info">
+    <{foreach $track_list as $item}>
+    <tr>
+        <td class="w-200">反馈时间：<{$item.dateline|format}></td>
+        <td class="w-200">反馈IP：<b class="red"><{$item.create_ip|cutstr:6:"******"}></b>(<{$item.create_ip|iplocal}>)</td>
+        <td></td>
+    </tr>
+    <tr><td colspan="10"><{$item.content|nl2br}></td></tr>
+    <tr><td colspan="10" class="red"><{if $item.reply_time}><{$item.reply|nl2br}><br >回复时间：<{$item.reply_time|format}><{else}>还未回复<{/if}></td></tr>
+    <{if !$item@last}><tr><td colspan="10" style="height:10px;"></td></tr><{/if}>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align">您还没有对该竞标进行反馈</p></td></tr>
+    <{/foreach}>
+    </table>
+    <div class="page"><{$pager.pagebar}></div>
+    <form action="<{link ctl='ucenter/gz/tenders:track'}>" mini-form="ucenter-form" method="post">
+    <input type="hidden" name="look_id" value="<{$look_id}>"/>
+    <table width="100%" border="0" cellspacing="0" class="info">
+        <tr><th>我要反馈：</th><td><textarea name="tack_content" class="textarea w-500" style="margin-top:10px;"></textarea><br /></td></tr>
+        <tr><th></th><td><input type="submit" value="我要反馈" class="green_btn" /></td></tr>
+    </table>
+    </form>    
+</div>
+<{include file="ucenter/block/footer.html"}>

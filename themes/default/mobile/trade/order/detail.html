@@ -1,0 +1,53 @@
+<{assign var="tpl_page_title" value="查看订单详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding order_box mb10">
+	<p>订单号：<{$order.order_no}></p>
+	<p>收货人：<{$order.contact}></p>
+	<p>电话：<{$order.mobile}></p>
+	<p>地址：<{$order.addr}></p>
+	<p>付款状态：<{if $order.pay_status}>已付款<{else}>未付款<{/if}></p>
+</div>
+<{foreach $order.products as $item}>
+<h2 class="pd_lt"><{$item.product_name}><{if $item.spec_id}>【<{$item.spec_name}>】<{/if}></h2>
+<div class="pding order_box order_menu mb10">
+	<p><span class="lt">价格：</span><span class="rt pointcl">￥<{$item.product_price}> x <{$item.number}></span></p>
+	<p><span class="lt">运费：</span><span class="rt pointcl"><{if $item.freight>0}><{$item.freight}><{else}>包邮<{/if}></span></p>
+	<p><span class="lt">小计：</span><span class="rt pointcl">￥<{$item.amount}></span></p>
+</div>
+<{/foreach}>
+<div class="pding fuk_btn">
+	<div class="all_price mb10">
+		<span class="lt">应付金额：</span><span class="rt pointcl">￥<{$order.amount}></span>
+	</div>
+	<{if $order.order_status == 2}>
+	<a class="btn fukbtn_full">订单交易成功</a>
+	<{elseif $order.order_status < 0}>
+	<a class="btn fukbtn_full">订单已经取消</a>
+	<{elseif $order.order_status == 1}>
+		<{if $MEMBER.uid == $order.uid}>
+			<a href="#" class="btn subbtn_full">确认收货</a>
+		<{else}>
+			<a class="btn fukbtn_full">等待买家收货</a>
+		<{/if}>
+	<{else}>
+		<{if $MEMBER.uid == $order.uid}>
+			<{if empty($order.pay_status)}>
+			<a href="<{link ctl='mobile/trade/order:payment' arg0=$order.order_no}>" class="btn subbtn_full">立即支付</a>
+			<a href="<{link ctl='mobile/ucenter/order:update' arg0='cancel' arg1=$order.order_no}>" mini-act="confirm:您确定要取消该订单？"class="btn dim_btn">取消订单</a>
+			<{else}>
+			<a class="btn fukbtn_full">等待卖家发货</a>			
+			<{/if}>
+		<{else}>
+			<{if empty($order.pay_status)}>
+			<a class="btn fukbtn_full">等待买家付款</a>
+			<a href="<{link ctl='mobile/ucenter/order:update' arg0='cancel' arg1=$order.order_no}>" mini-act="confirm:您确定要取消该订单？" class="btn dim_btn">取消订单</a>
+			<{else}>
+			<a href="#" class="btn subbtn_full">立即发货</a>
+			<{/if}>
+		<{/if}>
+	<{/if}>
+</div>
+
+<{include file="mobile/block/sfooter.html"}>
+</body>
+</html>

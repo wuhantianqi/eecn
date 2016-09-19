@@ -1,0 +1,18 @@
+<{foreach $data.attrs as $attr}>
+<{if $v@index>2}><{break}><{/if}>
+<tr>
+    <td class="title"><{$attr.title}>：</td>
+    <td colspan="3">
+        <ul class="group-list" style="width:100%">
+            <{foreach $attr.values as $k=>$v}>            
+            <{if $attr.multi=='Y'}>
+            <li style="width:80px;"><label title="<{$v.title}>"><input type="checkbox" name="attr[<{$v.attr_id}>][<{$v.attr_value_id}>]"  <{if in_array($v.attr_value_id, $data.value)}> checked="checked"<{/if}>value="<{$v.attr_value_id}>"/><{$v.title}></label></li>
+            <{else}>
+            <li><label title="<{$v.title}>"><input type="radio" name="attr[<{$v.attr_id}>][]"  <{if in_array($v.attr_value_id, $data.value)}> checked="checked"<{/if}>value="<{$v.attr_value_id}>"/>&nbsp;<{$v.title}></label></li>
+            <{/if}>
+            <{/foreach}>
+            <div style="clear:both;"></div>
+        </ul>
+    </td>
+</tr>
+<{/foreach}>

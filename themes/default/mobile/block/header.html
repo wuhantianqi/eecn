@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<{include file="mobile/block/sheader.html"}>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<div class="top nowrap">
+	<div class="sub_top">
+        <{if !$is_index_home}>
+		<a href="<{if $pager.backurl}><{$pager.backurl}><{else}><{link ctl='mobile/index'}><{/if}>" class="lt app_ico top_lt"></a>
+        <{elseif $CONFIG.site.multi_city}>
+		<a href="<{link ctl='mobile/city'}>" class="lt city_link"><span class="app_ico city_ico"></span><{$request.city.city_name}>切换</a>
+        <{/if}>
+		<{$tpl_page_title|default:$pager.title|default:$CONFIG.mobile.title}>
+        <p class="rt"><a href="<{link ctl='mobile/ucenter/index'}>" class="app_ico login_ico"></a>
+        <{if !$is_index_home}><a href="#" class="app_ico top_rt" id="dt-hd-nav"></a><{/if}>
+		</p>
+        <{include file="mobile/block/nav.html"}>
+	</div>
+</div>
+<div class="mb10"></div>
+<div class="content">

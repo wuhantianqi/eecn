@@ -1,0 +1,23 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li><a href="<{link ctl='ucenter/member/yuyue:company'}>">公司预约</a></li><li class="on">查看预约</li></ul>
+</div>
+<div class="ucenter_c">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+	<tr><th></th><td colspan="10"><b class="red">公司信息</b></td></tr>
+	<tr>
+		<th>装修公司：</th><td><{$company.name}></td>
+		<th></th><td rowspan="2"><a href="<{link ctl='company' arg0=$company.company_id http='city'}>" target="_blank"><img src="<{$pager.img}>/<{$company.logo}>" width="120" height="60"/></a></td>
+	</tr>
+	<tr><th>服务口号：</th><td><{$designer.slogan|default:'--'}></td><th></th></tr>
+	<tr><th>地址：</th><td  colspan="5"><{$company.city_name}>  <{$company.area_name}> <{$company.addr}></td></tr>
+	<tr><th></th><td colspan="10"><b class="red">预约信息</b></td></tr>
+	<tr><th>联系人：</th><td><{$detail.contact}></td><th>电话：</th><td><{$detail.mobile}></td></tr>
+	<tr>
+		<th>预约时间：</th><td><{$detail.dateline}></td>
+		<th>预约来源：</th><td><b class="red"><{$detail.clientip|cutstr:6:'******'}>(<{$detail.clientip|iplocal}>)</b></td>
+	</tr>
+	<tr><th>备注要求：</th><td colspan="10"><{$detail.content|default:'--'}></td></tr>
+	</table>
+</div>
+<{include file="ucenter/block/footer.html"}>

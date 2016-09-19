@@ -1,0 +1,16 @@
+<{include file="shop/block/header.html"}>
+<!--左边主体内容开始-->
+<div class="rt shop_rt mb20">
+    <div class="area pding ">
+        <p class="sub_shop_tit mb10"><b>门店详情</b></p>
+        <div class="shop_intro_box menmianDet mb10">
+            <h2><{$detail.title}></h2>
+			<p><span>联系电话：<{$detail.phone}></span><span>联系人：<{$detail.contact}></span></p>
+			<p>门店地址:<{$detail.addr}></p>
+			<div class="article_box" style="border-top:1px solid #ccc;padding-top:20px">
+			<{$detail.content}></div>
+        </div>
+    </div>
+</div>
+<!--左边主体内容结束-->
+<{include file="shop/block/footer.html"}>

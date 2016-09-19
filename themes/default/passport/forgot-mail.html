@@ -1,0 +1,41 @@
+<{assign var="seo_sub_title" value="重置密码"}>
+<{include file="block/small-header.html"}>
+<div class="subwd">
+	<!--主体内容开始-->
+	<div class="login_box">
+		<div class="login_lt lt">
+		<h2>找回密码</h2>
+		<div class="passport_for">
+			<div class="passport_for_liuc liuc2"></div>
+			<ul class="for_liuc">
+				<li>确认账号</li><li class="current">安全认证</li><li>重置密码</li>
+			</ul>
+		</div>
+		<div class="pass_for_sucss">
+				<h1>重置密码邮件已发送至你的邮箱，请注意查收！</h1>
+                <p class="suor">我们已向<strong><{$forgotmail}></strong>发送验证邮件请点击邮件中给出的链接，重新设置您的密码。</p>
+                <p><a href="<{$mailLogin}>" class="btn csbtn" target="_blank">立即查收邮件</a></p>
+		</div>
+	</div>
+	<div class="login_rt passport_menu rt">
+			<p class="tit">没有收到验证邮件？请尝试：</p>
+			<p>1、到垃圾邮件、广告邮件目录中找找</p>
+			<p>2、或者<a href="<{link ctl='passport:forgot'}>" class="fontcl2">再次发送验证邮件</a></p>
+			<p>3、联系我们：<font class="fontcl1"><{$CONFIG.site.mail}></font></p>
+		<h3>第三方账号登录：</h3>
+		<p><a href="<{link ctl='passport:weibo'}>" class="ico_list weibo_login"></a>
+		</p>
+		<p><a href="<{link ctl='passport:qqlogin'}>" class="ico_list qq_login"></a>
+		</p>
+	</div>
+	<div class="cl"></div>
+</div>
+<!--主体内容结束-->
+</div>
+<!--底边内容开始-->
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<{include file="block/small-footer.html"}>

@@ -1,0 +1,12 @@
+<{assign var="curr_article" value=true}>
+<{assign var="seo_sub_title" value="TA的文章"}>
+<{include file="blog/block/header.html"}>
+<div class="area pding sub_designer">
+    <ul class="news">
+        <{foreach $items as $item}>
+            <li><p class="lt"><span class="ico_list news_ico"></span><a href="<{link ctl='blog:showinfo' arg0=$item.article_id}>"><{$item.title}></a></p><span class="rt">发布于<{$item.dateline|format:"Y-m-d"}></span></li>
+        <{/foreach}>
+    </ul>
+    <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+</div>
+<{include file="blog/block/footer.html"}>

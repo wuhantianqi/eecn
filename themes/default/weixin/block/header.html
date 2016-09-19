@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+<head>
+<script>
+(function() {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+})();
+</script>
+<meta charset="UTF-8">
+<title><{$CONFIG.site.title}></title>
+<link rel="stylesheet" type="text/css" href="%THEME%/weixin/static/af/css/af.ui.min.css"  />
+<script type="text/javascript" charset="utf-8" src="<{$pager.res}>/script/kt.j.js"></script>
+<script type="text/javascript" charset="utf-8" src="%THEME%/weixin/static/af/jq.appframework.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="%THEME%/weixin/static/af/ui/appframework.ui.min.js"></script>
+</head>

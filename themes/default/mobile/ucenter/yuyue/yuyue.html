@@ -1,0 +1,49 @@
+<{assign var="tpl_page_title" value="预约管理"}>
+<{include file="mobile/block/header.html"}>
+<div class="pading admin_banner">
+	<img src="/themes/default/mobile/static/images/adminBg.jpg" class="bg" />
+	<div class="admin_intro">
+		<img src="<{$pager.img}>/<{$MEMBER.face_80}>" class="lt" />
+		<div class="lt">
+		<p><{$MEMBER.uname}></p>
+		<p>账户类型：<u><{$MEMBER.from_title}></u> </p>
+		<p>我的金币：<u><{$MEMBER.gold}></u></p>
+		</div>
+	</div>
+</div>
+<div class="pding">
+<h1><a href="<{link ctl='mobile/ucenter'}>">管理中心</a> >> 预约管理</h1>
+<ul class="admin_menu">
+	<li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyueCompany'}>">
+			<span class="lt">预约公司</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyueDesigner'}>">
+			<span class="lt">预约设计师</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyueGz'}>">
+			<span class="lt">预约工长</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyueShop'}>">
+			<span class="lt">预约商家</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+    <li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyueMechanic'}>">
+			<span class="lt">预约技工</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+</ul>
+</div>
+<{include file="mobile/block/footer.html"}>

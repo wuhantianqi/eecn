@@ -1,0 +1,144 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='diary:items'}>">装修日记</a>
+			><a href="<{link ctl='diary:detail' arg0=$detail.diary_id}>"><{$detail.title}></a>
+		</p>
+	</div>
+</div>
+<div class="mainwd">
+	<div class="main_content lt main_content_yan">
+		<div class="main_diary pding mb10 area">
+			<div class="lt"><img src="<{$pager.img}>/<{$detail.thumb}>" /></div>
+			<div class="main_diary_rt rt">
+				<p class="title">
+                	<span class="lt"><font class="tit"><{$detail.title}></font></span>
+                    <span class="rt">
+                        <label><font class="ico_list dy_liulan"></font>浏览(<font class="fontcl2"><{$detail.views}></font>)</label>
+                        <label><font class="ico_list dy_pinglun"></font>评论(<font class="fontcl2"><{$detail.comments}></font>)</label>
+                    </span>
+                </p>
+				<div class="cl"></div>
+				<p class="sp_list">
+                	<span>楼盘：<{$detail.home_name|default:'--'}></span><span>装修：<{$cfg_setting[$cfg_type['way']][$detail.way_id]}></span><span>户型：<{$cfg_setting[$cfg_type['house_type']][$detail.type_id]}></span><span>状态：<{$cfg_status[$detail.status]}></span>
+                </p>
+				<p class="sp_list">
+                    <span>开工时间 ：<{$detail.start_date}></span><span>竣工时间：<{$detail.end_date}></span>
+                </p>
+				<p>
+					施工单位：<a href="<{$company.company_url}>"><font class="fontcl2"> <{$company.name}> </font></a>
+					
+				</p>
+			</div>
+			<div class="cl"></div>
+		</div>
+         <{foreach $items as $item}>
+            <div class="mb10 pding area">
+                 <h3><{$item.status}>、<{$cfg_status[$item.status]}></h3>
+               	 <span class="graycl">发表于<{$item.dateline|format}></span>
+                <p class="cl"></p>
+                <p class="photowidth"><{$item.content}></p>
+            </div>   
+        <{/foreach}>
+        <{if $CONFIG.comment.diary_type == 'sns'}>
+        <{$CONFIG.comment.snscomment}>
+        <{elseif $CONFIG.comment.diary_type == 'comment'}>
+		<div class="mb20 pding area">
+			<h3>评论(共<font class="fontcl2"><{$pager.count|default:'0'}></font>条)</h3>
+			<form class="pinglun" id='comment_form'>
+				<div class="rt">
+                    <textarea class="text" name="content"  placeholder="随便说点什么..."></textarea>
+					<br />
+					 <{if $comment_yz}>
+                        验证码：
+                                <input style="margin-left:30px;" class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                               <img verify="#comment-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="comment-verify"/><a verify="#comment-verify">点击刷新验证码</a>
+                            
+                    <{/if}>
+                    <input type="submit" mini-submit='#comment_form' action="<{link ctl='diary:comment' arg0=$detail.diary_id}>" name="fbpl" value="发表评论" class="text btn rt pinglun_btn"/>
+				</div>
+				<div class="cl"></div>
+			</form>
+            
+			<div class="new_pinglun">
+				<p class="tit">最新评论</p>
+				<ul>
+                	<{foreach $comments as $item}>
+                        <li>
+                        <img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>" width="40" height="40" />
+                            <div class="rt">
+                                <p><span class="lt name"><{$member_list[$item.uid].uname}></span><span class="rt graycl">时间：<{$item.dateline|format}></span></p>
+                                <p><{if $item.audit == 0}><p class="tips"><span class="lock">该评论正在审核中</span></p><{else}><{$item.content}><{/if}></p>
+                            </div>
+                        </li>
+                    <{/foreach}>
+				</ul>
+			</div>
+            <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+        <{/if}>
+	</div>
+
+	<div class="side_content rt">
+		<div class="mb10">
+			<p class="diary_btn"><a href="<{link ctl='ucenter/member/diary'}>" class="btn"><span class="ico_list write_ico"></span>写日记</a>
+			</p>
+		</div>
+		<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+		<!-- <div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">设计师排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div> -->
+		<!-- <div class="mb20"><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div> -->
+	</div>
+	<div class="cl"></div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		 $('.photowidth img').each(function() {
+			 var maxWidth = 350; // 图片最大宽度
+			 var maxHeight = 350;    // 图片最大高度
+			 var ratio = 0;  // 缩放比例
+			 var width = $(this).width();    // 图片实际宽度
+			 var height = $(this).height();  // 图片实际高度
+		   
+			 // 检查图片是否超宽
+			 if(width > maxWidth){
+				 ratio = maxWidth / width;
+				 $(this).css("width", maxWidth); // 设定实际显示宽度
+				 height = height * ratio;    // 计算等比例缩放后的高度
+				 $(this).css("height", height);  // 设定等比例缩放后的高度
+			 }
+		   
+			 // 检查图片是否超高
+			 if(height > maxHeight){
+				 ratio = maxHeight / height;
+				 $(this).css("height", maxHeight);   // 设定实际显示高度
+				 width = width * ratio;    // 计算等比例缩放后的高度
+				 $(this).css("width", width * ratio);    // 设定等比例缩放后的高度
+			 }
+		 });
+	 });
+</script>
+<{include file="block/footer.html"}>

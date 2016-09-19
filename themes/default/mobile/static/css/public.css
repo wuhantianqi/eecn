@@ -1,0 +1,49 @@
+body{ font-size:14px; font-family:"微软雅黑","宋体", Arial, sans-serif; padding:0px; margin:0px; background:#fff; color:#444; line-height:32px; width:100%;-webkit-overflow-scrolling:touch;}
+div,form,img,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,i,table,tr,td,th,fieldset,label,legend,button,input{ margin:0;padding:0; font-family:"微软雅黑";}
+ul,li{list-style:none;}
+a,img,a img{border:0px;color:#333;}
+a{text-decoration:none;cursor:pointer; }
+input.text,select.text,textarea.text{outline:none; border:1px solid #e0e0e0; height:40px; line-height:40px; padding:3px 0px 3px 1%;font-size:14px; color:#333;-webkit-appearance: none;} 
+textarea{ outline:none; resize:none; border:1px solid #e0e0e0; font-size:14px;}
+form select.text{height:40px;-webkit-appearance: none;}
+input.check{ vertical-align:middle; margin-right:2px;}
+input {filter:chroma(color=#000000);}
+img{ vertical-align:top;}
+.lt{float:left;}
+.rt{float:right;}
+.cl{ clear:both; height:0px;}
+.none{ display:none;}
+.h40{ height:40px;}
+
+.fontcl1{ color:#00af43;}
+.fontcl2{ color:#fe7902;}
+.pointcl{ color:#fd0202;}
+.graycl{ color:#999;}
+.mb10{ margin-bottom:10px;}
+.pding{ padding:5px;}
+.center{ text-align:center;}
+h1{font-size:16px; font-weight:normal; color:#333;}
+h2{font-size:14px;font-weight:normal; color:#333;}
+
+/*按钮样式*/
+.btn{ display:inline-block; text-align:center; line-height:32px; height:32px; cursor:pointer; color:#fff; border-radius:2px; border:none;-webkit-appearance: none;}
+.mainbtn{ background:#00af43; padding:0px 10px; font-size:14px;border:1px solid #00993a;}
+.mainbtn_full{ width:100%; padding:0px; background:#00af43; border:1px solid #00993a;  font-size:16px;line-height:40px; height:40px;}
+.subbtn{ background:#fe9602; padding:0px 10px; font-size:14px; border:1px solid #dd8202;}
+.subbtn_full{ background:#fe9602; width:100%; padding:0px; border:1px solid #dd8202;  font-size:16px; line-height:40px; height:40px;}
+.btn:hover{ color:#fff; text-decoration:none;}
+/*按钮样式*/
+
+/*图片上的透明层样式*/
+.opacity_img{ position:relative;overflow:hidden;}
+.opacity_img p{position:absolute; left:0px; bottom:0px; height:30px; line-height:30px; overflow:hidden; width:94%;padding:0px 3%;}
+.opacity_img p.bg{ opacity:0.8; filter:alpha(opacity=70); background:#000;}
+.opacity_img p.text{ color:#fff;}
+/*图片上的透明层样式*/
+
+/*分页样式*/
+.page{ text-align:center; margin:10px 0px;}
+.page em{ font-style:normal;}
+.page a{ display:inline-block; border:1px solid #e0e0e0; height:26px; line-height:26px; padding:0px 10px;vertical-align:top;}
+.page strong,.page a:hover{ border:1px solid #e0e0e0;height:26px; line-height:26px; background:#fff; border:1px solid #fe7902; color:#fe7902; font-weight:normal;}
+/*分页样式*/

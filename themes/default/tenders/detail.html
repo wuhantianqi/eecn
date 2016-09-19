@@ -1,0 +1,161 @@
+<{include file="block/header.html"}>
+<!--头部内容结束-->
+<!--面包屑导航开始-->
+
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zhaobiao-detial.css?<{$VER}>"/>
+<div class="content">
+			<p class="title">
+				<span class="triangle"></span>
+				您的位置:<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>&gt<a href="<{link ctl='tenders'}>">我要装修</a>&gt<a href="">招标详情</a>
+			</p>
+				
+			<!--面包屑导航结束-->
+			<div class="information-wrap">
+				<div class="information fl">
+					<div class="information-top">
+						<div class="num fl">
+							<p>招标数</p>
+							<p><span class="zhaobiao-num strong"><{$detail.looks}></span>位</p>
+						</div>
+						<div class="zhaobiao-information fl">      
+							<h2><{$detail.title}>
+							<{if $detail.sign_uid}><span class="zhaobiaoing">招标结束</span><{else}><span class="zhaobiaoing">招标中</span><{/if}></h2>
+							<span>发布者：<{$detail.contact}></span><span>发布时间：<{$detail.dateline|format}></span>
+						</div>
+					</div>
+					<div class="information-bottom">
+						<table border="1" cellspacing="" cellpadding="">
+							<tr>
+								<td>招标方式</td>
+								<td><{$detail.way_title}></td>
+								<td>房屋户型</td>
+								<td><{$detail.house_type_title}></td>
+								<td>所在区域</td>
+								<td><{$detail.area_name}></td>
+							</tr>
+							<tr>
+								<td>招标类型</td>
+								<td><{$detail.type_title}></td>
+								<td>房屋面积</td>
+								<td><{$detail.house_mj}></td>
+								<td>小区名称</td>
+								<td><{$detail.home_name}></td>
+							</tr>
+							<tr>
+								<td>招标风格</td>
+								<td><{$detail.style_title}></td>
+								<td>预算范围</td>
+								<td><{$detail.budget_title}></td>
+								<td>装修时间</td>
+								<td><{$detail.zx_time|format:'Y-m-d'}></td>
+							</tr>
+							<tr class="demand">
+								<td>装修要求</td>
+								<td colspan="5">
+								<p class="demand-text">
+									<{$detail.comment}>
+								</p>
+								</td>
+								
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="zh-left-banner">
+					<div class="banner_left">
+	                            <h1>免费设计与报价</h1>
+	                            <p class="banner_p">10秒登记,免费获取方案报价</p>
+	                            <form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
+	                                <div class="ten_top">
+	                                    <input type="hidden" name="data[from]" value="TZX" />
+	                                    <input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
+	                                    <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
+	                                    <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+	                                </div>
+	                                <div class="checkbox">
+	                                  <label>
+	                                    <input type="checkbox" value="" checked="checked">
+	                                        我已阅读并接受<a href="help-yonghuxieyi.html">《装修常见问题条款》</a>
+	                                  </label>
+	                            </div>
+	                                <div class="menu_list_ep">
+	                                    <input type="button" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
+	                                </div>
+	                            </form>
+	                    </div>
+				</div>
+			</div>
+			<div class="join-company-wrap">
+				<div class="join-company">
+					<h2>参与竞标公司<a href="<{link ctl='tenders:look' arg0=$detail.tenders_id http='ajax'}>" mini-load="立即投标">我要投标</a></h2>
+					<ul>
+						<{foreach $look_list as $item}>
+							<li>
+								<{if $member_list[$item.uid].from == 'company'}>
+								<img src="<{$pager.img}>/<{$company_list[$item.uid].thumb}>"/>
+								<p><{$company_list[$item.uid].name}>
+									<span><{if !$detail.sign_uid && $detail.uid == $MEMBER.uid}>中标<{/if}></span>
+									<span>投标时间：<{$item.dateline|format}></span>
+								</p>
+			                    <{/if}>
+								<{if $member_list[$item.uid].from == 'shop'}>
+								<img src="<{$pager.img}>/<{$shop_list[$item.uid].logo}>"/>
+								<p><{$shop_list[$item.uid].name}>
+									<span><{if !$detail.sign_uid && $detail.uid == $MEMBER.uid}>中标<{/if}></span>
+									<span>投标时间：<{$item.dateline|format}></span>
+								</p>
+			                    <{/if}>
+								<{if $member_list[$item.uid].from == 'gz'}>
+								<img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>"/>
+								<p><{$gz_list[$item.uid].name}>
+									<span><{if !$detail.sign_uid && $detail.uid == $MEMBER.uid}>中标<{/if}></span>
+									<span>投标时间：<{$item.dateline|format}></span>
+								</p>
+			                    <{/if}>
+								<{if $member_list[$item.uid].from == 'designer'}>
+								<img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>"/>
+								<p><{$designer_list[$item.uid].name}>
+									<span><{if !$detail.sign_uid && $detail.uid == $MEMBER.uid}>中标<{/if}></span>
+									<span>投标时间：<{$item.dateline|format}></span>
+								</p>
+								<{/if}>
+								<{if $detail.sign_uid == $item.uid}>
+								<div class="tender_suspend"><img src="%THEME%/static/images/tender_zb.png" /></div>
+								<{/if}>
+							</li>
+						<{/foreach}>
+					</ul>
+				</div>
+				<div class="banner">
+					<div class="banner_right">
+						<ul>
+							<li>
+								<a class="list-item" href="<{link ctl='newactivity'}>" target="_blank">
+						          <span class="item-img-1"></span>
+						          <p class="item-p-1">装修小白学装修</p>
+						          <p class="item-p-2">专注优质装修服务，三分钟学装修</p>
+						        </a>
+							</li>
+							<li>
+								<a class="list-item" href="<{link ctl='newactivity:housekeeper'}>" target="_blank" style="height: 114px;">
+						          <span class="item-img-2"></span>
+						          <p class="item-p-1">装修管家全程监管</p>
+						          <p class="item-p-2">一对一帮您解决装修中的大小麻烦事</p>
+						        </a>
+							</li>
+							<li>
+								<a class="list-item" href="<{link ctl='zxb'}>" target="_blank">
+						          <span class="item-img-3"></span>
+						          <p class="item-p-1">优优美家装修保</p>
+						          <p class="item-p-2">提供一站式装修资金安全解决方案</p>
+						        </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+</div>
+		
+
+<!--底边内容开始-->
+<{include file="block/small-footer.html"}>

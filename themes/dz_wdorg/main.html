@@ -1,0 +1,413 @@
+<{include file="block/index-header.html"}>
+<div class="banner">
+	<div class="banner_lt lt">
+		<div class="banner_mid_top" style="width:680px;height:260px;overflow:hidden;"><{adv id="26" name="定制宽屏橙色模板导航下的轮播广告"}></div>
+		<div class="banner_lt_b">
+			<a href="<{link ctl='gs:items'}>" ><img src="/themes/dz_wdorg/static/images/banner_b_lt.jpg" /></a>
+			<a href="<{link ctl='designer'}>"><img src="/themes/dz_wdorg/static/images/banner_b_rt.jpg" /></a>
+		</div>
+	</div>
+	<div class="banner_rt rt">
+		<p><b>免费设计/报价</b></p>
+		<form action="<{link ctl='tenders:save'}>" method="post" mini-form="tender1">
+			<table>
+				<tr>
+					<td><font class="fontcl2">*</font>我的称呼</td>
+					<td>
+						<input name="data[name]" class="text" type="text"  onfocus="if (this.value == '请填写您的姓名') {this.value = ''};" onblur="if (this.value == '') {this.value = '请填写您的姓名'};"  value="请填写您的姓名" >
+					</td>
+				</tr>
+				<tr>
+					<td><font class="fontcl2">*</font>联系电话</td>
+					<td>
+						<input  name="data[mobile]" type="text"  class="text" onfocus="if (this.value == '请填写你的号码') {this.value = ''};" onblur="if (this.value == '') {this.value = '请填写你的号码'};"  value="请填写你的号码">
+					</td>
+				</tr>
+				<tr>
+					<td>装修面积</td>
+					<td>
+						<input name="data[area]" type="text"  class="short text" >
+						<font class="arear">m²</font></td>
+				</tr>
+				<tr>
+					<td>所在地址</td>
+					<td>
+						<input name="data[addr]" type="text"  value=""  class="text" >
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="点击提交"  class="btn_sub_apply btn">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<span>现在申请立省<b>20%</b></span>
+	</div>
+</div>
+<div class="cl"></div>
+<div class="mainwd">
+	<!--1F推荐装修公司开始-->
+	<div class="main_1f mb20">
+		<div class="index_title noline"><span class="lt"><b><font class="fontcl2">1F</font>推荐装修公司</b>汇聚众多高端品牌</span></div>
+		<ul class="jq_pic_opacity">
+			<{KT id="42" name="总站首页1F推荐装修公司"}>
+			<li <{if $index%8==0}>style="margin-left:0px"<{/if}>><a target="_blank" title="<{$item.name}>" href="<{$item.link}>" ><img src="<{$pager.img}>/<{$item.logo}>" /></a></li>
+			<{/KT}>
+		</ul>
+		<div class="cl"></div>
+	</div>
+	<!--1F推荐装修公司结束-->
+	<!--2F团装活动开始-->
+	<div class="main_2f mb20">
+		<div class="index_ltcont lt">
+			<div class="index_title"><span class="lt"><b><font class="fontcl2">2F</font>团装活动</b></span>
+				<a href="<{link ctl='home:tuan'}>" class="rt more"  target="_blank">更多</a>
+			</div>
+			<ul class="line_type index_tuanz dz_index_tuanz jq_pic_opacity">
+				<{KT id="43" name="总站首页2F小区团装"}>
+				<li>
+					<div class="opacity_img">
+						<a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+						<p class="bg"></p>
+						<p class="text"><span class="index_ico time_ico"></span><font remaintime="<{$item.ltime}>"></font></p>
+					</div>
+					<div class="index_tuanz_btm">
+						<p><b><a href="<{$item.link}>" class="tit"><{$item.title}></a>
+							</b></p>
+						<p class="colorbg"><span class="lt tit">立省<b class="fontcl2">￥<{$item.jieyue}></b>元</span><a href="<{link ctl='home:tuanDetail' arg0=$item.tuan_id}>" target="_blank" class="btn_sub_sm rt btn">立即参团</a>
+						</p>
+						<p><font class="fontcl2"><{$item.sign_num}></font>人已参团</p>
+					</div>
+				</li>
+				<{/KT}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+		<div class="index_rtcont area index_paih dz_index_paih rt">
+			<!--2F右边装修公司排行开始-->
+			<p class="tit"><a href="javascript:;" class=" first">最新签单榜</a>
+				<a href="javascript:;" >最新加入</a>
+			</p>
+			<div class="index_paihang dz_index_paihang">
+				<ul class="paihang">
+					<{calldata mdl="company/company" order="tenders_num:DESC" limit="6"}>
+					<li>
+						<p class="show"><span class="paihang_num <{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></span><a href="<{$item.company_url}>" target="_blank"><{$item.name}></a></p>
+						<div class="dz_paihang">
+							<a target="_blank" title="<{$item.name}>" href="<{$item.company_url}>" target="_blank" class="lt"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+							<div class="dz_ph_yuey">
+								<span>签单数 <font class="pointcl"><{$item.sign_num}></font></span>
+								<a href="<{link ctl='gs:yuyue'  arg0=$item.company_id http='empty'}>" mini-width='500' mini-load="免费预约" class="btn_sub_smler btn">立即预约</a>
+							</div>
+						</div>
+					</li>
+					<{/calldata}>
+				</ul>
+				<ul class="paihang paihang2">
+					<{calldata mdl="company/company" order="new" limit="6"}>
+					<li>
+						<p class="show"><span class="paihang_num <{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></span><a href="<{$item.company_url}>" target="_blank"><{$item.name}></a>
+						</p>
+						<div class="dz_paihang">
+							<a target="_blank" title="<{$item.name}>" href="<{$item.company_url}>" target="_blank" class="lt"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+							<div class="dz_ph_yuey">
+								<span>签单数 <font class="pointcl">0</font></span>
+								<a href="<{link ctl='gs:yuyue'  arg0=$item.company_id http='empty'}>" mini-width='500' mini-load="免费预约" class="btn_sub_smler btn">立即预约</a>
+							</div>
+						</div>
+					</li>
+					<{/calldata}>
+				</ul>
+			</div>
+			<!--2F右边装修公司排行结束-->
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--2F团装活动结束-->
+	<!-------最新招标，最新签约，最新优惠start------>
+	<div class="newest mb20">
+		<!--最新签约开始-->
+		<div class="newest_a lt">
+			<div class="index_title noline"><span class="lt"><b><font class="fontcl2">3F</font>最新签约</b></span>
+				<a href="<{link ctl='tenders'}>" class="rt more"  target="_blank">更多</a>
+			</div>
+			<ul class="block_type area">
+				<{calldata mdl="tenders/tenders" sign_company_id=">:0" limit="4"}>
+				<li <{if $index==3}>style="border-bottom:none"<{/if}>>
+				<p>
+					<span class="lt"><a href="<{$item.ext.company.company_url}>" target="_blank" title='<{$item.ext.company.name}>' class="tp"><{$item.ext.company.sname}></a></span>
+					<span class="rt"><a title="<{$item.title}>" href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>" target="_blank" class="rt btn_sub_smler btn">新签约</a></span>
+				</p>
+				<p>
+					<span class="lt"><a href="<{link ctl='home:detail' arg0=$item.ext.home.id}>" target="_blank" class="graycl"><{$item.home_name|default:'--'}></a></span>
+					<span class="rt name"><{$item.contact|cutstr:3:''}>**</span>
+				</p>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<!--最新签约结束-->
+		<!--最新招标订单开始-->
+		<div class="newest_b lt">
+			<div class="index_title noline"><span class="lt"><b>最新招标订单</b></span>
+				<a href="<{link ctl='tenders'}>" class="rt">我要申请>></a>
+			</div>
+			<div class="news_b_ul_title">
+				<span>日期</span><span>业主</span><span>户型</span><span>预算</span><span>日期</span><span>业主</span><span>户型</span><span>预算</span>
+			</div>
+			<div class="news_b_ul_list">
+				<ul class="block_type">
+					<{calldata mdl="tenders/tenders" order="dateline" limit="12"}>
+					<li>
+						<a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>" target="_blank"><span><b><{$item.dateline|format:"m-d"}></b></span>
+						<span><{$item.contact|cutstr:3}></span><span><{$item.house_type_title|default:'--'}></span><span><b class="fontcl2"><{$item.budget_title|default:'--'}></b></span></a>
+					</li>
+					<{/calldata}>
+				</ul>
+			</div>
+		</div>
+		<!--最新招标订单结束-->
+		<!--最新优惠开始-->
+		<div class="newest_c rt">
+			<div class="index_title noline"><span class="lt"><b>最新优惠</b></span><a href="<{link ctl='youhui'}>" class="rt more"   target="_blank">更多</a>
+			</div>
+			<ul class="area pding">
+				<{calldata mdl="company/youhui" order="new" limit="12"}>
+				<li>
+					<{if $item.status=='process'}>
+					<a target="_blank" title='<{$item.title}>' href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="colorBg bg">进行中</a>
+					<{elseif $item.status == 'wait'}>
+					<a  target="_blank" title='<{$item.title}>' href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="bg">未开始</a>
+					<{else}>
+					<a target="_blank" title='<{$item.title}>' href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="bg">已结束</a>
+					<{/if}>
+					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><{$item.title|cutstr:35:''}></a>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<!--最新优惠结束-->
+		<div class="cl"></div>
+	</div>
+	<!-------最新招标，最新签约end------->
+	<!--4F我搜我家开始-->
+	<div class="main_3f mb20">
+		<div class="main_3f_lt dz_index_lt  lt">
+			<div class="index_title"><span class="lt"><b><font class="fontcl2">4F</font>我搜我家</b></span>
+				 <div class="main_sub_nav_3f hoverno lt"><{calldata mdl="data/city" limit="5"}><a href="<{link ctl='home' http=$item.city_id}>"><{$item.city_name}></a><{/calldata}></div>
+			</div>
+			<div class="main_3f_myhome jq_pic_opacity">
+                <{KT id="44" name="总站首页4F我搜我家"}>
+				<div class="myhome ">
+					<div class="myhome_lt lt">
+						<a href="<{link ctl='home:detail' arg0=$item.home_id http=$item.city_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+						<div class="myhome_lt_bg"></div>
+						<a href="<{link ctl='home:detail' arg0=$item.home_id http=$item.city_id}>" class="txt"><{$item.name}></a>
+					</div>
+					<div class="myhome_rt lt">
+						<p><a href="<{link ctl='home:detail' arg0=$item.home_id http=$item.city_id}>" target="_blank"><b><{$item.name}></b></a></p>
+						<p>均价：<font class="fontcl2"><{$item.price}>元/平米</font></p>
+						<p>区域：<{$item.city_name}> <{$item.area_name}></p>
+						<p>设计方案：<font class="fontcl2"><{$item.case_num}>套</font></p>
+						<p>浏览：<font class="fontcl2"><{$item.views}>次</font></p>
+					</div>
+				</div>
+				<{/KT}>
+			</div>
+		</div>
+		<div class="main_3f_rt dz_index_rt hoverno rt">
+			<div class="main_3f_rt_cont three_rt_cont1">
+				<p class="title">百位在线设计师</p>
+				<p class="txt">专业是我们的追求，我们的努力只为提供更好的家装设计，您更舒适的家。</p>
+				<a href="<{link ctl='designer'}>">预约设计</a>
+			</div>
+			<div class="main_3f_rt_cont three_rt_cont2">
+				<p class="title">实时跟踪工地进程</p>
+				<p class="txt">专业是我们的追求，我们的努力只为提供更好的家装参考，装出您更舒适的家。</p>
+				<a href="<{link ctl='site'}>">参观工地</a>
+			</div>
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--4F我搜我家结束-->
+	<!--5F在建工地开始-->
+	<div class="mb20">
+		<div class="main_5f_lt dz_index_lt lt">
+			<div class="index_title"><span class="lt"><b><font class="fontcl2">5F</font>在建工地</b></span></div>
+			<ul class="jq_pic_opacity">
+                <{KT id="45" name="总站首页5F在建工地"}>
+				<li>
+					<span>工地名称：<a target="_blank" title="<{$item.title}>" href="<{link ctl='site:detail' arg0=$item.site_id http_city=$item.city_id}>"><{$item.title}></a></span>
+                    <span>承接公司：<{if $item.ext.company}><a target="_blank" title="<{$item.ext.company.name}>" href="<{$item.ext.company.company_url}>"><font class="fontcl2"><{$item.ext.company.name}></font></a><{else}><{$CONFIG.site.title}><{/if}></span>
+                    <span>进度：<font class="fontcl2"><{$item.status_title}></font></span>
+					<div class="main_5f_hidden">
+						<a href="<{link ctl='site:detail' arg0=$item.site_id http_city=$item.city_id}>" class="lt"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+						<div class="main_5f_hidden_lt lt">
+							<p class="title"><span>工地名称：<a href="<{link ctl='site:detail' arg0=$item.site_id http_city=$item.city_id}>"><b  class="fontcl1"><{$item.title}></b></a>
+								</span><span>承接公司：<{if $item.ext.company}><a href="<{$item.ext.company.company_url}>" class="fontcl2"><{$item.ext.company.name}></a>
+								<{else}><{$CONFIG.site.title}><{/if}></span></p>
+							<p class="bz"><{foreach $item.ext.status_list as $vv}><a><{$vv}></a><{/foreach}></p>
+							<div class="bzhou bzou_<{$item.status}>"></div>
+						</div>
+						<div class="main_5f_hidden_rt rt">
+							<a mini-load="我要参观"  href="<{link ctl='site:yuyue' arg0=$item.site_id}>" class="btn btn_sub_big">我要参观</a>
+							<p>最后更新时间：<{date('m-d',$item.dateline)}></p>
+						</div>
+					</div>
+				</li>
+				<{/KT}>
+			</ul>
+		</div>
+		<div class="main_5f_rt rt">
+			<p>查看工地进度详情进一步了解家装流程</p>
+			<form action="<{link ctl='tenders:save' http='ajax'}>" method="post" mini-form="tender2" >
+				<input type="text" name="data[name]" placeholder="请填写您的姓名" />
+				<input type="text"  name="data[mobile]"  placeholder="请填写你的号码" />
+				<input  name="data[home_name]" type="text"  placeholder="请填写您要参观的小区" />
+				<input  type="submit"  class="form_bt" value="申请免费参观"/>
+			</form>
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--5F在建工地结束-->
+	<!--6F优秀设计师开始-->
+	<div class="main_4f mb20">
+		<div class="index_title"><span class="lt"><b><font class="fontcl2">6F</font>优秀设计师</b></span>
+			<a href="<{link ctl='designer'}>" class="rt more"  target="_blank">更多</a>
+		</div>
+		<ul class="jq_pic_opacity">
+            <{KT id="46" name="总站首页6F优秀设计"}>
+			<li>
+				<a target="_blank" href="<{$item.link}>" title="<{$item.name}>"><img src="<{$pager.img}>/<{$item.face}>"></a>
+				<a target="_blank" href="<{$item.link}>" title="<{$item.name}>"><{$item.name}></a>
+			</li>
+			<{/KT}>
+		</ul>
+		<div class="cl"></div>
+	</div>
+	<!--6F优秀设计师结束-->
+	<!--7F装修课堂开始-->
+	<div class="mb20">
+		<div class="index_title"><span class="lt"><b><font class="fontcl2">7F</font>装修课堂</b></span>
+			<a href="<{link ctl='article'}>" class="rt more"  target="_blank">更多</a>
+		</div>
+		<div class="class_box">
+			<div class="class_box_top">
+				<a href="<{link ctl='diary'}>"><img src="/themes/dz_wdorg/static/images/ketang_pic1.jpg" /></a>
+				<span>装修日记</span>
+			</div>
+			<ul>
+				<{calldata mdl="diary/diary" city_id=$request.city_id limit="5"}>
+				<li>
+					<a href="<{link ctl='diary:detail' arg0=$item.diary_id}>"  target="_blank"><{$item.title|cutstr:48}></a>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<div class="class_box">
+			<div class="class_box_top">
+				<a href="<{link ctl='ask'}>"><img src="/themes/dz_wdorg/static/images/ketang_pic2.jpg" /></a>
+				<span>知识问答</span>
+			</div>
+			<ul>
+				<{calldata mdl="ask/ask" answer_id='>:0' order="ask_id:desc" limit="5"}> 
+				<li>
+					<a target='_blank' title="<{$item.title}>" href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><{$item.title|cutstr:48}></a>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<div class="class_box class_box_last">
+			<div class="class_box_top">
+				<a href="<{link ctl='article'}>"><img src="/themes/dz_wdorg/static/images/ketang_pic3.jpg" /></a>
+				<span>装修课堂</span>
+			</div>
+			<ul>
+				<{calldata mdl="article/article"  order="article_id:desc" limit="5"}> 
+				<li>
+					<a href="<{link ctl='article:detail' arg0=$item.article_id}>"  target="_blank"><{$item.title|cutstr:48}></a>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--7F装修课堂结束-->
+	<!--友情链接开始-->
+	<div class="main_link mb20">
+		<div class="index_title"><span class="lt"><b>友情链接</b></span></div>
+		<{widget id="links"}>
+	</div>
+	<!--友情链接结束-->
+</div>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+	$(".banner_lt_b a").mouseover(function(){
+		$(this).addClass("on");
+		$(this).siblings().removeClass("on");
+		})
+	$(".banner_lt_b a").eq(0).mouseover();
+	
+	$(".dz_index_paihang ul.paihang li").mouseover(function(){
+			$(this).find('p.show').hide();
+			$(this).find('.dz_paihang').show();	
+			$(this).siblings().find('p.show').show();
+			$(this).siblings().find('.dz_paihang').hide();							   
+	 });				   
+	$(".dz_index_paihang  ul.paihang li").eq(0).mouseover();	
+	$(".dz_index_paihang  ul.paihang2 li").eq(0).mouseover();	
+	
+	$(".main_sub_nav_3f a").mouseover(function(){
+		 var index = $(this).index();
+		 $(".main_sub_nav_3f a").each(function(a){
+			 if(a == index){
+				 $(this).addClass('on');
+				 $(".main_3f_lt .main_3f_myhome").eq(a).show();
+			 }else{
+				 $(this).removeClass('on');
+				  $(".main_3f_lt .main_3f_myhome").eq(a).hide();
+			 }
+		 });
+	});
+	$(".main_sub_nav_3f a").eq(0).mouseover();
+	
+	$(".main_5f_lt ul li").mouseover(function(){
+		 var index = $(this).index();
+		 $(".main_5f_lt ul li").each(function(a){
+			 if(a == index){
+				 $(".main_5f_hidden").eq(a).show();
+			 }else{
+				$(".main_5f_hidden").eq(a).hide();
+			 }
+		 });
+	});
+	$(".main_5f_lt ul li").eq(0).mouseover();
+})    
+ $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - 1421830512*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="block/footer.html"}>

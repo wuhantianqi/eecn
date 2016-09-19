@@ -1,0 +1,181 @@
+<{assign var="tpl_page_title" value="装修保详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding admin_cont">
+
+	<form action="<{link ctl='mobile/ucenter/company:hetong' arg0=$item.zxb_id}>" method="post"  onsubmit="return check()" ENCTYPE="multipart/form-data">
+    	<div class="yuyue_box">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                    	 <td><{if $hetong.yezhu_status == 1}><span class="block ok_qr">用户</span><{else}><span class="block no_qr">用户</span><{/if}></td>
+                    </tr>
+                    <tr>
+                        <td><{if $hetong.company_status == 1}><span class="block ok_qr">公司</span><{else}><span class="block no_qr">公司</span><{/if}></td>
+                    </tr>
+                    <tr>
+                        <td><{if $step.status == 1}><span class="block ok_qr">平台</span><{else}><span class="block no_qr">平台</span><{/if}></td>
+                    </tr>
+                     <tr>
+                        <td>
+                         	<{if $hetong.company_status == 0 }>
+                            	<span class="pointcl">请尽快上传装修合同</span>
+                            <{elseif $hetong.company_status == 1 && $hetong.yezhu_status == 0 && $step.status == 0}>
+                            	<span class="pointcl">请等待用户确认</span>
+                            <{elseif $hetong.company_status == 1 && $hetong.yezhu_status == 1 && $step.status == 0}>
+                            	<span class="pointcl">请等待平台确认</span>
+                            <{else}>
+                            	<{if $item.status < '7' && $item.status > '1'}>
+                            	<a href="<{link ctl='mobile/ucenter/company:zxb_detail' arg0=$item.zxb_id arg1=$item.status+1}>" class="btn subbtn_full"><{$status[$item.status+1]}></a>
+                                <{else}>
+                                <span class="pointcl">交易已结束</span>
+                                <{/if}>
+                            <{/if}>
+                        </td>
+                    </tr>
+                </table>
+         </div>
+		<table cellpadding="0" cellspacing="0">
+        	<{if $hetong.hetong && $hetong.yezhu_status==0}>
+            <input type="hidden" name="hetong_id" value="<{$hetong.hetong_id}>" >
+			<tr>
+				<td class="title">合同总价</td>
+				<td><input id ='price' type="text" name="data[total_price]" value="<{$hetong.total_price|default:''}>" class="text full"/></td>
+			</tr>
+			<tr>
+				<td class="title">电话</td>
+				<td><input id ='phone' type="text" name="data[company_phone]" value="<{$hetong.company_phone|default:''}>" class="text full"/></td>
+			</tr>
+			<tr>
+				<td class="title">银行卡号</td>
+				<td><input id ='bank' type="text" name="data[company_bank]" value="<{$hetong.company_bank|default:''}>" class="text full" /></td>
+			</tr>
+			<tr>
+				<td class="title">zip包上传</td>
+				<td > <input type="file" name="data[hetong]" class="text full" /></td>
+			</tr>
+            <tr>
+				<td class="title">合同下载</td>
+				<td > <a href="<{$pager.img}>/<{$hetong.hetong}>"><span class="pointcl">公司已上传合同请下载</span></a></td>
+			</tr>
+			<tr><td colspan="2">
+			<input type="submit"  class="btn subbtn_full" value="修改提交" />
+            </td>
+            </tr>
+		
+        <{elseif $hetong.yezhu_status==0}>
+        	<tr>
+				<td class="title">合同总价</td>
+				<td><input id ='price' type="text" name="data[total_price]" value="<{$hetong.total_price|default:''}>" class="text full"/></td>
+			</tr>
+			<tr>
+				<td class="title">电话</td>
+				<td><input id ='phone' type="text" name="data[company_phone]" value="<{$hetong.company_phone|default:''}>" class="text full"/></td>
+			</tr>
+			<tr>
+				<td class="title">银行卡号</td>
+				<td><input id ='bank' type="text" name="data[company_bank]" value="<{$hetong.company_bank|default:''}>" class="text full"  /></td>
+			</tr>
+			<tr>
+				<td class="title">zip包上传</td>
+				<td > <input type="file" name="data[hetong]" class="text full" /></td>
+			</tr>
+            <tr>
+				<td class="title">默认合同</td>
+				<td > <a href="<{$CONFIG.zxb.hetong}>">平台施工交易规范合同</a></td>
+			</tr>
+			<tr><td colspan="2">
+			<input type="submit" id='login-btn' class="btn subbtn_full" value="确认提交" />
+            </td>
+            </tr>
+        <{else}>
+
+                <tr>
+                    <td>业主电话：<{$hetong.yezhu_phone|default:''}></td>
+                </tr>
+                <tr>
+                    <td>业主卡号：<{$hetong.yezhu_bank|default:''}></td>
+                </tr>
+                <tr>
+                    <td>公司电话：<{$hetong.company_phone|default:''}></td>
+                </tr>
+                <tr>
+                    <td>公司卡号：<{$hetong.company_bank|default:''}></td>
+                </tr>
+                <tr>
+                    <td>业主打款证据：<br/><{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>" /><{/if}></td>
+                </tr>
+                <tr>
+                    <td>业主描述内容：<{$step.yezhu_content}></td>
+                </tr>
+                <tr>
+                    <td>平台审核内容：<{$step.content}></td>
+                </tr>
+                 <tr>
+                    <td>合同下载：<a href="<{$pager.img}>/<{$hetong.hetong}>"><span class="pointcl">公司已上传合同请下载</span></a></td>
+                </tr>
+               
+          <{/if}>
+        </table>
+	</form>
+</div>
+<script language="javascript" type="text/javascript">
+	function check() {
+        var mobile = $("#phone").val();
+		var bank = $("#bank").val();
+		var price = $("#price").val();
+        var isMobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;  
+        var isPhone = /^(?:(?:0\d{2,3})-)?(?:\d{7,8})(-(?:\d{3,}))?$/;
+        if (mobile.substring(0, 1) == 1 || mobile.substring(0, 1) == 0) {  
+            if ((isMobile.test(mobile) && mobile.length == 11)||(isPhone.test(mobile))) {
+            }else{
+				Widget.MsgBox.error("电话号码有误");
+			    return false; 	
+			}
+        }else {
+			Widget.MsgBox.error("电话号码有误");
+            return false;  
+        }
+		var isbank = /^(\d+)$/;
+		var isprice = /^(\d+)$/;
+		if(!isbank.exec(bank)){
+			Widget.MsgBox.error("银行卡有误");
+			return false;  	
+		}
+		if(!isprice.exec(price)){
+			Widget.MsgBox.error("总价有误");
+			return false;  	
+		}
+        return true;  
+    }  
+</script>
+<script>
+	jQuery(window).load(function () {
+			var width = document.body.clientWidth;
+            jQuery("img").each(function () {
+                DrawImage(this,width,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="mobile/block/footer.html"}>

@@ -1,0 +1,42 @@
+<div class=" area mall_option hoverno">
+    <{foreach $data.parents as $v}><a href="<{link ctl='mall/product' arg0=$v.cat_id arg1=1}>"<{if $v.cat_id == $data.top_cate.cat_id}> class="current"<{/if}>><{$v.title}></a><{/foreach}>
+</div>
+<{if $data.cates}>
+<div class="mb10 pding area choose_option">
+    <table>
+        <tr>
+            <td class="tit">分类：</td>
+            <td>
+                <a href="<{$data.cate_all_link}>"<{if $data.cat_id == $data.top_cate.cat_id}> class="current"<{/if}>>不限</a>
+                <{foreach $data.cates as $v}><a href="<{$v.link}>"<{if $data.cat_id == $v.cat_id || $data.cate.parent_id==$v.cat_id}> class="current"<{/if}>><{$v.title}></a><{/foreach}>
+                <{if $data.childrens}>
+                <div class="mall_sub_fl ">
+                <{foreach $data.childrens as $v}><a href="<{if $v.link}><{$v.link}><{else}><{link ctl='product' arg0=$v.cat_id arg1=1}><{/if}>" <{if $data.cat_id == $v.cat_id}>class="current"<{/if}>><{$v.title}></a><{/foreach}>
+                </div>
+                <{/if}>
+            </td>
+        </tr>
+        <{if $data.brands}>
+        <tr>
+            <td class="tit">品牌：</td>
+            <td><a href="<{$data.brand_all_link}>"<{if empty($data.brand_id)}> class="current"<{/if}>>不限</a>
+            <{foreach $data.brands as $v}>
+            <a href="<{$v.link}>"<{if $data.brand_id == $v.brand_id}> class="current"<{/if}>><{$v.title}></a>
+            <{/foreach}>
+            </td>
+        </tr>
+        <{/if}>
+        <{foreach $data.attrs as $k=>$v}>
+        <tr>
+            <td class="tit"><{$v.title}>：</td>
+            <td>
+                <a href="<{$v.link}>" <{if empty($v.checked)}>class="current"<{/if}>>不限</a>
+                <{foreach $v.values as $vv}>
+                <a href="<{$vv.link}>" <{if in_array($vv.attr_value_id, $data.attr_values)}>class="current"<{/if}>><{$vv.title}></a>
+                <{/foreach}>                
+            </td>
+        </tr>
+        <{/foreach}>
+    </table>
+</div>
+<{/if}>

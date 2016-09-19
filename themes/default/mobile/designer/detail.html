@@ -1,0 +1,10 @@
+<{assign var="tpl_page_title" value="设计师简介"}>
+<{include file="mobile/designer/block/header.html"}>
+<div class="pding">
+	<{if $company}><p>所在公司：<{$company.name}></p><{/if}>
+	<p>毕业学校：<{$designer.school}></p>
+	<p>所在地区：<{$designer.city_name}> <{$designer.area_name}></p>
+	<p>设计专长：<{$designer.slogan}></p>
+	<div class="article"><{$designer.about}></div>
+</div>
+<{include file="mobile/block/footer.html"}>

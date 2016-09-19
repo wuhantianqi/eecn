@@ -1,0 +1,23 @@
+<{include file="home/block/header.html"}>
+<div class="subwd">
+	<div class="sub_home_lt lt">
+		<div class="pding area mb10 home_index_top">
+			<img src="<{$pager.img}>/<{$home.thumb}>" class="pic lt" />
+			<div class="rt">
+				<p>楼盘地址：	<{$home.addr}></p>
+				<p>竣工时间：	<{$home.jf_date}></p>
+				<p>参考均价： <font class="fontcl2"><{$home.price}></font>元/平方米</p>
+				<p>开盘时间：	<{$home.kp_date}></p>
+				<p>开发商： <{$home.kfs}> </p>
+                <p>小区地址：<{$home.addr}></p>
+				<a href="<{link ctl='home:cases' arg0=$home.home_id}>" class="btn_sub_tuan btn">申请免费设计</a>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="mb20 area pding">
+			<h3 class="underline">项目简介</h3>
+			<p><{$home.content}></p>
+		</div>
+    </div>
+</div>
+<{include file="home/block/footer.html"}>

@@ -1,0 +1,78 @@
+<{include file="block/header.html"}>
+<script type="text/javascript"  src="<{$pager.res}>/script/jquery.masonry.min.js"></script>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="index"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='case:items'}>">装修案例</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体内容开始-->
+	<div class="mb20 area choose_option to_choose_option">
+		<table cellpadding="0" cellspacing="0">
+        	<{foreach $attr_values as $v}>
+            <tr>
+               	<td class="tit"><{$v.title}></td>
+                <td><a href="<{$v.link}>" class="<{if $v.checked == true}> current<{/if}>">不限 </a>                  
+                <{foreach $v.values as $vv}>
+                <a href="<{$vv.link}>" class="<{if $vv.checked ==true}>current<{/if}>"><{$vv.title}></a>
+                <{/foreach}>
+                </td>
+         	</tr>
+			<{/foreach}>
+		</table>
+	</div>
+	<div class="mb10">
+		<div class="sort_box">
+			<p class="sort_list hoverno">
+            	<span class="lt">
+                    <{foreach $order_list as $k=>$v}>
+                    <a href="<{$v.link}>"><{$v.title}><span class="<{if $pager.order==$k}>sort_ico ico_list sort_on_ico<{else}>sort_ico ico_list<{/if}>"></span></a>
+                    <{/foreach}>
+				</span>			
+                <span class="rt">
+                    <a href="<{link ctl='case:album'}>" title="专辑模式"><font class="ico_list li_over"></font></a>
+					<a href="<{link ctl='case:items'}>"  title="列表模式"  class="on"><font class="ico_list block_on"></font></a>
+				</span>
+			</p>
+		</div>
+	</div>
+	<div class="mb20 case_aterfall" id="container">
+    	<{foreach $photos as $item}>
+ 		<div class="case_aterfall_li">
+            <div class="opacity_img hoverno">
+                <a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank">
+                <img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" />
+                </a>
+                <span class="bg"></span>
+                <span class="text"><a href="<{link ctl='case:detail' arg0=$item.case_id}>">免费户型设计</a>
+                </span>
+            </div>
+            <p class="tit"><a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank"><{$item.title|cutstr:25}></a>
+            </p>
+        </div>
+        <{/foreach}>	
+	</div>    
+	<div class="cl"></div>
+     <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+</div>
+<script type="text/javascript">
+(function(K, $){
+  var $container = $('#container');
+      $container.imagesLoaded(function(){
+        $container.masonry({
+        itemSelector: '.case_aterfall_li'
+      });
+    }); 
+    //装修案例列表模式透明层
+     $(".case_aterfall_li").mouseover(function(){
+         $(this).find(".opacity_img span").show();
+     }).mouseleave(function(){
+        $(this).find(".opacity_img span").hide();
+     });
+})(window.KT, window.jQuery);
+</script>
+<{include file="block/footer.html"}>

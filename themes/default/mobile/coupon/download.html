@@ -1,0 +1,11 @@
+<{assign var="tpl_page_title" value="下载优惠券"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">	
+	<form class="tenders" action="<{link ctl='mobile/coupon:download'}>" mini-form="yuyue" method="post">
+    	<input name="coupon_id" type="hidden" class="input" value="<{$coupon_id}>" />
+		<input type="text" name="data[contact]" class="text full" placeholder="您的姓名" />
+		<input type="text" name="data[mobile]" class="text full" placeholder="联系方式" />
+		<input type="submit" value="立即报名" class="btn mainbtn_full" value="立即申请 " />
+	</form>
+</div>
+<{include file="mobile/block/footer.html"}>

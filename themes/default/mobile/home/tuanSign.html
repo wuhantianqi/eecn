@@ -1,0 +1,10 @@
+<{assign var="tpl_page_title" value="报名团装"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">	
+	<form class="tenders" action="<{link ctl='mobile/home:tuanSign' arg0=$tuan.tuan_id arg1=$package_id http='empty'}>" mini-form='sign-form' method="post">
+		<input type="text" name="data[contact]" class="text full" placeholder="您的姓名" />
+		<input type="text" name="data[mobile]" class="text full" placeholder="联系方式" />
+		<input type="submit" value="立即报名" class="btn mainbtn_full" value="立即报名 " />
+	</form>
+</div>
+<{include file="mobile/block/footer.html"}>

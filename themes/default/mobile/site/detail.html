@@ -1,0 +1,28 @@
+<{assign var="tpl_page_title" value="在建工地详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding site_cont">
+	<img src="<{$pager.img}>/<{$site.thumb}>" class="pic" />
+	<div class="site_cont_box">
+		<h2><{$site.title}></h2>
+		<p>进度： <font class="site_step"><{$status[$site.status]|default:'等待开工'}></font></p>
+        <{if $company}>
+        <p>承接公司：<a href="<{link ctl='mobile/company:detail' arg0=$site.company_id}>"> <{$company.name}></a></p>
+        <{elseif $gz}>
+        <p>承接工长：<a href="<{link ctl='mobile/gz:detail' arg0=$site.uid}>"><{$gz.name}></a></p>
+        <{elseif $designer}>
+        <p>承接设计师：<a href="<{link ctl='mobile/designer:detail' arg0=$site.uid}>" ><{$designer.name}></a></p>
+        <{/if}>
+		<p> 小区名称：<{$site.home_name}></p>
+		<p> 面积：<{$site.house_mj}>平米</p>
+		<p> 均价：<{$site.price}>万元</p>
+	</div>
+    <a href="<{link ctl='mobile/site:yuyue' arg0=$site.site_id}>" class="mainbtn_full btn">预约参观</a>
+    <{foreach $items as $item}>
+        <div class="site_cont_box">
+            <h2>[<{$status[$item.status]}>]</h2>
+            <div class="edit_box"><{$item.content}></span></div>
+        </div>
+    <{/foreach}>
+</div>
+
+<{include file="mobile/block/footer.html"}>

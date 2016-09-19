@@ -1,0 +1,11 @@
+<{assign var="tpl_page_title" value="装修投标"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+    <form action="<{link ctl='mobile/ucenter/tenders-tenders_look' http='base'}>" mini-form="look-form" method="post" >
+        <input type="hidden" name="tenders_id" value="<{$tenders.tenders_id}>" />
+        <div class="no_record">投标后查看业主联系方式，消耗金币:<{$tenders.gold}></div>
+        <textarea name="data[content]" class="text full" placeholder="给业主留言"></textarea>
+        <input type="submit" value="立即投标" class="btn mainbtn_full" />
+    </form>
+</div>
+<{include file="mobile/block/footer.html"}>

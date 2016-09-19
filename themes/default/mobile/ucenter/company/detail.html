@@ -1,0 +1,118 @@
+<{assign var="tpl_page_title" value="装修保详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding admin_cont">
+		<div class="yuyue_box">
+				<table cellpadding="0" cellspacing="0">
+                    <tr>
+                    	 <td> <{if $step.yezhu_status == 1}><span class="block ok_qr">用户</span><{else}><span class="block no_qr">用户</span><{/if}></td>
+                    </tr>
+                    <tr>
+                        <td><{if $step.company_status == 1}><span class="block ok_qr">公司</span><{else}><span class="block no_qr">公司</span><{/if}></td>
+                    </tr>
+                    <tr>
+                        <td><{if $step.status == 1}><span class="block ok_qr">平台</span><{else}><span class="block no_qr">平台</span><{/if}></td>
+                    </tr>
+                    <tr>
+                        <td>
+                         	<{if $step.company_status == 0 }>
+                            	<span class="pointcl">请尽快上传<{$status[$item.status+1]}>的完工证明</span>
+                            <{elseif $step.company_status == 1 && $step.yezhu_status == 0 && $step.status == 0}>
+                            	<span class="pointcl">请等待用户确认</span>
+                            <{elseif $step.company_status == 1 && $step.yezhu_status == 1 && $step.status == 0}>
+                            	<span class="pointcl">请等待平台确认</span>
+                            <{else}>
+                                <{if $item.status < '7' && $item.status > '1'}>
+                                <a href="<{link ctl='mobile/ucenter/company:zxb_detail' arg0=$item.zxb_id arg1=$item.status+1}>" class="btn subbtn_full"><{$status[$item.status+1]}></a>
+                                <{else}>
+                                <span class="pointcl">交易已结束</span>
+                                <{/if}>
+                            <{/if}>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+	<form action="<{link ctl='mobile/ucenter/company:zxb_detail' arg0=$item.zxb_id arg1=$item.status+1}>"  mini-form="ucenter" method="post"  onsubmit="return check()" ENCTYPE="multipart/form-data">
+    <input type="hidden" name="step_id" value="<{$step.step_id}>" >
+		<table cellpadding="0" cellspacing="0">
+        	<{if $step.yezhu_status == 0 && $step.company_id}>
+             <tr>
+				<td class="title" style="vertical-align:middle">完工描述</td>
+				<td><textarea name="data[company_content]" class="text full" style="height:100px;" ><{$step.company_content}></textarea></td>
+			</tr>
+            <tr>
+				<td class="title">图片上传</td>
+				<td><input type="file" name="files[]" class="text full" multiple /></td>
+			</tr>
+           
+           <tr><td colspan="2">
+			<input type="submit" id='login-btn' class="btn subbtn_full" value="修改提交" />
+			</td>
+            </tr>
+       	<{elseif $step.yezhu_status == 0 && !$step.company_id}>
+         	<tr>
+				<td class="title" style="vertical-align:middle;">完工描述</td>
+				<td> <textarea name="data[company_content]" class="text full" style="height:100px;"><{$step.company_content}></textarea></td>
+			</tr>
+        	<tr>
+				<td class="title">图片上传</td>
+				<td><input type="file" name="files[]" class="text full" multiple /></td>
+			</tr>
+           
+           <tr><td colspan="2">
+			<input type="submit" id='login-btn' class="btn subbtn_full" value="确认提交" />
+           </td>
+            </tr>
+        <{else}>
+            <tr>
+                <td>业主打款证据：<br/> <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>"/><{/if}></td>
+            </tr>
+            <tr>
+                <td>业主内容：<{$step.yezhu_content}></td>
+            </tr>
+        	<tr>
+             	<td colspan="2">公司描述:<br/>
+                		<{$step.company_content}><br/>
+                  		<{foreach $photo as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>">
+                        <{/foreach}>
+                </td>
+             </tr>
+            <tr>
+                <td>平台审核内容：<{$step.content}></td>
+            </tr>
+          <{/if}>
+        </table>
+	</form>
+</div>
+<script>
+	jQuery(window).load(function () {
+			var width = document.body.clientWidth;
+            jQuery("img").each(function () {
+                DrawImage(this,width,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="mobile/block/footer.html"}>

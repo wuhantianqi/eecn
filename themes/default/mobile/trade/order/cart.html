@@ -1,0 +1,112 @@
+<{include file="mobile/block/header.html"}>
+<div class="pding order_box  mb10">
+<{foreach $cart.items as $item}>
+	<div class="shop_cart">
+		<div class="check_wrap">
+			<span class="count_ico cho_cl_ico cho_no_ico"></span>
+			<img src="<{$pager.img}>/<{$item.photo}>_small.jpg" class="pic" />
+		</div>
+		<span class="gw_price">￥<{$item.product_price}> X <{$item.num}></span>
+		<div>
+			<p class="gw_tit"><{$item.name}><{if $item.spec}>【<{$item.spec.spec_name}>】<{/if}></p>
+			<p class="cl"></p>
+			<p><span class="lt"><a class="jian count_ico lt" quantity="-/<{$item.cart_key}>"></a>
+				<input type="text" number="<{$item.cart_key}>" id="product_number_<{$item.cart_key}>" class="buy_count_text lt" value="<{$item.num}>" />
+				<a class="jia count_ico lt" quantity="+/<{$item.cart_key}>"></a>
+				</span>
+				<a href="<{link ctl='mobile/trade/cart:delete' arg0=$item.cart_key}>" min-act="confirm:确认要把该商品移出购买车吗？" class="rt count_ico delete_ico"></a>
+			</p>
+		</div>
+	</div>
+<{/foreach}>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $("[quantity]").click(function(e){
+        e.stopPropagation();e.preventDefault();
+        var a = $(this).attr("quantity").split("/");
+        var number = parseInt($("#product_number_"+a[1]).val(), 10);
+        Widget.MsgBox.success("正在更新购物车");
+        Widget.MsgBox.load("正在更新购物车");
+        if('-' == a[0]){
+            if(number < 2){
+                Widget.MsgBox.error("数量不能小于1");
+                return false;
+            }else{
+                number = number -1;
+                 $("#product_number_"+a[1]).val(number);
+                var link = "<{link ctl='mobile/trade/cart:update' arg0='#sk#' arg1='#num#'}>&<{$pager.dateline}>";
+                $.getJSON(link.replace("#sk#", a[1]).replace("#num#", number), function(ret){
+                    if(ret.error){
+                        Widget.MsgBox.error(ret.message.join(","));
+                    }else{
+                        Widget.MsgBox.success("更新购物车成功");
+                        setTimeout(function(){window.location.reload(true);}, 1500);
+                    }
+                });
+            }
+        }else{
+            $("#product_number_"+a[1]).val(number+1);
+            var link = "<{link ctl='mobile/trade/cart:add' arg0='#sk#' arg1='1'}>&<{$pager.dateline}>";
+            $.getJSON(link.replace("#sk#", a[1]), function(ret){
+                if(ret.error){
+                    Widget.MsgBox.error(ret.message.join(","));
+                }else{
+                    Widget.MsgBox.success("更新购物车成功");
+                    setTimeout(function(){window.location.reload(true);}, 1500);
+                }
+            });
+        }
+    });
+    $("[number]").change(function(){
+        var pid = $(this).attr("number");
+        var number = parseInt($(this).val(), 10);
+        if(number < 1){
+            number = 1;
+        }
+        Widget.MsgBox.success("正在更新购物车");
+        Widget.MsgBox.load("正在更新购物车");
+        var link = "<{link ctl='mobile/trade/cart:update' arg0='#pid#' arg1='#num#'}>&<{$pager.dateline}>";
+        $.getJSON(link.replace("#pid#", pid).replace("#num#", number), function(ret){
+            if(ret.error){
+                Widget.MsgBox.error(ret.message.join(","));
+            }else{
+                Widget.MsgBox.success("更新购物车成功");
+                setTimeout(function(){window.location.reload(true);}, 1500);
+            }
+        });        
+    });
+})(window.KT, window.jQuery);
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+     $("[quantity]").click(function(){
+            var quantity = parseInt($("#cart_product_num").val(), 10);
+            if($(this).attr("quantity") == '+'){
+                quantity += 1;
+            }else{
+                quantity -= 1;
+            }
+            if(quantity < 1){
+                quantity = 1;
+            }
+            $("#cart_product_num").val(quantity);
+        });
+        $(".check_wrap span.cho_cl_ico").click(function(){
+            if($(this).hasClass('cho_no_ico')){
+                $(this).removeClass('cho_no_ico').addClass('cho_cl_ico');
+            }else{
+                $(this).removeClass('cho_cl_ico').addClass('cho_no_ico');
+            }
+        })
+    });
+</script>
+
+<div class="footer_js">
+	<span class="lt"><font class="pointcl">总价：￥<{$cart.total_amount}>（含运费）</font></span>
+	<span class="rt"><a href="<{link ctl='mobile/trade/cart:checkout'}>">结算（<{$cart.product_number}>）</a></span>
+</div>
+<{include file="mobile/block/sfooter.html"}>
+</body>
+</html>

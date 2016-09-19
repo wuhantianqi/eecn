@@ -1,0 +1,36 @@
+<{assign var="tpl_page_title" value="我的招标信息"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	 <{if !$items}><div class="no_record">暂无记录信息</div><{/if}>
+     <div class="yuyue_box zbiao_manage">
+     <table cellpadding="0" cellspacing="0">
+	 <{foreach $items as $item}>
+                <tr>
+                    <td class="title secend">标题</td>
+                    <td><{$item.title}></td>
+                </tr>
+                <tr>
+                    <td class="title secend">看标需要消耗金币</td>
+                    <td><{$item.gold}></td>
+                </tr>
+                <tr>
+                	<td class="title secend">允许看标的企业数</td>
+                    <td><{$item.max_look}></td>
+                </tr>
+                <tr>
+                    <td class="title secend">IP</td>
+                    <td><{$item.clientip}></td>
+                </tr>
+                <tr>
+                    <td class="title secend">创建时间</td>
+                    <td><{$item.dateline|format}></td>
+                </tr>
+                <tr>
+                    <td class="title secend">操作</td>
+                    <td><a  href="<{link ctl='mobile/ucenter/tenders:tenderDetail' arg0=$item.tenders_id}>" class="btn subbtn_full">查看</a></td>
+                </tr>
+    <{/foreach}>
+    </table>
+    </div>
+</div>
+<{include file="mobile/block/footer.html"}>

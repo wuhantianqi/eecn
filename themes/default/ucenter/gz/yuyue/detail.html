@@ -1,0 +1,25 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li><a href="<{link ctl='ucenter/gz/yuyue:gz'}>">预约管理</a></li><li class="on">查看预约</li></ul>
+</div>
+<div class="ucenter_c">
+     <{if $group.priv.show_yuyue_mobile<=0}><p class="tips"><span class="lock">您是【<b class="red"><{$gz.group_name}></b>】预约手机号不可见</span></p><{/if}>
+    <form action="<{link ctl='ucenter/gz/yuyue:save'}>" mini-form="ucenter" method="post">
+    <input type="hidden" name="yuyue_id" value="<{$detail.yuyue_id}>"/>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+        <tr><th></th><td colspan="10"><b class="red">预约信息</b></td></tr>
+        <tr>
+            <th>联系人：</th><td><{$detail.contact}></td>
+            <th>手机号：</th><td><{if $group.priv.show_yuyue_mobile>0}><{$detail.mobile}><{else}><b class="red"><{$detail.mobile|cutstr:6}></b><{/if}></td>
+        </tr>
+        <tr>
+            <th>预约时间：</th><td><{$detail.dateline|format}></td><th>来源IP：</th><td><{if $group.priv.show_yuyue_mobile>0}><{$detail.clientip}><{else}><b class="red"><{$detail.clientip|cutstr:6:"******"}></b>(<{$detail.clientip|iplocal}>)</b><{/if}></td>
+        </tr>
+        <tr><th>备注要求：</th><td colspan="10"><{$detail.content|default:'--'|nl2br}></td></tr>
+        <tr><th>跟进状态：</th><td><select name="data[status]" class="select w-100"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+        <tr><th>商家备注：</th><td><textarea name="data[remark]" class="textarea w-400"><{$detail.remark}></textarea></td></tr>
+        <tr><th></th><td><input type="submit" value="更新状态" class="mpbtn" /></td></tr>
+	</table>
+    </form>
+</div>
+<{include file="ucenter/block/footer.html"}>

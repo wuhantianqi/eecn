@@ -1,0 +1,33 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/shop:base'}>" >基本设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>
+        <li><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<{if $shop_no_open}><div class="tips"><span class="notice">您还没有开通商铺，请先填写商铺资料</span></div><{/if}>
+<form action="<{link ctl='ucenter/shop:gmsm'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+   <tr><th><span class="red">*</span>商铺标题：</th><td><b class="blue"><{$shop.title}></b></td></tr>
+    <tr><th>订购须知：</th><td><textarea name="data[dgxz]" kindeditor="simple" style="width:700px;height:350px;"><{$shop.dgxz}></textarea></td></tr>
+    <tr><th>配送安装：</th><td><textarea name="data[psaz]" kindeditor="simple" style="width:700px;height:350px;"><{$shop.psaz}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

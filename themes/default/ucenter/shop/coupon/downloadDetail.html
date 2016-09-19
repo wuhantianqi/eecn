@@ -1,0 +1,40 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">下载日志</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/coupon:index'}>" class="pbtn">日志详情</a></span>
+</div>
+<div class="ucenter_c">
+    <{if $group.priv.show_yuyue_mobile < 0}><p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】手机号不可见</span></p><{/if}>
+    <form action="<{link ctl='ucenter/shop/coupon:downloadSave'}>" mini-form="ucenter" method="post">
+    <input type="hidden" name="download_id" value="<{$detail.download_id}>" />
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+        <tr><th></th><td colspan="10"><b class="red">优惠券</b></td></tr>
+        <tr><th>标题：</th><td colspan="10"><{$coupon.title}></td></tr>
+        <tr>
+            <th>有效期：</th><td><{$coupon.expire_label}></td><th>业主：</th>
+            <td><{if $member}><{$member.uname}><{else}>访客<{/if}></td>
+        </tr>
+        <tr><th></th><td colspan="10"><b class="red">预约信息</b></td></tr>
+        <tr>
+            <th>预约时间：</th><td><{$detail.dateline|format}></td>
+            <th>来源IP：</th><td><b class="red"><{$detail.create_ip|cutstr:6:"******"}></b>(<{$detail.create_ip|iplocal}>)</b></td>
+        </tr>
+        <tr>
+            <th>联系人：</th><td><{$detail.contact}></td>
+            <th>手机号：</th><td><{if $group.priv.show_yuyue_mobile > 0}><{$detail.mobile}><{else}><b class="red"><{$detail.mobile|cutstr:6:'* * * * * *'}></b><{/if}></td>
+        </tr>
+        <tr><th>优惠码：</th><td colspan="10"><b class="red"><{$detail.number|default:'--'}></b></td></tr>
+        <tr>
+            <th>使用状态：</th>
+            <td colspan="10">
+                <label><input type="radio" name="data[used]" value="0" <{if !$detail.used}>checked="checked"<{/if}>>未使用</label>&nbsp;&nbsp;&nbsp;
+                <label><input type="radio" name="data[used]" value="1" <{if $detail.used}>checked="checked"<{/if}>>已使用</label>
+            </td>
+        </tr>        
+        <tr><th>跟进状态：</th><td colspan="10"><select name="data[status]" class="select w-100"><{widget id="data/yuyue" value=$detail.status}></select></td></tr>
+        <tr><th>商家备注：</th><td colspan="10"><textarea name="data[remark]" class="textarea w-400"><{$detail.remark}></textarea></td></tr>
+        <tr><th></th><td colspan="10"><input type="submit" value="更新状态" class="mpbtn" /></td></tr>
+	</table>
+    </form>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,46 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/weixin:info'}>">公众号设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:config'}>">接口设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:welcome'}>">关注回复</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:leaflets'}>">宣传页设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin/menu:index'}>">微信菜单</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+<{if $weixin_no_open}><p class="tips"><span class="notice">需要设置好微信公众号才能操作相关功能</span></p><{/if}>
+<form action="<{link ctl='ucenter/weixin:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">   
+<tr><th>公众号名称：</th><td><input type="text" name="data[wx_name]" value="<{$weixin.wx_name|default:''}>" class="input w-300"/></td></tr>
+<tr>
+    <th><span class="red">*</span>微信原始ID：</th>
+    <td><input type="text" name="data[wx_sid]" value="<{$weixin.wx_sid|default:''}>" class="input w-200"/><span class="tip-comment">微信公众号的原始ID</span></td>
+</tr>
+<tr><th>微信号：</th><td><input type="text" name="data[weixin]" value="<{$weixin.weixin|default:''}>" class="input w-200"/></td></tr>
+<tr>
+    <th>公众号类型：</th>
+    <td>
+        <label><input type="radio" name="data[type]" <{if empty($weixin.type)}>checked="checked"<{/if}> value="0"/>订阅号</label>
+        <label><input type="radio" name="data[type]" <{if $weixin.type}>checked="checked"<{/if}> value="1"/>服务号</label>&nbsp;&nbsp;       
+    </td>
+</tr>
+<tr><th>头像：</th>
+    <td>
+        <{if $weixin.face}><img src="<{$pager.img}>/<{$weixin.face}>" photo="<{$pager.img}>/<{$weixin.face}>" class="wh-100"/><br /><{/if}>
+        <input type="file" name="weixin_face" class="input w-200"/>        
+    </td>
+</tr>
+<tr>
+    <th>AppID：</th>
+    <td><input type="text" name="data[appid]" value="<{$weixin.appid|default:''}>" class="input w-300"/><span class="tip-comment">AppID(应用ID)</span></td>
+</tr>
+<tr>
+    <th>AppSecret：</th>
+    <td><input type="text" name="data[secret]" value="<{$weixin.secret|default:''}>" class="input w-300"/><span class="tip-comment">AppSecret(应用密钥)</span></td>
+</tr>
+<tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

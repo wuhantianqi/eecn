@@ -1,0 +1,84 @@
+<{include file="block/small-header.html"}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='mechanic'}>">找工人</a>><a href="<{link ctl='mechanic:detail' arg0=$detail.uid}>"><{$detail.name}></a>
+		</p>
+</div>
+
+<!--面包屑导航结束-->
+<div class="subwd">
+	<!--主体左边内容开始-->
+	<div class="sub_content lt">
+		<div class="mb10 pding area sub_worder_top">
+			<a href="<{link ctl='mechanic:detail' arg0=$detail.uid}>" class="lt"><img src="<{$pager.img}>/<{$detail.face}>" class="pic" /></a>
+			<div class="sub_worder_top_rt rt">
+				<h3 class="colorbg">
+					<b class="lt"><{$detail.name}>
+						<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=<{$detail.qq}>&amp;site=qq&amp;menu=yes" class="qq_ico ico_list"></a>
+					</b>
+					<!-- <span class="rt"><font class="ico_list worder_tel"></font>咨询热线：<b class="fontcl2"> <{$CONFIG.site.phone}></b></span> -->
+					</h3>
+                <p><span>预约数：<{$detail.yuyue_num}></span><span>联系电话：<{$detail.show_phone}></span></p>
+                <p><span>浏览数：<{$detail.views}></span><span>地区：<{$detail.city_name|default:'--'}>&nbsp;<{$detail.area_name}></span></p>
+                <{widget id='attr/form' from='zx:mechanic' value=$attr tpl='show.html'}>
+               <p> 
+                <{if $detail.group.priv.allow_yuyue < 0}>
+                 	<a href="<{link ctl='tenders:fast' arg0=$detail.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn_sub_tuan btn">立即招标</a>
+                <{else}>
+                	<a href="<{link ctl='mechanic:yuyue' arg0=$detail.uid http='ajax'}>" mini-width='500' mini-load="在线预约" class="btn_sub_tuan btn">在线预约</a>
+                <{/if}>
+               </p>
+
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="mb20 area">
+			<p class="sub_worker_tit"><b class="tit">个人简介</b></p>
+			<div class=" mb10 pding sub_worker_content"><{$detail.about}></div>
+		</div>
+	</div>
+	<!-- <div class="side_content rt">
+    <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+       <div class="mb10 area">
+			<h3 class="side_tit">技工排行榜</h3>
+            <ul class="pding paihang">
+                <{calldata mdl="mechanic/mechanic" city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='mechanic:detail' arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>   
+      	<div class="mb10 area">
+			<h3 class="side_tit">设计师排行</h3>
+			<ul class="pding paihang">
+            	<{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+                    <li>
+                        <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog' arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                        <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                    </li>
+                 <{/calldata}> 
+			</ul>
+		</div>
+       <div class="mb10 area">
+            <{adv id="10" name="设计师右侧招商图片广告" city_id=$request.city_id}>
+        </div>
+	</div> -->
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<!--底部内容开始-->
+<{include file="block/small-footer.html"}>

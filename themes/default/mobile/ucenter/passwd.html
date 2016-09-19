@@ -1,0 +1,44 @@
+<{assign var="tpl_page_title" value="修改密码"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding admin_cont">
+	<form id='login-form'>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="title">用户名</td>
+				<td><{$MEMBER.uname}></td>
+			</tr>
+			<tr>
+				<td class="title">原密码</td>
+				<td><input type="password" name="account[old_passwd]" class="text full" /></td>
+			</tr>
+			<tr>
+				<td class="title">新密码</td>
+				<td><input type="password" name="account[passwd]" class="text full" /></td>
+			</tr>
+			<tr>
+				<td class="title">确认密码</td>
+				<td ><input type="password" name="account[confirm_passwd]" class="text full" /></td>
+			</tr>
+		</table>
+		<input type="button" id='login-btn' class="btn subbtn_full" value="确认修改" />
+	</form>
+</div>
+
+ <script>
+        $(document).ready(function() {
+            function showmsg(message) {
+                $("#showErr").show();$("#showTxt").html(message);
+            }
+            $("#login-btn").click(function() {
+                $.post('<{link ctl="mobile/ucenter:passwd"}>', $("#login-form").serialize(), function(data) {
+                    if (data.error) {
+                        showmsg(data.message);
+                    } else {
+                        window.location = "<{link ctl='mobile/ucenter:index'}>";
+                    }
+                }, 'json');
+            });
+
+        });
+
+    </script><{include file="mobile/block/footer.html"}>

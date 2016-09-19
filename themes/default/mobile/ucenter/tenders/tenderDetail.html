@@ -1,0 +1,138 @@
+<{assign var="tpl_page_title" value="招标详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	  <{if $detail.zxb_id}><div class="no_record">该业主报名参加了装修保服务，只允许装修公司进投标</div><{/if}>
+      <{if $pager.audit_tenders < 0}><div class="no_record">您是【<b class="pointcl"><{$pager.audit_title}></b>】不能进行投标</div><{/if}>
+
+        <div class="yuyue_box zbiao_manage">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="title">标题</td>
+                    <td><{$detail.title|default:'--'}></td>
+                </tr>
+                <tr>
+                   <td class="title">会员</td>
+                    <td><{if $detail.uid}><{$member.uname}>(UID:<{$detail.uid}>)<{else}>--<{/if}></td>
+                </tr>
+                <tr>
+                    <td class="title">装修时间</td>
+                    <td><{$detail.zx_time|default:'--'}></td>
+                </tr>
+                <tr>
+                    <td class="title">售价/金币：</td>
+                    <td><{$detail.gold}></td>
+                </tr>
+                <tr>
+                    <td class="title">最大投标数</td>
+                    <td><{$detail.max_look}></td>
+                </tr>
+                <tr>
+                    <td class="title">已投标数</td>
+                    <td><{$detail.looks}></td>
+                </tr>
+                 <tr>
+                     <td class="title">发布时间</td>
+                    <td><{$detail.dateline|format}></td>
+                </tr>
+                <tr>
+                     <td class="title">发布IP</td>
+                    <td> <{if $detail.gold <= 0 && $pager.audit_tenders >=0}><{$detail.clientip}></b>(<{$detail.clientip|iplocal}>)<{elseif $detail.looked}><{$detail.clientip}></b>(<{$detail.clientip|iplocal}>)<{else}><{$detail.clientip|cutstr:6:"******"}></b>(<{$detail.clientip|iplocal}>)<{/if}></td>
+                </tr>
+                 <tr>
+                     <td class="title">联系人</td>
+                    <td><{$detail.contact|default:'--'}></td>
+                </tr>
+                <tr>
+                    <td class="title">状态</td>
+                    <td><{if $detail.status}><b>已签单</b><{else}><b class="blue">招标中</b><{/if}></td>
+                </tr>
+                 <tr>
+                    <td class="title">地址</td>
+                    <td colspan="3"><{$detail.city_name|default:'--'}>  <{$detail.area_name|default:'--'}>  
+            <{if $detail.gold <= 0 && $pager.audit_tenders >=0}><{$detail.addr|default:'--'}><{elseif $detail.looked}><{$detail.addr|default:'--'}><{else}><b class="pointcl">* * * * * *</b><{/if}></td>
+                </tr>
+                 <tr>
+                    <td class="title">电话</td>
+                    <td colspan="3">
+                    	 <{if $detail.gold <= 0 && $pager.audit_tenders >=0}><{$detail.mobile}><{elseif $detail.looked}><{$detail.mobile}> &nbsp;&nbsp;[<strong class="pointcl">已购买</strong>]<{else}><b class="pointcl"><{$detail.mobile|cutstr:6}></b>&nbsp;&nbsp;&nbsp;
+                        <{if $group.priv.tenders_look <= 0}>
+                        <input type="button" class="pbtn fontcl2" value="您没有权限投标" disabled="disabled"/>
+                        <{else}>
+                        <a href="<{link ctl='mobile/ucenter/tenders-tenders_look' arg0=$detail.tenders_id http='ajax'}>"  mini-load="立即投标" mini-width="400" class="pbtn fontcl2"/>购买后可以查看联系方式</a>
+                        <{/if}>
+                        <{/if}>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">小区名称</td>
+                    <td><{$detail.home_name|default:'--'}></td>
+                </tr>
+                <tr>
+                    <td class="title">房屋面积</td>
+                    <td><{$detail.area|default:'--'}>㎡</td>
+                </tr>
+                 <tr>
+                     <td class="title">招标类型</td>
+                    <td><{$detail.type_title|default:'--'}></td>
+                </tr>
+                 <tr>
+                    <td class="title">喜欢风格</td>
+                    <td><{$detail.style_title|default:'--'}></td>
+                </tr>
+                 <tr>
+                     <td class="title">预算范围</td>
+                    <td><{$detail.budget_title|default:'--'}></td>
+                </tr>
+                 <tr>
+                    <td class="title">服务需求</td>
+                    <td><{$detail.service_title|default:'--'}></td>
+                </tr>
+                <tr>
+  					<td class="title">空间户型</td>
+                    <td><{$detail.house_type_title|default:'--'}></td>
+                </tr>
+                 <tr>
+                    <td class="title">装修方式</td>
+                    <td><{$detail.way_title|default:'--'}></td>
+                </tr>
+                 <tr>
+                    <td class="title">备注</td>
+                    <td colspan="3"><{$detail.remark|default:'--'}></td>
+                    
+                </tr>
+                
+                 </tr><td colspan="3"><h2>已经参于竞标公司</h2></td></tr>
+            
+            <{foreach $look_list as $item}>
+            
+                <tr>
+                    <td class="title">公司</td>
+                    <td><{$company_list[$item.uid].name|default:'--'}></td>
+                </tr>
+                <tr>
+                    <td class="title">留言</td>
+                    <td><{$item.content|default:'--'}></td>
+                </tr>
+                <tr>
+                    <td class="title">竞标时间</td>
+                    <td><{$item.dateline|format}></td>
+                </tr>
+                <tr>
+                    <td class="title">状态</td>
+                    <td>
+                     <{if $detail.sign_uid}>
+                    <{if $item.is_signed}><b>中标</b><{else}><b>淘汰</b><{/if}>
+                    <{else}>
+                    <a href="<{link ctl='mobile/ucenter/member:signLook' arg0=$item.look_id}>"  class="btn mainbtn_full">设为中标</a>
+                    <{/if}>
+                    </td>
+                </tr>
+                <{foreachelse}>
+                <div class="no_record">还没有公司投标</div>
+                <{/foreach}>
+             </table>              
+            </table>
+           
+        </div>
+</div>
+<{include file="mobile/block/footer.html"}>

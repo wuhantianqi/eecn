@@ -1,0 +1,55 @@
+<{assign var="seo_sub_title" value="优惠信息"}>
+<{include file="company/block/header.html"}>
+<!--装修公司头部结束-->
+<div class="subwd">
+	<div class="mb20">
+		<h3><b>优惠信息</b></a></h3>
+        <ul class="line_type main_youhui com_youhui_ul">
+            <{foreach $items as $item}>
+            <li<{if $item@iteration is div by 3}> class="first"<{/if}>>
+                <span class="ico_list <{if $item.status=='finish'}>over_paint<{else}>be_paint<{/if}>"></span>
+                <a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
+                <h3><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><{$item.title}></h3>
+                <p class="colorbg"><span class="lt tit"><font class="youhui_time ico_list"></font><span remaintime="<{$item.ltime}>"></span></span>
+                <{if $item.status=='finish'}>
+                <a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="youhui_over_btn rt btn">已结束</a></p>
+                <{else}>
+                <a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="btn_sub_sm rt btn">立即参团</a></p>
+                <{/if}>
+                <div class="cl"></div>
+            </li>
+            <{/foreach}>
+        </ul>
+        <div class="cl"></div>
+        <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+	</div>
+</div>
+<!--底边内容开始-->
+<script type="text/javascript">
+(function(K, $){
+    $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="company/block/footer.html"}>

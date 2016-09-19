@@ -1,0 +1,55 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">创建日记</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/member/diary:index'}>" class="pbtn">日记管理</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/member/diary:create'}>" mini-form="ucenter-form" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form"
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>小区：</th>
+        <td>
+            <input type="hidden" name="data[home_id]" id="select_home_id" value="0" />
+            <input type="text" name="data[home_name]" id="select_home_name" value="" class="input w-300"/>
+            <a class="pbtn" action="<{link ctl='ucenter/misc/select:home' http='base'}>" mini-select="#select_home_id,#select_home_name/N/<{$member.city_id}>/选择小区"/>选择小区</a><br />
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>缩略图：</th><td><input type="file" name="thumb" class="input w-300" /></td></tr>
+    <tr><th>承接公司：</th>
+        <td>
+            <input type="hidden" id="select_company_id" name="data[company_id]" value="0" class="input"/>
+            <input type="text" id="select_company_name" value="<{$company.name}>" class="input w-300"/>
+            <a class="pbtn" action="<{link ctl='ucenter/misc/select:company' http='base'}>" mini-select="#select_company_id,#select_company_name/N/<{$member.city_id}>/选择公司"/>选择公司</a>
+        </td>
+    </tr>
+    <tr><th>空间户型：</th>
+        <td>
+            <select name="data[type_id]" class="select w-100">
+                <option value="0">请选择</option>
+                <{foreach from=$setting[$type['house_type']] item=item key=key}><option <{if $detail.type_id == $key}> selected="selected" <{/if}> value="<{$key}>"><{$item}></option><{/foreach}>
+            </select>      
+        </td>
+    </tr>
+    <tr><th>装修方式：</th>
+        <td>
+            <select name="data[way_id]" class="select w-100">
+                <option value="0">请选择</option>
+                <{foreach from=$setting[$type['way']] item=item key=key}><option <{if $detail.way_id == $key}> selected="selected" <{/if}> value="<{$key}>"><{$item}></option><{/foreach}>
+            </select>              
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>合同总价：</th><td><input type="text" name="data[total_price]" value="<{$detail.total_price|default:''}>" class="input w-100"/></td></tr>
+    <tr><th>开工日期：</th><td><input type="text" name="data[start_date]" value="<{$detail.start_date|default:''}>" class="input w-100" date="start_date" readonly/></td></tr>
+    <tr><th>完工日期：</th><td><input type="text" name="data[end_date]" value="<{$detail.end_date|default:''}>" class="input w-100" date="end_date" readonly/></td></tr>
+    <tr><th></th><td><{if $group.priv.allow_diary<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<{if $group.priv.allow_diary < 0}>
+<script type="text/javascript">
+(function(K, $){
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+})(window.KT, window.jQuery);
+</script>
+<{/if}>
+<{include file="ucenter/block/footer.html"}>

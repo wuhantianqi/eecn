@@ -1,0 +1,69 @@
+<{assign var="tpl_page_title" value="<{$title1}>分类列表页"}>
+<{include file="mobile/block/header.html"}>
+<div class="choose_menu">
+	<ul>
+		<li>
+			<div class="choose_menu_cont" id="choose_menu_cont1">
+				<a href="#"><{if $title1}><{$title1}><{else}>基础建材<{/if}><span class="app_ico"></span></a>
+				<div class="sub_choose_menu" id='sub_choose_menu1'>
+					<ul>
+                    	 <{foreach $cate_list as $it2}>
+                         	 <{if $it2.parent_id == 0}>
+                            	<li><a  title="<{$it2.title}>" href="<{link ctl='mobile/product:index' arg0=$it2.cat_id}>"><{$it2.title}></a></li>
+                             <{/if}>
+                         <{/foreach}>
+					</ul>
+				</div>
+			</div>
+		</li>
+        <li>
+			<div class="choose_menu_cont"  id="choose_menu_cont2">
+            	<a href="#"><{if $title2}><{$title2}><{else}>不限<{/if}><span class="app_ico"></span></a>
+             	
+				
+				<div class="sub_choose_menu" id='sub_choose_menu2'>
+					<ul>
+                         <{foreach $cate_list as $it2}>
+                         	 <{if $it2.parent_id ==  $cat_id1}>
+                            	<li><a  title="<{$it2.title}>" href="<{link ctl='mobile/product:index' arg0=$it2.cat_id}>"><{$it2.title}></a></li>
+                             <{/if}>
+                         <{/foreach}>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="choose_menu_cont"  id="choose_menu_cont3">
+				<a href="#"><{if $title3}><{$title3}><{else}>不限<{/if}><span class="app_ico"></span></a>
+				<div class="sub_choose_menu" id='sub_choose_menu3'>
+					<ul>
+                    	 <{foreach $cate_list as $it2}>
+                         	 <{if $it2.parent_id == $cat_id2}>
+                            	<li><a  title="<{$it2.title}>" href="<{link ctl='mobile/product:index' arg0=$it2.cat_id}>"><{$it2.title}></a></li>
+                             <{/if}>
+                         <{/foreach}>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<ul class="app_menu goods_menu">
+	<{foreach $items as $item}>
+    	<li>
+            <a href="<{link ctl='mobile/product:detail' arg0=$item.product_id}>">
+            <img src="<{$pager.img}>/<{$item.photo}>" class="lt pic" />
+            <h2><{$item.name}></h2>
+            <p class="nowrap"><{$item.title|cutstr:100}></p>
+            <p class="nowrap"><span><b class="fontcl2">￥<{$item.price}></b></span><del>￥<{$item.market_price}></del></p>
+            <div class="cl"></div>
+            </a>
+        </li>
+    <{/foreach}>
+</ul>
+<div class="page">
+	<{$pager.pagebar}>
+</div>
+
+<{include file="mobile/block/footer.html"}>

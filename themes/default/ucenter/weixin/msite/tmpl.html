@@ -1,0 +1,54 @@
+<{include file="ucenter/block/header.html"}>
+<link type="text/css" rel="stylesheet" href="%THEME%/weixin/static/style/ucenter.css" />
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.qrcode.min.js"></script>
+<div class="ucenter_t">
+    <ul>
+        <li<{if $pager.from =='index'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='index'}>">首页模板</a></li>
+        <li<{if $pager.from =='lists'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='lists'}>">列表页模板</a></li>
+        <li<{if $pager.from =='detail'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='detail'}>">内容页模板</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <div class="tips">
+        <span class="notice">
+            在微信里回复“微官网”即可以查看效果，也可点击这里在&nbsp;
+            <a href="<{link ctl='ucenter/weixin/msite:access'}>"><b class="blue">预览微网站</b></a>
+        </span>
+    </div>
+    <form action="<{link ctl='ucenter/weixin/msite:tmpl' arg0=$pager.from}>" mini-form="ucenter" method="post">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr>
+            <td colspan="2">
+                <ul class="template_select">
+                    <{foreach $tmpl_list as $k=>$v}>
+                    <li class="template_item<{if $k == $msite[$pager.from]}> selected<{/if}>">
+                        <{if $v.desc}><div class="use_tips"><{$v.desc}></div><{/if}>
+                        <div class="phone"><img src="%THEME%/weixin/msite/tmpl/<{$pager.from}>/<{$k}>/icon.png" /></div>
+                        <p><input type="radio"<{if $k == $msite["tmpl_"|cat:$pager.from]}> checked="checked"<{/if}> name="template" id="tmpl_<{$k}>" value="<{$k}>"/>
+                        <label for="tmpl_<{$k}>"><{$v.title}></label></p>
+                    </li>
+                    <{/foreach}>
+                    <div class="cl">
+                </ul>
+                <div class="cl"></div>
+            </td>
+        </tr>
+        <tr><th></th><td><{if $group.priv.allow_msite < 0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+    </table>
+    </form>
+</div>
+<script type="text/javascript">
+(function(){
+$('.template_item').click(function(){
+    $(this).find(":radio").attr("checked", true);
+}).hover(function(){
+    $(this).find('.use_tips').stop().fadeIn();
+    $(this).addClass('hover');
+},function(){
+    $(this).find('.use_tips').stop().fadeOut();
+    $(this).removeClass('hover');
+});
+
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,28 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+   
+    <ul>
+        <li class="on">刮刮卡成员管理</li>
+    </ul>
+    
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+     <tr><th class="w-150">刮刮卡</th><th>用户昵称</th><th>sn号</th><th>中奖奖项</th><th class="w-100">创建时间</th><th class="w-200">操作</th></tr>
+    <{foreach $items as $item}>
+        <tr><td><{$detail.title}></td>
+        <td><{$item.nickname}></td>
+        <td><{$item.sn}></td>
+        <td><{$item.prize_title}></td>
+        <td><{$item.dateline|format}></td>
+         <td>
+            <a href="<{link ctl='ucenter/weixin/addon/scratch:sndelete' arg0=$item.sn_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+         </td>
+        </tr>
+   	 <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    <tr><td colspan="10"><div class="page"><{$pager.pagebar}></div></td></tr>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

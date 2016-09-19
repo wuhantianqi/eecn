@@ -1,0 +1,39 @@
+<{assign var="tpl_page_title" value="申请装修保"}>
+<{include file="mobile/block/header.html"}>
+<div class="banner">
+	<img src="/themes/default/mobile/static/images/bao_banner.jpg" />
+</div>
+<div class="pding mb10">
+    <form method="post" class="bao_form" id='sign_form' action="<{link ctl='mobile/zxb:yuyue'}>">
+        <input type="text" name='data[contact]' class="text full" placeholder='您的姓名' />
+        <input type="text" name='data[mobile]' class="text full" placeholder='联系方式' />
+        <textarea class="text" name='data[comment]' placeholder='需求备注'></textarea>
+        <input type="submit"  mini-submit='#sign_form'  name="fbpl" class="btn mainbtn_full" value="立即申请" />
+    </form>
+</div>
+<h1 class="center"><b>装修保服务是什么？</b></h1>
+<p class="pding">在装修行业内，业主经常会遇到装修公司在施工过程中出现拖延工期，甚至使用虚假材料、偷工减料等恶劣行为，让业主十分困扰。而现在，装修保将解决这一切：致力于为业主提供优质的装修公司资源和便捷安全的在线支付服务，产品以"装修满意再付款"的理念为核心，主旨保障资金安全，不被坑。</p>
+<div class="bao_tongji pding mb10">
+	<h2><b class="lt">累计已服务业主</b><b class="rt fontcl1"><{$zxb_yezhu}>次 </b></h2>
+	<h2><b class="lt">累计交易额</b><b class="rt fontcl1"><{$zxb_price}>元</b></h2>
+	<h2><b class="lt">累计认证装修公司</b><b class="rt fontcl1"><{$company_verify}>位</b></h2>
+</div>
+<h1 class="center fontcl1"><b>免费提供3大装修保障</b></h1>
+<ul class="bao_menu">
+	<li>
+		<h2><b>1.严格把关，免费第三方质检</b></h2>
+		<p>把关施工质量，让装修更安心，杜绝增项加价，材料虚假</p>
+		<div class="pding img"><img src="/themes/default/mobile/static/images/bao_pic1.png" /></div>
+	</li>
+	<li>
+		<h2><b>2.验收工作满意后，再付款给装修公司</b></h2>
+		<p>交易过程全程担保，杜绝霸王条款，携款私逃</p>
+		<div class="pding img"><img src="/themes/default/mobile/static/images/bao_pic2.png" /></div>
+	</li>
+	<li>
+		<h2><b>3.千万保证金，快速维权</b></h2>
+		<p>装修公司承诺：按时完成，保证质量，违约双倍赔付，全面保障业主权益</p>
+		<div class="pding img"><img src="/themes/default/mobile/static/images/bao_pic3.png" /></div>
+	</li>
+</ul>
+<{include file="mobile/block/footer.html"}>

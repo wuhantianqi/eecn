@@ -1,0 +1,17 @@
+<{assign var="tpl_page_title" value="设计师<{$detail.name}>文章列表"}>
+<{include file="mobile/designer/block/header.html"}>
+<div class="pding">
+	<ul class="article_menu">
+    	<{foreach $items as $item}>
+		<li>
+			<a href="<{link ctl='mobile/designer:articleinfo' arg0=$item.article_id}>">
+				<span class="lt"><{$item.title}></span>
+				<span class="rt">&gt;</span>
+				<p class="cl"></p>
+			</a>
+		</li>
+        <{/foreach}>
+	</ul>
+</div>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

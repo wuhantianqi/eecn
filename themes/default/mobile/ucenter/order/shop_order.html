@@ -1,0 +1,55 @@
+<{assign var="tpl_page_title" value="我的订单"}>
+<{include file="mobile/block/header.html"}>
+<div class="pading admin_banner">
+	<img src="/themes/default/mobile/static/images/adminBg.jpg" class="bg" />
+	<div class="admin_intro">
+		<img src="<{$pager.img}>/<{$MEMBER.face_80}>" class="lt" />
+		<div class="lt">
+		<p><{$MEMBER.uname}></p>
+		<p>账户类型：<u><{$MEMBER.from_title}></u> </p>
+		<p>我的金币：<u><{$MEMBER.gold}></u></p>
+		</div>
+	</div>
+</div>
+<div class="pding">
+<h1><a href="<{link ctl='mobile/ucenter'}>">管理中心</a> >> 我的订单</h1>
+<ul class="admin_menu">
+	<li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index'}>">
+			<span class="lt">全部订单</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index' arg0='unpay'}>">
+			<span class="lt">未付款</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+    <li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index' arg0='payed'}>">
+			<span class="lt">已付款</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+     <li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index' arg0='unship'}>">
+			<span class="lt">待发货</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+     <li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index' arg0='ship'}>">
+			<span class="lt">已发货</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+     <li>
+		<a href="<{link ctl='mobile/ucenter/order:shop_index' arg0='finish'}>">
+			<span class="lt">已完成</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+</ul>
+</div>
+<{include file="mobile/block/footer.html"}>

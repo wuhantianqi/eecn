@@ -1,0 +1,53 @@
+<{assign var="seo_sub_title" value="会员登录"}>
+<{include file="block/small-header.html"}>
+<div class="subwd">
+	<!--主体内容开始-->
+	<div class="login_box">
+		<div class="login_lt lt">
+		<h2>找回密码</h2>
+		<div class="passport_for">
+			<div class="passport_for_liuc liuc1"></div>
+			<ul class="for_liuc">
+				<li class="current">确认账号</li><li>安全认证</li><li>重置密码</li>
+			</ul>
+		</div>
+		<div class="pass_for_form">
+			<form id="forgot-form">
+				<table>
+					<tr class="zh">
+						<td><b class="tit">邮箱：</b></td>
+						<td><input type="text" name="forgotmail" class="text" placeholder="请输入注册时的邮箱" /></td>
+					</tr>
+					<tr class="zh">
+						<td></td>
+						<td class="graycl">我们将发送重置密码邮件到你的邮箱</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="button" action="<{link ctl='passport:forgot' http='ajax'}>" mini-submit="#forgot-form" class="btn" value="下一步" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div class="login_rt rt">
+		<h2>没有账号？<a href="<{link ctl='passport:reg'}>" class="fontcl2">立即注册</a>
+		</h2>
+		<img src="%THEME%/static/images/login_img.jpg" />
+		<h3>第三方账号登录：</h3>
+		<p><a href="<{link ctl='passport:weibo'}>" class="ico_list weibo_login"></a>
+		</p>
+		<p><a href="<{link ctl='passport:qqlogin'}>" class="ico_list qq_login"></a>
+		</p>
+	</div>
+	<div class="cl"></div>
+</div>
+<!--主体内容结束-->
+</div>
+<!--底边内容开始-->
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<{include file="block/small-footer.html"}>

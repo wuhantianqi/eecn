@@ -1,0 +1,34 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">完善招标</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/member/yuyue:tenders'}>" class="pbtn">我的招标</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/member/yuyue:tendersEdit'}>" mini-form="ucenter-form" method="post" ENCTYPE="multipart/form-data">
+<input type="hidden" name="tenders_id" value="<{$detail.tenders_id}>" />
+<table cellspacing="0" cellpadding="0" class="form">
+<tr><th>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th><span class="red">*</span>手机号：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<tr><th class="w-100">城市：</th><td><{widget id="data/region" province_id=$detail.province_id city_id=$detail.city_id area_id=$detail.area_id}></td></tr>
+<tr><th>小区：</th><td><input type="text" name="data[home_name]" id="select_home_name" value="<{$detail.home_name}>" class="input w-300"/></td></tr>
+<tr><th>装修方式：</th><td><select name="data[way_id]" class="select w-150"><{widget id="tenders/setting" type="way" value=$detail.way_id}></select></td></tr>
+<tr><th>招标类型：</th><td><select name="data[type_id]" class="select w-150"><{widget id="tenders/setting" type="type" value=$detail.type_id}></select></td></tr>
+<tr><th>喜欢风格：</th><td><select name="data[style_id]" class="select w-150"><{widget id="tenders/setting" type="style" value=$detail.style_id}></select></td></tr>
+<tr><th>预算范围：</th><td><select name="data[budget_id]" class="select w-150"><{widget id="tenders/setting" type="budget" value=$detail.budget_id}></select></td></tr>
+<tr><th>服务需求：</th><td><select name="data[service_id]" class="select w-150"><{widget id="tenders/setting" type="service" value=$detail.service_id}></select></td></tr>
+<tr><th>空间户型：</th><td><select name="data[house_type_id]" class="select w-150"><{widget id="tenders/setting" type="house_type" value=$detail.house_type_id}></select></td></tr>
+<tr><th>面积：</th><td><input type="text" name="data[house_mj]" value="<{$detail.house_mj|default:''}>" class="input w-100"/><span class="tip-comment">平米</span></td></tr>
+<tr><th>装修时间：</th><td><input type="text" name="data[zx_time]" value="<{if $detail.zx_time}><{$detail.zx_time|format:'Y-m-d'}><{/if}>" class="input w-100" date="zx_time" readonly/></td></tr>
+<tr><th>户型图：</th>
+    <td><input type="file" name="huxing" class="input w-300" />
+    <{if $detail.huxing}><img src="<{$pager.img}>/<{$detail.huxing}>" photo="<{$pager.img}>/<{$detail.huxing}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+    </td>
+</tr>
+<tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-500"/></td></tr>
+<tr><th>备注要求：</th><td><textarea name="data[comment]" class="textarea w-500"><{$detail.comment}></textarea><br /></td></tr>
+<tr><th></th><td><{if $group.priv.allow_diary<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

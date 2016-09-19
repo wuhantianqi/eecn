@@ -1,0 +1,125 @@
+﻿<{assign var="is_index_home" value=true}>
+<{include file="mobile/block/header.html"}>
+<div class="banner"> <{adv id="17" name="手机版首页轮播广告" city_id=$request.city_id limit="5"}> </div>
+<div class="nav">
+  <ul>
+    <li><a href="<{link ctl='mobile/case'}>"><span class="index_ico index_ico1"></span>
+      <p>效果图</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/article'}>"><span class="index_ico index_ico2"></span>
+      <p>学装修</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/designer'}>"><span class="index_ico index_ico3"></span>
+      <p>设计师</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/gz'}>"><span class="index_ico index_ico4"></span>
+      <p>找工长</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/company'}>"><span class="index_ico index_ico5"></span>
+      <p>装修公司</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/tenders'}>"><span class="index_ico index_ico6"></span>
+      <p>我要装修</p>
+      </a> </li>
+    <li><a href="<{link ctl='mobile/zxb'}>"><span class="index_ico index_ico7"></span>
+      <p>装修宝</p>
+      </a> </li>
+    <li><a href="#" id="dt-hd-nav"><span class="index_ico index_ico11"></span>
+      <p>更多</p>
+      </a> </li>
+    <div class="cl"></div>
+  </ul>
+</div>
+<div class="mb10">
+  <p class="pub_tit">装修效果图</p>
+  <div class="sct-bd-pd ">
+  		<div class="xgt-types">
+        	<{KT id="52" name="手机首页效果图" city_id=$request.city_id}>
+            	<{if $index == 0}>
+                <a class="xgt-type-xhx" href="<{link ctl='mobile/case:detail' arg0=$item.case_id}>">
+                 <img src="<{$pager.img}>/<{$item.thumb}>"/>
+                </a>
+                <{/if}>
+                <{if $index == 1}>
+                 <a class="xgt-type-ttm" href="<{link ctl='mobile/case:detail' arg0=$item.case_id}>">
+                 <img src="<{$pager.img}>/<{$item.thumb}>"/>
+                </a>
+                <{/if}>
+                <{if $index == 2}>
+                <a class="xgt-type-cl" href="<{link ctl='mobile/case:detail' arg0=$item.case_id}>">
+                 <img src="<{$pager.img}>/<{$item.thumb}>"/>
+                </a>
+                <{/if}>
+            <{/KT}>
+        	
+  </div>
+  <{foreach $attr_values as $item name=item}>
+    	<{if $smarty.foreach.item.index<2}>
+         <dl class="categoryitem">
+    	<dt>
+            <{$item.title}>
+        </dt>
+         <dd>
+        	<{foreach $item.values as $v name=v}>
+            	<{if $smarty.foreach.v.index<8}>
+                	<{if $smarty.foreach.item.index == 0}>
+            		<a href="<{link ctl='mobile/case:items'  arg0=$v.attr_value_id arg1=0 arg2=0 arg3=1}>"><{$v.title}></a>
+                    <{else}>
+                    <a href="<{link ctl='mobile/case:items'  arg0=0 arg1=$v.attr_value_id arg2=0 arg3=1}>"><{$v.title}></a>
+                    <{/if}>
+                <{/if}>
+            <{/foreach}>
+        
+            </dd>
+     </dl>
+       <div class="cl"></div>
+     <{/if}>
+    <{/foreach}>
+
+ <p class="indexMore"> <a href="<{link ctl='mobile/case'}>">更多装修效果图</a> </p>
+</div>
+<div class="mb10">
+    <p class="pub_tit">最新招标</p>
+    <div class="to_mobile_zb">
+    <ul class="index_nwod_list">
+        <{calldata mdl="tenders/tenders" order="dateline" limit="15"}>
+        <li><span class="graycl"><{$item.dateline|format:"m-d"}></span><span class="fontcl1"><{$item.contact}></span><span class="long"><{$item.title}></span><span><{$item.budget_title}></span></li>
+        <{/calldata}>
+    </ul>
+    </div>
+</div>
+<div class="mb10">
+  <p class="pub_tit">热点文章</p>
+  <ul class="app_menu study_menu">
+    <{KT id="53" name="手机版首页文章" city_id=$request.city_id}>
+    <li> <a href="<{link ctl='mobile/article:detail' arg0=$item.article_id}>"> <img src="<{$pager.img}>/<{$item.thumb}>" class="lt" />
+      <h2><{$item.title}></h2>
+      <p class="nowrap"><{$item.desc|cutstr:50}></p>
+      <div class="cl"></div>
+      </a> </li>
+    <{/KT}>
+  </ul>
+  <p class="indexMore"> <a href="<{link ctl='mobile/article'}>">更多热点文章</a> </p>
+</div>
+<script type="text/javascript" src="%THEME%/mobile/static/script/flipsnap.min.js"></script>
+<script type="text/javascript" src="%THEME%/mobile/static/script/banner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.KT.initBanner(".banner", 0.5, true,5000);
+});
+</script>
+
+<script type="text/javascript" src="%THEME%/mobile/static/js/scroll.js"></script> 
+<script type="text/javascript">
+	//首页最新订单文字无缝滚动效果
+$(function(){
+    $("div.to_mobile_zb").myScroll({
+        speed:40, //数值越大，速度越慢
+        rowHeight:45 //li的高度
+    });
+});
+
+</script><script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3c1b58739e0966df5440af375e9d4191' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<{include file="mobile/block/footer.html"}> 

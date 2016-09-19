@@ -1,0 +1,43 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li><a href="<{link ctl='ucenter/member:bindaccount'}>">绑定帐号</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">	
+    <div class="tips"><span class="notice"><{if $MEMBER.verify_mail}>您的邮箱已经认证，更换后需要重新认证<{else}>您还没有验证邮箱，<a href="<{link ctl='ucenter/member/verify:mail' arg0='verify'}>" mini-act="立即验证邮箱" class="pbtn">立即验证邮箱</a><{/if}></span></div>
+    <form id="account-form">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <{if $CONFIG.connect.qq_is_open}>
+        <tr><th>腾讯QQ：</th><td>
+            <{if $qq_bind}>
+            <b class="blue">已绑定</b>
+            <{else}>
+            <p><a href="<{link ctl='passport:qqlogin' arg0='bind'}>" class="ico_list qq_login" style="width: 140px;height: 32px;margin: 5px 0px;background-position: -301px -32px"></a></p>
+            <{/if}>
+            </td>
+        </tr>
+        <{/if}>
+        <{if $CONFIG.connect.weibo_is_open}>
+        <tr><th>新浪微博：</th><td>
+            <{if $wb_bind}>
+            <b class="blue">已绑定</b>
+            <{else}>
+            <p><a href="<{link ctl='passport:weibo' arg0='bind'}>" class="ico_list weibo_login" style="width: 140px;height: 32px;margin: 5px 0px;background-position: -301px 0px;"></a></p>
+            <{/if}>
+            </td>
+        </tr>
+        <{/if}>
+        <{if $admin_weixin && $admin_weixin['type'] ==1}>
+        <tr><th>微信：</th><td>
+            <{if $member_wechat}><b class="blue">已绑定</b>
+            <{elseif $wechat_bind_qr}><img src="<{$wechat_bind_qr}>" width="200"/><br />扫描绑定微信帐号 
+            <{/if}>
+            </td>
+        </tr>
+        <{/if}>
+    </table>
+    </form>
+</div>
+<!--//右面下开始-->
+<{include file="ucenter/block/footer.html"}>

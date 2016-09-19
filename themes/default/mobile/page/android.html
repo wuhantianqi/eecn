@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+<link rel="apple-touch-icon-precomposed" href="/themes/default/mobile/static/images/apple114.png" />
+<link rel="apple-touch-startup-image" href="/themes/default/mobile/static/images/apple114.png" />
+<title><{$CONFIG.site.title}></title>
+<style>
+#app {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-transition: all 0.3s ease;
+	-webkit-transition-property: -webkit-transform, height, bottom;
+}
+#app.reduce {
+	-webkit-transform: translate3d(0,20px, 0);
+	/*bottom: 20px;*/
+}
+.preview {
+	margin: 0px;
+	padding: 0px;
+	font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+	background: #8ba987;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+.preview #app {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 50%;
+	left: 50%;
+	margin-top: -275px;
+	margin-left: -120px;
+}
+.preview h1 {
+	margin: 0px;
+	margin-top: 109px;
+	line-height: 1;
+	font-size: 40px;
+	color: rgba(255,255,255,0.8);
+	padding-bottom: 14px;
+	margin-bottom: 17px;
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+	width: 272px;
+	-webkit-animation: fadeInSmall 0.5s ease;
+	-moz-animation: fadeInSmall 0.5s ease;
+}
+.preview p {
+	margin: 0px;
+	font-size: 30px;
+	font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+	color: rgba(255,255,255,0.8);
+	width: 272px;
+	-webkit-animation: fadeInSmall 0.5s ease both;
+	-webkit-animation-delay: 0.3s;
+	-moz-animation: fadeInSmall 0.5s ease both;
+	-moz-animation-delay: 0.3s;
+}
+.preview p em {
+	font-style: normal;
+	display: block;
+}
+.preview #more {
+	border: 1px solid rgba(255,255,255,0.8);
+	text-decoration: none;
+	color: rgba(255,255,255,0.8);
+	font: 18px HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+	padding: 0px;
+	height: 40px;
+	width: 105px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	border-radius: 200px;
+	margin-top: 23px;
+	-webkit-transition: all 0.2s ease-out;
+	-webkit-animation: fadeInSmall 0.5s ease both;
+	-webkit-animation-delay: 0.6s;
+	-moz-transition: all 0.2s ease-out;
+	-moz-animation: fadeInSmall 0.5s ease both;
+	-moz-animation-delay: 0.6s;
+}
+.preview #more:hover {
+	background: #fff;
+	color: #637164;
+}
+.xz {background: url('/themes/default/mobile/static/images/app_bg.jpg') repeat-x #f2f0f3}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script>
+    function init(){
+        var w=document.body.clientWidth;
+        var pic = document.getElementsByTagName("img");
+        for(var i=0;i<pic.length;i++){
+            var width1=pic[i].width; 
+            var height1=pic[i].height; 
+            pic[i].width=w;
+            pic[i].height=height1*w/width1; 
+        }
+    }
+
+function is_weixn(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        document.getElementById("app").style.display="block";
+        document.getElementById("bd").className="preview";
+    } else {
+        document.getElementById("app").style.display="none";		
+        document.getElementById("bd").className="xz";
+        window.location.href='<{$CONFIG.mobile.down_android}>';
+    }
+
+}
+</script>
+</head>
+<body id="bd" onload="is_weixn()">
+<div id="app" style="display:none">
+  <h1><{$CONFIG.site.title}></h1>
+  <p>由于微信访问限制,请点击<strong>右上角</strong> <em><img src="/themes/default/mobile/static/images/wxopen1.png" />或<img src="/themes/default/mobile/static/images/wxopen2.png" /></em><strong>在Safari(苹果自带浏览器)中打开</strong>。</p>
+ </div>
+</body>
+</html>

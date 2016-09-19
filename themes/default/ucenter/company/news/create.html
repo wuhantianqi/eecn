@@ -1,0 +1,34 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加新闻</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/news:index'}>" class="pbtn">公司新闻管理</a></span>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_news < 0}>
+    <div class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限添加公司新闻</span></div>
+<script type="text/javascript">
+(function(K, $){$("[mini-form] input").attr("disabled", "disabled");})(window.KT, window.jQuery);
+</script>
+<{elseif !$group.priv.allow_news}>
+    <div class="tips"><span class="notice">您是【<b class="red"><{$group.group_name}></b>】添加公司新闻需要审核</span></div>
+<{/if}>
+<form action="<{link ctl='ucenter/company/news:create'}>" mini-form="shop-form" method="post">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="" class="input w-400"/></td></tr>
+    <tr><th>内容：</th><td><textarea name="data[content]" kindeditor="full" style="width:700px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+    <tr><th></th><td><{if $pager.audit_news<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $group.priv.allow_news < 0}>
+var editor = KindEditor.create('textarea[kindeditor]',{readonlyMode : true});
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+<{else}>
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

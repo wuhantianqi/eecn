@@ -1,0 +1,17 @@
+<{assign var="tpl_page_title" value="优惠信息"}>
+<{include file="mobile/company/block/header.html"}>
+<ul class="sub_youhui">
+    <{foreach $items as $item}>
+    <li>
+        <a href="<{link ctl='mobile/youhui:detail' arg0=$item.youhui_id}>">
+            <div class="sub_youhui_cont">
+                <img src="<{$pager.img}>/<{$item.photo}>" title="<{$item.title}>"/>
+                <h2 class="nowrap"><b class="fontcl2" title="<{$item.title}>"><{$item.title}></b></h2>
+                <p class="nowrap">活动时间 ： <{$item.stime|format:"Y-m-d"}> 至 <{$item.ltime|format:"Y-m-d"}></p>
+            </div>
+        </a>
+    </li>
+    <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

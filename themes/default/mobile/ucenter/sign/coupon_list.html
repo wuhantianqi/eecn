@@ -1,0 +1,19 @@
+<{assign var="tpl_page_title" value="优惠券下载列表"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+<{if !$items}><div class="no_record">暂无记录信息</div><{/if}>
+    <{foreach $items as $item}>
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0">
+        	<tr><td>优惠券：<{$coupon_list[$item.coupon_id].title|default:'--'}></td></tr>
+            <tr><td>优惠码：<{$item.number}></td></tr>
+            <tr><td>姓名：<{$item.contact}></td></tr>
+			<tr><td>电话：<{if $group.priv.show_yuyue_mobile > 0}><{$item.mobile}><{else}><b class="pointcl"><{$item.mobile|cutstr:6}></b><{/if}></td></tr>
+			<tr><td>状态：<{$item.status_title}></td></tr>
+            <tr><td>使用：<{if $item.used}><b>已用</b><{else}><b>未用</b><{/if}></td></tr>
+            <tr><td>下载时间：<{$item.dateline|format}></td></tr>
+		</table>
+	</div>
+    <{/foreach}>
+</div>
+<{include file="mobile/block/footer.html"}>

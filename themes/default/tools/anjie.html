@@ -1,0 +1,174 @@
+<{include file="block/small-header.html"}>
+<SCRIPT language="JavaScript">
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+
+</SCRIPT>
+<SCRIPT language="JavaScript">
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.0
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript">
+function count_anjie() {
+var dwdj,mj,ajcs,year,yearRate,temp1,temp2;
+dwdj = MM_findObj("dwdj").value;
+mj= MM_findObj("mj").value;
+ajcs = 10-MM_findObj("ajcs").value;
+year =  MM_findObj("year").value;
+var total = MM_findObj("total"); 
+if (total) total.value = dwdj*mj;
+var first = MM_findObj("first"); 
+if (first) first.value = Math.round(dwdj*mj*ajcs*0.1*100)/100;
+var dtotal = MM_findObj("dtotal"); 
+if (dtotal) dtotal.value = dwdj*mj-dwdj*mj*ajcs*0.1;
+if (year<=5) {yearRate=5.31*0.01;} else {yearRate=5.58*0.01;}
+temp1=dwdj*mj-dwdj*mj*ajcs*0.1;  //贷款总额
+temp2 = Math.pow((1+yearRate/12),year*12);
+temp3=temp1*((yearRate/12)*temp2)/(temp2-1);//每月付款
+var monthf = MM_findObj("monthf"); 
+if (monthf) monthf.value = Math.round(temp3*100)/100;
+temp4=temp3*year*12-temp1;   //总还款利息
+var ztotal = MM_findObj("ztotal"); 
+if (ztotal) ztotal.value = Math.round(temp4*100)/100;
+temp5 =temp3*year*12 ;//还款总额
+var htotal = MM_findObj("htotal"); 
+if (htotal) htotal.value = Math.round(temp5*100)/100;
+if((dwdj*mj)>500000){   diyaRate=0.006} else{ diyaRate=0.008}
+var diya = MM_findObj("diya"); 
+if (diya) diya.value = dwdj*mj*diyaRate;
+var baoxian = MM_findObj("baoxian"); 
+if (baoxian) baoxian.value = dwdj*mj*0.001*year;
+var danbao = MM_findObj("danbao"); 
+temp9=(dwdj*mj-dwdj*mj*ajcs*0.1)*0.008;
+if(temp9<500) {temp9=500;}
+if (danbao) danbao.value = Math.round(temp9*100)/100;
+}
+//-->
+</SCRIPT>
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+    	><a href="<{link ctl='tools'  arg0=items}>">工具箱</a>
+		><a href="<{link ctl='tools'  arg0=$tool}>"><{$tools_array[$tool]}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<div class="subwd mb20">
+	<!--主体左边内容开始-->
+	<div class="about_lt lt">
+		<ul>
+			<{foreach $tools_array as $k => $item}>
+			<li><a <{if $tool == $k}> class="current" <{/if}> href="<{link ctl='tools' arg0=$k}>"><{$item}></a>
+			</li>
+			<{/foreach}>
+		</ul>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="about_rt rt">
+		<div class="pding">
+			<h2 align="center"><{$tools_array[$tool]}></h2>
+			<form name="anjie" method="post">
+				<ul class="counter_menu">
+					<li>
+						<span>单价：
+						<input type="text" name="dwdj" class="text" >
+						元/M<sup>2</sup></span>
+						<span>房款总额：
+						<input type="text" name="total" class="text" readonly="readonly">
+						元</span>
+						<span>支付息款：
+						<input type="text" name="ztotal" class="text" readonly="readonly" >
+						元</span>
+					</li>
+					<li>
+						<span>面积：
+						<input type="text" name="mj" class="text" >
+						M<sup>2</sup></span>
+						<span>贷款总额：
+						<input type="text" name="dtotal" class="text" readonly="readonly" >
+						元</span>
+						<span>抵押登记：
+						<input type="text" name="diya" class="text" readonly="readonly" >
+						元</span>
+					</li>
+					<li>
+						<span>按揭成数：
+						<select name="ajcs" class="text">
+							<option selected="selected" value="8">8成</option>
+							<option value="7">7成</option>
+							<option value="6">6成</option>
+							<option value="5">5成</option>
+							<option value="4">4成</option>
+							<option value="3">3成</option>
+							<option value="2">2成</option>
+						</select>
+						</span>
+						<span>首期付款：
+						<input type="text" name="first" class="text" readonly="readonly" >
+						元</span>
+						<span>房屋保险：
+						<input type="text" name="baoxian" class="text" readonly="readonly" >
+						元</span>
+					</li>
+					<li>
+						<span>按揭年数：
+						<select name="year" size="1" class="text" >
+							<option value="2">2年(24期)</option>
+							<option value="3">3年(36期)</option>
+							<option value="4">4年(48期)</option>
+							<option value="5">5年(60期)</option>
+							<option value="6">6年(72期)</option>
+							<option value="7">7年(84期)</option>
+							<option value="8">8年(96期)</option>
+							<option value="9">9年(108期)</option>
+							<option value="10">10年(120期)</option>
+							<option selected="selected" value="15">15年(180期)</option>
+							<option value="20">20年(240期)</option>
+							<option value="25">25年(300期)</option>
+							<option value="30">30年(360期)</option>
+						</select>
+						</span>
+						<span>月均还款：
+						<input type="text" name="monthf" class="text" readonly="readonly" >
+						元</span>
+						<span>按揭贷款担保：
+						<input type="text" name="danbao" class="text" readonly="readonly" >
+						元</span>
+					</li>
+				</ul>
+				<div class="counter_btn">还款总额：
+					<input type="text" name="htotal"  readonly="readonly" class="text">
+					元
+					<input type="button" value="开始计算" name="math1" onclick="count_anjie()" class="btn btn_sub_sm">
+					<input type="reset" value=" 清  空 " name="reset" class="btn again_btn">
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--主体右边内容结束-->
+	<div class="cl"></div>
+</div>
+<{include file="block/small-footer.html"}>

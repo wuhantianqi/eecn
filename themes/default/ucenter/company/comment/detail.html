@@ -1,0 +1,43 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">查看点评</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/comment:company'}>" class="pbtn">点评管理</a></span>
+</div>
+<div class="ucenter_c">
+    <div class="tips"><span class="notice">收到的点评（如果有不实的点评可以联系管理员投诉）</span></div>
+    <{if $pager.audit_reply<0}><p class="tips"><span class="lock">您是【<b class="red"><{$pager.audit_title}></b>】没有权限回复点评</span></p><{/if}>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+        <tr><th></th><td colspan="10"><b class="red">点评信息</b></td></tr>
+        <tr>
+            <th>会员：</th><td class="w-300"><{$member.uname}></td>
+            <th>状态：</th><td><{if $detail.audit}><b class="blue">已审核</b><{else}><b class="red">待审核</b><{/if}></td>
+        </tr>
+        <tr>
+            <th>点评时间：</th><td><{$detail.dateline|format}></td><th>来源IP：</th><td><b class="red"><{$detail.clientip|cutstr:6:"******"}>(<{$detail.clientip|iplocal}>)</b></td>
+        </tr>
+        <tr><th>评分：</th>
+            <td colspan="10">
+            <label><{$CONFIG['company_dianping'].score1}>：<b class="red"><{$detail.score1}></b>&nbsp;&nbsp;&nbsp;</label>
+            <label><{$CONFIG['company_dianping'].score2}>：<b class="red"><{$detail.score2}></b>&nbsp;&nbsp;&nbsp;</label>
+            <label><{$CONFIG['company_dianping'].score3}>：<b class="red"><{$detail.score3}></b>&nbsp;&nbsp;&nbsp;</label>
+            <label><{$CONFIG['company_dianping'].score4}>：<b class="red"><{$detail.score4}></b>&nbsp;&nbsp;&nbsp;</label>
+            <label><{$CONFIG['company_dianping'].score5}>：<b class="red"><{$detail.score5}></b></label>        
+            </td>
+        </tr>
+        <tr><th>点评内容：</th><td colspan="10"><{$detail.content}></td></tr>
+        <{if $detail.reply_time}>
+        <tr><td colspan="10" style="height:10px;"></td></tr>
+        <tr><th>回复内容：</th><td colspan="10"><{$detail.reply}></td></tr>
+        <tr><th>回复时间：</th><td colspan="10"><{$detail.reply_time|format}></td></tr>
+        <{else}>
+		<form action="<{link ctl='ucenter/company/comment:reply'}>" mini-form="ucenter" method="post">
+		<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+		<tr><th><span class="red">*</span>回复：</th>
+			<td colspan="10"><textarea name="reply_content" class="textarea w-500" <{if $pager.audit_reply<0}>disabled="disabled"<{/if}>><{$detail.reply}></textarea></td>
+		</tr>
+		<tr><th></th><td colspan="10"><{if $pager.audit_reply<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="回复点评" class="mpbtn" /><{/if}></td></tr>
+		</form>
+        <{/if}>
+	</table>
+</div>
+<{include file="ucenter/block/footer.html"}>

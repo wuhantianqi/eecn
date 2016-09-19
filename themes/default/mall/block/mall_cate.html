@@ -1,0 +1,38 @@
+<ul>
+    <{foreach $cate_list as $v}>
+    <{if !$v.parent_id}>
+    <li>
+        <div class="mall_top_show pding lt">
+            <p class="tit"><{$v.title}></p>
+            <p><{foreach $cate_list as $vv}><{if $vv.parent_id==$v.cat_id && $vv@index<3}><a href="<{link ctl='mall/product' arg0=$vv.cat_id arg1=1}>"><{$v.title}></a><{/if}><{/foreach}></p>
+        </div>
+        <div class="mall_top_hidden pding lt">
+            <table>
+                <{foreach $cate_list as $vv}>
+                <{if $vv.parent_id==$v.cat_id}>
+                <tr>
+                    <td class="tit"><{$vv.title}></td>
+                    <td><{foreach $cate_list as $vvv}><{if $vvv.parent_id==$vv.cat_id}><a href="<{link ctl='mall/product' arg0=$vvv.cat_id arg1=1}>"><{$vvv.title}></a><{/if}><{/foreach}></td>
+                </tr>
+                <{/if}>
+                <{/foreach}>
+            </table>
+        </div>
+        <div class="cl"></div>
+    </li>
+    <{/if}>
+    <{/foreach}>
+</ul>
+<script>
+$(document).ready(function(){
+	 $(".mall_top ul li").mouseover(function(){
+		 $(this).find(".mall_top_show").addClass('current');
+		 $(this).find(".mall_top_show p.tit").css('color','#fe7902');
+		 $(this).find(".mall_top_hidden").show();
+	 }).mouseleave(function(){
+		 $(this).find(".mall_top_show").removeClass('current');
+		 $(this).find(".mall_top_show p.tit").css('color','#333');
+		 $(this).find(".mall_top_hidden").hide();
+	 });
+ });	
+</script>

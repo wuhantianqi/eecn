@@ -1,0 +1,303 @@
+﻿<{include file="block/header.html"}>
+<div class="mainwd">
+<!--banner内容开始-->
+	<{include file="index/top.html"}>
+	<!--banner内容结束-->
+	<!--通栏广告位开始-->
+	<div class="mb20"><{adv id="36" name="红色热情模板首页通栏广告" city_id=$request.city_id}></div>
+	<!--通栏广告位结束-->
+    <!--推荐装修公司开始-->
+	<div class="mb20">
+		<h2 class="index_tit"><font class="lt">推荐装修公司</font><a href="<{link ctl='gs'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="index_company add_area add_index_company">
+			<{KT id="2" name="网站首页1F推荐装修公司" city_id=$request.city_id limit="16"}>
+			<li><a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+			</li>
+			<{/KT}>
+		</ul>
+		<div class="cl"></div>
+	</div>
+	<!--推荐装修公司结束-->
+	<div class="mb20">
+		<!--左边装修公司排行开始-->
+		<div class="area add_side index_paih lt add_index_paih">
+			<p class="tit"><a href="javascript:;" class=" first">最新签单榜</a>
+				<a href="javascript:;" >最新加入</a>
+			</p>
+			<div class="index_paihang add_index_paihang">
+				<ul class="pding paihang">
+                    <{calldata mdl="company/company" city_id=$request.city_id order="tenders_num:DESC" limit="7"}>
+                    <li><span class="paihang_num <{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></span><a href="<{$item.company_url}>"><{$item.name}></a></li>
+                    <{/calldata}>
+				</ul>
+				<ul class="pding paihang">
+                    <{calldata mdl="company/company" city_id=$request.city_id order="new" limit="7"}>
+					<li><span class="paihang_num <{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></span><a href="<{$item.company_url}>"><{$item.name}></a></li>
+                    <{/calldata}>
+				</ul>
+			</div>
+		</div>
+		<!--左边装修公司排行结束-->
+		<!--中间最新发布订单开始-->
+		<div class="lt add_side_mid index_new_order area">
+			<h2 class="index_tit add_new_order"><font class="lt">最新招标</font><a href="<{link ctl='tenders' http='base'}>" class="fontcl2 rt">我要申请</a>
+			</h2>
+			<p class="new_order_tit add_new_order_tit"><span>发布日期</span><span>业主</span><span>户型</span><span>风格</span><span>预算</span></p>
+			<div class="index_nwod_box add_index_nwod_box">
+				<ul class="index_nwod_list">
+                    <{calldata mdl="tenders/tenders" order="dateline" limit="15"}>
+					<li><span><{$item.dateline|format:"m-d"}></span><span><{$item.contact|cutstr:3}></span><span><{$item.style_title}></span><span><{$item.style_title}></span><span><{$item.budget_title}></span></li>
+                    <{/calldata}>
+				</ul>
+			</div>
+		</div>
+		<!--中间最新发布订单结束-->
+		<!--右边装修工具开始-->
+		<div class="rt add_side area">
+			<h2 class="add_new_order add_tool_title"><font class="">装修工具</font></h2>
+			<div class="index_tool add_index_tool">
+			<ul>
+				<li>
+					<p><span class="tool_ico tl_ico1"></span></p>
+					<p><a href="<{link ctl='tools:tuliao'}>">涂料计算器</a></p>
+				</li>
+				<li>
+					<p><span class="tool_ico tl_ico2"></span></p>
+					<p><a href="<{link ctl='tools:diban'}>">地板计算器</a></p>
+				</li>
+				<li>
+					<p><span class="tool_ico tl_ico3"></span></p>
+					<p><a href="<{link ctl='tools:bizhi'}>">壁纸计算器</a></p>
+				</li>
+				<li>
+					<p><span class="tool_ico tl_ico4"></span></p>
+					<p><a href="<{link ctl='tools:qiangzhuan'}>">墙砖计算器</a></p>
+				</li>
+				<li>
+					<p><span class="tool_ico tl_ico5"></span></p>
+					<p><a href="<{link ctl='tools:chuanlian'}>">窗帘计算器</a></p>
+				</li>
+				<li>
+					<p><span class="tool_ico tl_ico6"></span></p>
+					<p><a href="<{link ctl='tools:dizhuan'}>">地砖计算器</a></p>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<!--右边装修工具结束-->
+		<div class="cl"></div>
+	</div>
+	
+	<!--找我家设计方案开始-->
+	<div class="mb20">
+		<h2 class="index_tit"><font class="lt">
+			<font class="fontcl2">找我家</font>设计方案</font><a href="<{link ctl='home'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="line_type index_home add_area add_index_home">
+			<{KT id="3" name="网站首页2F找我家设计方案" city_id=$request.city_id limit="7"}>
+			<li>
+				<a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+				<p><b><a href="<{$item.link}>" class="tit"><{$item.title}></a>
+					</b></p>
+				<p>设计方案:<font class="fontcl2"><{$item.case_num}>套</font></p>
+			</li>
+			<{/KT}>
+			<div class="cl"></div>
+		</ul>
+	</div>
+	<!--找我家设计方案结束-->
+	<!--团装活动开始-->
+	<div class="mb20 index_case">
+		<h2 class="index_tit"><font class="lt">
+			<font class="fontcl2">团装</font>活动</font><a href="<{link ctl='home:tuan'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="line_type index_tuanz add_area add_index_tuanz">
+			<{KT id="40" name="网站首页3F小区团装" city_id=$request.city_id limit="5"}>
+			<li>
+				<div class="opacity_img">
+					<a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+					<p class="bg"></p>
+					<p class="text"><span class="index_ico time_ico"></span><font remaintime="<{$item.ltime}>"></font></p>
+				</div>
+				<div class="index_tuanz_btm">
+					<p><b><a href="<{$item.link}>" class="tit"><{$item.title}></a>
+						</b></p>
+					<p class="colorbg"><span class="lt tit">立省<b class="fontcl1">¥<{$item.jieyue}></b>元</span><a href="<{link ctl='home:tuanDetail' arg0=$item.tuan_id}>" class="btn_sub_sm rt btn">立即参团</a>
+					</p>
+					<p><font class="fontcl2"><{$item.sign_num}></font>人已参团</p>
+				</div>
+			</li>
+			<{/KT}>
+			<div class="cl"></div>
+		</ul>
+	</div>
+	<!--团装活动结束-->
+	<!--热门案例开始-->
+	<div class="mb20 index_case">
+		<h2 class="index_tit"><font class="lt">热门<font class="fontcl2">案例</font></font><span class="tit_list hoverno lt"><a href="#">风格</a>
+			<a>空间</a><a>别墅</a><a>小户型</a><a>公装</a>
+			</span><a href="<{link ctl='case'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="index_case_list add_case_list">
+			<{KT id="4" name="网站首页4F热门案例-风格" city_id=$request.city_id limit="8"}>
+			<li<{if $first}> class="first"<{/if}> >
+			<div class="opacity_img"><a href="<{$item.link}>">
+				<img src="<{$pager.img}>/<{$item.thumb}>"/></a>
+				<p class="bg"></p>
+				<p class="text"><span class="lt"><{$item.title|cutstr:20}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.likes}></span></p>
+			</div>
+			</li>
+			<{/KT}>
+		</ul>
+		<ul class="index_case_list add_case_list">
+			<{KT id="5" name="网站首页4F热门案例-空间" city_id=$request.city_id limit="8"}>
+			<li<{if $first}> class="first"<{/if}>>
+			<div class="opacity_img"><a href="<{$item.link}>">
+				<img src="<{$pager.img}>/<{$item.thumb}>"/></a>
+				<p class="bg"></p>
+				<p class="text"><span class="lt"><{$item.title|cutstr:20}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.likes}></span></p>
+			</div>
+			</li>
+			<{/KT}>
+		</ul>
+		<ul class="index_case_list add_case_list">
+			<{KT id="6" name="网站首页4F热门案例-别墅" city_id=$request.city_id limit="8"}>
+			<li<{if $first}> class="first"<{/if}>>
+			<div class="opacity_img"><a href="<{$item.link}>">
+				<img src="<{$pager.img}>/<{$item.thumb}>"/></a>
+				<p class="bg"></p>
+				<p class="text"><span class="lt"><{$item.title|cutstr:20}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.likes}></span></p>
+			</div>
+			</li>
+			<{/KT}>
+		</ul>
+		<ul class="index_case_list add_case_list">
+			<{KT id="7" name="网站首页4F热门案例-小户型" city_id=$request.city_id limit="8"}>
+			<li<{if $first}> class="first"<{/if}>>
+			<div class="opacity_img"><a href="<{$item.link}>">
+				<img src="<{$pager.img}>/<{$item.thumb}>"/></a>
+				<p class="bg"></p>
+				<p class="text"><span class="lt"><{$item.title|cutstr:20}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.likes}></span></p>
+			</div>
+			</li>
+			<{/KT}>
+		</ul>
+		<ul class="index_case_list add_case_list">
+			<{KT id="8" name="网站首页4F热门案例-公装" city_id=$request.city_id limit="8"}>
+			<li<{if $first}> class="first"<{/if}>>
+			<div class="opacity_img"><a href="<{$item.link}>">
+				<img src="<{$pager.img}>/<{$item.thumb}>"/></a>
+				<p class="bg"></p>
+				<p class="text"><span class="lt"><{$item.title|cutstr:20}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.likes}></span></p>
+			</div>
+			</li>
+			<{/KT}>
+		</ul>
+		<div class="cl"></div>
+	</div>
+	<!--热门案例结束-->
+	<!--设计师开始-->
+	<div  class="mb20">
+		<h2 class="index_tit"><font class="lt">优秀 <font class="fontcl2">设计师</font></font><a href="<{link ctl='designer'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="line_type index_designer add_area add_index_designer">
+			<{KT id="9" name="网站首页5F优秀设计师" city_id=$request.city_id limit="9"}>
+			<li>
+				<a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+				<p><b>头衔:<{$item.group_name}></b></p>
+				<p><a href="<{$item.link}>"><{$item.name}></a>
+				</p>
+			</li>
+			<{/KT}>
+			<div class="cl"></div>
+		</ul>
+	</div>
+	<!--设计师结束-->
+	<!--建材商城开始-->
+	<div class="mb20">
+		<h2 class="index_tit"><font class="lt"><font class="fontcl2">建材</font>商城</font><a href="<{link ctl='mall/store'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<ul class="index_company index_shop add_area add_index_shop">
+			<{KT id="41" name="网站首页6F建材商城" city_id=$request.city_id limit="14"}>
+			<li><a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+			</li>
+			<{/KT}>
+			<div class="cl"></div>
+		</ul>
+	</div>
+	<!--建材商城结束-->
+	<!--装修学堂开始-->
+	<div class="mb20">
+		<h2 class="index_tit"><font class="lt">装修<font class="fontcl2">学堂</font></font><a href="<{link ctl='article'}>" class="rt">更多<span class="index_ico"></span></a>
+		</h2>
+		<div class="add_area pding">
+			<div class="add_index_school">
+				<div class="opacity_img">
+					<a href="<{link ctl='diary'}>">
+						<img src="%THEME%/static/images/schoolPic1.jpg" />
+						<p class="bg"></p>
+						<p class="text">装修日记</p>
+					</a>
+				</div>
+				<ul>
+					<{calldata mdl='diary/diary' limit="5"}>
+					<li>
+						<a href="<{link ctl='diary:detail' arg0=$item.diary_id}>"  target="_blank"><font class="fontcl2">[装修日记]</font><{$item.title|cutstr:40:''}></a>
+					</li>
+					<{/calldata}>
+				</ul>
+			</div>
+			<div class="add_index_school">
+				<div class="opacity_img">
+					<a href="<{link ctl='ask'}>">
+						<img src="%THEME%/static/images/schoolPic2.jpg" />
+						<p class="bg"></p>
+						<p class="text">知识问答</p>
+					</a>
+				</div>
+				<ul>
+					<{calldata mdl='ask/ask' limit="5"}>
+					<li>
+						<a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"   target="_blank"><font class="fontcl2">[知识问答]</font><{$item.title|cutstr:40:''}></a>
+					</li>
+					<{/calldata}>
+				</ul>
+			</div>
+			<div class="add_index_school">
+				<div class="opacity_img">
+					<a href="<{link ctl='article'}>">
+						<img src="%THEME%/static/images/schoolPic3.jpg" />
+						<p class="bg"></p>
+						<p class="text">装修学堂</p>
+					</a>
+				</div>
+				<ul>
+					<{calldata mdl='article/article' limit="5"}>
+					<li>
+						<a href="<{link ctl='article:detail' arg0=$item.article_id}>"  target="_blank"><font class="fontcl2">[装修学堂]</font><{$item.title|cutstr:40:''}></a>
+					</li>
+					<{/calldata}>
+				</ul>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<!--装修学堂结束-->
+	<div class="mb20">
+		<div class="youqLinkBox">
+		<ul class="yq_link">
+			<{calldata mdl='market/links' city_id=$request.city_id limit="10"}>
+			<li><a href="<{$item.link}>"><{$item.title}></a></li>
+			<{/calldata}>
+		</ul>
+		<div class="cl"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".index_nwod_list li:odd").addClass('grayBg');	
+	});
+</script>
+<{include file="block/footer.html"}>

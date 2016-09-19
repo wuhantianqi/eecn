@@ -1,0 +1,14 @@
+<{if $request.MINI!='load'}>
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t"><b>添加商铺分类</b>（<span class="red">*</span>必填项)</div>
+<{/if}>
+<form action="<{link ctl='ucenter/shop/vcate:create'}>" mini-form="ucenter" method="post">
+<table cellspacing="0" cellpadding="0" class="minform">
+    <tr><th class="w-100">标题：</th><td><input type="text" name="data[title]" value="" class="input w-200"/></td></tr>
+    <tr><th class="w-100">排序：</th><td><input type="text" name="data[orderby]" value="50" class="input w-50"/></td></tr>
+    <tr><th></th><td><input type="submit" value="保 存" class="pbtn" /></td></tr>
+</table>
+</form>
+<{if $request.MINI!='load'}>
+<{include file="ucenter/block/footer.html"}>
+<{/if}>

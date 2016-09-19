@@ -1,0 +1,64 @@
+<{include file="block/header.html"}>
+<!--头部内容结束-->
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>><a href="<{link ctl='mall/index'}>">商城</a>><a href="<{link ctl='mall/product'}>">商品列表</a></p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+        <{widget id="product/filter" cat_id=$pager.cat_id brand_id=$pager.brand_id attr_values=$pager.attr_values order=$pager.order tpl="mall/product/filter.html"}>
+		<div class="mb20">
+			<h2>商品列表</h2>
+			<div class="sort_box">
+				<p class="sort_list hoverno">
+					<a href="<{$pager.order_list.default}>">默认<{if $check.default}><span class="sort_on_ico ico_list"></span><{else}><span class="sort_ico ico_list"></span><{/if}></a>
+					<a href="<{$pager.order_list.buy}>">销量<{if $check.buy}><span class="sort_on_ico ico_list"></span><{else}><span class="sort_ico ico_list"></span><{/if}></a>
+					<a href="<{$pager.order_list.price}>">价格<{if $check.price}><span class="sort_on_ico ico_list"></span><{else}><span class="sort_ico ico_list"></span><{/if}></a>
+					<span class="rt"><a href="<{link ctl='mall/store'}>" title="商家列表"><font class="ico_list sj_over"></font></a>
+				    <a href="<{link ctl='mall/product'}>" title="商品列表"  class="on"><font class="ico_list block_on"></font></a>
+				</span>
+				</p>
+			</div>
+			<div class="area">
+                <ul class="line_type mall_sub_ul lt">
+                    <{foreach $items as $item}>
+                    <li>
+                        <a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>" class="pic"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a>
+                        <p><b><a href="<{$shop_list[$item.shop_id].shop_url}>" class="tit"><{$shop_list[$item.shop_id].name|cutstr:30}></a></b></p>
+                        <p><a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><{$item.name|cutstr:50}></a></p>
+                        <p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+                    </li>
+                    <{/foreach}>
+                </ul>
+		        <div class="cl"></div>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="side_content rt">
+        <{widget id="tenders/fast" title="建材招标" from='TJC'}>
+		<div class="mb20 area">
+			<h3 class="side_tit">热门排行</h3>
+			<ul class="mall_ul side_mall_ul pding">
+                <{KT id="35" name="商城商品列表右侧热卖商品" city_id=$request.city_id}>
+                <li>
+                    <a href="<{$item.link}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+                    <p><b><a href="<{$item.ext.shop.shop_url}>" class="tit"><{$item.ext.shop.name}></a></b></p>
+                    <p><a href="<{$item.link}>"><{$item.name}></a></p>
+                    <p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+                </li>
+                <{/KT}>
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

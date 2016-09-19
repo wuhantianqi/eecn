@@ -1,0 +1,31 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+   
+    <ul>
+        <li class="on">大转盘成员管理</li>
+    </ul>
+    
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+     <tr><th class="w-150">大转盘</th><th>用户昵称</th><th>sn号</th><th>中奖奖项</th><th>是否发奖</th><th class="w-100">发奖时间</th><th class="w-100">创建时间</th><th class="w-200">操作</th></tr>
+    <{foreach $items as $item}>
+        <tr><td><{$detail.title}></td>
+        <td><{$item.nickname}></td>
+        <td><{$item.sn}></td>
+        <td><{if $item.prize == 7}> 未中奖<{else}><{$item.prize}><{/if}></td>
+        <td><{if $item.is_use == 1}>已发奖<{else}>未发奖<{/if}></td>
+        <td><{$item.use_time|format}></td>
+        <td><{$item.dateline|format}></td>
+         <td>
+         	<a  href="<{link ctl='ucenter/weixin/addon/lottery:snedit' arg0=$item.sn_id http=ajax}>"  mini-act="confirm:您确定要改变发奖状态吗？"  class="pbtn">改变发奖状态</a>
+            <a href="<{link ctl='ucenter/weixin/addon/lottery:sndelete' arg0=$item.sn_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+         </td>
+        </tr>
+   	 <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    <tr><td colspan="10"><div class="page"><{$pager.pagebar}></div></td></tr>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

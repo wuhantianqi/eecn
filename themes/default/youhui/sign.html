@@ -1,0 +1,41 @@
+<{assign var="min_ititle" value="活动报名"}>
+<{include file="block/mini-header.html"}>
+<h2>我要报名<font class="red" style="font-size: 18px;"><{$detail.title|cutstr:30}></font>优惠活动！</h2>
+<form action="<{link ctl='youhui:sign' http='empty'}>" mini-form="sign-form" method="post" >
+<input type="hidden" name="youhui_id" value="<{$youhui_id}>">
+<div class="yuyBook">
+	<dl>
+		<dt class="name">
+			您的称呼
+		</dt>
+		<dd>
+		<input name="data[contact]" type="text" class="text" value=""  placeholder="请输入您的称呼"//>
+		</dd>
+	</dl>
+	<dl>
+		<dt class="tel">
+			手机号码
+		</dt>
+		<dd>
+		<input name="data[mobile]" type="text" class="text" value=""  placeholder="请输入手机号码"//>
+		</dd>
+	</dl>
+	<{if $yuyue_yz}>
+	<dl>
+		<dt class="yzm">
+			验 证 码
+		</dt>
+		<dd class="short">
+		<input class="text short" type="text"  name="verifycode" placeholder="请输入验证码"/>
+		</dd><img title="点击刷新验证码" verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+	</dl>
+	 <{/if}>
+	 <div class="yuyue_bottom"><input type="submit" value="立即报名" class="btn btn_sub_big" /><b class="yuyue_tel">装修热线：<font class="fontcl2"><{$CONFIG.site.phone}></font></b></div>
+</div>
+</form>
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<{include file="block/mini-footer.html"}>

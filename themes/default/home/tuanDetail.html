@@ -1,0 +1,196 @@
+<{include file="block/small-header.html"}>
+<!--头部内容结束-->
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='home:tuan'}>">团装小区</a>><a href="<{link ctl='home:tuanDetail' arg0=$tuan.tuan_id}>"><{$tuan.title}></a>
+		</p>
+</div>
+<!--面包屑导航结束-->
+<div class="subwd mb20">
+    <div class="mb10 area">
+        <div class="tuanzh_detail_top">
+            <span>已报名<font class="fontcl2"><{$tuan.sign_num}></font>户</span>
+            <span>已签约<font class="fontcl2"><{$tuan.qy_num}></font>户</span>
+            <span>已施工<font class="fontcl2"><{$tuan.sg_num}></font>户</span>
+        </div>
+        <div class="tuanzh_detail_tpmu">
+            <ul>
+                <li>
+                    <p class="tit">免费量房</p>
+                    <p>现场清楚了解需求</p>
+                    <p>给客户以专业建议</p>
+                </li>
+                <li>
+                    <p class="tit">免费设计方案</p>
+                    <p>免费获取最规范、</p>
+                    <p>最实用的设计方案</p>
+                </li>
+                <li class="last">
+                    <p class="tit">免费预算</p>
+                    <p>精准装修预算报价</p>
+                    <p>装修费用更省30%</p>
+                </li>
+            </ul>
+            <div class="cl"></div>
+        </div>
+    </div>
+	<!--左边内容开始-->
+	<div class="sub_activity_lt lt">
+		
+		<div class="mb10 area sub_activity pding">
+			<div class="sub_activity tuanzh_detail_intro">
+				<a href="<{link ctl='home:tuanDetail' arg0=$tuan.tuan_id}>" class="lt pic"><img src="<{$pager.img}>/<{$home.thumb}>"/></a>
+				<div class="sub_activity_rt tuanzh_pic_rt rt">
+					<h1><a href="<{link ctl='home:detail' arg0=$home.home_id}>"><{$home.name}></a></h1>
+					<p><a href="<{link ctl='home:detail' arg0=$home.home_id}>"><u class="fontcl1">查看小区详情<{$item.ltime}></u></a></p>
+					<p class="price">报名立省 :<font class="fontcl2">￥<{$tuan.jieyue}></font></p>
+                    <p class="title">
+                        <{if $tuan.stime > $pager.dateline}>
+                        <span class="ico_list sub_over_time_ico"></span>
+                        <{elseif $tuan.ltime < $pager.dateline}>
+                        <span class="ico_list sub_over_time_ico"></span>                        
+                        <{else}>
+                        <span class="ico_list sub_youhui_time"></span>
+                        <{/if}>
+                        <span dataline="<{$pager.dateline}>" stime="<{$tuan.stime}>" remaintime="<{$tuan.ltime}>"></span>
+                    </p>    
+                    <h2>
+                    <{if $tuan.stime > $pager.dateline}>
+                    <a class="btn btn_over_tuan">还未开始</a>
+                    <{elseif $tuan.ltime < $pager.dateline}>
+                    <a class="btn btn_over_tuan">报名结束</a>
+                    <{else}>
+                    <a mini-load='团装报名' mini-width='500' href="<{link ctl='home:tuanSign' arg0=$tuan.tuan_id http='ajax'}>" class="btn btn_sub_tuan">我要报名</a>
+                    <{/if}>
+                    </h2>
+				</div>
+				<div class="cl"></div>
+            			</div>
+                        <div class="side_content rt side_content_xianqi">
+                    <{if $company}>
+                    <div class="area sub_activity_sj mb10">
+                        <!-- <h3><b>商家信息</b></h3> -->
+                        <a href="<{$company.company_url}>" class="pic"><img src="<{$pager.img}>/<{$company.thumb}>" /></a>
+                        <!-- <p><a href="<{$company.company_url}>" class="tit"><b><{$company.name|cutstr:15:'...'}></b></a></p> -->
+                        <p>在线客服：<a href="http://wpa.qq.com/msgrd?v=3&uin=<{$company.qq}>&site=qq&menu=yes" class="ico_list qq_ico"></a></p>
+                        <p>服务热线：<{$company.show_phone}></p>
+                        <!-- <p>信誉指数：<{$company.score}></p>
+                        <p>公司口号：<{$company.slogan|cutstr:20:'...'}></p> -->
+                    </div>
+                    <{else}>
+                    <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>            
+                    <{/if}>
+                    <!-- <div class="area mb20 ">
+                        <h3 class="side_tit">最新享受免费服务的业主</h3>
+                        <ul class="tuanzh_side_menu">
+                            <li class="title"><span style="width:30%">业主</span><span>联系电话</span><span style="width:30%">日期</span></li>
+                        </ul>
+                        <div class="index_nwod_box">
+                         <ul class="tuanzh_side_menu">
+                            <{calldata mdl="home/sign" limit=10}>
+                            <li><span style="width:25%"><{$item.contact|cutstr:3:'**'}></span><span><{$item.mobile|cutstr:5:'**'}></span><span style="width:30%"><{date('m/d',$item.dateline)}></span></li>
+                            <{/calldata}>
+                        </ul>
+                        </div>
+                    </div> -->
+                   <!--  <div class="mb10 area">
+                        <h3 class="side_tit">装修公司排行榜</h3>
+                        <ul class="pding paihang">
+                            <{calldata mdl="company/company" city_id=$request.city_id limit=5}>
+                            <li>
+                                <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name}></a></span>
+                                <span class="rt">接单数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                            </li>
+                             <{/calldata}>
+                        </ul>
+                    </div>  -->   
+                </div>  
+		</div>
+        <{if $package}>
+		<div class="mb10 area">         
+			<table class="tuanzh_taocan" cellpadding="0" cellspacing="0">
+				<tr><th>户型</th><th>套餐价</th><th>我要报名</th></tr>                
+                <{foreach $package as $p}>
+                <tr>
+                   <td><{$huxing[$p.huxing_id].title}></td>
+                   <td> <font class="fontcl2"><{$p.price}></font>元/平米</td>                   
+                   <td> <{if $tuan.ltime>time() && $tuan.stime<time()}><a  mini-load='我要报名' mini-width='500' href="<{link ctl='home:tuanSign' arg0=$tuan.tuan_id arg1=$p.package_id http='ajax'}>" class="btn btn_sub_sm">立即报名</a><{else}><a href="#" class="btn youhui_over_btn">已结束</a><{/if}></td>
+                </tr>
+                <{/foreach}>				
+			</table>
+		</div>
+        <{/if}>
+		<div class="mb20 area area_content">
+			<h3 class="side_tit">活动详情</h3>
+			<div class="pding"><{$tuan.content}></div>
+		</div>
+	</div>
+	<!--左边内容结束-->
+	<!--右边内容开始--> 
+	<!--右边内容结束-->
+	<div class="cl"></div>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<script>
+	jQuery(window).load(function () {
+			var width = document.body.clientWidth;
+			if(width>755){
+				width=755;	
+			}
+            jQuery("img").each(function () {
+                DrawImage(this,width,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+
+<{include file="block/small-footer.html"}>

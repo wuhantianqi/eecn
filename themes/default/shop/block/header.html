@@ -1,0 +1,60 @@
+<{include file="block/small-header.html"}>
+<link type="text/css" rel="stylesheet" href="/themes/default/shop/style/default/style.css" />
+<{if $shop.skin_cfg}><{foreach $shop.skin_cfg.css as $css}><link rel="stylesheet" type="text/css" href="<{$pager.theme}>/<{$css}>"/><{/foreach}><{/if}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+		&gt;<a href="<{link ctl='mall/index'}>">商城</a>&gt;<a href="<{$shop.shop_url}>"><{$shop.name}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<div class="subwd">
+	<!--头部导航开始-->
+	<div class="shop_banner"><img src="<{$pager.img}>/<{$shop.banner}>" /></div>
+	<div class="shop_nav mb10 hoverno">
+		<ul>
+			<li><a href="<{$shop.shop_url}>" <{if $request.act=='index'}>class="current"<{/if}>>商铺首页</a></li>
+			<li><a href="<{link ctl='mall/shop:info' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='info'}>class="current"<{/if}>>商家介绍</a></li>
+			<li><a href="<{link ctl='mall/shop:product' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='product'}>class="current"<{/if}>>所有产品</a></li>
+			<li><a href="<{link ctl='mall/shop:coupon' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='coupon'}>class="current"<{/if}>>优惠券</a></li>
+			<li><a href="<{link ctl='mall/shop:news' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='news'}>class="current"<{/if}>>活动资讯</a></li>
+			<{if $shop.group.priv.allow_mendian > -1}><li><a href="<{link ctl='mall/shop:mendian' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='mendian'}>class="current"<{/if}>>门店展示</a></li><{/if}>
+			<li><a href="<{link ctl='mall/shop:comment' arg0=$shop.shop_id shop=$shop}>" <{if $request.act=='comment'}>class="current"<{/if}>>口碑点评</a></li>
+		</ul>
+	</div>
+	<!--头部导航结束-->
+	<!--左边主体内容开始-->
+	<div class="lt shop_lt">
+		<div class="shop_intro area mb10">
+			<img src="<{$pager.img}>/<{$shop.thumb}>" class="pic"/>
+			<p class="tit"><{$shop.name}></p>
+			<p>口碑：<{$shop.score}></p>
+			<p>信誉：<{$shop.credit|shoprank}></p>
+			<p>电话：<{$shop.show_phone}></p>
+			<p>客服：<{$shop.show_qq|qq}></p>
+			<p>关注数 : <font class="fontcl2"><{$shop.views}></font></p>
+			<p>入驻时间 : <{$shop.dateline|format:"Y-m-d"}></p>
+		</div>
+		<div class="mb10 area">
+			<h3 class="side_tit">商品分类</h3>
+			<ul class="shop_fenlei pding">
+				<{calldata mdl='shop/vcate' shop_id=$shop.shop_id limit=30 nocache=true}>
+				<li><a href="<{link ctl='mall/shop:product' arg0=$shop.shop_id arg1=$item.vcat_id arg2=1 shop=$shop}>" class="lt"><{$item.title}></a><span class="rt">&gt;</span></li>
+				<{/calldata}>                             
+			</ul>
+		</div>
+		<div class="mb20 area">
+			<h3 class="side_tit">热门排行</h3>
+			<ul class="mall_ul side_mall_ul side_shop_ul pding">
+			<{KT id="36" name="商家店铺热卖商品" city_id=$request.city_id}>
+			<li>
+				<a href="<{$item.link}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+				<p><b><a href="<{$item.ext.shop.shop_url}>" class="tit"><{$item.ext.shop.name}></a></b></p>
+				<p><a href="<{$item.link}>"><{$item.name}></a></p>
+				<p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+			</li>
+			<{/KT}>
+			</ul>
+		</div>
+	</div>
+	<!--左边主体内容结束-->

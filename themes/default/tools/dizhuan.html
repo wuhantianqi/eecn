@@ -1,0 +1,175 @@
+<{include file="block/small-header.html"}>
+<link rel="stylesheet" type="text/css" href="themes/default/static/css/items.css?<{$VER}>"/>
+<script>
+function IsDigit(cCheck)
+{
+return ((('0'<=cCheck) && (cCheck<='9'))||cCheck=='.');
+}
+function CheckNum(charValue,alertValue,obj)
+{
+for(var iIndex=0;iIndex<charValue.length;iIndex++)
+{
+var cCheck=charValue.charAt(iIndex);
+if(!IsDigit(cCheck))
+{
+alert(alertValue);
+obj.focus();
+return false;
+}
+}
+}
+function floor_brick(form)
+{
+//检查输入
+if(checkfloorbrickInput(form)==false) return;
+var room_long=0,room_width=0,floorbrick_long=0,floorbrick_width=0;
+var floorbricknum=0;
+var rate=1.05;
+//给各个变量赋值
+room_long=form.room_long.value*1000;
+room_width=form.room_width.value*1000;
+floorbrick_long=form.floorbrick_long.value;
+floorbrick_width=form.floorbrick_width.value;
+//开始计算
+// 用砖数量（块数）=（房间的长度÷砖长）×（房间宽度÷砖宽）×1.05
+floorbricknum=Math.round((room_long/floorbrick_long)*(room_width/floorbrick_width)*rate);
+document.getElementById("rt").innerHTML=floorbricknum+ "块";
+}
+function  checkfloorbrickInput(form)
+{
+if(form.room_long.value==""){
+alert("请输入房间长度");
+form.room_long.focus();
+return false;
+}
+if(CheckNum(form.room_long.value,"房间长度只能输入数字格式！",form.room_long)==false)
+return false;
+if(form.room_width.value==""){
+alert("请输入房间宽度");
+form.room_width.focus();
+return false;
+}
+if(CheckNum(form.room_width.value,"房间长度只能输入数字格式！",form.room_width)==false)
+return false;
+if(form.floorbrick_long.value==""){
+alert("请输入地砖的长度");
+form.floorbrick_long.focus();
+return false;
+}
+if(CheckNum(form.floorbrick_long.value,"地砖的长度只能输入数字格式！",form.floorbrick_long)==false)
+return false;
+if(form.floorbrick_width.value==""){
+alert("请输入地砖的宽度");
+form.floorbrick_width.focus();
+return false;
+}
+if(CheckNum(form.floorbrick_width.value,"地砖的宽度只能输入数字格式！",form.floorbrick_width)==false)
+return false;
+}
+function autoinput(form)
+{
+//alert(form.bricktype.value);
+switch(parseInt(form.bricktype.value))
+{
+case 1:
+form.floorbrick_long.value=300;
+form.floorbrick_width.value=300;
+break;
+case 2:
+form.floorbrick_long.value=400;
+form.floorbrick_width.value=400;
+break;
+case 3:
+form.floorbrick_long.value=500;
+form.floorbrick_width.value=500;
+break;
+case 4:
+form.floorbrick_long.value=600;
+form.floorbrick_width.value=600;
+}
+}
+
+</script>
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+    	><a href="<{link ctl='tools'  arg0=items}>">工具箱</a>
+		><a href="<{link ctl='tools'  arg0=$tool}>"><{$tools_array[$tool]}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<div class="subwd mb20">
+	<!--主体左边内容开始-->
+	<div class="about-lt lt">
+		<!--<ul>-->
+			<!--<{foreach $tools_array as $k => $item}>-->
+			<!--<li><a <{if $tool == $k}> class="current" <{/if}> href="<{link ctl='tools' arg0=$k}>"><{$item}></a>-->
+			<!--</li>-->
+			<!--<{/foreach}>-->
+		<!--</ul>-->
+		<ul>
+			<li class="about-1"><p><i></i></p>
+				<h3 style="color:#73C835;">涂料计算器</h3>
+			</li>
+			<li class="about-2"><p><i></i></p>
+				<h3 style="color:#47C7D4;">地板计算器</h3>
+			</li>
+			<li class="about-3"><p><i></i></p>
+				<h3 style="color:#E7524E;">壁纸计算器</h3>
+			</li>
+			<li class="about-4"><p><i></i></p>
+				<h3 style="color:#00A6F4;">墙砖计算器</h3>
+			</li>
+			<li class="about-5"><p><i></i></p>
+				<h3 style="color:#C16CD4;">窗帘计算器</h3>
+			</li>
+			<li class="about-6"><p><i></i></p>
+				<h3 style="color:#F69101;">地砖计算器</h3>
+			</li>
+		</ul>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="about-rt rt">
+		<div class="pding">
+			<h2 align="center"><{$tools_array[$tool]}></h2>
+			<form name="floorbrickfrm" action="" method="post" class="counter">
+				<h3>请输入居室信息</h3>
+				<div>
+					<input name="room_long" class="text" placeholder="房间长度" type="text">
+					米
+					<input name="room_width" class="text" placeholder="房间宽度" type="text">
+					米 </div>
+				<h3>请输入地砖信息</h3>
+				<div class="dizhuan-rt">
+					地砖长度:<input name="floorbrick_long" class="text" value="300" placeholder="地砖长度" type="text">
+					毫米<br>
+					地砖宽度:<input name="floorbrick_width" class="text" value="300" placeholder="地砖宽度" type="text">
+					毫米<br>或选择标准规格的地砖:
+					<select name="bricktype" onchange="autoinput(this.form)" class="text">
+						<option selected="selected" value="1">300x300</option>
+						<option value="2">400x400</option>
+						<option value="3">500x500</option>
+						<option value="4">600x600</option>
+					</select>
+					毫米 </div>
+				<div class="counter_btn">你需要的地砖数量是：<span id="rt" class="jieguo"></span>
+					<input type="button" onclick="floor_brick(this.form)" value="开始计算" name="Submit" class="btn btn_sub_sm">
+					<input type="reset" value="重新输入" name="Submit" class="btn again_btn">
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--主体右边内容结束-->
+	<div class="cl"></div>
+</div>
+<!--最后添加内容-->
+<div class="last">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<div class="cl"></div>
+<{include file="block/small-footer.html"}>

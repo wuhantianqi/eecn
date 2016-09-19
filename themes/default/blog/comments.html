@@ -1,0 +1,58 @@
+<{assign var="curr_comment" value=true}>
+<{assign var="seo_sub_title" value="TA的评价"}>
+<{include file="blog/block/header.html"}>
+<div class="area pding sub_designer">
+	<div class="new_pinglun disigner_pinglun mb10">
+		<ul>
+    	  <{foreach $comment_info as $item}>
+        	<li>
+                <div class="lt">
+                <img src="<{$pager.img}>/<{$member_list[$item.uid].face}>" class="lt" /><br />
+                <{$member_list[$item.uid].uname|cutstr:6:''}>
+                </div>
+                <div class="rt">
+                    <p class="graycl">
+                   <span class="lt"><{foreach $CONFIG.score.designer as $k=>$v}><{if $v}><{$v}>:<{$item[$k]}>  <{/if}><{/foreach}></span> <span class="rt time"><{$item.dateline|format}></span></p>
+                <{if $item.audit}><p><{$item.content}></p><{else}><p class="tips"><span class="lock">评论审核中</span></p><{/if}>
+                </div>
+            </li>
+            <{/foreach}>			
+		</ul>
+		<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		<div class="pingjia_box pding">
+			<h3>我要评价</h3>
+			<div class="cl"></div>
+            <form action="<{link ctl='blog:comment' http='ajax'}>" mini-form="comment" method="post" class="pinglun">
+                <input type="hidden" name="uid" value="<{$designer.uid}>" />
+               <{foreach $CONFIG.score.designer as $k=>$v}>
+                <{if $v}>
+                <span  class="pf"><{$v}>：<input type="hidden" name="data[<{$k}>]" id="comment-<{$k}>" value="3" /><b comment-score="<{$k}>" data-score="3"></b></span>
+                <{/if}>
+                <{/foreach}>
+                <textarea class="text" name="data[content]" placeholder="您的点评..."></textarea>
+                <{if $CONFIG.access.verifycode.comment}>
+                    验证码：<input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                    <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>                                
+                <{/if}>
+                <input type="submit" value="发表评论" class="text btn rt pinglun_btn" />
+                <div class="cl"></div>
+            </form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+<script type="text/javascript">
+(function(K, $){
+	$('b[comment-score]').raty({
+		path: "/static/script/raty/img/",
+		score: function() {return $(this).attr('data-score');},
+		hints: ["差","还行","好","很好","非常好"],
+		click: function(score, evt) {$("#comment-"+$(this).attr("comment-score")).val(score);}
+	});
+    $("[verify]").click(function(){
+        $($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+    });
+})(window.KT, window.jQuery);
+</script>
+<{include file="blog/block/footer.html"}>

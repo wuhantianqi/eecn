@@ -1,0 +1,41 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/shop:base'}>" >基本设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>
+        <li><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<style type="text/css">
+.template_list li{float: left;width: 200px; margin:10px; text-align: center;}
+</style>    
+<{if $group.priv.allow_skin < 0}>
+<p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】不能更换模板</span></p>
+<{/if}>
+<form action="<{link ctl='ucenter/shop:skin'}>" mini-form="ucenter" method="post">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr>
+        <td colspan="2">
+            <ul class="template_list">
+                <{foreach $skins as $k=>$v}>
+                <li>
+                    <label><img src="<{$pager.theme}>/<{$v.photo}>" /><br />
+                    <input type="radio" <{if $pager.audit_skin<0}>disabled="disabled"<{else}>name="skin"<{/if}> <{if $k == $shop.skin}> checked="checked" <{/if}> value="<{$k}>"/><{$v.name}></label>
+                </li>
+                <{/foreach}>
+            </ul>
+            <div class="cl"></div>
+        </td>
+    </tr>
+    <tr><th></th><td><{if $group.priv.allow_skin < 0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

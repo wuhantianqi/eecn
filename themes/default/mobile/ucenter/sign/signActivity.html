@@ -1,0 +1,17 @@
+<{assign var="tpl_page_title" value="优惠活动报名"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	<{if !$items}><div class="no_record">暂无记录信息</div><{/if}>
+    <{foreach $items as $item}>
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0">
+			<tr><td>姓名：<{$item.contact}></td></tr>
+            <tr><td>电话：<{$item.mobile}></td></tr>
+			<tr><td>优惠活动：<{$activity_list[$item.activity_id].title|default:'--'}></td></tr>
+            <tr><td>报名时间：<{$item.dateline|format}></td></tr>
+			<tr><td>备注：<{$item.note|default:'--'}></td></tr>
+		</table>
+	</div>
+    <{/foreach}>
+</div>
+<{include file="mobile/block/footer.html"}>

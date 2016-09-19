@@ -1,0 +1,132 @@
+<{include file="ucenter/company/zxb/block/zxb_header.html"}>
+<div class="ucenter_bao_box">
+	<p class="title"><{$status[$now_status]}></p>
+    <form action="<{link ctl='ucenter/company/zxb:hetong' arg0=$item.zxb_id}>" mini-form="ucenter" method="post"  onsubmit="return check()" ENCTYPE="multipart/form-data">
+	<input type="hidden" name="hetong_id" value="<{$hetong.hetong_id}>" >
+     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+    	<ul class="ucenter_zxb_rz">
+            <li>
+                <{if $hetong.yezhu_status == 1}><span class="renz_ico renz_ico1"></span><{else}><span class="renz_ico renz_no_ico1"></span><{/if}>
+            </li>
+            
+            <li>
+                <{if $hetong.company_status == 1}><span class="renz_ico renz_ico2"></span><{else}><span class="renz_ico renz_no_ico2"><{/if}>
+            </li>
+            <li>
+                 <{if $hetong.status == 1}><span class="renz_ico renz_ico3"></span><{else}><span class="renz_ico renz_no_ico3"><{/if}>
+            </li>
+        </ul>
+        <{if $hetong.hetong && $hetong.yezhu_status==0}>
+         <tr><th><span class="red">*</span>合同总价：</th><td><input id ='price' type="text" name="data[total_price]" value="<{$hetong.total_price|default:''}>" class="input w-300"/></td></tr>
+         <tr><th><span class="red">*</span>电话：</th><td><input id ='phone' type="text" name="data[company_phone]" value="<{$hetong.company_phone|default:''}>" class="input w-300"/></td></tr>
+         <tr><th><span class="red">*</span>银行卡号：</th><td><input id ='bank' type="text" name="data[company_bank]" value="<{$hetong.company_bank|default:''}>" class="input w-300"/></td></tr>
+         
+         <tr><th>zip包上传：</th>
+            <td>
+                <input type="file" name="data[hetong]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+            </td>
+        </tr>
+         <tr><th>合同下载：</th>
+            <td>
+               <a href="<{$pager.img}>/<{$hetong.hetong}>"><span class="red">公司已上传合同请下载</span></a>
+            </td>
+        </tr>
+        <tr><th></th><td><input type="submit" value="修改提交" class="green_btn" /></td></tr>
+        <{elseif $hetong.yezhu_status==0}>
+         <tr><th><span class="red">*</span>合同总价：</th><td><input id ='price' type="text" name="data[total_price]" value="<{$hetong.total_price|default:''}>" class="input w-300"/></td></tr>
+         <tr><th><span class="red">*</span>电话：</th><td><input id ='phone' type="text" name="data[company_phone]" value="<{$company.mobile|default:''}>" class="input w-300"/></td></tr>
+         <tr><th><span class="red">*</span>银行卡号：</th><td><input id ='bank' type="text" name="data[company_bank]" value="<{$hetong.company_bank|default:''}>" class="input w-300"/></td></tr>
+         
+         <tr><th>zip包上传：</th>
+            <td>
+                <input type="file" name="data[hetong]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+            </td>
+        </tr>
+        <tr><th>默认合同下载：</th>
+            <td>
+               <a href="<{$CONFIG.zxb.hetong}>">平台施工交易规范合同</a>
+            </td>
+        </tr>
+        <tr><th></th><td><input type="submit" value="确认提交" class="green_btn" /></td></tr>
+        <{else}>
+         <tr><th>业主电话：</th><td><{$hetong.yezhu_phone|default:''}></td><th>业主卡号：</th><td><{$hetong.yezhu_bank|default:''}></td></tr>
+         <tr><th>公司电话：</th><td><{$hetong.company_phone|default:''}></td><th>公司卡号：</th><td><{$hetong.company_bank|default:''}></td></tr>
+         <tr><th>业主打款证据：</th>
+            <td colspan="3">
+                <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>"/><{/if}>
+            </td>
+        </tr>
+        <tr><th>业主描述内容：</th><td colspan="3"><{$step.yezhu_content}></td> </tr>
+        <tr><th>平台审核内容：</th><td colspan="3"><{$step.content}></td> </tr>
+         <tr><th>合同下载：</th>
+            <td colspan="3">
+              <a href="<{$pager.img}>/<{$hetong.hetong}>"><span class="red">公司已上传合同请下载</span></a>
+            </td>
+        </tr>
+        <{/if}>
+    
+    </table>
+ </form> 
+</div>  
+<script language="javascript" type="text/javascript">
+	function check() {
+        var mobile = $("#phone").val();
+		var bank = $("#bank").val();
+		var price = $("#price").val();
+        var isMobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(14[0-9]{1}))+\d{8})$/;  
+        var isPhone = /^(?:(?:0\d{2,3})-)?(?:\d{7,8})(-(?:\d{3,}))?$/;
+        if (mobile.substring(0, 1) == 1 || mobile.substring(0, 1) == 0) {  
+            if ((isMobile.test(mobile) && mobile.length == 11)||(isPhone.test(mobile))) {
+            }else{
+				Widget.MsgBox.error("电话号码有误");
+			    return false; 	
+			}
+        }else {
+			Widget.MsgBox.error("电话号码有误");
+            return false;  
+        }
+		var isbank = /^(\d+)$/;
+		var isprice = /^(\d+)$/;
+		if(!isbank.exec(bank)){
+			Widget.MsgBox.error("银行卡有误");
+			return false;  	
+		}
+		if(!isprice.exec(price)){
+			Widget.MsgBox.error("总价有误");
+			return false;  	
+		}
+        return true;  
+    }  
+</script>
+<script>
+	jQuery(window).load(function () {
+			
+            jQuery("img").each(function () {
+                DrawImage(this,680,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="ucenter/block/footer.html"}>

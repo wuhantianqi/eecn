@@ -1,0 +1,100 @@
+<{include file="ucenter/member/zxb/block/zxb_header.html"}>
+<div class="ucenter_bao_box">
+	<p class="title"><{$status[$now_status]}></p>
+    <form action="<{link ctl='ucenter/member/zxb:detail' arg0=$item.zxb_id arg1=$item.status+1}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+	 <input type="hidden" name="step_id" value="<{$step.step_id}>" >
+     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+      <ul class="ucenter_zxb_rz">
+     <{if $now_status == 7}>
+            <li>
+                <{if $step.yezhu_status == 1}><span class="renz_ico renz_ico1"></span><{else}><span class="renz_ico renz_no_ico1"></span><{/if}>
+            </li>
+            
+            <li>
+                <{if $step.company_status == 1}><span class="renz_ico renz_ico2"></span><{else}><span class="renz_ico renz_no_ico2"><{/if}>
+            </li>
+            <li>
+                 <{if $step.status == 1}><span class="renz_ico renz_ico3"></span><{else}><span class="renz_ico renz_no_ico3"><{/if}>
+            </li>
+      	<{elseif $now_status == 8 && $item.status == 8}>
+            <li>
+                <span class="renz_ico renz_ico3"></span>
+            </li>
+        <{/if}>
+         </ul>
+     	<{if $step.status == 0  && $step.company_status == 0 && $step.uid && $now_status==7}>
+                 <tr><th>上传打款证据：</th>
+                    <td>
+                        <input type="file" name="data[yezhu_photo]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+                         <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+                    </td>
+                </tr>
+                
+                <tr><th>内容：</th>
+                    <td>
+                         <textarea name="data[yezhu_content]" kindeditor="simple" style="width:600px;height:100px;"><{$step.yezhu_content}></textarea>
+                    </td>
+                </tr>
+                <tr><th></th><td><input type="submit" value="修改提交" class="green_btn" /></td></tr>
+          <{elseif $step.status == 0  && $step.company_status == 0 && !$step.uid && $now_status==7}>
+                  <tr><th>上传打款证据：</th>
+                    <td>
+                        <input type="file" name="data[yezhu_photo]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+                         <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+                         如要打款请上传打款证明
+                    </td>
+                </tr>
+                
+                <tr><th>内容：</th>
+                    <td>
+                         <textarea name="data[yezhu_content]" kindeditor="simple" style="width:600px;height:100px;"><{$step.yezhu_content}></textarea>
+                    </td>
+                </tr>   
+                <tr><th></th><td><input type="submit" value="确认提交" class="green_btn" /></td></tr>
+             <{elseif $step.status == 1 && $step.yezhu_status == 1  && $step.company_status == 1  && $now_status==7}>
+             	<tr><th>打款证据：</th>
+                    <td>
+                         <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>"/><{/if}>
+                    </td>
+                </tr>
+                
+                <tr><th>内容：</th>
+                    <td><{$step.yezhu_content}></td>
+                </tr>
+                <tr><th>平台审核内容：</th><td><{$step.content}></td> </tr> 
+          <{/if}>
+    </table>
+ </form>  
+ </div> 
+ <script>
+	jQuery(window).load(function () {
+			
+            jQuery("img").each(function () {
+                DrawImage(this,680,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="ucenter/block/footer.html"}>

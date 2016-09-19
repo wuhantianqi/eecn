@@ -1,0 +1,85 @@
+<{include file="block/company_header.html"}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+		><a href="<{link ctl='gs:items'}>">公司列表</a>
+		><a href="<{link ctl='company' arg0=$company.company_id}>">新思路装饰</a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<!--装修公司头部结束-->
+<div class="subwd">
+	<div class="company_lt area lt mb20">
+		<img src="<{$pager.img}>/<{$company.logo}>" class="pic"/>
+		<p class="tit"><b><{$company.name}></b></p>
+		<p>信誉：<img src="<{$pager.img}>/<{$company.score}>.jpg" /></p>
+		<p>电话：<{$company.phone}></p>
+		<p>Q Q：<span class="ico_list qq_ico"><a href="http://wpa.qq.com/msgrd?v=3&uin=<{$company.qq}>&site=qq&menu=yes" class="ico_list qq_ico rt"></a></span>
+		<div class="pingfen_bar com_pingf">
+			<p class="title">综合评价：<{$score}></p>
+			<p>设计<span class="bar probar_gray">
+            <{if $score1 == 0}><{elseif $score1 <= 1}><span class="bar probar_color bar2"></span><{elseif $score1 > 1 && $score1 <= 2}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span>
+            <{elseif $score1 > 2 && $score1 <= 3}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{elseif $score1 > 3 && $score1 <= 4}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{else}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{/if}>
+            
+            </span><{$score1}></p>
+			<p>服务<span class="bar probar_gray">
+            <{if $score2 == 0}><{elseif $score2 <= 1}><span class="bar probar_color bar2"></span><{elseif $score2 > 1 && $score2 <= 2}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span>
+            <{elseif $score2 > 2 && $score2 <= 3}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{elseif $score2 > 3 && $score2 <= 4}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{else}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{/if}>
+            
+            </span><{$score2}></p>
+			<p>贴心<span class="bar probar_gray">
+            <{if $score3 == 0}><{elseif $score3 <= 1}><span class="bar probar_color bar2"></span><{elseif $score3 > 1 && $score3 <= 2}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span>
+            <{elseif $score3 > 2 && $score3 <= 3}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{elseif $score3 > 3 && $score3 <= 4}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{else}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{/if}>
+            </span><{$score3}></p>
+			<p>施工<span class="bar probar_gray">
+            <{if $score4 == 0}><{elseif $score4 <= 1}><span class="bar probar_color bar2"></span><{elseif $score4 > 1 && $score4 <= 2}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span>
+            <{elseif $score4 > 2 && $score4 <= 3}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{elseif $score4 > 3 && $score4 <= 4}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{else}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{/if}>
+            </span><{$score4}></p>
+			<p>售后<span class="bar probar_gray">
+            <{if $score5 == 0}><{elseif $score5 <= 1}><span class="bar probar_color bar2"></span><{elseif $score5 > 1 && $score5 <= 2}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span>
+            <{elseif $score5 > 2 && $score5 <= 3}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{elseif $score5 > 3 && $score5 <= 4}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{else}><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><span class="bar probar_color bar2"></span><{/if}>
+            </span><{$score5}></p>
+		</div>
+	</div>
+	<div class="mb20 company_rt rt area ">
+		<div class="pding">
+			<h3 class="sub_com_title"><b>企业简介</b></h3>
+			<div class="sub_com_contro">
+				<img src="<{$pager.img}>/<{$company.logo}>" class="video" />
+				<p> <{$fields.info}></p>
+			</div>
+			<h3 class="sub_com_title"><b>企业资质</b></h3>
+			<div class="sub_com_contro">
+                 <{foreach from=$banners item=item}>
+                        <div class="zizhi_box">
+                            <img src="<{$pager.img}>/<{$item.photo}>" />
+                            <p class="tit"><{$item.title}></p>
+                        </div>
+                 <{/foreach}>
+
+				<div class="cl"></div>
+			</div>
+			<h3 class="sub_com_title"><b>企业荣誉</b></h3>
+			<div class="sub_com_contro">
+				 <{foreach from=$photos item=item}>
+                        <div class="zizhi_box">
+                            <img src="<{$pager.img}>/<{$item.photo}>" />
+                            <p class="tit"><{$item.title}></p>
+                        </div>
+                 <{/foreach}>
+				<div class="cl"></div>
+			</div>
+			<h3 class="sub_com_title"><b>联系我们</b></h3>
+			<div class="sub_com_contro">
+				<p>公   司：<{$company.name}></p>
+				<p>电   话：<{$company.phone}></p>
+				<p>手   机：<{$company.mobile}></p>
+				<p>Q   Q：<{$company.qq}></p>
+				<p>地  址:<{$company.addr}></p>
+				<p><{include file='company/left.html'}>	</p>
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+<{include file="block/company_footer.html"}>

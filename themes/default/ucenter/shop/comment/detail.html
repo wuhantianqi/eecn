@@ -1,0 +1,32 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">查看店铺评论</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/comment:shop'}>" class="pbtn">商铺评价管理</a></span>
+</div>
+<div class="ucenter_c">
+    <div class="tips"><span class="notice">收到的点评（如果有不实的评价可以联系管理员投诉）</span></div>
+    <{if $group.priv.allow_reply<0}><p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限回复点评</span></p><{/if}>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+        <tr><th></th><td colspan="10"><b class="red">评论信息</b></td></tr>
+        <tr>
+            <th>会员：</th><td class="w-300"><{$member.uname}></td><th>评分：</th><td><{$detail.score}></td>
+        </tr>
+        <tr>
+            <th>评论状态：</th><td><{if $detail.audit}><b class="blue">已审核</b><{else}><b class="red">待审核</b><{/if}></td><th>评论时间：</th><td><{$detail.dateline|format}></td>
+        </tr>
+        <tr><th>评论内容：</th><td colspan="10"><{$detail.content}></td></tr>
+        <{if $detail.replytime}>
+        <tr><th>回复内容：</th><td colspan="10"><{$detail.reply}></td></tr>
+        <tr><th>回复时间：</th><td colspan="10"><{$detail.replytime|format}></td></tr>
+        <{else}>
+		<form action="<{link ctl='ucenter/shop/comment:reply'}>" mini-form="ucenter" method="post">
+		<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+		<tr><th><span class="red">*</span>回复：</th>
+			<td colspan="10"><textarea name="reply_content" class="textarea w-500" <{if $group.priv.allow_reply<0}>disabled="disabled"<{/if}>><{$detail.reply}></textarea></td>
+		</tr>
+		<tr><th></th><td colspan="10"><{if $group.priv.allow_reply<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="回复评论" class="mpbtn" /><{/if}></td></tr>
+		</form>
+        <{/if}>
+	</table>
+</div>
+<{include file="ucenter/block/footer.html"}>

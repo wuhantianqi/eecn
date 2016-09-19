@@ -1,0 +1,66 @@
+<{include file="gz/block/header.html"}>
+<div class="subwd mb20">
+	<!--主体左边内容开始-->
+	<div class="sub_designer_lt lt">
+		<ul class="designer_nav hoverno">
+			<li><a href="<{link ctl='gz:detail' arg0=$detail.uid}>" class="current">主页</a>
+			</li>
+			<li><a href="<{link ctl='gz:about' arg0=$detail.uid}>">个人简介</a>
+			</li>
+			<li><a href="<{link ctl='gz:cases' arg0=$detail.uid}>">案例展示</a>
+			</li>
+			<li><a href="<{link ctl='gz:site' arg0=$detail.uid}>">在建工地</a>
+			</li>
+             <li><a href="<{link ctl='gz:comment' arg0=$detail.uid}>">他的评价</a>
+			</li>
+		</ul>
+		<div class="cl"></div>
+		<div class="area pding sub_designer">
+			<div class="mb10 designer_inrto">
+				<p class="title"><span class="lt">个人简介</span><a href="<{link ctl='gz:about' arg0=$detail.gz_id}>" class="rt"><span class="ico_list de_list"></span>详情</a>
+				</p>
+				<p><span>所在地区：<{$detail.city_name}><{$detail.area_name}></span><span>联系方式：<{$detail.show_phone}></span></p>
+				个人简介：<{$detail.about|strip_tags|cutstr:300:'...'}>
+			</div>
+			<div class="mb10 ">
+				<p class="title"><span class="lt">作品展示</span><a href="<{link ctl='gz:cases' arg0=$detail.gz_id}>" class="rt"><span class="ico_list de_list"></span>更多</a>
+				</p>
+				<ul class="designer_case">
+                	<{foreach $case_list as $item}>
+                	<li<{if $item@frist}> class="first"<{/if}>>
+                        <div class="case_aterfall_li">
+                            <div class="opacity_img hoverno">
+                                <a href="<{link ctl='case:detail' arg0=$item.case_id}>"  class="pic">
+                                <img src="<{$pager.img}>/<{$item.photo}>" />
+                                </a>
+                                <span class="bg"></span>
+                                <span class="text"><a href="<{link ctl='case:detail' arg0=$item.case_id}>">免费户型设计</a>
+                                </span>
+                            </div>
+                            <p class="tit"><a href="<{link ctl='case:detail' arg0=$item.case_id}>"><{$item.title}></a>
+                            </p>
+                            <p><span><font class="index_ico like_ico"></font><{$item.likes}>人喜欢</span><span><font class="index_ico person_ico"></font><{$item.views}>人已浏览 </span></p>
+                        </div>
+                    </li>
+                    <{/foreach}>
+				</ul>
+			</div>
+			<div class="mb10">
+				<p class="title"><span class="lt">在建工地</span><a href="<{link ctl='gz:site' arg0=$detail.gz_id}>" class="rt"><span class="ico_list de_list"></span>更多</a>
+				</p>
+				<div class="foreman_site">
+                <p class="foreman_site_tit"><span>地区</span><span>小区名</span><span>面积</span><span>预算</span><span>预约</span></p>
+                    <div class="foreman_site_box">
+                        <ul>
+                            <{foreach $site_list as $item}>
+                            <li>
+                                <span><{$item.city_name}></span><span><{$item.home_name}></span><span> <{$item.house_mj}>㎡ </span><span><{$item.price}>万</span><span><a href="<{link ctl='site:detail'  arg1=$item.site_id}>"  class="fontcl2">预约</a></span>
+                            </li>
+                            <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	<{include file="gz/block/footer.html"}>

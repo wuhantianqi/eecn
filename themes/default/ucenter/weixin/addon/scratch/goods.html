@@ -1,0 +1,32 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+   
+    <ul>
+        <li class="on">刮刮卡管理</li>
+    </ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/addon/scratch:goodscreate' args=$detail.scratch_id}>" class="pbtn">添加商品</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr><th class="w-100">商品ID</th><th class="w-50">刮刮卡</th><th>奖项标题</th><th>奖项</th><th class="w-50">名额数量</th><th class="w-50">排序号</th><th>奖品图片</th><th>微信号</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr><td><{$item.id}></td>
+    <td><{$detail['title']}></td>
+    <td><{$item.title}></td>
+    <td><{$item.name}></td>
+    <td><{$item.num}></td>
+    <td><{$item.sort}></td>
+    <td><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50" /></td>
+    <td><{$item.wx_id}></td>
+    
+    	 <td>
+         	<a  href="<{link ctl='ucenter/weixin/addon/scratch:goodsedit' arg0=$item.id}>"  class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/weixin/addon/scratch:goodsdelete' arg0=$item.id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+         </td>
+     </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

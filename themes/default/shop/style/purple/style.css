@@ -1,0 +1,5 @@
+/*商铺蓝色模板样式开始*/
+.shop_nav{background:#402b8f;}
+.shop_nav a.current, .shop_nav a:hover{background:#6149bd;}
+p.sub_shop_tit b{ border-bottom:2px solid #402b8f;}
+/*商铺蓝色模板样式结束*/

@@ -1,0 +1,47 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加日记</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/gz/diary:site' arg0=$site.site_id}>" class="pbtn">返回工地日记</a></span>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_diary < 0}>
+    <p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限添加工地日记</span></p>
+<{/if}>
+<form action="<{link ctl='ucenter/gz/diary:create'}>" mini-form="ucenter-form" method="post">
+<input type="hidden" name="site_id" value="<{$site.site_id}>" />
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th>工地名称：</th><td><b class="blue"><{$site.title}></b></td></tr>
+    <tr><th><span class="red">*</span>工地标题：</th><td><input type="text" name="data[title]" class="text w-300" value="<{$detail.title}>" /></td></tr>
+    <tr><th><span class="red">*</span>施工阶段：</th>
+        <td>
+        <select class="select w-200" name="data[status]">
+            <option value="">请选择</option>
+            <{foreach $status_list as $k=>$v}>
+            <{if $v.has_diary}>
+            <option value="<{$k}>" <{if $detail.status==$k}>selected="selected"<{/if}> disabled="true"><{$v.title}>[已写]</option>
+            <{else}>
+            <option value="<{$k}>" <{if $detail.status==$k}>selected="selected"<{/if}>><{$v.title}></option>
+            <{/if}>
+            <{/foreach}>
+        </select>
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>日记内容：</th>
+        <td><textarea name="data[content]" kindeditor="full" style="width:700px;height:350px;"><{$detail.content}></textarea></td>
+    </tr>
+    <tr><th></th><td><{if $group.priv.allow_diary<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $group.priv.allow_diary < 0}>
+var editor = KindEditor.create('textarea[kindeditor]',{readonlyMode : true});
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+<{else}>
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,37 @@
+<{assign var="tpl_page_title" value="活动资讯"}>
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$shop.logo}>" class="lt pic" />
+		<h2><{$shop.name}></h2>
+		<p class="nowrap">信誉指数：<{$shop.score}></p>
+		<p class="nowrap">联系电话：<a  href="tel:<{$shop.show_phone}>"><{$shop.show_phone}></a></p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="shop_nav">
+	<ul>
+		<li><a href="<{link ctl='mobile/shop' arg0=$shop.shop_id}>">商家简介</a></li>
+		<li><a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=0}>">所有商品</a></li>
+		<li><a href="<{link ctl='mobile/shop:coupon' arg0=$shop.shop_id arg1=1}>">优惠券</a></li>
+		<li><a href="<{link ctl='mobile/shop:news' arg0=$shop.shop_id arg1=1}>" class="current">活动资讯</a></li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="pding">
+	<ul class="article_menu">
+        <{foreach $items as $item}>
+		<li>
+			<a href="<{link ctl='mobile/shop:newsdetail' arg0=$item.news_id}>">
+				<span class="lt"><{$item.title}></span>
+				<span class="rt">&gt;</span>
+				<p class="cl"></p>
+			</a>
+		</li>
+        <{/foreach}>
+	</ul>
+</div>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>
+

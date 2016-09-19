@@ -1,0 +1,54 @@
+<div class="company_lt lt">
+	<div class="company_lt_intro area mb10">
+		<img src="<{$pager.img}>/<{$company.thumb}>" class="pic"/>
+		<p class="tit"><b><{$company.name}></b></p>
+		<p>信誉：<{$company.score}></p>
+		<p>电话：<{$company.show_phone}></p>
+		<p>Q Q：<{$company.show_qq|qq:1}></p>
+		<div class="pingfen_bar com_pingf">
+			<p class="title">综合评价：<{$company.avg_score}></p>
+			<{foreach $CONFIG.score.company as $k=>$v}><{if $v@index>2}><{break}><{/if}>
+			<p><{$v}><span class="bar probar_gray"><span class="bar probar_color bar2" style="width:<{$company.avg_scores[$k]*20}>%"></span></span><{sprintf("%.1f",$company.avg_scores[$k])}></p>
+			<{/foreach}>
+		</div>
+	</div>
+	<div class="mb10 area">
+		<h3 class="side_tit">装修公司排行榜</h3>
+		<ul class="pding paihang">
+			<{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
+			<li>
+				<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a>
+				</span>
+				<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+			</li>
+			<{/calldata}>
+		</ul>
+	</div>
+	<div class="mb10 area">
+		<h3 class="side_tit">设计师排行榜</h3>
+		<ul class="pding paihang">
+			<{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+			<li>
+				<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a>
+				</span>
+				<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+			</li>
+			<{/calldata}>
+		</ul>
+	</div>
+	<div class="mb10 area">
+		<h3 class="side_tit">工长排行榜</h3>
+		<ul class="pding paihang">
+			<{calldata mdl="gz/gz" city_id=$request.city_id limit=5}>
+			<li>
+				<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='gz-detail'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a>
+				</span>
+				<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+			</li>
+			<{/calldata}>
+		</ul>
+	</div>
+    <div class="mb10 personAd">
+        <{adv id="31" name="设计师右侧招商图片广告" city_id=$request.city_id}>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<{include file="block/small-header.html"}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>">江湖家居</a>
+		><a href="<{link ctl='site'}>">在建工地</a>
+		><a href="<{link ctl='site:detail' arg0=$site.site_id}>"><{$site.title}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<div class="subwd">
+	<!--主体左边内容开始-->
+	<div class="sub_content lt">
+		<div class="mb10 pding area sub_site_top">
+			<h1><span class="lt"><{$site.title}></span><a mini-load='我要报名' mini-width='500'  href="<{link ctl='site:yuyue' arg0=$site.site_id}>" mini-width='500' mini-load="免费预约参观"  class="rt btn btn_main_big">免费预约参观</a>
+			</h1>
+           		<span>小区名称：<{$site.home_name}></span>
+			 	<span>面积：<{$site.house_mj}>平米</span>
+                <span>总价：<{$site.price}>万元</span>
+                <span>
+                <{if $company}>
+                承接公司：<a href="<{$company.company_url}>"><font class="fontcl2"> <{$company.name}> </font></a>
+                <{elseif $gz}>
+                承接工长：<a href="<{link ctl='gz:detail' arg0=$item.uid}>"><font class="fontcl2"> <{$gz.name}> </font></a>
+                <{elseif $designer}>
+                承接设计师：<a href="<{link ctl='blog' arg0=$designer.uid}>" ><font class="fontcl2"> <{$designer.name}> </font></a>
+                <{/if}>
+                </span>
+			<div class="site_step">
+				<p class="step bar"><span class="bar step_color step<{$site.status}>"></span></p>
+				<p><span class="step">开工大吉</span><span class="step">水电改造</span><span class="step">泥瓦阶段</span><span class="step">木工阶段</span><span class="step">油漆阶段</span><span class="step">安装阶段</span><span class="step">验收完成</span></p>
+			</div>
+		</div>
+		<div class="mb20  pding area">
+            <{foreach $items as $item}>
+			<div class=" mb10">
+				<h3><b>[<{$status[$item.status]}>]</b><{$item.title}></h3>
+				<div class="pding sub_site_content"><span class = 'imgs'><{$item.content}></span></div>
+			</div>
+            <{/foreach}>
+		</div>       
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="side_content rt">
+        <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+		<div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">设计师排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">工长排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="gz/gz" city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='gz-detail'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+		<div class="mb20 "><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+	</div>
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<script>
+	jQuery(window).load(function () {
+            jQuery(".imgs img").each(function () {
+                DrawImage(this, 680, 1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+
+<!--底边内容开始-->
+<{include file="block/small-footer.html"}>

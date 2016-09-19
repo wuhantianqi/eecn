@@ -1,0 +1,54 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			&gt;<a href="<{link ctl='article'}>">学装修</a>
+			&gt;<a href="<{link ctl='article:items' arg0=$cate.cat_id}>"><{$cate.title}></a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+   <div class="main_content lt">
+		<div class=" area pding mb20">
+			<div class="cont_item_title ">
+				<h3><span class="ico_list cont_item_ico"></span><b><{$top_cate.title}></b></h3>
+				<{if $childrens}>
+				<p class="article_list colorbg"><{foreach $childrens as $v}><a href="<{link ctl='article:items' arg0=$v.cat_id arg1=1}>" <{if $v.cat_id==$cate.cat_id}>class="current"<{/if}>><{$v.title}></a><{/foreach}></p>
+				<{/if}>
+				<div class="cl"></div>
+			</div>
+			<ul class="cont_item_ul">
+				<{foreach $items as $item}>
+				<li>
+					<img src="<{$pager.img}>/<{$item.thumb}>"  class="lt"/>
+					<div class="rt cont_item_text">
+						<h2><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title}></a></h2>
+						<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc}></a></p>
+						<p class="graycl"><span class="lt">发布日期：<{$item.dateline|format}></span><span class="rt">已被阅读：<font class="fontcl2"><{$item.views}></font>次</span></p>
+					</div>
+				</li>
+				<{/foreach}>
+			</ul>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+   </div>
+   <!-- <div class="side_content rt">
+   <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+		<div class="area pding mb10 cont_item_rt">
+			<ul class="article_list">
+				<{calldata mdl="article/cate" parent_id=8 hidden='0'  from='article'}>
+				<li>
+					<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
+					<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id arg1=1}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
+				</li>
+				<{/calldata}>
+			</ul>
+		</div>
+		<div class="mb20 "><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+   </div> -->
+   <div class="cl"></div>
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

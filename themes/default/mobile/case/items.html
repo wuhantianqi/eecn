@@ -1,0 +1,45 @@
+<{assign var="tpl_page_title" value="装修案例列表"}>
+<{include file="mobile/block/header.html"}>
+<div class="choose_menu">
+	<ul>
+        <{foreach $attr_values as $v}>
+        <{if $v@index>2}><{break}><{/if}>
+		<li>
+			<div class="choose_menu_cont">
+				<a href="#"><{if $attrs[$v.attr_id]}><{$attrs[$v.attr_id].title}><{else}><{$v.title}><{/if}><span class="app_ico"></span></a>
+				<div class="sub_choose_menu">
+					<ul>
+                        <li><a href="<{$v.link}>">不限</a></li>
+                    	<{foreach $v['values'] as $vv}>
+                        <li><a title="<{$vv.title}>" href="<{$vv.link}>"><{$vv.title}></a></li>
+                        <{/foreach}>
+					</ul>
+				</div>
+			</div>
+		</li>
+        <{/foreach}>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div  id="container">
+<{foreach $items as $item}>
+<div class="case_aterfall_li">
+	<a href="<{link ctl='mobile/case:detail' arg0=$item.case_id}>">
+	<img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" />
+	<p><{$item.title|cutstr:20}></p>
+	</a>
+</div>
+<{/foreach}>
+</div>
+<div style="clear:both" class="page"><{$pager.pagebar}></div>
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+//案例展示瀑布流效果
+(function(K, $){
+  var $container = $('#container');
+      $container.imagesLoaded(function(){
+        $container.masonry({itemSelector: '.case_aterfall_li'});
+    }); 
+})(window.KT, window.jQuery);
+</script>
+<{include file="mobile/block/footer.html"}>

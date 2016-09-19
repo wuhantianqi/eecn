@@ -1,0 +1,26 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li><a href="<{link ctl='ucenter/member:info'}>">基本信息</a></li>
+		<li><a href="<{link ctl='ucenter/member:passwd'}>">修改密码</a></li>
+		<li class="on"><a>更换邮箱</a></li>
+		<li><a href="<{link ctl='ucenter/member:face'}>">修改头像</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">	
+    <div class="tips"><span class="notice"><{if $MEMBER.verify_mail}>您的邮箱已经认证，更换后需要重新认证<{else}>您还没有验证邮箱，<a href="<{link ctl='ucenter/member/verify:mail' arg0='verify'}>" mini-act="立即验证邮箱" class="pbtn">立即验证邮箱</a><{/if}></span></div>
+    <form id="account-form">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>原邮箱：</th><td><{$MEMBER.mail}></td></tr>
+        <tr><th><span class="red"> * </span>新邮箱：</th><td><input name="account[newmail]" type="input" value="" class="input" /></td></tr>
+        <{if $MEMBER.verify_mail}>
+        <tr><th><span class="red"> * </span>确认密码：</th><td><input name="account[passwd]" type="password" value="" class="input" /></td></tr>
+        <{/if}>
+        <tr>
+			<th></th><td><input action="<{link ctl='ucenter/member:mail'}>" mini-submit="#account-form" type="button" value="更新邮箱" class="green_btn" /></td>
+		</tr>
+    </table>
+    </form>
+</div>
+<!--//右面下开始-->
+<{include file="ucenter/block/footer.html"}>

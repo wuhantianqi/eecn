@@ -1,0 +1,47 @@
+<{include file="block/small-header.html"}>
+<!--购物流程图开始-->
+<div class="subwd">
+	<div class="shop_liuch">
+		<p class="liuch_intro"><span class="first">购物车</span><span>填写核对订单信息</span><span>成功提交订单</span><span>等待付款</span><span>等待发货</span><span class="last">订单已完成</span></p>
+		<p class="sp_liuch shop2"></p>
+	</div>
+    <form action="<{link ctl='trade/order:create' http='ajax'}>"  id="order-form">
+	<div class="receiv_infor mb10">    
+		<h2 class="side_tit">填写收货信息</h2>
+        <table>
+            <tr><td class="title"><font class="pointcl">*</font>收货人 :</td><td><input type="text" name="data[contact]" class="text half" /></td></tr>
+            <tr><td class="title"><font class="pointcl">*</font>联系电话 :</td><td><input type="text" name="data[mobile]" class="text half" /></td></tr>
+            <tr><td class="title"><font class="pointcl">*</font>地址 :</td><td><input type="text" name="data[addr]" class="text all" /></td></tr>
+            <tr><td class="title">备注 :</td><td><textarea class="text all" name="data[note]"></textarea></td></tr>
+        </table>
+	</div>
+	<h2>我的购物车</h2>
+	<div class="area mb20">
+		<table class="shop_car" cellpadding="0" cellspacing="0">
+			<tr class="title"><td class="first">商品信息</td><td>商品单价</td><td>运费</td><td>数量</td><td>小计</td></tr>
+            <{foreach $cart.items as $item}>
+			<tr>
+				<td class="first">
+					<a class="lt" href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><img src="<{$pager.img}>/<{$item.photo}>_small.jpg" /></a>
+					<p class="rt"><a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><{$item.name}></a><{if $item.spec}>【<{$item.spec.spec_name}>】<{/if}></p>
+					<p class="rt">商家 : <{$shop_list[$item.shop_id].name}></p>
+				</td>
+				<td><b class="fontcl2">￥<{$item.product_price}></b></td><td><{$item.num}></td>
+				<td><b class="fontcl2"><{if $item.freight}>￥<{$item.freight}><{else}>包邮<{/if}></b></td>				
+				<td><b class="fontcl2">￥<{($item.product_price*$item.num + $item.freight)}></b></td>
+			</tr>
+            <{/foreach}>
+			<tr class="last">
+				<td colspan="6">
+				    <p class="rt">
+                    <span>已选<b class="fontcl2"><{$cart.product_count}></b>件商品</span><span>合计（含运费）：<b class="fontcl2">￥<{$cart.total_amount}></b></span>
+                    <a mini-submit="#order-form" class=" btn btn_sub_big">确认提交订单</a>
+                    </p>
+				</td>
+			</tr>
+		</table>
+	</div>
+    </form>
+</div>
+<!--购物流程图结束-->
+<{include file="block/small-footer.html"}>

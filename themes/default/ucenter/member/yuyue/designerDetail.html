@@ -1,0 +1,24 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li><a href="<{link ctl='ucenter/member/yuyue:designer'}>">设计师预约</a></li><li class="on">查看预约</li></ul>
+</div>
+<div class="ucenter_c">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+	<tr><th></th><td colspan="10"><b class="red">设计师信息</b></td></tr>
+	<tr>
+		<th>设计师：</th><td><{$designer.realname}></td>
+		<th></th><td rowspan="3"><a href="<{link ctl='blog' arg0=$designer.uid}>" target="_blank"><img src="<{$pager.img}>/<{$designer.face}>" width="100" height="100"/></a></td>
+	</tr>
+	<tr><th>毕业院校：</th><td><{$designer.school|default:'--'}></td><th></th></tr>
+	<tr><th>地区：</th><td><{$designer.city_name}>  <{$designer.area_name}></td><th></th></tr>
+	<tr><th>介绍：</th><td colspan="5"><{$designer.about|default:'--'}></td></tr>
+	<tr><th></th><td colspan="10"><b class="red">预约信息</b></td></tr>
+	<tr><th>联系人：</th><td><{$detail.contact}></td><th>电话：</th><td><{$detail.mobile}></td></tr>
+	<tr>
+		<th>预约时间：</th><td><{$detail.dateline|format}></td>
+		<th>预约来源：</th><td><b class="red"><{$detail.clientip|cutstr:6:'******'}>(<{$detail.clientip|iplocal}>)</b></td>
+	</tr>
+	<tr><th>备注要求：</th><td colspan="10"><{$detail.content|default:'--'}></td></tr>
+	</table>
+</div>
+<{include file="ucenter/block/footer.html"}>

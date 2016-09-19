@@ -1,0 +1,48 @@
+<{include file="block/small-header.html"}>
+<link type="text/css" rel="stylesheet" href="/themes/default/company/style/default/style.css" />
+<{if $company.skin_cfg}><{foreach $company.skin_cfg.css as $css}><link rel="stylesheet" type="text/css" href="<{$pager.theme}>/<{$css}>"/><{/foreach}><{/if}>
+<!--装修公司头部开始-->
+<div class="company_top">
+	<div class="subwd">
+		<img src="<{$pager.img}>/<{$company.logo}>" class="lt pic" />
+		<div class="company_top_lt lt">
+			<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.name}></a>
+				<{if $company.verify_name == 2}>
+				<span class="com_rz_ico ico_list"></span>
+                <{elseif $company.verify_name == 1}>
+                <span class="ps_rz_ico ico_list"></span>
+                <{/if}>
+                <{if $company.is_vip}><span class="tuiguang_ico ico_list"></span><{/if}>
+                <{if $company.xiaobao}><span class="bz_metals"><{$company.xiaobao}>元<font class="ico_list"></font></span><{/if}>
+            </h1>
+			<h2>
+				<span><font class="com_ico com_tel"></font><{$company.show_phone}></span>
+				<{if $company.group.show_phone && $company.mobile}><span><font class="com_ico com_phone"></font><{$company.mobile}></span><{/if}>
+				<span class=""><{$company.show_qq|qq}></span>
+			</h2>
+		</div>
+		<div class="company_top_rt pingfen_bar rt">
+			<p class="title">综合评价：<{$company.avg_score}></p>
+			<{foreach $CONFIG.score.company as $k=>$v}><{if $v@index>2}><{break}><{/if}>
+			<p><{$v}>：<span class="bar probar_gray"><span class="bar probar_color bar2" style="width:<{$company.avg_scores[$k]*20}>%"></span></span><{sprintf("%.2f",$company.avg_scores[$k])}></p>
+			<{/foreach}>
+		</div>
+		<div class="cl"></div>
+	</div>
+</div>
+<div class="company_nav mb10">
+	<div class="subwd">
+		<ul class="lt hoverno">
+			<li><a href="<{$company.company_url}>"<{if $request.act == 'detail'}> class="current"<{/if}>>首页</a></li>
+			<li><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>"<{if $request.act == 'about'}> class="current"<{/if}>>企业介绍</a></li>
+			<li><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>"<{if $request.act == 'team'}> class="current"<{/if}>>设计团队</a></li>
+			<li><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>"<{if $request.act == 'cases'}> class="current"<{/if}>>装修案例</a></li>
+			<li><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>"<{if $request.act == 'site'}> class="current"<{/if}>>在建工地</a></li>
+			<li><a href="<{link ctl='company:youhui' arg0=$company.company_id company=$company}>"<{if $request.act == 'youhui'}> class="current"<{/if}>>优惠信息</a></li>
+			<li><a href="<{link ctl='company:news' arg0=$company.company_id company=$company}>"<{if $request.act == 'news'}> class="current"<{/if}>>企业新闻</a></li>
+			<li><a href="<{link ctl='company:comment' arg0=$company.company_id company=$company}>"<{if $request.act == 'comment'}> class="current"<{/if}>>业主评价</a></li>
+		</ul>
+		<div class="rt company_nav_rt"><p>信誉：<{$company.score}></p></div>
+		<div class="cl"></div>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+<{assign var="seo_sub_title" value="口碑点评"}>
+<{include file="shop/block/header.html"}>
+	<!--左边主体内容开始-->
+	<div class="rt shop_rt mb20">
+		<div class="area pding mb10 new_pinglun">
+			<p class="sub_shop_tit mb10"><b>口碑点评</b></p>
+			<ul>
+                <{foreach $items as $item}>
+				<li>
+					<div class="lt"><img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>" class="lt" /><br /></div>
+					<div class="rt">
+						<p class="graycl">
+                            <span class="lt"><{$item.uname}><b score="item_score" data-score="<{$item.score}>"></b><b class="fontcl2"><{$item.score}>分</b></span>
+                            <span class="rt time"><{$item.dateline|format}></span>
+                        </p>
+						<p class="cl"></p>
+						<{if $item.audit}><p><{$item.content}></p><{else}><p class="tips"><span class="lock">内容还在审核中</span></p><{/if}>
+                        <{if $item.reply}><p><{$item.reply}></p><{/if}>
+					</div>
+				</li>
+                <{/foreach}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+        <div class="pagebar"><{$pager.pagebar}></div>
+		<div class="area pding">
+            <form action="<{link ctl='mall/shop:savecomment' arg0=$shop.shop_id http="ajax"}>"  mini-form="comment" method="post" class="pinglun ">
+			<p class="sub_shop_tit mb10"><b>评论</b></p>
+			<span  class="pf">评分：<input type="hidden" name="data[score]" id="comment-score" value="3" /><b comment-score="score" data-score="3"></b></span>
+				<textarea class="text" name="data[content]" placeholder="您的点评..."></textarea>
+                 	<{if $CONFIG.access.verifycode.comment}>
+                        验证码:<input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                        <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>                            
+                    <{/if}>
+				<input type="submit" value="发表评论" class="text btn rt pinglun_btn" />
+				<div class="cl"></div>
+			</form>
+		</div>
+	</div>
+	<!--左边主体内容结束-->
+	<div class="cl"></div>
+</div>
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+<script type="text/javascript">
+(function(K, $){
+    $('b[comment-score]').raty({
+        path: "<{$pager.res}>/script/raty/img/",
+        score: function() {return $(this).attr('data-score');},
+        hints: ["差","还行","好","很好","非常好"],
+        click: function(score, evt) {$("#comment-score").val(score);}
+    });
+    $('b[score]').each(function(){$(this).raty({numberMax:5,readOnly: true,hints: ["差","还行","好","很好","非常好"],path:"<{$pager.res}>/script/raty/img/",score: function() {return $(this).attr('data-score');}})});
+
+})(window.KT, window.jQuery);
+</script>
+<{include file="shop/block/footer.html"}>

@@ -1,0 +1,18 @@
+<{assign var="tpl_page_title" value="团装小区列表页"}>
+<{include file="mobile/block/header.html"}>
+<ul class="app_menu tuan_menu">
+	<{foreach $items as $item}>
+    	<li>
+            <a href="<{link ctl='mobile/home:tuandetail' arg0=$item.tuan_id}>">
+            <img src="<{$pager.img}>/<{$home_list[$item.home_id].thumb}>" class="lt pic" />
+            <h2><{$item.title}></h2>
+            <p class="tuan_p"><span class="lt">立省 <font class="fontcl1">￥<{$item.jieyue}></font>元</span><span class="rt">></span></p>
+            <p><font class="fontcl2"><{$item.sign_num}></font>人已参团</p>
+            </a>
+        </li>
+    <{/foreach}>
+</ul>
+<div class="page">
+	<{$pager.pagebar}>
+</div>
+<{include file="mobile/block/footer.html"}>

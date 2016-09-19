@@ -1,0 +1,67 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/weixin:info'}>">公众号设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:config'}>">接口设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin:welcome'}>">关注回复</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/weixin:leaflets'}>">宣传页设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin/menu:index'}>">微信菜单</a></li>
+    </ul>
+    
+</div>
+<div class="ucenter_c" style="position: relative;height:800px;">
+<p class="tips">
+    <span class="notice" style="display:inline-block;"><b>设置后会生成推广页面，用于微信公众号推广</b></span>
+    <{if $leaflets}><span class="rt"><a href="<{link ctl='weixin/page:leaflets' arg0=$weixin.wx_id}>" class="pbtn" target="wechat_leaflets">查看推广页面效果</a></span><{/if}>    
+</span>
+<form action="<{link ctl='ucenter/weixin:leaflets'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">   
+<tr><th>公众号：</th><td><b class="blue"><{$weixin.wx_name}>(<{$weixin.wx_sid}>)</b></td></tr>
+<tr>
+    <th>宣传页标题名：</th>
+    <td><input type="text" name="data[title]" value="<{$leaflets.title}>" class="input w-300" /></td>
+</tr>
+<tr><th>二维码图片：</th>
+    <td>
+        <{if $leaflets.photo}><img src="<{$pager.img}>/<{$leaflets.photo}>" photo="<{$pager.img}>/<{$leaflets.photo}>" class="wh-100"/><{/if}>
+        <input type="file" name="weixin_photo" class="input w-200"/><br /><span class="tip-comment">到公众平台下载边长为12CM的二维码图片再上传</span>
+    </td>
+</tr>
+<tr>
+    <th>功能简介：</th>
+    <td><textarea name="data[content]" class="textarea w-300"><{$leaflets.content}></textarea></td>
+</tr>
+<tr>
+    <th>版权信息：</th>
+    <td><input type="text" name="data[copyright]" value="<{$leaflets.copyright}>" class="input w-300" /></td>
+</tr>
+<tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+<link href="/themes/default/weixin/static/style/leaflets.css" rel="stylesheet">
+<div id="leaflets" style="width:380px;position:absolute;top:60px;right:0px;">
+    <div class="container body">
+        <h1><{$leaflets.title}></h1>
+        <div class="qrcode">
+            <img src="<{$pager.img}>/<{$leaflets.photo}>">
+        </div>
+        <div class="qr_tips">请使用微信扫描二维码关注此公众号</div>
+        <div class="desc"><{$leaflets.content}></div>
+        <p class="copyright"><{$leaflets.copyright}></p>
+    </div>    
+</div>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $('input[name="data[copyright]"]').keyup(function(){
+        $('#leaflets .copyright').html($(this).val());
+    });
+    $('textarea[name="data[content]"]').keyup(function(){
+        $('#leaflets .desc').html($(this).val());
+    });
+    $('input[name="data[title]"]').keyup(function(){
+        $('#leaflets h1').html($(this).val());
+    });
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

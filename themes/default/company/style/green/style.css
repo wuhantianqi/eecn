@@ -1,0 +1,16 @@
+/*装修公司绿色模板样式*/
+.company_top{ background:#79ad19;}
+.company_top_rt{ background:#79ad19;}
+.company_nav{ background:#2b8f42;}
+.company_nav ul a.current, .company_nav ul a:hover{ background:#135f25;}
+.company_nav_rt{ background:#135f25;}
+.btn_sub_sm,.btn_sub_tuan,.btn_sub_smler{ background:url(green_btn.png) repeat-x center center; border:1px solid #135f25;}
+.sub_com_design li .btn:hover{ background:#2b8f42;}
+.sub_com_title b{ border-bottom:2px solid #2b8f42;}
+ul.sub_com_de_list li:hover{ border-bottom:1px solid #2b8f42;}
+ul.line_type li:hover{ border-bottom:1px solid #2b8f42;}
+.like_ico{ background:url(green_com.png) no-repeat; background-position:0px 0px;}
+.fengge_ico{ background:url(green_com.png) no-repeat; background-position:0px -17px;}
+.company_ico{ background:url(green_com.png) no-repeat; background-position:0px -32px;}
+ul.main_youhui li .be_paint{ background:url(green_com.png) no-repeat; background-position:-21px 0px;}
+/*装修公司绿色模板样式*/

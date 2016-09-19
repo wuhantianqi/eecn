@@ -1,0 +1,39 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加文章</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/msite/article:index'}>" class="pbtn">微网站文章</a></span>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_msite < 0}>
+    <div class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限使用微网站</span></div>
+<{/if}>
+<form action="<{link ctl='ucenter/weixin/msite/article:create'}>" mini-form="ucenter-form" method="post">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="" class="input w-400"/></td></tr>
+    <tr><th>分类：</th><td><select name="data[cat_id]" class="select w-200"><{html_options options=$cate_list selected=$detail.article_id}></select></td></tr>
+    <tr><th>封面：</th><td><{if $detail.thumb}><img src="<{$pager.img}>/<{$detail.thumb}>" photo="<{$pager.img}>/<{$detail.thumb}>" class="wh-100"/><br /><{/if}><input type="file" name="article_thumb" class="input" /></td></tr>   
+    <tr><th>简介：</th><td><textarea name="data[intro]" class="textarea w-400"><{$detail.intro}></textarea></td></tr>
+    <tr><th>内容：</th><td><textarea name="data[content]" kindeditor="full" style="width:700px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+    <tr><th>链接：</th>
+        <td>
+            <input type="text" name="data[link]" value="<{$detail.link}>" class="input w-500"/>
+            <span class="tip-comment">填写链接后，直接跳转到该地址</span>
+        </td>
+    </tr>    
+    <tr><th>排序：</th><td><input type="text" name="data[orderby]" value="<{$detail.orderby|default:0}>" class="input w-100"/><span class="tip-comment">数据越小越靠前</span></td></tr>
+    <tr><th></th><td><{if $group.priv.allow_msite<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $group.priv.allow_msite < 0}>
+var editor = KindEditor.create('textarea[kindeditor]',{readonlyMode : true});
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+<{else}>
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

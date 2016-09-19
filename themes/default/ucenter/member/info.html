@@ -1,0 +1,53 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li class="on"><a>基本信息</a></li>
+		<li><a href="<{link ctl='ucenter/member:passwd'}>">修改密码</a></li>
+		<li><a href="<{link ctl='ucenter/member:mail'}>">更换邮箱</a></li>
+		<li><a href="<{link ctl='ucenter/member:face'}>">修改头像</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">
+<form id="account-form">
+   <table cellspacing="0" cellpadding="0" class="form">
+		<tr><th>用户名：</th><td><b class="blue"><{$MEMBER.uname}></b></td></tr>
+		<tr>
+            <th><i class="pink">*</i>邮箱：</th><td><{$MEMBER.mail}> 
+            <span style="margin-left:20px;">
+			<{if $MEMBER.verify_mail}>
+				<b class="blue">已验证</b>
+			<{else}>
+				<b class="red">未验证</b>&nbsp;&nbsp;&nbsp;<a href="<{link ctl='ucenter/member/verify:mail'}>" class="pbtn">立即验证</a>
+			<{/if}>
+			</span>
+            </td>
+        </tr>
+		<tr><th>手机：</th><td>
+			<{if $MEMBER.verify_mobile}><{$MEMBER.mobile}><{else}><input type="text" name="account[mobile]" value="<{$MEMBER.mobile}>" class="input"><{/if}>
+            <span style="margin-left:20px;">
+			<{if $MEMBER.verify_mobile}>
+				<b class="blue">已验证</b>
+			<{elseif $MEMBER.mobile}>
+			<b class="red">未验证</b>&nbsp;&nbsp;&nbsp;<a href="<{link ctl='ucenter/member/verify:mobile'}>" class="pbtn">立即验证</a>
+			<{/if}>
+			</span>
+            </td>
+        </tr>
+        <{if $MEMBER.from=='member'}>
+        <tr>
+            <th>类型：</th>
+            <td>
+                <select name="account[from]" class="select w-150"><{html_options options=$from_list selected="member"}></select>
+                业主可以选择更换用户类型！更换后不能变更回来！
+            </td>
+        </tr>
+        <{/if}>        
+        <tr><th>真实姓名：</th><td><input type="text" name="account[realname]" class="input"  value="<{$MEMBER.realname}>"/></td></tr>
+		<tr><th>生日：</th><td><{YMD Y=$MEMBER.Y M=$MEMBER.M D=$MEMBER.D  name="account" class="select"}></td></tr>  
+		<tr><th>城市：</th><td><select name="account[city_id]" class="select w-100"><{widget id="data/city" value=$MEMBER.city_id}></select></td></tr>  
+        <tr><th></th><td><input action="<{link ctl='ucenter/member:info'}>" mini-submit="#account-form" type="button" value="提交数据" class="green_btn" /></td></tr>
+   </table>
+</form>
+</div>
+<!--//右面下开始-->
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,23 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">我的优惠券</li></ul>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+            <th>优惠券</th><th>商家</th><th class="w-100">联系人</th><th class="w-150">手机</th><th class="w-100">优惠码</th><th class="w-50">状态</th><th class="w-150">下载时间</th>
+        </tr>
+        <{foreach $items as $item}>
+        <tr>
+            <td><a href="<{link ctl='mall/coupon:detail' arg0=$item.coupon_id}>" target="_blank"><{$coupon_list[$item.coupon_id].title|default:'--'}></a></td>
+            <td><{$shop_list[$item.shop_id].name|default:'--'}></td><td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.number}></td>
+            <td><{if $item.use_time}><b class="blue" tips="使用时间:<{$item.use_time|format}>">已使用</b><{else}><b class="red">未使用</b><{/if}></td>
+            <td><{$item.dateline|format}></td>
+        </tr>
+        <{foreachelse}>
+        <tr><td colspan="10"><p class="tips"><span class="notice">您还没有下载过优惠券</span></p></td></tr>
+        <{/foreach}>
+    </table>
+	<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

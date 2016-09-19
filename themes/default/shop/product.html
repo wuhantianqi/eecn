@@ -1,0 +1,24 @@
+<{assign var="seo_sub_title" value="商品列表"}>
+<{include file="shop/block/header.html"}>
+	<!--左边主体内容开始-->
+	<div class="rt shop_rt">
+		<div class="mb10 area pding mall_option hoverno">
+            <a href="<{link ctl='mall/shop:product' arg0=$shop.shop_id arg1=0 arg2=1}>"<{if !$pager.vcat_id}>  class="current"<{/if}>>全部</a>
+            <{calldata mdl="shop/vcate" shop_id=$shop.shop_id}><a href="<{link ctl='mall/shop:product' arg0=$shop.shop_id arg1=$item.vcat_id arg2=1}>"<{if $item.vcat_id==$pager.vcat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
+		</div>
+		<div class="area pding mb20">
+			<p class="sub_shop_tit mb10"><b>商品列表</b></p>
+			<ul class="mall_ul line_type shop_list">
+                <{foreach $items as $item}>
+                <li>
+                    <a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>" class="pic"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a>
+                    <p><a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><{$item.name}></a></p>
+                    <p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+                </li>
+                <{/foreach}>
+            </ul>
+			<div class="cl"></div>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+	</div>
+<{include file="shop/block/footer.html"}>

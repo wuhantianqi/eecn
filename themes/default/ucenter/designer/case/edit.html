@@ -1,0 +1,84 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">修改案例</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/designer/case:index'}>" class="pbtn">案例管理</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/designer/case:edit'}>" mini-form="ucenter" method="post">
+<input type="hidden" name="case_id" value="<{$detail.case_id}>" />
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr>
+        <th><span class="red">*</span>标题：</th>
+        <td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-400"/></td>
+    </tr>
+    <tr><th>小区：</th>
+        <td>
+            <input type="hidden" name="data[home_id]" id="select_home_id" value="<{$detail.home_id}>" />
+            <input type="text" id="select_home_name" name="data[home_name]" value="<{$detail.home_name}>" class="input w-200"/>
+            <a class="pbtn" id="select_home_btn"/>选择小区</a>
+        </td>
+    </tr>
+   <tr id = 'huxing' <{if $detail.huxing_id || (!$detail.huxing_id && !$detail.huxing)}><{else}>style="display:none"<{/if}>>
+        <th>户型图：</th>
+        <td>
+            <input type="hidden" id="select_huxing_id" value="<{$detail.huxing_id}>" name='data[huxing_id]'/>
+            <input type="text" id="select_huxing_name" value="<{$huxing.title}>" class="input w-200" style="vertical-align:middle"/>
+            <{if $detail.huxing_id}><img src="<{$pager.img}>/<{$huxing.photo}>" photo="<{$pager.img}>/<{$huxing.photo}>" id="select_huxing_photo" class="wh-30 <{if !$huxing.photo}>none<{/if}>" style="vertical-align:middle;display:inline;"/><{/if}>
+            <a class="pbtn" id="select_huxing_btn" style="vertical-align:middle"/>选择户型图</a><span class="text"><a onclick="choose(1)" class="blue">切换自己上传</a></span>          
+        </td>
+    </tr>
+    
+   <tr id = 'upload'  <{if $detail.huxing_id <=0 && $detail.huxing}><{else}>style="display:none"<{/if}>>
+        <th>上传户型图：</th>
+        <td>
+           <img src="<{$pager.img}>/<{$detail.huxing}>" photo="<{$pager.img}>/<{$detail.huxing}>"  class="wh-30" style="vertical-align:middle;display:inline;"/> <input type="file" name="data[huxing]" class="input w-300" /><span class="text"><a onclick="choose(2)" class="blue">切换选择户型</a></span>
+            
+        </td>
+    </tr>
+    <{widget id="attr/form" from="zx:case" value=$detail.attrvalues}>
+    <tr><th>设计思路：</th><td><textarea name="data[intro]" class="textarea w-500"><{$detail.intro}></textarea></td></tr>
+    <tr><th>SEO标题：</th><td><input type="text" name="data[seo_title]" value="<{$detail.seo_title|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>SEO关键字：</th><td><input type="text" name="data[seo_keywords]" value="<{$detail.seo_keywords|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>SEO描述：</th><td><textarea name="data[seo_description]" class="textarea w-500"><{$detail.seo_description}></textarea></td></tr> 
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $("#select_home_btn").click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var link = "<{link ctl='ucenter/misc/select:home' arg=$pager.city.city_id}>";
+        Widget.Dialog.Select(link, "N", function(ret) {
+            $("#select_home_id").val(ret[0]);
+            $("#select_home_name").val(ret[1].title);
+        }, {title: "选择小区", width: 500});
+    });
+    $("#select_huxing_btn").click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var home_id = $("#select_home_id").val();
+        if (!$.isNumeric(home_id) || home_id < 1) {
+            Widget.MsgBox.error("请先选择小区");
+            return false;
+        }
+        var link = "<{link ctl='ucenter/misc/select:huxing' arg0='#home_id#' arg1='1'}>";
+        Widget.Dialog.Select(link.replace("#home_id#", home_id), "N", function(ret) {
+            $("#select_huxing_id").val(ret[0]);
+            $("#select_huxing_name").val(ret[1].title);
+            $("#select_huxing_photo").attr("src", ret[1].photo).attr("photo", ret[1].photo).show();
+        }, {title: "选择户型图", width: 500});
+    });
+})(window.KT, window.jQuery);
+function choose(val){
+	if(val == 1){
+		$("#upload").removeAttr("style");
+		$("#huxing").css('display','none'); 
+	}else if(val == 2){
+		$("#huxing").removeAttr("style");
+		$("#upload").css('display','none'); 
+	}
+}
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,21 @@
+<{assign var="min_ititle" value="选择该装修公司"}>
+<{include file="block/mini-header.html"}>
+<form action="<{link ctl='ucenter/company/zxb:plaint'}>"  onsubmit="return plaint()" mini-form="ucenter-form" method="post">
+<input type="hidden" name="zxb_id" value="<{$zxb_id}>" />
+<table class="book" width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr><th><span class="red"> * </span>公司证据：</th><td><input  type="file" name="data[company_photo]" class="input w-300"/></td></tr>
+	<tr><th><span class="red"> * </span>公司描述：</th><td><textarea id ='content' name="data[company_content]" class="textarea" style="width:360px;" placeholder="我要投诉业主"></textarea></td></tr>
+	<tr><th></th><td><input value="确定" class="btn btn_sub_tuan" type="submit"></td></tr>
+</tbody></table>
+</form>
+<script language="javascript" type="text/javascript">
+	function plaint() {
+		var content = $("#content").val();
+		if(content == ''){
+			Widget.MsgBox.error("内容不能为空");
+			return false;  	
+		}
+        return true;  
+    }  
+</script>
+<{include file="block/mini-footer.html"}>

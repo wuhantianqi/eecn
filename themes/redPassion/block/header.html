@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{include file="block/sheader.html"}>
+</head>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<!--头部内容开始-->
+<{include file="block/top-header.html"}>
+<div class="main_header">
+	<div class="mainwd top_bottom">
+		<div class="logo lt">
+			<a href="<{link ctl='index'}>"><img src="%THEME%/static/images/logo.png" class="logo lt" /></a>
+			<p class="lt"><font class="fontcl1"><{$request.city.city_name}></font>
+				<{if $CONFIG.site.multi_city}><a href="<{link ctl='city'}>">[切换城市]</a><{/if}>
+			</p>
+		</div>
+		<div class="search_box lt">
+			<{widget id="public/sobox" sokw=$pager.sokw}>
+		</div>
+		<div class="site_commitment rt">
+			<ul>
+				<li><a href="<{link ctl='tenders'}>"><span class="index_ico ico1"></span></a></li>
+				<li><a href="<{link ctl='tenders'}>"><span class="index_ico ico2"></span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main_nav">
+		<div class="mainwd hoverno">
+			<ul>
+				<li><a href="<{link ctl='index'}>" <{if $request.ctl=='index'}>class="current"<{/if}>>首页</a>
+				</li>
+				<li><a <{if $request.ctl=='tenders'}>class="current"<{/if}> href="<{link ctl='tenders'}>">我要装修</a>
+				</li>
+				<li>
+					<a <{if $request.ctl=='gs' || $request.ctl=='designer' || $request.ctl=='gz'   || $request.ctl=='mechanic' || $request.ctl=='youhui'  }>class="current"<{/if}> href="<{link ctl='gs'}>">找装修公司</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='gs'}>">找装修公司</a></li>
+						<li><a href="<{link ctl='designer'}>">找设计师</a></li>
+						<li><a href="<{link ctl='mechanic'}>">找工人</a></li>
+						<li><a href="<{link ctl='youhui'}>">优惠信息</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a <{if $request.ctl=='home' || $request.ctl=='site'}>class="current"<{/if}> href="<{link ctl='home'}>">我搜我家</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='home'}>">小区楼盘</a></li>
+						<li><a href="<{link ctl='home:map'}>">楼盘地图</a></li>
+						<li><a href="<{link ctl='site'}>">在建工地 </a></li>
+						<li><a href="<{link ctl='home:tuan'}>">团装小区</a></li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='case'}>class="current"<{/if}> href="<{link ctl='case'}>">装修案例</a></li>
+				<li>
+					<a <{if $request.ctl=='article' || $request.ctl=='diary' || $request.ctl=='ask' }>class="current"<{/if}> href="<{link ctl='article'}>">学装修</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='diary'}>">装修日记</a></li>
+						<li><a href="<{link ctl='ask'}>">知识问答</a></li>
+						<li><a href="<{link ctl='article'}>">装修课堂</a></li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="current"<{/if}> href="<{link ctl='activity'}>">优惠活动</a>
+				<ul class="main_nav_son none">
+						<li><a href="<{link ctl='mall/coupon-items'}>">优惠券</a></li>
+					</ul>
+				</li>
+                <li><a <{if $request.ctl=='news'}>class="current"<{/if}> href="<{link ctl='news'}>">本地新闻</a>
+				</li>
+				<li class="last">
+					<a <{if $request.ctl=='mall/index' || $request.ctl=='mall/store'}>class="current"<{/if}>  href="<{link ctl='mall'}>">家居商城</a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='mall/index'}>">商城主页</a></li>
+						<li><a  href="<{link ctl='mall/store'}>">商家列表</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".search_box .search_cont").mouseover(function(){
+			var o = $(".topso").offset();
+			$(this).find(".search_cont_list").css({left:o.left,top:o.top+35}).show();
+		}).mouseleave(function(){
+			$(this).find(".search_cont_list").hide();
+		});
+		$(".search_cont_list a").click(function(){
+			$(".search_box .search_cont #top_select").html($(this).text()+'<span class="search_ico index_ico"></span>');
+			$(".search_box form").attr('action',$(this).attr('rel'));
+			$(".search_box .search_cont_list").hide();
+		}); 
+		$(".main_nav ul li").mouseover(function(){
+			$(this).find(".main_nav_son").show();
+			$(this).addClass('current');
+			}).mouseleave(function(){
+				$(this).removeClass('current');
+				$(this).find(".main_nav_son").hide();
+				
+		});
+	});
+</script>

@@ -1,0 +1,27 @@
+<{assign var="tpl_page_title" value="我的投标"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	<{if !$items}><div class="no_record">暂无记录信息</div><{/if}>
+    <{foreach $items as $item}>
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0">
+        	<tr><td>招标：<{$tenders_list[$item.tenders_id].title|default:'--'}></td></tr>
+            <tr><td>联系人：<{$tenders_list[$item.tenders_id].contact}></td></tr>
+			<tr><td>电话：<{$tenders_list[$item.tenders_id].mobile}></td></tr>
+            <tr><td>竞标时间：<{$item.dateline|format}></td></tr>
+			<tr><td>
+				状态：
+                 <{if $item.is_signed}>
+                <b>恭喜签单</b>
+                <{elseif $tenders_list[$item.tenders_id].status}>
+                <b>他人签单</b>
+                <{else}>
+                <b class="pointcl">竞标中</b>
+                <{/if}>
+				</td>
+			</tr>
+		</table>
+	</div>
+    <{/foreach}>
+</div>
+<{include file="mobile/block/footer.html"}>

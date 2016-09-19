@@ -1,0 +1,30 @@
+<{include file="ucenter/block/header.html"}>
+<link type="text/css" rel="stylesheet" href="%THEME%/weixin/static/style/ucenter.css" />
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.qrcode.min.js"></script>
+<div class="ucenter_t">
+    <ul>
+        <li<{if $pager.from =='index'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='index'}>">首页模板</a></li>
+        <li<{if $pager.from =='lists'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='lists'}>">列表页模板</a></li>
+        <li<{if $pager.from =='detail'}> class="on"<{/if}>><a href="<{link ctl='ucenter/weixin/msite:tmpl' arg0='detail'}>">内容页模板</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <p class="tips"><span class="notice">下面任意一种方式都可以访问到微官网</span></p>
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>方式一、</th><td>在微信公众号中回复 “微官网” </td></tr>
+        <tr><th>方式二、</th><td>使用电脑浏览器访问 <a href="<{link ctl='weixin/msite:index' arg0=$msite.wx_id http='www'}>" target="_blank"><b class="red">立即访问</b></a></td></tr>
+        <tr><th>方式三、</th>
+            <td>用微信扫一扫<br />
+                <div style="width:200px;height:200px;border:1px solid #E7E7EB;padding:5px;" id="wxmsite_qr"></div>
+            </td>
+        </tr>
+        <tr><th></th><td></td></tr>
+    </table>
+    </form>
+</div>
+<script type="text/javascript">
+(function(){
+$("#wxmsite_qr").qrcode({width:200,height:200,correctLevel:0,text:"<{link ctl='weixin/msite:index' arg0=$msite.wx_id http='www'}>"}); 
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

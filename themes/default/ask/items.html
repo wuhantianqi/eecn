@@ -1,0 +1,52 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='ask'}>">知识问答</a>
+			><a href="<{link ctl='ask:items' arg0=$cat_id}>" >问答列表</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="mb20 area ">
+			<h3 class="side_tit nd_answer">
+            	<{foreach $cate_list as $item}>
+                    <{if $item.parent_id == 0}>
+                    <a href="<{link ctl='ask:items' arg0=$item.cat_id arg1=$pager.type arg2=1}>" <{if $item.current == 'current'}>class="current"<{/if}>><{$item.title}></a>
+                    <{/if}>
+                <{/foreach}>
+			</h3>
+			<div class="pding article_list nd_answer_list">
+				<{foreach $cate_list as $item}>
+                <{if $item.parent_id != 0 && $item.parent_id == $pager.parent_id}>
+                <a href="<{link ctl='ask:items' arg0=$item.cat_id arg1=$pager.type arg2=1}>" <{if $item.current == 'current'}>class="current"<{/if}>><{$item.title}></a>
+                <{/if}>
+                <{/foreach}>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<div class="mb20">
+			<ul class="qe_fenlei hoverno">
+                <li><a href="<{link ctl='ask:items' arg0=$pager.cat_id arg1=0 arg2=1}>" <{if $pager.type ==0}>class="current"<{/if}> >全部问题</a></li>
+                <li><a href="<{link ctl='ask:items' arg0=$pager.cat_id  arg1=1 arg2=1}>" <{if $pager.type ==1}>class="current"<{/if}>>已解决问题</a></li>
+                <li><a href="<{link ctl='ask:items' arg0=$pager.cat_id  arg1=2 arg2=1}>" <{if $pager.type ==2}>class="current"<{/if}>>待解决问题</a></li>
+			</ul>
+			<div class="area mb10">
+				<ul class="pding question_list">                
+                    <{foreach $items as $item}> 
+                    <li><a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="lt"><{$item.title|cutstr:100}></a>
+                    <p class="rt graycl"><span>回答(<font class="fontcl2"><{$item.answer_num}></font>)</span><span><{$item.dateline|format}></span></p>
+                    <{/foreach}>
+				</ul>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+	<{include file="ask/block/right.html"}>
+<{include file="block/footer.html"}>

@@ -1,0 +1,43 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/shop:base'}>" >基本设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li class="on"><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>       
+        <li><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">	
+    <{if $shop.group.allow_domain < 0}>
+    <div class="tips"><span class="notice">您的等级是<b class="red">【<{$shop.group.group_name}>】</b>没有权限设置个性域名</span></div>
+    <{elseif $shop.domian}>
+    <div class="tips"><span class="success">您已经设置为个性域名了</span></div>
+    <{else}>
+    <div class="tips"><span class="notice">设置个性域名，域名长度应为: 3-12, 一但设置不可修改</span></div>
+    <{/if}>
+    <form id="ucenter-form">
+    <table cellspacing="0" cellpadding="0" class="form">
+    <{if $shop.group.allow_domain < 0}>
+        <tr><th>个性域名：</th>
+            <td>http://<input name="domain" type="input" value="" class="input w-100" disabled /><font style="font-size:14px;">.<{$domain_shop}></font></td>
+        </tr>
+    <{elseif $shop.domain}>
+    <tr><th>个性域名：</th><td><a href="http://<{$shop.domain}>.<{$CONFIG.domain.shop}>">http://<em class="red"><{$shop.domain}></em>.<{$CONFIG.domain.shop}></font></td></tr>
+    <{else}>
+        <tr><th>个性域名：</th>
+            <td><input name="domain" type="input" value="" class="input w-100" /><font style="font-size:14px;">&nbsp;.<{$CONFIG.domain.shop}></font></td>
+        </tr>
+        <tr>
+            <th></th><td><input action="<{link ctl='ucenter/shop:domain'}>" mini-submit="#ucenter-form" type="button" value="设置域名" class="green_btn" /></td>
+        </tr>
+    <{/if}>        
+    </table>
+    </form>
+</div>
+<!--//右面下开始-->
+<{include file="ucenter/block/footer.html"}>

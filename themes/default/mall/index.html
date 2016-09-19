@@ -1,0 +1,108 @@
+<{include file="block/header.html"}>
+<div class="mainwd">
+	<div style="height:590px;padding-top:100px;text-align:center;">
+	
+	<p>尊敬的用户您好！<br/>
+	感谢您的访问，优优美家家居商城正在升级维护中，敬请关注</p>
+	</div>
+	<!--banner内容开始-->
+	<!-- <div class="mb20 index_banner">
+		<div class="lt mall_top"><{include file="mall/block/mall_cate.html"}></div>
+		<div class="rt mall_banner">
+			<div class="mall_banner_top"><{adv id="11" name="商城首页轮转广告" city_id=$request.city_id}></div>
+			<div class="mall_banner_bottom ">
+				<div class="mall_banner_bt_lt lt">					
+					<div class="mall_banner_bt_lt_ul"><{adv id="12" name="商城首页轮转下方的图片广告" city_id=$request.city_id}></div>
+				</div>
+				<div class="mall_banner_bt_rt rt">
+					<h3>招商入驻</h3>
+					<p><a href="<{link ctl='passport'}>" class="btn btn_sub_tuan">申请商家入驻</a></p>
+					<p><a href="<{link ctl='passport'}>">登录商家管理中心</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="cl">
+		</div>
+	</div> -->
+	<!--banner内容结束-->
+	<!--商品分类内容开始-->
+	<!-- <div class="mb20 mall_list">
+		<h2><span class="lt">1F全屋定制</span><a href="<{link ctl='mall/product'}>" class="rt">更多>></a>
+		</h2>
+		<div class="cl"></div>
+		<div class="mall_box area">
+			<div class="mall_ad lt"><{adv id="13" name="商城首页1F全房定制" city_id=$request.city_id}>
+            <{adv id="21" name="商城首页基础建材图片广告2" city_id=$request.city_id}>
+            </div>
+			<ul class="line_type mall_ul lt">
+				<{KT id="31" name="商城首页1F全房定制" city_id=$request.city_id}>
+				<li>
+					<a href="<{if $item.link}><{$item.link}><{else}><{link ctl='mall/product:detail' arg0=$item.producdt_id arg1='1'}><{/if}>" class="pic"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a>
+					<p class="sp"><b><a href="<{$item.link}>"><{$item.title}>【<{$item.ext.shop.name}>】</a></b></p>
+					<p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+				</li>
+				<{/KT}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="mb20 mall_list">
+		<h2><span class="lt">2F软装配饰</span><a href="<{link ctl='mall/product'}>" class="rt">更多>></a>
+		</h2>
+		<div class="cl"></div>
+		<div class="mall_box area">
+			<div class="mall_ad lt"><{adv id="14" name="商城首页2F软装配饰" city_id=$request.city_id}>
+            <{adv id="22" name="商城首页2F软装配饰2" city_id=$request.city_id}>
+            </div>
+			<ul class="line_type mall_ul lt">
+				<{KT id="32" name="商城首页2F软装配饰" city_id=$request.city_id}>
+				<li>
+					<a href="<{if $item.link}><{$item.link}><{else}><{link ctl='mall/product:detail' arg0=$item.producdt_id arg1=1}><{/if}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+					<p class="sp"><b><a href="<{$item.link}>"><{$item.title}>【<{$item.ext.shop.name}>】</a></b></p>
+					<p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+				</li>
+				<{/KT}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="mb20 mall_list">
+		<h2><span class="lt">3F智能家居</span><a href="<{link ctl='mall/product'}>" class="rt">更多>></a>
+		</h2>
+		<div class="cl"></div>
+		<div class="mall_box area">
+			<div class="mall_ad lt"><{adv id="15" name="商城首页3F家具" city_id=$request.city_id}><{adv id="23" name="商城首页3F家具2" city_id=$request.city_id}></div>
+			<ul class="line_type mall_ul lt">
+				<{KT id="33" name="商城首页3F家具" city_id=$request.city_id}>
+				<li>
+					<a href="<{if $item.link}><{$item.link}><{else}><{link ctl='mall/product:detail' arg0=$item.producdt_id arg1=1}><{/if}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+					<p class="sp"><b><a href="<{$item.link}>"><{$item.title}>【<{$item.ext.shop.name}>】</a></b></p>
+					<p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+				</li>
+				<{/KT}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="mb20 mall_list">
+		<h2><span class="lt">4F暖通空调</span><a href="<{link ctl='mall/product'}>" class="rt">更多>></a>
+		</h2>
+		<div class="cl"></div>
+		<div class="mall_box area">
+			<div class="mall_ad lt"><{adv id="16" name="商城首页4F家用电器" city_id=$request.city_id}><{adv id="24" name="商城首页4F家用电器2" city_id=$request.city_id}></div>
+			<ul class="line_type mall_ul lt">
+				<{KT id="34" name="商城首页4F家用电器" city_id=$request.city_id}>
+				<li>
+					<a href="<{if $item.link}><{$item.link}><{else}><{link ctl='mall/product:detail' arg0=$item.producdt_id arg1=1}><{/if}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+					<p class="sp"><b><a href="<{$item.link}>"><{$item.title}>【<{$item.ext.shop.name}>】</a></b></p>
+					<p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+				</li>
+				<{/KT}>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div> -->
+	<!--商品分类内容结束-->
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

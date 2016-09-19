@@ -1,0 +1,34 @@
+<{include file="ucenter/block/header.html"}>
+
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-100"></th><th>投诉内容</th><th>投诉时间</th><th class="w-200">反馈</th><th class="w-100">反馈时间</th><th class="w-100">平台内容</th><th class="w-100">操作</th>
+    </tr>
+    <{foreach $plaint as $item}>
+    <{if $item.type == 1}>
+    <tr>
+        <td><span style="color:#F00">您被投诉</span></td>
+        <td><{$item.yezhu_content|cutstr:30}></td>
+        <td><{$item.yezhu_time|format:'Y-m-d'}></td>
+        <td><{$item.company_content|cutstr:30}></td>
+        <td><{$item.company_time|format:'Y-m-d'}></td>
+        <td><{$item.content|cutstr:30}></td>
+        <td><a href="<{link ctl='ucenter/company/zxb:plaintedit' arg0=$item.plaint_id}>" class="pbtn">查看修改/a>
+        </td>
+    </tr>
+     <{elseif $item.type == 2}>
+     <tr>
+        <td>您已投诉</td>
+        <td><{$item.company_content|cutstr:30}></td>
+        <td><{$item.company_time|format:'Y-m-d'}></td>
+        <td><{$item.yezhu_content|cutstr:30}></td>
+        <td><{$item.yezhu_time|format:'Y-m-d'}></td>
+        <td><{$item.content|cutstr:30}></td>
+        <td><a href="<{link ctl='ucenter/company/zxb:plaintedit' arg0=$item.plaint_id}>" class="pbtn">查看修改/a>
+        </td>
+    </tr>
+    <{/if}>
+   <{/foreach}>
+    </table>
+</div>

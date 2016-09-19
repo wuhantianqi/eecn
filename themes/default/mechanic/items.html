@@ -1,0 +1,120 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='mechanic'}>">找工人</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="main_nav_content">
+<{adv id="42" name="装修公司-找工人页面头部广告" city_id=$request.city_id}>
+<!-- <div class="zbform_box"><{widget id="tenders/fast" title="免费设计报价" from="TSJ"}></div> -->
+</div>
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="mb10 pding area choose_option">
+			<table>
+                <tr>
+                    <td class="tit">区域</td>
+                    <td>
+                        <a href="<{$area_all_link}>" <{if empty($pager.area_id)}>class="current"<{/if}>>不限</a>
+                        <{foreach $area_list  as $v}>
+                        <a href="<{$v.link}>" <{if $v.area_id==$pager.area_id}>class="current"<{/if}>><{$v.area_name}></a>
+                        <{/foreach}>
+                    </td>
+                </tr>
+                <{if $group_list}>
+                <tr>
+                    <td class="tit">等级</td>
+                    <td>
+                        <a href="<{$group_all_link}>" <{if empty($pager.group_id)}>class="current"<{/if}>>不限</a>
+                        <{foreach $group_list as $v}>
+                        <a href="<{$v.link}>" <{if $v.group_id==$pager.group_id}>class="current"<{/if}>><{$v.group_name}></a>
+                        <{/foreach}>
+                    </td>
+                </tr>
+                <{/if}>              
+                <{foreach $attr_values as $v}>
+                <tr>
+                <td class="tit"><{$v.title}>&nbsp;&nbsp;</td>
+                <td><a href="<{$v.link}>" <{if $v.checked}>class="current"<{/if}>>不限</a>
+                <{foreach $v.values as $vv}>
+                    <a  href="<{$vv.link}>"  <{if $vv.checked}>class="current"<{/if}>><{$vv.title}></a>
+                <{/foreach}>
+                </tr>
+                <{/foreach}>
+			</table>
+		</div>
+		<div class="mb20">
+			<!-- <h2><font class="lt">工人列表</font><span class="rt tit">共有<font class="fontcl2"><{$pager.count|default:'0'}></font>位工人</span></h2> -->
+			<div class="cl"></div>
+			<div class="sort_box">
+				<p class="sort_list hoverno">
+                    <{foreach $order_list  as $k=>$v}>
+                    <a href="<{$v.link}>"><{$v.title}><span <{if $k == $pager.order}>class="sort_ico ico_list sort_on_ico"<{else}>class="sort_ico ico_list"<{/if}>></span></a>
+                    <{/foreach}> 
+				</p>
+			</div>
+			<div class="area">
+				<ul class="block_type main_worker_ul">
+                    <{foreach $items as  $item}>                    	
+                    <li <{if $item@index%5 == 0}> class="first"<{/if}>>
+                        <div class="main_list">
+                            <a href="<{link ctl='mechanic:detail' arg0=$item.uid}>" class="pic"><img src="<{$pager.img}>/<{$item.face}>" /></a>
+                            <p><b class="tit"><a href="<{link ctl='mechanic:detail' arg0=$item.uid}>"><{$item.name}></a></b></p>
+                            <p><span class="lt">预约数<font class="fontcl2"><{$item.yuyue_num}></font></span>|
+                            <a href="<{link ctl='mechanic:detail' arg0=$item.uid}>" class="rt btn_sub_smler btn">在线预约</a>
+                            </p>
+                        </div>
+                    </li>
+                    <{/foreach}>
+				</ul>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>			
+	</div>
+</div>
+	<!-- <div class="side_content rt">
+		<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+		<div class="mb10 area">
+			<h3 class="side_tit">技工排行榜</h3>
+            <ul class="pding paihang">
+                <{calldata mdl="mechanic/mechanic" city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='mechanic:detail' arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>   
+      	<div class="mb10 area">
+			<h3 class="side_tit">设计师排行</h3>
+			<ul class="pding paihang">
+            	<{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+                    <li>
+                        <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog' arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                        <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                    </li>
+                 <{/calldata}> 
+			</ul>
+		</div>
+        
+		 <div class="mb20 "><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+	</div> -->
+	<div class="cl"></div>
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

@@ -1,0 +1,77 @@
+<{include file="block/header.html"}>
+<!--头部内容结束-->
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="#">优优美家</a>><a href="#">家居商城</a>><a href="#">商家列表</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="mb10 area pding mall_option hoverno">
+			<{foreach $cate_list as $v}>
+			<{if !$v.parent_id}><a href="<{link ctl='mall/store' arg0=$v.cat_id arg1=$pager.order arg2=1}>"<{if $v.cat_id == $pager.cat_id}> class="current"<{/if}>><{$v.title}></a><{/if}>
+			<{/foreach}>
+		</div>
+		<div class="mb20">
+			<h2>商铺列表</h2>
+			<div class="sort_box">
+				<p class="sort_list hoverno">
+					<span class="rt"><a href="<{link ctl='mall/store'}>" title="商家列表" class="on"><font class="ico_list sj_on"></font></a>
+				<a href="<{link ctl='mall/product'}>" title="商品列表" ><font class="ico_list block_over"></font></a>
+				</span>
+				</p>
+			</div>
+			<div class="area">
+				<ul class="block_type main_designer_ul">
+					<{foreach $items as $item}>
+					<li>
+						<div class="main_mall main_list">
+							<a href="<{$item.shop_url}>" class="lt pic"  target="_blank"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+							<div class="main_mall_rt main_list_rt rt">
+								<h3>
+									<p class="lt"><b><a href="<{$item.shop_url}>"  target="_blank"><{$item.name}></a></b></p>
+									<span class="rt">信誉指数：<{$item.score}></span>
+								</h3>
+								<div class="lt">
+									<p>联系电话：<{$item.show_phone}></p>
+									<p>店铺等级：<{$item.group.group_name}></p>
+									<p><span>共有商品：<font class="fontcl2"><{$item.products}></font>件 </span><span>浏览量：<font class="fontcl2"><{$item.views}></font></span></p>
+								</div>
+								<div class="rt"><a href="<{$item.shop_url}>" class="btn_main_big btn rt">进入店铺</a></div>
+							</div>
+							<div class="cl"></div>
+						</div>
+					</li>
+					<{/foreach}>
+				</ul>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="side_content rt">
+		<{widget id="tenders/fast" title="建材招标" from="TJC"}>
+		<div class="mb20 area">
+			<h3 class="side_tit">热门排行</h3>
+			<ul class="mall_ul side_mall_ul pding">
+                <{KT id="35" name="商城商品列表右侧热卖商品" city_id=$request.city_id}>
+                <li>
+                    <a href="<{$item.link}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+                    <p><b><a href="<{$item.ext.shop.shop_url}>" class="tit"><{$item.ext.shop.name}></a></b></p>
+                    <p><a href="<{$item.link}>"><{$item.name}></a></p>
+                    <p class="price"><b class="fontcl2">￥<{$item.price}></b><span>￥<{$item.market_price}></span></p>
+                </li>
+                <{/KT}>
+			</ul>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<!--底部内容开始-->
+<{include file="block/footer.html"}>

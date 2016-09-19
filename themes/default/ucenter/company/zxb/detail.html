@@ -1,0 +1,100 @@
+<{include file="ucenter/company/zxb/block/zxb_header.html"}>
+<div class="ucenter_bao_box">
+	<p class="title"><{$status[$now_status]}></p>
+    <form action="<{link ctl='ucenter/company/zxb:detail' arg0=$item.zxb_id arg1=$item.status+1}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+	<input type="hidden" name="step_id" value="<{$step.step_id}>" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+    <ul class="ucenter_zxb_rz">
+            <li>
+                <{if $step.yezhu_status == 1}><span class="renz_ico renz_ico1"></span><{else}><span class="renz_ico renz_no_ico1"></span><{/if}>
+            </li>
+            
+            <li>
+                <{if $step.company_status == 1}><span class="renz_ico renz_ico2"></span><{else}><span class="renz_ico renz_no_ico2"><{/if}>
+            </li>
+            <li>
+                <{if $step.status == 1}><span class="renz_ico renz_ico3"></span><{else}><span class="renz_ico renz_no_ico3"><{/if}>
+            </li>
+    </ul>
+    <{if $step.yezhu_status == 0 && $step.company_id}>
+    
+    		<tr>
+				<th>完工描述：</th>
+				<td><textarea name="data[company_content]" class="text" style="width:600px;height:100px;"><{$step.company_content}></textarea></td>
+			</tr>
+            <tr>
+				<th>图片上传：</th>
+				<td><input type="file" name="files[]" class="text full" multiple />
+                 <{if $photo}>
+                     <{foreach $photo as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>" photo="<{$pager.img}>/<{$v.photo}>" class="wh-30" style="vertical-align:middle;display:inline;"/>
+                     <{/foreach}>
+                 <{/if}>
+                
+                </td>
+			</tr>
+         
+        	<tr><th>确认完工：</th><td><input type="submit" value="修改提交" class="green_btn" /></td></tr>
+    	<{elseif $step.yezhu_status == 0 && !$step.company_id}>
+    	
+        	<tr>
+				<th>完工描述：</th>
+				<td><textarea name="data[company_content]" class="text" style="width:600px;height:100px;"><{$step.company_content}></textarea></td>
+			</tr>
+            <tr>
+				<th>图片上传：</th>
+				<td><input type="file" name="files[]" class="text full" multiple />可以多图上传</td>
+			</tr>
+       		<tr><th>确认完工：</th><td><input type="submit" value="确认提交" class="green_btn" /></td></tr>
+       <{else}>
+        	 <tr><th>业主打款证据：</th>
+                    <td>
+                         <{if $step.yezhu_photo}><img src="<{$pager.img}>/<{$step.yezhu_photo}>" photo="<{$pager.img}>/<{$step.yezhu_photo}>"/><{/if}>
+                    </td>
+                </tr>
+                <tr><th>业主内容：</th>
+                    <td><{$step.yezhu_content}></td>
+                </tr>
+            <tr><th>公司描述：</th><td><{$step.company_content}></td></tr>
+            <tr><th>公司完工证明：</th><td>
+            			<{foreach $photo as $v}>
+                            <img src="<{$pager.img}>/<{$v.photo}>">
+                        <{/foreach}>
+            </td></tr>
+            <tr><th>平台审核内容：</th><td><{$step.content}></td> </tr>
+    	<{/if}>
+    </table>
+ </form>  
+ </div> 
+<script>
+	jQuery(window).load(function () {
+			
+            jQuery("img").each(function () {
+                DrawImage(this,680,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,16 @@
+<{assign var="tpl_page_title" value="学装修列表"}>
+<{include file="mobile/block/header.html"}>
+<ul class="app_menu study_menu">
+	<{foreach $items as $item}>
+	<li>
+		<a href="<{link ctl='mobile/article:detail' arg0=$item.article_id}>">
+		<img src="<{$pager.img}>/<{$item.thumb}>" class="lt" />
+		<h2><{$item.title}></h2>
+		<p class="nowrap"><{$item.desc|cutstr:50}></p>
+		<div class="cl"></div>
+		</a>
+	</li>
+    <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

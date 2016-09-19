@@ -1,0 +1,93 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/company:info'}>">公司设置</a></li>
+        <{if $CONFIG.domain.company}>
+        <li><a href="<{link ctl='ucenter/company:domain'}>">个性域名</a></li>
+        <{/if}>        
+        <li><a href="<{link ctl='ucenter/company/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/company:skin'}>">公司模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<{if $company_no_open}><div class="tips"><span class="notice">您还没有填写公司信息，请先填写公司信息</span></div><{/if}>
+<form action="<{link ctl='ucenter/company:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th><span class="red">*</span>公司名称：</th><td><input type="text" name="data[title]" value="<{$company.title|default:''}>" class="input w-300"/></td></tr>
+    <tr><th><span class="red">*</span>公司简称：</th><td><input type="text" name="data[name]" value="<{$company.name|default:''}>" class="input w-300"/></td></tr>
+    <tr><th><span class="red">*</span>服务口号：</th><td><input type="text" name="data[slogan]" value="<{$company.slogan|default:''}>" class="input w-300"/></td></tr>
+    <{if $company.city_id}>
+    <tr>
+        <th class="w-100"><span class="red">*</span>地区：</th>
+        <td>
+            <label><b class="blue"><{$company.city_name}></b></label>&nbsp;&nbsp;&nbsp;
+            <label><select name="data[area_id]" class="select w-100"><{widget id="data/area" value=$company.area_id city_id=$company.city_id|default:$MEMBER.city_id}></select></label>
+        </td>
+    </tr>
+    <{else}>
+    <tr>
+        <th class="w-100"><span class="red">*</span>地区：</th>
+        <td><{widget id="data/region" city_id=$request.city_id class="select w-150"}></td>
+    </tr>
+    <{/if}>
+   <tr><th>长方形LOGO：</th>
+        <td>
+            <input type="file" name="data[logo]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+            <{if $company.logo}><img src="<{$pager.img}>/<{$company.logo}>" photo="<{$pager.img}>/<{$company.logo}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+            <span class="tip-comment">尺寸大小：<{$CONFIG.attach.company.logo|default:'200X100'}></span>
+        </td>
+    </tr>
+    <tr><th>正方形LOGO：</th>
+        <td>
+            <input type="file" name="data[thumb]" class="input w-300" style="vertical-align:middle;display:inline;"/>
+            <{if $company.thumb}><img src="<{$pager.img}>/<{$company.thumb}>" photo="<{$pager.img}>/<{$company.thumb}>" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+            <span class="tip-comment">尺寸大小：<{$CONFIG.attach.company.thumb|default:'200X200'}></span>
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>联系人：</th><td><input type="text" name="data[contact]" value="<{$company.contact|default:''}>" class="input w-300"/></td></tr>
+    <tr><th><span class="red">*</span>电话：</th><td><input type="text" name="data[phone]" value="<{$company.phone|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>手机：</th><td><input type="text" name="data[mobile]" value="<{$company.mobile|default:''}>" class="input w-200"/>手机建议填写：用于接收预约短信通知</td></tr>
+    <tr><th>QQ：</th><td><input type="text" name="data[qq]" value="<{$company.qq|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>地图坐标：</th>
+        <td>
+            <label>经度:<input type="text" name="data[lng]" value="<{$company.lng}>" id="Bmap_marker_lng" class="input w-100"/></label>
+            <label>纬度:<input type="text" name="data[lat]" value="<{$company.lat}>" id="Bmap_marker_lat" class="input w-100"/></label>   
+            <span class="tip-comment"><a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="pbtn"><b>拾取工具</b></a></span>
+        </td>
+    </tr>  
+    <tr><th><span class="red">*</span>地址：</th><td><input type="text" name="data[addr]" value="<{$company.addr|default:''}>" class="input w-500"/></td></tr>
+    <{widget id="attr/form" from="zx:company" value=$attr_values}>
+    
+	<tr><th>视频地址：</th><td><input type="text" name="data[video]" value="<{$company.video|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>公司简介：</th><td><textarea name="fields[info]" kindeditor="simple" style="width:550px;height:350px;"><{$company.info}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+$("select[name='data[city_id]']").live('change', function(){
+    var city_id = $(this).val();
+    if(!city_id){return false;}
+    var link = "<{link ctl='magic:area' arg0='#city_id#' http=true}>"
+    $.getJSON(link.replace("#city_id#", city_id), function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else if(ret.areas.length>0){
+            var html = "";
+            for(var i=0; i<ret.areas.length; i++){
+                html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+            }
+            $("select[name='data[area_id]']").html(html);       
+        }else{
+            $("select[name='data[area_id]']").html('<option value="">--</option>');
+        }
+    });
+});
+
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

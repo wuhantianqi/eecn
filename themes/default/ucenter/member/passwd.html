@@ -1,0 +1,25 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li><a href="<{link ctl='ucenter/member:info'}>">基本信息</a></li>
+		<li class="on"><a>修改密码</a></li>
+		<li><a href="<{link ctl='ucenter/member:mail'}>">更换邮箱</a></li>
+		<li><a href="<{link ctl='ucenter/member:face'}>">修改头像</a></li>
+	</ul>
+</div>
+<div class="ucenter_c">
+    <form id="account-form">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>用户名：</th><td><b class="blue"><{$MEMBER.uname}></b></td></tr>
+        <tr><th><span class="red"> * </span>原密码：</th><td><input name="account[old_passwd]" type="password" value="" class="input" /></td></tr>
+        <tr><th><span class="red"> * </span>新密码：</th><td><input name="account[passwd]" type="password" value="" class="input" /></td></tr>
+        <tr><th><span class="red"> * </span>确认密码：</th><td><input name="account[confirm_passwd]" type="password" value="" class="input" /></td></tr>
+        <tr>
+			<th></th>
+            <td><input action="<{link ctl='ucenter/member:passwd'}>" mini-submit="#account-form" type="button" value="提交数据" class="green_btn" /></td>
+		</tr>
+    </table>
+    </form>
+</div>
+<!--//右面下开始-->
+<{include file="ucenter/block/footer.html"}>

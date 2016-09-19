@@ -1,0 +1,98 @@
+<div class="banner_left">
+		<h1>免费设计与报价</h1>
+		<p class="banner_p">10秒登记,免费获取方案报价</p>
+		<form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
+			<div class="ten_top">
+            	<input type="hidden" name="data[from]" value="TZX" />
+				<input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
+				<input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
+				<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+			</div>
+			<div class="checkbox">
+			  <label>
+			    <input type="checkbox" value="" checked="checked">
+			    	我已阅读并接受<a href="help-yonghuxieyi.html">《装修常见问题条款》</a>
+			  </label>
+		</div>
+			<div class="menu_list_ep">
+				<input type="button" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
+			</div>
+		</form>
+</div>
+
+<!-- <div class="index_banner">
+	<div class="banner_lunz lt"><{adv name="仿土巴兔模板首页导航下的轮播广告" city_id=$request.city_id}></div>
+	<div class="index_tender rt">
+		<h2 class="fontcl2">免费获取 3 份设计方案</h2>
+		<p>三家正规装修公司，专业设计师为您免费服务</p>
+		<form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
+			<div class="ten_top">
+            	<input type="hidden" name="data[from]" value="TZX" />
+				<input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
+				<input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
+				<select name="data[budget_id]" class="text full"><{widget id="tenders/setting" type="budget"}></select>
+				<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+			</div>
+			<div class="menu_list_ep">
+				<input type="button" value="免费申请" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
+			</div>
+		</form>
+	</div>
+	<div class="cl"></div>
+</div> -->
+<script type="text/tmpl" id="tenders_ok">
+    <div class="menu_list_ok_top">
+		<h2 class="fontcl2">
+			恭喜您，申请成功！</h2>
+		<p>优优美家客服将于24小时内与您联系！</p>
+		<div class="menu_ok_link">
+			<ul>
+				<li>
+					<a href="<{link ctl='zxb'}>">
+					<span class="link_ico link_ico1 lt"></span>
+					<div class="lt">
+						<p class="title">装修保<font class="graycl">/装修界的支付宝</font></p>
+					</div>
+					</a>
+				</li>
+				<li>
+					<a href="<{link ctl='app'}>">
+					<span class="link_ico link_ico2 lt"></span>
+					<div class="lt">
+						<p class="title">手机端<font class="graycl">/随时随地装修</font></p>
+						<p></p>
+					</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+(function(K, $){
+$("[mini-tenders]").click(function(){
+    Widget.MsgBox.load("数据处理中。。。");
+    var ident = $(this).attr("mini-tenders");
+    $.post("<{link ctl='tenders:save' http='base'}>", $("#"+ident).serialize(), function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else{
+            $("#"+ident).html($("#tenders_ok").html());
+            if(ret.wx_tenders_qr){
+                $("[lay='"+ident+"'] .erweima_box img").attr("src", ret.wx_tenders_qr);
+                $("[lay='"+ident+"'] .erweima_box").show();
+            }
+			Widget.MsgBox.hide();
+        }
+        
+    }, 'json');
+});
+
+})(window.KT, window.jQuery);
+	
+</script>
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "index.php?magic-verify&_"+Math.random());
+});
+</script>

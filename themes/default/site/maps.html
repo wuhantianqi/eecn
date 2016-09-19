@@ -1,0 +1,232 @@
+<{include file="block/small-header.html"}>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	var height = $(window).height();
+	$("#baidumap").css("height",height-90);			
+	$(window).resize(function(){
+		var height = $(window).height();
+		$("#baidumap").css("height",height-90);					  
+	});
+	$('#bg').click(function(){
+		var width = $(window).width();
+		$(".map_side").animate({marginLeft:0});
+		$("#baidumap").animate({width:width-370});
+		$(".map").animate({marginLeft:'370px'});
+		$(".but_open2").hide();
+		$(".but_open").show();
+	});
+	
+	$('#bg2').click(function(){
+		var width = $(window).width();
+		$(".map_side").animate({marginLeft:-370});
+		$("#baidumap").animate({width:width});
+		$(".map").animate({marginLeft:'0px'});
+		$(".but_open2").show();
+		$(".but_open").hide();
+	});
+}
+)
+</script>
+<div class="map_nav hoverno">
+	<ul class="lt">
+		<li>
+			<a href="<{link ctl='home:map'}>">楼盘地图</a>
+		</li>
+         <li>
+			<a href="<{link ctl='site:map'}>"  class="current">工地地图</a>
+		</li>
+		<li>
+			<a href="<{link ctl='gs:map'}>">公司地图</a>
+		</li>
+	</ul>
+  
+	<div class="map_search lt">
+		<input class="text" type="text" id='Baidu_Map_SO_Key' placeholder="请输入关键字" />
+		<input id = 'Baidu_Map_SO_Btn' onclick="search()"  type="button" class="btn" value="搜索" />
+	</div>
+	<div class="cl"></div>
+</div>
+<div class="main">
+	<div class="map_side">
+		<div class="map_side_sort pding" id = 'attr'>
+			<select  id ='area' onchange="change()" class="text">
+				<option>区域</option>
+                <{foreach $area_list  as $v}>
+                    <option value="<{$v.area_id}>"><{$v.area_name}></option>
+                <{/foreach}>
+			</select>
+            
+            
+			<div class="cl"></div>
+		</div>
+		<p class="side_tit">共找到<font class="fontcl2" id='jq_total_nums'>0</font>个工地</p>
+		<ul class="map_side_menu block_type" id = 'map_main_l_b'>
+			
+		</ul>
+	</div>
+	<div class="map">
+		 <div class="mapinfo_but_con">
+        	<a class="but_open" id = 'bg2'></a>
+            <a class="but_open2" id = 'bg' style="display:none"></a>
+         </div>
+		 <div id='baidumap' style="width: auto; height: 970px;"></div>
+	</div>
+     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=824a595f958e444b737a5bc6325ad44f"></script>  
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<script>
+	
+
+	$(document).ready(function () {
+		var val = 	area_id =  '';
+		if($("#Baidu_Map_SO_Key").val()){
+			var val = $("#Baidu_Map_SO_Key").val();
+		}
+		if(!isNaN($("#attr select[class='text']").eq(0).val())){
+			var area_id = $("#attr select[class='text']").eq(0).val();
+		}
+		map(val,area_id);		
+		
+			
+	});
+	
+	function search(){
+		var val = 	area_id = '';
+		if($("#Baidu_Map_SO_Key").val()){
+			var val = $("#Baidu_Map_SO_Key").val();
+		}
+		if(!isNaN($("#attr select[class='text']").eq(0).val())){
+			var area_id = $("#attr select[class='text']").eq(0).val();
+		}
+		
+		map(val,area_id);
+	}
+	
+	$("#attr select[class='text']").change( function() {
+		var val = 	area_id = '';
+		if($("#Baidu_Map_SO_Key").val()){
+			var val = $("#Baidu_Map_SO_Key").val();
+		}
+		if(!isNaN($("#attr select[class='text']").eq(0).val())){
+			var area_id = $("#attr select[class='text']").eq(0).val();
+		}
+		
+		map(val,area_id);
+	});
+    function map(val,area_id) {
+        $.ajaxSetup({cache: false});
+        var map = new BMap.Map("baidumap");
+		
+        map.centerAndZoom("<{$request.city.city_name}>", 14);
+		
+        map.addEventListener("load",function(){ //加载完成时
+            getResult(val,area_id);
+        });
+		map.enableScrollWheelZoom(true);
+        map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+        
+		 map.addEventListener("moveend", function() {
+			getResult(val,area_id,attr1,attr2);
+		 });
+		 map.addEventListener("zoomend", function() {
+			getResult(val,area_id,attr1,attr2);
+		 });
+		
+        map.addEventListener("dragend", function() {
+            map.clearOverlays();
+            getResult(val,area_id);
+        });
+		
+        window.markerData = [];    
+        window.infoWindowData = [];
+        function addMarker(data){
+            var point  = new BMap.Point(data.lng,data.lat);
+            window.markerData[data.id] = new BMap.Marker(point);
+			var sContent ="<div id = '"+data.site_id+"' class='map_position'><span>"+data.title+"</span><div id = 'attr"+data.site_id+"' class='map_pos_bt'></div></div>";		
+			var opts = {
+			  position : point, 
+			  offset   : new BMap.Size(-12, -30) 
+			}
+			window.infoWindowData[data.id] = new BMap.Label(sContent, opts);  // 创建文本标注对象]
+			window.infoWindowData[data.id].setStyle({border : "0"});
+			var content = '';
+			content +="<div class='map_tip pding'>";
+			content +="<div class='map_tip_top'>";
+			content +="<p class='cl'></p></div><div class='map_tip_intro'><div class='lt'>";
+			content +="<img src='<{$pager.img}>/"+data.thumb+"' title='"+data.title+"' class='pic'/>";
+			content +="</div><div class='rt'>";
+			content +="<p>小区名称："+data.home_name+"</p>";
+			content +="<p>总价：<b class='fontcl2'>"+data.price+"</b>万元</p>";
+			content +="<p>面积："+data.house_mj+"平米</p>";
+			if(data.status){
+				content +="<p>当前状态："+data.status+"</p>";
+			}
+			content +="<a href="+data.link+" class='rt' style='margin-right:25px;'>查看工地详情>></a>";
+			content +="</div><div class='cl'></div></div></div>";		
+
+			map.addOverlay(window.infoWindowData[data.id]); 
+			var infoWindow = new BMap.InfoWindow(content,{
+			title: "<h3 class='lt'>"+data.title+"</h3>", //标题  									 
+			enableAutoPan : true, //自动平移
+			width: 450, //宽度  
+            height: 185, //高度  
+			enableMessage:false});  // 创建信息窗口对象
+
+            window.infoWindowData[data.id].addEventListener("click", function(){ 
+				 map.openInfoWindow(infoWindow, point);
+             
+            });
+            window.markerData[data.id].openInfoWindow(window.infoWindowData[data.id]);
+			$('.map_position').mouseover(function(){
+				$(this).find('.map_pos_bt').addClass('map_mouseover');
+			}).mouseout(function(){
+				$(this).find('.map_pos_bt').removeClass('map_mouseover');
+			})
+        }
+		$(".map_main_l_b_1").live('mouseover',function(){
+			 var id = $(this).attr('rel');
+             $('#'+id).addClass('map_positionjs');
+			 $('#attr'+id).addClass('map_mouseover');
+             
+        });
+        $(".map_main_l_b_1").live('mouseout',function(){
+			var id = $(this).attr('rel');
+		   $('#'+id).removeClass('map_positionjs');
+           $('#attr'+id).removeClass('map_mouseover');
+        }); 
+        function calldata(data){
+            var str = ' ';
+            var i = 0;
+            for(a in data){
+              i++;
+                addMarker(data[a]);        
+                str+='			 <li rel='+data[a].site_id+' class="map_main_l_b_1"><a target="_blank" title="'+data[a].title+'"  href="'+data[a].link+'"><h3>'+data[a].title+'</h3></a>';
+				str+='			 <p>工地面积：'+data[a].house_mj+'平米</p>';
+				str+='           <p><span class="lt">小区楼盘：'+data[a].home_name+'</span><span class="rt"><b class="fontcl2">'+data[a].price+'</b>万元</span></p>';
+				str+='           <p class="cl"></p>';
+				str+='           </li>';
+            } 
+            $("#map_main_l_b").html(str);
+
+        }
+        function getResult(val,area_id) {
+            var bs = map.getBounds();   //获取可视区域
+            var bssw = bs.getSouthWest();   //可视区域左下角
+            var bsne = bs.getNorthEast();   //可视区域右上角
+            $.post(
+                '<{link ctl="site:result"}>',
+                {'SO[lng_start]':bssw.lng,'SO[lng_end]':bsne.lng,'SO[lat_start]':bssw.lat,'SO[lat_end]':bsne.lat,'SO[name]':val,'SO[area_id]':area_id},
+                 function(data) {
+                    if(data.result){
+                       $("#jq_total_nums").html(data.total);
+                       calldata(data.result);
+                    }
+                },'json'
+            );
+        }
+    };
+</script>    
+
+
+

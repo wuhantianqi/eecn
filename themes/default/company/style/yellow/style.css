@@ -1,0 +1,18 @@
+/*装修公司黄色模板样式*/
+.company_top{ background:#fbb509;}
+.company_top_rt{ background:#fbb509;}
+.company_nav{ background:#ffd800;}
+.company_nav ul a.current, .company_nav ul a:hover{ background:#edbe00;}
+.company_nav ul a,.company_nav_rt p{ color:#7e3e0a;}
+.company_nav_rt{ background:#edbe00;}
+.btn_sub_sm,.btn_sub_tuan,.btn_sub_smler{ background:url(yellow_btn.png) repeat-x center center; border:1px solid #d5af14;color:#7e3e0a; }
+.btn_sub_sm:hover,.btn_sub_tuan:hover,.btn_sub_smler:hover{color:#7e3e0a;}
+.sub_com_design li .btn:hover{ background:#fbb509;color:#7e3e0a;}
+.sub_com_title b{ border-bottom:2px solid #31b6a8;}
+ul.sub_com_de_list li:hover{ border-bottom:1px solid #31b6a8;}
+ul.line_type li:hover{ border-bottom:1px solid #31b6a8;}
+.like_ico{ background:url(yellow_com.png) no-repeat; background-position:0px 0px;}
+.fengge_ico{ background:url(yellow_com.png) no-repeat; background-position:0px -17px;}
+.company_ico{ background:url(yellow_com.png) no-repeat; background-position:0px -32px;}
+ul.main_youhui li .be_paint{ background:url(yellow_com.png) no-repeat; background-position:-21px 0px;}
+/*装修公司黄色模板样式*/

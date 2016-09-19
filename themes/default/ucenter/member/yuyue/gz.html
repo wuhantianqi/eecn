@@ -1,0 +1,30 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/member/yuyue:company'}>">预约公司</a></li>
+        <li><a href="<{link ctl='ucenter/member/yuyue:designer'}>">预约设计师</a></li>
+        <li><a href="<{link ctl='ucenter/member/yuyue:mechanic'}>">预约技工</a></li>
+        <li><a href="<{link ctl='ucenter/member/yuyue:shop'}>">预约商家</a></li>
+        <li class="on">预约工长</li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th class="w-100">工长</th><th class="w-100">联系人</th><th>联系电话</th><th class="w-100">预约时间</th><th class="w-100">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.yuyue_id}><label></td>
+        <td><{$gz_list[$item.gz_id].name|default:'--'}></td><td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.dateline|format}></td>
+        <td>
+            <a href="<{link ctl='ucenter/member/yuyue:gzDetail' arg0=$item.yuyue_id}>" class="pbtn">查看</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+    </form>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{include file="block/sheader.html"}>
+</head>
+<body>
+	<link rel="stylesheet" type="text/css" href="%THEME%/static/css/index.css?<{$VER}>"/>
+	<div class="nav_top">
+		<!--顶部内容-->
+		<{include file="block/top-header.html"}>
+	</div>
+	<div class="nav_nav">
+		<div class="nav_right">
+			<ul class="nav nav-pills" role="tablist">
+		      <li role="presentation"><a class="" href="/">首页</a></li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='tenders'}>" aria-expanded="false">
+		          靠谱装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='activity'}>" aria-expanded="false">
+		          优惠信息 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='article'}>" aria-expanded="false">
+		          学装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		    </ul>
+		</div>
+		<div class="nav_left"><a href="/"><img src="%THEME%/static/images/logo.png" alt=""></a></div>
+	</div>
+	<hr />

@@ -1,0 +1,49 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加工地</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/site:index'}>" class="pbtn">工地管理</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/company/site:edit'}>" mini-form="ucenter-form" method="post" ENCTYPE="multipart/form-data">
+<input type="hidden" name="site_id" value="<{$detail.site_id}>" />
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>    
+    <tr><th class="w-100">地区：</th>
+        <td><b class="blue"><{$company.city_name}></b>&nbsp;&nbsp;&nbsp;
+            <select name="data[area_id]" class="select w-150"><{widget id="data/area" value=$detail.area_id city_id=$company.city_id}></select>
+        </td>
+    </tr>
+    <tr><th>面积：</th><td><input type="text" name="data[house_mj]" value="<{$detail.house_mj}>" class="input w-200" /><span class="tip-comment">平米</span></td></tr>
+    <tr><th>造价：</th><td><input type="text" name="data[price]" value="<{$detail.price}>" class="input w-200" /><span class="tip-comment">万元</span></td></tr>
+    <tr><th>小区：</th>
+        <td>
+            <input type="hidden" name="data[home_id]" id="select_home_id" value="<{$detail.home_id}>"/>
+            <input type="text" name="data[home_name]" id="select_home_name" value="<{$detail.home_name}>" class="input"/>
+            <a class="pbtn" action="<{link ctl='ucenter/misc/select:home'}>" mini-select="#select_home_id,#select_home_name/N/<{$company.city_id}>/选择小区"/>选择小区</a><br />
+        </td>
+    </tr>
+    <tr><th>案例：</th>
+        <td>
+            <input type="hidden" name="data[case_id]" id="select_case_id" value="<{$detail.case_id}>"/>
+            <input type="text" readonly id="select_case_name" value="<{$case.title}>" class="input"/>
+            <a class="pbtn" action="<{link ctl='ucenter/misc/select:mycase'}>" mini-select="#select_case_id,#select_case_name/N/<{$company.city_id}>/选择案例"/>选择案例</a><br />
+        </td>
+    </tr>
+    <tr><th><span class="red">*</span>缩略图：</th>
+        <td><{if $detail.thumb}><img src="<{$pager.img}>/<{$detail.thumb}>" width="200" photo="<{$pager.img}>/<{$detail.thumb}>"/><br/><{/if}><input type="file" name="face_pic" class="input w-300" /></td>
+    </tr>
+    <tr><th>地图坐标：</th>
+        <td>
+            <label>经度:<input type="text" name="data[lng]" value="<{$detail.lng}>" id="Bmap_marker_lng" class="input w-100"/></label>
+            <label>纬度:<input type="text" name="data[lat]" value="<{$detail.lat}>" id="Bmap_marker_lat" class="input w-100"/></label>   
+            <span class="tip-comment"><a map-marker="#Bmap_marker_lng,#Bmap_marker_lat" class="pbtn"><b>拾取工具</b></a></span>
+        </td>
+    </tr>
+    <tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-500"/></td></tr>
+    <tr><th>工地简介：</th><td><textarea name="data[intro]" class="textarea w-500"><{$detail.intro}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.bmap.js"></script>
+<{include file="ucenter/block/footer.html"}>

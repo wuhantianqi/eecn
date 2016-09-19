@@ -1,0 +1,27 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li<{if empty($pager.type)}> class="on"<{/if}>><a href="<{link ctl='ucenter/member:logs'}>">金币日志</a></li>
+		<li<{if $pager.type=='in'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member:logs' arg0='in'}>">充值记录</a></li>
+		<li<{if $pager.type=='out'}> class="on"<{/if}>><a href="<{link ctl='ucenter/member:logs' arg0='out'}>">消费记录</a></li>
+	</ul>
+	<span class="r"><a href="<{link ctl='ucenter/member:gold'}>" class="pbtn">充值金币</a></span>
+</div>
+<div class="ucenter_c">
+    <table cellspacing="0" cellpadding="0" class="table">
+    <tr><th class="w-50">类型</th><th class="w-100">收支</th><th>日志</th><th class="w-150">时间</th></tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><{if $item.number<0}>开支<{else}>收入<{/if}></td>
+        <td><b<{if $item.number<0}> class="red"<{/if}>><{$item.number}></b></td>        
+        <td><{$item.log}></td>
+        <td><{$item.dateline|format}></td>
+    </tr>
+    <{foreachelse}>
+    <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    <tr>
+    </table>
+    <div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

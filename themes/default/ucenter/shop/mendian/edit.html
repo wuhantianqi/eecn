@@ -1,0 +1,47 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">修改门店</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/mendian:index'}>" class="pbtn">商铺门店管理</a></span>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_mendian < 0}>
+    <div class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】没有权限修改门店信息</span></div>
+<script type="text/javascript">
+(function(K, $){$("[mini-form] input").attr("disabled", "disabled");})(window.KT, window.jQuery);
+</script>
+<{/if}>
+<form action="<{link ctl='ucenter/shop/mendian:edit'}>" mini-form="ucenter" method="post">
+<input type="hidden" name="news_id" value="<{$detail.news_id}>" />
+<table width="100%" border="0" cellspacing="0" class="table-data form">
+<input type="hidden" name="mendian_id" value="<{$detail.mendian_id}>"/>
+<tr><th>名称：</th><td><input type="text" name="data[title]" value="<{$detail.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th>门店图片：</th>
+    <td>
+        <input type="file" name="data[thumb]" class="input w-300" />
+        <{if $detail.thumb}>
+        <img src="<{$pager.img}>/<{$detail.thumb}>" photo="<{$pager.img}>/<{$detail.thumb}>" class="wh-30" style="vertical-align:middle;display:inline;"/>
+        <{/if}>
+        <span class="tip-comment">建议尺寸大小：200X150</span>
+    </td>
+</tr>
+<tr><th>电话：</th><td><input type="text" name="data[phone]" value="<{$detail.phone|default:''}>" class="input w-300"/></td></tr>
+<tr><th>地址：</th><td><input type="text" name="data[addr]" value="<{$detail.addr|default:''}>" class="input w-300"/></td></tr>
+<tr><th>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
+<tr><th>描述：</th><td><textarea name="data[desc]" class="textarea"><{$detail.desc}></textarea><span class="tip-comment">填写50字以内的简介，或者服务口号</span></td></tr>
+<tr><th>门店介绍：</th><td><textarea name="data[content]" kindeditor="full" style="width:800px;height:350px;"><{$detail.content}></textarea><br /></td></tr>
+<tr><th class="clear-th-bottom"></th><td class="clear-td-bottom" colspan="10"><input type="submit" class="bt-big" value="提交数据" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $group.priv.allow_news < 0}>
+var editor = KindEditor.create('textarea[kindeditor]',{readonlyMode : true});
+$("[mini-form] input,[mini-form] select,[mini-form] textarea").attr("disabled", "disabled");
+<{else}>
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+<{/if}>
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

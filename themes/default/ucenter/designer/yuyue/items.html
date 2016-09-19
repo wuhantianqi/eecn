@@ -1,0 +1,24 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">预约管理</li></ul>
+</div>
+<div class="ucenter_c">
+    <{if $group.priv.show_yuyue_mobile<=0}><p class="tips"><span class="lock">您是【<b class="red"><{$designer.group_name}></b>】预约手机号不可见</span></p><{/if}>
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th class="w-150">联系人</th><th class="w-150">手机号</th><th class="w-50">状态</th><th class="w-150">预约时间</th><th class="w-60"></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.yuyue_id}><label></td><td><{$item.contact}></td>
+        <td><{if $designer.priv.show_yuyue_mobile<=0}><{$item.mobile}><{else}><b class="red"><{$item.mobile|cutstr:6:'* * * * * *'}></b><{/if}></td>
+        <td><{$item.status_title}></td><td><{$item.dateline|format}></td>
+        <td><a href="<{link ctl='ucenter/designer/yuyue:detail' arg0=$item.yuyue_id}>" class="pbtn">查看</a></td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+    <div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

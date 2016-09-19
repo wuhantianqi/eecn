@@ -1,0 +1,28 @@
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$gz.face_80}>" class="lt pic" />
+		<h2><{$gz.name}></h2>
+		<p><{$gz.group.group_name}></p>
+		<p class="nowrap">
+         <{if $gz.group.allow_yuyue < 0}>
+            <a href="<{link ctl='mobile/tenders:fast'}>" class="btn mainbtn">立即招标</a>
+         <{else}>
+            <a href="<{link ctl='mobile/gz:yuyue' arg0=$gz.uid}>" class="btn mainbtn">预约装修</a>
+         <{/if}>        
+        </p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="designer_nav">
+	<ul>
+		<li>
+			<a href="<{link ctl='mobile/gz' arg0=$gz.uid}>" <{if $type == 'about'}>class="current"<{/if}>>个人简介</a>
+		</li>
+		<li>
+			<a href="<{link ctl='mobile/gz:cases' arg0=$gz.uid}>" <{if $type == 'cases'}>class="current"<{/if}>>案例展示</a>
+		</li>
+	</ul>
+	<div class="cl"></div>
+</div>

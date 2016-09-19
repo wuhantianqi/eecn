@@ -1,0 +1,27 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+	<ul>
+		<li<{if empty($pager.type) || $pager.type == 'all'}> class="on"<{/if}>><a href="<{link ctl='ucenter/shop/money:shop'}>">财务帐单</a></li>
+		<li<{if $pager.type=='in'}> class="on"<{/if}>><a href="<{link ctl='ucenter/shop/money:shop' arg0='in'}>">收入帐单</a></li>
+		<li<{if $pager.type=='out'}> class="on"<{/if}>><a href="<{link ctl='ucenter/shop/money:shop' arg0='out'}>">提现日志</a></li>
+	</ul>
+	<!-- <span class="r"><a href="<{link ctl='ucenter/shop/money:tixian'}>" class="pbtn">立即提现</a></span> -->
+</div>
+<div class="ucenter_c">
+    <table cellspacing="0" cellpadding="0" class="table">
+    <tr><th class="w-80">类型</th><th class="w-100">金额</th><th>日志</th><th class="w-150">时间</th></tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td><{if $item.money<0}><b class="red">提现</b><{else}><b class="blue">收入</b><{/if}></td>
+        <td><b <{if $item.money<0}>class="red"<{else}>class="green"<{/if}>>￥<{$item.money}></b></td>        
+        <td><{$item.log}></td>
+        <td><{$item.dateline|format}></td>
+    </tr>
+    <{foreachelse}>
+    <tr><td colspan="20"><p class="text-align tip-notice">没有数据</p></td></tr>
+    <{/foreach}>
+    <tr>
+    </table>
+    <div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

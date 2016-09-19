@@ -1,0 +1,28 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">网站分类</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/msite/cate:create'}>" class="pbtn">添加分类</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th class="w-100">图标</th><th>分类名</th><th class="w-100">排序</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.cat_id}><label></td>
+        <td><{if $item.icon}><img src="<{$pager.img}>/<{$item.icon}>" photo="<{$pager.img}>/<{$item.icon}>" class="wh-50"/><{/if}></td>
+        <td><{$item.title}></td>        
+        <td><{$item.orderby}></td>
+        <td>
+            <a href="<{link ctl='ucenter/weixin/msite/cate:edit' arg0=$item.cat_id}>"  class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/weixin/msite/cate:delete' arg0=$item.cat_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+	<div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

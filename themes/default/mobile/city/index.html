@@ -1,0 +1,40 @@
+<{assign var="tpl_page_title" value="切换城市页"}>
+<{include file="mobile/block/header.html"}>
+<div class="dingwei">
+	当前定位：<a href="<{link ctl='mobile/city-city' arg0=$request.city.city_id}>" class="btn subbtn"><{$request.city.city_name}></a>
+</div>
+<div class="mb10">
+	<p class="pub_tit">热门城市</p>
+	<ul class="city_menu">
+        <{foreach $city_list as $item}>
+        <{if $item.audit==1 && $item@index<8}>
+        <li><a href="<{link ctl='mobile/city:city' arg0=$item.city_id}>"><{$item.city_name}></a></li>
+        <{/if}>
+        <{/foreach}>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="mb10">
+	<p class="pub_tit">按字母排序</p>
+	<ul class="city_menu letter_menu">
+    	 <{foreach range('A', 'Z') as $v}><li><a href="#<{$v}>"><{$v}></a></li><{/foreach}>
+	</ul>
+	<div class="cl"></div>
+</div>
+
+	<{foreach $py_city as $k=>$v}>
+        <div class="mb10">
+            <p class="pub_tit"><a name="<{$k}>"></a><{$k}></p>
+            <ul class="city_menu">
+                
+                <{foreach $v as $vv}><li id="city-<{$k}>"><a href="<{link ctl='city:city' arg0=$vv.city_id}>"><{$vv.city_name}></a> </li><{/foreach}>
+               
+            </ul>
+            <div class="cl"></div>
+        </div>
+    <{/foreach}>
+   
+	<div class="cl"></div>
+</div>
+
+<{include file="mobile/block/footer.html"}>

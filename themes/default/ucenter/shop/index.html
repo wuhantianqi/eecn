@@ -1,0 +1,70 @@
+<{include file="ucenter/block/header.html"}>
+<div style="width:923px;padding:12px;margin:0 auto;">
+    <div class="index_rt_top">
+        <a href="<{$shop.shop_url}>" class="lt" target="_blank"><img src="<{$pager.img}>/<{$shop.logo}>" width="200" height="100"/></a>
+        <div class="shop_top_lt lt">
+            <p class="title"><{$shop.name}></p>
+			<p>店铺名称：<a href="<{$shop.shop_url}>" target="_blank"><{$shop.title}></a></p>
+			<p class="taobao_credit"><span class="block_lt" style="width:60px;">店铺信誉：</span><span class="rank_<{$shop.credit|shoprank:true}>" title="<{$shop.credit}>"></span></p>
+            <p>店铺地址：<{$shop.city_name}> <{$shop.area_name}> <{$shop.addr}></p>
+        </div>
+        <div class="shop_top_rt lt">
+            <p>店铺评分</p>
+            <p><span class="starswx"><em style="width:<{$shop.avg_score*20}>%;"></em></span><span></span><span class="block_lt"><{$shop.avg_score}>分</span></p>
+            <p>创店时间：<{$shop.dateline|format:"Y-m-d"}></p>
+        </div>
+		<div class="shop_top_rt_fresh rt">
+		<p class="refresh"><a href="<{link ctl='ucenter/shop:refresh' http='ajax'}>" mini-load="刷新排名"  mini-width="400">刷新排名</a><span>最新刷新时间为：<br /><{$shop.flushtime|format}></span></p>
+		</div>
+    </div>
+    <div class="index_cont_lt lt">
+        <div class="index_c_lt">
+            <p class="title"><font class="index_c_lt_icon1"></font>店铺统计</p>
+            <p class="txt">您需要关注的情况</p>
+            <p class="txt">
+                <a href="<{link ctl='ucenter/shop/order:index'}>" class="green">商铺订单(<{$order_count.count}>)</a>
+                <a href="<{link ctl='ucenter/shop/yuyue:shop'}>" class="green">商铺预约(<{$yueyue_count}>)</a>
+                <a href="<{link ctl='ucenter/shop/coupon:downloads'}>" class="green">优惠券下载(<{$coupon_download_count}>)</a>
+            </p>         
+            <p class="txt">
+                <a href="<{link ctl='ucenter/product:index'}>">商品数(<{$shop.products}>)</a>
+                <a href="<{link ctl='ucenter/shop/comment:shop'}>">评论数(<{$shop.comments}>)</a>
+                <a href="<{link ctl='ucenter/shop/coupon:index'}>">优惠券(<{$coupons}>)</a>
+            </p>             
+        </div>
+        <div class="index_c_lt">
+            <p class="title"><font class="index_c_lt_icon2"></font>交易统计</p>
+            <p class="txt">您需要关注的情况</p>
+            <p class="txt">
+                <a href="<{link ctl='ucenter/shop/order:index' arg0='unpay'}>" class="green">新订单 (<{$order_count.new}>) </a>
+                <a href="<{link ctl='ucenter/shop/order:index' arg0='unship'}>" class="green">待发货 (<{$order_count.unship}>)</a>
+                <a href="<{link ctl='ucenter/shop/order:index' arg0='unpay'}>" class="green">待付款 (<{$order_count.unpay}>)</a>
+            </p>
+            <p class="txt">
+                <a href="<{link ctl='ucenter/shop/order:index' arg0='payed'}>">近期售出 (<{$order_count.unship}>)</a>
+                <a href="<{link ctl='ucenter/shop/order:index' arg0='finish'}>">已经完成 (<{$order_count.finish}>)</a>
+            </p>
+        </div>
+        <div class="index_c_lt">
+            <p class="title"><font class="index_c_lt_icon3"></font>财务信息</p>
+            <p class="txt">我的账户余额：<font class="orange">￥<{$shop.money}> 元</font></p>
+            <p class="txt">
+                <a href="<{link ctl='ucenter/shop/money:shop' arg0='out'}>" class="green">提现 </a>
+                <a href="<{link ctl='ucenter/shop/money:shop'}>" class="green">出入明细</a></p>
+        </div>
+    </div>
+    <div class="index_cont_rt rt">
+        <{if $CONFIG.bulletin.shop}>
+        <div class="index_c_rt">
+            <p class="title"><font class="index_c_rt_icon1"></font>公告</p>
+            <p class="txt"><{$CONFIG.bulletin.shop}></p>
+        </div>
+        <{/if}>
+        <div class="index_c_rt">
+            <p class="title"><font class="index_c_rt_icon2"></font>平台联系方式</p>
+            <p class="txt">客服电话: <font class="green"><{$CONFIG.site.phone}></font></p>
+            <p>服务时间:9:00-18:00(周一至周日)</p>          
+        </div>
+    </div>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,10 @@
+<dl class="diary_items_photo">
+<{foreach $data.photo as $item name=foo}>
+	<{if $smarty.foreach.foo.index == 0}>
+    <dt><a  target="_blank" href="<{link ctl='diary:detail' arg0=$item.diary_id}>" rel="nofollow" ><img src="<{$pager.img}><{$item}>"> <a class="total">共<{$data.count}>张</a> </a></dt>
+    <{else if $smarty.foreach.foo.index <=3}>
+    <dt><a  target="_blank" href="<{link ctl='diary:detail' arg0=$item.diary_id}>" rel="nofollow" ><img src="<{$pager.img}><{$item}>"> </a></dt>
+    <{/if}>
+<{/foreach}>
+</dl>
+<p class="graycl"> <{if !$data.dateline}>暂时还没有日记<{else}><{$data.dateline|format}>前被回复<{/if}> </p>

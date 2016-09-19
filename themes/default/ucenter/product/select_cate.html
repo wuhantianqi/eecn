@@ -1,0 +1,42 @@
+<{include file="ucenter/block/header.html"}>
+<style type="text/css">.J_cate_select{height:200px;line-height:28px;min-width:150px;}</style>
+<div class="ucenter_t">
+    <ul><li class="on"><{if $request.act == 'edit'}>编辑商品<{else}>添加商品<{/if}></li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/product:index'}>" class="pbtn">商品管理</a></span>
+</div>
+<div class="ucenter_c">
+<h4 class="tips">
+	<span class="notice"><{if $request.act=='edit'}><b>编辑商品</b> 1.修改商品分类<{else}><b>添加商品</b> 1.选择商品分类<{/if}></span>
+</h4>
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr>
+        <td colspan="10">
+            <input type="hidden" name="cate_id" value="0" id="J_cate_id"/>
+            <select class="J_cate_select mgr10" size="15" data-pids="<{$pager.cat_pids|default:$COOKIE.LAST_product_pids|default:''}>" data-pid="0" data-uri="<{link ctl='ucenter/shop:catechildren' arg0='#pid#'}>"></select>
+        </td>
+    </tr>
+    <tr><th></th><td><input type="button" value="下一步" class="mpbtn" id="select_cate_btn"/></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/jquery.cate_select.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$('.J_cate_select').cate_select({top_option:null, attrs:"size='15'"});
+    $("#select_cate_btn").click(function(){
+        <{if $pager.type == 'edit'}>
+        var link = "<{link ctl='ucenter/product:edit' arg0=$pager.product_id arg1='#pid#'}>";        
+        <{else}>
+        var link = "<{link ctl='ucenter/product:create' arg0='#pid#'}>";
+        <{/if}>
+        var cat_id = parseInt($("#J_cate_id").val(), 10);
+        if(cat_id > 0){
+            window.location = link.replace("#pid#", cat_id);
+        }else{
+            Widget.MsgBox.error("请选择商品分类");
+        }
+    });
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,32 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/weixin/msite:index'}>">微信网站设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin/msite:tmpl'}>">模板设置</a></li>
+        <li><a href="<{link ctl='ucenter/weixin/msite/banner:index'}>">轮转广告</a></li>
+    </ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/msite:access'}>" class="pbtn">预览微网站</a></span>
+</div>
+<div class="ucenter_c">
+<p class="tips"><span class="notice">公众号：<{$weixin.wx_name}>(<{$weixin.wx_sid}>)</span></p>
+<form action="<{link ctl='ucenter/weixin/msite:index'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">   
+<tr><th>微网站名称：</th><td><input type="text" name="data[title]" value="<{$msite.title|default:''}>" class="input w-300"/></td></tr>
+<tr><th>微网站封面：</th>
+    <td>
+        <{if $msite.photo}><img src="<{$pager.img}>/<{$msite.photo}>" photo="<{$pager.img}>/<{$msite.photo}>" style="width:300px;max-height:150px;"/><br /><{/if}>
+        <input type="file" name="msite_photo" class="input w-200"/>
+    </td>
+</tr>
+<tr><th>微网站描述：</th><td><textarea name="data[intro]" class="textarea w-300"><{$msite.intro|default:''}></textarea></td></tr>
+<tr><th>微网站背景图：</th>
+    <td>
+        <{if $msite.background}><img src="<{$pager.img}>/<{$msite.background}>" photo="<{$pager.img}>/<{$msite.background}>" class="wh-100"/><br /><{/if}>
+        <input type="file" name="msite_background" class="input w-200"/>        
+    </td>
+</tr>
+<tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

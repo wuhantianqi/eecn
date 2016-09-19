@@ -1,0 +1,23 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">优惠活动报名</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/youhui:index'}>" class="pbtn">优惠活动管理</a></span>
+</div>
+<div class="ucenter_c">
+    <p class="tips">优惠活动：<b class="red"><{$youhui.title}></b></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+            <th class="w-80">ID</th><th>联系人</th><th>手机</th><th class="w-150">来源IP</th><th class="w-150">报名时间</th><th class="w-80"></th>
+        </tr>
+        <{foreach $items as $item}>
+        <tr>
+            <td><label><{$item.sign_id}></label></a></td><td><{$item.contact}></td><td><{$item.mobile}></td>
+            <td><b class="red"><{$item.clientip|cutstr:6:"******"}></b>(<{$item.clientip|iplocal}>)</td><td><{$item.dateline|format}></td>
+        </tr>
+        <{foreachelse}>
+        <tr><td colspan="10"><p class="tips"><span class="notice">该优惠活动还没有人报名</span></p></td></tr>
+        <{/foreach}>
+    </table>
+	<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

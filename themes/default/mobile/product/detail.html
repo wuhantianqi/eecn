@@ -1,0 +1,112 @@
+<{assign var="tpl_page_title" value="商品详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding banner" style="padding:0px;">
+    <ul>
+        <{foreach $product_photo_list as $v}>
+        <li><img src="<{$pager.img}>/<{$v.photo}>"/></li>
+     <{/foreach}>
+    </ul>
+    <span class="identify"><{foreach $product_photo_list as $v}><em></em><{/foreach}></span>
+</div>
+<div class="pding sub_goods_intro mb10">
+    <h2><{$detail.title}></h2>
+    <p><b class="fontcl2" id="product_spec_price">￥<{$detail.price}></b></span><del>￥<{$detail.market_price}></del></p>
+    <a href="<{link ctl='mobile/shop' arg0=$detail.shop_id}>" class="btn dim_btn">进入店铺</a>
+</div>
+<div class="pding sub_goods_intro sub_goods_gm mb10">
+    <input type="hidden" id="product_spec_id" value="0" />
+    <p>库存：<font class="pointcl" id="product_sale_sku"><{$detail.sale_sku|default:'缺货'}></font></p>
+    <p>分类：<{$detail.cat_title}></p>
+    <{if $product_spec_list}>
+    <p class="goods_guig" id="product_spec_list">规格：<{foreach $product_spec_list as $v}><a href="javascript:;" spec_id="<{$v.spec_id}>"><{$v.spec_name}> <i class="app_ico"></i></a><{/foreach}></p
+    ><{/if}>   
+    <p>数量：<a class="jian count_ico" quantity="-"></a><input type="text" id="cart_product_num" class="buy_count_text" value="1" /><a class="jia count_ico" quantity="+"></a></p>
+    <{if $detail.is_dingzhi}>
+    <a href="<{link ctl='mobile/trade/cart:buy' args=$detail.product_id}>" class="btn mainbtn_full lt">立刻购买</a>
+    <{else}>
+     <a href="javascript:;" cart="buy:<{$detail.product_id}>" class="btn mainbtn_full lt">立即购买</a>
+    <{/if}>
+   
+    <a href="<{link ctl='mobile/product:yuyue' arg0=$detail.product_id}>"  class="btn subbtn_full rt">预约购买</a>
+    <div class="cl"></div>
+</div>
+<div class="pding sub_goods_intro mb10">
+	<h2><{$detail.name}></h2>
+	<p><span class="lt"><b class="fontcl2"><del>￥<{$detail.market_price}></del></b></span>￥<{$detail.price}></span><a href="#" class="rt btn mainbtn">预约购买</a></p>
+</div>
+<p class="pub_tit">商品详情</p>
+<div class="pding content"><{$fields.info}></div>
+<script type="text/javascript" src="%THEME%/mobile/static/script/flipsnap.min.js"></script>
+<script type="text/javascript" src="%THEME%/mobile/static/script/banner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.KT.initBanner(".banner", 0.66, true,5000);   
+    $("[quantity]").click(function(){
+        var quantity = parseInt($("#cart_product_num").val(), 10);
+        if($(this).attr("quantity") == '+'){
+            quantity += 1;
+        }else{
+            quantity -= 1;
+        }
+        if(quantity < 1){
+            quantity = 1;
+        }
+        $("#cart_product_num").val(quantity);
+    });
+});
+<{if $product_spec_list}>
+var product_spec_list = [];
+<{foreach $product_spec_list as $item}>
+product_spec_list.push(["<{$item.spec_id}>", "<{$item.price}>", "<{$item.spec_name}>", "<{$item.spec_photo}>", <{$item.sale_sku}>]);
+<{/foreach}>
+var spec_max_price = spec_min_price = "<{$detail.price}>";
+for(var i=0; i<product_spec_list.length; i++){
+    if(spec_max_price < product_spec_list[i][1]){
+        spec_max_price = product_spec_list[i][1];
+    }
+    if(spec_min_price > product_spec_list[i][1]){
+        spec_min_price = product_spec_list[i][1];
+    }    
+}
+$("#product_spec_price").html("￥"+spec_min_price+" - ￥"+spec_max_price);
+$("#product_spec_list a").click(function(){
+    var spec_id = $(this).attr("spec_id");
+    $("#product_spec_list a").removeClass("current");
+    $(this).addClass('current');
+    for(var i=0; i<product_spec_list.length; i++){
+        if(product_spec_list[i][0] == spec_id){
+            $("#product_spec_price").html("￥"+product_spec_list[i][1]);
+            $("#product_spec_id").val(spec_id);
+            if(product_spec_list[i][3]>0){
+                $("#product_sale_sku").html(product_spec_list[i][3]);
+            }else{
+                $("#product_sale_sku").html("缺货");
+            }
+            break;
+        }
+    }    
+});
+<{/if}> 
+$("[cart]").click(function(e){
+    var link = "<{link ctl='mobile/trade/cart:add' arg0=$detail.product_id arg1='#spec#' arg2='#num#' http='base'}>";
+    var num = parseInt($("#cart_product_num").val(), 10);
+    var spec_id = parseInt($("#product_spec_id").val(), 10);
+    <{if $product_spec_list}>
+        if(spec_id < 1){Widget.MsgBox.notice("没有选择商品规格");return false;}
+    <{/if}>
+    var d = $(this).attr("cart").split(":")
+    $.getJSON(link.replace("#spec#", spec_id).replace("#num#", num), function(ret){
+        if(ret.error){            
+            Widget.MsgBox.load(ret.message.join(","));
+            Widget.MsgBox.error(ret.message.join(","));
+        }else{
+            Widget.MsgBox.success('添加到购物车成功');
+            window.location = "<{link ctl='mobile/trade/cart' http='base'}>";
+        }
+
+    });
+});
+</script>
+
+
+<{include file="mobile/block/footer.html"}>

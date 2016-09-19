@@ -1,0 +1,16 @@
+<{assign var="tpl_page_title" value="预约商品"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	<h2 class="nowrap mb10">商品：<{$product.name}> </h2>
+	<form action="<{link ctl='mobile/shop:yuyue'}>" method="post" mini-form="produt_yuyue" class="tenders">
+        <input type="hidden" name="shop_id" value="<{$product.shop_id}>" />
+        <input type="hidden" name="data[product_id]" value="<{$product.product_id}>" />
+		<input type="text" name="data[contact]" value="<{$pager.contact}>" class="text full" placeholder="您的姓名" />
+		<input type="text" name="data[mobile]" value="<{$pager.mobile}>" class="text full" placeholder="联系方式" />
+		<input type="submit" class="btn mainbtn_full" value="立即申请 " />
+	</form>
+</div>
+
+<{include file="mobile/block/sfooter.html"}>
+</body>
+</html>

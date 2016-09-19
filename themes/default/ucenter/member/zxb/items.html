@@ -1,0 +1,35 @@
+<{include file="ucenter/block/header.html"}>
+
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+     <tr><td colspan="20"><p class="tips"><span class="notice"><a href="<{link ctl=zxb}>" TARGET="_blank">->点击了解什么是装修保</a></span></p></td></tr>
+    <tr>
+        <th class="w-80">ID</th><th class="w-100">联系人</th><th>联系电话</th><th>备注</th><th class="w-100">当前状态</th><th class="w-100">预约时间</th><th class="w-150">公司名称</th><th class="w-150"></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.zxb_id}><label></td>
+        <td><{$item.contact}></td><td><{$item.mobile}></td><td><{$item.comment|cutstr:30}></td>
+        <td><{$status[$item.status]}></td>
+        <td><{$item.dateline|format}></td>
+        
+        <{if $item.company_id}>
+        <td>
+            <{$companys[$item.company_id].title}>
+        </td>
+        <{else}>
+        <td>
+            您还未确认公司
+        </td>
+        <{/if}>
+        <td>
+          <a href="<{link ctl='ucenter/member/zxb:lists' arg0=$item.zxb_id}>" class="pbtn">查看详情</a>
+        </td>
+        
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

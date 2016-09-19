@@ -1,0 +1,167 @@
+<{include file="weixin/goldegg/block/header.html"}>
+    <body onselectstart="return true;" ondragstart="return false;">
+        
+
+ <script>
+ 
+ 
+	
+document.addEventListener("DOMContentLoaded", function(){
+	playbox.init("playbox");
+	alert('欢迎进入砸金蛋');
+	var shape = document.getElementById("shape");
+	var hitObj = {
+		handleEvent: function(evt){
+			var error = $('#error').val();
+			if(error == ''){
+				if("SPAN" == evt.target.tagName){
+					var audio = new Audio();
+					audio.src = "%THEME%/weixin/goldegg/static/smashegg.mp3";
+					audio.play();
+					setTimeout(function(){
+						evt.target.classList.toggle("on");
+						$.ajax({
+							url: "goldegg-getajax",
+							type: "POST",
+							dataType: "json",
+							async:true,
+							data:{id:<{$Dazpan.lid}>,rid:<{$Dazpan.rid}>,wx_id:'<{$Dazpan.wx_id}>'},
+							success: function(res){
+								if(1 == res.success){
+									evt.target.classList.toggle("luck");
+								}
+								setTimeout(function(){
+									if(1 == res.success){
+										var urls = ["%THEME%/weixin/goldegg/static/img/coin.png"];
+										getCoin(urls);
+										alert('恭喜您中了'+res.prizetype+'等奖');
+										return;
+									}else{
+										if(1 == res.error){
+											alert(res.msg);
+											return;
+										}
+										lqsb();
+									}
+								}, 2000);
+							}
+						});
+						
+					}, 100);
+				
+				
+				$("#hit").addClass("on").css({left: evt.pageX+"px", top:evt.pageY +"px"});
+			}
+			shape.removeEventListener("click", hitObj, false);
+			}else{
+				alert('您不能参与此活动');	
+			}
+		}
+	}
+	shape.addEventListener("click", hitObj, false);
+}, false);
+</script>
+
+<div class="body pb_10">
+		<input type="hidden" id="error" value="<{$error}>">
+		<div style="position:absolute;left:10px;top:10px;z-index:350;">
+		<a href="javascript:;" id="playbox" class="btn_music" onClick="playbox.init(this).play();" ontouchstart="event.stopPropagation();"></a><audio id="audio" loop src="tpl/static/goldenEgg/wap/default.mp3" style="pointer-events:none;display:none;width:0!important;height:0!important;"></audio>
+	</div>
+	<section class="stage">
+		<img src="%THEME%/weixin/goldegg/static/img/stage.jpg" />
+		 <div id="shape" class="cube on">
+	        <div class="plane one"><span><figure>&nbsp;</figure></span></div>
+	        <div class="plane two"><span><figure>&nbsp;</figure></span></div>
+	        <div class="plane three"><span><figure>&nbsp;</figure></span></div>
+	      </div>
+	      <div id="hit" class="hit"><img src="%THEME%/weixin/goldegg/static/img/1.png" /></div>
+	</section>
+		<section>
+		<div class="instro_wall">
+		
+		<article>
+			<h6>友情提醒：</h6>
+			<div style="line-height:200%">
+				<p style="color:#f00;line-height:160%"><{$error}><br />
+                	每人最多允许抽奖次数:<{$Dazpan.max_num}><{if $Dazpan.daynums != 0}>，每天只能抽<{$Dazpan.daynums}>次<{/if}> <{if $Dazpan.usenums > 0}> - 已抽取 <span class="red" id="usenums"><{$Dazpan.usenums}></span> 次<{/if}>
+                                    </p>            
+                </div>
+             </article>
+			<article>
+				<h6>活动说明</h6>
+				<div style="line-height:200%">
+					 <p><{$Dazpan.info}></p>
+       				 <p>活动时间:<{$Dazpan.stime|format:"Y-m-d"}>至<{$Dazpan.ltime|format:"Y-m-d"}></p>		
+				</div>
+			</article>
+		
+			<article class="a3">
+				<h6>活动奖项</h6>
+				<div style="line-height:200%">
+					<p>一等奖: <{$Dazpan.fist}>  奖品数量: <{$Dazpan.fistnums}></p>
+                    <{if $Dazpan.second neq ''}>
+                        <p>二等奖: <{$Dazpan.second}> 奖品数量: <{$Dazpan.secondnums}></p>
+                      <{/if}>             
+                    <{if $Dazpan['third'] neq ''}>
+                        <p>三等奖: <{$Dazpan.third}> 奖品数量: <{$Dazpan.thirdnums}></p>
+                    <{/if}>
+                    <{if $Dazpan['four'] neq ''}>
+                        <p>四等奖: <{$Dazpan.four}>  奖品数量: <{$Dazpan.fournums}></p>
+                    <{/if}>
+                    <{if $Dazpan['five'] neq ''}>
+                        <p>五等奖: <{$Dazpan.five}>  奖品数量: <{$Dazpan.fivenums}></p>
+                    <{/if}>
+                    <{if $Dazpan['six'] neq ''}>
+                        <p>六等奖: <{$Dazpan.six}>   奖品数量: <{$Dazpan.sixnums}></p>
+                    <{/if}>
+                 </div>
+			</article>
+					</div>
+	</section>
+<div style="margin-top:30px;text-align:center"><{$CONFIG.site.title}></div>
+
+</div>
+<script>
+
+	function lqsb(){
+		var d6 = new iDialog();
+		d6.open({
+			classList: "failed",
+			title:"",
+			close:"",
+			content:'<div class="header"><{$Dazpan.aginfo}></div>\
+				<table><tr>\
+					<td><img src="%THEME%/weixin/goldegg/static/img/8.png" /></td>\
+				</tr></table>',
+			btns:[
+				{id:"", name:"再砸一次", onclick:"fn.call();", fn: function(self){
+					location.href = location.href + "&r="+Math.random();
+				}},
+			]
+		});
+	}
+	
+	
+	
+	
+	window.alert = function(str){
+		var d7 = new iDialog();
+		d7.open({
+			classList: "failed",
+			title:"",
+			close:"",
+			content:str,
+			content:'<div class="header">'+str+'</div>\
+				<table><tr>\
+					<td><img src="%THEME%/weixin/goldegg/static/img/8.png" /></td>\
+				</tr></table>',
+			btns:[
+				{id:"", name:"确定", onclick:"fn.call();", fn: function(self){
+					self.die();
+				}},
+			]
+		});
+	}
+</script>
+	</body>
+</html>

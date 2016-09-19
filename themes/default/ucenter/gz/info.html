@@ -1,0 +1,35 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/gz:info'}>">资料设置</a></li>
+        <li><a href="<{link ctl='ucenter/gz:attr'}>">属性设置</a></li>
+         <{if $gz.name}> <p class="refresh de_refresh"><a href="<{link ctl='ucenter/gz:refresh' http='ajax'}>" mini-load="刷新排名"  mini-width="400">刷新排名</a><span>最新刷新时间为：<{$gz.flushtime|format}></span></p><{/if}>
+    </ul>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/gz:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">   
+   <tr><th class="w-100">地区：</th>
+        <td><{if $gz.city_id}><b class="blue"><{$gz.city_name}></b>&nbsp;&nbsp;&nbsp;
+            <select name="data[area_id]" class="select w-150"><{widget id="data/area" value=$gz.area_id city_id=$gz.city_id}></select>
+            <{else}>
+            <{widget id="data/region" city_id=$gz.city_id area_id=$gz.area_id class="select w-150"}>
+            <{/if}>
+        </td>        
+    </tr>
+    <tr><th>名称：</th><td><input type="text" name="data[name]" value="<{$gz.name}>" class="input w-300"/></td></tr>
+    <tr><th>联系QQ：</th><td><input type="text" name="data[qq]" value="<{$gz.qq}>" class="input w-300"/></td></tr>
+    <tr><th>手机：</th><td><input type="text" name="data[mobile]" value="<{$gz.mobile|default:''}>" class="input w-300"/></td></tr>
+    <tr><th>服务理念：</th><td><input type="text" name="data[slogan]" value="<{$gz.slogan}>" class="input w-300"/></td></tr>
+    <tr><th>个人简介：</th><td><textarea name="data[about]" kindeditor="full" style="width:800px;height:350px;"><{$gz.about}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,17 @@
+<{assign var="seo_sub_title" value="活动资讯"}>
+<{include file="shop/block/header.html"}>
+<!--左边主体内容开始-->
+<div class="rt shop_rt mb20">
+    <div class="area pding">
+        <p class="sub_shop_tit mb10"><b>活动资讯</b></p>
+        <ul class="news">
+            <{foreach $items as $item}>
+            <li><a href="<{link ctl='mall/shop:newsdetail' arg0=$item.news_id shop=$shop}>" class="lt"><span class="ico_list news_ico"></span><{$item.title}></a><span class="rt"><{$item.dateline|format}></span></li>
+            <{/foreach}>
+        </ul>
+        <div class="cl"></div>
+        <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+    </div>
+</div>
+<!--左边主体内容结束-->
+<{include file="shop/block/footer.html"}>

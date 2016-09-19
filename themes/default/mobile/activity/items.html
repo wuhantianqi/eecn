@@ -1,0 +1,47 @@
+<{assign var="tpl_page_title" value="活动列表"}>
+<{include file="mobile/block/header.html"}>
+<ul class="app_menu goods_menu">
+	<{foreach $items as $item}>
+        <li>
+            <a href="<{link ctl='mobile/activity:detail' arg0=$item.activity_id}>">
+            <img src="<{$pager.img}>/<{$item.thumb}>" class="lt pic" />
+            <h2><{$item.title}></h2>
+            <p class="nowrap graycl"><{if $item.end_time>time() && $item.bg_time<time()}><font class="app_ico time_ico"></font><{else}><font class="app_ico time_over_ico"></font><{/if}><{$item.bg_time|format:'Y年m月d日'}>-<{$item.end_time|format:'Y年m月d日'}></p>
+            <p class="nowrap graycl"><span remaintime="<{$item.end_time}>"></span></p>
+            <div class="cl"></div>
+            </a>
+        </li>
+    <{/foreach}>
+</ul>
+<div class="page">
+	<{$pager.pagebar}>
+</div>
+
+<script type="text/javascript">
+(function(K, $){
+    $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="mobile/block/footer.html"}>

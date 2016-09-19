@@ -1,0 +1,45 @@
+<{assign var="tpl_page_title" value="优惠信息详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding youhui_count">
+	<h1 class="center nowrap"><{$detail.title}></h1>
+	<img src="<{$pager.img}>/<{$detail.photo}>" class="pic"/>
+	<p class="nowrap"><{if $detail.ltime>time() && $detail.stime<time()}><font class="app_ico time_ico"></font><{else}><font class="app_ico time_over_ico"></font><{/if}><span  remaintime="<{$detail.ltime}>"></span></p>
+	<p>活动开始时间：<{$detail.stime|format:'Y-m-d'}></p>
+	<p>活动结束时间：<{$detail.ltime|format:'Y-m-d'}></p>
+	<p>已报名人数：  <{$detail.sign_num}></p>
+    <{if $detail.ltime>time() && $detail.stime<time()}>
+    	<a href="<{link ctl='mobile/youhui:sign' arg0=$detail.youhui_id}>" class="btn mainbtn_full">立刻报名</a>
+    <{else}>
+    	<a class="btn over_full">报名结束</a>
+    <{/if}>
+</div>
+<p class="pub_tit">活动详情</p>
+<div class="pding content"><{$detail.content}></div>
+<script type="text/javascript">
+(function(K, $){
+    $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="mobile/block/footer.html"}>

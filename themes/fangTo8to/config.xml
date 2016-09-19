@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <adv name="仿土巴兔模板首页导航下的轮播广告" from="lunzhuan" width="900" height="300"></adv>
+	<adv name="仿土巴兔模板首页热点新闻的图片广告" from="photo" width="380" height="300"></adv>
+    <block name="仿土巴兔首页学装修-装修课堂" from="article" type="default"></block>
+    <block name="仿土巴兔首页推荐装修公司" from="company" type="default"></block>
+    <block name="仿土巴兔首页找我家设计方案" from="home" type="default"></block>
+    <block name="仿土巴兔首页优秀设计师" from="designer" type="default"></block>
+    <block name="仿土巴兔首页团装活动" from="tuan" type="default"></block>
+    <block name="仿土巴兔首页热点新闻" from="article" type="default"></block>
+    <block name="仿土巴兔首页建材商城" from="shop" type="default"></block>
+</config>

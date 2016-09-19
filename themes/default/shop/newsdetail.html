@@ -1,0 +1,28 @@
+<{assign var="seo_sub_title" value=$detail.title}>
+<{include file="shop/block/header.html"}>
+<!--左边主体内容开始-->
+<div class="rt shop_rt mb20">
+    <div class="area pding ">
+        <p class="sub_shop_tit mb10"><b>活动资讯</b></p>
+        <div class="sub_shop_intro mb10">
+            <h2><{$detail.title}></h2>
+            <p class="graycl tp">
+                <span class="lt"><font class="fontcl2"><{$detail.views}></font>人已浏览 </span><span class="rt"> 时间 : <{$detail.dateline|format}></span>
+            </p>
+            <div class="cl"></div>
+            <div><{$detail.content}></div>
+        </div>
+        <div class="article_box_bottom sub_shop_at">
+            <p class="tp">
+                <{if $pager.prev}>
+                <a href="<{link ctl='mall/shop:newsdetail' arg0=$pager.prev.news_id shop=$shop}>" class="lt fontcl1">上一篇：<{$pager.prev.title}></a>
+                <{/if}>
+                <{if $pager.next}>
+                <a href="<{link ctl='mall/shop:newsdetail' arg0=$pager.next.news_id shop=$shop}>" class="rt fontcl1">下一篇：<{$pager.next.title}></a>
+                <{/if}>
+            </p>
+        </div>
+    </div>
+</div>
+<!--左边主体内容结束-->
+<{include file="shop/block/footer.html"}>

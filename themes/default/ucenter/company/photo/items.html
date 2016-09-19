@@ -1,0 +1,26 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/company/photo:index'}>">荣誉资质</a></li>
+    </ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/photo:create'}>" class="pbtn">添加荣誉资质</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/company/photo:update'}>" mini-form="ucenter" method="post">
+<table width="100%" border="0" cellspacing="0" class="table">
+    <tr><th class="w-60">图片</th><th class="w-200">类型</th><th>标题</th><th class="w-60">操作</th></tr>
+        <{foreach $items as $item}>
+        <tr>
+            <td><img src="<{$pager.img}>/<{$item.photo}>" photo="<{$pager.img}>/<{$item.photo}>" class="wh-50" /></td>
+            <td><select name="data[<{$item.photo_id}>][type]" class="select w-150"><{html_options options=$type_list selected=$item.type}></select></td>
+            <td><input type="text" class="input w-300" name="data[<{$item.photo_id}>][title]" value="<{$item.title}>" /></td>
+            <td><a href="<{link ctl='ucenter/company/photo:delete' arg0=$item.photo_id}>" mini-act="confirm:您确定要删除该图片" class="pbtn red">删除</a> </td>
+        </tr>
+        <{foreachelse}>
+         <tr><td colspan="20"><p class="tips"><span class="notice">您还没有添加荣誉资质</span></p></td></tr>
+        <{/foreach}>
+        <{if $pager.count}><tr><td colspan="3"></td><td><input type="submit" value="更新数据" class="mpbtn" /></td></tr><{/if}>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

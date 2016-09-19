@@ -1,0 +1,20 @@
+<{assign var="seo_sub_title" value="公司新闻"}>
+<{include file="company/block/header.html"}>
+<!--装修公司头部结束-->
+<div class="subwd">
+    <!-- <{include file="company/block/info.html"}> -->
+	<div class="mb20 company_rt rt area ">
+		<div class="pding">
+			<h3 class="sub_com_title"><b>企业新闻</b></h3>
+			<ul class="news">
+                <{foreach $items as $item}>
+				<li><a href="<{link ctl='news:detail' arg0=$item.news_id}>" class="lt"><span class="ico_list news_ico"></span><{$item.title|cutstr:80}></a><span class="rt"><{$item.dateline|format}></span></li>
+                <{/foreach}>
+			</ul>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+<!--底边内容开始-->
+<{include file="company/block/footer.html"}>

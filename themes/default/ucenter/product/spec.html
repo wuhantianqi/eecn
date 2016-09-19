@@ -1,0 +1,65 @@
+<{if $request.MINI=='LoadIframe'}>
+<{include file="block/mini-header.html"}>
+<link href="%THEME%/static/style/ucenter.css" rel="stylesheet" type="text/css" />
+<{else}>
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">商品图片</li></ul>
+	<span class="r"><a href="<{link ctl='ucenter/product'}>" class="pbtn">商品管理</a></span>
+</div>
+<div class="ucenter_c">
+<div class="tips">商品：<b class="red"><{$product.name}></b></div>
+<{/if}>
+<div class="tips"></div>
+<form action="<{link ctl='ucenter/product:updatespec'}>" mini-form="ucenter" method="post">
+<input type="hidden" name="product_id" value="<{$product.product_id}>" />
+<table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-50">ID</th><th class="w-150">名称</th><th class="w-150">价格</th><th class="w-150">库存</th>
+        <th>图片</th><th class="w-100"><a href="javascript:;" batch="add_new_line">┼增加规格</a></th>
+     </tr>
+    <{foreach $items as $item}>
+    <tr id="item-<{$item.spec_id}>">
+        <td><{$item.spec_id}></td><td><input type="text" class="input w-100" name="spec[<{$item.spec_id}>][spec_name]" value="<{$item.spec_name}>" /></td>
+        <td><input type="text" class="input w-100" name="spec[<{$item.spec_id}>][price]" value="<{$item.price}>" /></td>
+        <td><input type="text" class="input w-100" name="spec[<{$item.spec_id}>][sale_sku]" value="<{$item.sale_sku}>" /></td>
+        <td>
+            <input type="file" name="spec_photo_<{$item.spec_id}>" class="input w-200" style="vertical-align:middle;display:inline;"/>
+            <{if $item.spec_photo}><img src="<{$pager.img}>/<{$item.spec_photo}>_small.jpg" photo="<{$pager.img}>/<{$item.spec_photo}>_thumb.jpg" class="wh-30" style="vertical-align:middle;display:inline;"/><{/if}>
+        </td>
+        <td><a href="<{link ctl='ucenter/product:deletespec' arg0=$item.spec_id}>"  mini-act="confirm:您确定要删除该规格吗？" class="pbtn red">删除</a></td>
+    </tr>
+    <{/foreach}>
+    <tr batch="tool_bar"><td></td><td><input type="submit" value="更新商品规格" class="mpbtn" /></td><td colspan="4"></td></tr>
+</table>
+</form>
+<script type="text/paint" id="product_spec_tmpl">
+    <tr>
+        <td>New</td><td><input type="text" class="input w-100" name="data[{index}][spec_name]" value="" /></td>
+        <td><input type="text" class="input w-100" name="data[{index}][price]" value="<{$product.price}>" /></td>
+        <td><input type="text" class="input w-100" name="data[{index}][sale_sku]" value="" /></td>
+        <td><input type="file" name="spec_photo_{index}" class="input w-200" style="vertical-align:middle;display:inline;"/></td>
+        <td><a href="javascript:;" class="pbtn red" batch="remove_item_line">取消</a></td>
+    </tr>
+</script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+	var tmpl = $("#product_spec_tmpl").html();
+	$("a[batch='add_new_line']").click(function(){
+		var k = K.Guid();
+		$("[batch='tool_bar']").before(tmpl.replace(new RegExp("{index}","gm"),k));
+	});
+	$("a[batch='remove_item_line']").die().live('click',function(){
+		$(this).parent().parent('tr').remove();
+	});
+    <{if !$items}>$("a[batch='add_new_line']").trigger("click");<{/if}>
+});
+})(window.KT, window.jQuery)
+</script>
+<{if $request.MINI=='LoadIframe'}>
+<{include file="block/mini-footer.html"}>
+<{else}>
+</div>
+<{include file="ucenter/block/footer.html"}>
+<{/if}>

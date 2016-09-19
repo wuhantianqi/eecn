@@ -1,0 +1,87 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='mall/coupon-items'}>">优惠券</a>
+		</p>
+	</div>
+</div>
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="main_activity_choose hoverno mb10">
+            <a title="<{$item.title}>" <{if empty($pager.type)}>class="current"<{/if}> href="<{link ctl='mall/coupon:items' arg0=0 arg1=1}>" >全部</a>
+            <a title="<{$item.title}>" <{if $pager.type == 1}>class="current"<{/if}> href="<{link ctl='mall/coupon:items' arg0=1 arg1=1}>" >未过期</a>
+			<a title="<{$item.title}>"  <{if $pager.type == 2}>class="current"<{/if}> href="<{link ctl='mall/coupon:items' arg0=2 arg1=1}>" >已过期</a>
+		</div>
+		<div class="mb20">
+			<div class="area pding">
+				<ul class="line_type main_coupon">
+					<{foreach $items as $item}>
+					<li <{if $item@index%2==0}>style="float:left"<{/if}>>
+					<div class="main_coupon_box lt">
+						<p class="price"><b class="lt">¥ <{$item.money}></b><span class="rt">全店通用</span></p>
+						<p class="cl"></p>
+						<p>使用条件：满<{$item.min_amount}>元减<{$item.money}>元</p>
+                        <p>有效时间：<{if $item.ltime}><{$item.stime|format:"Y-m-d"}> 至 <{$item.ltime|format:"Y-m-d"}><{else}>永久有效<{/if}></p>
+					</div>
+					<div class="rt main_coupon_box_intro">
+						<h3><b>满<font class="fontcl2"><{$item.mini_amount}></font>元减<font class="fontcl2"><{$item.money}></font>元优惠券</b></h3>
+						<p>适用范围：全场通用，除个别商品外</p>
+						<p>已领取数：<{$item.downloads}></p>
+                        <p>有效期至：<{if $item.ltime}><{$item.ltime|format:"Y-m-d"}><{else}>永久有效<{/if}></p>
+						<p><a href="<{link ctl='mall/coupon:detail' arg0=$item.coupon_id}>" class="btn_sub_sm btn">点击领取</a>
+						</p>
+					</div>
+					<div class="cl"></div>
+					</li>
+					<{/foreach}>
+				</ul>
+				<div class="cl"></div>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+	<!--主体右边内容开始-->
+	<div class="side_content rt">
+		<{widget id="tenders/fast" title="免费装修设计" from="TZX"}>
+		<div class="mb10 area">
+			<h3 class="side_tit">装修公司排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+        <div class="mb10 area">
+			<h3 class="side_tit">设计师排行榜</h3>
+			<ul class="pding paihang">
+                <{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
+				<li>
+                    <span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a></span>
+                    <span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
+                </li>
+                <{/calldata}>
+			</ul>
+		</div>
+		<div class="mb20"><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+	</div>
+	<div class="cl"></div>
+	<!--主体右边内容结束-->
+</div>
+<script type="text/javascript">
+(function(K, $){
+    //活动列表页头部切换
+    $(".main_activity_choose a").click(function(){
+         $(".main_activity_choose a").siblings().removeClass('current');
+         $(this).addClass('current');
+    });
+})(window.KT, window.jQuery);
+</script>            
+
+<{include file="block/footer.html"}>

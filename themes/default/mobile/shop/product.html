@@ -1,0 +1,41 @@
+<{assign var="tpl_page_title" value="所有商品"}>
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$shop.logo}>" class="lt pic" />
+		<h2><{$shop.name}></h2>
+		<p class="nowrap">信誉指数：<{$shop.score}></p>
+		<p class="nowrap">联系电话：<a  href="tel:<{$shop.show_phone}>"><{$shop.show_phone}></a></p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="shop_nav">
+	<ul>
+		<li><a href="<{link ctl='mobile/shop' arg0=$shop.shop_id}>">商家简介</a></li>
+		<li><a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=0}>" class="current">所有商品</a></li>
+		<li><a href="<{link ctl='mobile/shop:coupon' arg0=$shop.shop_id arg1=1}>">优惠券</a></li>
+		<li><a href="<{link ctl='mobile/shop:news' arg0=$shop.shop_id arg1=1}>">活动资讯</a></li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<ul class="app_menu goods_menu">
+		<div class="product_fenlei">
+            <a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=0 arg2=1}>"<{if !$pager.vcat_id}>  class="current"<{/if}>>全部</a>
+            <{calldata mdl="shop/vcate" shop_id=$shop.shop_id}><a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=$item.vcat_id arg2=1}>"<{if $item.vcat_id==$pager.vcat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
+		</div>
+		<div class="cl"></div>
+    <{foreach $items as $item}>
+	<li>
+		<a href="<{link ctl='mobile/product:detail' arg0=$item.product_id}>">
+            <img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" class="lt pic" />
+            <p class="nowrap"><{$item.title}></p>
+            <p><span><b class="fontcl2">￥<{$item.price}></b></span></p>
+            <p><del>￥<{$item.market_price}></del></p>
+            <div class="cl"></div>
+		</a>
+	</li>
+    <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+<{include file="mobile/block/footer.html"}>

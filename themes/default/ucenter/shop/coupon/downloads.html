@@ -1,0 +1,29 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">下载日志</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/coupon:index'}>" class="pbtn">优惠券管理</a></span>
+</div>
+<div class="ucenter_c">
+    <{if $group.priv.show_yuyue_mobile < 0}><p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】手机号不可见</span></p><{/if}>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+            <th>优惠券</th><th class="w-100">联系人</th><th class="w-100">手机</th>
+            <th class="w-100">优惠码</th><th class="w-50">使用</th><th class="w-50">状态</th>
+            <th class="w-150">下载时间</th><th class="w-80"></th>
+        </tr>
+        <{foreach $items as $item}>
+        <tr>
+            <td><a href="<{link ctl='mall/coupon:detail' arg0=$item.coupon_id}>" target="_blank"><{$coupon_list[$item.coupon_id].title|default:'--'}></a></td>
+            <td><{$item.contact}></td>
+            <td><{if $group.priv.show_yuyue_mobile > 0}><{$item.mobile}><{else}><b class="red"><{$item.mobile|cutstr:6:'* * * * * *'}></b><{/if}></td>
+            <td><{$item.number}></td><td><{if $item.used}><b>已用</b><{else}><b class="green">未用</b><{/if}></td><td><{$item.status_title}></td>
+            <td><{$item.dateline|format}></td>
+            <td><a href="<{link ctl='ucenter/shop/coupon:downloadDetail' arg0=$item.download_id}>" class="pbtn">查看</a></td>
+        </tr>
+        <{foreachelse}>
+        <tr><td colspan="10"><p class="tips"><span class="notice">还没有人下载过你的优惠券</span></p></td></tr>
+        <{/foreach}>
+    </table>
+	<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

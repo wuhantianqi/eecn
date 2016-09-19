@@ -1,0 +1,9 @@
+<{assign var="min_ititle" value="装修投标"}>
+<{include file="block/mini-header.html"}>
+<form action="<{link ctl='tenders:look' http='base'}>" mini-form="look-form" method="post" >
+<input type="hidden" name="tenders_id" value="<{$tenders.tenders_id}>" />
+<p class="tips"><span class="notice">投标后即可查看业主联系方式，需要消耗金币:<{$tenders.gold}></span></p>
+<p><textarea name="data[content]" class="textarea" style="width:362px;" placeholder="给业主留言"></textarea></p>
+<p><input type="submit" value="立即投标" class="btn btn_sub_tuan" /></p>
+</form>
+<{include file="block/mini-footer.html"}>

@@ -1,0 +1,52 @@
+<{assign var="tpl_page_title" value="登录页"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding login_cont">
+	<form id='login-form' class="login_form mb10">
+		<table>
+			<tr>
+				<td class="pro">
+					<span class="loginIo loginIo1"></span><input type="text" name="data[uname]" class="text full" placeholder="请输入用户名" />
+				</td>
+			</tr>
+			<tr>
+				<td class="pro">
+					<span class="loginIo loginIo2"></span><input type="password" name="data[passwd]" class="text full" placeholder="请输入密码"  />
+				</td>
+			</tr>
+			<{if $CONFIG.access.verifycode.login}>
+			<tr>
+				<td>
+					<input class="text short lt" type="text" name="verifycode" placeholder="请输入验证码"/>
+					<div class="rt yanzh"><img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/></div>
+				</td>
+			</tr>
+			<{/if}>
+		</table>
+		<label class="rt">
+			<input type="checkbox" name="keep" class="check" />
+			30天之内自动登录</label>
+		<a  href="#" id='login-btn' class="btn subbtn_full">立即登录</a>
+	</form>
+	<p>第三方账号登录：</p>
+	<div class="other_login"> <a href="<{link ctl='mobile/passport:qqlogin'}>" class="qq_login"> <span class="app_ico qq_login_ico lt"></span> <span class="text">QQ账号登录</span> </a> <a href="<{link ctl='mobile/passport:weibo'}>" class="weibo_login"> <span class="app_ico weibo_login_ico lt"></span> <span class="text">微博账号登录</span> </a> </div>
+	<p>没有账号？<a href="<{link ctl='mobile/passport:signup'}>" class="fontcl2">立即注册</a></p>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#login-btn").click(function(){
+        $.post('<{link ctl="mobile/passport:login"}>',$("#login-form").serialize(),function(ret){
+            if(ret.error){
+                 Widget.MsgBox.error(ret.message.join(","));
+            }else{
+                window.location="<{link ctl='mobile/ucenter/index'}>";
+            }
+        },'json');
+    });        
+});
+</script> 
+<script>
+$("[verify]").click(function(){
+	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script> 
+<{include file="mobile/block/footer.html"}> 

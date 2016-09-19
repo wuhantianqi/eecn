@@ -1,0 +1,25 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">设计团队</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/team:bind' http='ajax'}>" mini-load="绑定设计师" mini-width="300" class="pbtn">绑定设计师</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+    <tr>
+        <th class="w-150">设计师</th><th>毕业院校</th><th class="w-100">手机</th>
+        <th class="w-100">QQ</th><th class="w-150">邮箱</th><th class="w-50">审核</th><th class="w-80"></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>    
+        <td><{$item.realname}>(ID:<{$item.uid}>)</td><td><{$item.school|default:'--'}></td>
+        <td><{$item.mobile|default:'--'}></td><td><{$item.qq|default:'--'}></td><td><{$item.mail|default:'--'}></td>
+        <td><{if $item.audit}>已审核<{else}><span class="red">待审核</span><{/if}></td>    
+        <td><a href="<{link ctl='ucenter/company/team:unbind' arg0=$item.uid}>" mini-act="confirm:您确定要解雇该设计师"  class="pbtn red">解雇</a></td>
+    </tr>
+    <{foreachelse}>
+    <tr><td colspan="20"><p class="text-align tip-notice">您还有没有绑定设计师</p></td></tr>
+    <{/foreach}>
+    </table>
+	<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

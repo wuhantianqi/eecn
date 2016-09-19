@@ -1,0 +1,56 @@
+<{include file="block/small-header.html"}>
+
+<!--头部内容结束-->
+<div class="subwd area mb20 mt20 city_content">
+    <!--主体内容开始-->
+        <div class="underline city_top">
+            <a href="<{$request.city.siteurl}>" class="btn"><span class="ico_list city_ico"></span>点击进入<{$request.city.city_name}>站</a>
+        </div>
+        <div class="pding city_chose">
+            <p class="hot_city"><span class="title">热门城市：</span>
+                <{foreach $city_list as $item}>
+                <{if $item.audit==1 && $item@index<8}>
+                    <a href="<{$item.siteurl}>"><{$item.city_name}></a>
+                <{/if}>
+                <{/foreach}>共开通了<{count($city_list)}>个城市</p>      
+                <form action=""><p><span class="title">快速查找：</span>
+                <{widget id="data/region" level=2 city_id=$request.city_id class="text short"}>
+                <input type="button" class="btn btn_main_sm" onclick="gotocity()" value="进入" />
+                </p>        
+                </form>          
+        </div>
+        <div class="pinyin_px pding">
+            <span  class="lt">按拼音字母选择</span>
+            <p id="py_list" class="rt hoverno">
+                <{foreach range('A', 'Z') as $v}><a href="javascript:;" py="<{$v}>"><{$v}></a><{/foreach}></p>
+            <div class="cl"></div>
+        </div>
+        <div class="pding city_liebiao"  id="city_box">
+            <table>
+                <{foreach $province_list as $v}>
+                <tr>
+                    <td class="tit"><{$v.province_name}></td>
+                    <td><{foreach $city_list as $vv}><{if $vv.province_id==$v.province_id}><a href="<{$vv.siteurl}>" id="city_<{$vv.city_id}>" py="<{$vv.py}>"><{$vv.city_name}></a><{/if}><{/foreach}></td>
+                </tr>
+                <{/foreach}>
+            </table>
+        </div>
+    <!--主体内容结束-->
+</div>   
+<script type="text/javascript">
+function gotocity(){
+    var city_id = $("select[name='data[city_id]']")[0].value;
+    window.location.href=$('#city_'+city_id).attr("href"); 
+}
+(function(K, $){
+$("#py_list a").click(function(){
+    $("#py_list a").removeClass("current");
+    $(this).addClass("current");
+    var py = $(this).attr("py");
+    $("#city_box a").removeClass("current");
+    $("#city_box a[py='"+py+"']").addClass("current");
+});
+
+})(window.KT, window.jQuery);
+</script>    
+<{include file="block/small-footer.html"}>

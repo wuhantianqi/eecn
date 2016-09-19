@@ -1,0 +1,28 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">评论管理</li></ul>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th class="w-150">发表用户</th><th>内容</th><th class="w-80">审核</th><th class="w-80">是否回复</th><th class="w-150">添加时间</th><th class="w-200"></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.comment_id}><label></td>
+        <td><{$member[$item.uid].uname|cutstr:20}></td>
+        <td><{$item.content|cutstr:20}></td>
+        <td><{if $item.audit}><b class="blue">通过</b><{else}><b class="red">待审</b><{/if}></td>
+        <td><{if $item.reply}><b class="blue">已回复</b><{else}><b class="red">待回复</b><{/if}></td>
+        <td><{$item.dateline|format}></td>
+        <td>
+            <a href="<{link ctl='ucenter/gz/comment:reply' arg0=$item.comment_id}>" class="pbtn">回复</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    <tr><td colspan="10"><div class="page"><{$pager.pagebar}></div></td></tr>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

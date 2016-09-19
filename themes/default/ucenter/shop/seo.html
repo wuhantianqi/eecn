@@ -1,0 +1,27 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/shop:base'}>" >基本设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:info'}>">资料设置</a></li>
+        <{if $CONFIG.domain.shop}>
+        <li><a href="<{link ctl='ucenter/shop:domain'}>">个性域名</a></li>
+        <{/if}>
+        <li class="on"><a href="<{link ctl='ucenter/shop:seo'}>">SEO设置</a></li>
+        <li><a href="<{link ctl='ucenter/shop:gmsm'}>">购买说明</a></li>
+        <li><a href="<{link ctl='ucenter/shop/banner:index'}>">轮转广告</a></li>
+        <li><a href="<{link ctl='ucenter/shop:skin'}>">店铺模板</a></li>  
+    </ul>
+</div>
+<div class="ucenter_c">
+<{if $group.priv.allow_seo < 0}><p class="tips"><span class="lock">你是【<b class="red"><{$group.group_name}></b>】不能设置SEO</span></p><{/if}>
+<form action="<{link ctl='ucenter/shop:seo'}>" mini-form="ucenter" method="post">
+<table width="100%" cellspacing="0" cellpadding="0" class="form">
+    <tr><th>商铺名称：</th><td><{$shop.title}></td></tr>
+    <tr><th class="w-100">SEO 标题：</th><td><input type="text" name="data[seo_title]" value="<{$shop.seo_title}>" class="input w-500" <{if $pager.audit_seo<0}>disabled="disabled"<{/if}>/></td></tr>
+    <tr><th class="w-100">SEO 关键字：</th><td><input type="text" name="data[seo_keywords]" value="<{$shop.seo_keywords}>" class="input w-500" <{if $pager.audit_seo<0}>disabled="disabled"<{/if}>/></td></tr>
+    <tr><th class="w-100">SEO 描述：</th><td><textarea name="data[seo_description]" class="textarea w-500" <{if $pager.audit_seo<0}>disabled="disabled"<{/if}>><{$shop.seo_description}></textarea></td></tr>
+    <tr><th></th><td><{if $group.priv.allow_se<0}><input type="button" value="没有权限" disabled="disabled" class="mpbtn" /><{else}><input type="submit" value="提交数据" class="green_btn" /><{/if}></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

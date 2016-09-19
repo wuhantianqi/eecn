@@ -1,0 +1,63 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/member/verify:name'}>">实名认证</a></li>
+        <li><a href="<{link ctl='ucenter/member/verify:mail'}>">邮箱认证</a></li>
+        <li class="on">手机认证</li>
+    </ul>
+</div>
+<div class="ucenter_c">
+    <{if $MEMBER.verify_mobile}> 
+    <div class="tips"><span class="success">您的手机【<{$MEMBER.mobile}>】已经通过认证</span></div>    
+    <{else}>
+	<form action="<{link ctl='ucenter/member/verify:mobile'}>" mini-form="uenter" method="post">
+    <table cellspacing="0" cellpadding="0" class="form">
+        <tr><th>用户名：</th><td><b><{$MEMBER.uname}></b></tr>
+        <{if $MEMBER.mobile}>
+        <tr><th>手机号：</th>
+			<td>
+				<b class="red"><{$MEMBER.mobile}></b>
+				<span style="margin-left:20px;"><button type="button" id="jq_send_verify" class="pbtn">获取验证码</button>
+			</span>
+			</td>
+		</tr>
+        <tr><th>验证码：</th><td><input type="text" name="data[code]" value="" class="input w-100"/></td></tr>
+        <tr><th></th><td><input type="submit" value="立即验证" class="green_btn" /></td></tr>
+        <{else}>
+        <tr><th></th>
+			<td>您还没有设置手机号，不能验证手机. <a href="<{link ctl='ucenter/member:info'}>" value="" class="pbtn">立即设置</a></td>
+		</tr>
+        <{/if}>
+    </table>
+	</form>
+	<{/if}>
+</div>
+<script type="text/javascript">
+(function(K, $){
+var _Time_count = 100;
+var _Timer = null;
+$("#jq_send_verify").click(function(){
+	Widget.MsgBox.load("验证短信发送中...");
+	$.getJSON("<{link ctl='ucenter/member/verify:mobile' arg0='send'}>", function(ret){
+		if(ret.error){
+			Widget.MsgBox.error(ret.message.join(","));
+		}else{
+			Widget.MsgBox.success(ret.message.join(",")||"验证短信发送成功");
+			$("#jq_send_verify").attr("disabled", "disabled");
+			_Timer = setInterval(function(){
+				_Time_count --;
+				if(_Time_count < 1){					
+					_Time_count = 100;
+					$("#jq_send_verify").attr("disabled", false);
+					$("#jq_send_verify").text("重新发送");
+					clearInterval(_Timer);
+				}else{
+					$("#jq_send_verify").text(_Time_count+"秒可重发");
+				}
+			}, 1000);
+		}
+	});
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

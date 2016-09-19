@@ -1,0 +1,39 @@
+<{include file="home/block/header.html"}>
+<div class="sub_home_lt lt">
+    <div class="mb10">
+        <div class="area ">
+            <ul class="home_design block_type">
+                <{foreach $items as $item}>
+                <li>
+                    <a href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="pic lt"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
+                    <div class="rt">
+                        <h3><a href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="lt"><{$item.title}></a>
+                            <span class="rt"><font class="fontcl2"><{$item.views}></font>人看了此方案</span></h3>
+                        <p class="cl"></p>
+                        <p>方案提供者：
+                        	<{if $company_list[$item.company_id]}>
+                            <a href="<{$company_list[$item.company_id].company_url}>"><font class="fontcl2"> <{$company_list[$item.company_id].name}> </font></a></h2>
+                            <{elseif $gz_list[$item.uid]}>
+                            <a href="<{link ctl='gz:detail' arg0=$item.uid}>"><font class="fontcl2"> <{$gz_list[$item.uid].name}> </font></a></h2>
+                            <{elseif $designer_list[$item.uid]}>
+                            <a href="<{link ctl='blog' arg0=$item.uid}>" ><font class="fontcl2"> <{$designer_list[$item.uid].name}> </font></a></h2>
+                            <{else}>
+                            <font class="fontcl2"><{$CONFIG.site.title}></font></h2>
+                            <{/if}>                       
+                        </p>
+                        <p>设计思路：<{$item.intro}></p>
+                        <p class="bottom"><span class="lt"><a href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="fontcl1">平面布置图</a>
+                            <a href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="fontcl1">设计图</a>
+                            </span><a href="<{link ctl='home:caseDetail' arg0=$item.home_id arg1=$item.case_id}>" class="rt btn btn_main_sm">去看看</a>
+                        </p>
+                    </div>
+                    <div class="cl"></div>
+                </li>
+                <{/foreach}>
+                <div class="cl"></div>
+            </ul>
+            <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+        </div>
+    </div>      
+</div>
+<{include file="home/block/footer.html"}>

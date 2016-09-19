@@ -1,0 +1,11 @@
+<{include file="mobile/block/header.html"}>
+<div class="tips"><span class="success">您的订单提交成功！</span></div>
+<div class="pding fuk_btn">
+	<div class="all_price mb10">订单号：<{$order.order_no}></div>
+	<a href="<{link ctl='mobile/trade/order:detail' arg0=$order.order_no}>" class="btn fukbtn_full">查看订单</a>
+	<a href="<{link ctl='mobile/trade/order:payment' arg0=$order.order_no}>" class="btn subbtn_full">立即支付</a>
+</div>
+
+<{include file="mobile/block/sfooter.html"}>
+</body>
+</html>

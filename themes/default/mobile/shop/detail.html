@@ -1,0 +1,79 @@
+<{assign var="tpl_page_title" value=$shop.name}>
+<{include file="mobile/block/header.html"}>
+<div class="swiper-container">
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$shop.logo}>" class="lt pic" />
+		<h2><{$shop.name}></h2>
+		<p class="nowrap">口碑：<{$shop.score}></p>
+		<p class="nowrap">电话：<a  href="tel:<{$shop.show_phone}>"><{$shop.show_phone}></a></p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="shop_nav">
+	<ul>
+		<li><a href="<{link ctl='mobile/shop' arg0=$shop.shop_id}>" class="current">商家简介</a></li>
+		<li><a href="<{link ctl='mobile/shop:product' arg0=$shop.shop_id arg1=0}>">所有商品</a></li>
+		<li><a href="<{link ctl='mobile/shop:coupon' arg0=$shop.shop_id arg1=1}>">优惠券</a></li>
+		<li><a href="<{link ctl='mobile/shop:news' arg0=$shop.shop_id arg1=1}>">活动资讯</a></li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="pding">
+	<p>商铺：<{$shop.title}></p>
+	<p>地址：<{$shop.city_name}> <{$shop.area_name}> <{$shop.addr}></p>
+	<p></p>
+    <div class="article"><{$shop.info}></div>
+</div>
+</div>
+<script src="%THEME%/mobile/static/swiper/swiper.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+     var WW = $(".pding").width();
+    $(".pding img").each(function(){
+        var IW = $(this).width();
+        if(IW > (WW-10)){
+            IW = WW-10;
+            $(this).width(IW);
+        }
+    });
+   
+   var mySwiper = new Swiper('.swiper-container',{
+    pagination: false,
+    loop:true,
+    grabCursor: true
+  })
+   
+
+$(".pding").height($(window).height()-120);
+$(".pding .content").height($(window).height()-120);
+$(window).resize(function(){
+    var WW = $(".pding").width();
+    var WH = $(window).height();
+    $(".content").height(WH-120);
+    var SH = $(".content").eq(0).height();
+    $(".content img").each(function(){
+        var IW = $(this).width();
+        var IH = $(this).height();
+        if(IW > (WW-20)){
+            IW = WW-20;
+            $(this).width(IW);
+            if(IH > (WH-200)){
+                IH = WH - 200;
+                $(this).height(IH);
+            }    
+        }else if(IH > (WH-200)){
+            IH = WH-200;
+            $(this).height(IH)
+            if(IW > (WW-20)){
+                IW = WW - 20
+                $(this).width(IW);
+            }    
+        }
+        var m = (SH- IH)/2;
+        $(this).css({"margin":m+"px auto"})
+    });
+});
+});
+</script>
+<{include file="mobile/block/footer.html"}>

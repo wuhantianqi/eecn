@@ -1,0 +1,10 @@
+<{assign var="tpl_page_title" value="工长<{$detail.name}>个人简介"}>
+<{include file="mobile/gz/block/header.html"}>
+<div class="pding">
+	<p>所在地区：<{$city_list[$detail.city_id].city_name}><{$area_list[$detail.area_id].area_name}></p>
+	<p>联系方式:<{$detail.show_phone}></p>
+	<p>设计理念：<{$detail.slogan}></p>
+	<p>个人简介：<{$detail.about}> </p>
+</div>
+
+<{include file="mobile/block/footer.html"}>

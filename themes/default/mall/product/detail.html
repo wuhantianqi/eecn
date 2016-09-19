@@ -1,0 +1,246 @@
+<{include file="shop/block/header.html"}>
+	<!--左边主体内容开始-->
+	<div class="rt shop_rt">
+		<div class="area pding mb10">
+		<h2><b><{$detail.title}></b></h2>
+			<div class="lt">
+				<div class="goods_top_img"><a href="<{$pager.img}>/<{$detail.photo}>" rel="zoomWidth:360,zoomHeight:320,adjustX:10" class="cloud-zoom" id='gallery'><img src="<{$pager.img}>/<{$detail.photo}>_thumb.jpg" /></a></div>
+				<ul class="goods_tit_ul">
+                    <{foreach $product_photo_list as $v}>
+					<li><a href="<{$pager.img}>/<{$v.photo}>" class="cloud-zoom-gallery" rel="useZoom: 'gallery', smallImage: '<{$pager.img}>/<{$v.photo}>_thumb.jpg'"><img src="<{$pager.img}>/<{$v.photo}>_small.jpg" /></a></li>
+                    <{/foreach}>
+				</ul>
+			</div>
+			<div class="rt goods_intro">
+				<p>商铺价：<b class="fontcl2" id="product_spec_price">￥<{$detail.price}> </b></p>
+				<p>市场价：<del class="graycl">￥<{$detail.market_price}> </del></p>
+                <{if $detail.onpayment}>
+				<p>总销量：<{$detail.buys}></p>
+                <{else}>
+                <p>订购量：<{$detail.books}></p>
+                <{/if}>
+				<p>分类：<{$detail.cate_title}></p>
+				<p>运费：<font class="pointcl"><{if $detail.freight}>￥<{$detail.freight}><{else}>包邮<{/if}></font></p>
+                <{if $detail.sale_type == 2}>
+                <p class="point_p"><span class="shop_ico point_ico"></span><span class="pointcl" remaintime="<{$detail.sale_time}>"></span></p>
+                <{elseif $detail.sale_type == 1}>
+                    <p class="point_p">
+                        <{if $detail.sale_sku > $detail.sale_count}>
+                        <span class="shop_ico point_ico"></span>已有 <font class="pointcl"><{$detail.sale_count}></font>人抢购，仅剩余 <font class="pointcl"><{$detail.sale_sku-$detail.sale_count}></font>
+                        <{else}>
+                        <span class="pointcl">真遗憾您来晚了，已经卖光了。</span>
+                        <{/if}>
+                    </p>
+                <{/if}>				
+				<div class="goods_buy_cont">
+                <!-- 商品规格值 -->
+                <input type="hidden" id="product_spec_id" value="0" />
+                <div class="jh-key">
+                    <{if $product_spec_list}>             
+                    <div class="jh-spec">
+                        <dl>
+                            <dt>规格：</dt>
+                            <dd>
+                                <ul id="product_spec_ul">
+                                    <{foreach $product_spec_list as $item}>
+                                    <li class="sp-txt"><a href="javascript:void(0)" spec_id="<{$item.spec_id}>" title="<{$item.spec_name}>"><{$item.spec_name}><i></i></a></li>
+                                    <{/foreach}>
+                                </ul>
+                            </dd>
+                        </dl>                    
+                        <div class="cl"></div>
+                    </div>            
+                    <{/if}>
+                    <!-- //商品规格值 -->
+                        <{if $detail.onpayment}>
+    					<p class="goods_buy_count"><font class="lt">购买数量： </font>
+    					<a class="jian" href="javascript:;" quantity="-">▁</a>
+    					<input type="text" id="cart_product_num" class="buy_count_text" value="1" /><a class="jia" href="javascript:;"  quantity="+">+</a>
+                        <{if $detail.sale_type == 1}><span>库存：<font id="product_sale_sku"><{$detail.sale_sku}></font></span><{/if}>
+                        </p>
+    					<p class="cl"></p>
+                        <{/if}>
+                        <p class="jh-spec"><dl id="product_prompt" class="jh-point none"></dl></p>
+                        <p>                        
+                        <{if $detail.onsale == 'Y'}>
+                            <{if $detail.onpayment}>
+                            <{if empty($detail.sale_type) || ($detail.sale_type == 2 && $detail.sale_time>$pager.dateline) || ($detail.sale_type == 1 && $detail.sale_sku > $detail.sale_count)}>
+                            <{* <a cart="buy:<{$detail.product_id}>" class="gwc_btn btn">优惠购买</a> *}>
+                            <a cart="cart:<{$detail.product_id}>" class="gwc_btn btn">优惠购买</a>
+                            <{/if}>
+                            <{/if}>
+                            <a href="<{link ctl='mall/product:book' arg0=$detail.product_id http='ajax'}>" mini-load="咨询商家" class="gwc_btn btn">商品咨询</a>
+                        <{else}>
+                            商品已经下架
+                        <{/if}> 
+                        </p>
+                    </div>
+				</div>
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="area mb20">
+			<p class="sub_shop_fl hoverno"><a href="#shop1" class="current first" >商品详情</a><a href="#shop2">订购须知</a><a href="#shop3">配送与安装</a><a href="#shop4">留言评价</a></p>
+			<div class="pding">
+			<h3><span class="ico_list shu_ico"></span><b><a name="shop1">商品详情</a></b></h3>
+			<p class="shuxing"><span>分类： <{$detail.cate_title}></span><span>品牌： <{$detail.brand_title|default:'--'}></span></p>
+            <{widget id="shop/attr" cat_id=$detail.cat_id value=$detail.attrvalues tpl='shop/block/product-attr.html'}>
+            <div><{$detail.info}></div>
+			</div>
+			<div class="pding">
+			<h3><span class="ico_list shu_ico"></span><b><a name="shop2">订购须知</a></b></h3>
+			<div><{$shop.psaz}></div>
+			</div>
+			<div class="pding">
+			<h3><span class="ico_list shu_ico"></span><b><a name="shop3">配送与安装</a></b></h3>
+			<div><{$shop.dgxz}></div>
+			</div>
+			<div class="pding new_pinglun">
+                <h3><span class="ico_list shu_ico"></span><b><a name="shop4">留言评价</a></b></h3>
+                <ul>
+                    <{foreach $comments as $item}>
+                    <li>
+                        <div class="lt">
+                            <img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>" class="lt" /><br />
+                        </div>
+                        <div class="rt">
+                            <p class="graycl"><span class="lt"><{$member_list[$item.uid].uname}><b score="item_score" data-score="<{$comment.score}>"></b><b class="fontcl2"><{$item.score}>分</b></span><span class="rt time"><{$item.dateline|format}></span></p>
+                            <p class="cl"></p><p><{$item.content}></p>
+                            <{if $v.reply}><p class="cl"></p><p class="huifu">回复：<{$item.reply}></p><{/if}>
+                        </div>						
+                    </li>
+                    <{/foreach}>
+                </ul>
+                <div class="cl"></div>
+                <form action="<{link ctl='mall/product:comment' http='base'}>" mini-form="comment" method="post" class="pinglun">
+                    <input type="hidden" name="product_id" value="<{$detail.product_id}>" />
+                    <span  class="pf">评分：<input type="hidden" name="data[score]" id="comment-score" value="3" /><b comment-score="score" data-score="3"></b></span>
+                    <textarea class="text" name="data[content]" placeholder="您的点评..."></textarea>
+                     <{if $comment_yz}>
+                        验证码:
+                                <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                                <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+                            
+                    <{/if}>
+                    <input type="submit" value="发表评论" class="text btn rt pinglun_btn" />
+                    <div class="cl"></div>
+                </form>
+			</div>
+		</div>		
+	</div>
+<!--左边主体内容结束-->
+<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+<script type="text/javascript">
+(function(K, $){
+<{if $product_spec_list}>
+var product_spec_list = [];
+<{foreach $product_spec_list as $item}>
+product_spec_list.push(["<{$item.spec_id}>", "<{$item.price}>", "<{$item.spec_name}>", "<{$item.spec_photo}>", <{$item.sale_sku}>]);
+<{/foreach}>
+var spec_max_price = spec_min_price = "<{$detail.price}>";
+for(var i=0; i<product_spec_list.length; i++){
+    if(spec_max_price < product_spec_list[i][1]){
+        spec_max_price = product_spec_list[i][1];
+    }
+    if(spec_min_price > product_spec_list[i][1]){
+        spec_min_price = product_spec_list[i][1];
+    }    
+}
+$("#product_spec_price").html("￥"+spec_min_price+" - ￥"+spec_max_price);
+$("#product_spec_ul .sp-txt a").click(function(){
+    var spec_id = $(this).attr("spec_id");
+    $("#product_spec_ul .sp-txt a").removeClass("hovered");
+	 $("#product_spec_ul .sp-txt").find('i').hide();
+    $(this).addClass('hovered');
+	$(this).find('i').show();
+    for(var i=0; i<product_spec_list.length; i++){
+        if(product_spec_list[i][0] == spec_id){
+            $("#product_spec_price").html("￥"+product_spec_list[i][1]);
+            $("#product_spec_id").val(spec_id);
+            if(product_spec_list[i][3]){
+                $("#gallery").attr("href", "<{$pager.img}>/"+product_spec_list[i][3]);
+                $("#gallery img").attr("src", "<{$pager.img}>/"+product_spec_list[i][3]+"_thumb.jpg");
+                $("#gallery").CloudZoom();
+            }
+            $("#product_prompt").show().html('<dt>提示：</dt><dd><em class="yes fl">您选择了：'+product_spec_list[i][2]+'&nbsp;</em></dd>');
+            break;
+        }
+    }    
+});
+$("#product_spec_ul .sp-txt a").eq(0).click();
+<{/if}> 
+    $('b[comment-score]').raty({
+        path: "<{$pager.res}>/script/raty/img/",
+        score: function() {return $(this).attr('data-score');},
+        hints: ["差","还行","好","很好","非常好"],
+        click: function(score, evt) {$("#comment-score").val(score);}
+    });
+    $(".mall_deyail_product_show_t li").click(function(){
+        var index = $(this).index();
+        $(this).addClass("on").siblings().removeClass("on");
+        $(".mall_detail_product_b div.mall_detail_prodect_xq:eq("+index+")").show().siblings().hide();
+    });
+    $('b[score]').each(function(){$(this).raty({numberMax:5,readOnly: true,hints: ["差","还行","好","很好","非常好"],path:"<{$pager.res}>/script/raty/img/",score: function() {return $(this).attr('data-score');}})});
+    $("[cart]").click(function(e){
+        var link = "<{link ctl='mall/cart:add' arg0=$detail.product_id arg1='#spec#' arg2='#num#' http='base'}>";
+        var num = parseInt($("#cart_product_num").val(), 10);
+        var spec_id = parseInt($("#product_spec_id").val(), 10);
+        var d = $(this).attr("cart").split(":")
+        $.getJSON(link.replace("#spec#", spec_id).replace("#num#", num), function(ret){
+            if(ret.error){
+                Widget.MsgBox.error(ret.message.join(""));
+            }else if(d[0] == 'buy'){
+                window.location = "<{link ctl='mall/cart' http='base'}>";
+            }else{
+                Widget.MsgBox.success('添加到购物车成功');
+            }
+        });
+    });
+$(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+$("[verify]").click(function(){
+    $($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+//商铺商品详情页
+  $("p.sub_shop_fl a").click(function(){
+     $('p.sub_shop_fl a').removeClass('current');
+     $(this).addClass('current');
+ });
+//商铺商品数量加减
+$("[quantity]").click(function(){
+var quantity = parseInt($("#cart_product_num").val(), 10);
+if($(this).attr("quantity") == '+'){
+    quantity += 1;
+}else{
+    quantity -= 1;
+}
+if(quantity < 1){
+    quantity = 1;
+}
+$("#cart_product_num").val(quantity);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="shop/block/footer.html"}>

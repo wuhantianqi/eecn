@@ -1,0 +1,38 @@
+<{include file="mobile/block/header.html"}>
+<form action="<{link ctl='mobile/trade/order:create'}>" method="post" id="order-form">
+<h2 class="pd_lt">收货人信息</h2>
+<div class="pding order_box mb10">
+	<table class="take_table">
+		<tr>
+			<td class="title">收货人：</td>
+			<td><input type="text" name="data[contact]" class="text" /></td>
+		</tr>
+		<tr>
+			<td class="title">电话：</td>
+			<td><input type="text" name="data[mobile]" class="text" /></td>
+		</tr>
+		<tr>
+			<td class="title">地址：</td>
+			<td><input type="text" name="data[addr]" class="text" /></td>
+		</tr>
+	</table>
+</div>
+<{foreach $cart.items as $item}>
+<h2 class="pd_lt"><a href="<{link ctl='mobile/product:detail' arg0=$item.product_id arg1=1}>"<{$item.name}></a><{if $item.spec}>【<{$item.spec.spec_name}>】<{/if}></h2>
+<div class="pding order_box order_menu mb10">
+	<p><span class="lt">单价：</span><span class="rt">￥<{$item.price}></span></p>
+	<p><span class="lt">数量：</span><span class="rt"><{$item.num}></span></p>
+	<p><span class="lt">运费：</span><span class="rt pointcl"><{if $item.freight}><{$item.freight}><{else}>包邮<{/if}></span></p>
+	<p><span class="lt">小计：</span><span class="rt pointcl">￥<{($item.product_price*$item.num + $item.freight)}></span></p>
+</div>
+<{/foreach}>
+<div class="pding fuk_btn">
+	<div class="all_price mb10">
+		<span class="lt">合计（含运费）：</span><span class="rt pointcl">￥<{$cart.total_amount}></span>
+	</div>
+	<a action="<{link ctl='mobile/trade/order:create'}>" mini-submit="#order-form" class="btn subbtn_full">提交订单</a>
+</div>
+</form>
+
+</body>
+</html>

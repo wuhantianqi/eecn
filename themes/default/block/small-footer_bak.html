@@ -1,0 +1,19 @@
+<div class="sub_footer">
+    <p><{calldata mdl="article/article" city_id=$request.city_id from='about' limit="6"}><a href="<{link ctl='about' arg0=$item.page}>"><{$item.title}></a> <{if !$last}>|<{/if}> <{/calldata}></p>
+    <p>Copyright2012-2015 www.ijh.cc,All Rights Reserved ICP备案：<{$CONFIG.site.icp}></p>
+    <p><span class="main_footer_bm_ico index_ico"></span></p>
+</div>
+<!--底边内容结束-->
+<{widget id="public/kefu"}>
+<link rel="stylesheet" href="<{$pager.res}>/script/bxslider/jq.bxslider.css" type="text/css" />
+<script type="text/javascript"  src="<{$pager.res}>/script/bxslider/jq.bxslider.min.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+    $('[bxSlider]').bxSlider({ mode: 'fade',captions: true, auto:true});
+});
+})(window.KT, window.jQuery);
+</script>
+<p class="none"><{$CONFIG.site.tongji}></p>
+</body>
+</html>

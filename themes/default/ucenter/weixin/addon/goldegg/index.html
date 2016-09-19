@@ -1,0 +1,33 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+   
+    <ul>
+        <li class="on">砸金蛋管理</li>
+    </ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/addon/goldegg:create'}>" class="pbtn">添加砸金蛋</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+   <tr><th class="w-100">砸金蛋ID</th><th>关键字</th><th>封面图片</th><th>活动名称</th><th>活动开始时间</th><th>活动结束时间</th><th class="w-100">创建时间</th><th class="w-220">操作</th></tr>
+    <{foreach $items as $item}>
+        <tr><td><{$item.id}></td>
+        <td><{$item.keyword}></td>
+        <td><img src="<{$pager.img}>/<{$item.photo}>" class="wh-50" /></td>
+        <td><{$item.title}></td>
+        <td><{$item.stime|format:'Y-m-d'}></td>
+        <td><{$item.ltime|format:'Y-m-d'}></td>
+        <td><{$item.dateline|format}></td>
+        <td>
+        	 <a href="<{link ctl='ucenter/weixin/addon/goldegg:sn' arg0=$item.id}>" class="pbtn">中奖</a>
+			 <a href="<{link ctl='ucenter/weixin/addon/goldegg:preview' arg0=$item.id  http='ajax'}>" mini-width='180' mini-load="扫描二维码" class="pbtn">预览</a>
+            <a href="<{link ctl='ucenter/weixin/addon/goldegg:edit' arg0=$item.id}>" class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/weixin/addon/goldegg:delete' arg0=$item.id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+        </td></tr>
+       
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    <tr><td colspan="10"><div class="page"><{$pager.pagebar}></div></td></tr>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>

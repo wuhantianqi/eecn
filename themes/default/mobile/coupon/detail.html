@@ -1,0 +1,29 @@
+<{assign var="tpl_page_title" value="优惠券介绍"}>
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<div class="pding">
+	<ul class="coupon_menu">
+		<li class="lt">
+			<a href="#">
+			<div class="coupon_menu_cont">
+				<b>¥ <{$detail.money}></b>
+				<p><{$detail.title}></p>
+				<p class="bg">立即领取</p>
+			</div>
+			</a>
+		</li>
+	</ul>
+	<div class="coupon_intro rt">
+		<p class="nowrap"><{$detail.title}></p>
+		<p>已领取数：<font class="fontcl2"><{$detail.downloads}></font></p>
+		<p class="nowrap"><{if $deatil.ltime}><{$detail.ltime|format:'Y-m-d'}><{else}>永久有效<{/if}></p>
+		<a href="<{link ctl='mobile/coupon:download' arg0=$detail.coupon_id}>" class="btn mainbtn">下载到手机</a>
+	</div>
+	<div class="cl"></div>
+</div>
+<p class="pub_tit">优惠券详情</p>
+<div class="pding content">
+	<{$detail.content}>
+</div>
+
+<{include file="mobile/block/footer.html"}>

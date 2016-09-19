@@ -1,0 +1,40 @@
+<{include file="home/block/header.html"}>
+<div class="subwd">
+	<div class="sub_home_lt lt">
+			<div class="mb10 pding area ">
+				<ul class="home_pic_list">
+					<{foreach $items as $item}>
+                	<li>
+                        <div class="opacity_img">
+                            <a class="fancybox-button" rel="fancybox-button" href="<{$pager.img}>/<{$item.photo}>">
+                            <img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a>
+                            <p class="bg"></p>
+                            <p class="text"><{$item.title}></p>
+                        </div>
+                    </li>
+                    <{/foreach}>
+				</ul>
+				<div class="cl"></div>
+				<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+			</div>
+	 </div>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="<{$pager.res}>/script/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="<{$pager.res}>/script/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<link rel="stylesheet" href="<{$pager.res}>/script/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="<{$pager.res}>/script/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript">
+(function(K, $){
+	$(".fancybox-button").fancybox({
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		closeBtn		: false,
+		helpers		: {
+			title	: { type : 'inside' },
+			buttons	: {}
+		}
+	});
+})(window.KT, window.jQuery)
+</script>
+<{include file="home/block/footer.html"}>

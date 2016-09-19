@@ -1,0 +1,40 @@
+<{assign var="tpl_page_title" value="搜索页"}>
+<{include file="mobile/block/header.html"}>
+<div class="search pding" style="min-height:300px">
+     <form method="post" action="<{link ctl='mobile/company:index'}>" id="top-search">
+            <div class="search_cont">
+               <div class="search_box"> 
+                    <a href="javascript:void(0);" id="top_select" class="lt">公司<span class="app_ico seach_i rt"></span></a>
+                    <div class="search_choose none">
+                        <a href="javascript:void(0);" rel="<{link ctl='mobile/company:items'}>">公司</a>
+                        <a href="javascript:void(0);" rel="<{link ctl='mobile/designer:items'}>">设计师</a>
+                        <a href="javascript:void(0);"  rel="<{link ctl='mobile/home:tuan'}>">团装</a>
+                        <a href="javascript:void(0);" rel="<{link ctl='mobile/case:index'}>">案例</a>
+                        <a href="javascript:void(0);" rel="<{link ctl='mobile/product' }>">商品</a>
+                        <a href="javascript:void(0);" rel="<{link ctl='mobile/store'}>" class="last">材料商</a>
+            	 	</div>
+                </div>
+                <input type="text" name="kw" class="text lt" placeholder="请输入你要搜索的关键字" value="<{$pager.sokw}>"  x-webkit-speech speech/>
+                <div class="cl"></div>
+				</div>
+                <input type="submit" class="btn mainbtn_full" value="搜索"/>
+            </div>
+      </form>
+      		<script type="text/javascript">
+                $(document).ready(function() {
+                    $(".search .search_box").mouseover(function(){
+                        var o = $(".topso").offset();
+                        $(this).find(".search_choose").css({left:o.left,top:o.top+35}).show();
+                    }).mouseleave(function(){
+                        $(this).find(".search_choose").hide();
+                    });
+                    $(".search .search_choose a").click(function(){
+                        $(".search .search_box #top_select").html($(this).text());
+                        $(".search form").attr('action',$(this).attr('rel'));
+                        $(".search .search_choose").hide();
+                    }); 
+                });
+            </script>
+</div>
+
+<{include file="mobile/block/footer.html"}>

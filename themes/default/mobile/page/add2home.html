@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="%THEME%/mobile/static/xz/sun.css" rel="stylesheet">
+    <title><{$CONFIG.site.title}></title>    
+    <link rel="apple-touch-icon-precomposed" href="%THEME%/mobile/static/images/apple114.png" />
+    <link rel="apple-touch-startup-image" href="%THEME%/mobile/static/xz/iphone.png" />
+    <link rel="apple-touch-startup-image" href="%THEME%/mobile/static/xz/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" />
+    <link rel="apple-touch-startup-image" href="%THEME%/mobile/static/xz/ipad-landscape.png"  media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" />
+    <link rel="apple-touch-startup-image" href="%THEME%/mobile/static/xz/ipad-portrait@2x.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)" />
+    <link rel="apple-touch-startup-image" href="%THEME%/mobile/static/xz/ipad-landscape@2x.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio: 2)" />
+    <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>","mobile":"<{$CONFIG.mobile.url}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
+    <script language="javascript" type="text/javascript" src="<{$pager.res}>/script/kt.j.js"></script>
+    <script src="%THEME%/mobile/static/xz/sun.js"></script>
+    <link rel="stylesheet" href="%THEME%/mobile/static/xz/add2home.css">
+    <script type="text/javascript" src="%THEME%/mobile/static/xz/add2home.js" charset="utf-8"></script>
+</head>
+<body class="preview">
+    <div id="app">
+        <h1><{$CONFIG.site.title}></h1>
+        <p>简单装修 <em>&amp; 快乐分享</em></p>
+        <a id="more" href="<{$CONFIG.mobile.url}>">立即访问</a>
+        <div class="photo"></div>
+    </div>
+</body>
+</html>

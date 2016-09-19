@@ -1,0 +1,79 @@
+<{assign var="seo_sub_title" value="会员注册"}>
+<{include file="block/small-header.html"}>
+<div class="subwd">
+	<!--主体内容开始-->
+    <style>#account-form2 p.input{width:245px;} .register_form table td p input.text{width:240px;}</style>
+	<div class="login_box">
+		<h2><b class="lt">会员注册</b><span class="rt tit">已有账号？<a href="<{link ctl='passport'}>" class="fontcl2">点击登录</a></span></h2>
+		<p class="bar register_two"></p>
+		<div class="login_lt register_form lt">
+			<h3><{$pager.from_title}><font class="fontcl2"></font></h3>
+			<form id="account-form2">
+            <input type="hidden" name="account[from]" value="<{$pager.from}>" />
+			<table>
+				<tr>
+					<td class="title">手机号码</td>
+					<td class="middle"><p class="input"><input class="input text" name="data[phone]" type="text" id="phone" placeholder="请输入您的手机号码"/></p></td>
+					<td><div id="unameTip" style="width:240px;margin-top:-18px;"></div></td>
+				</tr>
+				
+				<tr>
+					<td class="title">验证码</td>
+					<td class="middle">
+                    <p class="input short lt" style="width:105px;"><input class="text short"  style="width:100px;" name="data[code]" type="text" placeholder="请输入验证码"/></p>
+                     <span id='code'><a id='show_loading' class="none">...</a><a login="passport:sendsms" class="pink_but">发送验证码</a></span>
+                    </td>
+					
+				</tr>
+               
+				<tr>
+					<td></td>
+					<td class="middle"><input type="submit" action="<{link ctl='passport:byphone' arg0='member' http='ajax'}>" mini-submit="#account-form2" class="btn" value="立即注册" /></td>
+					<td></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<div class="login_rt register_rt rt">
+			<p class="title">当前会员注册类型：</p>
+			<p class="lei"><font class="fontcl2"><{$pager.from_title}></font><a href="<{link ctl='passport:reg'}>">返回重新选择</a></p>
+			<h3>第三方账号登录：</h3>
+			<a href="<{link ctl='passport:qqlogin'}>" class="login_qq hl_icon" title="QQ登录"></a>
+		<a href="<{link ctl='passport:weibo'}>" class="login_weibo hl_icon" title="微博登录"></a>
+		<a href="<{link ctl='passport:weixin' http='ajax'}>" mini-width="350" mini-load="请使用微信扫描二维码登录" class="login_weixin hl_icon"  title="微信登录"></a>
+		</div>
+		<div class="cl"></div>
+	</div>
+	<!--主体内容结束-->
+</div>
+<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
+<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+<script>
+	(function(K, $){
+		 $("[login]").click(function(e){
+			var link = "<{link ctl='passport/sendsms'  arg0='#phone#' http='base'}>";
+			var phone = $("#phone").val();
+			var last_time = 60;
+			var __interval = null;
+			$.getJSON(link.replace("#phone#", phone), function(ret){
+				if(ret.error){
+					Widget.MsgBox.error(ret.message.join(""));
+				}else{
+					__interval = setInterval(function(){
+						last_time --;
+						if(last_time >0){
+							$("#show_loading").html("重新获取（"+last_time+"）秒").show();
+							$("[login]").hide();
+						}else{
+							clearInterval(__interval);
+							last_time = 60;
+							$("#show_loading").hide();
+							$("[login]").show();
+						}
+					}, 1000);
+				}
+			});
+		});
+	})(window.KT, window.jQuery);
+</script>
+<{include file="block/small-footer.html"}>

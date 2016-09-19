@@ -1,0 +1,11 @@
+<{include file="block/mini-header.html"}>
+<form action="<{link ctl='ucenter/shop:refresh' http='base'}>" mini-form="look-form" method="post" >
+<div class="tips" <{if $gold}>style="height:90px;"<{else}>style="height:60px;"<{/if}>><span class="notice">您是【<b class="red"><{$group.group_name}></b>】用户,<br/>每天有【<b class="red"><{$counts}></b>】次免费刷新机会,已刷新【<b class="red"><{$is_refresh}></b>】次<{if $gold}>，当前刷新需要<{$gold}>金币<{/if}></span></div>
+<input type="hidden" name="fromid" value="<{$fromid}>" />
+<{if $gold}>
+<p><input type="submit" value="付费刷新" class="btn btn_sub_tuan" /></p>
+<{else}>
+<p><input type="submit" value="免费刷新" class="btn btn_sub_tuan" /></p>
+<{/if}>
+</form>
+<{include file="block/mini-footer.html"}>

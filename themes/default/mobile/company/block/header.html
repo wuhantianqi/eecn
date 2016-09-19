@@ -1,0 +1,43 @@
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu company_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
+		<h2><{$company.name}></h2>
+		<p class="nowrap">口碑：<{$company.score}></p>
+		<p class="nowrap"><span>案例(<font class="fontcl2"><{$company.case_num}></font>)</span><span>工地(<font class="fontcl2"><{$company.site_num}></font>)</span></p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="company_nav">
+	<ul>
+		<li><a href="<{link ctl='mobile/company' arg0=$company.company_id}>"<{if $request.act == 'detail'}> class="current"<{/if}>>公司简介</a></li>
+		<li><a href="<{link ctl='mobile/company:team' arg0=$company.company_id arg1=1}>"<{if $request.act == 'team'}> class="current"<{/if}>>设计团队</a></li>
+		<li><a href="<{link ctl='mobile/company:cases' arg0=$company.company_id arg1=1}>"<{if $request.act == 'cases'}> class="current"<{/if}>>装修案例</a></li>
+		<li><a href="<{link ctl='mobile/company:youhui' arg0=$company.company_id arg1=1}>"<{if $request.act == 'youhui'}> class="current"<{/if}>>优惠信息</a></li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="pingjia_bg">
+	<div class="lt pingjia_lt">
+		<p class="fontcl1"><{$company.avg_score}></p>
+		<h2>综合评价</h2>
+	</div>
+	<div class="rt pingjia_rt pingfen_bar">
+        <{foreach $CONFIG.score.company as $k=>$v}>
+        <{if $v}>
+		<p><{$v}><span class="bar probar_gray"><span class="bar probar_color" style="width:<{$company.avg_scores[$k]*20}>%"></span></span><{$company.avg_scores[$k]}></p>
+        <{/if}>
+        <{/foreach}>
+	</div>
+	<div class="cl"></div>
+</div>
+<div class="pding com_detail_btn">
+    <{if $company.group.allow_yuyue}>
+	<a href="<{link ctl='mobile/company:yuyue'}>" class="btn mainbtn lt">立即预约</a>
+    <{else}>
+    <a href="<{link ctl='mobile/tenders'}>" class="btn mainbtn lt">发布招标</a>
+    <{/if}>
+    <a href="<{link ctl='mobile/zxb'}>" class="btn subbtn rt">申请装修保障</a>
+</div>
+<div class="cl"></div>

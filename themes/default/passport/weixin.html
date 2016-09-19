@@ -1,0 +1,22 @@
+<{include file="block/mini-header.html"}>
+<p style="text-align:center;"><img src="<{$wx_login_qr}>" style="width:300px;height:300px;"/></p>
+<p id="login_status" style="margin-top:20px;display:none;text-align:center;"></p>
+<script type="text/javascript">
+    setTimeout(function(){window.location.reload();},1800000);
+    setTimeout(function(){wxscanqr_weixin_login();},3000);
+    function wxscanqr_weixin_login(){
+        $.getJSON("<{link ctl='passport:wxscanqr' arg0=$qrcode_id http='ajax'}>",function(ret){
+            console.log(ret);
+            if(ret.status == 'scanqr'){
+                $('#login_status').html('已扫描！请在微信公众号里点击授权登录。').css('color','green').show();
+                setTimeout(function(){wxscanqr_weixin_login();},1000);
+            }else if(ret.status == 'login'){
+                $('#login_status').html('微信登录成功！正在跳转...').css('color','green').show();
+                window.top.location.href = "<{link ctl='ucenter/member' http='base'}>";
+            }else{
+                setTimeout(function(){wxscanqr_weixin_login();},1000);
+            }
+        });
+    }
+</script>
+<{include file="block/mini-footer.html"}>

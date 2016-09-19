@@ -1,0 +1,257 @@
+<{include file="block/header.html"}>
+		<link rel="stylesheet" href="/themes/default/static/css/zhaobiao.css" />
+		<div class="zh-show">
+			<div class="wrap">
+				<img src="%THEME%/static/images/banner1.jpg" />
+				<img src="%THEME%/static/images/banner2.jpg" />
+				<img src="%THEME%/static/images/banner3.jpg" />
+			
+				<div class="order">
+					<h2>
+						申请靠谱装修              
+					</h2>
+					<p>您的信息将严格保密</p>
+					<form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' mini-form='tenders_tzx' method="post">
+						<input type="text" value="" name="data[contact]" placeholder="您的姓名"/>
+						<input type="text" value="" name="data[mobile]" placeholder="联系方式"/>
+						<div class="text-group">
+							<!-- <input type="text" id="" value="" name="area" placeholder="区域"/> -->
+							<input type="text" id="" value="" name="area-name" placeholder="小区名称"/>
+						</div>
+						<input type="submit" value="立即免费预约"/>
+					</form>
+					<p>已有<span>11996</span>人找到靠谱装修公司</p>
+				</div>
+			</div>
+		</div>
+		<div class="zh-content">
+			<div class="zh-procedure">
+				<ul>
+					<li>
+						<span></span>
+						<h3>
+							免费发布招标
+						</h3>
+						<p>免费发布招标，获得装修网全程装修管家服务</p>
+					</li>
+					<li>
+						<span></span>
+						<h3>3套方案PK</h3>
+						<p>业主对比3套设计方案，选出最优方案</p>
+					</li>
+					<li>
+						<span></span>
+						<h3>3家公司免费量房</h3>
+						<p>3家公司上门免费量房并提供设计预算方案</p>
+					</li>
+					<li>
+						<span></span>
+						<h3>选择签订公司</h3>
+						<p>选择方案最优，价格合理的公司签订装修合同</p>
+					</li>
+					<li>
+						<span></span>
+						<h3>获得装修保障</h3>
+						<p>提交合同或拨打装修网热线电话获得装修保障</p>
+					</li>
+				</ul>
+			</div>
+			<div class="zh-tip">
+				<div class="bg">
+					<h1>
+						装修小贴士
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+					</h1>
+				</div>
+				<div class="zh-detial">
+					<ul>
+						<a href="#" target="_blank">
+							<li>
+								<div class="img-wrap"><img src="%THEME%/static/images/detial1.jpg"/></div>
+								<div class="text">
+								<p>1分钟发布招标，3家装修公司免费上门服务 &nbsp;&nbsp;</p>
+								<p>在优优美家装修网发布的装修招标只需一分钟，让您在最短的时间内找到最合适的装修公司，有优美家为您提供的都是经过严格资格认证的正规装修公司，保证后期施工质量以及资金安全，业主可以放心选择。</p>
+								</div>
+							</li>
+						</a>
+						<a href="#" target="_blank">
+							<li>
+								<div class="img-wrap"><img src="%THEME%/static/images/detail2.jpg"/></div>
+								<div class="text">
+								<p>免费量房、出设计报价,零成本找到装修公司 &nbsp;&nbsp;</p>
+								<p>己在市面上找装修公司，您可能需要东奔西跑进行选择比较，费时费力，优优美家针对您的需求为您提供装修公司，免费量房，免费出设计方案和报价，让您可以足不出户就能找到心仪的公司。</p>
+								</div>
+							</li>
+						</a>
+						<a href="#" target="_blank">
+							<li>
+								<div class="img-wrap"><img src="%THEME%/static/images/detail3.jpg"/></div>
+								<div class="text">
+								<p>免费赠送第三方监理，分节点严控施工质量 &nbsp;&nbsp;&nbsp;</p>
+								<p>装修要小心，一着不慎后患无穷，尤其是隐蔽工程，如果不过关，后期出了问题，不仅影响生活，整改也很麻烦，还需要花费大量的时间金钱 ，劳心劳力，所以有很多业主都选择第三方监理把控装修质量。</p>
+								</div>
+							</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+			<div class="Reliable">
+				<h2 class="slash3"><p>精选装修公司</p></h2>
+				<p class="slash_p">3家装修公司同台PK,满意方案您做主。</p>
+				<ul>
+					<{KT name="仿土巴兔首页推荐装修公司" city_id=$request.city_id limit="12"}>
+						<li <{if $index%6==0}>style="margin-left:16px"<{/if}>><a href="<{$item.link}>" target="_blank"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+						</li>
+					<{/KT}>
+				</ul>
+			</div>
+			<div class="zh-trick">
+				<div class="bg">
+					<h1>
+						装修预算常猫腻
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+					</h1>
+				</div>
+				<div class="zh-trick-list">
+					<ul>
+						<li>
+							<h2>装修报价、工艺模糊</h2>
+							<p>一些不良的装修公司多采取“模糊报价、低价切入”的方式。消费者要留意装修公司提供的报价单，应清楚表达每个部位的尺寸、做法、用料(包括品牌、型号)、单价以及工艺标准。</p>
+						</li>
+						<li>
+							<h2>报价单恶意增项</h2>
+							<p>有些合同里，装修公司对材料写得含糊其辞,实际装修时,可能用假冒伪劣的材料。当业主追究时,装修公司便拿出当初的合同,称业主没有指定材料品牌。一旦业主要求使用高品质、环保的装修材料，装修公司便会要求加价。</p>
+						</li>
+						<li>
+							<h2>水电工程藏猫腻</h2>
+							<p>水电改造是家装公司最赚钱的项目，业主应该把好这一关。业主要注意询问水电改造费用是否包含在总报价之内，开关盒、开关面板、小配件等以及安装是否另外收费，而且，线埋在墙里和走外线，价格也不一样。</p>
+						</li>
+						<li>
+							<h2>预算测量动手脚</h2>
+							<p>一些不良的装修公司多采取“模糊报价、低价切入”的方式。消费者要留意装修公司提供的报价单，应清楚表达每个部位的尺寸、做法、用料(包括品牌、型号)、单价以及工艺标准。</p>
+						</li>
+						<li>
+							<h2>装修工艺偷工减料</h2>
+							<p>有些公司会采取省略某个程序、减少某项工艺的方法牟取暴利：有些施工队做木龙骨时，省略了刷防水、防火涂料的程序，为日后埋下安全隐患</p>
+						</li>
+						<li>
+							<h2>隐蔽工程多报数量</h2>
+							<p>隐蔽工程，如电的暗装布线、水管的地下铺设、下水道的改造等，由于装修完成会被外皮及地砖遮盖，不易被发现。有些施工队在施工时会偷工</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="zh-customer">
+				<div class="bg">
+					<h1>
+						他们都选择了优优美家
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+					</h1>
+				</div>
+				<div class="zh-customer-list">
+					<div class="t-head">
+						<span>发布日期</span>
+						<span>称呼</span>
+						<span>类型</span>
+						<span>标题</span>
+						<span>预算</span>
+						<span>详情</span>
+					</div>
+					<div class="run-box tenders_order_box">
+					<ul class="run-ul ">
+						<{calldata mdl="tenders/tenders" city_id=$request.city_id limit="10"}>
+						<li>
+	                        <span><{$item.dateline|format:"m-d"}></span>
+							<span><{$item.contact}></span>
+							<span><{$item.from_title}></span>
+							<span><{$item.title|cutstr:20}></span>
+							<span><{$item.budget_title}></span>
+							<span><a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>">查看</a></span>
+						</li>
+	                    <{/calldata}>
+					</ul>
+					</div>
+				</div>
+			</div>
+			<div class="zh-sales">
+				<div class="bg">
+				</div>
+				<div class="zh-sales-list">
+					<ul>
+						<{foreach from=$items item=item}>                	
+			                <li>	
+							<div class="img-wrap"><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" /></a></div>
+							<p><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"  target="_blank"><{$item.title|cutstr:25}></a></p>
+
+							<div><p remaintime="<{$item.ltime}>"></p><span class="time-ico"></span></div>
+							<{if $item.ltime>time() && $item.stime<time()}>
+	                        	<span class="i-ing"></span>
+								<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="ing">立即参团</a>
+	                        <{else}>
+	                        	<span class="i-end"></span>
+								<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="end" target="_blank">已结束</a>
+	                        <{/if}>
+							
+						</li>
+			            <{/foreach}>  
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="tool">
+				<p></p>
+				<ul>
+					<li><a href="<{link ctl='tools:tuliao'}>" target="_blank"><span></span>涂料计算器</a></li>
+					<li><a href="<{link ctl='tools:diban'}>" target="_blank"><span></span>地板计算器</a></li>
+					<li><a href="<{link ctl='tools:bizhi'}>" target="_blank"><span></span>壁纸计算器</a></li>
+					<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
+					<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
+					<li><a href="<{link ctl='tools:dizhuan'}>" target="_blank"><span></span>地砖计算器</a></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<script type="text/javascript">
+			(function(K, $){
+				//我要装修页面 最新订单文字无缝滚动效果
+				$(function(){
+					$("div.tenders_order_box").myScroll({
+						speed:40, //数值越大，速度越慢
+						rowHeight:45 //li的高度
+					});
+				});		
+			})(window.KT, window.jQuery);
+		</script>
+		<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
+		<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
+		<script type="text/javascript">
+		(function(K, $){
+		    $(function(){
+		    var dateTime = new Date();
+		    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+		    setInterval(function(){
+		      $("[remaintime]").each(function(){
+		        var obj = $(this);
+		        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+		        var nowTime = new Date();
+		        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+		        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+		        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+		        var myM=Math.floor(nMS/(1000*60)) % 60;
+		        var myS=Math.floor(nMS/1000) % 60;
+		        var myMS=Math.floor(nMS/100) % 10;
+		        if(myD>= 0){
+					var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+		        }else{
+					var str = "真遗憾您来晚了，抢购已经结束。";	
+				}
+				obj.html(str);
+		      });
+		    }, 100);
+		});
+		})(window.KT, window.jQuery);
+		</script>
+<{include file="block/footer.html"}>

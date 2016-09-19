@@ -1,0 +1,62 @@
+<{assign var="tpl_page_title" value="订单支付"}>
+<{include file="mobile/block/header.html"}>
+<h2 class="pd_lt">订单信息</h2>
+<div class="pding order_box mb10">
+	<p>订单号：<{$order.order_no}></p>
+	<p>收货人：<{$order.contact}></p>
+	<p>电话：<{$order.mobile}></p>
+	<p>地址：<{$order.addr}></p>
+</div>
+<div class="pding">
+<a href="<{link ctl='mobile/trade/order:detail' arg0=$order.order_no}>" class="btn fukbtn_full">查看订单</a>
+</div>
+<div class="pding fuk_btn">
+	<div class="all_price mb10">
+		<span class="lt">应付金额：</span><span class="rt pointcl">￥<{$order.amount}></span>
+	</div>
+</div>
+<form action="<{link ctl='mobile/trade/payment:order'}>" id="payment-form" method="post">
+<input type="hidden" name="order_no" value="<{$order.order_no}>" />
+<h2 class="pd_lt">选择支付方式</h2>
+<div class="pding order_box order_menu mb10">
+	<input type="hidden" name="code" id="payment_code" value=""/>
+	<{foreach $pay_list as $pay}>	
+	<a href="###" class="pay_a" data-value="<{$pay.payment}>"><p><span class="lt"><{$pay.title}></span><span class="rt count_ico choose_ico"></span></p></a>
+	<{/foreach}>
+</div>
+<div class="pding" id='pay'><button class="btn subbtn_full">确认支付</button></div>
+<div class="pding" id='wxpay' style = 'display:none;'>
+<a href="<{link ctl='mobile/trade/payment:order' arg0='wxpay' arg1 =$order.order_no http='ajax'}>" mini-width='180' mini-load="扫描二维码" class="btn subbtn_full">确认支付</a>
+</div>
+</form>
+<script>
+	$(document).ready(function(){
+		$('.order_menu a.pay_a').click(function(){
+			$('.order_menu a.pay_a').find('span.choose_ico').hide();
+			$(this).find('span.choose_ico').show();
+			$("#payment_code").val($(this).attr("data-value"));
+			var code = $("input[name='code']:checked").val();
+			 if(code == 'wxpay'){
+				$("#wxpay").css('display','block'); 
+				$("#pay").css('display','none');
+			 }else{
+				$("#wxpay").css('display','none'); 
+				$("#pay").css('display','block');
+			 }
+		});
+		$('.order_menu a.pay_a').eq(0).trigger("click");
+		
+		var code = $('.order_menu a.pay_a').attr("data-value");
+		 if(code == 'wxpay'){
+			$("#wxpay").css('display','block'); 
+			$("#pay").css('display','none');
+		 }else{
+			$("#wxpay").css('display','none'); 
+			$("#pay").css('display','block');
+		 }
+	});
+</script>
+
+<{include file="mobile/block/sheader.html"}>
+</body>
+</html>

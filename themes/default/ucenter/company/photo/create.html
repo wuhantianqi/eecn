@@ -1,0 +1,22 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">添加荣誉资质</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/photo:index'}>" class="pbtn">荣誉资质管理</a></span>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/company/photo:create'}>" mini-form="shop-form" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr>
+        <th class="w-100"><span class="red">*</span>类型：</th>
+        <td><select name="data[type]" class="select w-150"><{html_options options=$type_list}></select></td>
+    </tr>
+    <tr>
+        <th><span class="red">*</span>图片：</th>
+        <td><input type="file" name="pic_photo" value="" class="input w-300"/></td>
+    </tr>
+    <tr><th><span class="red">*</span>标题：</th><td><input type="text" name="data[title]" value="" class="input w-300"/></td></tr>
+    <tr><th></th><td><input type="submit" value="提交数据" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,27 @@
+<{include file="shop/block/header.html"}>
+<!--左边主体内容开始-->
+<div class="rt shop_rt mb20">
+    <div class="area pding">
+        <p class="sub_shop_tit mb10"><b>门店展示</b></p>
+        <ul class="mendian_list">
+            <{foreach $items as $item}>
+            <li>
+				<div class="lt"><a href="<{link ctl='mall/shop:mendiandetail' arg0=$item.mendian_id shop=$shop}>" class="pic"><img src="<{$pager.img}>/<{$item.thumb}>"></a></div>
+                <div class="lt text">
+    				<h2><a href="<{link ctl='mall/shop:mendiandetail' arg0=$item.mendian_id shop=$shop}>"><{$item.title}></a></h2>
+                    <div class="lt" style="width:260px;border-right:1px solid #ccc;padding:0px 10px;">
+        				<p>联系人：<{$item.contact}></p>
+        				<p>联系电话：<font class="fontcl2"><{$item.phone}></font></p>
+        				<p>联系地址：<{$item.addr}></p>
+                    </div>
+                    <div class="lt" style="padding:0 10px;width:200px"><{$item.desc|cutstr:200}></div>
+                </div>
+            </li>
+            <{/foreach}>
+        </ul>
+        <div class="cl"></div>
+        <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+    </div>
+</div>
+<!--左边主体内容结束-->
+<{include file="shop/block/footer.html"}>

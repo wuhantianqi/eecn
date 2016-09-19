@@ -1,0 +1,59 @@
+<{assign var="tpl_page_title" value="案例详情"}>
+<{include file="mobile/block/header.html"}>
+<style type="text/css">
+.content{max-width:none;border:none;}.gallery li a img{width:200px;padding:5px 0 0 5px;display: none;}
+/*Gallery*/
+#main {
+padding: 11px 0 10px 0;
+margin:0 auto;
+}
+#Gallery {
+list-style-type: none;
+position: relative; 
+margin: 0;
+}
+</style>
+<link rel="stylesheet" href="%THEME%/mobile/static/photoswipe/photoswipe.css" />
+<script type="text/javascript" src="%THEME%/mobile/static/script/klass.js"></script>
+<script type="text/javascript" src="%THEME%/mobile/static/photoswipe/photoswipe.js"></script>
+<div id="main" role="main">
+      <ul id="Gallery" class="gallery">
+        <{foreach $photos as $v}>
+        <li><a href="<{$pager.img}>/<{$v.photo}>"><img src="<{$pager.img}>/<{$v.photo}>_thumb.jpg" alt="<{$v.title}>"></a>
+        <{/foreach}>  
+      </ul>
+</div>
+<div class="case_bottom" id="case_bottom_toolbar" style="z-index:3000;position:absolute;bottom:0px;display:none;padding:5px; width:100%; text-align:center;"><p>喜欢此设计？<a href="<{link ctl='mobile/tenders'}>" class="btn mainbtn">免费申请设计</a></p></div>
+<script src="%THEME%/mobile/static/script/jquery.imagesloaded.js" type="text/javascript"></script>
+<script src="%THEME%/mobile/static/script/jquery.wookmark.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function(window, PhotoSwipe){
+    document.addEventListener('DOMContentLoaded', function(){
+        var options = {
+            autoStartSlideshow : true,
+            allowUserZoom:false,
+            captionAndToolbarAutoHideDelay: 0,
+            preventHide:true,
+            zIndex : 100,
+            preventDefaultTouchEvents:true,
+            captionAndToolbarOpacity:0,
+            captionAndToolbarHide:false,
+            imageScaleMethod:"fitNoUpscale",
+            getToolbar: function(){                
+                return '';
+                //window.Code.PhotoSwipe.Toolbar.removeEventHandlers();
+                return '<div class="case_bottom"><p>喜欢此设计？<button id="case_tenders_btn" onclick="mobile_tenders()" class="btn mainbtn">免费申请设计</button></p></div>';
+            },
+            getImageCaption: function(el){  
+                return "【<{$case.title}>】"+window.jQuery(el).find("img").attr("alt");  
+            }  
+        },
+        instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+        $("#Gallery li a").get(0).click(); 
+        $("#case_bottom_toolbar").show();       
+    }, false);
+}(window, window.Code.PhotoSwipe));
+</script>
+</div>
+</body>
+</html>

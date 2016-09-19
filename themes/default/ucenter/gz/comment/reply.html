@@ -1,0 +1,26 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">评论回复</li></ul>
+    <div class="cl"></div>
+</div>
+ <table width="100%" border="0" cellspacing="0" class="info">
+    <tr><th>用户名：</th>
+        <td colspan="6"><{$detail.uname|default:'--'}></td>
+    </tr>        
+    <tr>
+        <th>设计：</th><td  class="w-200"><{$detail.score1}></td>
+        <th>服务：</th><td  class="w-200"><{$detail.score2}></td>    
+        <th>贴心：</th><td  class="w-200"><{$detail.score3}></td>      
+    </tr>
+    <tr><th>评价内容：</th><td colspan="6"><{$detail.content}></td></tr>
+    <tr><th>评价时间：</th><td colspan="6"><{$detail.dateline|format}></td></tr>
+ </table>
+ 
+<form action="<{link ctl='ucenter/gz/comment:reply'}>" mini-form="ucenter" method="post">
+	<input type="hidden" name="comment_id" value="<{$detail.comment_id}>"/>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+        <tr><th>回复信息：</th><td colspan="10"><textarea name="data[reply]" class="textarea w-500"><{$detail.reply}></textarea></td></tr>
+        <tr><th></th><td><input type="submit" value="回复" class="mpbtn" /></td></tr>
+	</table>
+</form>
+<{include file="ucenter/block/footer.html"}>

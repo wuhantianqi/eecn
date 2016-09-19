@@ -1,0 +1,13 @@
+<{assign var="tpl_page_title" value="学装修分类"}>
+<{include file="mobile/block/header.html"}>
+<{foreach $article as $v}>
+<h2 class="pub_tit"><{$v.title}></h2>
+<ul class="pub_menu">
+    <{foreach $v.children as $vv}>
+    <li><a href="<{link ctl='mobile/article:items' arg0=$vv.cat_id}>"><{$vv.title}></a></li>
+    <{/foreach}>
+</ul>
+<div class="cl mb10"></div>
+<{/foreach}>
+<div class="cl"></div>
+<{include file="mobile/block/footer.html"}>

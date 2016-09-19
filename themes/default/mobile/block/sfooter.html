@@ -1,0 +1,13 @@
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+$(".content img").each(function(){
+    $(this).load(function(){
+        if($(this).width()>$(window).width()){
+            $(this).attr("width","100%");
+        }           
+    }); 
+});
+});
+})(window.KT, window.jQuery)
+</script>

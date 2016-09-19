@@ -1,0 +1,523 @@
+﻿<!doctype html>
+<!--[if IE 6]><html lang="en" class="ielt7  ielt8  ielt9 ielt10 en"><![endif]-->
+<!--[if IE 7]><html lang="en" class="ie7  ielt8  ielt9 ielt10 en"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie8 ielt9 ielt10 en"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9 ielt10 en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class=" en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<title>优优美家-三分钟学装修</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--<meta http-equiv="X-UA-Compatible" content="IE=7" />-->
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/new_global.css?<{$VER}>"/> 
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/3minute.css?<{$VER}>"/> 
+<!--[if lt IE 9]>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript"  src="/themes/default/static/js/jquery-1.9.1.min.js?<{$VER}>"></script>
+<![endif]-->
+<!--[if gte IE 9]> 
+<script src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript"  src="/themes/default/static/js/jquery-1.10.2.min.js?<{$VER}>"></script>
+<![endif]-->
+<!--[if !IE]><!-->
+<script type="text/javascript"  src="/themes/default/static/js/jquery-1.10.2.min.js?<{$VER}>"></script>
+<!--<![endif]-->
+<script type="text/javascript">
+var browerObj = checkBrowser(),
+    jq = jQuery.noConflict();
+//loadcss
+function loadCss(url) {
+  var myLink = document.createElement("link");
+  myLink.rel = "stylesheet",
+  myLink.type = "text/css";
+  myLink.href = url;
+  document.getElementsByTagName("head")[0].appendChild(myLink);
+}
+// 浏览器判断
+function checkBrowser(){
+  var u = window.navigator.userAgent.toLocaleLowerCase(),
+      msie = /(msie) ([\d.]+)/,
+      chrome = /(chrome)\/([\d.]+)/,
+      firefox = /(firefox)\/([\d.]+)/,
+      safari = /(safari)\/([\d.]+)/,
+      opera = /(opera)\/([\d.]+)/,
+      ie11 = /(trident)\/([\d.]+)/,
+      b = u.match(msie)||u.match(chrome)||u.match(firefox)||u.match(safari)||u.match(opera)||u.match(ie11);
+    return {name: b[1], version: parseInt(b[2])};
+}
+if(!(browerObj.name == "msie" && browerObj.version < 10)) {
+  loadCss("http://www.to8to.com/css/start/3minute_css3.css");  
+}
+</script>
+<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body class="">
+  <div class="myScroll">
+     <!-- 首屏[[ -->
+    <div class="wrap on">
+    <div class="min_sec min_1">
+        <div class="min_1_hd">
+            <span class="hd_clock"></span>
+            <div class="hd_title">3分钟学装修</div>
+            <div class="hd_tag">3 minutes to learn decoration</div>
+        </div>
+        <div class="min_1_bd">
+            <div class="cloud1"></div>
+            <div class="cloud2"></div>
+            <div class="plane"></div>
+            <div class="cloud3"></div>
+            <div class="cloud4"></div>
+            <div class="buloon"></div>
+        </div>
+        <div class="min_1_bg"><span class="load"></span></div>
+    </div>
+    </div>
+    <!-- 首屏]] -->
+
+    <!-- 装修的钱去哪儿[[ -->
+    <div class="wrap">
+    <div class="min_sec min_2">
+        <div class="min2_hd">
+            <div class="hd_title">装修的钱去哪儿了</div>
+            <div class="hd_tag">以下数据来源于优优美家海量用户统计分析</div>
+        </div>
+        <div class="min2_bd">
+            <div class="img_yz"></div>
+            <div class="img_rz"></div>
+        </div>
+        <div class="min2_ft">
+            <div class="ft_tit">你还不知道钱都去哪儿了吗？</div>
+            <a href="<{link ctl='tenders'}>" class="btn_znbj" target="_blank">优优美家智能报价</a>
+        </div>
+    </div>
+    </div>
+    <!-- 首装修的钱去哪儿]] -->
+
+    <!-- 装修需要多少时间[[ -->
+    <div class="wrap">
+    <div class="min_sec min_3">
+        <div class="min3_hd">
+            <div class="hd_title">装修需要多长时间</div>
+            <div class="hd_tag">你大概需要45-70天来完成装修。但房子面积越大，装修程度可能越复杂，耗时越长！</div>
+        </div>
+        <div class="min3_bd">
+            <div class="img_timeline"></div>
+            <div class="img_timeitem">
+                <span class="timeitem1"></span>
+                <span class="timeitem2"></span>
+                <span class="timeitem3"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 装修需要多少时间]] -->
+
+    <!-- 装修流程是怎样的[[ -->
+    <div class="wrap">
+    <div class="min_sec min_4">
+        <div class="min4_hd">
+            <div class="hd_title">装修流程是怎样的</div>
+        </div>
+        <div class="min4_bd">
+            <div class="min4_house"></div>
+            <div class="min4_step step_item1_on"> <!-- step_item1_on -->
+                <div class="step_item step_item1">准备</div>
+                <div class="step_item step_item2 ">拆改</div>
+                <div class="step_item step_item3">水电</div>
+                <div class="step_item step_item4">泥木</div>
+                <div class="step_item step_item5">油漆</div>
+                <div class="step_item step_item6">竣工</div>
+                <div class="step_item step_item7">软装</div>
+                <div class="step_item step_item8">入住</div>
+                <a class="step_item_lnk step_item_lnk1" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk2" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk3" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk4" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk5" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk6" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk7" href="javascript:;"></a>
+                <a class="step_item_lnk step_item_lnk8" href="javascript:;"></a>
+                <div class="step_item_img step_item_img1"></div>
+                <div class="step_item_img step_item_img2"></div>
+                <div class="step_item_img step_item_img3"></div>
+                <div class="step_item_img step_item_img4"></div>
+                <div class="step_item_img step_item_img5"></div>
+                <div class="step_item_img step_item_img6"></div>
+                <div class="step_item_img step_item_img7"></div>
+                <div class="step_info step_info1">制定整体预算。选择装修风格、主材、家具、家电配饰等。<br>寻找合适的施工方，签订合同后开工！</div>
+                <div class="step_info step_info2">开工前到物业办理装修许可，现场核对装修项目，<br>若是二手房，需要拆掉旧有电器装饰，改变房屋格局。</div>
+                <div class="step_info step_info3">切割开槽，布设电/水管。进行第一次验收。水路要打压测试<br>电路要通电验收。这是装修大坑，需控制预算，小心超支。</div>
+                <div class="step_info step_info4">防水和基层处理。包含天花吊顶，铺墙砖地砖和家具的定制。<br>这一阶段历时最久，工序最复杂，要做好项目量核对。</div>
+                <div class="step_info step_info5">墙面和家具粉饰工作。这里油漆真伪和施工质量，<br>会影响房屋整体装修感觉。</div>
+                <div class="step_info step_info6">施工现场完工。安装橱柜、地板、水龙头等基础设备，<br>做最后一次验收，结清尾款并索要质保单。</div>
+                <div class="step_info step_info7">设计居家装饰布置。选购家具电器、家居配饰行摆放布置。<br>在施工前定好家具的尺寸和摆放位置，这个阶段会更省心。</div>
+                <div class="step_info step_info8">全面完工住新房。做完以上工作后，就可以入住新家啦！<br>当然，大部分人都会先让家里散散甲醛味哦！</div>
+                <span class="step_ico"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 装修流程是怎样的]] -->
+    
+    <!-- 05装修的几种方式 -->
+    <div class="wrap">
+    <div class="way_box">
+      <h2 class="way_box_title">装修的集中方式</h2>
+      <div class="way_box_circle circle1">
+        <p class="way_box_sup">省时省力</p>
+        <div class="way_box_rank">
+          <p class="way_box_rank1"><span>费用</span></p>
+          <p class="way_box_rank2"><span>精力</span></p>
+          <p class="way_box_rank3"><span>材料</span></p>
+        </div>
+        <p class="way_box_txt1">全包</p>
+        <p class="way_box_txt2">装修公司包工包料</p>
+      </div>
+      <div class="way_box_circle circle2">
+        <p class="way_box_sup">大众选择</p>
+        <div class="way_box_rank">
+          <p class="way_box_rank1"><span>费用</span></p>
+          <p class="way_box_rank2"><span>精力</span></p>
+          <p class="way_box_rank3"><span>材料</span></p>
+        </div>
+        <p class="way_box_txt1">半包</p>
+        <p class="way_box_txt2">装修公司包施工和辅料</p>
+      </div>
+      <div class="way_box_circle circle3">
+        <p class="way_box_sup">预算合理</p>
+        <div class="way_box_rank">
+          <p class="way_box_rank1"><span>费用</span></p>
+          <p class="way_box_rank2"><span>精力</span></p>
+          <p class="way_box_rank3"><span>材料</span></p>
+        </div>
+        <p class="way_box_txt1">清包</p>
+        <p class="way_box_txt2">装修公司只包施工</p>
+      </div>
+      <div class="way_box_hand"></div>
+    </div>
+    </div>
+    <!-- 06谁来给我装 -->
+    <div class="wrap">
+    <div class="help_box">
+      <h2 class="help_box_title">谁来给我装</h2>
+      <span class="help_box_pk"></span>
+      <p class="help_box_text1">人员设备较专业</p>
+      <p class="help_box_text2">无设计师参与设计</p>
+      <p class="help_box_text3">工程质量有保证</p>
+      <p class="help_box_text4">施工过程容易超支</p>
+      <p class="help_box_text5">预算费用偏高 </p>
+      <p class="help_box_text6">预算费用比较低</p>
+      <p class="help_box_text7">所提供材料有限</p>
+      <p class="help_box_text8">施工流程好调节</p>
+      <div class="help_box_pk_img"></div>
+    </div>
+    </div>
+    <!-- 07装修材料有哪些 -->
+    <div class="wrap">
+    <div class="material_box">
+      <h2 class="material_box_title">装修材料有哪些</h2>
+      <div class="material_box_floor1">
+        <div class="material_box_content1">
+          <a class="material_box_link1" href="http://www.to8to.com/yezhu/xc_more114h.html" title="地板" target="_blank"><span class="material_box_sup1">地板</span></a>
+          <a class="material_box_link2" href="http://www.to8to.com/yezhu/xc_more106h.html" title="瓷砖" target="_blank"><span class="material_box_sup2">瓷砖</span></a>
+          <a class="material_box_link3" href="http://www.to8to.com/yezhu/xc_more103h.html" title="灯具" target="_blank"><span class="material_box_sup3">灯具</span></a>
+          <a class="material_box_link4" href="http://www.to8to.com/yezhu/xc_more122h.html" title="水龙头" target="_blank"><span class="material_box_sup4">水龙头</span><i></i></a>
+          <a class="material_box_link5" href="http://www.to8to.com/yezhu/list-h4s2" title="石材" target="_blank"><span class="material_box_sup5">石材</span></a>
+          <a class="material_box_link6" href="http://www.to8to.com/yezhu/xc_more107h.html" title="门窗" target="_blank"><span class="material_box_sup6">门窗</span></a>
+          <a class="material_box_link7" href="http://www.to8to.com/yezhu/xzx_search.php?keyword_zh=浴缸" title="浴缸" target="_blank"><span class="material_box_sup7">浴缸</span></a>   
+        </div>
+        <div class="material_box_floor"></div>
+        <p class="material_box_text1">主材：可方便计量的建材材料，如木地板墙地砖、石材、灯具、门窗、五金、洁具等等。</p>
+      </div>
+      <div class="material_box_floor2">
+        <div class="material_box_content2">
+          <a class="material_box_link8" href="http://www.to8to.com/yezhu/xzx_search.php?keyword_zh=海沙" title="沙子" target="_blank"><span class="material_box_sup8">地沙子板</span></a>
+          <a class="material_box_link9" href="http://www.to8to.com/yezhu/list-h12s1" title="防水" target="_blank"><span class="material_box_sup9">防水</span></a>
+          <a class="material_box_link10" href="http://www.to8to.com/yezhu/youqi/" title="油漆" target="_blank"><span class="material_box_sup10">油漆</span></a>
+          <a class="material_box_link11" href="http://www.to8to.com/yezhu/list-h5s1" title="板材" target="_blank"><span class="material_box_sup11">板材</span></a>
+          <a class="material_box_link12" href="http://www.to8to.com/yezhu/xzx_search.php?keyword_zh=腻子粉" title="腻子" target="_blank"><span class="material_box_sup12">腻子</span></a>
+          <a class="material_box_link13" href="http://www.to8to.com/yezhu/xc_list128102h.html" title="水泥" target="_blank"><span class="material_box_sup13">水泥</span></a>
+        </div>
+        <div class="material_box_floor"></div>
+        <p class="material_box_text2">辅材：不方便计量的建材，辅助材料，如水泥、沙子、板材、腻子粉、胶水、油漆等等。</p>
+      </div>
+    </div>
+  </div>
+    <!-- 08分享给你的朋友 -->
+    <div class="wrap">
+    <div class="share_box bdsharebuttonbox">
+      <h2 class="share_box_title">开始你的装修之旅吧，别忘了分享给你的朋友</h2>
+      <a href="javascript:;" class="share_weixin" title="微信"></a>
+      <a href="javascript:;" class="share_weibo" data-cmd="tsina" title="微博"></a>
+      <a href="javascript:;" class="share_douban" data-cmd="douban" title="豆瓣"></a>
+      <a href="javascript:;" class="share_renren" data-cmd="renren" title="人人"></a>
+    </div>
+  </div>
+  </div>
+  <!-- 导航 -->
+  <div class="nav">
+    <a href="javascript:;" class="active" title="01三分钟学装修"></a>
+    <a href="javascript:;" title="02装修的钱去哪儿了"></a>
+    <a href="javascript:;" title="03装修需要多长时间"></a>
+    <a href="javascript:;" title="04装修流程是怎样的"></a>
+    <a href="javascript:;" title="05装修的几种方式"></a>
+    <a href="javascript:;" title="06谁来给我装"></a>
+    <a href="javascript:;" title="07装修材料有哪些"></a>
+    <a href="javascript:;" title="08分享给你的朋友"></a>
+    <span class="on"></span>
+  </div>
+
+  <!-- 微信分享弹层 -->
+  <div class="weixin_pop">
+      <a href="javascript:;" class="pop_close">×</a>
+      <div class="pop_hd">分享到微信朋友圈</div>
+      <div class="pop_bd">
+          <img src="picture/3min_wx.png" alt="3分钟学装修" width="225" height="225">
+      </div>
+      <div class="pop_ft">打开微信，点击底部的“发现”，<br>使用“扫一扫”即可将网页分享至朋友圈。</div>
+  </div>
+<script>
+var animateTime = 700,
+    step_item = 2;
+//开始
+jq(function() { 
+  var scrlObj = jq("body > div.myScroll");
+  
+  scrlObj.scrollTop(0);
+  if (browerObj.name == "firefox") {
+    window.addEventListener('DOMMouseScroll', wheel, false);
+  } else {
+    document.onmousewheel = wheel;  
+  }
+  resizeHeight();
+  markEvent();
+  jq(window).bind("resize",function() {
+    resizeHeight(); 
+  });
+  jq("body").bind("mousewheel",function() {//chrome会设置body的scrollTop值
+    return;  
+  });
+
+  jq(document).bind("keyup",function(event) {
+    var e = event || window.event;
+    keyEvent(e);
+  });
+  clickStep();
+  shareWeixin();
+});
+
+function shareWeixin() {
+	jq("div.share_box > a.share_weixin").click(function() {
+		jq("div.weixin_pop").show();	
+	});	
+	jq("div.weixin_pop > a.pop_close").click(function() {
+		jq("div.weixin_pop").hide();	
+	});
+}
+
+//上下箭头控制翻页
+function keyEvent(e) {  
+  var code = e.keyCode;
+
+  if(code == 40) {
+    handle(-1);
+  } else if(code == 38) {
+    handle(1);
+  }
+}
+
+//点击STEP step_item
+function clickStep() {
+  jq("div.min4_step > a.step_item_lnk").click(function() {
+    var cls = jq(this).attr("class"),
+        index = cls.replace("step_item_lnk step_item_lnk","");
+        
+	step(index);
+  });
+  
+  jq("div.min4_step > div.step_item").click(function() {
+    var cls = jq(this).attr("class"),
+        index = cls.replace("step_item step_item","");
+        
+	step(index);
+  });
+}
+
+function step(index) {
+	var strAdd = "",
+        strDel = "";
+
+    for(var i=2;i <= 8;i++) {
+      if(i <= index ) {
+        strAdd += "step_item"+i+"_on ";
+      } else {
+        strDel += "step_item"+i+"_on ";
+      }
+      jq("div.min4_step").addClass(strAdd).removeClass(strDel);
+      step_item = +index + 1;
+    }	
+}
+
+function setMarginForIe8(zoom) {
+  var scrW = jq("body > .myScroll").width()*zoom,
+      cW = jq(window).width();
+
+  jq("body > .myScroll").css("margin-left",(cW - scrW)/2+"px");
+}
+
+function resizeHeight() {
+    var cH = jq(window).height(),
+      cW = jq(window).width(),
+      name = browerObj.name,
+      ver = browerObj.version,
+      zoom = cH/1080,
+      scrlObj = jq("body > div.myScroll > div.wrap > div"),
+      divObj = jq("body > div.myScroll > div.wrap"),
+      onObj = jq("body > div.myScroll > div.on"),
+      index = divObj.index(onObj);
+      
+    jq("body").css('height',cH);
+    if(name == "firefox") {
+      scrlObj.css({"-moz-transform":"scale(" + zoom + ")","-moz-transform-origin":"0% 0% 0"});//firefox
+      //setMarginForIe8(zoom);
+    } else {
+       scrlObj.css({"zoom":zoom}); //
+    }
+    
+    scrlObj.css("width",cW/zoom+"px");
+    jq("body > div.myScroll").scrollTop(index * cH);
+}
+
+//mark
+function markEvent() {
+  var mA = jq("body > .nav > a");
+      len = mA.length,
+      onM = jq("body > .nav > span.on");
+  mA.bind("click",function() {
+    var index = mA.index(jq(this)),
+        scrlDiv = jq("body > div.myScroll"), 
+        sH = scrlDiv.scrollTop(),
+        cH = scrlDiv.height(),
+        pos = index - mA.index(mA.filter(".active")),
+        times = Math.abs(pos);
+    
+    if(!scrlDiv.is(":animated")) {
+      jq("div.weixin_pop").hide();
+	  jq(this).addClass("active").siblings().removeClass("active");
+      onM.css("top",index*38+"px");
+      scrlDiv.animate({scrollTop:(sH + pos*cH) + "px"},animateTime,function() {
+		scrlDiv.children("div:eq("+index+")").addClass("on css3").siblings("div").removeClass("on"); 
+        if(index == 0) {
+          step_item = 2;
+          scrlDiv.children("div").removeClass("css3").filter(":eq(3)").find(".min4_bd > .min4_step").removeClass("step_item2_on step_item3_on step_item4_on step_item5_on step_item6_on step_item7_on step_item8_on");
+        }
+    }); 
+    } 
+  }); 
+}
+
+function unBindScroll(delay) {
+  if (browerObj.name == "firefox") {
+    window.removeEventListener('DOMMouseScroll', wheel, false);
+  } else {
+    document.onmousewheel = null;  
+  } 
+  setTimeout(function() {
+    if (browerObj.name == "firefox") {
+        window.addEventListener('DOMMouseScroll', wheel, false);
+      } else {
+        document.onmousewheel = wheel;  
+      } 
+  },delay);
+}
+
+//scroll
+function handle(delta) {
+    var scrlDiv = jq("body > div.myScroll"),
+    divObj = scrlDiv.children("div"),
+    onObj = divObj.filter(".on"),
+    len = divObj.length,
+    index = divObj.index(onObj),
+    sH = scrlDiv.scrollTop(),
+    cH = scrlDiv.height(),
+    onM = jq("body > .nav > span.on");
+   
+  if (delta <0) {//down
+	if(index == 3 && step_item != 9) {//装修流程
+	  onObj.find("div.min4_bd > div.min4_step").addClass("step_item"+step_item+"_on");
+      step_item++;
+      unBindScroll(400);
+      return;
+    }
+   
+    if(index <= len - 2 && !scrlDiv.is(":animated")) {
+      index++;
+      jq("body > .nav > a:eq("+index+")").addClass("active").siblings().removeClass("active");
+      onM.css("top",index*38+"px");
+      scrlDiv.animate({scrollTop:(sH + cH) + "px"},animateTime,function() {
+        onObj.removeClass("on").next("div").addClass("on css3");  
+        unBindScroll(800);
+      });
+    }
+  } else {//up
+  	jq("div.weixin_pop").hide();
+    if(index == 3 && step_item != 2) {//装修流程
+      if(step_item > 2) {step_item--;}
+	  onObj.find("div.min4_bd > div.min4_step").removeClass("step_item"+step_item+"_on");
+      unBindScroll(400);
+      return;
+    }
+    
+    if(index > 0 && !scrlDiv.is(":animated")) {
+      index--;
+      jq("body > .nav > a:eq("+index+")").addClass("active").siblings().removeClass("active");
+      onM.css("top",index*38+"px");
+      scrlDiv.animate({scrollTop:(sH - cH) + "px"},animateTime,function() {
+        onObj.removeClass("on").prev("div").addClass("on css3"); 
+        unBindScroll(800);
+        if(index == 0) {
+          step_item = 2;
+          divObj.removeClass("css3").filter(":eq(3)").find(".min4_bd > .min4_step").removeClass("step_item2_on step_item3_on step_item4_on step_item5_on step_item6_on step_item7_on step_item8_on");
+        }
+      });
+    }
+  }
+}
+//ensure direction
+function wheel(event){
+    var delta = 0;
+    if (!event) event = window.event;
+    if (event.wheelDelta) {
+        delta = event.wheelDelta/120; 
+        if (window.opera) delta = -delta;
+    } else if (event.detail) {
+        delta = -event.detail/3;
+    }
+    if (delta) {
+      handle(delta);
+    }
+} 
+
+// 百度分享
+window._bd_share_config = {
+    common : {
+                bdText : '【三分钟学装修】优优美家三分钟学装修，史上最快速的装修入门指南，告别小白变身达人，现在就开始您的装修之旅吧!'
+//              bdDesc : '自定义分享摘要',
+//	            bdUrl : 'm.to8to.com'
+//              bdPic : '自定义分享图片'
+    },
+    share : [{
+        "bdSize" : 16,
+        // 禁用百度的样式表
+        'bdCustomStyle' : 'http://www.to8to.com/css/none.css'
+    }]
+};
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+</script>
+<script type="text/javascript"  src="/themes/default/static/js/share.js?<{$VER}>"></script>
+</body>
+</html>
+

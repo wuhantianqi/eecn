@@ -1,0 +1,103 @@
+<{assign var="tpl_page_title" value="团装小区详情页"}>
+<{include file="mobile/block/header.html"}>
+<ul class="app_menu tuan_menu">
+	<li class="noline">
+		<img src="<{$pager.img}>/<{$home.thumb}>" class="lt pic" />
+		<h2><{$tuan.title}></h2>
+		<p class="tuan_p">立省 <font class="fontcl1">￥<{$tuan.jieyue}></font>元</p>
+		<p>
+        	<{if $tuan.ltime>time() && $tuan.stime<time()}>
+            	<a mini-load='我要报名' mini-width='500' href="<{link ctl='mobile/home:tuanSign' arg0=$tuan.tuan_id http='ajax'}>" class="btn mainbtn">我要报名</a>
+            <{else}>
+           		 <a  href="#" class="btn overbtn">报名结束</a>
+            <{/if}>
+        </p>
+		<div class="cl"></div>
+	</li>
+</ul>
+<div class="tuan_subnav">
+	<ul>
+		<li>
+			已报名<font class="fontcl2"><{$tuan.sign_num}></font>户
+		</li>
+		<li>
+			已签约<font class="fontcl2"><{$tuan.qy_num}></font>户
+		</li>
+		<li>
+			已施工<font class="fontcl2"><{$tuan.sg_num}></font>户
+		</li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="tuan_subnav_tc">
+	<table cellpadding="0px" cellspacing="0px">
+		<tr>
+			<th>
+				户型                        
+			</th>
+			<th>
+				套餐价
+			</th>
+			<th>
+				我要报名
+			</th>
+		</tr>
+        <{foreach $package as $p}>
+            <tr>
+               <td><{$huxing[$p.huxing_id].title}></td>
+               <td> <font class="fontcl2"><{$p.price}></font>元/平米</td>
+               
+               <td> <{if $tuan.ltime>time() && $tuan.stime<time()}><a  mini-load='我要报名' mini-width='500' href="<{link ctl='mobile/home:tuanSign' arg0=$tuan.tuan_id arg1=$p.package_id http='ajax'}>" class="btn subbtn">立即报名</a><{else}><a href="#" class="btn overbtn">已结束</a><{/if}></td>
+            </tr>
+        <{/foreach}>
+	</table>
+</div>
+
+<div class="designer_nav">
+	<ul>
+		<li>
+			<a href="#">团装详情</a>
+		</li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<div class="pding">
+	<div class="article">
+		<{$tuan.content}>
+	</div>
+</div>
+<script>
+	jQuery(window).load(function () {
+			var width = document.body.clientWidth;
+			if(width>600){
+				width=600;	
+			}
+            jQuery("img").each(function () {
+                DrawImage(this,width,1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="mobile/block/footer.html"}>

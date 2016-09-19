@@ -1,0 +1,98 @@
+<{include file="block/small-header.html"}>
+<!--头部内容结束-->
+<!--购物流程图开始-->
+<div class="subwd">
+	<div class="shop_liuch">
+		<p class="liuch_intro"><span class="first">购物车</span><span>填写核对订单信息</span><span>成功提交订单</span><span>等待付款</span><span>等待发货</span><span class="last">订单已完成</span></p>
+		<p class="sp_liuch shop1"></p>
+	</div>
+	<h2>我的购物车</h2>
+	<div class="area mb20">
+		<table class="shop_car" cellpadding="0" cellspacing="0">
+			<tr class="title">
+				<td class="first">商品信息</td><td>商品单价</td><td>运费</td><td>数量</td><td>小计</td><td>操作</td>
+			</tr>
+            <{foreach $cart.items as $item}>
+			<tr>
+				<td class="first">
+					<a class="lt" href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><img src="<{$pager.img}>/<{$item.photo}>_small.jpg" /></a>
+					<p class="rt"><a href="<{link ctl='mall/product:detail' arg0=$item.product_id arg1=1}>"><{$item.name}></a><{if $item.spec}>【<{$item.spec.spec_name}>】<{/if}></p>
+					<p class="rt">商家 : <{$shop_list[$item.shop_id].name}></p>
+				</td>
+				<td><b class="fontcl2">￥<{$item.product_price}></b></td>
+				<td><b class="fontcl2"><{if $item.freight}>￥<{$item.freight}><{else}>包邮<{/if}></b></td>
+				<td><p class="buy_count"><a class="jian" quantity="-/<{$item.cart_key}>">▁</a><input type="text" number="<{$item.cart_key}>" id="product_number_<{$item.cart_key}>" class="buy_count_text" value="<{$item.num}>" /><a class="jia" quantity="+/<{$item.cart_key}>">+</a></p>
+                </td>
+				<td><b class="fontcl2">￥<{($item.product_price*$item.num + $item.freight)}></b></td>
+				<td><a href="<{link ctl='trade/cart:delete' arg0=$item.product_id arg1=$item.spec_id}>" mini-act="confirm:您确定要从购物车中移除该商品？">删除</a></td>
+			</tr>
+            <{/foreach}>
+			<tr class="last">
+				<td colspan="6">
+				<a href="<{link ctl='mall/index'}>" class="lt btn gray_btn">继续购买</a>
+				<p class="rt"><span>共计<b class="fontcl2"><{$cart.product_count}></b>件商品</span><span>合计（含运费）：<b class="fontcl2">￥<{$cart.total_amount}></b></span><a href="<{link ctl='trade/cart:checkout'}>" class=" btn btn_sub_big">去结算</a></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!--购物流程图结束-->
+<script type="text/javascript">
+(function(K, $){
+    $("[quantity]").click(function(e){
+        e.stopPropagation();e.preventDefault();
+        var a = $(this).attr("quantity").split("/");
+        var number = parseInt($("#product_number_"+a[1]).val(), 10);
+        Widget.MsgBox.success("正在更新购物车");
+        Widget.MsgBox.load("正在更新购物车");
+        if('-' == a[0]){
+            if(number < 2){
+                Widget.MsgBox.error("数量不能小于1");
+                return false;
+            }else{
+                number = number -1;
+                $("#product_number_"+a[1]).val(number);
+                var link = "<{link ctl='trade/cart:update' arg0='#sk#' arg1='#num#'}>&<{$pager.dateline}>";
+                $.getJSON(link.replace("#sk#", a[1]).replace("#num#", number), function(ret){
+                    if(ret.error){
+                        Widget.MsgBox.error(ret.message.join(","));
+                    }else{
+                        Widget.MsgBox.success("更新购物车成功");
+                        setTimeout(function(){window.location.reload(true);}, 1500);
+                    }
+                });
+            }
+        }else{
+            $("#product_number_"+a[1]).val(number+1);
+            var link = "<{link ctl='trade/cart:add' arg0='#sk#' arg1='1'}>&<{$pager.dateline}>";
+            $.getJSON(link.replace("#sk#", a[1]), function(ret){
+                if(ret.error){
+                    Widget.MsgBox.error(ret.message.join(","));
+                }else{
+                    Widget.MsgBox.success("更新购物车成功");
+                    setTimeout(function(){window.location.reload(true);}, 1500);
+                }
+            });
+        }
+    });
+    $("[number]").change(function(){
+        var pid = $(this).attr("number");
+        var number = parseInt($(this).val(), 10);
+        if(number < 1){
+            number = 1;
+        }
+        Widget.MsgBox.success("正在更新购物车");
+        Widget.MsgBox.load("正在更新购物车");
+        var link = "<{link ctl='trade/cart:update' arg0='#pid#' arg1='#num#'}>&<{$pager.dateline}>";
+        $.getJSON(link.replace("#pid#", pid).replace("#num#", number), function(ret){
+            if(ret.error){
+                Widget.MsgBox.error(ret.message.join(","));
+            }else{
+                Widget.MsgBox.success("更新购物车成功");
+                setTimeout(function(){window.location.reload(true);}, 1500);
+            }
+        });        
+    });
+})(window.KT, window.jQuery);
+</script>
+<{include file="block/small-footer.html"}>

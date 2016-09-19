@@ -1,0 +1,29 @@
+<{include file="gz/block/header.html"}>
+<!--找工长头部结束-->
+<div class="subwd mb20">
+	<!--主体左边内容开始-->
+	<div class="sub_designer_lt lt">
+		<ul class="designer_nav hoverno">
+			<li><a href="<{link ctl='gz:detail' arg0=$detail.uid}>" >主页</a>
+			</li>
+			<li><a href="<{link ctl='gz:about' arg0=$detail.uid}>" class="current">个人简介</a>
+			</li>
+			<li><a href="<{link ctl='gz:cases' arg0=$detail.uid}>">案例展示</a>
+			</li>
+			<li><a href="<{link ctl='gz:site' arg0=$detail.uid}>">在建工地</a>
+			</li>
+            <li><a href="<{link ctl='gz:comment' arg0=$detail.uid}>">他的评价</a>
+			</li>
+		</ul>
+		<div class="cl"></div>
+		<div class="area pding sub_designer">
+			<div class="mb10 designer_inrto">
+				<p class="title"><span class="lt">个人简介</span>
+				</p>
+				<p><span>所在地区：<{$detail.city_name}><{$detail.area_name}></span><span>联系方式：<{$detail.show_phone}></span></p>
+				<p>个人简介：<{$detail.about}></p>
+			</div>
+			
+		</div>
+	</div>
+	<{include file="gz/block/footer.html"}>

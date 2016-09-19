@@ -1,0 +1,18 @@
+<{include file="block/header.html"}>
+<!--头部内容结束-->
+<!--购物流程图开始-->
+<div class="subwd">
+	<div class="shop_liuch">
+		<p class="liuch_intro"><span class="first">购物车</span><span>填写核对订单信息</span><span>成功提交订单</span><span>已付款</span><span>等待发货</span><span class="last">订单已完成</span></p>
+		<p class="sp_liuch shop4"></p>
+	</div>
+	<div class="shop_order_su mb20">
+		<h1><span class="ico_list pay_list"></span>您已成功付款到支付宝!<font>查看<a href="<{link ctl='trade/order:detail' arg0=$order.order_no}>" class="fontcl2"><u>订单详情</u></a></font></h1>
+		<p>系统已通知卖家发货，您本次付款受<{$CONFIG.site.title}>中介保护，您验货满意并进行“确认收货”操作后，商家才会打款给卖家。</p>
+		<p class="tit">订 单 号：<a href="<{link ctl='trade/order:detail' arg0=$order.order_no}>"><{$order.order_no}></a></p>
+		<p class="tit">付款金额： ￥<{$order.amount}>元</p>
+	</div>	
+</div>
+<!--购物流程图结束-->
+<!--底边内容开始-->
+<{include file="block/footer.html"}>

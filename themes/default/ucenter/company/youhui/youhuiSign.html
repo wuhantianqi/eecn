@@ -1,0 +1,26 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">优惠信息报名</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/youhui:index'}>" class="pbtn">优惠信息管理</a></span>
+</div>
+<div class="ucenter_c">
+    <{if !$group.priv.show_yuyue_mobile < 0}><p class="tips"><span class="lock">您是【<b class="red"><{$group.group_name}></b>】手机号不可见</span></p><{/if}>
+    <p class="tips">优惠信息：<b class="red"><{$youhui.title}></b></p>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+            <th class="w-80">ID</th><th>联系人</th><th>手机</th><th class="w-50">状态</th><th class="w-150">报名时间</th><th class="w-80">ID</th>
+        </tr>
+        <{foreach $items as $item}>
+        <tr>
+            <td><label><{$item.sign_id}></label></a></td><td><{$item.contact}></td>
+            <td><{if $group.priv.show_yuyue_mobile>0}><{$item.mobile}><{else}><b class="red"><{$item.mobile|cutstr:6:'* * * * * *'}></b><{/if}></td>
+            <td><{$item.status_title}></td><td><{$item.dateline|format}></td>
+            <td><a href="<{link ctl='ucenter/company/youhui:signDetail' arg0=$item.sign_id}>" class="pbtn">查看</a></td>
+        </tr>
+        <{foreachelse}>
+        <tr><td colspan="10"><p class="tips"><span class="notice">该优惠信息还没有人报名</span></p></td></tr>
+        <{/foreach}>
+    </table>
+	<p class="page"><{$pager.pagebar}></p>
+</div>
+<{include file="ucenter/block/footer.html"}>

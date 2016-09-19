@@ -1,0 +1,23 @@
+<{if $request.MINI!='load'}>
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">回复店铺评论</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/comment:shop'}>" class="pbtn">商铺评价管理</a></span>
+</div>
+<div class="ucenter_c">
+<{/if}>
+<form action="<{link ctl='ucenter/shop/comment:reply'}>" mini-form="ucenter" method="post">
+<input type="hidden" name="comment_id" value="<{$comment.comment_id}>"/>
+<table cellspacing="0" cellpadding="0" class="minform">
+    <tr><th>会员：</th><td class="w-150"><{$member.uname|default:'--'}></td><th>评分：</th><td><{$comment.score}></td></tr>
+    <tr><th>评论：</th><td colspan="10"><{$comment.content}></td></tr>
+    <tr><th><span class="red">*</span>回复：</th>
+		<td colspan="10"><textarea name="reply_content" class="textarea w-400"><{$comment.reply}></textarea></td>
+	</tr>
+    <tr><th></th><td><input type="submit" value="回复评论" class="mpbtn" /></td></tr>
+</table>
+</form>
+<{if $request.MINI!='load'}>
+</div>
+<{include file="ucenter/block/footer.html"}>
+<{/if}>

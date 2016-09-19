@@ -1,0 +1,37 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/designer:info'}>">资料设置</a></li>
+        <li><a href="<{link ctl='ucenter/designer:attr'}>">属性设置</a></li>
+       <{if $designer.name}> <p class="refresh de_refresh"><a href="<{link ctl='ucenter/designer:refresh'}>" mini-load="刷新"  mini-width="400">刷新排名</a><span>最新刷新时间：<{$designer.flushtime|format}></span></p><{/if}>
+    </ul>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/designer:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+ 	<tr><th>名称：</th><td><input type="text" name="data[name]" value="<{$designer.name}>" class="input w-300"/></td></tr>
+     <tr><th class="w-100">地区：</th>
+         <td><{if $designer.city_id}><b class="blue"><{$designer.city_name}></b>&nbsp;&nbsp;&nbsp;
+            <select name="data[area_id]" class="select w-150"><{widget id="data/area" value=$designer.area_id city_id=$designer.city_id}></select>
+            <{else}>
+            <{widget id="data/region" city_id=$designer.city_id area_id=$designer.area_id class="select w-150"}>
+            <{/if}>
+        </td>
+    </tr>
+    <tr><th>联系电话：</th><td><input type="text" name="data[mobile]" value="<{$designer.mobile}>" class="input w-300"/></td></tr>
+    <tr><th>口号：</th><td><input type="text" name="data[slogan]" value="<{$designer.slogan}>" class="input w-300"/></td></tr>
+    <tr><th>联系QQ：</th><td><input type="text" name="data[qq]" value="<{$designer.qq}>" class="input w-300"/></td></tr>
+    <tr><th>毕业院校：</th><td><input type="text" name="data[school]" value="<{$designer.school}>" class="input w-300"/></td></tr>
+    <tr><th>个人简介：</th><td>
+    <textarea name="data[about]" kindeditor="full" style="width:800px;height:350px;"><{$designer.about}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

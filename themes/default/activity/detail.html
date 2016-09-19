@@ -1,0 +1,184 @@
+<{include file="block/small-header.html"}>
+<!--头部内容结束-->
+<div class="aczt_banner" style="display: block; z-index: 2;background: url(<{$pager.img}>/<{$detail.banner}>) 50% 50% no-repeat;">
+</div>
+<div class="subwd">
+	<!--主体内容开始-->
+	<div class="aczt_nav mb10" id="fixedMenu_keleyi_com">
+         <form id='sign_form'>
+            <ul>
+                <li>活动报名</li>
+                <li>真实姓名：<input type="text" name='data[contact]' class="text" placeholder='请输入您的姓名' /></li>
+                <li>手机号码：<input type="text" name='data[mobile]' class="text"  placeholder='验证码'/></li>
+                <li>验证码：<input class="text short" style="width:80px;" type="text" name="verifycode" placeholder="请输入验证码"/>
+                        <img title="点击刷新验证码" verify="#yuyue-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="yuyue-verify"/>
+                </li>
+                <li><{if $detail.end_time>time()}>
+                        <input type="submit" mini-submit='#sign_form' action="<{link ctl='activity:yuyue' arg0=$detail.activity_id}>" name="fbpl" value="立即报名" class="btn"/>
+                        <{else}>
+                         <input type="button" value="报名结束" class="btn gray_btn"/>
+                        <{/if}>
+                </li>
+
+            <!-- <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="title">真实姓名：</td>
+                    <td><input type="text" name='data[contact]' class="text" placeholder='请输入您的姓名' /></td>
+                </tr>
+                <tr>
+                    <td class="title">手机号码：</td>
+                    <td><input type="text" name='data[mobile]' class="text"  placeholder='请输入您的手机号'/></td>
+                </tr>
+                <{if $yuyue_yz}>
+                <tr>
+                    <td class="title">验证码</td>
+                    <td>
+                        <input class="text short" style="width:80px;" type="text" name="verifycode" placeholder="请输入验证码"/>
+                        <img title="点击刷新验证码" verify="#yuyue-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="yuyue-verify"/>
+                    </td>
+                </tr>
+                <{else}>
+                <tr>
+                    <td class="title">备注：</td>
+                    <td><input type="text" name='data[note]'  class="text"  placeholder='请输入备注'/></td>
+                </tr>
+                <{/if}>
+                <tr>
+                    <td></td>
+                    <td><{if $detail.end_time>time()}>
+                        <input type="submit" mini-submit='#sign_form' action="<{link ctl='activity:yuyue' arg0=$detail.activity_id}>" name="fbpl" value="立即报名" class="btn"/>
+                        <{else}>
+                         <input type="button" value="报名结束" class="btn gray_btn"/>
+                        <{/if}>
+                    </td>
+                </tr>
+            </table> -->
+            
+            </ul>
+        </form>
+		<!-- <ul>
+        	<li><a href="#li1">最新报名</a></li>
+            <li><a href="#li2">活动介绍</a></li>
+        	<{foreach $detail_lanmu as $item}>
+            <li><a href="#li<{$item.num}>"><{$item.title}></a></li>
+            <{/foreach}>
+		</ul> -->
+	</div>
+	<div class="aczt_top mb10 aczt_top_detail_wenit">
+		<!-- <a href="#" class="lt pic"><img src="<{$pager.img}>/<{$detail.thumb}>" /></a> -->
+		<div class="aczt_list_rt pding aczt_list_rt_detail">
+			<h1><{$detail.title}></h1>
+			<p>活动开始时间 ：<{$detail.bg_time|format:'Y-m-d'}></p>
+            <p>活动结束时间 ： <{$detail.end_time|format:'Y-m-d'}></p>
+            <p>活动地点： <{$detail.addr}></p>
+            <p>活动交通： <{$detail.jt}></p>
+			<p>客服电话 ：<font class="fontcl2"><{$detail.phone}></font></p>            
+			<h2><{if $detail.end_time>time()}><a mini-load='我要报名' mini-width='500' href="<{link ctl='activity:yuyue' arg0=$detail.activity_id http='ajax'}>" class="btn btn_sub_tuan">我要报名</a><{else}>
+            <a  href="#" class="btn btn_over_tuan">报名结束</a>
+            <{/if}>
+            <span>报名人数：<b class="fontcl2"><{$detail.sign_num}></b>名</span></h2>
+		</div>
+        <div class="aczt_list_rt_detail_right"><{include file='activity/left.html'}></div>
+	</div>
+	<!-- <div class="mb10">
+		<div class="aczt_list_box aczt_left_box ">
+			<h1 ><a name="li1">活动报名</a></h1>
+           
+			<form id='sign_form'>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="title">真实姓名：</td>
+					<td><input type="text" name='data[contact]' class="text" placeholder='请输入您的姓名' /></td>
+				</tr>
+				<tr>
+					<td class="title">手机号码：</td>
+					<td><input type="text" name='data[mobile]' class="text"  placeholder='请输入您的手机号'/></td>
+				</tr>
+                <{if $yuyue_yz}>
+                <tr>
+                    <td class="title">验证码</td>
+                    <td>
+                        <input class="text short" style="width:80px;" type="text" name="verifycode" placeholder="请输入验证码"/>
+                        <img title="点击刷新验证码" verify="#yuyue-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="yuyue-verify"/>
+                    </td>
+                </tr>
+                <{else}>
+				<tr>
+					<td class="title">备注：</td>
+					<td><input type="text" name='data[note]'  class="text"  placeholder='请输入备注'/></td>
+				</tr>
+                <{/if}>
+				<tr>
+					<td></td>
+					<td><{if $detail.end_time>time()}>
+                        <input type="submit" mini-submit='#sign_form' action="<{link ctl='activity:yuyue' arg0=$detail.activity_id}>" name="fbpl" value="立即报名" class="btn"/>
+                        <{else}>
+                         <input type="button" value="报名结束" class="btn gray_btn"/>
+                        <{/if}>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>
+		<div class="aczt_list_box aczt_middle_box">
+				<h2>最新报名</h2>
+				<p class="tit"><span>姓名</span><span>手机</span><span>报名时间</span></p>
+				<div class="aczt_table">
+				<ul>
+                    <{calldata mdl="activity/sign" acitivity_id=$detail.activity_id limit=7}>
+                    <li><span><{$item.contact|cutstr:3:'**'}></span><span><{$item.mobile|cutstr:5:'**'}></span><span><{$item.dateline|format:'Y-m-d'}></span></li>
+                    <{/calldata}>
+				</ul>
+				</div>
+		</div>
+		<div class="aczt_list_box aczt_right_box">
+			<{include file='activity/left.html'}>
+		</div>
+		<div class="cl"></div>
+	</div> -->
+	<div class="aczt_box mb10">
+		<!-- <h2><a name="li2">活动详情</a></h2> -->
+		<div class=" aczt_box_ct aczt_box_ct_borer">
+			<{$detail.info}>
+		</div>
+	</div>
+    <{foreach $detail_lanmu as $item}>
+    	<div class="aczt_box mb10">
+            <h2><a name="li<{$item.num}>"><{$item.title}></a></h2>
+            <div style="word-break:break-all" class=" aczt_box_ct">
+              	<{$item.content}>
+            </div>
+        </div>
+    <{/foreach}>
+	<!--主体内容结束-->
+</div>
+<script type="text/javascript">
+(function(K, $){
+    $("[verify]").click(function(){
+    	$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+    });
+    //活动专题页面 最新报名文字无缝滚动效果
+    $(function(){
+        $("div.aczt_table").myScroll({
+            speed:40, //数值越大，速度越慢
+            rowHeight:32 //li的高度
+        });
+    });
+    //活动专题页面 定位导航
+    $(function () {
+        var ie6 = document.all;
+        var dv = $('#fixedMenu_keleyi_com'), st;
+        dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+        $(window).scroll(function () {
+            st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+            if (st > parseInt(dv.attr('otop'))) {
+            if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+            dv.css({ position: 'absolute', top: st });
+            }
+            else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 });
+            } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+        });
+    });    
+})(window.KT, window.jQuery)    
+</script>
+<{include file="block/small-footer.html"}>

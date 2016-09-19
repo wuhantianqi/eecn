@@ -1,0 +1,29 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">优惠活动</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/shop/youhui:create'}>" class="pbtn">添加优惠活动</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th>标题</th><th class="w-100">报名数</th><th class="w-150">有效期</th>
+		<th class="w-100">审核</th><th class="w-200"></th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.youhui_id}><label></td>
+        <td><{$item.title}></td><td><{$item.sign_num}></td><td><{$item.expire_label}></td>
+        <td><{if $item.audit}><b class="blue">通过</b><{else}><b class="red">待审</b><{/if}></td>
+        <td>
+            <a href="<{link ctl='ucenter/shop/youhui:sign' arg0=$item.youhui_id}>" class="pbtn">查看报名</a>
+            <a href="<{link ctl='ucenter/shop/youhui:edit' arg0=$item.youhui_id}>" class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/shop/youhui:delete' arg0=$item.youhui_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+    <div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

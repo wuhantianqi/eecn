@@ -1,0 +1,106 @@
+<{assign var="tpl_page_title" value="管理中心首页"}>
+<{include file="mobile/block/header.html"}>
+<div class="pading admin_banner">
+	<img src="/themes/default/mobile/static/images/adminBg.jpg" class="bg" />
+	<div class="admin_intro">
+		<img src="<{$pager.img}>/<{$MEMBER.face}>" class="lt" />
+		<div class="lt">
+		<p><{$MEMBER.uname}></p>
+		<p>账户类型：<u><{$MEMBER.from_title}></u> </p>
+		<p>我的金币：<u><{$MEMBER.gold}></u></p>
+		</div>
+	</div>
+</div>
+<div class="pding">
+<h1>管理中心</h1>
+<ul class="admin_menu">
+	<li>
+		<a href="<{link ctl='mobile/ucenter:info'}>">
+			<span class="lt">基本信息</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter:passwd'}>">
+			<span class="lt">修改密码</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter:mail'}>">
+			<span class="lt">修改邮箱</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/yuyue:yuyue'}>">
+			<span class="lt">我的预约</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+    
+    <li>
+		<a href="<{link ctl='mobile/ucenter/sign:sign'}>">
+			<span class="lt">我的报名</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+	<li>
+		<a href="<{link ctl='mobile/ucenter/tenders:tenders'}>">
+			<span class="lt">招标管理</span><span class="rt">></span>
+			<p class="cl"></p>
+		</a>
+	</li>
+     <li>
+        <a href="<{link ctl='mobile/ucenter/order:orders'}>">
+            <span class="lt">我的订单</span><span class="rt">></span>
+            <p class="cl"></p>
+        </a>
+    </li>
+     
+      <{if $MEMBER.from == 'company' }>
+      	<li>
+            <a href="<{link ctl='mobile/ucenter/company:youhuiSign'}>">
+                <span class="lt">优惠信息报名</span><span class="rt">></span>
+                <p class="cl"></p>
+            </a>
+        </li>
+        <li>
+            <a href="<{link ctl='mobile/ucenter/company:zxb'}>">
+                <span class="lt">装修保管理</span><span class="rt">></span>
+                <p class="cl"></p>
+            </a>
+        </li>
+     <{/if}>
+      <{if $MEMBER.from == 'shop' }>
+      	
+        <li>
+            <a href="<{link ctl='mobile/ucenter/order:shop_order'}>">
+                <span class="lt">商品订单</span><span class="rt">></span>
+                <p class="cl"></p>
+            </a>
+        </li>
+        <li>
+            <a href="<{link ctl='mobile/ucenter/coupon:coupon_list'}>">
+                <span class="lt">优惠劵下载日记</span><span class="rt">></span>
+                <p class="cl"></p>
+            </a>
+        </li>
+     <{/if}>
+      <{if $MEMBER.from != 'member' }>
+      	<li>
+            <a href="<{link ctl='mobile/ucenter:appointment'}>">
+                <span class="lt">预约管理</span><span class="rt">></span>
+                <p class="cl"></p>
+            </a>
+        </li>
+      <{/if}>
+      
+      <li>
+        <a class="btn subbtn_full" href="<{link ctl='mobile/passport:loginout'}>">
+            <span style="color:#FFF">退出登录</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{include file="mobile/block/footer.html"}>

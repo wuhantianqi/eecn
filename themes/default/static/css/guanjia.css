@@ -1,0 +1,63 @@
+.banner{
+    width:100%;
+}
+.banner ul li{
+    width:100%;
+}
+.first-wrap{
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+.first-wrap .banner_left{
+	background-color: #fff;
+}
+.banner ul li:first-child .banner_left{
+	position: absolute;
+	right:50px;
+    top:79px;
+}
+.daikuang{
+    height:290px;
+}
+.daikuang h1{
+    margin-top:20px;
+}
+.banner ul>li:nth-child(n+4) img{
+    width:1200px;
+    display: block;
+    margin:0 auto;
+}
+
+.banner ul li:nth-child(6){
+    background:rgba(240,240,240,1);
+}
+.banner ul li:nth-child(7){
+    background:rgba(240,240,240,1);
+}
+.banner ul li:nth-child(8){
+    background:rgba(230,217,201,1);
+}
+.banner ul li:nth-child(9){
+    background:rgba(230,217,201,1);
+}
+.banner ul li:nth-child(10){
+    background:rgba(240,240,240,1);
+}
+.banner ul li:nth-child(11){
+    background:rgba(240,240,240,1);
+}
+.banner ul li:nth-child(12){
+}
+.banner ul li:nth-child(13){
+}
+.banner ul li:nth-child(14){
+    background:rgba(230,217,201,1);
+}
+.banner ul li:nth-child(15){
+    background:rgba(230,217,201,1);
+}
+.banner ul li:nth-child(16){
+    height:40px;
+    background:rgba(230,217,201,1);
+}

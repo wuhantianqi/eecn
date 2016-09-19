@@ -1,0 +1,65 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='case:items'}>">装修案例</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体内容开始-->
+	<div class="mb20 area choose_option to_choose_option">
+		<table cellpadding="0" cellspacing="0">
+            <{foreach $attr_values as $v}>
+            <tr>
+                <td class="tit"><{$v.title}></td>
+                <td><a href="<{$v.link}>" class="<{if $v.checked == true}> current<{/if}>">不限 </a>                  
+                <{foreach $v.values as $vv}>
+                <a href="<{$vv.link}>" class="<{if $vv.checked ==true}>current<{/if}>"><{$vv.title}></a>
+                <{/foreach}>
+                </td>
+            </tr>
+            <{/foreach}>
+		</table>
+	</div>
+	<div class="mb10">
+		<div class="sort_box">
+			<p class="sort_list hoverno">
+                <span class="lt">
+                    <{foreach $order_list as $k=>$v}>
+                    <a href="<{$v.link}>"><{$v.title}><span class="<{if $pager.order==$k}>sort_ico ico_list sort_on_ico<{else}>sort_ico ico_list<{/if}>"></span></a>
+                    <{/foreach}>
+                </span> 
+                <span class="rt">
+                <a href="<{link ctl='case:album'}>" title="专辑模式"  class="on" ><font class="ico_list li_on"></font></a>
+				<a href="<{link ctl='case:items'}>"  title="列表模式"><font class="ico_list block_over"></font></a>
+				</span>
+			</p>
+		</div>
+	</div>
+	<ul class="case_zhuanji">
+    	 <{foreach $items as $item}>         	
+        <li <{if $item@index%5 == 0}>class="first"<{/if}>>
+            <div class="zhuanji_top_img"><a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a></div>
+            <div class="zhuanji_bottom_img">
+            <{if $item.lastphotos}>
+                 <{foreach from=$item.lastphotos key=key item=item2}>
+                    <{if $key < 3 && $key == 0}>
+                         <a href="<{link ctl='case:detail' arg0=$item.case_id}>" class="first"  target="_blank"><img src="<{$pager.img}>/<{$photos[$item2].photo}>_small.jpg"  width="72px;" height="72px;" /></a>
+                    <{elseif $key < 3 && $key != 0}>
+                        <a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank"><img src="<{$pager.img}>/<{$photos[$item2].photo}>_small.jpg"  width="72px;" height="72px;" /></a>
+                    <{/if}>
+                 <{/foreach}>
+            <{/if}>               
+            </div>
+            <p><a href="<{link ctl='case:detail' arg0=$item.case_id}>" class="lt tit"  target="_blank"><{$item.title|cutstr:25}></a><span class="rt"><font class="ico_list zhuanji_ico"></font><{$item.photos}></span></p>
+            <div class="cl"></div>
+        </li>
+         <{/foreach}>
+	</ul>
+	<div class="cl"></div>
+     <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+</div>
+<{include file="block/footer.html"}>

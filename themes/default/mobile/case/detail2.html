@@ -1,0 +1,61 @@
+<{assign var="tpl_page_title" value="案例详情"}>
+<{include file="mobile/block/header.html"}>
+<style type="text/css">
+.content{width:100%;max-width: 100%;} .swiper-slide{text-align: center;vertical-align: middle;}.case_details img{width: auto;}.case_details{height: auto;}
+.case_details{padding:0 0;}
+</style>
+<link rel="stylesheet" href="%THEME%/mobile/static/swiper/swiper.css">
+<div class="case_details">
+	<div class="opacity_img swiper-container">
+        <div class="swiper-wrapper">
+        <{foreach $photos as $item}>         
+        <div class="swiper-slide" style="width:100%;"><img src="<{$pager.img}>/<{$item.photo}>" alt="<{$item.title}>" num="<{$item@iteration}>"/></div>
+        <{/foreach}>
+        </div>
+        <p class="bg"><span class="span_l"><b class="single">1</b><i>/<{count($photos)}></i></span></p>        
+        <p class="text"><span class="lt"><{$detail.title}></span></p>
+	</div>
+</div>
+<div class="case_bottom">
+    <p>喜欢此设计？<a href="<{link ctl='mobile/tenders'}>" class="btn mainbtn">免费申请设计</a></p>
+</div>
+<script src="%THEME%/mobile/static/swiper/swiper.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+   var mySwiper = new Swiper('.swiper-container',{
+    pagination: false,
+    loop:true,
+    grabCursor: true
+  })  
+$(".case_details").height($(window).height()-120);
+$(".case_details .swiper-slide").height($(window).height()-120);
+$(window).resize(function(){
+    var WW = $(window).width();
+    var WH = $(window).height();
+    $(".swiper-slide").height(WH-120);
+    var SH = $(".swiper-slide").eq(0).height();
+    $(".swiper-slide img").each(function(){
+        var IW = $(this).width();
+        var IH = $(this).height();
+        if(IW > (WW-20)){
+            IW = WW-20;
+            $(this).width(IW);
+            if(IH > (WH-200)){
+                IH = WH - 200;
+                $(this).height(IH);
+            }    
+        }else if(IH > (WH-200)){
+            IH = WH-200;
+            $(this).height(IH)
+            if(IW > (WW-20)){
+                IW = WW - 20
+                $(this).width(IW);
+            }    
+        }
+        var m = (SH- IH)/2;
+        $(this).css({"margin":m+"px auto"})
+    });
+});
+});
+</script>
+<{include file="mobile/block/footer.html"}>

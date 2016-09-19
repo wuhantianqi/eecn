@@ -1,0 +1,46 @@
+<{include file="block/small-header.html"}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+		><a href="<{link ctl='designer'}>">设计师列表</a>
+		><a href="<{link ctl='designer:detail' arg0=$designer.uid}>"><{$designer.name}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<!--找工长头部开始-->
+<div class="sub_designer_top mb20">
+	<div class="subwd">
+		<img src="<{$pager.img}>/<{$designer.face}>" class="lt pic" />
+		<div class="sub_designer_top_lt lt">
+			<h1><{$designer.name}><span class="fr_span"><{if $designer.verify == 1}><font class="ico_list foreman_rz"></font>已认证</span><{/if}></h1>
+			<p class="list"><span>关注数：<b><{$designer.attention_num}></b></span><span>预约数：<b><{$designer.yuyue_num}></b></span><span>案例：<b><{$designer.case_num}></b></span><span>博文数：<b><{$designer.blog_num}></b></span></p>
+			<p><a href="<{link ctl='designer:attention' arg0=$designer.uid}>" mini-act="+关注" class="btn">+关注</a>
+				<{if $designer.group.priv.allow_yuyue<0}>
+                 	<a href="<{link ctl='tenders:fast' arg0=$designer.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn">立即招标</a>
+                <{else}>
+                	<a href="<{link ctl='designer:yuyue' arg0=$designer.uid http='ajax'}>" mini-width='500' mini-load="委托设计"  class="btn">委托设计</a>
+                <{/if}>
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<{$designer.show_qq}>&amp;site=qq&amp;menu=yes" class="ico_list qq_ico"></a>
+			</p>
+		</div>
+		<div class="sub_designer_top_rt pingfen_bar rt">
+        	<p class="title">综合评价：<{$designer.avg_score}></p>
+			 <{foreach $CONFIG.score.designer as $k=>$v}>
+            	<p><{$v}>：<span class="bar probar_gray"><span class="bar probar_color bar2" style="width:<{$designer.avg_scores[$k]*20}>%"></span></span><{sprintf("%.2f",$designer.avg_scores[$k])}></p>
+             <{/foreach}>
+		</div>
+		<div class="cl"></div>
+	</div>
+</div>
+<!--找工长头部结束-->
+<div class="subwd mb20">
+    <!--主体左边内容开始-->
+    <div class="sub_designer_lt lt">
+        <ul class="designer_nav hoverno">
+            <li><a href="<{link ctl='blog' arg0=$designer.uid}>"<{if $curr_home}> class="current"<{/if}>>主页</a></li>
+            <li><a href="<{link ctl='blog:about' arg0=$designer.uid}>"<{if $curr_about}> class="current"<{/if}>>个人简介</a></li>
+            <li><a href="<{link ctl='blog:cases' arg0=$designer.uid}>"<{if $curr_case}> class="current"<{/if}>>案例展示</a></li>
+            <li><a href="<{link ctl='blog:article' arg0=$designer.uid}>"<{if $curr_article}> class="current"<{/if}>>TA的文章</a></li>
+            <li><a href="<{link ctl='blog:comments' arg0=$designer.uid}>"<{if $curr_comment}> class="current"<{/if}>>TA的评价</a></li>
+        </ul>
+        <div class="cl"></div>

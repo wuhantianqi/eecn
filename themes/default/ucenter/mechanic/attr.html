@@ -1,0 +1,17 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li><a href="<{link ctl='ucenter/mechanic:info'}>">资料设置</a></li>
+        <li class="on"><a href="<{link ctl='ucenter/mechanic:attr'}>">属性设置</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/mechanic:attr'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th>姓名：</th><td><{$mechanic.realname}></td></tr>
+    <{widget id="attr/form" value=$attr from="zx:mechanic"}>
+    <tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

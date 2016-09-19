@@ -1,0 +1,94 @@
+<{assign var="tpl_page_title" value="订单详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0">
+         <{if $order.order_status == 2}>
+         	<tr><td>订单状态：交易成功</td></tr>
+          <{/if}>
+			<tr><td>订单号：<{$order.order_no}></td></tr>
+            <tr>
+				<td>
+				订单状态：
+                <{if $order.order_status < 0}>已取消
+                <{elseif $order.order_status == 2}>完成
+                <{elseif $order.order_status == 1}>已发货 <{if empty($order.pay_status) && ($MEMBER.uid == $order.uid)}>, <a href="<{link ctl='trade/order:payment' arg0=$order.order_no}>"><u class="fontcl2">立即付款&nbsp;&gt;</u></a><{/if}>
+                <{elseif $order.pay_status==1}>已支付
+                <{else}>
+                    <{if $MEMBER.uid == $order.uid}>
+                        您还未支付,<a href="<{link ctl='mobile/trade/order:payment' arg0=$order.order_no}>"><u class="fontcl2">立即支付</u></a>
+                    <{elseif empty($order.status)}>
+                        等待买家付款，你可以先行 <a href="<{link ctl='mobile/ucenter/order:shop_update' arg0='ship' arg1=$order.order_no}>" mini-act="confirm:您确定要该订单已发货？"><u class="fontcl2">去发货</u></a>
+                    <{else}>
+                        等待买家付款
+                    <{/if}>
+                <{/if}>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 <{if $order.order_status == 2}>
+                    订单已经完成，感谢您在<{$CONFIG.site.title}>购物，欢迎您对本次交易及所购商品进行评价。
+                <{elseif $order.order_status == 1}>
+                    <{if $MEMBER.uid == $order.uid}>
+                    卖家已经发货，收到货品后，核对商品正确后及时确认收货。
+                    <{else}>
+                    已经发货，等待买收货。
+                    <{/if}>
+                <{/if}>
+				</td>
+			</tr>
+			<tr><td>收货人：<{$order.contact}></td></tr>
+            <tr><td>联系电话：<{$order.mobile}></td></tr>
+            <tr><td>联系地址：<{$order.addr}></td></tr>
+        </table>
+            <table cellpadding="0" cellspacing="0">
+           <{foreach $order.products as $product}>
+			<tr>
+				<td rowspan="2">
+				<img src="{$pager.img}>/<{$product.photo}>_small.jpg" />
+				</td>
+			</tr>
+            <tr>
+				<td>
+                <{$product.product_name|cutstr:15}><br/>
+				￥<{$product.product_price}>*<{$product.number}>
+				</td>
+			</tr>
+            <tr>
+             	<td>邮费：<{if $product.freight}>￥<{$product.freight}><{else}>包邮<{/if}></td>
+				<td>小计：￥<{$product.amount}></td>
+			</tr>
+           <{/foreach}>
+       	<tr>
+        	<td>订单状态：</td>
+        	 <td>
+                <{if $order.order_status < 0}><p>已取消</p>
+                <{elseif $order.order_status == 2}><p>完成</p>
+                <{elseif $order.order_status == 1}><p>已发货</p>
+                    <{if $MEMBER.uid == $order.uid}>
+                        <{if empty($order.pay_status)}>
+                            <a href="<{link ctl='trade/order:payment' arg0=$order.order_no}>" class="btn btn_sub_sm">立即付款</a>
+                        <{/if}>
+                    <{/if}>
+                <{elseif $order.pay_status==1}><p>已支付</p>
+                <{else}>
+                    <{if $MEMBER.uid == $order.uid}>
+                    <p>您还未支付,</p> 
+                    <a href="<{link ctl='mobile/trade/order:payment' arg0=$order.order_no}>" class="btn mainbtn">立即支付</a>
+                    <{elseif empty($order.status)}>
+                    <p>等待买家付款，你可以先行发货</p> 
+                    <a href="<{link ctl='mobile/ucenter/order:shop_update' arg0='ship' arg1=$order.order_no}>" mini-act="confirm:您确定要该订单已发货？"  class="btn mainbtn">订单发货</a>
+                    <{else}>
+                    <p> 等待买家付款</p>
+                    <{/if}>
+                <{/if}>
+            </td>
+        </tr>
+            <tr class="last">
+				<td colspan="6"><p class="rt"><span>共计<b class="fontcl2"><{$order.product_count}></b>件商品</span><span>合计（含运费）：<b class="fontcl2">￥<{$order.amount}></b></span></p></td>
+			</tr>
+        </table>
+	</div>
+</div>
+<{include file="mobile/block/footer.html"}>

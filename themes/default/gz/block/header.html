@@ -1,0 +1,35 @@
+<{include file="block/small-header.html"}>
+<!--面包屑导航开始-->
+<div class="mb10 subwd sub_topnav">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+		><a href="<{link ctl='gz'}>">找工长</a>
+		><a href="<{link ctl='gz:detail' arg0=$detail.uid}>"><{$detail.name}></a>
+	</p>
+</div>
+<!--面包屑导航结束-->
+<!--找工长头部开始-->
+<div class="sub_designer_top mb20">
+	<div class="subwd">
+		<img src="<{$pager.img}>/<{$detail.face}>" class="lt pic" />
+		<div class="sub_designer_top_lt lt">
+			<h1><{$detail.name}><{if $detail.verify_name}><span class="ps_rz_ico ico_list"></span><{/if}></h1>
+			<p class="list"><span>工地：<b><{$detail.site_num}></b></span><span>案例：<b><{$detail.case_num}></b></span><span>浏览量：<b><{$detail.views}></b></span></p>
+			<p class="list"><span>评论数：<b><{$detail.comments}></b></span><span>预约数：<b><{$detail.yuyue_num}></b></span></p>
+			<p>
+                <{if $detail.group<0}>
+                 	<a href="<{link ctl='tenders:fast' arg0=$detail.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn">立即招标</a>
+                <{else}>
+                	<a href="<{link ctl='gz:yuyue' arg0=$detail.uid http='ajax'}>" mini-width='500' mini-load="委托设计" class="btn">委托设计</a>
+                <{/if}>
+				<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=<{$detail.qq}>&amp;site=qq&amp;menu=yes" class="ico_list qq_ico"></a>
+			</p>
+		</div>
+		<div class="sub_designer_top_rt pingfen_bar rt">
+			<p class="title">综合评价：<{$detail.avg_score}></p>
+			 <{foreach $CONFIG.score.gz as $k=>$v}>
+            	<p><{$v}>：<span class="bar probar_gray"><span class="bar probar_color bar2" style="width:<{$detail.avg_scores[$k]*20}>%"></span></span><{sprintf("%.2f",$detail.avg_scores[$k])}></p>
+             <{/foreach}>
+		</div>
+		<div class="cl"></div>
+	</div>
+</div>

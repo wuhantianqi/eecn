@@ -1,0 +1,25 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li><a href="<{link ctl='ucenter/member/diary:index'}>">装修日记</a></li></ul>
+    <ul><li class="on">日记文章</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/member/diary:createDiary' arg0=$diary.diary_id}>" class="pbtn">添加日记文章</a></span>
+</div>
+<div class="ucenter_c">
+    <h4 class="tips">日记：<{$diary.title}></h4>
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr><th>装修日记</th><th class="w-200">阶段</th><th class="w-150">创建时间</th><th class="w-150">操作</th></tr>
+    <{foreach $items as $item}>
+    <tr> 
+        <td><{$diary.title|default:'--'}></td><td><{$item.status_title}></td><td><{$item.dateline|format}></td>
+        <td>
+            <a href="<{link ctl='ucenter/member/diary:editDiary' arg0=$item.item_id}>" class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/member/diary:deleteDiary' arg0=$item.item_id}>" mini-act="删除" mini-confirm="确定要删除吗？" class="pbtn red">删除</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">没有数据</span></p></td></tr>
+    <{/foreach}>
+    </table>
+	<div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

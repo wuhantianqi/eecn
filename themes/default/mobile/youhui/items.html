@@ -1,0 +1,44 @@
+<{assign var="tpl_page_title" value="优惠信息列表"}>
+<{include file="mobile/block/header.html"}>
+<div class="mb10"></div>
+<ul class="app_menu youhui_menu">
+<{foreach from=$items item=item}>
+    <li>
+        <a href="<{link ctl='mobile/youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" class="lt pic"  />
+        <h2><{$item.title|cutstr:25}></h2>           
+            <p class="nowrap"><{if $item.ltime>time() && $item.stime<time()}><font class="app_ico time_ico"></font><{else}><font class="app_ico time_over_ico"></font><{/if}><span remaintime="<{$item.ltime}>"></span></p>
+            <div class="cl"></div>
+         </a>
+    </li>
+<{/foreach}>	
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+
+<script type="text/javascript">
+(function(K, $){
+    $(function(){
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
+    setInterval(function(){
+      $("[remaintime]").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime() + difference;
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+        var myH=Math.floor(nMS/(1000*60*60)) % 24;
+        var myM=Math.floor(nMS/(1000*60)) % 60;
+        var myS=Math.floor(nMS/1000) % 60;
+        var myMS=Math.floor(nMS/100) % 10;
+        if(myD>= 0){
+			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
+        }else{
+			var str = "真遗憾您来晚了，抢购已经结束。";	
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+})(window.KT, window.jQuery);
+</script>
+<{include file="mobile/block/footer.html"}>

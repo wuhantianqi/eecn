@@ -1,0 +1,93 @@
+<{include file="home/block/header.html"}>
+<div class="subwd">
+	<div class="sub_home_lt lt">
+		<div class="mb10">
+			<div class=" pding area home_company">
+				
+                
+					<{if $company}>
+                    <a href="<{link ctl='company' arg0=$item.company_id}>" class="pic lt"><img src="<{$pager.img}>/<{$company.logo}>" /></a>
+					<div class="rt">
+					<h2>方案提供者：<a href="<{$company.company_url}>"><font class="fontcl2"> <{$company.name}> </font></a></h2>
+					<p><span class="lt"><{$case.title}> (<font class="fontcl2"><{$case.views}></font>人看了此方案)  </span>
+                        <{if $company.group<0}>
+                            <span class="rt"><a href="<{link ctl='tenders:fast' arg0=$company.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn btn_sub_sm">立即招标</a></span></p>
+                        <{else}>
+                            <span class="rt">喜欢这个风格?找TA设计<a href="<{link ctl='gs:yuyue' arg0=$company.company_id http='ajax'}>" mini-width='500' mini-load="预约公司"  class="btn btn_sub_sm">预约公司</a></span></p>
+                        <{/if}>
+					<{elseif $gz}>
+                    <a href="<{link ctl='gz:detail' arg0=$item.uid}>" class="pic lt"><img src="<{$pager.img}>/<{$gz.face}>" /></a>
+					<div class="rt">
+					<h2>方案提供者：<a href="<{link ctl='gz:detail' arg0=$item.uid}>"><font class="fontcl2"> <{$gz.name}> </font></a></h2>
+					<p><span class="lt"><{$case.title}> (<font class="fontcl2"><{$case.views}></font>人看了此方案)  </span>
+                        <{if $gz.group<0}>
+                            <span class="rt"><a href="<{link ctl='tenders:fast' arg0=$gz.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn btn_sub_sm">立即招标</a></span></p>
+                        <{else}>
+                            <span class="rt">喜欢这个风格?找TA设计<a href="<{link ctl='gz:yuyue' arg0=$gz.uid http='ajax'}>" mini-width='500' mini-load="预约工长"  class="btn btn_sub_sm">预约工长</a></span></p>
+                        <{/if}>
+					<{elseif $designer}>
+                     <a href="<{link ctl='blog' arg0=$designer.uid}>" class="pic lt"><img src="<{$pager.img}>/<{$designer.face}>" /></a>
+					<div class="rt">
+					<h2>方案提供者：<a href="<{link ctl='blog' arg0=$designer.uid}>" ><font class="fontcl2"> <{$designer.uname}> </font></a></h2>
+					<p><span class="lt"><{$case.title}> (<font class="fontcl2"><{$case.views}></font>人看了此方案)  </span>
+                        <{if $designer.group<0}>
+                            <span class="rt"><a href="<{link ctl='tenders:fast' arg0=$designer.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn btn_sub_sm">立即招标</a></span>
+                        <{else}>
+                            <span class="rt">喜欢这个风格?找TA设计<a href="<{link ctl='designer:yuyue' arg0=$designer.uid http='ajax'}>" mini-width='500' mini-load="预约设计师"  class="btn btn_sub_sm">预约设计师</a></span>
+                        <{/if}>
+					</p>
+					<{/if}>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+		<p class="home_design_fl"><a href="#home_link1">设计思路</a>|<a href="#home_link2">平面布置图</a>|<a href="#home_link3">设计图</a></p>
+		<div class="mb20 pding area">
+			<div class="mb10">
+			<p class="tit"><a name="home_link1">设计思路</a></p>
+			<p><{$case.intro}></p>
+			</div>
+			<div class="mb10">
+			<p class="tit"><a name="home_link2">平面布置图</a></p>
+			<p class="img"><img class="imgs" src="<{$pager.img}>/<{$case.huxing}>" /></p>
+			</div>
+			<div class="mb10">
+			<p class="tit"><a name="home_link3">设计图</a></p>
+			<{foreach $items as $item}><p class="img"><img class="imgs" src="<{$pager.img}>/<{$item.photo}>"/></p><{/foreach}>
+			</div>
+            <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+     </div>
+</div>
+
+<script>
+	jQuery(window).load(function () {
+            jQuery(".imgs").each(function () {
+                DrawImage(this, 680, 1000);
+            });
+        });
+        function DrawImage(ImgD, FitWidth, FitHeight) {
+            var image = new Image();
+            image.src = ImgD.src;
+            if (image.width > 0 && image.height > 0) {
+                if (image.width / image.height >= FitWidth / FitHeight) {
+                    if (image.width > FitWidth) {
+                        ImgD.width = FitWidth;
+                        ImgD.height = (image.height * FitWidth) / image.width;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                } else {
+                    if (image.height > FitHeight) {
+                        ImgD.height = FitHeight;
+                        ImgD.width = (image.width * FitHeight) / image.height;
+                    } else {
+                        ImgD.width = image.width;
+                        ImgD.height = image.height;
+                    }
+                }
+            }
+        }
+</script>
+<{include file="home/block/footer.html"}>

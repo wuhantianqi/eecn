@@ -1,0 +1,51 @@
+<{include file="ucenter/block/header.html"}>
+<script type="text/javascript" src="<{$pager.res}>/script/widget.YMD.js"></script>
+<div class="ucenter_t">
+    <ul>
+        <li class="on">实名认证</li>
+        <li><a href="<{link ctl='ucenter/member/verify:mail'}>">邮箱认证</a></li>
+        <li><a href="<{link ctl='ucenter/member/verify:mobile'}>">手机认证</a></li>
+    </ul>
+</div>
+<div class="ucenter_c">
+	<h4 class="tips">
+        <{if $MEMBER.verify_name}>
+        <span class="success">您已经通过实名认证</span>
+        <{elseif $detail.verify == '2'}>
+        <span class="notice">您提交的信息被打回：<b class="red"><{$detail.refuse}></b></span>
+        <{elseif isset($detail.verify) && empty($detail.verify)}>
+        <span class="notice">您提交的信息正在审核中</span>
+        <{else}>
+        <span class="notice">您还未提交认证信息</span>
+        <{/if}>
+    </h4>
+<form id="verify-form">
+<{if $MEMBER.verify_name || (isset($detail.verify) && empty($detail.verify))}>
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th>姓名/企业：</th><td>&nbsp;<{$detail.name}></td></tr>
+    <tr><th>证件号：</th><td>&nbsp;<{$detail.id_number|default:'--'}></td></tr>
+    <tr><th>证件图片：</th><td><a href="<{$pager.img}>/<{$detail.id_photo}>" target="_blank" title="查看原图"><img src="<{$pager.img}>/<{$detail.id_photo}>"  class="w-600"/></a></td></tr>
+    <tr><th><span class="red">&nbsp;</span>手机：</th><td><{$detail.mobile}></td></tr>
+</table>
+<{else}>
+<table cellspacing="0" cellpadding="0" class="form">
+    <tr><th>姓名/企业：</th><td><input type="text" name="data[name]" value="<{$detail.name}>" class="input" /></td></tr>
+    <tr><th>证件号：</th><td><input type="text" name="data[id_number]" value="<{$detail.id_number}>" class="input" /></td></tr>
+    <tr><th>证件图片：</th>
+        <td>
+            <{if $detail.id_photo}><a href="<{$pager.img}>/<{$detail.id_photo}>" target="_blank" title="查看原图"><img src="<{$pager.img}>/<{$detail.id_photo}>"  class="w-600"/></a><br /><{/if}>
+            <input type="file" name="id_photo" class="input" />
+        </td>
+    </tr>
+    <tr>
+        <th>手机：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile}>" class="input"/></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><input action="<{link ctl='ucenter/member/verify:name'}>" mini-submit="#verify-form" type="button" value="提交数据" class="green_btn" /></td>
+    </tr>
+</table>
+<{/if}>
+</form>
+</div>
+<{include file="ucenter/block/footer.html"}>

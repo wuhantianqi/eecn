@@ -1,0 +1,19 @@
+<{if $request.MINI!='load'}>
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul><li class="on">绑定设计师</li></ul>
+    <span class="r"><a href="<{link ctl='ucenter/company/team:index'}>" class="pbtn">团队管理</a></span>
+</div>
+<div class="ucenter_c">
+<{/if}>
+<form action="<{link ctl='ucenter/company/team:bind'}>" mini-form="ucenter" method="post">
+<table cellspacing="0" cellpadding="0" class="minform">
+    <tr><th class="w-100">帐号：</th><td><input type="text" name="data[uname]" value="" class="input w-150"/></td></tr>
+    <tr><th class="w-100">密码：</th><td><input type="password" name="data[passwd]" value="" class="input w-150"/></td></tr>
+    <tr><th></th><td><input type="submit" value="绑定" class="pbtn" /></td></tr>
+</table>
+</form>
+<{if $request.MINI!='load'}>
+</div>
+<{include file="ucenter/block/footer.html"}>
+<{/if}>

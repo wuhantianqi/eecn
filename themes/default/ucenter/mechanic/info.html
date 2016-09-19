@@ -1,0 +1,53 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/mechanic:info'}>">资料设置</a></li>
+        <li><a href="<{link ctl='ucenter/mechanic:attr'}>">属性设置</a></li>
+        <{if $mechanic.name}> <p class="refresh de_refresh"><a href="<{link ctl='ucenter/mechanic:refresh' http='ajax'}>" mini-load="刷新排名"  mini-width="400">刷新排名</a><span>最新刷新时间为：<{$mechanic.flushtime|format}></span></p><{/if}>
+    </ul>
+</div>
+<div class="ucenter_c">
+<form action="<{link ctl='ucenter/mechanic:info'}>" mini-form="ucenter" method="post" ENCTYPE="multipart/form-data">
+<table cellspacing="0" cellpadding="0" class="form">
+	<tr><th>名称：</th><td><input type="text" name="data[name]" value="<{$mechanic.name}>" class="input w-300"/></td></tr>
+    <tr><th class="w-100">地区：</th>
+        <td><{if $mechanic.city_id}><b class="blue"><{$mechanic.city_name}></b>&nbsp;&nbsp;&nbsp;
+            <select name="data[area_id]" class="select w-150"><{widget id="data/area" value=$mechanic.area_id city_id=$mechanic.city_id}></select>
+            <{else}>
+            <{widget id="data/region" city_id=$mechanic.city_id|default:$MEMBER.city_id area_id=$mechanic.area_id class="select w-150"}>
+            <{/if}>
+        </td>        
+    </tr>
+    <tr><th>联系电话：</th><td><input type="text" name="data[mobile]" value="<{$mechanic.mobile}>" class="input w-300"/></td></tr>
+    <tr><th>联系QQ：</th><td><input type="text" name="data[qq]" value="<{$mechanic.qq}>" class="input w-300"/></td></tr>
+    <tr><th>个人简介：</th><td><textarea name="data[about]" kindeditor="full" style="width:700px;height:350px;"><{$mechanic.about}></textarea></td></tr>
+    <tr><th></th><td><input type="submit" value="保存" class="green_btn" /></td></tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="<{$pager.res}>/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+(function(K, $){
+var editor = KindEditor.create('textarea[kindeditor]',{uploadJson : '<{link ctl="magic:editorupload" http="base"}>', extraFileUploadParams:{OTOKEN:"<{$OTOKEN}>"}});
+$("select[name='data[city_id]']").live('change', function(){
+    var city_id = $(this).val();
+    if(!city_id){return false;}
+    var link = "<{link ctl='magic:area' arg0='#city_id#' http=true}>"
+    $.getJSON(link.replace("#city_id#", city_id), function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else if(ret.areas.length>0){
+            var html = "";
+            for(var i=0; i<ret.areas.length; i++){
+                html += '<option value="'+ret.areas[i].area_id+'">'+ret.areas[i].area_name+'</option>';
+            }
+            $("select[name='data[area_id]']").html(html);       
+        }else{
+            $("select[name='data[area_id]']").html('<option value="">--</option>');
+        }
+    });
+});
+
+})(window.KT, window.jQuery);
+</script>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,125 @@
+<{include file="block/header.html"}>
+<!--我要装修头部头部开始-->
+<div class="tenders_header mb20">
+	<div class="mainwd">
+		<h3><span class="lt"><font class="fontcl2"><{$CONFIG.site.title}></font>全心致力于打造<font class="fontcl2">中国第一装修平台</font>，做您的贴心管家！</span><span class="rt">目前已帮助<font class="fontcl1"><{$COUNT.tenders}></font>户业主</span></h3>
+	</div>
+</div>
+<!--我要装修头部头部开始-->
+<div class="mainwd">
+	<div class="mb20 tenders_zb">
+			<ul class="tenders_zb_list">
+				<li><a href="<{link ctl='tenders'}>">免费招标</a></li>
+				<li><a href="<{link ctl='tenders'}>#TJC">建材招标</a></li>
+				<li><a href="<{link ctl='tenders'}>#TSJ">免费设计</a></li>
+				<li><a href="<{link ctl='tenders'}>#TBJ">免费报价</a></li>
+				<li><a href="<{link ctl='tenders'}>#TLF">免费量房</a></li>
+				<li class="current">找装修公司</li>
+			</ul>
+			<div class="cl"></div>
+			<div class="tenders_zb_box">
+				<div class="tenders_zb_box_con">
+					<div class="tenders_company">
+						<h2 class="mb10"><span class="lt">选择装修公司 </span><label class="rt"><input type="checkbox" class="check" /><font class="pointcl">我对装饰公司不太了解, 由江湖家居根据我的装修情况推荐装饰公司！</font></label></h2>
+						<div class="cl"></div>
+					    <ul class="mb20">
+                            <{KT id="13" name="招标页面找装修公司" city_id=$request.city_id limit="14"}>
+                            <li <{if $index%6==0}> class="last"<{/if}>><a href="<{$item.link}>"><img src="<{$pager.img}>/<{$item.logo}>" /></a><p><label><input type="checkbox" company_ids class="check" /><{$item.name}></label></p></li>
+                            <{/KT}>
+					    </ul>
+					</div>
+					<div class="cl"></div>
+					<img src="%THEME%/static/images/tenders_pic6.jpg" class="lt" />
+					<div class="tenders_zb_form pding rt">
+						<h3>我要装修</h3>
+						<form>
+                            <input type="hidden" name="data[from]" value="TGS" />
+							<table>
+								<tr>
+									<td class="title"><font class="pointcl">*</font>您的姓名</td>
+									<td><input type="text" class="text long" placeholder="请输入您的姓名" /></td>
+									<td class="title"><font class="pointcl">*</font>联系电话</td>
+									<td><input type="text" class="text long" placeholder="请输入您的联系方式" /></td>
+								</tr>
+								<tr>
+									<td class="title">招标类型</td>
+									<td><select name="data[type_id]" class="text long"><{widget id="tenders/setting" type="way"}></select></td>
+									<td class="title">装修预算</td>
+                                    <td><select name="data[budget_id]" class="text long"><{widget id="tenders/setting" type="budget"}></select></td>
+								</tr>
+								<tr>
+									<td class="title">装修面积</td>
+									<td><input type="text" name="data[house_mj]" class="text long" placeholder="请输入装修面积，单位为平米" /></td>
+									<td class="title">小区名称</td>
+									<td><input type="text" name="data[home_name]" class="text long" placeholder="请输入小区名称"/></td>
+								</tr>
+								<tr>
+									<td class="title">所在地区</td>
+									<td colspan="3"><{widget id="data/region" city_id=$request.city_id class="text short"}></td>
+								</tr>
+								<tr>
+									<td class="title">详细地址</td>
+									<td colspan="3"><input type="text" name="data[addr]" class="text all" /></td>
+								</tr>
+								<tr>
+									<td class="title">备注要求</td>
+									<td colspan="3"><textarea name="data[comment]" class="text"></textarea></td>
+								</tr>
+								<tr>
+									<td class="title"></td>
+									<td colspan="3"><input type="file" name="hunxin"/><p class="pro">上传户型图，报价更精准！并可提前一天获得报价方案！</p></td>
+								</tr>
+								<tr>
+									<td class="title"></td>
+									<td colspan="3"><input class="btn_sub_tuan btn" type="submit" value="免费发布招标" /><span class="tel">或拨打<b class="fontcl2"><{$CONFIG.site.phone}></b></span></td>
+								</tr>								
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</div>
+	<div class="mb20 tenders_step">
+			<ul>
+				<li>
+					<h3><b>免费发布招标</b></h3>
+					<p>免费发布招标，获得江湖家居全程装修管家服务</p>
+				</li>
+				<li>
+					<h3><b>3套方案PK</b></h3>
+					<p>业主对比3套设计方案，选出最优方案</p>
+				</li>
+				<li>
+					<h3><b>3家公司免费量房</b></h3>
+					<p>3家公司上门免费量房并提供设计预算方案</p>
+				</li>
+				<li>
+					<h3><b>选择签订公司</b></h3>
+					<p>选择方案最优，价格合理的公司鉴定装修合同</p>
+				</li>
+				<li class="last">
+					<p class="tel"><b><{$CONFIG.site.phone}></b></p>
+					<h3><b>获得装修保障</b></h3>
+					<p>提交全同或拨打江湖家居热线电话获得装修保障</p>
+				</li>
+			</ul>
+	</div>
+	<div class="mb20">
+		<h2><b>最新装修招标订单</b></h2>
+		<div class="tenders_order">
+			<p class="tenders_order_tit tit"><span>发布日期</span><span>业主</span><span>类型</span><span class="long">标情况</span><span>预算</span><span>查看详情</span></p>
+			<div class="tenders_order_box">
+				<ul>
+                    <{calldata mdl="tenders/tenders" city_id=$request.city_id limit="15"}>
+					<li>
+                        <span><{$item.dateline|format:"m-d"}></span><span><{$item.contact}></span><span><{$item.from_title}></span>
+                        <span class="long"><{$item.title|cutstr:50}></span><span><{$item.budget_title}></span><a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>" ><span class="fontcl2">查看</span></a>
+					</li>
+                    <{/calldata}>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<{include file="block/footer.html"}>

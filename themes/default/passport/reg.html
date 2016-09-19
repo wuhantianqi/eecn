@@ -1,0 +1,45 @@
+<{assign var="seo_sub_title" value="会员注册"}>
+<{include file="block/small-header.html"}>
+<!--头部内容结束-->
+<div class="subwd">
+	<!--主体内容开始-->
+	<div class="login_box">
+		<h2><b class="lt">会员注册</b><span class="rt tit">已有账号？<a href="<{link ctl='passport'}>" class="fontcl2">点击登录</a></span></h2>
+		<p class="bar register_one"></p>
+		<ul class="register_list">
+			<{if $CONFIG.access.signup_type.member}><li class="first">
+				<p class="tit">业主会员<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='member'}>" class="btn btn_main_big">立即注册</a>
+			</li><{/if}>
+			<{if $CONFIG.access.signup_type.mechanic}><li>
+				<p class="tit">装修工人<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='mechanic'}>" class="btn btn_main_big">立即注册</a>
+			</li><{/if}>
+			<{if $CONFIG.access.signup_type.designer}><li>
+				<p class="tit">设计师<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='designer'}>" class="btn btn_main_big">立即注册</a>
+			</li><{/if}>
+			<{if $CONFIG.access.signup_type.gz}><li class="first">
+				<p class="tit">装修工长<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='gz'}>" class="btn btn_main_big shangjia_btn">立即注册</a>
+			</li><{/if}>
+			<{if $CONFIG.access.signup_type.company}><li>
+				<p class="tit">装修公司<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='company'}>" class="btn btn_main_big shangjia_btn">立即注册</a>
+			</li><{/if}>
+			<{if $CONFIG.access.signup_type.shop}><li>
+				<p class="tit">建材商家<font class="fontcl2">（注册）</font></p>
+				<p>晒晒自己的装修日记，向大家展示自己装修成果，与大家共同分享装修过程。</p>
+				<a href="<{link ctl='passport:signup' arg0='shop'}>" class="btn btn_main_big shangjia_btn">立即注册</a>
+			</li><{/if}>
+		</ul>
+	</div>
+	<!--主体内容结束-->
+</div>
+<!--底边内容开始-->
+<{include file="block/small-footer.html"}>

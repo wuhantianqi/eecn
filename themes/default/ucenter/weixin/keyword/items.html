@@ -1,0 +1,28 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_t">
+    <ul>
+        <li class="on"><a href="<{link ctl='ucenter/weixin/keyword:index'}>">回复关键字</a></li>        
+    </ul>
+    <span class="r"><a href="<{link ctl='ucenter/weixin/keyword:create'}>" class="pbtn">添加关键字</a></span>
+</div>
+<div class="ucenter_c">
+    <table width="100%" border="0" cellspacing="0" class="table">
+    <tr>
+        <th class="w-80">ID</th><th>关键字</th><th class="w-100">请求数</th><th class="w-150">操作</th>
+    </tr>
+    <{foreach $items as $item}>
+    <tr>
+        <td class="left"><label><{$item.reply_id}><label></td>
+        <td><{$item.keyword}></td><td><{$item.hits}></td>
+        <td>
+            <a href="<{link ctl='ucenter/weixin/keyword:edit' arg0=$item.kw_id}>"  class="pbtn">修改</a>
+            <a href="<{link ctl='ucenter/weixin/keyword:delete' arg0=$item.kw_id}>" mini-act="删除" mini-confirm="确定要删除关键字吗？" class="pbtn red">删除</a>
+        </td>
+    </tr>
+    <{foreachelse}>
+     <tr><td colspan="20"><p class="tips"><span class="notice">您还没有添加素材</span></p></td></tr>
+    <{/foreach}>
+    </table>
+	<div class="page"><{$pager.pagebar}></div>
+</div>
+<{include file="ucenter/block/footer.html"}>

@@ -1,0 +1,18 @@
+<{assign var="tpl_page_title" value="设计团队"}>
+<{include file="mobile/company/block/header.html"}>
+<ul class="app_menu">
+<{foreach $items as $item}>
+    <li>
+        <a href="<{link ctl='mobile/designer:detail' arg0=$item.uid}>">
+            <img src="<{$pager.img}>/<{$item.face}>" class="lt pic" />
+            <h2><{$item.name}></h2>
+            <p>案例：<font class="fontcl2"><{$item.case_num}></font>套</p>
+            <p class="nowrap">等级：<{$item.group_name}></p>
+            <div class="cl"></div>
+        </a>
+    </li>
+ <{/foreach}>
+</ul>
+<div class="page"><{$pager.pagebar}></div>
+
+<{include file="mobile/block/footer.html"}>

@@ -1,0 +1,92 @@
+<{assign var="tpl_page_title" value="装修保详情"}>
+<{include file="mobile/block/header.html"}>
+<div class="pding">
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0">
+			<tr><td> 业主姓名：<{$item.contact}></td></tr>
+			<tr><td> 公司名称：<{$company.title}></td></tr>
+			<tr><td> 业主电话：<{$item.mobile}></td></tr>
+			<tr><td> 公司电话：<{$company.mobile}></td></tr>
+			<tr><td> 合同总价：<{$total_price}>元 </td></tr>
+			<tr><td> 当前状态：<{$status[$item.status]}></td></tr>
+			<tr><td> 业主备注：<{$item.comment}></td></tr>
+			<tr><td> 公司备注：<{$tenders_look.content}></td></tr>
+			<{if $item.status < '7' && $item.status > '1'}>
+			<tr><td><a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=$item.status+1}>" class="btn subbtn_full"><{$status[$item.status+1]}></a></td></tr>
+			<{else}>
+			<tr>
+				<td>
+					<{if !$is_look && $item.status == 1}>
+					<a href="<{link ctl='mobile/ucenter/member:tenderDetail' arg0=$item.tenders_id}>" title="完善招标信息" class="btn subbtn_full">完善招标信息</a>
+					<{else if $is_look && $item.status == 1}>
+					<a href="<{link ctl='mobile/ucenter/member:tenderDetail' arg0=$item.tenders_id}>"  title="确认装修公司" class="btn subbtn_full">确认装修公司</a>
+					<{/if}>
+				</td>
+			</tr>
+			<{/if}>
+		</table>
+	</div>
+	<div class="yuyue_box">
+		<table cellpadding="0" cellspacing="0" class="zxb_lc">
+			<tr>
+				<td><span class="zxb_ico ico1"></span><a href="<{link ctl='mobile/zxb:index'}>" class="tit" >发布装修保</a></td>
+                <td><span class="zxb_ico ico2"></span>
+                    <{if $item.status+1<2}>
+                        确认公司
+                     <{else}>
+                        <a href="<{link ctl='mobile/ucenter/member:tenderDetail' arg0=$item.tenders_id}>" class="tit">确认公司</a>
+                     <{/if}>
+                </td>
+			</tr>
+            <tr>
+				<td><span class="zxb_ico ico3"></span>
+                    <{if $item.status+1<3}>
+                        合同签订
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=3}>" class="tit">合同签订</a>
+                     <{/if}>
+                </td>
+                <td><span class="zxb_ico ico4"></span>
+                     <{if $item.status+1<4}>
+                        水电验收
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=4}>" class="tit">水电验收</a>
+                     <{/if}>
+                </td>
+			</tr>
+            
+            <tr>
+				<td><span class="zxb_ico ico5"></span>
+                     <{if $item.status+1<5}>
+                        泥木验收
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=5}>" class="tit">泥木验收</a>
+                     <{/if}>
+                </td>
+                <td><span class="zxb_ico ico6"></span>
+                     <{if $item.status+1<6}>
+                        油漆验收
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=6}>" class="tit">油漆验收</a>
+                     <{/if}>
+                </td>
+			</tr>
+            <tr>
+				<td><span class="zxb_ico ico7"></span>
+                     <{if $item.status+1<7}>
+                        竣工后30天
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=7}>" class="tit">竣工后30天</a>
+                     <{/if}> 
+                </td>
+                <td><span class="zxb_ico ico8"></span>
+                     <{if $item.status+1<8}>
+                        交易结束
+                     <{else}>
+                         <a href="<{link ctl='mobile/ucenter/member:zxb_detail' arg0=$item.zxb_id arg1=8}>" class="tit">交易结束</a>
+                     <{/if}> 
+                </td>
+			</tr>
+        </table>
+    </div>
+<{include file="mobile/block/footer.html"}>

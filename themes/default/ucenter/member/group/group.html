@@ -1,0 +1,94 @@
+<{include file="ucenter/block/header.html"}>
+<div class="ucenter_c">
+<p class="tips"><span class="noitce">您是<b class="red">【<{$MEMBER.group_name}>】</b></span></p>
+<style>.ucenter_c table.info tr td{text-align:center;}.ucenter_c table.info tr th{width:auto;}</style>
+    <table cellspacing="0" cellpadding="0" width="100%" class="info">
+        <tr>
+            <th style="width:200px;"></th>
+            <{foreach $group_list as $v}>
+            <th style="text-align:center;"><{$v.group_name}></th>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>访问网站：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_access < 0}>禁止访问<{else}>允许访问<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>发布招标：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_tenders < 0}>禁止招标<{else}>允许招标<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>购买商品：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_order < 0}>禁止购买<{else}>允许购买<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>发布问题：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_ask < 0}>禁止发布<{elseif empty($v.priv.allow_ask)}>需要审核<{else}>直接发布<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>回答问题：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_answer < 0}>禁止回答<{elseif empty($v.priv.allow_answer)}>需要审核<{else}>直接发布<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>装修日记：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_diary < 0}>禁止发布<{elseif empty($v.priv.allow_diary)}>需要审核<{else}>直接发布<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>口碑评价：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_score < 0}>禁止评价<{elseif empty($v.priv.allow_score)}>需要审核<{else}>直接发布<{/if}>
+            <{/foreach}>
+            </td>
+        </tr>
+        <tr>
+            <th>内容评价：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_comment < 0}>禁止评论<{elseif empty($v.priv.allow_comment)}>需要审核<{else}>直接发布<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <{if $MEMBER.from != 'member'}>
+        <tr>
+            <th>微信公众号：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_weixin < 0}>禁止使用<{else}>允许使用<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>微信网站：</th>
+            <{foreach $group_list as $v}>
+            <td><{if $v.priv.allow_msite < 0}>禁止使用<{else}>允许使用<{/if}></td>
+            <{/foreach}>
+        </tr>
+        <tr>
+            <th>免费刷新数：</th>
+            <{foreach $group_list as $v}>
+            <td><{$v.priv.day_free_count}></td>
+            <{/foreach}>
+        </tr>
+        <{/if}>
+        <{if $MEMBER.from == 'designer'}>
+        <{include file="ucenter/member/group/priv/designer.html"}>
+        <{elseif $MEMBER.from == 'gz'}>
+        <{include file="ucenter/member/group/priv/gz.html"}>
+        <{elseif $MEMBER.from == 'company'}>
+        <{include file="ucenter/member/group/priv/company.html"}>
+        <{elseif $MEMBER.from == 'shop'}>
+        <{include file="ucenter/member/group/priv/shop.html"}>
+        <{elseif $MEMBER.from == 'mechanic'}>
+        <{include file="ucenter/member/group/priv/mechanic.html"}>
+        <{/if}>
+    </table>
+</div>
+<{include file="ucenter/block/footer.html"}>
