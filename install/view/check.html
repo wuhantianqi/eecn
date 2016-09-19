@@ -1,0 +1,56 @@
+<{include file="header.html"}>	
+	<table width="98%" border="0" align="center" cellpadding="6" cellspacing="0">
+      <tr>
+        <td bgcolor="#F7FBFC" style=" font-size:13px; padding-left:15px;  "> <strong>服务器信息</strong> </td>
+      </tr>
+      <tr>
+        <td style="line-height:200%;">
+		<table>
+		<tr>
+			<td width="50%">服务器操作系统：<span style="color:#0066CC"><{$sysinfo.server_os}></span></td>
+			<td>服务器解译引擎：<span style="color:#0066CC"><{$sysinfo.web_server}></span></td>
+		</tr>
+		<tr>
+			<td>PHP版本：<span style="color:#0066CC"><{$sysinfo.php_version}></span></td>
+			<td>上传附件最大值：<span style="color:#0066CC"><{$sysinfo.upload_max_filesize}></td>
+		</tr>
+		<tr>
+			<td>CURL：<{$sysinfo.curl}></td>
+			<td>GD：<{$sysinfo.gd_version}></td>
+		</tr>
+		</table>
+</td>
+      </tr>
+    </table>
+      <table width="98%" border="0" align="center" cellpadding="6" cellspacing="0">
+        <tr>
+          <td bgcolor="#F7FBFC" style=" font-size:13px; padding-left:15px;  "><strong>目录权限检测</strong> </td>
+        </tr>
+        <tr>
+          <td style="line-height:200%;"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tr>
+              <td width="33%" align="center"><strong>目录名</strong></td>
+              <td width="33%" align="center"><strong>读取权限</strong></td>
+              <td align="center"><strong>写入权限</strong></td>
+            </tr>
+			<{foreach $check_dirs as $dir}>
+			<tr>
+				<td><{$dir.dir}></td>
+				<td align="center"><{$dir.read}></td>
+				<td align="center"><{$dir.write}></td>
+			</tr>
+			<{/foreach}>
+          </table>
+		  </td>
+        </tr>
+        <tr>
+          <td height="55" align="center"  >
+		  <form action="index.php" method="get">
+			<input name="step" type="hidden" value="config" />
+			<input name="" type="button"  class="step_submit" onclick="window.location.href='index.php';" value="上一步" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="submit" name="" value="下一步"  class="step_submit" />
+		  </form>
+		  </td>
+        </tr>
+      </table>
+<{include file="footer.html"}>

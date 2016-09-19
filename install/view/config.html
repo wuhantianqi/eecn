@@ -1,0 +1,99 @@
+<{include file="header.html"}>
+	<iframe name="miniframe" style="display:none;"></iframe>
+	<form action="index.php?step=install" onsubmit="check_install();" method="post">
+	<table width="98%" border="0" align="center" cellpadding="6" cellspacing="0">
+      <tr>
+        <td bgcolor="#F7FBFC" style=" font-size:13px; padding-left:15px;  "> <strong>授权信息</strong> </td>
+      </tr>
+      <tr>
+        <td style="line-height:200%;">
+			<table width="100%" border="0" cellspacing="3" cellpadding="0">
+			  <tr>
+				<td width="17%" align="right">授权域名：</td>
+				<td width="83%"><input name="auth[domain]" type="text" value=""  onclick="this.value=document.domain.replace('www.','');" class="input" />&nbsp;&nbsp;(不含有www)</td>
+			  </tr>
+			  <tr>
+				<td width="17%" align="right">授权码：</td>
+				<td width="83%"><input name="auth[key]" type="text" value=""  class="input" />&nbsp;&nbsp;(购买时得到的32位的字符串)</td>
+			  </tr>
+			</table>
+		</td>
+      </tr>
+    </table>
+	<table width="98%" border="0" align="center" cellpadding="6" cellspacing="0">
+      <tr>
+        <td bgcolor="#F7FBFC" style=" font-size:13px; padding-left:15px;  "> <strong>数据库配置</strong> </td>
+      </tr>
+      <tr>
+        <td style="line-height:200%;">
+			<table width="100%" border="0" cellspacing="3" cellpadding="0">
+			  <tr>
+				<td width="17%" align="right">数据库主机：</td>
+				<td width="83%"><input name="db[host]" type="text" value="localhost"  class="input" /></td>
+			  </tr>
+			  <tr>
+				<td width="17%" align="right">数据库端口号：</td>
+				<td width="83%"><input name="db[port]" type="text" value="3306"  class="input" /></td>
+			  </tr>
+			  <tr>
+				<td align="right">数据库用户名：</td>
+				<td><input name="db[uname]" type="text" value="root" class="input" /></td>
+			  </tr>
+			  <tr>
+				<td align="right">数据库密码：</td>
+				<td><input name="db[passwd]" type="text" class="input" /></td>
+			  </tr>
+						<tr>
+				<td align="right">数据库名称：</td>
+				<td><input name="db[name]" type="text" class="input" value="jiaju"/></td>
+			  </tr>
+			  <tr>
+				<td align="right">数据表前缀：</td>
+				<td><input name="db[tablepre]" type="text" value="jh_"  class="input" /></td>
+			  </tr>
+			</table>
+		</td>
+      </tr>
+    </table>
+      <table width="98%" border="0" align="center" cellpadding="6" cellspacing="0">
+        <tr>
+          <td bgcolor="#F7FBFC" style=" font-size:13px; padding-left:15px;  "><strong>管理员账号</strong> </td>
+        </tr>
+        <tr>
+          <td style="line-height:200%;"><table width="100%" border="0" cellspacing="3" cellpadding="0">
+            <tr>
+              <td width="17%" align="right">管理员姓名：</td>
+              <td width="83%"><input name="admin[uname]" type="text"  value="admin" class="input" /></td>
+            </tr>
+            <tr>
+              <td align="right">登录密码：</td>
+              <td><input name="admin[passwd]" type="text" value="admin" class="input" /></td>
+            </tr>
+            <tr>
+              <td align="right">电子邮箱：</td>
+              <td><input name="admin[mail]" type="text" value="admin@qq.com" class="input" /></td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">演示数据：</td>
+                <td>
+                    <label><input name="initdemo" type="checkbox" value="1" />安装演示数据</label><br >
+                    安装演示数据后请把演示图片上传到网站attachs目录下,详见演示数据操作文档
+                </td>
+            </tr> 
+          </table></td>
+        </tr>
+        <tr>
+		<td height="55" align="center"  >
+			<input name="" type="button"  class="step_submit" onclick="window.location.href='index.php?step=check';" value="上一步" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+			<input type="submit" name="" value="下一步"  class="step_submit"/>		 
+		  </td>
+        </tr>
+      </table>
+	   </form>
+<script type="text/javascript">
+function check_install(){
+	Widget.MsgBox.load('正在安装系统...', 60000);
+	return true;
+}
+</script>
+<{include file="footer.html"}>

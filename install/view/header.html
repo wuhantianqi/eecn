@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<title>安装向导 - 江湖家居门户系统 - Powered by IJH.CC</title>
+	<link rel="stylesheet" href="../static/style/common.css" type="text/css" />
+	<link rel="stylesheet" href="../static/style/kt.widget.css" type="text/css" />
+	<link rel="stylesheet" href="../static/ui/j.ui.css" type="text/css" />
+	<script type="text/javascript"  src="../static/script/kt.j.js"></script>
+	<script type="text/javascript"  src="../static/script/kt.js"></script>
+	<script type="text/javascript"  src="../static/script/widget.msgbox.js"></script>
+</head>
+<style type="text/css">
+body {margin-left: 0px;	margin-top: 0px; margin-right: 0px;	margin-bottom: 0px; font-size:14px;color:#666666;font-family: "微软雅黑"}
+a:link {text-decoration: none;color: #0066CC;}
+a:visited {text-decoration: none;color: #0066CC;}
+a:hover {text-decoration: underline;color: #009900;}
+a:active {text-decoration: none;}
+.left_table_right_dot{border-bottom:1px #DEF0F5 solid;border-top:1px #DEF0F5 solid;border-left:1px #DEF0F5 solid; background-image:url(../images/dot.gif); background-repeat:repeat-y; background-position:right; padding-top:15px; padding-bottom:100px; background-color: #F7FBFC; font-size:14px; color:#666666}
+.link_1{ background-image:url(../images/link_bg.gif); background-repeat:no-repeat; background-position:right; color:#FF6600; font-weight:bold}
+.link_2{ font-size:14px; color: #009900 }
+.step_submit { padding:3px; font-size:12px;}
+.input { width:180px; height:18px;padding:3px;margin:5px;  }	
+</style>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:1px solid #DEF0F5;">
+  <tr>
+    <td height="60" >
+		<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td><h2 style="font-size:18px;font-weight:bold;">《<b style="color:#FF6600;">江湖家居门户系统</b>》安装向导</h2></td>
+			<td><h2 style="font-size:18px;font-weight:bold;"><a href="http://www.ijh.cc" target="_blank">官方网站</a></h2></td>
+			<td><h2 style="font-size:18px;font-weight:bold;"><a href="http://bbs.ijh.cc" target="_blank">交流论坛</a></h2></td>
+		  </tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:8px;">
+  <tr>
+    <td width="186" valign="top"><table width="180" border="0" cellspacing="0" cellpadding="0"  class="left_table_right_dot">
+      <tr>
+        <td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr><td height="40" align="center" <{if $request.step == 'protocol'}>class="link_1"<{/if}>>许可协议</td></tr>
+			<tr><td height="40" align="center" <{if $request.step == 'check'}>class="link_1"<{/if}>>环境检测</td></tr>
+			<tr><td height="40" align="center" <{if $request.step == 'config'}>class="link_1"<{/if}>>参数配置</td></tr>
+			<tr><td height="40" align="center" <{if $request.step == 'install'}>class="link_1"<{/if}>>开始安装</td></tr>
+			<tr><td height="40" align="center" <{if $request.step == 'success'}>class="link_1"<{/if}>>安装完成</td></tr>
+			</table>
+		</td>
+      </tr>
+    </table></td>
+    <td valign="top">
+<div style="line-height:200%; min-height:300px;display:block;padding:10px;border:1px solid #eee;">
