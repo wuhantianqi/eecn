@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: 
+Disallow: /http://www.eecn.cc/help-zxb.html
+Disallow: /http://www.eecn.cc/static/images/icon/notice-small.gif
+Disallow: /http://www.eecn.cc/static/images/icon/note-small.gif
+Disallow: /http://www.eecn.cc/static/images/layer_bg.gif
+Disallow: /http://www.eecn.cc/static/images/icon/rz_member.jpg
+Disallow: /http://www.eecn.cc/themes/fangTo8to/static/images/foot_zhaobiao_close.gif
+Disallow: /http://www.eecn.cc/static/script/images/controls.png
+Disallow: /http://www.eecn.cc/news-detail-6.html
+Disallow: /http://www.eecn.cc/news-detail-7.html
+Disallow: /http://www.eecn.cc/target=
+Sitemap: http://eecn.cc/sitemap.xml
