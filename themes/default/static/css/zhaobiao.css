@@ -37,7 +37,7 @@ li{
 	vertical-align: middle;
 }
 .zh-show .order{
-	width: 280px;
+	width: 240px;
 	height: 360px;
 	padding: 10px 30px;
 	position: absolute;
@@ -52,13 +52,12 @@ li{
 	margin-bottom: 10px;
 	margin-top: 8px;
 	font-size: 25px;
+	color: #01b061;
 }
-.zh-show .order h5{
-	padding-top: 0;
+.zh-show .order p{
+	margin-bottom: 15px;
 }
-.zh-show .order select.text{
-	margin-top: 5px;
-}
+
 .zh-show .order .btn{
 	margin-top: 0;
 }
@@ -68,7 +67,9 @@ li{
 	color: #ff4401;
 }
 .zh-show .order input{
-	height: 40px;
+	width: 220px;
+	padding: 0 10px;
+	height: 35px;
 	line-height: 40px;
 	font-size: 14px;
 	margin-bottom: 8px;
@@ -77,8 +78,8 @@ li{
 	overflow: hidden;
 }
 .zh-show .order form .text-group input:nth-child(1){
-	width: 80px;
-	float: left;
+	/*width: 80px;
+	float: left;*/
 }
 .zh-show .order form .text-group input:nth-child(2){
 	width: 107px;
@@ -88,10 +89,13 @@ li{
 .zh-show .order form>input:last-child{
 	width: 240px;
 	font-size: 18px;
+	height: 40px;
+	margin-top: 20px;
 	font-family: "微软雅黑";
 	background-color: #ff4401;
 	border: none;
 	color: #fff;
+	cursor: pointer;
 }
 .zh-content{
 	width:1200px;
@@ -136,7 +140,7 @@ li{
 	height: 84px;
 	width: 112px;
 	margin: 0 auto;
-	position: relative;
+	position: relative;      
 	left: 13px;
 }
 .zh-procedure ul li h3{
@@ -148,21 +152,21 @@ li{
 	font-size: 14px;
 }
 .zh-procedure ul>li:nth-child(1) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat 33px;
+	background: url(../images/zhaobiao-tb.png) no-repeat 10px;
 	}
 .zh-procedure ul>li:nth-child(2) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -80px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -117px;
 	position: relative;
 	left: 25px;
 }
 .zh-procedure ul>li:nth-child(3) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -190px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -220px;
 }
 .zh-procedure ul>li:nth-child(4) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -295px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -330px;
 }
 .zh-procedure ul>li:nth-child(5) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -405px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -470px;
 	position: relative;
 	left: 40px;
 }

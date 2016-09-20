@@ -2,12 +2,24 @@
 		<link rel="stylesheet" href="/themes/default/static/css/zhaobiao.css" />
 		<div class="zh-show">
 			<div class="wrap">
-				<img src="%THEME%/static/images/banner1.jpg" />
-				<img src="%THEME%/static/images/banner2.jpg" />
-				<img src="%THEME%/static/images/banner3.jpg" />
-				<div class="order">	
-				<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
-					
+				<img src="/themes/default/static/images/banner1.jpg">
+				<img src="/themes/default/static/images/banner2.jpg">
+				<img src="/themes/default/static/images/banner3.jpg">
+				<div class="order">
+					<h2>
+						申请靠谱装修                   
+					</h2>
+					<p>您的信息将严格保密</p>
+					<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+						<input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+						<input type="text" value="" name="data[contact]" placeholder="请输入您的姓名"/>
+						<input type="text" value="" name="data[mobile]" placeholder="请输入您的手机号码"/>
+						
+						<input type="text" id="" value="" name="area-name" placeholder="小区名称"/>
+						
+						<input type="submit" value="立即免费预约"/>
+					</form>
+					<p>已有<span>11996</span>人找到靠谱装修公司</p>
 				</div>
 			</div>
 		</div>
