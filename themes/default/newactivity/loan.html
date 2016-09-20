@@ -9,9 +9,10 @@
 	                    	
 	                            <h1>我要申请</h1>
 	                            <p class="banner_p">10秒登记,快速获取装修贷款</p>
-	                            <form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
+	                            <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+                                
 	                                <div class="ten_top">
-	                                    <input type="hidden" name="data[from]" value="TZX" />
+	                                    <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 	                                    <input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
 	                                    <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
 	                               
@@ -23,7 +24,7 @@
 	                                  </label> -->
 	                            </div>
 	                                <div class="menu_list_ep">
-	                                    <input type="button" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
+	                                    <input type="submit" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
 	                                </div>
 	                            </form>
 	                    </div>

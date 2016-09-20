@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{include file="block/sheader.html"}>
+</head>
+<body>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<!--头部内容开始-->
+<{include file="block/top-header.html"}>
+
+<div class="main_header">
+	<div class="mainwd top_bottom">
+		<div class="logo lt">
+			<h1>
+				<a href="<{link ctl='index'}>" aler="<{if $seo_sub_title}><{$seo_sub_title}>_<{/if}><{if $seo_title}><{$seo_title}><{elseif $SEO.title}><{$SEO.title}><{else}><{$CONFIG.site.title}><{/if}>"><img src="<{if $CONFIG.site.logo}><{$pager.img}>/<{$CONFIG.site.logo}><{else}>/themes/default/static/images/logo.png<{/if}>" class="logo lt" /><{if $seo_sub_title}><{$seo_sub_title}>_<{/if}><{if $seo_title}><{$seo_title}><{elseif $SEO.title}><{$SEO.title}><{else}><{$CONFIG.site.title}><{/if}></a>
+			</h1>
+			<p class="lt"><font class="fontcl1"><{$request.city.city_name}></font>
+				<{if $CONFIG.site.multi_city}><a href="<{link ctl='city'}>">[切换城市]</a><{/if}>
+			</p>
+		</div>
+		<div class="search_box lt"><{widget id="public/sobox" sokw=$pager.sokw}></div>
+		<div class="site_commitment rt">
+			<ul>
+				<li><a href="<{link ctl='zxb'}>"><img src="%THEME%/static/images/top_bao.jpg"></span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="header_bottom">
+		<div class="mainwd hoverno">
+			<ul>
+				<li><a href="<{link ctl='index'}>" <{if $request.ctl=='index'}>class="current"<{/if}>>首页</a>
+				</li>
+				
+				
+				
+				
+				<li class="has_son">
+					<a <{if $request.ctl=='article' || $request.ctl=='diary' || $request.ctl=='ask' }>class="current"<{/if}> href="<{link ctl='case'}>">学装修<em class="index_ico menu_ico"></em></a>
+					<ul class="main_nav_son none">
+						<li><a <{if $request.ctl=='case'}>class="current"<{/if}> href="<{link ctl='case'}>">&nbsp;&nbsp;案例效果图</a></li>
+						<li><a href="<{link ctl='article'}>">&nbsp;&nbsp;装修课堂</a></li>
+						<li><a href="<{link ctl='diary'}>">&nbsp;&nbsp;装修日记</a></li>
+						<li><a href="<{link ctl='ask'}>">&nbsp;&nbsp;装修问答</a></li>
+					</ul>
+				</li>
+				<li class="has_son">
+					<a <{if $request.ctl=='home' || $request.ctl=='site'}>class="current"<{/if}> href="<{link ctl='home:map'}>">我搜我家<em class="index_ico menu_ico"></em></a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='home:map'}>">楼盘地图</a></li>
+						<li><a href="<{link ctl='site'}>">在建工地 </a></li>
+						<li><a href="<{link ctl='home'}>">小区楼盘</a></li>
+						<li><a href="<{link ctl='home:tuan'}>">团装小区</a></li>
+					</ul>
+				</li>
+				<li><a <{if $request.ctl=='tenders'}>class="current"<{/if}> href="<{link ctl='tenders'}>">设计与报价</a>
+				</li>
+				<li class="has_son">
+					<a <{if $request.ctl=='gs' || $request.ctl=='designer' || $request.ctl=='gz'   || $request.ctl=='mechanic' || $request.ctl=='youhui'  }>class="current"<{/if}> href="<{link ctl='gs'}>">装修公司<i class=""></i><em class="index_ico menu_ico"></em></a>
+					<ul class="main_nav_son none">
+						<li><a href="<{link ctl='gs'}>">装修公司</a></li>
+						<li><a href="<{link ctl='designer'}>">找设计师</a></li>
+						<li><a href="<{link ctl='gz'}>">找工长</a></li>
+						<li><a href="<{link ctl='mechanic'}>">找工人</a></li>
+						<li><a href="<{link ctl='youhui'}>">优惠信息</a>
+						</li>
+					</ul>
+				</li>
+				<!-- <li class="has_son"><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="current"<{/if}> href="<{link ctl='activity'}>">优惠活动<em class="index_ico menu_ico"></em></a>
+				<ul class="main_nav_son none">
+						<li><a href="<{link ctl='mall/coupon-items'}>">优惠券</a></li>
+					</ul>
+				</li> -->
+                <!-- <li><a <{if $request.ctl=='news'}>class="current"<{/if}> href="<{link ctl='news'}>">本地新闻</a>
+                				</li> -->
+				<li class="has_son">
+					<a <{if $request.ctl=='mall' || $request.ctl=='mall/store'}>class="current"<{/if}>  href="<{link ctl='activity'}>">优惠活动<em class="index_ico menu_ico"></em></a>
+					<ul class="main_nav_son none">
+						<!-- <li><a href="<{link ctl='mall'}>">商城主页</a></li> -->
+						<!-- <li><a  href="<{link ctl='mall/store'}>">商家列表</a></li> -->
+						<!-- <li><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="current"<{/if}> href="<{link ctl='activity'}>">优惠活动</a></li> -->
+					</ul>
+				</li>
+			</ul>
+			<div class="cl"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".search_box .search_cont").mouseover(function(){
+        var o = $("#top_select").offset();
+        $(this).find(".search_cont_list").css({left:o.left-2,top:o.top+36}).show();
+    }).mouseleave(function(){
+        $(this).find(".search_cont_list").hide();
+    });
+    $(".search_cont_list a").click(function(){
+        $(".search_box .search_cont #top_select").html($(this).text()+'<span class="search_ico index_ico"></span>');
+        $(".search_box form").attr('action',$(this).attr('rel'));
+        $(".search_box .search_cont_list").hide();
+    });
+	//绿色头部搜索框
+	$(".search_cont").mouseover(function(){
+		$(this).find(".search_cont_list").show();
+	}).mouseleave(function(){
+		$(this).find(".search_cont_list").hide();
+	});
+	//绿色导航
+	$(".header_bottom ul li").mouseover(function(){
+		$(this).addClass('current');
+		$(this).find(".main_nav_son").show();
+		$(this).find("em.menu_ico").addClass('menu_ico_over');
+	}).mouseleave(function(){
+		$(this).removeClass('current');
+		$(this).find(".main_nav_son").hide();
+		$(this).find("em.menu_ico").removeClass('menu_ico_over');
+	});
+});
+</script>

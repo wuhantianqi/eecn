@@ -12,7 +12,7 @@
 .btn{border-radius:0px; border:none; }
 .choose_option a.current, .choose_option a:hover{ background:#ff4401;}
 .tenders_zb_form{ border:2px solid #fffff; margin-top: 70px;}
-.zbform{ border:0px solid #ff4401; background:#7ac49f;}
+.zbform{ border:0px solid #ff4401; background:#666;}
 
 .main_nav_content .zbform{ background:rgba(65, 61, 61, 0.2); width: 221px;height: 480px; border: 0;}
 .main_nav_content .bx-viewport{height: 350px !important;}
