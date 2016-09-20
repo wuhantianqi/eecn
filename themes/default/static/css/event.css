@@ -184,7 +184,7 @@
 
 .team-purchasing1 ul li img{
 	width: 100%;
-	height: 219px;
+	height: 265px;
 	vertical-align: bottom;
 }
 .team-purchasing1 ul>li:nth-child(-n+3){
@@ -232,6 +232,7 @@
 }
 .sales-list ul li img{
 	width: 378px;
+	height: 252px;
 }
 .sales-list ul li>p{
 	font-size: 16px;
