@@ -96,7 +96,7 @@ li{
 	padding: 10px 0;
 	margin-top: 20px;
 	margin-bottom: 60px;
-	background-color: #f1f1f1;
+	background-color: #fff4e7;
 }
 .zh-procedure ul{
 	overflow: hidden;
@@ -142,21 +142,21 @@ li{
 	font-size: 14px;
 }
 .zh-procedure ul>li:nth-child(1) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat 33px;
+	background: url(../images/zhaobiao-tb.png) no-repeat 11px;
 	}
 .zh-procedure ul>li:nth-child(2) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -79px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -117px;
 	position: relative;
 	left: 25px;
 }
 .zh-procedure ul>li:nth-child(3) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -190px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -219px;
 }
 .zh-procedure ul>li:nth-child(4) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -290px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -334px;
 }
 .zh-procedure ul>li:nth-child(5) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -390px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -441px;
 }
 .zh-tip,.zh-detial,.zh-company,.zh-trick,.zh-customer,.zh-sales,.zh-tools,.zh-friend{
 	width: 1180px;
@@ -229,13 +229,13 @@ li{
 }
 .zh-detial ul li .text p:first-child{
 	font-size: 18px;
-	color: #888;
-	line-height: 30px;
+	color: #333;
+	line-height: 15px;
 	padding: 0 15px;
 }
 .zh-detial ul li .text p:last-child{
 	font-size: 14px;
-	color: #888;
+	color: #333;
 	line-height: 25px;
 	padding: 0 15px;
 	text-indent: 2em;
@@ -274,7 +274,7 @@ li{
 	height: 130px;
 	padding: 20px;
 	margin-right: 14px;
-	background-color: #e5f4fb;
+	background-color: #f8f8f8;
 }
 .zh-trick-list ul li:nth-child(3n){
 	margin-right: 0;
@@ -283,7 +283,7 @@ li{
 	margin-bottom: 14px;
 }
 .zh-trick-list ul li h2{
-	color: red;
+	color: #ff4401;
 	font-size: 20px;
 	text-align: center;
 	font-weight: 500;
@@ -291,7 +291,7 @@ li{
 .zh-trick-list ul li p{
 	font-size: 14px;
 	margin-top: 10px;
-	color: #888;
+	color: #333;
 }
 .zh-customer{
 	margin: 50px 0;
@@ -306,7 +306,7 @@ li{
 	font-size: 18px;
 	line-height: 60px;
 	overflow: hidden;
-	background-color: #888;
+	background-color: #ff4401;
 }
 .zh-customer-list .t-head span{
 	width: 196px;
@@ -365,6 +365,7 @@ li{
 }
 .zh-sales-list ul li img{
 	width: 378px;
+	height: 252px
 }
 .zh-sales-list ul li>p{
 	font-size: 16px;

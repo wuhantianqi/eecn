@@ -756,7 +756,7 @@ select.text:last-child{
 }
 .experience ul li img{
 	width:100%;
-	height:220px;
+	height:200px;
 	overflow:hidden;
 }
 .experience ul li:first-child{
@@ -770,8 +770,8 @@ select.text:last-child{
 	padding:15px 0;
 }
 .experience ul li div p{
-	font-size: 12px;
-    line-height: 20px;
+	font-size: 14px;
+    line-height: 24px;
 }
 .experience ul li div p a:hover{
 	color:#ff4401;
