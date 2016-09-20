@@ -24,7 +24,7 @@ li{
 
 .zh-show{
 	width: 100%;
-	background: url(../images/show-bg.jpg) no-repeat center;
+	/*background: url(../images/show-bg.jpg) no-repeat center;*/
 }
 .zh-show .wrap{
 	width: 1180px;
@@ -37,7 +37,7 @@ li{
 	vertical-align: middle;
 }
 .zh-show .order{
-	width: 240px;
+	width: 280px;
 	height: 360px;
 	padding: 10px 30px;
 	position: absolute;
@@ -49,20 +49,26 @@ li{
 	box-shadow: 0 1px 5px 2px #888;
 }
 .zh-show .order h2{
-	margin-bottom: 15px;
+	margin-bottom: 10px;
+	margin-top: 8px;
 	font-size: 25px;
-	color: #01b061;
+}
+.zh-show .order h5{
+	padding-top: 0;
+}
+.zh-show .order select.text{
+	margin-top: 5px;
+}
+.zh-show .order .btn{
+	margin-top: 0;
 }
 .zh-show .order p:nth-child(2){
-	margin-bottom: 15px;
 }
 .zh-show .order p:last-child span{
 	color: #ff4401;
 }
 .zh-show .order input{
-	width: 220px;
 	height: 40px;
-	padding: 0 10px;
 	line-height: 40px;
 	font-size: 14px;
 	margin-bottom: 8px;
@@ -142,21 +148,23 @@ li{
 	font-size: 14px;
 }
 .zh-procedure ul>li:nth-child(1) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat 11px;
+	background: url(../images/zhaobiao-tb.png) no-repeat 33px;
 	}
 .zh-procedure ul>li:nth-child(2) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -117px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -80px;
 	position: relative;
 	left: 25px;
 }
 .zh-procedure ul>li:nth-child(3) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -219px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -190px;
 }
 .zh-procedure ul>li:nth-child(4) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -334px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -295px;
 }
 .zh-procedure ul>li:nth-child(5) span{
-	background: url(../images/zhaobiao-tb.png) no-repeat -441px;
+	background: url(../images/zhaobiao-tb.png) no-repeat -405px;
+	position: relative;
+	left: 40px;
 }
 .zh-tip,.zh-detial,.zh-company,.zh-trick,.zh-customer,.zh-sales,.zh-tools,.zh-friend{
 	width: 1180px;

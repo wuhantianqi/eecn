@@ -92,7 +92,7 @@
     <h2 style="text-align: center;font-size: 30px;line-height: 50px;">装修攻略</h2>
     <p style="text-align: center;font-size: 14px;line-height: 30px;">学习更多装修实用经验，避免装修猫腻</p>
     <div class="area mb20" style="margin-top: 30px;">
-        <div class="lt xue_lunz"><{adv id="7" name="学装修首页热点推荐轮转" city_id=$request.city_id}></div>
+        <!--<div class="lt xue_lunz"><{adv id="7" name="学装修首页热点推荐轮转" city_id=$request.city_id}></div>-->
         <div class="lt content_top">
             <ul class="content_top_t">
                <{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="2"}>
@@ -116,16 +116,7 @@
     </div>
     <h1 class="article_in_title"><span class="lt">装修流程</span><a href="<{link ctl='article:items' arg0=8 arg1=1}>" target="_blank" class="rt">更多</a></h1>
     <div class="area  mb20">
-        <ul class="lt content_liucheng article_list">
-            <{calldata mdl='article/cate' hidden='0' parent_id=8 from='article'}>
-            <{if $index<3}>
-            <li>
-                <h2><{$item.title}></h2>
-                <{calldata mdl='article/cate' hidden='0' parent_id=$item.cat_id}><{if $index<8}><a href="<{link ctl='article:items' arg0=$item.cat_id arg1=1}>"><{$item.title|cutstr:5:""}></a><{/if}><{/calldata}>
-            </li>
-            <{/if}>
-            <{/calldata}>
-        </ul>
+       
         <div class="content_liuc_list content_l_li">
             <div class="opacity_img lt study_list_img">
                 <{KT id="23" name="学装修装修流程-收房准备图" city_id=$request.city_id}>

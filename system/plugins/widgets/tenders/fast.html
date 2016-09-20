@@ -1,5 +1,6 @@
+
 <div class="mb10 zbform">
-    <h1><{$data.title|default:"免费装修招标"}></h1>
+    <h2><{$data.title|default:"免费装修招标"}></h2>
 	<p>今日已有<font class="fontcl1">15</font>业主申请</p>
     <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
         <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
@@ -12,7 +13,7 @@
 		<div class="cl"></div>
         <p class="ico_btn">
             <input type="submit" value="免费申请" class="btn btn_sub_apply" / style="height:40px;">
-            <span class="ico_list"></span>
+            <!--<span class="ico_list"></span>-->
         </p>
     </form>
 	<h5>我们承诺：本站提供该项免费服务，不产生任何费用，您的隐私将被严格保密。</h5>
