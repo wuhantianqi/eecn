@@ -39,5 +39,41 @@
         <p>©武汉市东启创拓信息技术有限公司 版权所有</p>
         <p>ICP备案：鄂ICP备16014083号-1</p>
     </div>
+<script>
+$("[verify]").click(function(){
+    $($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+});
+</script>
+<script type="text/javascript">
+function closediv() {
+            document.getElementById('foot_zhaobiao_bar').style.display = 'none';
+        }
+$(window).scroll(function(){ 
+var topBar=$(window).scrollTop(); 
+var bodyHeigth =  (document.body.scrollHeight)*0.268;
+    if(topBar> bodyHeigth){ 
+$("#foot_zhaobiao_bar").fadeIn();                  
+}else{ 
+ $("#foot_zhaobiao_bar").fadeOut(); 
+} 
+}); 
+</script>
+<!--底部内容结束-->
+<{widget id="public/kefu"}>
+<!-- 百度竞价 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 </body>
 </html>

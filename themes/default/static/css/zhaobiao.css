@@ -24,7 +24,7 @@ li{
 
 .zh-show{
 	width: 100%;
-	/*background: url(../images/show-bg.jpg) no-repeat center;*/
+	background: url(../images/show-bg.jpg) no-repeat center;
 }
 .zh-show .wrap{
 	width: 1180px;
