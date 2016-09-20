@@ -1,44 +1,52 @@
  .about-lt{
-        width:200px;
+        width:170px;
         height:500px;
     }
 
     .about-lt  li{
-        width:178px;
-        height:60px;
+        width:158px;
+        height:55px;
         border-radius:10px;
-        margin-bottom:28px;
-        margin-right:20px;
+        margin-bottom:10px;
+
+
     }
 
     .about-lt li:first-child{
-        background:#AEE881;
+        background:#66C02A;
     }
     .about-lt li:nth-child(2){
-        background:#81E9F4;
+        background:#3EC6D2;
     }
     .about-lt li:nth-child(3){
-        background:#FB9394;
+        background:#ED4F4E;
     }
     .about-lt li:nth-child(4){
-        background:#91D7F9;
+        background:#00A6F4;
     }
     .about-lt li:nth-child(5){
-        background:#EBADF8;
+        background:#C56BDD;
     }
     .about-lt li:nth-child(6){
-        background:#EEC994;
+        background:#F69101;
     }
 
-    .about-lt h3{
-        width:110px;
+    .about-lt a{
+        color:white;
+        display:inline-block;
+        width:90px;
         height:40px;
         line-height:40px;
         margin-top:10px;
-        float:right;
-        font-size:18px;
+        float:left;
+        font-size:16px;
         text-align:center;
         font-family:"微软雅黑";
+    }
+
+    .about-lt a:hover{
+        color:#333333;
+        text-decoration:none;
     }
 
     .about-lt p{
@@ -48,7 +56,7 @@
         margin-top:5px;
     }
     .about-lt p i{background:url(../images/tool_img.jpg) no-repeat;display:inline;width:50px;
-        height:50px;float:left;margin-left:20px;border-radius:10px;}
+        height:50px;float:left;margin-left:5px;border-radius:15px;}
 
     .about-lt  .about-1 i{
         background-position:0 0;
@@ -71,6 +79,8 @@
 
     /*右侧样式*/
    .about-rt{
+       /*float:left;*/
+       margin-left:20px;
        width:798px;
        height:500px;
        margin-bottom:20px;
@@ -116,13 +126,17 @@
         display:inline-block;
         width:232px;
         height:170px;
-        background:#EEC994;
         margin-top:20px;
         margin-right:1px;
         padding:0 7px;
         position:relative;
         left:0;
         bottom:10px;
+    }
+
+    .last li img{
+        width:235px;
+        height:170px;
     }
 
     .counter_btn{
