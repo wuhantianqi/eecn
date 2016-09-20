@@ -518,7 +518,7 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .zbform select.half{ width:49%;}
 .zbform .btn{ margin-top:10px; }
 .zbform p.ico_btn{position:relative;}
-.zbform span.ico_list{ width:21px; height: 20px; background-position:-30px 0px; position:absolute; left:25%; top:16%;}
+.zbform span.ico_list{ width:21px; height: 20px; background-position:-30px 0px; position:absolute; left:25%; top:8px;}
 /*右边招标样式结束*/
 
 /*右边装修公司排行样式开始*/
@@ -1049,12 +1049,13 @@ ul.news li span.rt{ color:#999;}
 
 /*---------------------------------------------------学装修样式开始---------------------------------------------------*/
 .xue_lunz{ width:280px; height:340px; /*overflow:hidden;*/}
-.content_top{ margin-left:20px; width:630px;}
+.content_top{ margin-left:20px; width:876px;}
 .content_top a:hover{color: #ff4401;}
 .content_top a:hover b{color: #000;}
 .xue_ad{ width:250px; height:340px; /*overflow:hidden;*/ box-shadow: 2px 2px 2px 1px #888;}
-.content_top_list{ height:160px; overflow:hidden;}
-.content_top_list ul li{ width:300px; float:left; margin-right:5px;}
+.content_top_list{ height:120px; overflow:hidden;}
+.content_top_list ul li{ width:286px; float:left; margin-right:5px;}
+
 ul.content_top_t{ height:180px;}
 .content_liucheng li{ padding:5px 10px; background:#fff; width:260px; height:110px;border:1px solid #ddd;}
 .content_liucheng li.last{border-bottom:none;}
@@ -1064,12 +1065,12 @@ ul.content_top_t{ height:180px;}
 .content_liuc_list{  float:left; height:160px; overflow:hidden;}
 
 .content_liuc_list:nth-child(2n){ padding-left:0px; }
-.area .content_l_li{padding-left:21px;}
+.area .content_l_li{margin-right:21px;}
 .content_l_li_top{margin-top:46px;}
 .content_l_li_top .study_list_img{height:160px;}
 .content_liuc_top{margin-top:20px;}
 .content_liuc_top .study_list_img{height:160px;}
-.liuc_list_right{margin-right:35px;}
+.liuc_list_right{margin-right:21px;}
 .study_list_img,.study_list_img img{ width:198px; height:150px; }
 .content_liuc_list .opacity_img{margin-right:8px;border: 1px solid #666;}
 .content_liuc_title{ float:left; width:230px; overflow:hidden;}
@@ -1077,6 +1078,7 @@ ul.content_top_t{ height:180px;}
 .content_liuc_title a:hover b{color: #000;}
 .content_liuc_title p.title{ border-bottom:1px solid #2dca85;}
 .content_liuc_title p.title span{ display:inline-block; background:#fff; color:#01af63; padding:0px 5px;}
+.content_list li a{font-size: 14px;}
 /*---------------------------------------------------学装修样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------装修学堂样式开始---------------------------------------------------*/
@@ -1096,7 +1098,7 @@ ul.content_top_t{ height:180px;}
 .cont_item_ul li img{ width:160px; height:120px;}
 .cont_item_ul li h2 a:hover{ color:#ff4401;}
 .cont_item_text{ width:80%;}
-h1.article_in_title{ height:40px; line-height:40px;}
+h1.article_in_title{ height:40px; line-height:40px;padding: 0 20px 0 0;}
 h1.article_in_title span{ color:#333;}
 h1.article_in_title a{ font-size:12px; margin-top:15px; height:24px; line-height:24px;}
 
