@@ -1,0 +1,85 @@
+.cmmain{
+    width:1000px;
+    margin:0 auto;
+}
+
+.cmmain h2{
+    font-size:22px;
+    color: #333333;
+    width:1200px;
+    height:37px;
+    border-bottom:1px #d9d9d9 solid;
+    letter-spacing:2px;
+}
+
+.menuAcm{
+    width:400px;
+    float:left;
+    margin-top:10px;
+}
+
+.menuAcm li{
+    line-height:30px;
+    border-bottom:2px dotted gainsboro;
+}
+
+ul,li{
+    list-style:none;
+}
+
+.menuAcm li a{
+    color:#666666;
+    font-size:16px;
+}
+
+a{
+    text-decoration: none;
+    cursor:pointer;
+    color:#555;
+}
+
+.menuBcm{
+    width:550px;
+    float:left;
+    margin-top:20px;
+    margin-left:25px;
+    padding-left:20px;
+    border-left:1px #d9d9d9 dashed;
+}
+
+.menuBcm ul{
+    display:none;
+}
+
+.pingjia_box{
+    background:#f8f8f8;
+    border:1px solid #e0e0e0;
+    margin-top:10px;
+    margin-left:45px;
+    width:530px;
+    margin-bottom:30px;
+}
+
+.pingjia_box span.pf{
+    width:30%;
+    display:inline-block;
+    margin:10px 0;
+}
+.pding{
+    padding:10px;
+}
+
+.menuCcm{
+    float:left;
+
+}
+.menuCcm h3{
+    width:550px;
+    height: 30px;
+    margin-left:45px;
+}
+
+.menuCcm .pj{
+   width:60px;
+}
+

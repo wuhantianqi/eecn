@@ -1,79 +1,182 @@
 <{assign var="seo_sub_title" value="口碑点评"}>
 <{include file="company/block/header.html"}>
 <!--装修公司头部结束-->
-<div class="subwd">
-    <!-- <{include file="company/block/info.html"}> -->
-	<div class="mb20 company_rt rt  ">
-		<div class="pding mb10 area">
-			<h3 class="sub_com_title"><b>业主评价</b></h3>
-			<div class="new_pinglun disigner_pinglun ">
-				<ul>
-                    <{foreach $items as $item}>
-					<li>
-						<div class="lt"><p><img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>"/></p><p><{$member_list[$item.uid].uname}></p></div>
-						<div class="rt">
-							<p class="graycl"><span class="lt"><{foreach $CONFIG.score.company as $k=>$v}><{if $v}><{$v}>:<{$item[$k]}>  <{/if}><{/foreach}></span> <span class="rt time"><{$item.dateline|format}></span></p>
-                            <{if $item.audit}><p><{$item.content}></p><{else}><p class="tips"><span class="lock">内容还在审核中</span></p><{/if}>
-                            <{if $item.replytime && $item.reply}>
-							<p class="huifu">回复：<{$item.reply}></p>
-                            <{/if}>
-						</div>
-					</li>
-                    <{/foreach}>
-				</ul>
-            </div>
-			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
-		</div>
-		<h3>我要评价</h3>
-		<div class="pingjia_box pding">
-            <form action="<{link ctl='company:savecomment' http="ajax"}>" mini-form="comment" method="post" class="sub_com_pinglun pinglun">
-            <input type="hidden" name="company_id" value="<{$company.company_id}>" />
-            <{foreach $CONFIG.score.company as $k=>$v}>
-            <{if $v}>
-            <span  class="pf"><{$v}>：<input type="hidden" name="data[<{$k}>]" id="comment-<{$k}>" value="3" /><b comment-score="<{$k}>" data-score="3"></b></span>
-            <{/if}>
-            <{/foreach}>
-            <table>
-                <tr>
-                    <td>评价内容：</td>
-                    <td>
-                        <textarea name="data[content]" class="text full" placeholder="您的评论..."></textarea><br />
-                        <p>写点评吧，您的评价内容对您的售后服务质量有重要监督作用，对其他用户具有重要参考价值</p>
-                    </td>
-                </tr>
-               
-                <tr><td colspan="2">
-                
-                  <{if $CONFIG.access.verifycode.comment}>
-                    验证码：
-                            <input style="margin-left:30px;" class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
-                            <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
-                        
-                <{/if}><input type="submit" value="发表评论" class="text btn rt pinglun_btn" />
-                </td></tr>							
-            </table>
-            </form>
-        </div>
-	</div>
-	<div class="cl"></div>
-</div>
-<!--底边内容开始-->
-<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>
-<script type="text/javascript">
-(function(K, $){
-    $('b[comment-score]').raty({
-        path: "<{$pager.res}>/script/raty/img/",
-        score: function() {return $(this).attr('data-score');},
-        hints: ["差","还行","好","很好","非常好"],
-        click: function(score, evt) {$("#comment-"+$(this).attr("comment-score")).val(score);}
-    });
-    $('b[score]').each(function(){$(this).raty({numberMax:5,readOnly: true,hints: ["差","还行","好","很好","非常好"],path:"<{$pager.res}>/script/raty/img/",score: function() {return $(this).attr('data-score');}})});
 
-})(window.KT, window.jQuery);
+
+<link rel="stylesheet" type="text/css" href="themes/default/static/css/comment.css?<{$VER}>"/>
+<div class="cmmain">
+    <h2>业主评价</h2>
+    <div class="cmmainh">
+        <div class="menuAcm">
+            <ul>
+                <li class="checkcm"><a href="#"><p>来家里看的朋友都说挺好的</p></a></li>                                  <li ><a href="#"><p>设计师很热心，装的问邻居都说挺好的</p></a></li>                                  <li ><a href="#"><p>设计师考虑很周到，服务很贴心！</p></a></li>                                  <li ><a href="#"><p>安排的设计师和项目经理都不错，服务也挺好的！</p></a></li>                                  <li ><a href="#"><p>设计和管理都比较让人满意。施工现场不错。报价详细 ...</p></a></li>                                  <li ><a href="#"><p>设计有内涵，装修比较放心。</p></a></li>                                  <li ><a href="#"><p>设计让人满意。108平全包六万，主材比市场价便宜。有 ...</p></a></li>                                  <li ><a href="#"><p>施工质量很好，非常棒的装饰公司</p></a></li>                             </ul>
+        </div>
+        <div class="menuBcm">
+            <ul  style="display:block;"  class="one">
+                <li>
+                    <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">QQ64102326</p></div>
+                    <div class="rt" style="width: 450px;">
+                        <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2016-07-09 15:18:20">2016-07-09 15:18:20</span></span></p>
+                        <p>来家里看的朋友都说挺好的</p>
+                    </div>
+                </li>
+            </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">QQ64102326</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2016-07-09 15:17:33">2016-07-09 15:17:33</span></span></p>
+                    <p>设计师很热心，装的问邻居都说挺好的</p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">QQ21984314</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-23 09:47:11">2015-05-23 09:47:11</span></span></p>
+                    <p>设计师考虑很周到，服务很贴心！</p>
+                    <p class="huifu">回复：宝蓝空间设计专业为客户解决各种家装难题， 您的认可是对我们最大的鼓励，我们会再接再厉为您创造一个美好的生活居家环境！</p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">xmm2015</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:3  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-23 09:45:19">2015-05-23 09:45:19</span></span></p>
+                    <p>安排的设计师和项目经理都不错，服务也挺好的！</p>
+                    <p class="huifu">回复：您的满意是我们最大的动力，感谢您对宝蓝空间设计的认可，新的每一天从美好的家居生活开始，我们会继续努力为您打造一个美好家园！ </p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">QQ56041046</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-07 16:38:55">2015-05-07 16:38:55</span></span></p>
+                    <p>设计和管理都比较让人满意。施工现场不错。报价详细清晰。保修服务到位。</p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">QQ78114502</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-07 16:24:12">2015-05-07 16:24:12</span></span></p>
+                    <p>设计有内涵，装修比较放心。</p>
+                    <p class="huifu">回复：您的满意是我们最大的动力，感谢您对宝蓝空间设计的认可，新的每一天从美好的家居生活开始，我们会继续努力为您打造一个美好家园！ </p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">WB2476102884</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-07 16:23:04">2015-05-07 16:23:04</span></span></p>
+                    <p>设计让人满意。108平全包六万，主材比市场价便宜。有调整时安排得很快。</p>
+                    <p class="huifu">回复：您的满意是我们最大的动力，感谢您对宝蓝空间设计的认可，新的每一天从美好的家居生活开始，我们会继续努力为您打造一个美好家园！        </p>
+                </div>
+            </li>
+        </ul>                                                  <ul  class="one">
+            <li>
+                <div class="lt"><p><img src="themes/default/static/images/shop/face_80.jpg"/></p><p style="text-align: center;">WB2476102884</p></div>
+                <div class="rt" style="width: 550px;">
+                    <p class="graycl" style="overflow: hidden;"><span class="lt">服务:5  价格:5  设计:5  施工:5  售后:5  </span> <span class="rt time"><span title="2015-05-07 14:50:04">2015-05-07 14:50:04</span></span></p>
+                    <p>施工质量很好，非常棒的装饰公司</p>
+                    <p class="huifu">回复：感谢您的认可和支持，宝蓝空间设计致力为所有客户奉献自己的热情和完美的方案，我们会再接再厉为您打造一个美好家园！       </p>
+                </div>
+            </li>
+        </ul>                              </div>
+        <div class="menuCcm" style="  float:left; width: 550px;">
+            <h3>我要评价</h3>
+            <div class="pingjia_box pding">
+                <form action="/index.php?company/savecomment" mini-form="comment" method="post" class="sub_com_pinglun pinglun">
+                    <input type="hidden" name="company_id" value="1" />
+                    <span  class="pf">服务：
+                        <input type="hidden" name="data[score1]" id="comment-score1" value="3" />
+                        <b comment-score="score1" data-score="3">
+                        </b>
+                    </span>
+                    <span  class="pf">价格：<input type="hidden" name="data[score2]" id="comment-score2" value="3" />
+                        <b comment-score="score2" data-score="3">
+                        </b>
+                    </span>
+                    <span  class="pf">设计：<input type="hidden" name="data[score3]" id="comment-score3" value="3" />
+                        <b comment-score="score3" data-score="3">
+                        </b>
+                    </span>
+                    <span  class="pf">施工：<input type="hidden" name="data[score4]" id="comment-score4" value="3" />
+                        <b comment-score="score4" data-score="3">
+                        </b>
+                   </span>
+                    <span  class="pf">售后：<input type="hidden" name="data[score5]" id="comment-score5" value="3" />
+                        <b comment-score="score5" data-score="3">
+                        </b>
+                    </span>
+                    <table>
+                        <tr>
+                            <td><p class="pj">评价内容：</p></td>
+                            <td>
+                                <textarea name="data[content]" class="text full" placeholder="您的评论..."></textarea><br />
+                                <p>写点评吧，您的评价内容对您的售后服务质量有重要监督作用，对其他用户具有重要参考价值</p>
+                            </td>
+                        </tr>
+
+                        <tr><td colspan="2">
+                            验证码：
+                            <input style="margin-left:7px;" class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                            <img verify="#pass-verify" src="themes/default/static/images/shop/index.php" id="pass-verify"/>
+
+                            <input type="submit" value="发表评论" class="text btn rt pinglun_btn" />
+                        </td></tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cl"></div>
+</div>
+<div class="cl"></div>
+<!--底边内容开始-->
+<script>
+    function $_class(name){
+        var element = document.getElementsByTagName("*");
+        for(s=0;s<element.length;s++){
+            if(element[s].className==name){
+                return  element[s];
+            }
+        }
+    }
+    var tabList = $_class("menuAcm").getElementsByTagName("li")
+    tabCon = $_class("menuBcm").getElementsByTagName("ul");
+    for(i=0;i<tabList.length;i++){
+        (function(){
+            var t = i;
+            tabList[t].onmousedown = function(){
+                for(o=0;o<tabCon.length;o++){
+                    tabCon[o].style.display = "none";
+                    tabList[o].className = "";
+                    if(t==o){
+                        this.className = "checkcm";
+                        tabCon[o].style.display = "block";
+                    }
+                }
+            }
+        })()
+    }
 </script>
- 	<script>
-	$("[verify]").click(function(){
-		$($(this).attr("verify")).attr("src", "index.php?magic-verify&_"+Math.random());
-	});
-	</script>
+<script type="text/javascript" src="themes/default/static/js/jquery.raty.js"></script>
+<script type="text/javascript">
+    (function(K, $){
+        $('b[comment-score]').raty({
+            path: "http://www.whzxw.com.cn/static/script/raty/img/",
+            score: function() {return $(this).attr('data-score');},
+            hints: ["差","还行","好","很好","非常好"],
+            click: function(score, evt) {$("#comment-"+$(this).attr("comment-score")).val(score);}
+        });
+        $('b[score]').each(function(){$(this).raty({numberMax:5,readOnly: true,hints: ["差","还行","好","很好","非常好"],path:"http://www.whzxw.com.cn/static/script/raty/img/",score: function() {return $(this).attr('data-score');}})});
+
+    })(window.KT, window.jQuery);
+</script>
+<script>
+    $("[verify]").click(function(){
+        $($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+    });
+</script>
+<!--插入结束-->
 <{include file="company/block/footer.html"}>
