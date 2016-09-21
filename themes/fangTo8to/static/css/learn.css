@@ -71,44 +71,44 @@ img{
 	background-repeat: no-repeat;
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a:nth-child(2):hover{
-	background-position-y: 22px;
+	background-position: 36px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a:nth-child(3):hover{
-	background-position-y: 22px;
+	background-position: -60px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a:nth-child(4):hover{
-	background-position-y: 22px;
+	background-position: -158px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a:nth-child(5):hover{
-	background-position-y: 22px;
+	background-position: -254px 22px;
 }
 
 
 .zh-liucheng .wrap>ul>li:nth-child(2) a:nth-child(2):hover{
-	background-position-y: 22px;
+	background-position: 36px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(2) a:nth-child(3):hover{
-	background-position-y: 22px;
+	background-position: -62px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(2) a:nth-child(4):hover{
-	background-position-y: 22px;
+	background-position: -158px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(2) a:nth-child(5):hover{
-	background-position-y: 22px;
+	background-position: -256px 22px;
 }
 
 
 .zh-liucheng .wrap>ul>li:nth-child(3) a:nth-child(2):hover{
-	background-position-y: 22px;
+	background-position: 36px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(3) a:nth-child(3):hover{
-	background-position-y: 22px;
+	background-position: -60px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(3) a:nth-child(4):hover{
-	background-position-y: 22px;
+	background-position: -158px 22px;
 }
 .zh-liucheng .wrap>ul>li:nth-child(3) a:nth-child(5):hover{
-	background-position-y: 22px;
+	background-position: -254px 22px;
 }
 
 .zh-liucheng .wrap>ul>li a:last-child{
@@ -116,7 +116,6 @@ img{
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a{
 	background-image: url(../images/learn/001.png);
-	
 }
 .zh-liucheng .wrap>ul>li:nth-child(1) a:nth-child(2){
 	background-position: 36px 26px;
@@ -196,10 +195,16 @@ img{
 	float: left;
 	margin-right: 16px;
 	position: relative;
-	opacity: 0.8;
+	
 }
-.zh-xiaoguo>ul>a:hover{
-	opacity: 1;
+.zh-xiaoguo>ul>a li{
+	overflow: hidden;
+}
+.zh-xiaoguo>ul>a img{
+	transition: 0.8s;
+}
+.zh-xiaoguo>ul>a:hover img{
+	transform: scale(1.1);
 }
 .zh-xiaoguo>ul>a:nth-child(n+3){
 	margin-right: 12px;
