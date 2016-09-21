@@ -1053,41 +1053,61 @@ ul.news li span.rt{ color:#999;}
 /*---------------------------------------------------活动专题页页样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------学装修样式开始---------------------------------------------------*/
-.xue_lunz{ width:280px; height:340px; /*overflow:hidden;*/}
-.content_top{width:876px;}
-.content_top a{font-size:16px;color:#666;}
+.xue_lunz{ width:665px; height:250px; overflow:hidden;}
+.content_top{width:662px;}
+.content_top a{font-size:16px;color:#666;line-height: 30px;}
 .content_top a:hover{color: #ff4401;}
 .content_top a:hover b{color: #000;}
 .xue_ad{ width:250px; height:340px; /*overflow:hidden;*/ box-shadow: 2px 2px 2px 1px #888;}
 .content_top_list{ height:120px; overflow:hidden;margin-top:25px;}
 .content_top_list ul li{ width:286px; float:left; margin-right:5px;}
 
-ul.content_top_t{ height:auto;}
-.content_top ul.content_liucheng>li>h2{
-	color:#666;
+ul.content_top_t{ height:auto; margin-top: 21px;}
+ul.content_top_t li{
+	margin-top:10px;
+}
+ul.content_top_t li h2{
+	font-weight: 600;
+	color: #666;
 }
 .content_liucheng li{ padding:5px 10px; background:#fff; width:260px; height:110px;border:1px solid #ddd;}
 .content_liucheng li.last{border-bottom:none;}
-.article_list a{line-height:24px; text-align:center; display:inline-block; background:#fff; border:1px solid #ffffff; float:left;}
+.article_list a{line-height:24px; text-align:center; display:inline-block; background:#f8f8f8; border:1px solid #f8f8f8; float:left;font-size: 14px}
 .article_list a:hover,.article_list a.current{ color:#fff; background:#ff4401; text-decoration:none;border:1px solid #ff4401;}
 .content_liucheng a{ width:48px; margin:8px 15px 0px 0px;}
-.content_liuc_list{  float:left; height:160px; overflow:hidden;}
+.content_liuc_list{  float:left; height:auto; overflow:hidden;}
 
 .content_liuc_list:nth-child(2n){ padding-left:0px; }
-.area .content_l_li{margin-right:21px;}
+/*.area .content_l_li{ margin-top: 40px;}*/
+.area .content_l_li:nth-child(2n){margin-left:21px; }
+.area .content_l_li:first-child{margin-top: 0px;}
 .content_l_li_top{margin-top:25px;}
 .content_l_li_top .study_list_img{height:160px;}
 .content_liuc_top{margin-top:25px;}
 .content_liuc_top .study_list_img{height:160px;}
-.liuc_list_right{margin-right:21px;}
-.study_list_img,.study_list_img img{ width:198px; height:150px; }
+/*.liuc_list_right{margin-top:40px;}*/
+.liuc_list_right:nth-child(2n){margin-left:21px;}
+.liuc_list_right:first-child{
+	margin-top:0px;
+}
+.study_list_img,.study_list_img img{     
+	width: 283px;
+    height: 212px;
+     }
 .content_liuc_list .opacity_img{margin-right:8px;}
-.content_liuc_title{ float:left; width:230px; overflow:hidden;}
+.content_liuc_title{     float: left;
+    width: 280px;
+    overflow: hidden;
+    margin-left: 15px;
+}
 .content_liuc_title a:hover{color: #ff4401;}
 .content_liuc_title a:hover b{color: #000;}
 .content_liuc_title p.title{ border-bottom:1px solid #2dca85;}
-.content_liuc_title p.title span{     font-size: 16px;display:inline-block; background:#fff; color:#01af63; padding:0px 5px;}
-.content_list li a{font-size: 14px;}
+.content_liuc_title p.title span{font-size: 18px;display:inline-block; background:#fff; color:#01af63; padding:0px 5px;}
+.content_liuc_title .content_list li{
+	margin:8px auto;
+}
+.content_list li a{font-size: 16px;}
 /*---------------------------------------------------学装修样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------装修学堂样式开始---------------------------------------------------*/
@@ -1098,12 +1118,11 @@ ul.content_top_t{ height:auto;}
 }
 .cont_item_rt ul{
 	background: #f8f8f8;
-	margin-top: 123px;
+	margin-top: 36px;
 }
 .cont_item_rt ul li{ overflow:hidden;}
 .cont_item_rt ul li h3{
 	text-indent: 1em;
-	border-bottom: 1px solid red;
 }
 .cont_item_rt ul li a{ padding:0px 8px; margin:5px 15px 5px 10px;}
 .shu_ico{ width:4px; height:16px; background-position:-180px -97px; margin-right:5px;display:none;}
