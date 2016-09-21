@@ -230,7 +230,7 @@ li{
 	padding-top: 20px;
 	padding-bottom: 15px;
 }
-.zh-detial ul li:hover,.zh-sales-list ul li:hover,.zh-trick-list ul li:hover{
+.zh-detial ul li:hover,.zh-trick-list ul li:hover{
 	box-shadow: 0 0 5px 2px #eee;
 }
 .zh-detial ul li:hover img{
@@ -369,6 +369,9 @@ li{
 	background-color: #f0f0f0;
 	position: relative;
 }
+.zh-sales-list ul li:hover{
+	box-shadow: 0 0 3px 2px #888;
+}
 .zh-sales-list ul li:nth-child(3n){
 	margin-right: 0;
 }
@@ -382,6 +385,7 @@ li{
 .zh-sales-list ul li>p{
 	font-size: 16px;
 	margin-top: 10px;
+	padding-left: 23px;
 }
 .zh-sales-list ul li>div {
 	position: relative;

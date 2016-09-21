@@ -171,8 +171,10 @@
 	width: 100%;
 	text-align: center;
 }
-.team-purchasing1 ul{
-	overflow: hidden;
+.team-purchasing1 ul:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 .team-purchasing1 ul li{
 	float: left;
@@ -180,6 +182,9 @@
 	padding-bottom: 15px;
 	margin-right: 20px;
 	border: 1px solid #f8f8f8;
+}
+.team-purchasing1 ul li:hover{
+	box-shadow: 0 0 3px 2px #888;
 }
 
 .team-purchasing1 ul li img{
@@ -209,11 +214,15 @@
 .team-purchasing2{
 	margin-top: 30px;
 	margin-bottom: 30px;
-	overflow: hidden;
 }
 
 .sales-list{
 	margin-top: 30px;
+}
+.sales-list ul:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 .sales-list ul li{
 	float: left;
@@ -223,6 +232,9 @@
 	margin-right: 14px;
 	background-color: #f0f0f0;
 	position: relative;
+}
+.sales-list ul li:hover{
+	box-shadow: 0 0 3px 2px #888;
 }
 .sales-list ul li:nth-child(3n){
 	margin-right: 0;
@@ -237,6 +249,7 @@
 .sales-list ul li>p{
 	font-size: 16px;
 	margin-top: 10px;
+	padding-left: 23px;
 }
 .sales-list ul li>div {
 	position: relative;
