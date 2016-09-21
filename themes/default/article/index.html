@@ -7,7 +7,7 @@
 				<ul>
 					<li>
 						<div>
-							<h3>装修前121212</h3>
+							<h3>装修前</h3>
 							<p>装修好复杂，该从哪里入手？</p>
 						</div>
 						<a href="">收房</a>
@@ -88,16 +88,16 @@
 				</ul>
 			</div>
 		</div>		
-		<div class="mainwd">
-    <h2 style="text-align: center;font-size: 30px;line-height: 50px;">装修攻略</h2>
-    <p style="text-align: center;font-size: 14px;line-height: 30px;">学习更多装修实用经验，避免装修猫腻</p>
-    <div class="area mb20" style="margin-top: 30px;">
+	<div class="mainwd">
+	    <h2 style="text-align: center;font-size: 30px;line-height: 50px;">装修攻略</h2>
+	    <p style="text-align: center;font-size: 14px;line-height: 30px;">学习更多装修实用经验，避免装修猫腻</p>
+	    <div class="area mb30" style="margin-top: 30px;width: 918px;float: left;">
         <!--<div class="lt xue_lunz"><{adv id="7" name="学装修首页热点推荐轮转" city_id=$request.city_id}></div>-->
         <div class="lt content_top">
             <ul class="content_top_t">
-               <{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="2"}>
+               <{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="3"}>
                 <li>
-                    <h2><{$item.title|cutstr:20}></h2>
+                    <h2><{$item.title|cutstr:30}></h2>
                     <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:150}><font class="fontcl2">[阅读全文]</font></a></p>
                 </li>
                 <{/KT}>
@@ -111,17 +111,17 @@
 				<div class="cl"></div>
             </div>
         </div>
-        <div class="rt xue_ad"><{adv id="8" name="学装修首页热点推荐右侧图片B1" city_id=$request.city_id limit=1}></div>
         <div class="cl"></div>
-    </div>
+    	
+    	
+    <div style="float: left;width: 918px;">
     <h1 class="article_in_title"><span class="lt">装修流程</span><a href="<{link ctl='article:items' arg0=8 arg1=1}>" target="_blank" class="rt">更多</a></h1>
-    <div class="area  mb20">
-       
+    <div class="area  mb30">
         <div class="content_liuc_list content_l_li">
             <div class="opacity_img lt study_list_img">
                 <{KT id="23" name="学装修装修流程-收房准备图" city_id=$request.city_id}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">                
@@ -130,7 +130,7 @@
                     <{KT id="24" name="学装修装修流程-收房准备" city_id=$request.city_id}>
                     <li>
                         <span class="ico_list news_ico"></span>
-                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a>
+                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a>
                     </li>
                     <{/KT}>
                 </ul>
@@ -140,14 +140,14 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="25" name="学装修装修流程-装修准备图" city_id=$request.city_id}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
                 <p class="title"><span>装修准备</span></p>
                 <ul class="content_list lt">
                     <{KT id="26" name="学装修装修流程-装修准备" city_id=$request.city_id}>
-                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"> <{$item.title|cutstr:20}></a></li>
+                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></li>
                     <{/KT}>
                     </li>
                 </ul>
@@ -157,14 +157,14 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="27" name="学装修装修流程-装修阶段图" city_id=$request.city_id}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
                 <p class="title"><span>装修阶段</span></p>
                 <ul class="content_list lt">
                      <{KT id="28" name="学装修装修流程-装修阶段" city_id=$request.city_id}>
-                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a></li>
+                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></li>
                     <{/KT}>
                 </ul>
             </div>
@@ -173,7 +173,7 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="29" name="学装修装修流程-软装配饰图" city_id=$request.city_id}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
@@ -182,7 +182,7 @@
                     <{KT id="30" name="学装修装修流程-软装配饰图" city_id=$request.city_id}>
                     <li>
                         <span class="ico_list news_ico"></span>
-                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a>
+                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a>
                     </li>
                     <{/KT}>
                 </ul>
@@ -190,21 +190,23 @@
         </div>
         <div class="cl"></div>
     </div>
+    </div>
+    <div style="float: left;width: 918px;margin-top:40px">
     <h1 class="article_in_title"><span class="lt">装修学堂</span><a href="<{link ctl='article:items' arg0=9 arg1=1}>" target="_blank" class="rt">更多</a></h1>
-    <div class="area mb20">
-        <div class="rt xue_ad"><{adv id="9" name="学装修装修学堂右侧广告B2" city_id=$request.city_id}></div>
+    <div class="area mb30">
+        <!--<div class="rt xue_ad"><{adv id="9" name="学装修装修学堂右侧广告B2" city_id=$request.city_id}></div>-->
         <div class="content_liuc_list liuc_list_right">
             <div class="opacity_img lt study_list_img">
                 <{KT id="15" name="学装修装修学堂-建材常识图" city_id=$request.city_id cat_id=10}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
                 <p class="title"><span>建材常识</span></p>
                 <ul class="content_list lt">
                     <{KT id="16" name="学装修装修学堂-建材常识" city_id=$request.city_id cat_id=10}>
-                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"> <{$item.title|cutstr:20}></a></li>
+                    <li><span class="ico_list news_ico"></span><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></li>
                     <{/KT}>
                 </ul>
             </div>
@@ -213,7 +215,7 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="17" name="学装修装修学堂-验收常识图" city_id=$request.city_id cat_id=11}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
@@ -222,7 +224,7 @@
                     <{KT id="18" name="学装修装修学堂-验收常识" city_id=$request.city_id cat_id=11}>
                     <li>
                         <span class="ico_list news_ico"></span>
-                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a>
+                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a>
                     </li>
                     <{/KT}>
                 </ul>
@@ -232,7 +234,7 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="19" name="学装修装修学堂-施工常识图" city_id=$request.city_id cat_id=14}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>                
             </div>
             <div class="content_liuc_title study_list_img">
@@ -241,7 +243,7 @@
                     <{KT id="18" name="学装修装修学堂-验收常识" city_id=$request.city_id cat_id=14}>
                     <li>
                         <span class="ico_list news_ico"></span>
-                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a>
+                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a>
                     </li>
                     <{/KT}>
                 </ul>
@@ -251,7 +253,7 @@
             <div class="opacity_img lt study_list_img">
                 <{KT id="21" name="学装修装修学堂-设计风水图" city_id=$request.city_id cat_id=15}>
                 <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-                <p class="bg"></p><p class="text"><{$item.title|cutstr:20}></p>
+                <p class="bg"></p><p class="text"><{$item.title|cutstr:30}></p>
                 <{/KT}>
             </div>
             <div class="content_liuc_title">
@@ -260,7 +262,7 @@
                     <{KT id="22" name="学装修装修学堂-设计风水" city_id=$request.city_id cat_id=15}>
                     <li>
                         <span class="ico_list news_ico"></span>
-                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:20}></a>
+                        <a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a>
                     </li>
                     <{/KT}>
                 </ul>
@@ -268,7 +270,20 @@
         </div>
         <div class="cl"></div>
     </div>
-</div>
+	</div>
+	</div>
+    <div class="rt area pding cont_item_rt cont_item_rt_wenda" style="width: 250px;">
+        <div><{adv id="44" name="学装修" city_id=$request.city_id}></div>
+		<ul class="article_list">
+			<{calldata mdl="article/cate" parent_id=8 from='article' hidden='0'}>
+			<li>
+				<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
+				<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
+			</li>
+			<{/calldata}>
+		</ul>
+	</div>
+	</div>
 
 
 
