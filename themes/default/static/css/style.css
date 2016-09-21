@@ -1090,11 +1090,15 @@ ul.content_top_t{ height:auto;}
 }
 .cont_item_rt ul{
 	background: #f8f8f8;
-	margin-top: 168px;
+	margin-top: 123px;
 }
 .cont_item_rt ul li{ overflow:hidden;}
-.cont_item_rt ul li a{ padding:0px 8px; margin:5px 15px 5px 0px;}
-.shu_ico{ width:4px; height:16px; background-position:-180px -97px; margin-right:5px;}
+.cont_item_rt ul li h3{
+	text-indent: 1em;
+	border-bottom: 1px solid red;
+}
+.cont_item_rt ul li a{ padding:0px 8px; margin:5px 15px 5px 10px;}
+.shu_ico{ width:4px; height:16px; background-position:-180px -97px; margin-right:5px;display:none;}
 .cont_item_title a{ padding:0px 8px; margin:5px 15px 5px 0px;}
 .cont_item_title p{ overflow:hidden; padding:5px;}
 .cont_item_title .cont_item_ico{ width:11px; height:15px; background-position:-185px -95px; margin:0px 5px;}
