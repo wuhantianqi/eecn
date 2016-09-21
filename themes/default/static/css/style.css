@@ -1075,16 +1075,16 @@ ul.content_top_t li h2{
 .article_list a{line-height:24px; text-align:center; display:inline-block; background:#f8f8f8; border:1px solid #f8f8f8; float:left;font-size: 14px}
 .article_list a:hover,.article_list a.current{ color:#fff; background:#ff4401; text-decoration:none;border:1px solid #ff4401;}
 .content_liucheng a{ width:48px; margin:8px 15px 0px 0px;}
-.content_liuc_list{  float:left; height:auto; overflow:hidden;}
+.content_liuc_list{  float:left; height:212; overflow:hidden;}
 
 .content_liuc_list:nth-child(2n){ padding-left:0px; }
 /*.area .content_l_li{ margin-top: 40px;}*/
 .area .content_l_li:nth-child(2n){margin-left:21px; }
 .area .content_l_li:first-child{margin-top: 0px;}
 .content_l_li_top{margin-top:25px;}
-.content_l_li_top .study_list_img{height:160px;}
+.content_l_li_top .study_list_img{height:200px;}
 .content_liuc_top{margin-top:25px;}
-.content_liuc_top .study_list_img{height:160px;}
+.content_liuc_top .study_list_img{height:200px;}
 /*.liuc_list_right{margin-top:40px;}*/
 .liuc_list_right:nth-child(2n){margin-left:21px;}
 .liuc_list_right:first-child{
@@ -1092,9 +1092,11 @@ ul.content_top_t li h2{
 }
 .study_list_img,.study_list_img img{     
 	width: 283px;
-    height: 212px;
+    height: 200px;
+    transition: 0.8s;
      }
-.content_liuc_list .opacity_img{margin-right:8px;}
+.content_liuc_list .opacity_img{margin-right:8px;overflow: hidden;}
+.content_liuc_list div.opacity_img:hover img{transform: scale(1.1);}
 .content_liuc_title{     float: left;
     width: 280px;
     overflow: hidden;
