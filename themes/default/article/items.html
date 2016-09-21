@@ -9,33 +9,11 @@
 	</div>
 </div>
 <!--面包屑导航结束-->
+<link rel="stylesheet" href="/themes/default/static/css/article-items.css" />
+<div class="zh-article-ad"></div>
 <div class="mainwd">
-   <div class="main_content lt">
-		<div class=" area pding mb20">
-			<div class="cont_item_title ">
-				<h3><span class="ico_list cont_item_ico"></span><b><{$top_cate.title}></b></h3>
-				<{if $childrens}>
-				<p class="article_list colorbg"><{foreach $childrens as $v}><a href="<{link ctl='article:items' arg0=$v.cat_id arg1=1}>" <{if $v.cat_id==$cate.cat_id}>class="current"<{/if}>><{$v.title}></a><{/foreach}></p>
-				<{/if}>
-				<div class="cl"></div>
-			</div>
-			<ul class="cont_item_ul">
-				<{foreach $items as $item}>
-				<li>
-					<img src="<{$pager.img}>/<{$item.thumb}>"  class="lt"/>
-					<div class="rt cont_item_text">
-						<h2><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title}></a></h2>
-						<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc}></a></p>
-						<p class="graycl"><span class="lt">发布日期：<{$item.dateline|format}></span><span class="rt">已被阅读：<font class="fontcl2"><{$item.views}></font>次</span></p>
-					</div>
-				</li>
-				<{/foreach}>
-			</ul>
-			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
-		</div>
-   </div>
-   <!-- <div class="side_content rt">
-   <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
+    <div class="side_content">
+    <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
 		<div class="area pding mb10 cont_item_rt">
 			<ul class="article_list">
 				<{calldata mdl="article/cate" parent_id=8 hidden='0'  from='article'}>
@@ -47,7 +25,49 @@
 			</ul>
 		</div>
 		<div class="mb20 "><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
-   </div> -->
+    </div>
+    <div class="zh-side-list">
+   		<h2>
+   			<span>收房准备中：</span><a href="">收房小常识</a><a href="">交房流程</a><a href="">相关法律文件</a>
+   		</h2>
+   		<ul>
+   			<li>
+   				<a href=""><img src="%THEME%/static/images/learn/article-items1.jpg"/></a>
+   				<a href="#" class="zh-article-title">小空间迷人可爱 30个漂亮小餐厅设计</a>
+   				<p>有不少人家的餐厅空间都不大，设计起来未免发愁，更有一些餐厅空间是从过道或是客厅分隔出来的，这样的餐厅更不好设计。如果才能设计好小餐厅呢。今天小编就为大家收集了不少案例来详</p>
+   				<span class="zh-update-time">2012年5月10号</span>
+   				<span class="zh-view-time">1223次</span>
+   			</li>
+   			<li>
+   				<a href=""><img src="%THEME%/static/images/learn/article-items1.jpg"/></a>
+   				<a href="#" class="zh-article-title">小空间迷人可爱 30个漂亮小餐厅设计</a>
+   				<p>有不少人家的餐厅空间都不大，设计起来未免发愁，更有一些餐厅空间是从过道或是客厅分隔出来的，这样的餐厅更不好设计。如果才能设计好小餐厅呢。今天小编就为大家收集了不少案例来详</p>
+   				<span class="zh-update-time">2012年5月10号</span>
+   				<span class="zh-view-time">1223次</span>
+   			</li>
+   			<li>
+   				<a href=""><img src="%THEME%/static/images/learn/article-items1.jpg"/></a>
+   				<a href="#" class="zh-article-title">小空间迷人可爱 30个漂亮小餐厅设计</a>
+   				<p>有不少人家的餐厅空间都不大，设计起来未免发愁，更有一些餐厅空间是从过道或是客厅分隔出来的，这样的餐厅更不好设计。如果才能设计好小餐厅呢。今天小编就为大家收集了不少案例来详</p>
+   				<span class="zh-update-time">2012年5月10号</span>
+   				<span class="zh-view-time">1223次</span>
+   			</li>
+   			<li>
+   				<a href=""><img src="%THEME%/static/images/learn/article-items1.jpg"/></a>
+   				<a href="#" class="zh-article-title">小空间迷人可爱 30个漂亮小餐厅设计</a>
+   				<p>有不少人家的餐厅空间都不大，设计起来未免发愁，更有一些餐厅空间是从过道或是客厅分隔出来的，这样的餐厅更不好设计。如果才能设计好小餐厅呢。今天小编就为大家收集了不少案例来详</p>
+   				<span class="zh-update-time">2012年5月10号</span>
+   				<span class="zh-view-time">1223次</span>
+   			</li>
+   			<li>
+   				<a href=""><img src="%THEME%/static/images/learn/article-items1.jpg"/></a>
+   				<a href="#" class="zh-article-title">小空间迷人可爱 30个漂亮小餐厅设计</a>
+   				<p>有不少人家的餐厅空间都不大，设计起来未免发愁，更有一些餐厅空间是从过道或是客厅分隔出来的，这样的餐厅更不好设计。如果才能设计好小餐厅呢。今天小编就为大家收集了不少案例来详</p>
+   				<span class="zh-update-time">2012年5月10号</span>
+   				<span class="zh-view-time">1223次</span>
+   			</li>
+   		</ul>
+   </div>
    <div class="cl"></div>
 </div>
 <!--底部内容开始-->

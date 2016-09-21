@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+.zh-article-ad{
+	width: 1200px;
+	margin: 0 auto;
+}
+.side_content{
+	float: left;
+	width: 290px;
+}
+ul.article_list{
+	margin-top: 20px;
+}
+.zbform{
+	background-color: #01b061;
+}
+.pding{
+	padding: 0;
+}
+.zh-side-list{
+	width: 840px;
+	float: right;
+}
+.zh-side-list>h2{
+	height: 42px;
+	line-height: 42px;
+	padding-left: 15px;
+	background-color: #f8f8f8;
+}
+.zh-side-list>h2>span{
+	font-size: 18px;
+	float: left;
+}
+.zh-side-list>h2>a{
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	display: inline-block;
+	margin-top: 8px;
+	padding: 3px 12px;
+}
+.zh-side-list>h2>a:hover{
+	background-color: #ff4401;
+	color: #fff;
+}
+.zh-side-list>ul>li{
+	padding: 25px 0;
+	border-bottom: 1px dashed #666;
+}
+.zh-side-list>ul>li:hover{
+	background-color: #f8f8f8;
+}
+.zh-side-list>ul>li img{
+	width: 160px;
+	height: 120px;
+	float: left;
+	margin-right: 20px;
+}
+.zh-side-list>ul>li a.zh-article-title{
+	font-size: 20px;
+	margin-bottom: 10px;
+	font-weight: 700;
+	display: inline-block;
+}
+.zh-side-list>ul>li a:hover{
+	color: #ff4401;
+}
+.zh-side-list>ul>li p{
+	line-height: 21px;
+	color: #666;
+	height: 63px;
+}
+.zh-side-list>ul>li span{
+	height: 21px;
+	line-height: 21px;
+	color: #666;
+}
+.zh-side-list>ul>li span.zh-view-time{
+	padding-left: 18px;
+	margin-left: 60px;
+	background: url(../images/learn/see_time.png) no-repeat 0 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
