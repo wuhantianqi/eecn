@@ -459,7 +459,12 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .choose_option td{ vertical-align:top;     padding: 5px 0px 5px 10px;}
 .choose_option td.tit{width:70px;     font-size: 14px;}
 /*筛选框样式结束*/
-
+/*装修公司展示开始*/
+.zh-gs-show{width: 100%;}
+.gs-show-middle{width: 1200px;height: 350px;margin: 0 auto;position: relative;}
+.gs-show-left{width: 360px;height: 350px;position: absolute;left: -360px;top: 0;}
+.gs-show-right{width: 360px;height: 350px;position: absolute;right: -360px;top: 0;}
+/*装修公司展示结束*/
 /*装修公司列表开始*/
 .main_list a.pic img{ padding:3px; background:#fff;}
 .main_list_rt div.lt{ width:70%; overflow:hidden;font-size:14px;}
@@ -1050,7 +1055,7 @@ ul.news li span.rt{ color:#999;}
 /*---------------------------------------------------学装修样式开始---------------------------------------------------*/
 .xue_lunz{ width:280px; height:340px; /*overflow:hidden;*/}
 .content_top{width:876px;}
-.content_top a{font-size:14px;}
+.content_top a{font-size:16px;color:#666;}
 .content_top a:hover{color: #ff4401;}
 .content_top a:hover b{color: #000;}
 .xue_ad{ width:250px; height:340px; /*overflow:hidden;*/ box-shadow: 2px 2px 2px 1px #888;}
@@ -1058,6 +1063,9 @@ ul.news li span.rt{ color:#999;}
 .content_top_list ul li{ width:286px; float:left; margin-right:5px;}
 
 ul.content_top_t{ height:auto;}
+.content_top ul.content_liucheng>li>h2{
+	color:#666;
+}
 .content_liucheng li{ padding:5px 10px; background:#fff; width:260px; height:110px;border:1px solid #ddd;}
 .content_liucheng li.last{border-bottom:none;}
 .article_list a{line-height:24px; text-align:center; display:inline-block; background:#fff; border:1px solid #ffffff; float:left;}
