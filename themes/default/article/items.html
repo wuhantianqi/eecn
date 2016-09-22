@@ -42,7 +42,7 @@
                <a href="<{link ctl='article:detail' arg0=$item.article_id}>" class="zh-article-title"><{$item.title}></a>
                <p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:150}></a></p>
                <span class="zh-update-time"><{$item.dateline|format}></span>
-               <span class="zh-view-time"><{$item.views}>次</span>
+               <span class="zh-view-time">已被阅读：<{$item.views}>次</span>
             </li>
             <{/foreach}>
    		</ul>
