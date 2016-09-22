@@ -3,6 +3,7 @@
 .zh-article-ad{
 	width: 1200px;
 	margin: 0 auto;
+	margin-bottom:30px;
 }
 .side_content{
 	float: left;
@@ -18,7 +19,7 @@ ul.article_list{
 	padding: 0;
 }
 .zh-side-list{
-	width: 840px;
+	width: 880px;
 	float: right;
 }
 .zh-side-list>h2{
@@ -47,34 +48,38 @@ ul.article_list{
 .zh-side-list>ul>li{
 	padding: 25px 0;
 	border-bottom: 1px dashed #666;
+	padding-bottom: 15px;
 }
 .zh-side-list>ul>li:hover{
 	background-color: #f8f8f8;
 }
 .zh-side-list>ul>li img{
-	width: 160px;
-	height: 120px;
+	width: 186px;
+	height: 140px;
 	float: left;
 	margin-right: 20px;
 }
 .zh-side-list>ul>li a.zh-article-title{
 	font-size: 20px;
 	margin-bottom: 10px;
-	font-weight: 700;
+	font-weight: 500;
 	display: inline-block;
 }
 .zh-side-list>ul>li a:hover{
 	color: #ff4401;
 }
 .zh-side-list>ul>li p{
-	line-height: 21px;
+	line-height: 26px;
 	color: #666;
-	height: 63px;
+	height: 86px;
+	font-size: 16px;
+	width: 862px;
 }
 .zh-side-list>ul>li span{
 	height: 21px;
-	line-height: 21px;
+	line-height: 14px;
 	color: #666;
+	font-size: 14px;
 }
 .zh-side-list>ul>li span.zh-view-time{
 	padding-left: 18px;

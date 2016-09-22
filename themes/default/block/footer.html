@@ -34,14 +34,51 @@
         </ul>
     </div>
     <{include file="block/sfooter.html"}>
+    <!-- 底部弹出表单 -->
+    <div class="foot_zhaobiao_bar foot_fixed" id="foot_zhaobiao_bar" style="display: block;">
+    <div class="foot_mode">
+        <div class="foot_zhaobiao_bg"></div>
+        <div class="foot_zhaobiao">
+            <div class="foot_zhaobiao_text"></div>
+            <form action="<{link ctl='tenders:save'}>"" mini-form="tenders_tzx" id="tenders-tzx" method="post">
+              <input type="hidden" name="data[from]" value="TZX">
+              <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
+                <a onclick="closediv()" href="javascript:;" class="foot_zhaobiao_close"></a>
+                <dl>
+                    <dt><label for="hchenghu">称呼:</label><input type="text" name="data[contact]"></dt>
+                    <dt><label for="htel">手机:</label><input type="text" name="data[mobile]"></dt>
+                    <dd><input type="submit" value="马上发布"></dd>
+                </dl>
+            </form>
+            <div class="foot_price">
+                <strong>立省半年工资</strong>
+                <p>已有<span>681</span>人报名</p>
+            </div>
+            <div class="foot_weixin">装修网<br>微信二维码</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function closediv() {
+                    document.getElementById('foot_zhaobiao_bar').style.display = 'none';
+                }
+        $(window).scroll(function(){ 
+        var topBar=$(window).scrollTop(); 
+        var bodyHeigth =  (document.body.scrollHeight)*0.268;
+            if(topBar> bodyHeigth){ 
+        $("#foot_zhaobiao_bar").fadeIn();                  
+        }else{ 
+         $("#foot_zhaobiao_bar").fadeOut(); 
+        } 
+        }); 
+    </script>
+    <!-- 底部弹出表单结束 -->
     <div class="clear"></div>
     <div class="footer_buttom">
         <p>©武汉市东启创拓信息技术有限公司 版权所有</p>
         <p>    <!-- 百度商桥PC版 -->
     <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E")); </script>ICP备案：鄂ICP备16014083号-1</p>
+    
     </div>
     <{widget id="public/kefu"}>
-
-
 </body>
 </html>
