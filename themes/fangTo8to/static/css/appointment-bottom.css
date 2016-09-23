@@ -52,10 +52,10 @@
     border: none;
     box-sizing: content-box;
 }
-.appoinment-bottom .content-box .apply-form input:nth-child(3){
+.appoinment-bottom .content-box .apply-form input:nth-child(5){
 	margin-top: 6px;
 }
-.appoinment-bottom .content-box .apply-form input:nth-child(4){
+.appoinment-bottom .content-box .apply-form input:nth-child(6){
 	margin-top: 7px;
 	width: 220px;
 	height: 32px;

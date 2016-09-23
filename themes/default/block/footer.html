@@ -79,7 +79,7 @@
             $appointment.animate({
                 left:-1920
             },500);
-            $collapse.removeClass("hide");
+            setTimeout(function(){$collapse.removeClass("hide");},500)
         })
         
         var iKey=true;

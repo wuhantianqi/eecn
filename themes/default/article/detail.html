@@ -9,7 +9,7 @@
 	</div>
 </div>
 <!--面包屑导航结束-->
-<div class="mainwd">
+<div class="mainwd mainwd_float">
 	<div class="main_content lt main_content_wenda">
 		<div class=" area pding mb10 article_box">
 			<h1><{$detail.title}></h1>
@@ -85,19 +85,37 @@
 	</div>
 	<div class="side_content rt">
 		<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
-		<div class="area pding mb10 cont_item_rt cont_item_rt_wenda">
-			<ul class="article_list">
-				<{calldata mdl="article/cate" parent_id=8 from='article' hidden='0'}>
-				<li>
-					<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
-					<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
-				</li>
-				<{/calldata}>
-			</ul>
-		</div>
-		<div class="mb20 "><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
+		<div class="side_content_kon"></div>
+		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
+		<div class="side_content_kon"></div>
+		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
+		<div class="side_content_kon"></div>
+		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
 	</div>
 	<div class="cl"></div>
 </div>
+<!-- 右边固定条 -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(document).scroll(function(){
+			if( ($(document).scrollTop() - $(".side_content").position().top) >= -53 ){
+				$(".side_content").css({
+					'position':'fixed',
+					'right':'12%',
+					'top':'10%',
+				});
+			}else if( ($(document).scrollTop() - $(".side_content").position().top) <= -53 ){
+				$(".side_content").css({
+					'position':'absolute',
+					'right':'12%',
+					'top':'32%',
+				});
+			}
+		    // console.log($(window).height() );
+		    
+		})
+	})  
+</script>
+<!-- 右边固定条结束 -->
 <!--底部内容开始-->
 <{include file="block/footer.html"}>

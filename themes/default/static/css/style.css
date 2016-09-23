@@ -491,7 +491,10 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 
 /*右边招标样式开始*/
 .sub_content{ width:100%;}
-.side_content{ width:250px; float:right;}
+.side_content{ width:250px; position: absolute; right:12%; top:32%;}
+.side_content .side_content_kon{
+	height:30px;
+}
 .mb20 .side_content{
 	float:left;
 	width: 350px;
@@ -1075,7 +1078,7 @@ ul.content_top_t li h2{
 .article_list a{line-height:24px; text-align:center; display:inline-block; background:#f8f8f8; border:1px solid #f8f8f8; float:left;font-size: 14px}
 .article_list a:hover,.article_list a.current{ color:#fff; background:#ff4401; text-decoration:none;border:1px solid #ff4401;}
 .content_liucheng a{ width:48px; margin:8px 15px 0px 0px;}
-.content_liuc_list{  float:left; height:212; overflow:hidden;}
+.content_liuc_list{  float:left; height:212px; overflow:hidden;}
 
 .content_liuc_list:nth-child(2n){ padding-left:0px; }
 /*.area .content_l_li{ margin-top: 40px;}*/
@@ -1150,10 +1153,10 @@ h1.article_in_title a{ font-size:12px; margin-top:15px; height:24px; line-height
 .article_box_text{ width:100%; margin-top:10px;font-size: 14px;text-indent:2em;}
 p.img{ text-align:center; margin:10px auto;}
 .article_box_bottom {overflow:hidden;}
-.article_box_bottom p.tp{ overflow:hidden; border-bottom:2px solid #7ac49f;}
+.article_box_bottom p.tp{ overflow:hidden; border-bottom:2px solid #7ac49f;font-size: 16px}
 .article_box_bottom p.tp a:hover{ color:#00ad28;}
 .ari_xg_tui{ width:100%;}
-.ari_xg_tui li{ float:left; width:50%; line-height:30px; height:30px; overflow:hidden;}
+.ari_xg_tui li{ float:left; width:50%; line-height:30px; height:30px; overflow:hidden;font-size: 16px;}
 /*---------------------------------------------------装修学堂详情页样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------知识问答样式开始---------------------------------------------------*/
