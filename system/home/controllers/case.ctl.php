@@ -114,7 +114,9 @@ class Ctl_Case extends Ctl
         $this->seo->init('case', $seo);
         $this->tmpl = 'case/items.html';
 	}
-
+	public function decorationCase(){
+		$this->tmpl = 'case/default.html';
+	}
 	public function album($page = 1)
 	{
         $pager = $filter = $attrs = $attr_ids = $attr_vids = $attr_value_ids = $attr_value_titles = array();

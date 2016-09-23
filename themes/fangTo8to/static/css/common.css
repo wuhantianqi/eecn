@@ -1,0 +1,180 @@
+﻿@charset "utf-8";
+/*一些常用样式自定义文件*/
+.clearfix:after {
+    content:'\200B';
+    display:block;
+    height:0;
+    clear:both;
+}
+.clearfix {
+    *zoom:1;
+}
+/*不兼容ie8 多栏多列响应布局 父元素直接引用.flex  子元素要自己定义flex/box-flex值。box和flex一起写是为了兼容多种浏览器*/
+.flex{
+    display: flex;			 /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: -webkit-flex;	 /* NEW - Chrome */
+    display: box;			  /* OLD - Android 4.4- */
+    display: -webkit-box;	  /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;		 /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;	  /* TWEENER - IE 10 */
+}
+/*配合flex使用*/
+.flex-row{
+    display: block;
+    flex:1;
+    -webkit-flex: 1;       /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-flex: 1;           /* OLD - Firefox 19- */
+    -ms-flex: 1;                 /* IE 10 */
+    box-flex: 1;                      /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-flex: 1;       /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;           /* OLD - Firefox 19- */
+    -ms-box-flex: 1;                 /* IE 10 */
+}
+.fn-left{
+    float:left;
+}
+.fn-right{
+    float: right;
+}
+.show {
+    display: block !important;
+}
+.hide {
+    display: none !important;
+}
+
+.icon {
+    display: inline-block;
+    background: url("../images/icon.png") no-repeat;
+}
+.icon_new {
+    display: inline-block;
+    background: url("../images/icon_new.png") no-repeat;
+}
+
+.pop_mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+}
+.pop_mask .pop_box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    padding: 25px 15px;
+    background-color: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, .7);
+    border-radius: 4px;
+}
+.orange{
+    color: #ffb11a;
+}
+
+/*改变placeholder 颜色*/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{ /* WebKit browsers */
+    color: #ccc;
+}
+input:-moz-placeholder, textarea::-webkit-input-placeholder{ /* Mozilla Firefox 4 to 18 */
+    color:  #ccc;   
+}
+input::-moz-placeholder, textarea::-webkit-input-placeholder{ /* Mozilla Firefox 19+ */
+    color:  #ccc;
+}
+input:-ms-input-placeholder,textarea::-webkit-input-placeholder { /* Internet Explorer 10+ */
+    color:  #ccc;
+}
+
+
+/**友情链接**/
+
+.footer-links{
+    width: 100%;
+    overflow: hidden;
+}
+.links{
+    width: 1180px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.links-top{
+    width: 100%;
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.links-top ul{
+    float: left;
+}
+.links-top ul li{
+    float: left;
+    margin-right: 25px;
+    cursor: pointer;
+    color: #999;
+    font-size: 14px;
+}
+.links-top ul li.links-add{
+    color: #666;
+    border-bottom: 2px solid #999;
+    height: 33px;
+}
+.links-top a{
+    float: right;
+    font-size: 12px;
+    color: #959595;
+}
+.links-top ul li:hover,.links-top a:hover{
+    color: #00b7b1;
+}
+.links-content{
+    width: 100%;
+    overflow: hidden;
+}
+.links-one{
+    padding:5px 0 ;
+    overflow: hidden;
+    line-height: 22px;
+}
+.links-one a{
+    margin-right: 20px;
+    float: left;
+    font-size: 12px;
+    color: #999;
+}
+.links-one a:hover{
+    color: #00b7b1;
+}
+.links-footer{
+    width: 100%;
+    overflow: hidden;
+    margin: 8px 0 12px 0;
+    color: #999;
+    font-size: 12px;
+}
+.links-left{
+    width: 50%;
+    float: left;
+}
+.links-left p{
+    width: 100%;
+    line-height: 16px;
+}
+.links-right{
+    float: right;
+    width: 253px;
+    height: 27px;
+    background: url(../images/foot-link.png);
+}
+.links-right a{
+    width: 75px;
+    height: 27px;
+    margin-left: 9px;
+    float: left;
+}
