@@ -111,20 +111,22 @@ hr {
     border-top: 2px solid #ff4401;
 }
 .ten_top {
-    width: 258px;
+    width: 240px;
     padding: 10px;
     overflow: hidden;
 }
 .ten_top input{
-	width: 250px;
+	width: 229px;
     height: 30px;
     margin-top: 13px;
+    border: 2px solid #f8f8f8;
 }
 select.text{
-	width: 65px;
+	width: 56px;
 	margin-top:15px;
 	height: 34px;
     line-height: 34px;
+    border: 2px solid #f8f8f8;
 }
 select.text:last-child{
 	width:119px;
@@ -276,10 +278,13 @@ select.text:last-child{
 	height: 360px;
     overflow: hidden;
     float: left;
-    border: 1px solid #f8f8f8;
-    -webkit-box-shadow: 0 1px 1px 1px rgba(0,0,0,.2),0 5px 10px -5px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04);
-    -moz-box-shadow: 0 1px 1px 1px rgba(0,0,0,.2),0 5px 10px -5px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04);
-    box-shadow: 0 1px 1px 1px rgba(0,0,0,.2),0 5px 10px -5px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04),0 5px 5px -10px rgba(0,0,0,.04);
+    background:#f8f8f8;
+}
+.banner_left_con{
+	width: 260px;
+	height:351px;
+	margin:0 auto;
+	background: #FFF;
 }
 .product-list .zbh {
     background: url(../images/index-22.png) no-repeat center 100px #fff4e7;
@@ -300,10 +305,11 @@ select.text:last-child{
     background: url(../images/index-44.png) no-repeat center 100px #f2f8ec;
 }
 .banner_left h1{
-	font-size: 26px;
+	font-size: 24px;
     text-align: center;
     color:red;
-    margin-top:10px;
+    margin-top:4px;
+    line-height: 50px;
 }
 .banner_left .banner_p{
 	text-align:center;
