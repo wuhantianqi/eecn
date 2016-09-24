@@ -91,8 +91,7 @@
 	<div class="mainwd">
 	    <h2 style="text-align: center;font-size: 30px;line-height: 50px;">装修攻略</h2>
 	    <p style="text-align: center;font-size: 14px;line-height: 30px;">学习更多装修实用经验，避免装修猫腻</p>
-	    <div class="area mb30" style="margin-top: 30px;width: 662px;float: left;">
-        <div class="lt xue_lunz"><{adv id="7" name="学装修首页热点推荐轮转" city_id=$request.city_id}></div>
+	    <div class="area mb30" style="margin-top: 30px;width: 785px;float: left;">
         <div class="lt content_top">
             <ul class="content_top_t">
                <{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="3"}>
@@ -113,15 +112,8 @@
         </div>
         <div class="cl"></div>
 	</div>
-    <div class="rt area pding cont_item_rt cont_item_rt_wenda" style="width: 479px;">
-		<ul class="article_list">
-			<{calldata mdl="article/cate" parent_id=8 from='article' hidden='0'}>
-			<li>
-				<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
-				<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
-			</li>
-			<{/calldata}>
-		</ul>
+    <div class="rt area pding cont_item_rt cont_item_rt_wenda" style="width: 340px;">
+		<div class="lt xue_lunz"><{adv id="7" name="学装修首页热点推荐轮转" city_id=$request.city_id}></div>
 	</div>
         <div style="float: left;width: 100%;margin-top:40px;">
         <h1 class="article_in_title"><span class="lt">装修流程</span><a href="<{link ctl='article:items' arg0=8 arg1=1}>" target="_blank" class="rt">更多</a></h1>

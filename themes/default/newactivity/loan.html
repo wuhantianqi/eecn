@@ -280,37 +280,5 @@
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe23a5c16caa31e56b2f68055571aa122' type='text/javascript'%3E%3C/script%3E"));
 </script><script type="text/javascript" charset="utf-8" src="/themes/default/static/js/statistic.js"></script>
 <!-- 弹出层 -->
-<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<script src="<{$pager.res}>/layer/layer.js"></script>
-<script>
-;!function(){
 
-//页面一打开就执行，放入ready是为了layer所需配件（css、扩展模块）加载完毕
-layer.ready(function(){ 
-
-  //官网欢迎页
-  layer.open({
-    type: 2,
-    skin: 'layui-layer-lan',
-    title: 'layer弹层组件',
-    fix: false,
-    shadeClose: true,
-    maxmin: true,
-    area: ['1000px', '500px'],
-    content: 'http://layer.layui.com/?form=local',
-    end: function(){
-      layer.tips('试试相册模块？', '#photosDemo', {tips: 1})
-    }
-  });
-  
-  //layer.msg('欢迎使用layer');
-  
-  //使用相册
-  layer.photos({
-    photos: '#photosDemo'
-  });
-});
-
-}();
-</script>
 </html>

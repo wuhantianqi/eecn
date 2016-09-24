@@ -23,6 +23,7 @@ ul.article_list{
 }
 .zbform h5{
 	color: #888;
+	font-weight: 100;
 }
 .cont_item_rt ul{
 	background-color: #fafafa;
@@ -86,6 +87,9 @@ ul.article_list{
 	height: 86px;
 	font-size: 16px;
 	width: 822px;
+}
+.zh-side-list>ul>li p a{
+	color:#888;
 }
 .zh-side-list>ul>li span{
 	height: 21px;
