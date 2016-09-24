@@ -13,13 +13,22 @@ ul.article_list{
 	margin-top: 20px;
 }
 .zbform{
-	background-color: #01b061;
+	background: #fbfbfb url(../images/zh-form-bg.png) no-repeat center bottom;
 }
 .pding{
 	padding: 0;
 }
+.zbform h2,.zbform p,.zbform input, .zbform select{
+	color: #000;
+}
+.zbform h5{
+	color: #888;
+}
+.cont_item_rt ul{
+	background-color: #fafafa;
+}
 .zh-side-list{
-	width: 880px;
+	width: 840px;
 	float: right;
 }
 .zh-side-list>h2{
@@ -32,7 +41,10 @@ ul.article_list{
 	font-size: 18px;
 	float: left;
 }
-.zh-side-list>h2>a{
+.zh-side-list>h2>div{
+	float: right;
+}
+.zh-side-list>h2>div>a{
 	font-size: 14px;
 	height: 20px;
 	line-height: 20px;
@@ -41,7 +53,7 @@ ul.article_list{
 	margin-top: 8px;
 	padding: 3px 12px;
 }
-.zh-side-list>h2>a:hover{
+.zh-side-list>h2>div>a:hover{
 	background-color: #ff4401;
 	color: #fff;
 }
@@ -73,7 +85,7 @@ ul.article_list{
 	color: #666;
 	height: 86px;
 	font-size: 16px;
-	width: 862px;
+	width: 822px;
 }
 .zh-side-list>ul>li span{
 	height: 21px;

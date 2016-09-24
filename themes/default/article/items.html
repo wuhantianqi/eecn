@@ -31,9 +31,11 @@
     <div class="zh-side-list">           
    		<h2>
    			<span><{$top_cate.title}></span>
+   			<div>
             <{if $childrens}>
                <{foreach $childrens as $v}><a href="<{link ctl='article:items' arg0=$v.cat_id arg1=1}>" <{if $v.cat_id==$cate.cat_id}>class="current"<{/if}>><{$v.title}></a><{/foreach}>
-            <{/if}>
+            <{/if}>	
+   			</div>
    		</h2>
    		<ul>
             <{foreach $items as $item}>
