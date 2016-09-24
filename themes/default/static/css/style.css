@@ -491,9 +491,9 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 
 /*右边招标样式开始*/
 .sub_content{ width:100%;}
-.side_content{ width:250px; position: absolute; right:12%; top:32%;}
+.side_content{ width:250px; float:right;}
 .side_content .side_content_kon{
-	height:30px;
+	height:20px;
 }
 .mb20 .side_content{
 	float:left;

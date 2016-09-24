@@ -83,7 +83,7 @@
 		<{/if}>
 		<{/if}>		
 	</div>
-	<div class="side_content rt">
+	<div class="side_content rt side_content_wen rt_wenz">
 		<{widget id="tenders/fast" title="免费装修设计" from="TSJ"}>
 		<div class="side_content_kon"></div>
 		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
@@ -97,22 +97,31 @@
 <!-- 右边固定条 -->
 <script type="text/javascript">
 	$(document).ready(function(){
+		var scrollbottom =document.body.scrollHeight -1223;
 		$(document).scroll(function(){
-			if( ($(document).scrollTop() - $(".side_content").position().top) >= -53 ){
-				$(".side_content").css({
+			if( $(document).scrollTop() >= 125 ){
+				$(".rt_wenz").addClass("side_content_wen");
+				$(".side_content_wen").css({
 					'position':'fixed',
 					'right':'12%',
 					'top':'10%',
 				});
-			}else if( ($(document).scrollTop() - $(".side_content").position().top) <= -53 ){
-				$(".side_content").css({
-					'position':'absolute',
-					'right':'12%',
-					'top':'32%',
-				});
+				console.log(document.body.scrollHeight -1223 +"==="+$(document).scrollTop());
+			}else if( $(document).scrollTop() <= 125 ){
+				$(".rt_wenz").removeClass("side_content_wen");
+				$(".rt_wenz").removeAttr("style");
 			}
-		    // console.log($(window).height() );
-		    
+			if($(document).scrollTop() >= scrollbottom){
+				$(".side_content_wen").css({
+					'position':'fixed',
+					'right':'12%',
+					'top':'0%',
+					// 'bottom':'34%',
+				});
+				$(".rt_wenz ul").slideUp(10);
+			}else{
+				$(".rt_wenz ul").slideDown(1000);
+			}
 		})
 	})  
 </script>

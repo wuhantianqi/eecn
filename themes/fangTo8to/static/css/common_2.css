@@ -110,14 +110,17 @@ a.on{ color:#00b7b1;}
 .tit h3:after{ right:0;}
 .abslink{ position:absolute; right:0; bottom:0; font:12px/1.2 "simsun"; color:#999;}
 .priority{ margin-left:-20px; margin-bottom: 35px;}
-.priority-list li{ float:left; position:relative; margin:0 0 15px 18px;*margin:0 0 15px 17px; height:192px; border:1px solid #f8f8f8; transition:border-color linear .2s;}
+.priority-list li{ float:left; position:relative; margin:0 0 15px 19px;*margin:0 0 15px 17px; height:192px; border:1px solid #f8f8f8; transition:border-color linear .2s;}
 .priority-list li:hover{ border-color:#00b7b1;}
 .priority-list .infotxt{ line-height:30px;}
 .pri-img img{ width:280px; height:190px;}
-.priority-list li.pri-1{ width:582px; *width:580px; height:387px;}
+.priority-list li.pri-1{ width:579px; *width:580px; height:387px;}
 .pri-1 .pri-img img{ width:580px; height:385px;}
 .priority-list li.pri-4{ width:582px; *width:580px; height:182px;}
 .pri-4 .pri-img img{ width:580px; height:180px;}
+.priority-list li.pri-7{
+	margin: 0 0 15px 15px;
+}    
 
 .example{ margin-left:-18px; margin-bottom: 15px;}
 .pictxt li{ float:left; position:relative; margin:0 0 35px 17px; min-height:282px; background-color:#fff; border:1px solid #f8f8f8; transition:border-color linear .2s;}
@@ -442,4 +445,7 @@ a.on{ color:#00b7b1;}
     width: auto;
     height: 45px;
     line-height: 45px;
+}
+.footer{
+	margin-top:0px;
 }
