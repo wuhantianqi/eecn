@@ -6,7 +6,7 @@ ul,li{list-style:none;}
 a,img,a img{border:0px;}
 a{text-decoration:none;cursor:pointer; color:#666;}
 a:hover{text-decoration:underline; color:#fe7902;}
-input.text,select.text,textarea.text{outline:none; border:1px solid #e3e3e3; height:26px; line-height:26px; padding:3px 0px 3px 5px;font-size:12px; color:#555;} 
+input.text,select.text,textarea.text{border:1px solid #e3e3e3; height:26px; line-height:26px; padding:3px 0px 3px 5px;font-size:12px; color:#555;} 
 textarea{ outline:none; resize:none; border:1px solid #e3e3e3; font-size:12px;}
 input.check{ vertical-align:middle; margin-right:2px;}
 img{ vertical-align:top;}

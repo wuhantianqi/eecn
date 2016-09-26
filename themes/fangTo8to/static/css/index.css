@@ -581,8 +581,23 @@ select.text:last-child{
 	width:100%;
 	height: 150px;
 	background:#f8f8f8;
-	line-height: 200px;
     text-align: center;
+}
+.xpicture ul div{
+	float: left;
+	height: 80px;
+	position: relative;
+}
+.xpicture ul div a{
+	position: absolute;
+	bottom: -50px;
+	left: 97px;
+}
+.xpicture ul div:nth-child(1) a{
+	left: 56px;
+}
+.xpicture ul div:nth-child(5) a,.xpicture ul div:nth-child(7) a{
+	left: 92px;
 }
 .xpicture ul li{
 	width:80px;
@@ -593,38 +608,36 @@ select.text:last-child{
 	margin-left:70px;
 	margin-top: 20px;
 	position: relative;
+	transition: 1s;
 }
 .xpicture ul li:hover{
-	width:78px;
-	height:78px;
-	border-radius: 78px;
-	border:1px solid #FFF;
+	transform: rotate(360deg);
 }
-.xpicture ul li:first-child{
+.xpicture ul div:first-child li{
 	margin-left:30px;
 }
-.xpicture ul li:first-child{
+.xpicture ul div:first-child li{
 	background: url(../images/zxxgt.jpg) no-repeat;
 }
-.xpicture ul li:nth-child(2){
+.xpicture ul div:nth-child(2) li{
 	background: url(../images/zxxgt.jpg) -80px no-repeat;
 }
-.xpicture ul li:nth-child(3){
+.xpicture ul div:nth-child(3) li{
 	background: url(../images/zxxgt.jpg) -160px no-repeat;
 }
-.xpicture ul li:nth-child(4){
+.xpicture ul div:nth-child(4) li{
 	background: url(../images/zxxgt.jpg) -240px no-repeat;
 }
-.xpicture ul li:nth-child(5){
+.xpicture ul div:nth-child(5) li{
 	background: url(../images/zxxgt.jpg) -320px no-repeat;
 }
-.xpicture ul li:nth-child(6){
+.xpicture ul div:nth-child(6) li{
 	background: url(../images/zxxgt.jpg) -400px no-repeat;
 }
-.xpicture ul li:nth-child(7){
+.xpicture ul div:nth-child(7) li{
 	background: url(../images/zxxgt.jpg) -480px no-repeat;
 }
-.xpicture ul li:nth-child(8){
+.xpicture ul div:nth-child(8) li{
 	background: url(../images/zxxgt.jpg) -560px no-repeat;
 }
 .Reliable{
