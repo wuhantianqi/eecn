@@ -451,6 +451,9 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .main_content_wenda{
 	width:900px;
 }
+.mainwd_float_wen{
+	position: relative;
+}
 .main_content_yan{
 	width:900px;
 }
@@ -493,7 +496,7 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .sub_content{ width:100%;}
 .side_content{ width:250px; float:right;}
 .side_content .side_content_kon{
-	height:20px;
+	height:10px;
 }
 .mb20 .side_content{
 	float:left;
@@ -513,7 +516,7 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 }
 .zbform{ background:#eeeeee; border:2px solid #ff4401; padding:10px; text-align:center;}
 .zbform h2{ line-height: 40px; margin:15px 0; color: #fff; font-size:32px; font-family:"微软雅黑";}
-.zbform h5{ color: #fff; font-size:12px; text-align:left; padding-top:10px;}
+.zbform h5{ color: #fff; font-size:12px; text-align:left; padding-top:10px; font-weight: 100}
 .zbform p{ color: #fff; font-size:16px; font-family:"微软雅黑";}
 
 .zbform input,.zbform select{ margin:6px 0px; border:1px solid #ffffff;}
@@ -1153,7 +1156,7 @@ h1.article_in_title a{ font-size:12px; margin-top:15px; height:24px; line-height
 /*---------------------------------------------------装修学堂详情页样式开始---------------------------------------------------*/
 .article_box h1{ text-align:center;}
 .article_box p.tp{ margin:10px 0px;}
-.article_box .daoyu{ padding:10px;font-size: 14px;background:#f8f8f8;color:#555; }
+.article_box .daoyu{     padding: 28px;font-size: 16px;line-height: 32px;background:#f8f8f8;color:#555; }
 .article_box_text{ width:100%; margin-top:10px;font-size: 14px;text-indent:2em;}
 p.img{ text-align:center; margin:10px auto;}
 .article_box_bottom {overflow:hidden;}
@@ -1720,6 +1723,11 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 .main_coupon_box_intro{overflow:hidden; width:190px;}
 .main_coupon_box_intro p{ height:28px; overflow:hidden;}
 /*优惠券页面样式结束*/
+.article_box_gu h1{
+	margin-top:40px;
+	font-size: 24px;
+	font-weight: 800;
+}
 .bx-wrapper{ z-index:0;box-shadow: 2px 2px 2px 1px #888;}
 
 .personAd{ width:200px; height:150px; overflow:hidden;}

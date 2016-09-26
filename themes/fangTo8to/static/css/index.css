@@ -181,7 +181,7 @@ select.text:last-child{
     color: #444;
     font-size: 16px;
     text-align: center;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 }
 .banner .banner_right ul li .list-item .item-p-2 {
     color: #999;
@@ -309,7 +309,7 @@ select.text:last-child{
     text-align: center;
     color:red;
     margin-top:4px;
-    line-height: 50px;
+    padding-top: 15px;
 }
 .banner_left .banner_p{
 	text-align:center;
@@ -329,7 +329,7 @@ select.text:last-child{
 .menu_list_ep{
 	width: 92%;
     margin: 0 auto;
-    margin-top:20px;
+    margin-top:5px;
 }
 .banner_left .input-group .form-control{
 	width:96%;

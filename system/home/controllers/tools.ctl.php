@@ -23,8 +23,8 @@ class Ctl_Tools extends Ctl
             'chuanlian' => '窗帘计算器',
             'bizhi' => '壁纸计算器',
             'diban' => '地板计算器',
-            'anjie' => '按揭贷款计算器',
-            'denge' => '等额本金还贷计算器'
+            // 'anjie' => '按揭贷款计算器',
+            // 'denge' => '等额本金还贷计算器'
         );    
         $this->pagedata['tools_array'] = $tools_array;
         if(empty($tool) || !isset($tools_array[$tool])){

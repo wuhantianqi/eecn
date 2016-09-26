@@ -79,10 +79,11 @@ if (danbao) danbao.value = Math.round(temp9*100)/100;
 	<!--主体左边内容开始-->
 	<div class="about_lt lt">
 		<ul>
-			<{foreach $tools_array as $k => $item}>
-			<li><a <{if $tool == $k}> class="current" <{/if}> href="<{link ctl='tools' arg0=$k}>"><{$item}></a>
-			</li>
-			<{/foreach}>
+             <{foreach $tools_array as $k => $item}>
+                     <li><p><i></i></p>
+                        <a href="<{link ctl='tools' arg0=$k}>"><{$item}></a>
+                    </li>
+            <{/foreach}>
 		</ul>
 	</div>
 	<!--主体左边内容结束-->

@@ -9,9 +9,10 @@
 	</div>
 </div>
 <!--面包屑导航结束-->
-<div class="mainwd mainwd_float">
+<div class="mainwd mainwd_float mainwd_float_wen">
 	<div class="main_content lt main_content_wenda">
-		<div class=" area pding mb10 article_box">
+		<{adv id="49" name="文章页顶部广告位" city_id=$request.city_id}>
+		<div class=" area pding mb10 article_box article_box_gu">
 			<h1><{$detail.title}></h1>
 			<p class="graycl tp">
 				<span class="lt"><font class="fontcl2"><{$detail.views}></font>人已浏览   时间 : <{$detail.dateline|format}></span>
@@ -88,35 +89,34 @@
 		<div class="side_content_kon"></div>
 		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
 		<div class="side_content_kon"></div>
-		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
+		<{adv id="47" name="文章页右下角广告位2" city_id=$request.city_id}>
 		<div class="side_content_kon"></div>
-		<{adv id="46" name="文章页右下角广告位1" city_id=$request.city_id}>
+		<{adv id="48" name="文章页右下角广告位3" city_id=$request.city_id}>
 	</div>
 	<div class="cl"></div>
 </div>
 <!-- 右边固定条 -->
 <script type="text/javascript">
 	$(document).ready(function(){
-		var scrollbottom =document.body.scrollHeight -1223;
+		
 		$(document).scroll(function(){
+			var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
 			if( $(document).scrollTop() >= 125 ){
 				$(".rt_wenz").addClass("side_content_wen");
 				$(".side_content_wen").css({
-					'position':'fixed',
-					'right':'12%',
-					'top':'10%',
+					'position':'absolute',
+					'right':'0px',
+					'top': $(document).scrollTop()-160+'px',
 				});
-				console.log(document.body.scrollHeight -1223 +"==="+$(document).scrollTop());
+				console.log(scrollBottom);
 			}else if( $(document).scrollTop() <= 125 ){
 				$(".rt_wenz").removeClass("side_content_wen");
 				$(".rt_wenz").removeAttr("style");
 			}
-			if($(document).scrollTop() >= scrollbottom){
+			if( scrollBottom <= 580 ){
 				$(".side_content_wen").css({
-					'position':'fixed',
-					'right':'12%',
-					'top':'0%',
-					// 'bottom':'34%',
+					'position':'absolute',
+					'right':'0px',
 				});
 				$(".rt_wenz ul").slideUp(10);
 			}else{

@@ -102,30 +102,12 @@ form.floor_width.value=192;
 <div class="subwd mb20">
 	<!--主体左边内容开始-->
 	<div class="about-lt lt">
-		<!--<ul>-->
-             <!--<{foreach $tools_array as $k => $item}>-->
-                     <!--<li><a <{if $tool == $k}> class="current" <{/if}> href="<{link ctl='tools' arg0=$k}>"><{$item}></a></li>-->
-            <!--<{/foreach}>-->
-		<!--</ul>-->
-        <ul>
-            <li class="about-1"><p><i></i></p>
-                <a href="#">涂料计算器</a>
-            </li>
-            <li class="about-2"><p><i></i></p>
-                <a href="#">地板计算器</a>
-            </li>
-            <li class="about-3"><p><i></i></p>
-                <a  href="#">壁纸计算器</a>
-            </li>
-            <li class="about-4"><p><i></i></p>
-                <a href="#">墙砖计算器</a>
-            </li>
-            <li class="about-5"><p><i></i></p>
-                <a href="#">窗帘计算器</a>
-            </li>
-            <li class="about-6"><p><i></i></p>
-                <a href="#">地砖计算器</a>
-            </li>
+		<ul>
+             <{foreach $tools_array as $k => $item}>
+                     <li><p><i></i></p>
+                        <a href="<{link ctl='tools' arg0=$k}>"><{$item}></a>
+                    </li>
+            <{/foreach}>
         </ul>
 	</div>
 	<!--主体左边内容结束-->
