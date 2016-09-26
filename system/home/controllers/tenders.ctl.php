@@ -31,7 +31,9 @@ class Ctl_Tenders extends Ctl
             $this->pagedata['items'] = $items;
         }     
     }
-
+	public function znbj(){
+		$this->tmpl = 'tenders/znbj.html';
+	}
     public function detail($tenders_id)
     {
         if(!$tenders_id = (int)$tenders_id){

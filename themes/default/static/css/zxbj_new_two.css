@@ -1,0 +1,290 @@
+﻿/**
+ * Created by Amy.gao on 20160413.
+ */
+.con h1, .con h3 {
+    font-weight: normal;
+}
+i {
+    font-style: normal;
+}
+.con {
+    width: 980px;
+    margin: 0 auto;
+    color: #333;
+}
+.con_t {
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+.con_bj {
+    overflow: hidden;
+    position: relative;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 0 10px #ccc;
+    background: #fff \9;
+}
+.con_bj h3 {
+    font-size: 20px;
+}
+.con_bj_cal {
+    position: relative;
+    width: 409px;
+    padding: 50px 40px 30px;
+    border-right: 1px solid #eee;
+}
+.bj_form {
+    width: 370px;
+    padding-top: 30px;
+    font-size: 14px;
+}
+.bj_form .label {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    margin-left: 0
+}
+.bj_form .element {
+    width: 265px;
+    position: relative;
+    padding-bottom: 18px;
+}
+.bj_form .select {
+    width: 255px;
+    padding-left: 5px;
+    height: 36px;
+}
+.bj_form .select_s {
+    width: 122px;
+    margin-right: 10px;
+}
+.bj_form .select_s_s {
+    width: 78px;
+    margin-bottom: 10px;
+}
+.bj_form .text {
+    width: 233px;
+    font-size: 16px;
+}
+.bj_form .area_text {
+    width: 223px;
+    font-size: 16px;
+    padding: 7px 20px 7px 10px;
+}
+.bj_form .text_wrap {
+    position: static;
+}
+.bj_form .text_wrap .text_lbl {
+    left: 11px;
+}
+.bj_form .text_wrap .unit {
+    margin-left: -32px;
+    color: #bbb;
+}
+.bj_form .form_error {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    font-size: 12px;
+}
+.ele_b {
+    margin-left: -10px;
+}
+.ele_bt {
+    float: left;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.ele_bt_on {
+    color: #f36f20;
+    border-color: #f36f20;
+}
+.calc-btn {
+    position: absolute;
+    top: 120px;
+    right: -75px;
+    display: block;
+    width: 142px;
+    height: 142px;
+    background: url(../images/learn/zxbj_calc.jpg) no-repeat;
+    background-position: 0 0;
+}
+.calc-btn:active {
+	background-position: -331px 0;
+}
+.calc-btn.recalc {
+    background-position: 0 -168px;
+}
+.calc-btn.recalc:active {
+    background-position: -332px -168px;
+}
+.con_bj_res {
+    width: 340px;
+    padding: 45px 50px 0 0;
+    color: #333;
+    font-size: 14px;
+}
+.bj_res_t {
+    line-height: 35px;
+    font-size: 20px;
+    text-align: center;
+}
+.bj_res_t b {
+    display: inline-block;
+    font-weight: normal;
+    width: 78px;
+    text-align: center;
+    color: #f36f20;
+    font-size: 28px;
+}
+.bj_res_t span {
+    font-size: 14px;
+}
+.bj_res_ul {
+	padding: 22px 0;
+    margin: 26px auto 0;
+    border: 1px solid #ddd;
+}
+.bj_res_ul li {
+    height: 40px;
+    line-height: 40px;
+}
+.bj_res_ul li span {
+    float: left;
+    width: 50%;
+    height: 40px;
+    text-align: right;
+    font-size: 14px;
+}
+.bj_res_ul li.let_spac {
+    border-bottom: none;
+}
+.bj_res_ul li strong {
+    float: left;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+    text-align: left;
+    font-size: 12px;
+}
+.bj_res_ul li strong em {
+    font-style: normal;
+    margin-left: 18px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+.let_spac i {
+    padding: 0 21px;
+}
+.bj_res_ul li b {
+    display: inline-block;
+    width: 107px;
+    margin: 0 15px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #eaeaea;
+    font-weight: normal;
+    color: #f36f20;
+    font-size: 20px;
+}
+.bj_res_tip {
+    color: #999;
+    text-align: center;
+    padding-top: 15px;
+}
+.res_btn_box {
+    width: 220px;
+    height: 42px;
+    margin: 0 auto 40px;
+}
+.res_btn {
+    display: block;
+    width: 220px;
+    height: 42px;
+    line-height: 34px;
+    color: #999;
+    font-size: 16px;
+    background: url('../images/bj_btn_bg.png') no-repeat center 0;
+    text-align: center;
+}
+.res_btn:hover {
+    color: #999;
+}
+.res_btn.active {
+    background: url('../images/bj_btn_bg.png') no-repeat center bottom;
+    color: #fff;
+}
+.res_btn.active:hover {
+    color: #fff;
+}
+.zxbj_info .info_hd h3 em {
+    font-size: 12px;
+    padding-left: 5px;
+}
+/* 在线报价详细页修改 */
+.zxbj_details {
+    padding-top: 140px;
+    background: url("../images/learn/bjdetail_bg.jpg") no-repeat center 0;
+}
+.zxbj_details .con {
+
+}
+.calputer_tit span {
+    margin-left: 10px;
+    color: #f36f20;
+    font-size: 12px;
+}
+.con_bj_res .bj_explain {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.con_bj_res .bj_explain p {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 10px;
+    line-height: 24px;
+    color: #999;
+    font-size: 12px;
+}
+.con_bj_res .bj_explain p b {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.label_start {
+    float: right;
+    font-size: 24px;
+    color: #fe5f00;
+    font-family: Arial;
+    margin-top: 5px;
+}
+.toolbar_header_center_left ul li em.sjbj_hot {
+    display: none;
+}
+.calputer_tit .num_man {
+    margin: 0 2px;
+}
+.con_bj_res  .bj_explain .attention {
+	color: #f36f20;
+}
+.to8to_zj {
+	margin-left: 10px;
+	font-size: 14px;
+	color: #bbb;
+}
+.text_area {
+	display: none;
+	position: absolute;
+	top: 40px;
+	left: 0;
+	font-size: 12px;
+	color: #f79c33;
+}
