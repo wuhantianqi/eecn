@@ -496,3 +496,7 @@ a.ing{
 .zh-friend ul li:first-child{
 	font-size: 18px;
 }
+
+.zh-content .tool{
+	margin-bottom: 50px;
+}
