@@ -9,10 +9,10 @@
 		var screenWidth = $banner.width();		
 		var count = $banner.find('li').size();
 		$banner.find("ul").width(screenWidth*count);
-		$banner.find("ul").height(screenWidth*xwh);
-		$banner.height(screenWidth*xwh);
-		$banner.find('li').width(screenWidth).height(screenWidth*xwh);
-		$banner.find('li img').width(screenWidth+10).height(screenWidth*xwh);		
+		$banner.find("ul").height(xwh);
+		$banner.height(xwh);
+		$banner.find('li').width(screenWidth).height(xwh);
+		$banner.find('li img').width(screenWidth+10).height(xwh);		
 		var flipsnap = Flipsnap(elm+" ul");
 		flipsnap.element.addEventListener('fstouchend', function(ev) {
 			$('.identify em').eq(ev.newPoint).addClass('cur').siblings().removeClass('cur');

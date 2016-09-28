@@ -144,30 +144,3 @@ p.zh-m-copy-right{
     color: #444444;
     margin-bottom: 2.16rem;
 }
-.zh-m-apply-entrance{
-	width: 100%;
-	position: fixed;
-	bottom: 0;
-	line-height: 2.18rem;
-}
-.zh-m-apply-entrance .zh-m-consult{
-	width: 40%;
-	float: left;
-	text-align: center;
-	font-size: 0.64rem;
-	color: #999;
-	background-color: #fff;
-	position: relative;
-	background-image: url(../images/m-consult.png);
-	background-repeat: no-repeat;
-	background-position: 16% 50%;
-	background-size: 0.64rem 0.6rem;
-}
-.zh-m-apply-entrance .zh-m-apply{
-	width: 60%;
-	float: left;
-	text-align: center;
-	font-size: 0.64rem;
-	color: #fff;
-	background-color: #00b7b1;
-}

@@ -8,8 +8,8 @@ span.search_ico{ width:18px; height:18px; background-position:-8px 0px; margin-t
 .content{ max-width:640px; margin:auto; border:1px solid #e3e3e3; overflow:hidden;}
 a.city_link{ font-size:12px;}
 /*头部样式结束*/
-.app_ico{ display:inline-block; background:url(../images/app_ico.png) no-repeat; padding:0px 1px; vertical-align:middle;}
-
+/*.app_ico{ display:inline-block; background:url(../images/app_ico.png) no-repeat; padding:0px 1px; vertical-align:middle;}*/
+.app_ico{ display:inline-block; font-size:12px; padding:0px 1px; vertical-align:middle;}
 /*底部招标样式开始*/
 .tender{ background:#f5f5f5; border-top:1px solid #ccc; height:44px; position:fixed; left:0px; bottom:0px; width:100%; line-height:30px;}
 .tender_cont{ padding:5px 5px 0px 5px;}
@@ -17,8 +17,8 @@ a.city_link{ font-size:12px;}
 /*底部招标样式结束*/
 
 /*底部样式开始*/
-.footer{ background:#f5f5f5; border-top:1px solid #ccc;height:100px;width:100%;}
-.footer_cont{ padding:15px 5px 0px 5px;text-align: center;}
+.footer{ background:#f5f5f5; border-top:1px solid #ccc;height:45px;width:100%;}
+.footer_cont{ padding:3px 5px 0px 5px;text-align: center;}
 .footer_cont font{ margin-right:10px;}
 .footer_cont p font.on{ color:#00af43; font-size: 14px;cursor: pointer;}
 .footer_cont p font.f12{font-size: 12px;}
@@ -429,3 +429,29 @@ span.gw_price{ position:absolute; right:5px; background:#f5f5f5; top:-5px;}
 }
 #toast-container.toast-top-full-width{top:100px;}#toast-container.toast-bottom-full-width{bottom: 100px;}
 #toast-container.toast-top-full-width>div,#toast-container.toast-bottom-full-width>div{width: 96%;max-width: 630px;margin:auto;}
+/*底部*/
+.zh-m-apply-entrance{
+	width: 100%;
+	line-height: 1.8rem;
+}
+.zh-m-apply-entrance .zh-m-consult{
+	width: 40%;
+	float: left;
+	text-align: center;
+	font-size: 0.64rem;
+	color: #999;
+	background-color: #fff;
+	position: relative;
+	background-image: url(../images/m-consult.png);
+	background-repeat: no-repeat;
+	background-position: 16% 53%;
+	background-size: 0.64rem 0.6rem;
+}
+.zh-m-apply-entrance .zh-m-apply{
+	width: 60%;
+	float: left;
+	text-align: center;
+	font-size: 0.64rem;
+	color: #fff;
+	background-color: #00b7b1;
+}
