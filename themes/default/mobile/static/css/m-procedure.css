@@ -1,0 +1,152 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0;padding: 0;}
+img{border: none;width: 100%;vertical-align: top;}
+a{text-decoration: none;}
+li{list-style: none;}
+
+.zh-procedure-banner{
+	width: 100%;
+}
+
+.zh-procedure-before,.zh-procedure-ing,.zh-procedure-after{
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+.zh-procedure-before img{
+
+}
+.before-title{
+	position: absolute;
+	width: 78%;
+	top: 7%;
+	left: 19%;
+	font-size: 20px;
+	font-weight: 700;
+	border-bottom: 1px solid #e5e5e5;
+}
+.before-title span{
+	font-size: 14px;
+	color: #333;
+	font-weight: 500;
+}
+.zh-procedure-before ul li{
+	position: absolute;
+}
+.zh-procedure-before ul li a{
+	font-size: 16px;
+	line-height: 21px;
+	border-bottom: 1px solid;
+}
+.zh-procedure-before ul li p{
+	line-height: 14px;
+	font-size: 12px;
+	color: #999999;
+}
+.zh-procedure-before ul li:nth-child(1){
+	top: 16.5%;
+	left: 24%;
+}
+.zh-procedure-before ul li:nth-child(2){
+	text-align: right;
+	top: 32.5%;
+	right: 23%;
+}
+.zh-procedure-before ul li:nth-child(3){
+	top: 49.5%;
+	left: 24%;
+}
+.zh-procedure-before ul li:nth-child(4){
+	text-align: right;
+	top: 64.5%;
+	right: 23%;
+}
+.zh-procedure-before ul li:nth-child(5){
+	top: 81.5%;
+	left: 24%;
+}
+.zh-procedure-ing {
+	background-color: #fafafa;
+}
+.ing-title{
+	top: 3%;
+}
+.zh-procedure-ing ul li{
+	position: absolute;
+}
+.zh-procedure-ing ul li a{
+	font-size: 16px;
+	line-height: 21px;
+	border-bottom: 1px solid;
+}
+.zh-procedure-ing ul li p{
+	line-height: 14px;
+	font-size: 12px;
+	color: #999999;
+}
+.zh-procedure-ing ul li:nth-child(1){
+	top: 11.5%;
+	left: 24%;
+}
+.zh-procedure-ing ul li:nth-child(2){
+	text-align: right;
+	top: 23.5%;
+	right: 23%;
+}
+.zh-procedure-ing ul li:nth-child(3){
+	top: 33.5%;
+	left: 24%;
+}
+.zh-procedure-ing ul li:nth-child(4){
+	text-align: right;
+	top: 44.5%;
+	right: 23%;
+}
+.zh-procedure-ing ul li:nth-child(5){
+	top: 55.5%;
+	left: 24%;
+}
+.zh-procedure-ing ul li:nth-child(6){
+	text-align: right;
+	top: 66.5%;
+	right: 24%;
+}
+.zh-procedure-ing ul li:nth-child(7){
+	top: 76.5%;
+	left: 24%;
+}
+.zh-procedure-ing ul li:nth-child(8){
+	text-align: right;
+	top: 87.5%;
+	right: 24%;
+}
+.after-title{
+	left: initial;
+	right: 18%;
+	top: 3%;
+	text-align: right;
+	
+}
+.zh-procedure-after ul li{
+	position: absolute;
+}
+.zh-procedure-after ul li a{
+	font-size: 16px;
+	line-height: 21px;
+	border-bottom: 1px solid;
+}
+.zh-procedure-after ul li p{
+	line-height: 14px;
+	font-size: 12px;
+	color: #999999;
+}
+.zh-procedure-after ul li:nth-child(1){
+	text-align: right;
+	top: 20.5%;
+	right: 24%;
+}
+.zh-procedure-after ul li:nth-child(2){
+	top: 41.5%;
+	left: 39%;
+}

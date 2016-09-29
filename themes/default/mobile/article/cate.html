@@ -1,13 +1,89 @@
 <{assign var="tpl_page_title" value="学装修分类"}>
 <{include file="mobile/block/header.html"}>
-<{foreach $article as $v}>
-<h2 class="pub_tit"><{$v.title}></h2>
-<ul class="pub_menu">
-    <{foreach $v.children as $vv}>
-    <li><a href="<{link ctl='mobile/article:items' arg0=$vv.cat_id}>"><{$vv.title}></a></li>
-    <{/foreach}>
-</ul>
-<div class="cl mb10"></div>
-<{/foreach}>
-<div class="cl"></div>
+   <link type="text/css" rel="stylesheet" href="/themes/default/mobile/static/css/m-procedure.css" />
+	   <div class="zh-procedure-banner">
+	   	<img src="/themes/default/mobile/static/images/zh-procedure-banner.png"/>
+	   </div>
+	   <div class="zh-procedure-before">
+		   	<img src="/themes/default/mobile/static/images/zh-step1.png"/>
+		   	<h2 class="before-title">「装修前」<span>约10-15天</span></h2>
+		   	<ul>
+		   		<li>
+		   			<a href="">1.房产</a>
+		   			<p>汇集最全面房产知识</p>
+		   		</li>
+		   		<li>
+		   			<a href="">2.收房</a>
+		   			<p>收房必备小常识</p>
+		   		</li>
+		   		<li>
+		   			<a href="">3.设计</a>
+		   			<p>大量装修案例供参考</p>
+		   		</li>
+		   		<li>
+		   			<a href="">4.预算</a>
+		   			<p>了解装修报价，谨防预算猫腻</p>
+		   		</li>
+		   		<li>
+		   			<a href="">5.合同</a>
+		   			<p>签约装修合同有讲究</p>
+		   		</li>
+	   	</ul>
+	   </div>
+	   <div class="zh-procedure-ing">
+		   	<img src="/themes/default/mobile/static/images/zh-step2.png"/>
+		   	<h2 class="before-title ing-title">「装修中」<span>约30-45天</span></h2>
+		   	<ul>
+		   		<li>
+		   			<a href="">1.材料</a>
+		   			<p>材料选购进场全靠它</p>
+		   		</li>
+		   		<li>
+		   			<a href="">2.拆改</a>
+		   			<p>安全拆改小常识</p>
+		   		</li>
+		   		<li>
+		   			<a href="">3.水电</a>
+		   			<p>教您自己就能水电验收</p>
+		   		</li>
+		   		<li>
+		   			<a href="">4.防水</a>
+		   			<p>防水施工细节很重要</p>
+		   		</li>
+		   		<li>
+		   			<a href="">5.泥瓦</a>
+		   			<p>挑砖捡瓦，省钱省料</p>
+		   		</li>
+		   		<li>
+		   			<a href="">6.木工</a>
+		   			<p>木工知识全知道</p>
+		   		</li>
+		   		<li>
+		   			<a href="">7.油漆</a>
+		   			<p>教您如何省钱挑好料</p>
+		   		</li>
+		   		<li>
+		   			<a href="">8安装收尾</a>
+		   			<p>安装收尾阶段不能马虎</p>
+		   		</li>
+	   	</ul>
+	   </div>
+	   <div class="zh-procedure-after">
+		   	<img src="/themes/default/mobile/static/images/zh-step3.png"/>
+		   	<h2 class="before-title after-title">「装修后」<span>约5-15天</span></h2>
+		   	<ul>
+		   		<li>
+		   			<a href="">1.软装</a>
+		   			<p>学软装布置一个漂亮的家</p>
+		   		</li>
+		   		<li>
+		   			<a href="">2.入住</a>
+		   			<p>风水和环保，一个不能少</p>
+		   		</li>
+		   		
+	   	</ul>
+	   </div>
+
+
+
 <{include file="mobile/block/footer.html"}>
