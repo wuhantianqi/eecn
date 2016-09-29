@@ -6,27 +6,21 @@
 		</div>
 		<div class="zh-m-form" id="zh-m-form">
 			<h1>免费获取装修预算</h1>
-			<p class="zh-m-under-title">请正确填写手机号码，报价结果将发送到您的手机</p>
-			<form action="" method="post">
-				<input type="text" id="" value="" placeholder="您的姓名"/>
-				<input type="text" id="" value="" placeholder="手机号码"/>
-				<div class="input">
+			<p class="zh-m-under-title">请填写手机号码，报价结果将发送到您的手机</p>
+			<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
+				<input type="hidden" name="data[from]" value="TZB" />
+				<input type="text" name="data[contact]" value="" placeholder="您的姓名"/>
+				<input type="text" name="data[mobile]" value="" placeholder="手机号码"/>
+				<!-- <div class="input">
 					<input type="text" id="" value="" placeholder="请输入验证码" />
 					<a class="posi-right">获取验证码</a>
-				</div>
+				</div> -->
 				<div class="input">
-					<input type="text" id="" value="" placeholder="面积" />
+					<input type="text" name="data[house_mj]" value="" placeholder="面积" />
 					<span class="posi-right black">㎡</span>
 				</div>
 				<div class="zh-m-select-group">
-					<select name="city">
-						<option value="">武汉</option>
-					</select>
-					<select name="area">
-						<option value="">武昌区</option>
-						<option value="">青山区</option>
-						<option value="">江夏区</option>
-					</select>
+					<{widget id="data/region" city_id=$request.city_id level=2 class="text two"}>
 				</div>
 				<input type="submit" value="我要报价"/>
 			</form>
