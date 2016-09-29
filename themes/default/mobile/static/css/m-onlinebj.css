@@ -1,21 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-html{
-	
-}
-body{
-	width: 100%;
-	max-width: 15rem;
-	margin: 0 auto;
-}
-body *{
-	font-family: "微软雅黑";
-}
 img{
 	display: block;
 	border: none;
@@ -26,15 +10,14 @@ li{
 a{
 	text-decoration: none;
 }
-
-
-
 .zh-m-top{
 	width: 100%;
 	font-size: 0.7rem;
 	position: relative;
 	text-align: center;
 	line-height: 2.05rem;
+	background-color: #fff;
+	border-bottom: 1px solid #e5e5e5;
 }
 .zh-m-top .zh-m-back{
 	position: absolute;
@@ -60,34 +43,38 @@ a{
 	background-size: 1rem 1rem;
 	line-height: 0.9rem;
 }
+
 .zh-m-head{
 	width: 100%;
+	
 }
 .zh-m-head img{
 	width: 100%;
+	vertical-align: left;
 }
+
 .zh-m-form{
 	width: 100%;
-	padding: 0 0.4rem;
-	padding-top: 0.8rem;
-	padding-bottom: 0.8rem;
-	background-color: #FFC000;
+	padding: 0 0.6rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	background-color: #fff;
+	border-bottom: 1px solid #e5e5e5;
 }
 .zh-m-form h1{
 	width: 8.42rem;
     height: 1.08rem;
     line-height: 1.0rem;
-    color: #512702;
+    color: #444;
     font-size: 0.72rem;
-    border-bottom: 0.08rem solid #512702;
     text-align: center;
     margin: 0 auto;
 }
-.zh-m-form p.zh-under-title{
-	color: #B58800;
+.zh-m-form p.zh-m-under-title{
+	color: #ccc;
     text-align: center;
     font-size: 0.48rem;
-    margin-top: 0.12rem;
+    margin-top: 0.3rem;
     line-height: 0.9rem;
 }
 .zh-m-form input{
@@ -113,7 +100,7 @@ a{
 	float: left;
 	width: 50%;
 	height: 1.8rem;
-    padding: 0 0.85rem;
+    padding: 0 0.7rem;
     line-height: 1.8rem;
     font-size: 0.56rem;
     border: 1px solid #e5e5e5;
@@ -121,29 +108,114 @@ a{
 }
 .zh-m-form input[type=submit]{
 	margin-top: 0.3rem;
+	font-size: 0.7rem;
 	border-radius: 5px;
 	background-color: #ff4401;
 	border: none;
 	color: #fff;
 }
-.zh-m-form .strong{
-	color: #fff;
+.zh-m-form .input{
+	position: relative;
+}
+.zh-m-form .input .posi-right{
+	font-size: 0.56rem;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.54rem;
+	color: #ff4401;
+}
+.zh-m-form .input .black{
+	color: #666;
 	font-size: 0.7rem;
+	height: 1rem;
 }
-.zh-m-form p{
-	color: #000;
+.zh-m-form>p:last-child{
+	color: #7d7d7d;
     text-align: center;
-    font-size: 0.7rem;
-    line-height: 0.9rem;
+    font-size: 0.54rem;
+    line-height: 1.5rem;
 }
-.zh-m-content img{
+.zh-m-form>p .strong{
+	color: #ff4401;
+}
+
+.zh-m-result{
+	width: 100%;
+	padding: 1rem 0.6rem 0.2rem;
+	background-color: #fff;
+	margin-top: 0.3rem;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.zh-m-result h1{
+	font-size: 0.7rem;
+	color: #444;
+	text-align: center;
+	margin-bottom: 0.8rem;
+}
+
+.zh-m-result .zh-m-row{
+	margin: 0 auto;
+	height: 1.8rem;
+	font-size: 0.48rem;
+	border: 1px solid #e5e5e5;
+	border-bottom: 0;
+	color: #666;
+}
+.zh-m-result .zh-m-row p{
+	height: 1.8rem;
+	line-height: 1.8rem;
+	float: left;
+	font-size: ;
+}
+
+.zh-m-result .zh-m-row .row-left{
+	width: 4.56rem;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+}
+
+.zh-m-result .zh-m-row .row-right{
+	width: 9.11rem;
+	text-align: center;
+}
+.zh-m-result .zh-m-row .stress{
+	color: #ff4401;
+}
+.zh-m-result .zh-m-row:last-of-type{
+	border-bottom: 1px solid #e5e5e5;
+}
+.zh-m-result .zh-m-ps{
+	width: 13.67rem;
+	margin: 0 auto;
+	font-size: 0.48rem;
+	line-height: 1.6rem;
+	color: #ff4401;
+}
+
+.zh-m-pk{
+	width: 100%;
+	margin: 0.3rem 0;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.zh-m-pk img{
 	width: 100%;
 }
+.zh-m-reason{
+	width: 100%;
+	border-top: 1px solid #e5e5e5;
+}
+.zh-m-reason img{
+	width:100%;
+}
+
 p.zh-m-copy-right{
 	text-align: center;
     font-size: 0.4rem;
     color: #444444;
     margin-bottom: 2.16rem;
+    background-color: #fff;
 }
 .zh-m-apply-entrance{
 	width: 100%;
@@ -172,3 +244,17 @@ p.zh-m-copy-right{
 	color: #fff;
 	background-color: #00b7b1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
