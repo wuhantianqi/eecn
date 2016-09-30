@@ -135,7 +135,7 @@ a {
 }
 .zbh img {
     width: 100%;
-    height: 2.3rem;
+    height: 100%;
     display: block;
     margin: 0 auto;
 }
@@ -148,11 +148,15 @@ a {
 }    
 .activite li {
     width: 5rem;
-    height: 2.7rem;
+    height: 2.8rem;
     float: left;
     position: relative;
     text-align: left;
     overflow: hidden;
+}
+.activite li img{
+    width:100%;
+    height: 100%;
 }
 .activite li a {
     width: 100%;
@@ -201,9 +205,6 @@ a {
     margin-bottom: 0.16rem;
     overflow: hidden;
 }
-.wenz .cast-list{
-    border-bottom: 1px dotted #E5E5E5;    
-}
 .cast-left {
     width: 4.5rem;
     height: 5.3rem;
@@ -234,8 +235,8 @@ a {
 }
 .cast-word p:nth-child(1) {
     width: 100%;
-    height: 0.6rem;
-    line-height: 0.6rem;
+    height: 0.85rem;
+    line-height: 0.9rem;
     /* margin: 0.1rem auto; */
     font-size: 16px;
     color: #444;
@@ -369,7 +370,10 @@ a {
     background-size: 3.6rem 3.6rem;
 }
 .wenz .cast-list{
-    height: 1.6rem;
+    height: 1.8rem;
+    border-bottom: 1px dotted #E5E5E5; 
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;  
 }
 .wenz-left{
     width: 2.5rem;
@@ -393,6 +397,8 @@ a {
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-top: 0;
+    height: 0.6rem;
+    line-height: 0.5rem;
 }
 .wenz-right .cast-word p:nth-child(2){
     display: -webkit-box !important;

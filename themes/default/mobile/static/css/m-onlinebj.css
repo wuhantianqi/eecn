@@ -220,11 +220,15 @@ p.zh-m-copy-right{
     margin-bottom: 2.16rem;
     background-color: #fff;
 }
+/*三分钟学装修*/
 .activite_min{
 	width: 100%;
     overflow: hidden;
     border-left: none;
     border-right: none;
+}
+.activite_min div{
+	background: #0d9bdf; 
 }
 .activite_min img{
 	vertical-align: top;
@@ -238,6 +242,7 @@ p.zh-m-copy-right{
 .activite_min div:nth-child(2) p{
 	width: 4.5rem;
     height: 0.8rem;
+    line-height: 0.8rem;
     cursor: pointer;
     text-align: center;
     font-size: 14px;
@@ -253,16 +258,35 @@ p.zh-m-copy-right{
 	position: relative;
 }
 .activite_min div:nth-child(4) p{
-	width: 2.5rem;
+	width: 3.2rem;
     height: 0.8rem;
+   	line-height: 0.8rem;
     cursor: pointer;
     text-align: center;
     font-size: 12px;
     background: #FFF;
     border-radius: 10px;
     position: absolute;
-    top: 6.8rem;
-    left: 4.1rem;
+    top: 7.8rem;
+    left: 3.75rem;
+    z-index: 2;
+    color: #0d9bdf;
+}
+.activite_min div:nth-child(6){
+	position: relative;
+}
+.activite_min div:nth-child(6) p{
+	width: 5.2rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    background: #FFF;
+    border-radius: 10px;
+    position: absolute;
+    top: 11rem;
+    left: 2.4rem;
     z-index: 2;
     color: #0d9bdf;
 }
