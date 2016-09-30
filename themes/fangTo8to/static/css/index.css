@@ -976,14 +976,12 @@ select.text:last-child{
 	font-size:18px;
 	margin-left:0px;
 }
-.link_bottom{
-	margin-bottom: 50px;
-}
 .footer{
 	width: 100%;
     height: 200px;
     border-top: 3px solid red;
     padding-top: 40px;
+    margin-top:40px;
     background: #f8f8f8;
 }
 .footer ul{

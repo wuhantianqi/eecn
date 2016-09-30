@@ -12,10 +12,19 @@ class Ctl_Mobile_Tenders extends Ctl_Mobile
     {
 		$pager['tender_hide'] = 1;
 		$this->pagedata['pager'] = $pager;
-        $this->tmpl = 'mobile/m-tenders.html';    
+        $this->tmpl = 'mobile/tenders.html';    
+    }
+    public function ntenders()
+    {
+        $pager['tender_hide'] = 1;
+        $this->pagedata['pager'] = $pager;
+        $this->tmpl = 'mobile/newpage/m-tenders.html';    
     }
     public function onlinebj(){
-        $this->tmpl = 'mobile/m-onlinebj.html';    
+        $this->tmpl = 'mobile/newpage/m-onlinebj.html';    
+    }
+        public function minutes(){
+        $this->tmpl = 'mobile/newpage/three-minutes.html';
     }
     public function save()
     {
