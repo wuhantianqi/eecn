@@ -23,8 +23,11 @@ class Ctl_Mobile_Tenders extends Ctl_Mobile
     public function onlinebj(){
         $this->tmpl = 'mobile/newpage/m-onlinebj.html';    
     }
-        public function minutes(){
+    public function minutes(){
         $this->tmpl = 'mobile/newpage/three-minutes.html';
+    }
+    public function daikuan(){
+        $this->tmpl = 'mobile/newpage/m-daikuan.html';
     }
     public function save()
     {

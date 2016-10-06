@@ -41,7 +41,7 @@
                         <div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
                             <div class="element">
-                                <!-- <div class="clear">
+                                <div class="clear">
                                     <input type="hidden" name="dangci" value="jianzhuang">
                                     <select id="User_Shen" name="shen" class="select select_s col_l" onchange="changeProvince('User_Shen','User_City','User_Town');">
                                         <option value="">省/市</option>
@@ -49,17 +49,7 @@
                                     <select id="User_City" name="city" class="select select_s col_l" onchange="changeTown('User_Shen','User_City','User_Town');">
                                         <option value="">市/地区</option>
                                     </select>
-                                    <div><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
-                                </div> -->
-                                <div class="clear">
-                                    <input type="hidden" name="dangci" value="jianzhuang">
-                                    <select id="User_Shen" name="shen" class="select select_s col_l" onchange="changeProvince('User_Shen','User_City','User_Town');">
-                                        <option value="">市</option>
-                                    </select>
-                                    <select id="User_City" name="city" class="select select_s col_l" onchange="changeTown('User_Shen','User_City','User_Town');">
-                                        <option value="">区</option>
-                                    </select>
-                                    <div><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
                                 </div>
                             </div>
                         </div>
@@ -153,6 +143,21 @@
             </div>
         </div>
     </div>
+   
+    <script>
+        function getApplySum(){
+            jq.ajax({
+                type:'POST',
+                DataType:'text',
+                url:'/yezhu/zxbjsf.php',
+                data:{applySum:1},
+                success:function(msg){
+                    jq('.num_man').html(msg);
+                }
+            })
+        }
+        getApplySum();
+    </script>
     <script src="/themes/default/static/js/zxbj_new_two.js" type="text/javascript"></script>
     <script src="/themes/default/static/js/globalprovinces.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -188,6 +193,53 @@
 
 </div>
 <script type="text/javascript">
+jQuery(function() {
+  href_url = window.location.href;
+  if(!(href_url.indexOf('sz.to8to.com') !==-1 || href_url.indexOf('www.to8to.com') !==-1)){
+    jq('.fbc_ico1').hide();
+  }
+  try{
+    var footObj = document.getElementById('footerHeight'),
+        wrapObj = document.getElementById('gloWrap'),
+        htmlObj = document.documentElement,
+        bodyObj = document.body,
+        windowHeight  = htmlObj.clientHeight || bodyObj.clientHeight,
+        docScrollHeihgt =  htmlObj.scrollHeight || bodyObj.scrollHeight,
+        wrapHeight = wrapObj.offsetHeight,
+        cb = (function() {
+            var u = window.navigator.userAgent.toLocaleLowerCase(),
+            msie = /(msie) ([\d.]+)/,
+            chrome = /(chrome)\/([\d.]+)/,
+            firefox = /(firefox)\/([\d.]+)/,
+            safari = /(safari)\/([\d.]+)/,
+            opera = /(opera)\/([\d.]+)/,
+            ie11 = /(trident)\/([\d.]+)/,
+            b = u.match(msie)||u.match(chrome)||u.match(firefox)||u.match(safari)||u.match(opera)||u.match(ie11);
+            return {name: b[1], version: parseInt(b[2])};
+        })(); 
+    if(docScrollHeihgt < windowHeight){//文档高度小于窗口高度
+      var outWrapHeight = docScrollHeihgt - wrapHeight;
+      if(cb.version < 8 && cb.name == 'msie'){
+        footObj.style.position = 'absolute';
+        htmlObj.style.overflowY = 'hidden';
+      } else {
+        footObj.style.position = 'fixed';
+      }
+      
+      wrapObj.style.height =  (windowHeight - outWrapHeight) + "px";
+      footObj.style.bottom = 0;
+    }
+  }catch(e){
+
+  } 
+}); 
+  
+ // try{  
+ //    jq(function() {
+ //        weChatQrcode.init();
+ //    })
+ //  }catch(e){
+ //  }
  var _mvq = window._mvq || [];
  window._mvq = _mvq;
 _mvq.push(['$setAccount', 'm-100623-0']);
@@ -218,6 +270,17 @@ _mvq.push(['$setAccount', 'm-100623-0']);
   <script src="/themes/default/static/js/submodal.js" type="text/javascript"></script> 
  <script src="/themes/default/static/js/3e5c2a19dc2ac1471a747.js" type="text/javascript"></script>
 
+
+<script type="text/javascript">
+try{goTopInit();}catch(e){}
+  jq('.zxzs-set').click( function (e) {
+             e.preventDefault();
+            var ptag = jq(this).attr('dataptag');
+            (typeof clickStream !== 'undefined') && clickStream.getCvParams(ptag); //埋点
+            window.location.href=jq(this).attr('href');
+        });
+
+</script>
 
 <{include file="block/small-footer.html"}>
 

@@ -3342,28 +3342,7 @@ function selectConfirmZbOverNew(weixin_code, res, type, data) {
         zxtype = jq("#zb_zxType").val(),
         tyid   = jq("#tyid").val();
 
-    jq.ajax({
-        type: "POST",
-        url: "/zb/index.php",
-        data: { invite:2,
-                User_City:User_City,
-                tyid:tyid,
-                oarea:oarea,
-                zxys:zxys,
-                zxtime:zxtime,
-                zxtype:zxtype,
-                address:address},
-        success:function(result){
-            window_box_close();
-            var res = JSON.parse(result);
-            if(res.status == 4) {
-                indexYYFail(res.cityname);
-                return false;
-            } else {
-                weixinCodeTipBox(weixin_code, type, tyid, data);
-            }
-        }
-    });
+
 }
 
 function weixinCodeTipBox(weixin_code, type, yid, data) {
