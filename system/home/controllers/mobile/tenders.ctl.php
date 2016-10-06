@@ -29,6 +29,11 @@ class Ctl_Mobile_Tenders extends Ctl_Mobile
     public function daikuan(){
         $this->tmpl = 'mobile/newpage/m-daikuan.html';
     }
+    // 管家管家页面
+    public function tubehome()
+    {
+        $this->tmpl = 'mobile/newpage/m-house-keeper.html';
+    }
     public function save()
     {
         if($data= $this->checksubmit('data')){
