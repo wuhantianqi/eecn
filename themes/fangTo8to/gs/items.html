@@ -1,19 +1,7 @@
 <{include file="block/header.html"}>
 <!--面包屑导航开始-->
-<div class="zh-gs-show">
-	<div class="gs-show-middle">
-		<img src="%THEME%/static/images/learn/gsbanner0.jpg"/>
-		<img src="%THEME%/static/images/learn/gsbanner00.jpg"/>
+<div class="zh-gs-show" style="width: 100%;height:360px;background: url(%THEME%/static/images/learn/gs-show-bg.jpg) no-repeat;">
 	
-		<div class="gs-show-left">
-			<img src="%THEME%/static/images/learn/gsbanner1.jpg"/>
-		</div>
-		
-		<div class="gs-show-right">
-			<img src="%THEME%/static/images/learn/gsbanner2.jpg"/>
-		</div>
-		
-	</div>
 </div>
 <div class="mainwd">
 	<!--主体左边内容开始-->
@@ -51,6 +39,18 @@
 				<{/foreach}>
 			</table>
 		</div>
+		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+        <input type="hidden" name="data[from]" value="TZX" />
+        <div class="apply">
+            <div id="index_apply" class="apply_form">
+                <span class="formtit">申请免费设计</span>
+                <input name="apply_type" type="hidden" value="17" />
+                <input class="inptxt" name="data[contact]" type="text" placeholder="您的姓名" />
+                <input class="inptxt" name="data[mobile]" type="text" placeholder="手机号码" />
+                <input class="btn" name="apply" type="submit" value="立即申请" />
+            </div>
+        </div>
+    	</form>
 		<div class="mb20 mb_list">
 			<div class="sort_box">
 				<p class="sort_list hoverno">
@@ -100,7 +100,6 @@
 	<!--主体左边内容结束-->
 	<!--主体右边内容开始-->
 	<!-- <div class="side_content rt"> -->
-		<!-- <{widget id="tenders/fast" title="免费装修设计" from="TSJ"}> -->
 		<!-- <div class="mb10 area">
 			<h3 class="side_tit">装修公司排行榜</h3>
 			<ul class="pding paihang">

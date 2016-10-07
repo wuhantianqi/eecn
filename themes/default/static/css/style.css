@@ -457,6 +457,41 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .main_content_yan{
 	width:900px;
 }
+.apply{ position:relative; padding-top:40px; z-index:2;}
+.applyform{ padding:30px 0 30px 40px; font-size:0; background-color:#ececec;}
+.applyform .inptxt{ margin-right:30px; vertical-align:middle;}
+.applyform .btn{ vertical-align:middle;}
+.formtit{ margin-right:30px;vertical-align:middle; font-size:22px; line-height:40px;}
+
+.apply_form#index_apply{ padding:30px 0 30px 40px; margin-bottom: 50px; font-size:0; background-color:#ececec;}
+.apply_form .inptxt{ margin-right:30px; vertical-align:middle;}
+.apply_form .btn{ vertical-align:middle;}
+.options_title, .selected {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.apply_form .droparrow{ right: 1px; top: 1px; height: 38px;}
+.apply_form#index_apply .select-group {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+.apply_form#index_apply .select-group select {
+    margin-right: 10px;
+    background-color: #fff;
+}
+.apply_form#index_apply .inptxt {
+    margin-right: 10px;
+    height: 45px;
+}
+.apply_form#index_apply .formtit {
+    display: inline-block;
+    width: auto;
+    height: 45px;
+    line-height: 45px;
+}
 .choose_option table{ width:100%;margin-top:30px;}
 .wo_qu table{margin-top:0px;}
 .choose_option td{ vertical-align:top;     padding: 5px 0px 5px 10px;}
