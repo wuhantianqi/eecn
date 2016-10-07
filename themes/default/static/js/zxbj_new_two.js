@@ -32,10 +32,6 @@
     if (jq('#windbox').val() == 'boxhref') {
         wegitFlag = true;
     }
-    var username = getCookie('to8to_username');
-    if (username) {
-        jq('.zxbj_read_box').hide();
-    }
     jq('.blo_bd').css('display','none');
     //查看报价明细按钮
     jq('.res_btn_box').on('click','a.res_btn',function(){ 
@@ -85,30 +81,23 @@
         if (jq(this).val() == '') jq(this).parent().find('.text_lbl').show();
     });
     jq('div.con_bj_cal').on('click', '#calc_btn', function(){
-        //获取当前ptag
-        var ptag = jq('input[name="ptag"]').val();
-        //百度统计函数
-        try {
-            _hmt && _hmt.push(['_trackEvent', 'zb', 'submit', ptag]);
-        } catch (e) {
-
-        }
         if (validData()) {
-            if (!username && !wegitFlag) {
-                if (jq('#myPtag').val() == "1_4_7_1") {
-                    jq('#myPtag').val('1_4_2_3');
-                    clickStream.getCvParams('1_4_2_3');
-                } else {
-                    //clickStream.getCvParams(jq('#myPtag').val());
-                };
-                getTotalDetailInfo('detail');
-            } else {
-                jq('#myPtag').val('1_4_7_1');
-                getTotalDetailInfo('detail');
-            }
-            (typeof clickStream !== 'undefined') && clickStream.getCvParams('1_4_19_423');
-            jq('#endprice').css('display','block');
-            detailedDisplay();           
+            document.getElementById("new_base_info").submit();
+            // if (!username && !wegitFlag) {
+            //     if (jq('#myPtag').val() == "1_4_7_1") {
+            //         jq('#myPtag').val('1_4_2_3');
+            //         clickStream.getCvParams('1_4_2_3');
+            //     } else {
+            //         //clickStream.getCvParams(jq('#myPtag').val());
+            //     };
+            //     getTotalDetailInfo('detail');
+            // } else {
+            //     jq('#myPtag').val('1_4_7_1');
+            //     getTotalDetailInfo('detail');
+            // }
+            // (typeof clickStream !== 'undefined') && clickStream.getCvParams('1_4_19_423');
+            // jq('#endprice').css('display','block');
+            // detailedDisplay();           
         }
     })
 
@@ -153,7 +142,7 @@
             }]
         }];
         var phoneRule = {
-            id: jq('.con_bj_cal  .text_wrap :input[name="phone"]')[0],
+            id: jq('.con_bj_cal  .text_wrap :input[name="data[mobile]"]')[0],
             className: 'form_error',
             labl: 'em',
             lablClass: 'ico_error',
@@ -214,30 +203,6 @@
         }else{
             jq('.info_hd>h3>em').text('详细报价清单以新房为准（旧房报价=新房报价+面积*100）');
         }
-    }
-    //底部二维码
-    function createQrcode(data) {
-        jq.ajax({
-            url: 'http://www.to8to.com/api/weixin/run.php',
-            data: {action: 'createQrcode',cookie_id: 'zxbj_qrcode',data: data,type: 7},
-            type: "GET",
-            dataType: 'jsonp',
-            success: function(data) {
-                if (data.code == '0') {
-                    jq('#zxbj_qrcode_wrap').attr('src', data.url);
-                    jq('.bottom_fiexd_box').show();
-                    qrcodeData = data;
-                    //loopQrcode();
-                } else {
-                    jq('.bottom_fiexd_box').hide();
-                    wechatError = true;
-                }
-            },
-            error: function() {
-                wechatError = true;
-                jq('.bottom_fiexd_box').hide();
-            }
-        });
     }
 
     function createFreeServiceId() {
@@ -337,29 +302,6 @@
         ele.eq(5).find('strong').html(data[homeMsg.length].price + '<em>元</em>');
     }
 
-    //js解析域名赋值给Ptag
-    jq(function(){
-       var urlObj =  parseQuery();
-       if(typeof urlObj == 'object' && urlObj.ptag && urlObj.ptag != '') {
-          jq("#myPtag").val(urlObj.ptag);
-       }
-    })
-    //解析域名
-    function parseQuery(url) {
-        var url = url || location.href;
-        var query = url ? (url.split('?')[1] || '') : location.search;
-        var queryList = query.substr(0).split('&');
-        var parseRes = {};
-        var flag = '#';
-
-        if (queryList.length > 0) {
-            for (var i = 0; i < queryList.length; i++) {
-                var kv = queryList[i].split('=');
-                parseRes[kv[0]] = decodeURIComponent(kv[1]).split('#')[0];
-            }
-        }
-        return parseRes;
-    }
 
     //根据面积显示户型 
     function selectDoorModle(square, squareEle){
