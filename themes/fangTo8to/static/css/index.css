@@ -1061,3 +1061,6 @@ select.text:last-child{
     text-align: center;
     font-size: 14px;
 }
+.footer_buttom p img{
+	display: inline-block;
+}

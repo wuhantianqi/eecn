@@ -19,7 +19,7 @@ nav{
 .bg-col-green{ background-color:#ff4401;}
 .bg-col-org{ background-color:#ff8c1b;}
 a.on{ color:#ff4401;}
-.inptxt{ padding:0 10px; width:300px;*width:205px; height:40px; font:14px "microsoft yahei"; line-height:40px\9; color:#333; background-color:#fff;}
+.inptxt{ padding:0 10px; width:300px; height:40px; font:14px "microsoft yahei"; line-height:40px\9; color:#333; background-color:#fff;}
 /*pictxt*/
 .infotxt{ position:absolute; left:0; right:0; bottom:0; padding:0 10px; height:30px; color:#fff; background-color:rgba(81,81,81,.9); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5515151,endColorstr=#E5515151);}
 :root .infotxt{ filter:none;}
@@ -115,21 +115,23 @@ a.on{ color:#ff4401;}
 .tit h3:after{ right:0;}
 .abslink{ position:absolute; right:0; bottom:0; font:12px/1.2 "simsun"; color:#999;}
 .priority{ margin-left:-20px; margin-bottom: 35px;}
-.priority-list li{ float:left; position:relative; margin:0 0 15px 19px;*margin:0 0 15px 17px; height:192px; border:1px solid #f8f8f8; transition:border-color linear .2s;}
-.priority-list li:hover{ border-color:#ff4401;}
+.priority-list li{ float:left; position:relative; margin:0 0 15px 12px; height:194px; border:2px solid #f8f8f8; transition:border-color linear .5s;}
+.priority-list li:hover{ border-color:#01af63;}
 .priority-list .infotxt{ line-height:30px;}
 .pri-img img{ width:280px; height:190px;}
-.priority-list li.pri-1{ width:579px; *width:580px; height:387px;}
+.priority-list li.pri-1{ width:584px; *width:580px; height:389px;}
 .pri-1 .pri-img img{ width:580px; height:385px;}
-.priority-list li.pri-4{ width:582px; *width:580px; height:182px;}
+.priority-list li.pri-4{ width:584px; *width:580px; height:184px;}
 .pri-4 .pri-img img{ width:580px; height:180px;}
 .priority-list li.pri-7{
 	margin: 0 0 15px 15px;
 }    
+.priority-list li.pri-1,.priority-list li.pri-5{margin-left: 20px;}
 
 .example{ margin-left:-18px; margin-bottom: 15px;}
-.pictxt li{ float:left; position:relative; margin:0 0 35px 17px; min-height:282px; background-color:#fff; border:1px solid #f8f8f8; transition:border-color linear .2s;}
-.pictxt li:hover{ border-color:#ff4401;}
+.pictxt li{ float:left; position:relative; margin:0 0 35px 14px; min-height:282px; background-color:#fff; border:2px solid #f8f8f8; transition:border-color linear .5s;}
+.pictxt li:nth-child(4n+1){margin-left:18px;}
+.pictxt li:hover{ border-color:#01af63;}
 .ptx-img{ position:relative;}
 .ptx-img img{ width:280px; height:211px;}
 .ptx-info{ padding:16px 10px 18px;}
