@@ -706,8 +706,9 @@ ul.main_youhui li .over_paint{ position:absolute; top:0px; left:5px; width:28px;
 .sort_list span.rt a font.li_over{ background-position:-92px -45px;}
 .sort_list span.rt a font.block_on{background-position:-137px -45px;}
 .case_aterfall_li{ float:left; margin:0px 5px 10px;  overflow:hidden; width:290px;}
-.case_aterfall_li a img{ width:290px; height:auto;}
-.case_aterfall_li p{ line-height:34px; border:1px solid #eee; padding:0px 10px; background:#f8f8f8;}
+.case_aterfall_li a img{ width:290px; height:auto;transition: 0.8s;}
+.case_aterfall_li:hover a img{transform: scale(1.2);}
+.case_aterfall_li p{ line-height:34px; border:1px solid #eee; padding:0px 10px; background:#f8f8f8;font-size: 14px;}
 .case_aterfall_li p span{ margin-right:10px;}
 .person_ico{ width:14px; height:14px; background-position:0px -49px;}
 .case_aterfall_li .opacity_img span{ position:absolute; width:100px; height:26px; line-height:26px; text-align:center; right:0px; bottom:10px; display:none;}
