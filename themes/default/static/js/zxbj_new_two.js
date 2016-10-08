@@ -82,22 +82,15 @@
     });
     jq('div.con_bj_cal').on('click', '#calc_btn', function(){
         if (validData()) {
-            document.getElementById("new_base_info").submit();
-            // if (!username && !wegitFlag) {
-            //     if (jq('#myPtag').val() == "1_4_7_1") {
-            //         jq('#myPtag').val('1_4_2_3');
-            //         clickStream.getCvParams('1_4_2_3');
-            //     } else {
-            //         //clickStream.getCvParams(jq('#myPtag').val());
-            //     };
-            //     getTotalDetailInfo('detail');
-            // } else {
-            //     jq('#myPtag').val('1_4_7_1');
-            //     getTotalDetailInfo('detail');
-            // }
-            // (typeof clickStream !== 'undefined') && clickStream.getCvParams('1_4_19_423');
-            // jq('#endprice').css('display','block');
-            // detailedDisplay();           
+        //提交表单
+        document.getElementById("new_base_info").submit();
+        var mjia = jq('#square').val() * 430;
+        jq('#bprice').html(mjia);
+        jq('.bj_res_t span').html('万元');
+        jq('#materialPay em').html(mjia*0.40);
+        jq('#artificialPay em').html(mjia*0.20);
+        jq('#designPay').html('<em>'+ mjia*0.30 +'元</em>');
+        jq('#qualityPay').html('<em>'+ mjia*0.10 +'元</em>');          
         }
     })
 

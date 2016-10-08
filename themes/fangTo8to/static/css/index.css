@@ -41,12 +41,12 @@ body{
     padding-top: 10px;
 }
 .nav_nav .nav_right{
-	width:445px;
+	width:560px;
 	float:right;
 	margin-top: 30px;
 }
 .nav_nav .nav_right .nav-pills{
-	width: 442px;
+	width: 560px;
 }
 .nav-pills>li {
     float: left;
@@ -1061,6 +1061,4 @@ select.text:last-child{
     text-align: center;
     font-size: 14px;
 }
-.footer_buttom p img{
-	display: inline-block;
-}
+

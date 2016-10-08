@@ -167,7 +167,7 @@ class Ctl_Case extends Ctl
         $pager = $filter = array();
         $pager['page'] = $page = max((int)$page, 1);
         $pager['order'] = $order;
-        $pager['limit'] = $limit = 20;
+        $pager['limit'] = $limit = 6;
         $pager['count'] = $count = 0;
         $filter['city_id'] = array($this->request['city_id'], 0);
         $filter['closed'] = 0;
