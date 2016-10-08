@@ -119,18 +119,23 @@ a.on{ color:#ff4401;}
 .priority-list li:hover{ border-color:#01af63;}
 .priority-list .infotxt{ line-height:30px;}
 .pri-img img{ width:280px; height:190px;}
-.priority-list li.pri-1{ width:584px; *width:580px; height:389px;}
-.pri-1 .pri-img img{ width:580px; height:385px;}
+.priority-list li.pri-1{ width:584px; *width:580px; height:393px;}
+.pri-1 .pri-img img{ width:580px; height:389px;}
 .priority-list li.pri-4{ width:584px; *width:580px; height:184px;}
 .pri-4 .pri-img img{ width:580px; height:180px;}
 .priority-list li.pri-7{
 	margin: 0 0 15px 15px;
 }    
 .priority-list li.pri-1,.priority-list li.pri-5{margin-left: 20px;}
+.priority-list li.pri-6,.priority-list li.pri-7{margin-left: 14px;}
+.priority-list li.pri-8{margin-left: 16px;}
+.priority-list li.pri-3{margin-left: 16px;}
+
 
 .example{ margin-left:-18px; margin-bottom: 15px;}
 .pictxt li{ float:left; position:relative; margin:0 0 35px 14px; min-height:282px; background-color:#fff; border:2px solid #f8f8f8; transition:border-color linear .5s;}
 .pictxt li:nth-child(4n+1){margin-left:18px;}
+.pictxt li:nth-child(4n){margin-left:16px;}
 .pictxt li:hover{ border-color:#01af63;}
 .ptx-img{ position:relative;}
 .ptx-img img{ width:280px; height:211px;}
