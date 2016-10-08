@@ -55,7 +55,13 @@ a.on{ color:#ff4401;}
 .items-first{ margin-top:18px;}
 .items dt,.items dd{ float:left; padding-left:12px; line-height:20px;}
 .items dt{ width:84px;*width:72px; font-size:19px; text-align:center;}
-.items dd{ width:205px;*width:193px; font-size:13px; border-left:1px solid #eee;}
+.items dd{ width:205px; font-size:13px; border-left:1px solid #eee;
+	overflow: hidden;
+    height: 49px;
+    float: left;
+    padding-left: 12px;
+    line-height: 23px;
+}
 .items .uw{ float:left; width:64px;}
 .i-items-1,.i-items-2,.i-items-3,.i-items-4,.i-items-5,.i-items-15{ display:block; margin:6px auto 0; width:21px; height:13px;}
 .i-items-1{ background-position:0 0;}
