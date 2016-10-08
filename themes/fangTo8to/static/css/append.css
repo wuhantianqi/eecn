@@ -266,7 +266,7 @@ ul.main_worker_ul li.first{ padding:20px;}
 /*装修案例样式开始*/
 .case_aterfall_li{ padding:0px; box-shadow:none; border:none; margin:0px 5px 10px; width:290px; background:#fff;}
 .case_aterfall_li a img{ width:290px; height:auto;}
-.case_aterfall_li p{ padding:0px 10px; border:1px solid #e0e0e0; padding-bottom:5px;}
+.case_aterfall_li p{ padding:0px 10px; border:1px solid #f8f8f8; padding-bottom:5px;}
 .sort_list a{ height:38px; line-height:38px;}
 ul.case_zhuanji li{ width:228px; border-bottom:1px solid #e3e3e3;}
 .zhuanji_top_img{ width:228px;}
@@ -309,7 +309,7 @@ h2.subSite_Tit a:first-child.on{ border-left:none;}
 /*装修案例样式修改  2015-03-30*/
 .case_crumbs{ padding:6px 30px; border-bottom:1px solid #ddd;}
 .picture{ padding:10px 30px; background:#f8f8f8;}
-.picture .pic_container {margin: auto;z-index: 1;background: #fafafa; position: relative;min-width:700px;width:1200px;}
+.picture .pic_container {margin: auto;z-index: 1;background: #fafafa; position: relative;min-width:700px;width: 100%;}
 .picture .pic_container.full .pic_right_content {visibility:hidden;}
 .picture .pic_container.full .img_content {margin-right: 0;}
 .picture .pic_container.full .custom_scroll {display: none;}
