@@ -17,6 +17,9 @@ img{
 	padding-top: 45px;
 	padding-bottom: 0px;
 }
+.company_top_lt h1{
+	margin-top: 5px;
+}
 .company_top_lt h1 a,.company_top_lt h2 span{
 	color: #000;
 }
@@ -38,6 +41,7 @@ img{
 .company_top_rt{
 	background-color: #f0f0f0;
 	color: #000;
+	margin-top: 20px;
 }
 .zh-company-wrap{
 	width: 1000px;
@@ -79,20 +83,31 @@ img{
 	text-align: center;
 }
 .zh-company-designteam .zh-company-wrap>ul{
-	overflow: hidden;
 	margin-top: 20px;
 	}
+.zh-company-designteam .zh-company-wrap>ul:after{
+	content: "";
+	display: block;
+	clear: both;
+}
 .zh-company-designteam .zh-company-wrap>ul>li{
 	float: left;
-	width: 244px;
-	margin-right: 8px;
+	width: 238px;
+	padding-bottom: 10px;
+	margin-right: 16px;
 	background-color: #f6f6f6;
 	position: relative;
-	
+	text-align: center;
+}
+.zh-company-designteam .zh-company-wrap>ul>li:hover{
+	box-shadow: 0 0 2px 2px #666;
 }
 .zh-company-designteam .zh-company-wrap>ul>li img{
-	width: 244px;
-	height: 305px;
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 20px;
 }
 .zh-company-designteam .zh-company-wrap>ul>li div.veil{
 	width: 244px;
@@ -163,8 +178,16 @@ img{
 	margin-top: 8px;
 }
 .zh-company-designteam .zh-company-wrap>ul>li a{
+	display: inline-block;
 	color: #ff4401;
 	font-size: 14px;
+	padding: 0 3px;
+	border: 1px solid;
+	margin-top: 8px;
+}
+.zh-company-designteam .zh-company-wrap>ul>li a:hover{
+	color: #fff;
+	background-color: #ff4401;
 }
 .zh-company-designteam .zh-company-wrap>ul>li:nth-child(4n){
 	margin-right: 0;

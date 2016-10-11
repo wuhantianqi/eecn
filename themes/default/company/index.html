@@ -17,23 +17,6 @@
 			<{calldata mdl='designer/designer' company_id=$company.company_id limit=4 nocache=true}>
 			<li>
 				<img src="<{$pager.img}>/<{$item.face}>"/>
-				<div class="veil">
-					<h2>联系我们</h2>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<p>
-						设计经验：10年
-					</p>	
-					<p>
-						擅长风格：简约现代、美式乡村、新古典、地中海、简中
-					</p>
-					<p>
-						设计理念：<{$item.slogan|cutstr:50:'...'}>
-					</p>
-				</div>
 				<p><{$item.name}></p>
 				<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-load="我要预约">我要预约</a>
 			</li>
@@ -201,7 +184,7 @@
 		</ul>
 	</div>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	$designLi=$(".zh-company-designteam>.zh-company-wrap>ul>li");
 	$veil=$(".zh-company-designteam .veil");
 	$designLi.hover(
@@ -221,5 +204,5 @@
 			$(this).children("a").css("color","#ff4401");
 		}
 	)
-</script>
+</script>-->
 <{include file="company/block/footer.html"}>
