@@ -39,15 +39,26 @@ class Ctl_Company extends Ctl
 		}
         // 案例效果图
         $filter =array(
-            'city_id'=> array('7',0),
-            'closed'=>0,
-            'audit'=>1
+            'company_id'=>50,
             );
 
         $orderby = array('likes'=>'DESC');
-        $limit = 5;
+        $limit = 1;
         $items = K::M('case/case')->items($filter, $orderby, $page, $limit, $count);
+        // var_dump($items);exit;
+        $lastphotos = array();
+        foreach ($items as $k => $val) {
+            if ($val['lastphotos']) {
+                $lastphotos[] = $val['lastphotos'];
+                $items[$k]['lastphotos'] = explode(',', $val['lastphotos']);
+            }
+        }
+        if (!empty($lastphotos)) {
+            $lastphotos = join(',', $lastphotos);
+            $this->pagedata['photos'] = K::M('case/photo')->items_by_ids($lastphotos);
+        }
         $this->pagedata['items'] = $items;
+
 
 		$this->pagedata['comment_list'] = $comment_list;        
         $this->seo->set_company($company);

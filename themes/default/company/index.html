@@ -136,25 +136,20 @@
 		<h2>案例效果图</h2>
 		<p><a href="<{link ctl='company:cases' arg0=$company.company_id}>">更多案例</a></p>
 		<ul>
+			<{foreach $items as $item}>         	
+	            <{if $item.lastphotos}>
+	                 <{foreach from=$item.lastphotos key=key item=item2}>
+	                 	<li><a href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$photos[$item2].photo}>_small.jpg" /></a></li>
+	                 <{/foreach}>
+	            <{/if}>               
+	         <{/foreach}>
 
 
-
-
-
-
-
-
-
-
-
-			
-
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-
+			<!-- <li><a href="<{link ctl='case:detail' arg0=$item.case_id arg1=1}>"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a></li>
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li> 
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li> -->
 		</ul>
 	</div>
 </div>
