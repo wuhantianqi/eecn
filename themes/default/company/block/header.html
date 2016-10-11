@@ -3,11 +3,14 @@
 <{if $company.skin_cfg}><{foreach $company.skin_cfg.css as $css}><link rel="stylesheet" type="text/css" href="<{$pager.theme}>/<{$css}>"/><{/foreach}><{/if}>
 <!--装修公司头部开始-->
 <div class="company-zh-banner">
-	<img src="/themes/default/static/images/zh-company-banner.jpg" />
+	<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
+	<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" height="320"></a>
+	<{/calldata}>
+	<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" height="320"></a></div><{/if}>
 </div>
 <div class="company_top">
 	<div class="subwd">
-		<img src="<{$pager.img}>/<{$company.logo}>" class="lt pic" />
+		<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
 		<div class="company_top_lt lt">
 			<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.name}></a>
 				<{if $company.verify_name == 2}>
@@ -23,7 +26,7 @@
 				<{if $company.group.show_phone && $company.mobile}><span><font class="com_ico com_phone"></font><{$company.mobile}></span><{/if}>
 				<span class=""><{$company.show_qq|qq}></span>
 			</h2>
-			<p>地址:武汉市江岸区航天双城商务楼a座1405-7</p>
+			<p>地址：<{$company.addr|cutstr:60}></p>
 		</div>
 		<div class="company_top_rt pingfen_bar rt">
 			<p class="title">综合评价：<{$company.avg_score}></p>
@@ -51,6 +54,8 @@
 		}
 	</style>
 		<div class="apply">
+			<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+			<input type="hidden" name="data[from]" value="TZX" />
             <div id="index_apply" class="apply_form">
                 <span class="formtit">申请免费设计</span>
                 <input name="apply_type" type="hidden" value="17" />
@@ -58,6 +63,7 @@
                 <input class="inptxt" name="data[mobile]" type="text" placeholder="手机号码" />
                 <input class="btn" name="apply" type="submit" value="立即申请" />
             </div>
+            </form>
         </div>
 <!--<div class="company_nav mb10">
 	<div class="subwd">

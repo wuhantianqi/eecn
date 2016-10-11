@@ -4,16 +4,19 @@
 <div class="zh-company-about">
 	<div class="zh-company-wrap">
 	<h2>关于我们</h2>
-	<p>武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么<a href="">……[详情]</a></p>
+	<p><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>"><{$company.desc|cutstr:650}></a>
+	<a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">[详情]</a>
+	</p>
 	</div>
 </div>
 <div class="zh-company-designteam">
 	<div class="zh-company-wrap">
 		<h2>设计师团队</h2>
-		<p><a href="">更多设计师</a></p>
+		<p><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">更多设计师</a></p>
 		<ul>
+			<{calldata mdl='designer/designer' company_id=$company.company_id limit=4 nocache=true}>
 			<li>
-				<img src="/themes/default/static/images/designer1.jpg"/>
+				<img src="<{$pager.img}>/<{$item.face}>"/>
 				<div class="veil">
 					<h2>联系我们</h2>
 					<ul>
@@ -28,11 +31,36 @@
 						擅长风格：简约现代、美式乡村、新古典、地中海、简中
 					</p>
 					<p>
-						设计理念：创造宜居环境，彰显个性品味！
+						设计理念：<{$item.slogan|cutstr:50:'...'}>
 					</p>
 				</div>
-				<p title="李可">李可</p>
-				<a href="">我要预约</a>
+				<p><{$item.name}></p>
+				<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-load="我要预约">我要预约</a>
+			</li>
+            <{/calldata}>
+
+
+<!-- 			<li>
+				<img src="<{$pager.img}>/<{$item.face}>"/>
+				<div class="veil">
+					<h2>联系我们</h2>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+					<p>
+						设计经验：10年
+					</p>	
+					<p>
+						擅长风格：简约现代、美式乡村、新古典、地中海、简中
+					</p>
+					<p>
+						设计理念：<{$item.title}>
+					</p>
+				</div>
+				<p><{$item.name}></p>
+				<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-width='500' mini-load="我要预约">我要预约</a>
 			</li>
 			<li>
 				<img src="/themes/default/static/images/designer2.jpg"/>
@@ -99,20 +127,34 @@
 				</div>
 				<p title="李可">李可</p>
 				<a href="">我要预约</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>
 <div class="zh-company-anli">
 	<div class="zh-company-wrap">
 		<h2>案例效果图</h2>
-		<p><a href="">更多案例</a></p>
+		<p><a href="<{link ctl='company:cases' arg0=$company.company_id}>">更多案例</a></p>
 		<ul>
+
+
+
+
+
+
+
+
+
+
+
+			
+
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
 			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li> 
 		</ul>
 	</div>
 </div>
@@ -120,11 +162,23 @@
 	<div class="zh-company-wrap">
 		<div class="left-part">
 			<h2>优惠</h2>
-			<a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a>
+			 	<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
+				<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
+	            <{/calldata}>
 		</div>
 		<div class="right-part">
 			<h2>企业新闻</h2>
 			<ul>
+				<{calldata mdl='company/news' company_id=$company.company_id limit=3 noext=true nocache=true}>
+				<li>
+					<a href="<{link ctl='news:detail' arg0=$item.news_id}>">
+						<h3><{$item.title|cutstr:80}></h3>
+						<p><{$item.content|cutstr:80}></p>
+					</a>
+				</li>
+                <{/calldata}>
+
+				<!-- 
 				<li>
 					<a href="">
 						<h3>家具工厂化生产，品质高，安全环保</h3>
@@ -136,13 +190,7 @@
 						<h3>家具工厂化生产，品质高，安全环保</h3>
 						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
 					</a>
-				</li>
-				<li>
-					<a href="">
-						<h3>家具工厂化生产，品质高，安全环保</h3>
-						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
-					</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>

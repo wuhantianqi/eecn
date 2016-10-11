@@ -7,7 +7,10 @@ a,a:hover{
 img{
 	vertical-align: top;
 }
-
+.company-zh-banner img{
+	display: block;
+	margin:0 auto;
+}
 .company_top{
 	background-color: #fff;
 	color: #000;

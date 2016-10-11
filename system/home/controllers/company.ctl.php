@@ -37,6 +37,18 @@ class Ctl_Company extends Ctl
 		if($uids){
 			$this->pagedata['member_list'] = K::M('member/member')->items_by_ids($uids);
 		}
+        // 案例效果图
+        $filter =array(
+            'city_id'=> array('7',0),
+            'closed'=>0,
+            'audit'=>1
+            );
+
+        $orderby = array('likes'=>'DESC');
+        $limit = 5;
+        $items = K::M('case/case')->items($filter, $orderby, $page, $limit, $count);
+        $this->pagedata['items'] = $items;
+
 		$this->pagedata['comment_list'] = $comment_list;        
         $this->seo->set_company($company);
         $this->seo->init('company');
