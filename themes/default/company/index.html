@@ -1,219 +1,182 @@
 <{include file="company/block/header.html"}>
 <!--装修公司头部结束-->
-<div class="subwd">
-	<!--主体左边内容开始-->
-	<div class="sub_com_lt lt">
-		<div class="mb10 com_banner">
-			<div bxSlider="company_banner">
-			<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
-			<div class="slider"><a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" width="720" height="250"></a></div>
-			<{/calldata}>
-			<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" width="720" height="250"></a></div><{/if}>
-			</div>
-		</div>
-		<div class="mb10 mb10_commpty">
-			<div class="com_intro_top lt">
-				<h3 class="com_title"><b class="lt">公司简介</b><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>" class="rt">详情<span class="com_ico more_ico"></span></a></h3>
-				<p class="cl"></p>
-				<div class="com_box pding"><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>"><{$company.desc|cutstr:260}></a></div>
-			</div>
-			<div class="com_intro_top rt">
-				<h3 class="com_title"><b class="lt">企业新闻</b><a href="<{link ctl='company:news' arg0=$company.company_id company=$company}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-				<p class="cl"></p>
-				<div class="com_box pding">
-					<ul>
-                        <{calldata mdl='company/news' company_id=$company.company_id limit=5 noext=true nocache=true}>
-						<li><span class="ico_list news_ico"></span><a href="<{link ctl='news:detail' arg0=$item.news_id}>"><{$item.title|cutstr:80}></a></li>
-                        <{/calldata}>
-					</ul>
-				</div>
-			</div>
-			<div class="cl"></div>
-		</div>
-		<div class="mb10 ">
-			<h3 class="com_title"><b class="lt">业主评价</b><a href="<{link ctl='company:comment' arg0=$company.company_id company=$company}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-			<p class="cl"></p>
-			<div class="new_pinglun com_box com_pinglun">
-				<ul>
-                    <{foreach $comment_list as $item}>
-					<li>
-						<div class="lt"><img src="<{$pager.img}>/<{$member_list[$item.uid].face_80}>" class="lt" /><br /></div>
-						<div class="rt">
-							<p class="graycl"><span class="lt"><{foreach $CONFIG.score.company as $k=>$v}><{if $v}><label><{$v}>:<{$item[$k]}><{/if}><{/foreach}></span><span class="rt time"><{$item.dateline|format}></span></p>
-							<p class="cl"></p>
-							<p><{$member_list[$item.uid].uname}>:<{$item.content}></a>
-							</p>
-						</div>
-					</li>
-                    <{/foreach}>
-				</ul>
-			</div>
-		</div>
-		
+<link rel="stylesheet"  href="/themes/default/static/css/company-index.css"/>
+<div class="zh-company-about">
+	<div class="zh-company-wrap">
+	<h2>关于我们</h2>
+	<p>武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫武汉众鑫描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么描述描述描述描述描述描述描述描述描述吗什么<a href="">……[详情]</a></p>
 	</div>
-	<!--主体左边内容结束-->
-	<!--主体右边内容开始-->
-	<div class="sub_com_rt rt">
-		<div class="mb10">
-			<table cellpadding="0" cellspacing="0" class="sub_com_list">
-				<tr>
-					<td><p><b><{$company.case_num}></b></p><p>图库案例</p></td>
-					<td><p><b><{$company.tenders_num}></b></p><p>签约数</p></td>
-					<td><p><b><{$company.site_num}></b></p><p>在建工地</p></td>
-				</tr>
-				<tr>
-					<td><p><b><{$company.news_num}></b></p><p>企业新闻</p></td>
-					<td><p><b><{$company.yuyue_num}></b></p><p>预约数</p></td>
-					<td><p><b><{$company.comments}></b></p><p>业主评价</p></td>
-				</tr>
-			</table>
-		</div>
-		<div class="mb10 area sub_com_add">
-			<p><span class="com_ico com_add"></span><b class="tit">公司地址:</b></p>
-			<p><{$company.addr|cutstr:60}></p>
-		</div>
-		<p class="sub_com_tpbt">
-			<{if $company.group.allow_yuyue > 0}>
-			<a href="<{link ctl='gs:yuyue' arg0=$company.company_id http='ajax'}>" mini-load="免费预约装修公司" mini-width="400" class="btn_sub_tuan btn">免费预约</a>
-			<{else}>
-			<a href="<{link ctl='tenders:fast' http='ajax'}>" mini-load="免费发布装修招标" mini-width="500" class="btn_sub_tuan btn_sub_tuan_commpy btn">免费招标</a>
-			<{/if}>
-			您是<font class="fontcl2"><{$company.views}></font>位访客</p>
-		<div class="mb10 mb10_commpty">
-			<h3 class="com_title"><b class="lt">优惠活动</b><a href="<{link ctl='company:youhui' arg0=$company.company_id company=$company}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-			<p class="cl"></p>
-			<div class="com_box com_youhui pding">
-                <{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
-				<div class="opacity_img lt">
-                    <a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
-					<p class="bg"></p>
-					<p class="text"><{$item.title|cutstr:15}></p>
-				</div>
-				<div class="rt">
-					<p><{if $item.ltime>time() && $item.stime<time()}><span class="ico_list sub_youhui_time"></span><{else}><span class="ico_list sub_over_time_ico"></span><{/if}>
-                    <p><span  remaintime="<{$item.ltime}>"></span></p>
-					<p><a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>" class="btn btn_sub_sm">去看看</a>
+</div>
+<div class="zh-company-designteam">
+	<div class="zh-company-wrap">
+		<h2>设计师团队</h2>
+		<p><a href="">更多设计师</a></p>
+		<ul>
+			<li>
+				<img src="/themes/default/static/images/designer1.jpg"/>
+				<div class="veil">
+					<h2>联系我们</h2>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+					<p>
+						设计经验：10年
+					</p>	
+					<p>
+						擅长风格：简约现代、美式乡村、新古典、地中海、简中
+					</p>
+					<p>
+						设计理念：创造宜居环境，彰显个性品味！
 					</p>
 				</div>
-                <{/calldata}>
-				<div class="cl"></div>
-			</div>
-		</div>
-       
-		<div class="mb10">
-			<h3><b>视频简介</b></h3>
-			<div class="video"> <{if $company.video}><embed src="<{$company.video}>" quality="high" width="260" height="200" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed><{/if}></div>
-		</div>
-        
-		<!-- <div class="mb10">
-			<h3 class="com_title"><b class="lt">最新预约</b></a>
-			</h3>
-			<p class="cl"></p>
-			<p class="com_yuyue_title tit"><span>业主</span><span class="mid">电话</span><span>日期</span>
-				</li>
-			<div class="com_box com_yuyue_box">
-				<ul class="com_yuyue">
-                    <{calldata mdl="company/yuyue" company_id=$company.company_id limit=10}>
-					<li><span><{$item.contact|cutstr:3:'**'}></span><span  class="mid"><{$item.mobile|cutstr:6:'****'}></span><span><{$item.dateline|format:'m-d'}></span></li>
-                    <{/calldata}>
-				</ul>
-			</div>
-		</div> -->
+				<p title="李可">李可</p>
+				<a href="">我要预约</a>
+			</li>
+			<li>
+				<img src="/themes/default/static/images/designer2.jpg"/>
+				<div class="veil">
+					<h2>联系我们</h2>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+					<p>
+						设计经验：10年
+					</p>	
+					<p>
+						擅长风格：简约现代、美式乡村、新古典、地中海、简中
+					</p>
+					<p>
+						设计理念：创造宜居环境，彰显个性品味！
+					</p>
+				</div>
+				<p title="李可">李可</p>
+				<a href="">我要预约</a>
+			</li>
+			<li>
+				<img src="/themes/default/static/images/designer3.jpg"/>
+				<div class="veil">
+					<h2>联系我们</h2>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+					<p>
+						设计经验：10年
+					</p>	
+					<p>
+						擅长风格：简约现代、美式乡村、新古典、地中海、简中
+					</p>
+					<p>
+						设计理念：创造宜居环境，彰显个性品味！
+					</p>
+				</div>
+				<p title="李可">李可</p>
+				<a href="">我要预约</a>
+			</li>
+			<li>
+				<img src="/themes/default/static/images/designer4.jpg"/>
+				<div class="veil">
+					<h2>联系我们</h2>
+					<ul>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
+					</ul>
+					<p>
+						设计经验：10年
+					</p>	
+					<p>
+						擅长风格：简约现代、美式乡村、新古典、地中海、简中
+					</p>
+					<p>
+						设计理念：创造宜居环境，彰显个性品味！
+					</p>
+				</div>
+				<p title="李可">李可</p>
+				<a href="">我要预约</a>
+			</li>
+		</ul>
 	</div>
-	<!--主体右边内容结束-->
-	<div class="cl"></div>
-	<div class="mb10 ">
-			<h3 class="com_title"><b class="lt">设计团队</b><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-			<p class="cl"></p>
-			<div class="com_box pding">
-				<ul class="sub_com_design">
-                    <{calldata mdl='designer/designer' company_id=$company.company_id limit=6 nocache=true}>
-					<li>
-						<a href="<{link ctl='blog' arg0=$item.uid}>"><img src="<{$pager.img}>/<{$item.face}>" /></a>
-						<p><b><a href="<{link ctl='blog' arg0=$item.uid}>" class="lt tit"><{$item.name}></a></b><span class="rt"><{$item.group_name}></span></p>
-						<p><a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-width='500' mini-load="我要预约" class="btn">我要预约</a></p>
-					</li>
-                    <{/calldata}>
-				</ul>
-				<div class="cl"></div>
-			</div>
-		</div>
-	<div class="cl"></div>
-	<div class="mb10">
-		<h3 class="com_title"><b class="lt">装修案例</b><a href="<{link ctl='company:cases' arg0=$company.company_id}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-		<p class="cl"></p>
-		<div class="com_box">
-			<ul class="com_case">
-                <{calldata mdl='case/case' company_id=$company.company_id limit=4 noext=true nocache=true}>
-				<li>
-					<div class="opacity_img"><a href="<{link ctl='case:detail' arg0=$item.case_id arg1=1}>"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a>
-						<a href="<{link ctl='case:yuyue' arg0=$item.case_id}>" class="yuyue">免费预约设计</a>
-						<p class="bg"></p>
-						<p class="text"><span class="lt"><{$item.title}></span><span class="rt"><span class="index_ico like_ico"></span><{$item.views}></span></p>
-					</div>
-				</li>
-                <{/calldata}>
-			</ul>
-			<div class="cl"></div>
-		</div>
+</div>
+<div class="zh-company-anli">
+	<div class="zh-company-wrap">
+		<h2>案例效果图</h2>
+		<p><a href="">更多案例</a></p>
+		<ul>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
+		</ul>
 	</div>
-	<div class="mb20">
-		<h3 class="com_title"><b class="lt">在建工地</b><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>" class="rt">更多<span class="com_ico more_ico"></span></a></h3>
-		<p class="cl"></p>
-		<div class="com_box pding">
-			<ul class="com_site">
-                <{calldata mdl='home/site' company_id=$company.company_id limit=3 noext=true nocache=true}>
+</div>
+<div class="zh-company-news">
+	<div class="zh-company-wrap">
+		<div class="left-part">
+			<h2>优惠</h2>
+			<a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a>
+		</div>
+		<div class="right-part">
+			<h2>企业新闻</h2>
+			<ul>
 				<li>
-					<div class="main_site main_list">
-						<a href="<{link ctl='site:detail' arg0=$item.site_id}>" class="lt pic"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-						<div class="main_site_rt main_list_rt rt">
-							<h3><p class="lt"><b><a <{if $item.home_id}>href="<{link ctl='home:detail' arg0=$item.home_id}>"<{/if}>><{$item.home_name}></a></b></p></h3>
-							<div class="main_site_rt_top">
-								<div class="lt">
-									<p><span class="ico_list fengge_ico"></span>价格：<{$item.price}>万元</p>
-									<p><span class="ico_list company_ico"></span>小区：<{$item.home_name}></p>
-								</div>
-								<a href="<{link ctl='site:yuyue' arg0=$item.site_id}>" mini-width='500' mini-load="我要参观工地" class="btn_sub_sm btn rt">我要参观</a>
-							</div>
-							<div class="cl"></div>
-							<div class="site_step">
-								<p class="step bar"><span class="bar step_color step<{$item.status}>"></span></p>
-								<p><span class="step">开工大吉</span><span class="step">水电改造</span><span class="step">泥瓦阶段</span><span class="step">木工阶段</span><span class="step">油漆阶段</span><span class="step">安装阶段</span><span class="step">验收完成</span></p>
-							</div>
-						</div>
-						<div class="cl"></div>
-					</div>
+					<a href="">
+						<h3>家具工厂化生产，品质高，安全环保</h3>
+						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
+					</a>
 				</li>
-                <{/calldata}>
+				<li>
+					<a href="">
+						<h3>家具工厂化生产，品质高，安全环保</h3>
+						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<h3>家具工厂化生产，品质高，安全环保</h3>
+						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
 </div>
+<div class="tool">
+		<p></p>
+		<ul>
+			<li><a href="<{link ctl='tools:tuliao'}>" target="_blank"><span></span>涂料计算器</a></li>
+			<li><a href="<{link ctl='tools:diban'}>" target="_blank"><span></span>地板计算器</a></li>
+			<li><a href="<{link ctl='tools:bizhi'}>" target="_blank"><span></span>壁纸计算器</a></li>
+			<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
+			<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
+		</ul>
+	</div>
+
 <script type="text/javascript">
-(function(K, $){
-    $(function(){
-    var dateTime = new Date();
-    var difference = dateTime.getTime() - <{$pager.dateline}>*1000;	
-    setInterval(function(){
-      $("[remaintime]").each(function(){
-        var obj = $(this);
-        var endTime = new Date(parseInt(obj.attr('remaintime')) * 1000);
-        var nowTime = new Date();
-        var nMS=endTime.getTime() - nowTime.getTime() + difference;
-        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
-        var myH=Math.floor(nMS/(1000*60*60)) % 24;
-        var myM=Math.floor(nMS/(1000*60)) % 60;
-        var myS=Math.floor(nMS/1000) % 60;
-        var myMS=Math.floor(nMS/100) % 10;
-        if(myD>= 0){
-			var str = myD+"天"+myH+"小时"+myM+"分"+myS+"."+myMS+"秒";
-        }else{
-			var str = "真遗憾您来晚了，抢购已经结束。";	
+	$designLi=$(".zh-company-designteam>.zh-company-wrap>ul>li");
+	$veil=$(".zh-company-designteam .veil");
+	$designLi.hover(
+		function(){
+			$(this).children(".veil").stop().animate({
+				top:0
+			},500)
+			$(this).css("background-color","#ff4401");
+			$(this).children().css("color","#fff");
+		},
+		function(){
+			$(this).children(".veil").stop().animate({
+				top:-305
+			},500)
+			$(this).css("background-color","#f6f6f6");
+			$(this).children("p").css("color","#000");
+			$(this).children("a").css("color","#ff4401");
 		}
-		obj.html(str);
-      });
-    }, 100);
-});
-})(window.KT, window.jQuery);
+	)
 </script>
 <{include file="company/block/footer.html"}>
