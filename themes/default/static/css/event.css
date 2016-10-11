@@ -69,6 +69,7 @@
 .runbox{
 	width:650px;
 	height:360px;
+	overflow: hidden;
 	margin: 0 29px;
 	float: left;
 }
