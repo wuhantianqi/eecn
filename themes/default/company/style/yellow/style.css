@@ -1,5 +1,5 @@
 /*装修公司黄色模板样式*/
-.company_top{ background:#fbb509;}
+/*.company_top{ background:#fbb509;}*/
 .company_top_rt{ background:#fbb509;}
 .company_nav{ background:#ffd800;}
 .company_nav ul a.current, .company_nav ul a:hover{ background:#edbe00;}
@@ -16,3 +16,5 @@ ul.line_type li:hover{ border-bottom:1px solid #31b6a8;}
 .company_ico{ background:url(yellow_com.png) no-repeat; background-position:0px -32px;}
 ul.main_youhui li .be_paint{ background:url(yellow_com.png) no-repeat; background-position:-21px 0px;}
 /*装修公司黄色模板样式*/
+
+

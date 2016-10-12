@@ -1,6 +1,5 @@
 <{include file="block/small-header.html"}>
 <link type="text/css" rel="stylesheet" href="/themes/default/company/style/default/style.css" />
-<{if $company.skin_cfg}><{foreach $company.skin_cfg.css as $css}><link rel="stylesheet" type="text/css" href="<{$pager.theme}>/<{$css}>"/><{/foreach}><{/if}>
 <!--装修公司头部开始-->
 <div class="company-zh-banner">
 	<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>

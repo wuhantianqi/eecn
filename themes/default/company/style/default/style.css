@@ -100,3 +100,40 @@ ul.sub_com_de_list li a.pic img{ width:150px; height:150px; border:1px solid #e3
 .sub_com_pinglun input.long{ width:50%;}
 .sub_com_pinglun input.full,.sub_com_pinglun textarea.full{ width:100%;}
 /*装修公司其它页面样式结束*/
+
+.company-zh-banner img{
+	display: block;
+	margin:0 auto;
+}
+.company_top{
+	background-color: #fff;
+	color: #000;
+	padding-top: 45px;
+	padding-bottom: 0px;
+}
+.company_top_lt h1{
+	margin-top: 5px;
+}
+.company_top_lt h1 a,.company_top_lt h2 span{
+	color: #000;
+}
+.company_top_lt h2{
+	margin-top: 15px;
+}
+.company_top_lt p{
+	color: #000;
+	margin-top: 15px;
+	font-size: 16px;
+}
+.company_top .subwd>img{
+	width: 130px;
+	height: 130px;
+}
+.com_ico{
+	background-color: #ff4401;
+}
+.company_top_rt{
+	background-color: #f0f0f0;
+	color: #000;
+	margin-top: 20px;
+}
