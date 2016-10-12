@@ -3,16 +3,22 @@
 <link rel="stylesheet"  href="/themes/default/static/css/company-index.css"/>
 <div class="zh-company-about">
 	<div class="zh-company-wrap">
-	<h2>关于我们</h2>
-	<p><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>"><{$company.desc|cutstr:650}></a>
-	<a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">[详情]</a>
+	<h2><div class="bg-line"></div><span class="zh-title">公司介绍</span></h2>
+	<p class="under-title">选我们，满足您所有需求</p>
+	<p>
+		<{$company.desc|cutstr:650}>
+		<a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">【了解更多】</a>
 	</p>
 	</div>
 </div>
 <div class="zh-company-designteam">
-	<div class="zh-company-wrap">
-		<h2>设计师团队</h2>
-		<p><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">更多设计师</a></p>
+	<div class="zh-company-wrap"><!--<a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">更多设计师</a>-->
+		<h2>
+			<div class="bg-line"></div>
+			<span class="zh-title">设计师团队</span>
+			<span class="zh-more"><a href="">>>更多</a></span>
+		</h2>
+		<p class="under-title">选我们，满足您所有需求</p>
 		<ul>
 			<{calldata mdl='designer/designer' company_id=$company.company_id limit=4 nocache=true}>
 			<li>
@@ -115,9 +121,13 @@
 	</div>
 </div>
 <div class="zh-company-anli">
-	<div class="zh-company-wrap">
-		<h2>案例效果图</h2>
-		<p><a href="<{link ctl='company:cases' arg0=$company.company_id}>">更多案例</a></p>
+	<div class="zh-company-wrap"><!--<a href="<{link ctl='company:cases' arg0=$company.company_id}>">更多案例</a>-->
+		<h2>
+			<div class="bg-line"></div>
+			<span class="zh-title">案例效果图</span>
+			<span class="zh-more"><a href="">>>更多</a></span>
+		</h2>
+		<p class="under-title">选我们，满足您所有需求</p>
 		<ul>
 			<{foreach $items as $item}>         	
 	            <{if $item.lastphotos}>
@@ -137,12 +147,21 @@
 	</div>
 </div>
 <div class="zh-company-news">
-	<div class="zh-company-wrap">
+	<div class="zh-company-wrap"><!--href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"-->
 		<div class="left-part">
 			<h2>优惠</h2>
-			 	<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
-				<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
-	            <{/calldata}>
+			<a href="">
+				<div class="img-wrap">
+					<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
+					<img src="<{$pager.img}>/<{$item.photo}>" /> 
+					<{/calldata}>
+					<p>活动描述描述描述</p>
+				</div>
+				<div class="text-wrap">
+					<p><i class="last-count"></i>100天23时59分</p>
+					<span>去看看</span>
+				</div>
+	       </a>
 		</div>
 		<div class="right-part">
 			<h2>企业新闻</h2>
@@ -155,20 +174,6 @@
 					</a>
 				</li>
                 <{/calldata}>
-
-				<!-- 
-				<li>
-					<a href="">
-						<h3>家具工厂化生产，品质高，安全环保</h3>
-						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
-					</a>
-				</li>
-				<li>
-					<a href="">
-						<h3>家具工厂化生产，品质高，安全环保</h3>
-						<p>装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务装修主材托管服务……</p>
-					</a>
-				</li> -->
 			</ul>
 		</div>
 	</div>
@@ -182,7 +187,7 @@
 			<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
 			<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
 		</ul>
-	</div>
+</div>
 
 <!--<script type="text/javascript">
 	$designLi=$(".zh-company-designteam>.zh-company-wrap>ul>li");
