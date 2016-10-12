@@ -2,10 +2,12 @@
 <link type="text/css" rel="stylesheet" href="/themes/default/company/style/default/style.css" />
 <!--装修公司头部开始-->
 <div class="company-zh-banner">
+	<div bxSlider="company_banner">
 	<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
-	<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" height="260"></a>
+	<div class="slider"><a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" width="1920" height="260"></a></div>
 	<{/calldata}>
-	<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" height="260"></a></div><{/if}>
+	<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" width="1920" height="260"></a></div><{/if}>
+	</div>
 </div>
 <div class="company_top">
 	<div class="subwd">
@@ -25,7 +27,7 @@
 				<{if $company.group.show_phone && $company.mobile}><span><font class="com_ico com_phone"></font><{$company.mobile}></span><{/if}>
 				<span class=""><{$company.show_qq|qq}></span>
 			</h2>
-			<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>
+			<p>地址：<{$company.addr}></p>
 		</div>
 		<div class="company_top_rt pingfen_bar rt">
 			<p class="title">综合评价：<{$company.avg_score}></p>
