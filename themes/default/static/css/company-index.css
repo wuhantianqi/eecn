@@ -280,7 +280,20 @@ img{
 .zh-company-news .zh-company-wrap h2{
 	line-height: 26px;
 	font-size: 24px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+	position: relative;
+}
+.zh-company-news .zh-company-wrap .left-part h2 span{
+	position: absolute;
+	right: 95px;
+	top: 30px;
+	font-size: 14px;
+}
+.zh-company-news .zh-company-wrap .right-part h2 span{
+	position: absolute;
+	right: 0;
+	top: 30px;
+	font-size: 14px;
 }
 .zh-company-news .left-part{
 	float: left;
@@ -288,23 +301,35 @@ img{
 	margin-right: 50px;
 }
 .zh-company-news .left-part .img-wrap{
+	width: 382px;
+	height: 256px;
+	position: relative;
+}
+.zh-company-news .left-part .img-wrap>a{
+	display: block;
 	width: 378px;
 	height: 252px;
-	position: relative;
+	border: 2px solid #fff;
+	transition: 0.8s;
+}
+.zh-company-news .left-part .img-wrap>a:hover{
+	border-color: #ff4401;
 }
 .zh-company-news .left-part .img-wrap img{
 	width: 378px;
 	height: 252px;
 }
 .zh-company-news .left-part .img-wrap p{
-	width: 100%;
+	width: 378px;
 	font-size: 16px;
 	color: #fff;
 	text-align: center;
 	position: absolute;
-	bottom: 0;
+	bottom: 2px;
 	background: rgba(0,0,0,0.6);
 }
+
+
 .zh-company-news .left-part .text-wrap{
 	height: 40px;
 	padding-top: 10px;
@@ -318,34 +343,7 @@ img{
 	box-shadow: 0 0 3px 2px #888;
 	color: #888;
 }
-.zh-company-news .left-part .text-wrap p{
-	font-size: 16px;
-	height: 30px;
-	color: #888;
-	line-height: 30px;
-	padding-left: 30px;
-	position: relative;
-}
-.zh-company-news .left-part .text-wrap p .last-count{
-	width: 17px;
-	height:17px;
-	position: absolute;
-	top: 8px;
-	left: 8px;
-	background: url(../images/ico1.png) no-repeat 0 -16px;
-}
-.zh-company-news .left-part .text-wrap span{
-	width: 82px;
-	height: 30px;
-	line-height: 30px;
-	font-size: 14px;
-	text-align: center;
-	color: #fff;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	background-color: #ff4401;
-}
+
 
 .zh-company-news .right-part{
 	float: right;
@@ -354,12 +352,12 @@ img{
 .zh-company-news .zh-company-wrap .right-part h3{
 	line-height: 18px;
 	font-size: 18px;
-	color: #888;
+	color: #333;
 	font-weight: 500;
 	margin-bottom: 8px;
 }
 .zh-company-news .zh-company-wrap .right-part p{
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 22px;
 	margin-bottom: 25px;
 	color: #888;

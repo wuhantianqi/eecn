@@ -149,24 +149,25 @@
 <div class="zh-company-news">
 	<div class="zh-company-wrap"><!--href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"-->
 		<div class="left-part">
-			<h2>优惠活动</h2>
+			<h2>优惠活动<span><a href="">>>更多</a></span></h2>
 			
 			<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
 				<div class="img-wrap">
-					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a> 
+					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" />
 					<p><{$item.title|cutstr:15}></p>
+					</a> 
 				</div>
             <{/calldata}>
 
 		</div>
 		<div class="right-part">
-			<h2>企业新闻</h2>
+			<h2>企业新闻<span><a href="">>>更多</a></span></h2>
 			<ul>
-				<{calldata mdl='company/news' company_id=$company.company_id limit=3 noext=true nocache=true}>
+				<{calldata mdl='company/news' company_id=$company.company_id limit=4 noext=true nocache=true}>
 				<li>
 					<a href="<{link ctl='news:detail' arg0=$item.news_id}>">
 						<h3><{$item.title|cutstr:80}></h3>
-						<p><{$item.content|cutstr:80}></p>
+						<div><{$item.content|cutstr:80}></div>
 					</a>
 				</li>
                 <{/calldata}>
