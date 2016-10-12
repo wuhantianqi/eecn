@@ -23,7 +23,6 @@ class Ctl_Youhui extends Ctl
         if ($items = K::M('company/youhui')->items($filter, null, $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink(null, array('{page}')));
-            var_dump($items);exit;
             $this->pagedata['items'] = $items;
         }        
         $this->pagedata['pager'] = $pager;
