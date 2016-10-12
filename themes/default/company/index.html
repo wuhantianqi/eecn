@@ -122,7 +122,7 @@
 			<{foreach $items as $item}>         	
 	            <{if $item.lastphotos}>
 	                 <{foreach from=$item.lastphotos key=key item=item2}>
-	                 	<li><a href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$photos[$item2].photo}>_small.jpg" /></a></li>
+	                 	<li><a href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$photos[$item2].photo}>" /></a></li>
 	                 <{/foreach}>
 	            <{/if}>               
 	         <{/foreach}>

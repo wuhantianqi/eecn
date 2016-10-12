@@ -289,6 +289,11 @@ class Ctl_Case extends Ctl
         }else{
             $orderby = NULL;
         }
+        var_dump($filter);
+        var_dump($orderby);
+        var_dump($page);
+        var_dump($limit);
+        var_dump($count);exit;
         if ($items = K::M('case/case')->items($filter, $orderby, $page, $limit, $count)) {
             $lastphotos = array();
             foreach ($items as $k => $val) {

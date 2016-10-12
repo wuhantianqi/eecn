@@ -41,11 +41,10 @@ class Ctl_Company extends Ctl
         $filter =array(
             'company_id'=>50,
             );
-
         $orderby = array('likes'=>'DESC');
+        $page =1;
         $limit = 1;
         $items = K::M('case/case')->items($filter, $orderby, $page, $limit, $count);
-        // var_dump($items);exit;
         $lastphotos = array();
         foreach ($items as $k => $val) {
             if ($val['lastphotos']) {
