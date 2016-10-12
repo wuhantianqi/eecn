@@ -16,7 +16,7 @@
 		<h2>
 			<div class="bg-line"></div>
 			<span class="zh-title">设计师团队</span>
-			<span class="zh-more"><a href="">>>更多</a></span>
+			<span class="zh-more"><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">>>更多</a></span>
 		</h2>
 		<p class="under-title">选我们，满足您所有需求</p>
 		<ul>
@@ -125,7 +125,7 @@
 		<h2>
 			<div class="bg-line"></div>
 			<span class="zh-title">案例效果图</span>
-			<span class="zh-more"><a href="">>>更多</a></span>
+			<span class="zh-more"><a href="<{link ctl='company:cases' arg0=$company.company_id}>">>>更多</a></span>
 		</h2>
 		<p class="under-title">选我们，满足您所有需求</p>
 		<ul>
@@ -149,19 +149,15 @@
 <div class="zh-company-news">
 	<div class="zh-company-wrap"><!--href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"-->
 		<div class="left-part">
-			<h2>优惠</h2>
-			<a href="">
+			<h2>优惠活动</h2>
+			
+			<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
 				<div class="img-wrap">
-					<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
-					<img src="<{$pager.img}>/<{$item.photo}>" /> 
-					<{/calldata}>
-					<p>活动描述描述描述</p>
+					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a> 
+					<p><{$item.title|cutstr:15}></p>
 				</div>
-				<div class="text-wrap">
-					<p><i class="last-count"></i>100天23时59分</p>
-					<span>去看看</span>
-				</div>
-	       </a>
+            <{/calldata}>
+
 		</div>
 		<div class="right-part">
 			<h2>企业新闻</h2>

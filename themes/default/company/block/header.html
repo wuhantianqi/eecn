@@ -3,9 +3,9 @@
 <!--装修公司头部开始-->
 <div class="company-zh-banner">
 	<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
-	<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" height="320"></a>
+	<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" height="260"></a>
 	<{/calldata}>
-	<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" height="320"></a></div><{/if}>
+	<{if $calldata_count<1}><div class="slider"><a><img src="<{$pager.img}>/default/company_banner.jpg" height="260"></a></div><{/if}>
 </div>
 <div class="company_top">
 	<div class="subwd">
