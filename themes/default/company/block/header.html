@@ -27,7 +27,7 @@
 				<{if $company.group.show_phone && $company.mobile}><span><font class="com_ico com_phone"></font><{$company.mobile}></span><{/if}>
 				<span class=""><{$company.show_qq|qq}></span>
 			</h2>
-			<p>地址：<{$company.addr}></p>
+			<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
 		</div>
 		<div class="company_top_rt pingfen_bar rt">
 			<p class="title">综合评价：<{$company.avg_score}></p>
