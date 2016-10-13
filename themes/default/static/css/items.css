@@ -1,4 +1,21 @@
- .about-lt{
+ 	.sub_topnav{
+ 		height: 80px;
+ 		margin-bottom: 0;
+ 	}
+ 	.sub_topnav p{
+ 		line-height: 80px;
+ 		font-size: 16px;
+ 	}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	.about-lt{
         width:170px;
         height:500px;
     }
@@ -6,36 +23,73 @@
     .about-lt  li{
         width:158px;
         height:55px;
-        border-radius:10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
         margin-bottom:10px;
     }
-
-    .about-lt li:first-child{
+	
+    .about-lt li:first-child p{
         background:#66C02A;
     }
-    .about-lt li:nth-child(2){
+    .about-lt li:first-child:hover{
+    	background:#66C02A;
+    }
+    .about-lt li:first-child.active{
+    	background:#66C02A;
+    }
+    .about-lt li:nth-child(2) p{
         background:#3EC6D2;
     }
-    .about-lt li:nth-child(3){
+    .about-lt li:nth-child(2):hover{
+        background:#3EC6D2;
+    }
+    .about-lt li:nth-child(2).active{
+    	background:#3EC6D2;
+    }
+    .about-lt li:nth-child(3) p{
         background:#ED4F4E;
     }
-    .about-lt li:nth-child(4){
+    .about-lt li:nth-child(3):hover{
+        background:#ED4F4E;
+    }
+    .about-lt li:nth-child(3).active{
+    	 background:#ED4F4E;
+    }
+    .about-lt li:nth-child(4) p{
         background:#00A6F4;
     }
-    .about-lt li:nth-child(5){
+    .about-lt li:nth-child(4):hover{
+        background:#00A6F4;
+    }
+    .about-lt li:nth-child(4).active{
+    	background:#00A6F4;
+    }
+    .about-lt li:nth-child(5) p{
         background:#C56BDD;
     }
-    .about-lt li:nth-child(6){
+     .about-lt li:nth-child(5):hover{
+        background:#C56BDD;
+    }
+    .about-lt li:nth-child(5).active{
+    	background:#C56BDD;
+    }
+    .about-lt li:nth-child(6) p{
         background:#F69101;
+    }
+     .about-lt li:nth-child(6):hover{
+        background:#F69101;
+    }
+    .about-lt li:nth-child(6).active{
+    	background:#F69101;
     }
 
     .about-lt a{
-        color:white;
         display:inline-block;
-        width:90px;
-        height:40px;
-        line-height:40px;
-        margin-top:10px;
+        width:97px;
+        height:41px;
+        margin-top: 7px;
+        line-height:41px;
+        border-left: 1px solid #fff;
         float:left;
         font-size:16px;
         text-align:center;
@@ -49,9 +103,8 @@
 
     .about-lt p{
         width:60px;
-        height:50px;
+        height:55px;
         float:left;
-        margin-top:5px;
     }
     .about-lt p i{background:url(../images/tool_img.jpg) no-repeat;display:inline;width:50px;
         height:50px;float:left;margin-left:5px;border-radius:15px;}

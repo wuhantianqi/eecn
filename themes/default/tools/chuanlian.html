@@ -72,7 +72,7 @@ return false;
 		<ul>
              <{foreach $tools_array as $k => $item}>
                      <li><p><i></i></p>
-                        <a href="<{link ctl='tools' arg0=$k}>"><{$item}></a>
+                        <a href="<{link ctl='tools' arg0=$k}>" title="<{$k}>"><{$item}></a>
                     </li>
             <{/foreach}>
 		</ul>
@@ -112,5 +112,20 @@ return false;
 		<li><div><img src="themes/default/static/images/shop/ad04.jpg"></div></li>
 	</ul>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		 var $aboutLi=$(".about-lt li");
+		 var $aboutA=$(".about-lt li a");
+		 var myURL = document.location.href.toLocaleLowerCase();
+
+		 
+		 $aboutA.each(function(){
+		 	var title=$(this).attr("title");
+		 	if(myURL.indexOf(title)!==-1){
+		 		$(this).parent("li").addClass("active");
+		 	}	 	
+		 })
+	})
+</script>
 
 <{include file="block/small-footer.html"}>
