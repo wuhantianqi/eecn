@@ -7,13 +7,21 @@ a,a:hover{
 img{
 	vertical-align: top;
 }
+.slider{
+	height: 260px;
+}
 .company-zh-banner img{
 	display: block;
 	margin:0 auto;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	-webkit-transform: translate(-50%,0);
+	-moz-transform: translate(-50%,0);
+	-ms-transform: translate(-50%,0);
+	-o-transform:translate(-50%,0);
 }
-.bx-wrapper img{
-	max-width: none;
-}
+
 .company_top{
 	background-color: #fff;
 	color: #000;
@@ -358,22 +366,20 @@ img{
 	width: 475px;
 }
 .zh-company-news .zh-company-wrap .right-part h3{
-	line-height: 18px;
-	font-size: 18px;
+	line-height: 30px;
+	font-size: 16px;
 	color: #333;
 	font-weight: 500;
-	margin-bottom: 8px;
+	margin-bottom: 15px;
+	border-bottom: 1px dashed #888;
 }
-.zh-company-news .zh-company-wrap .right-part p{
-	font-size: 14px;
+.zh-company-news .zh-company-wrap .right-part h3 span.zh-update-time{
+	float: right;
 	line-height: 22px;
-	margin-bottom: 25px;
-	color: #888;
+	color: ;
 }
-.zh-company-news .zh-company-wrap .right-part ul li:last-child p{
-	margin-bottom: 0;
-}
-.zh-company-news .zh-company-wrap .right-part a:hover h3,.zh-company-news .zh-company-wrap .right-part a:hover p{
+
+.zh-company-news .zh-company-wrap .right-part a:hover h3{
 	color: #ff4401;
 }
 

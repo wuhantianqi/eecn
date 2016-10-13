@@ -137,3 +137,17 @@ ul.sub_com_de_list li a.pic img{ width:150px; height:150px; border:1px solid #e3
 	color: #000;
 	margin-top: 20px;
 }
+.slider{
+	height: 260px;
+}
+.company-zh-banner img{
+	display: block;
+	margin:0 auto;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	-webkit-transform: translate(-50%,0);
+	-moz-transform: translate(-50%,0);
+	-ms-transform: translate(-50%,0);
+	-o-transform:translate(-50%,0);
+}

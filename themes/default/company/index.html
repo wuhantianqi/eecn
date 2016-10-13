@@ -166,8 +166,7 @@
 				<{calldata mdl='company/news' company_id=$company.company_id limit=4 noext=true nocache=true}>
 				<li>
 					<a href="<{link ctl='news:detail' arg0=$item.news_id}>">
-						<h3><{$item.title|cutstr:80}></h3>
-						<div><{$item.content|cutstr:80}></div>
+						<h3><{$item.title|cutstr:80}><span class="zh-update-time">2016.12.12</span></h3>
 					</a>
 				</li>
                 <{/calldata}>
