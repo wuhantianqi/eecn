@@ -17,7 +17,6 @@
  	
  	.about-lt{
         width:170px;
-        height:500px;
     }
 
     .about-lt  li{
@@ -133,7 +132,6 @@
        /*float:left;*/
        margin-left:20px;
        width:798px;
-       height:500px;
        margin-bottom:20px;
        border:1px solid lightgrey;
    }
@@ -195,4 +193,5 @@
         margin-left:26px;
         margin-top:20px;
         width:600px;
+        background-color: #fff;
     }
