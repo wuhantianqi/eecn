@@ -86,7 +86,7 @@ return false;
 		<ul>
              <{foreach $tools_array as $k => $item}>
                      <li><p><i></i></p>
-                        <a href="<{link ctl='tools' arg0=$k}>" title="<{$k}>"><{$item}></a>
+                        <a href="<{link ctl='tools' arg0=$k}>" name="<{$k}>"><{$item}></a>
                     </li>
             <{/foreach}>
 		</ul>
@@ -137,8 +137,8 @@ return false;
 
 		 
 		 $aboutA.each(function(){
-		 	var title=$(this).attr("title");
-		 	if(myURL.indexOf(title)!==-1){
+		 	var name=$(this).attr("name");
+		 	if(myURL.indexOf(name)!==-1){
 		 		$(this).parent("li").addClass("active");
 		 	}	 	
 		 })
