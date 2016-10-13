@@ -11,6 +11,9 @@ img{
 	display: block;
 	margin:0 auto;
 }
+.bx-wrapper img{
+	max-width: none;
+}
 .company_top{
 	background-color: #fff;
 	color: #000;
@@ -236,7 +239,7 @@ img{
 	text-align: center;
 }
 .zh-company-anli ul{
-	height: 360px;
+	height: 358px;
 	overflow: hidden;
 	margin-top: 50px;
 }
@@ -245,26 +248,29 @@ img{
 }
 .zh-company-anli ul>li{
 	float: left;
-	width: 240px;
-	height: 168px;
-	border: 2px solid #f6f6f6;
+	width: 244px;
+	height: 172px;
+	overflow: hidden;
+	/*border: 2px solid #f6f6f6;*/
 	margin-right: 14px;
+	
+}
+
+.zh-company-anli ul>li img{
+	width: 244px;
+	height: 172px;
 	transition: 0.8s;
 }
-.zh-company-anli ul>li:hover{
-	border-color: #ff4401;
-}
-.zh-company-anli ul>li img{
-	width: 240px;
-	height: 168px;
+.zh-company-anli ul>li:hover img{
+	transform: scale(1.1);
 }
 .zh-company-anli ul>li:first-child{
-	width: 480px;
-	height: 354px;
+	width: 484px;
+	height: 358px;
 }
 .zh-company-anli ul>li:first-child img{
-	width: 480px;
-	height: 354px;
+	width: 484px;
+	height: 358px;
 }
 .zh-company-anli ul>li:nth-child(3),.zh-company-anli ul>li:nth-child(5){
 	margin-right: 0;
@@ -282,19 +288,19 @@ img{
 .zh-company-news .zh-company-wrap h2{
 	line-height: 26px;
 	font-size: 24px;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	position: relative;
 }
 .zh-company-news .zh-company-wrap .left-part h2 span{
 	position: absolute;
 	right: 95px;
-	top: 30px;
+	top: 6px;
 	font-size: 14px;
 }
 .zh-company-news .zh-company-wrap .right-part h2 span{
 	position: absolute;
 	right: 0;
-	top: 30px;
+	top: 6px;
 	font-size: 14px;
 }
 .zh-company-news .left-part{
@@ -371,6 +377,10 @@ img{
 	color: #ff4401;
 }
 
+.zh-tool-wrap{
+	width: 100%;
+	background-color: #f6f6f6;
+}
 .tool{
 	width:1200px;
 	height: auto;
@@ -387,11 +397,12 @@ img{
 	margin-top:30px;
 }
 .tool ul li{
-	width:183px;
+	width:181px;
 	height:81px;
 	line-height: 83px;
 	font-size:18px;
 	background: #F8F8F8;
+	border: 1px solid #888;
 	border-radius: 10px;
 	float:left;
 	margin-left:20px;
