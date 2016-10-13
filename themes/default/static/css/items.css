@@ -95,11 +95,13 @@
         font-family:"微软雅黑";
     }
 
-    .about-lt a:hover{
-        color:#333333;
+    .about-lt li:hover a{
+        color:#fff;
         text-decoration:none;
     }
-
+	.about-lt li.active a{
+		color: #fff;
+	}
     .about-lt p{
         width:60px;
         height:55px;
