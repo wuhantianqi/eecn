@@ -163,10 +163,10 @@
 		<div class="right-part">
 			<h2>企业新闻<span><a href="<{link ctl='company:news' arg0=$company.company_id company=$company}>">>>更多</a></span></h2>
 			<ul>
-				<{calldata mdl='company/news' company_id=$company.company_id limit=4 noext=true nocache=true}>
+				<{calldata mdl='company/news' company_id=$company.company_id limit=6 noext=true nocache=true}>
 				<li>
 					<a href="<{link ctl='news:detail' arg0=$item.news_id}>">
-						<h3><{$item.title|cutstr:80}><span class="zh-update-time">2016.12.12</span></h3>
+						<h3><{$item.title|cutstr:80}><span class="zh-update-time"><{$item.dateline|format:"Y:m:d"}></span></h3>
 					</a>
 				</li>
                 <{/calldata}>

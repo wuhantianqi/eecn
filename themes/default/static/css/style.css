@@ -821,9 +821,9 @@ ul.case_zhuanji li p{ line-height:35px;}
 /*左侧案例展示样式开始*/
 .sub_case_top h3 label{ font-size:12px; margin-left:10px;}
 .case_pic_top{ background:#f8f8f8;}
-.case_pic_top { position:relative;width:688px; height:490px; overflow:hidden;}
+/*.case_pic_top { position:relative;width:688px; height:490px; overflow:hidden;}*/
 .case_pic_top li{ width:688px; height:500px; text-align:center;}
-.case_pic_top img{ max-width:688px; max-height:490px;}
+/*.case_pic_top img{ max-width:688px; max-height:490px;}*/
 .case_pic_top a.change_a{  width:40px; height:50px; position:absolute;  top:225px; background:url(../images/sp-slide.png) no-repeat;}
 .case_pic_top a.prev_a{ left:10px; background-position:0px 0px;}
 .case_pic_top a.next_a{ right:10px; background-position:-40px 0px;}

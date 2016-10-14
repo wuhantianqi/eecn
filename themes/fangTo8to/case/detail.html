@@ -121,16 +121,16 @@
 <script type="text/javascript">
 (function(K, $){
 $(document).ready(function(){
-var GH = $(window).height()-100;
-$(".pic_right_content").height(GH-20);
-Galleria.configure({
-    transition: 'fade',thumbCrop:true,height:GH,thumbPosition:"bottom center",extend: function() {
-            var gallery = this; // "this" is the gallery instance
-            $(window).resize(function() {gallery.play();});
-            $(".galleria-theme-classic .galleria-stage").css("bottom", "70px");
-        },
-});
-Galleria.run('#galleria');
+	var GH = $(window).height()-100;
+	$(".pic_right_content").height(GH-20);
+	Galleria.configure({
+	    transition: 'fade',thumbCrop:true,height:GH,thumbPosition:"bottom center",extend: function() {
+	            var gallery = this; // "this" is the gallery instance
+	            $(window).resize(function() {gallery.play();});
+	            $(".galleria-theme-classic .galleria-stage").css("bottom", "70px");
+	        },
+	});
+	Galleria.run('#galleria');
 $(window).load(function(){
 	$("#case_right_content").mCustomScrollbar({theme:"dark-2",axis:"yx", scrollButtons:{enable:true}});
 });

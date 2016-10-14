@@ -39,7 +39,7 @@ class Ctl_Company extends Ctl
 		}
         // 案例效果图
         $filter =array(
-            'company_id'=>50,
+            'company_id'=>$company_id,
             );
         $orderby = array('likes'=>'DESC');
         $page =1;
