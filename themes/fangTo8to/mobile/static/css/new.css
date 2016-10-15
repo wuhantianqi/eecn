@@ -24,6 +24,25 @@ a{ color:#555;text-decoration: none}
     color: #666;
     padding-left: 0.6rem;
 }
+.four-k{
+	width: 0.62rem;
+	height: 0.62rem;
+	overflow: hidden;
+	padding-left: 0;
+	top: 0.35rem;
+}
+.four-k .kou{
+	width: 0.25rem;
+	height: 0.25rem;
+	float: left;
+	border: 1px solid #888;
+	border-radius: 2px;
+	margin-right: 0.05rem;
+	margin-bottom: 0.05rem;
+}
+.four-k .kou:nth-child(2n){
+	margin-right: 0;
+}
 .cube {
     width: 100%;
     overflow: hidden;
