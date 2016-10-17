@@ -431,3 +431,108 @@ em{ font-style:normal;}
 .index_xgt_gzxgt ul li a span{display: inline-block; height:14px; line-height: 14px; margin-top:10px; width: 152px};
 
 
+
+/*carousel样式*/
+.case_pic_top .zh-carousel-ul li{
+	position: absolute;
+	width: 100%;
+	height: initial;
+	text-align: center;
+	display: none;
+}
+.zh-carousel .zh-carousel-ul li{
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-55%);
+	width: 100%;
+	height: initial;
+	text-align: center;
+	display: none;
+}
+.zh-carousel .zh-carousel-ul li a{
+	
+}
+.zh-carousel .zh-carousel-ul li:first-child{
+	display: block;
+}
+.zh-carousel .zh-carousel-ul li img{
+	display: block;
+	margin: 0 auto;
+}
+
+.zh-carousel .zh-control-ul{
+	overflow: hidden;
+	display: inline-block;
+	width: 10000px;
+	position: absolute;
+}
+.zh-carousel .zh-control-ul li{
+	width: 62px;
+	height: 62px;
+	float: left;
+	margin-right: 10px;
+	cursor: pointer;
+	opacity: 0.6;
+}
+.zh-carousel .zh-control-ul li.active{
+	opacity: 1;
+}
+.zh-carousel .zh-control-ul li img{
+	border: 1px solid;
+	width: 60px;
+	height: 60px;
+}
+.img_box {
+	height: 650px;
+	position: relative;
+}
+.img_box a img{
+	width: initial;
+}
+.zh-carousel .control-bg{
+	position: absolute;
+	bottom: 10px;
+	width: 1008px;
+	left: 130px;
+	height: 62px;
+	background: rgba(0,0,0,0.2);
+}
+.zh-carousel .zh-run-box{
+	overflow: hidden;
+	position: relative;
+	height: 62px;
+}
+.zh-carousel-prev,.zh-carousel-next{
+	position: absolute;
+	top: 45%;
+	width: 26px;
+	height: 44px;
+	background: url(../images/next-prev.png) no-repeat 0 0;
+	z-index: 999;
+}
+.zh-carousel-prev{
+	left: 2%;
+}
+.zh-carousel-next{
+	right: 2%;
+	background-position: -292px 0;
+}
+.zh-control-prev,.zh-control-next{
+	position: absolute;
+	top: 30%;
+	width: 15px;
+	height: 30px;
+	background: url(../images/next-prev.png) no-repeat -503px -5px;
+	z-index: 999;
+}
+.zh-control-prev{
+	left: -2%;
+}
+.zh-control-next{
+	right: -2%;
+	background-position: -582px -5px;
+}
+
+
+
+
