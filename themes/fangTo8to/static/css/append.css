@@ -442,8 +442,7 @@ em{ font-style:normal;}
 }
 .zh-carousel .zh-carousel-ul li{
 	position: absolute;
-	top: 50%;
-	transform: translate(0,-55%);
+	margin-top: 10px;
 	width: 100%;
 	height: initial;
 	text-align: center;
@@ -470,7 +469,7 @@ em{ font-style:normal;}
 	width: 62px;
 	height: 62px;
 	float: left;
-	margin-right: 10px;
+	margin: 0 5px;
 	cursor: pointer;
 	opacity: 0.6;
 }
@@ -483,8 +482,8 @@ em{ font-style:normal;}
 	height: 60px;
 }
 .img_box {
-	height: 650px;
 	position: relative;
+	height: 650px;
 }
 .img_box a img{
 	width: initial;
@@ -493,8 +492,13 @@ em{ font-style:normal;}
 	position: absolute;
 	bottom: 10px;
 	width: 1008px;
-	left: 130px;
 	height: 62px;
+	left: 50%;
+	transform: translate(-50%,0);
+	-ms-transform:translate(-50%,0); 	/* IE 9 */
+	-moz-transform:translate(-50%,0); 	/* Firefox */
+	-webkit-transform:translate(-50%,0); /* Safari 和 Chrome */
+	-o-transform:translate(-50%,0); 	/* Opera */
 	background: rgba(0,0,0,0.2);
 }
 .zh-carousel .zh-run-box{
@@ -504,7 +508,7 @@ em{ font-style:normal;}
 }
 .zh-carousel-prev,.zh-carousel-next{
 	position: absolute;
-	top: 45%;
+	top: 300px;
 	width: 26px;
 	height: 44px;
 	background: url(../images/next-prev.png) no-repeat 0 0;
@@ -532,7 +536,12 @@ em{ font-style:normal;}
 	right: -2%;
 	background-position: -582px -5px;
 }
+#case_right_content{
+	height: 650px;
+	overflow-y:scroll;
+}
 
-
-
+body{
+	overflow-y:scroll;
+}
 

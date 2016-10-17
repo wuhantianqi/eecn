@@ -1,6 +1,6 @@
 <{include file="block/small-header.html"}>
-<style type="text/css">html{overflow-y: hidden;height: 100%;}</style>
-<link rel="stylesheet" href="%THEME%/static/script/customcrollbar/jquery.mCustomScrollbar.min.css" type="text/css" />
+<style type="text/css">html{height: 100%;}</style>
+
 <!--面包屑导航开始-->
 <div class="case_crumbs">
 	<p><span class="ico_list breadna"></span>您的位置：<a href="index"><{$CONFIG.site.title}></a>
@@ -136,7 +136,7 @@
 		<script type="text/javascript">
 			
 					
-		(function(){		//原图显示，原图的高度最好不要超过590px
+	(function(){		//原图显示，原图的高度最好不要超过590px
 		var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
 		
 		var $controlUl=$(".zh-control-ul");
@@ -149,6 +149,13 @@
 		var $nextCon=$(".zh-control-next");
 		var $controlBg=$(".control-bg");
 		
+		var $imgBox=$(".img_box");
+		var $boxHeight=$(".img_box").css("height");
+		
+		
+		$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
+	
+		
 		
 		var timer=null;
 		var iNow =0;
@@ -158,9 +165,11 @@
 		
 		$control.click(
 			function(){
-				clearInterval(timer);
+//				clearInterval(timer);
 				$index = $(this).index();
 				iNow = $index;
+				$boxHeight=$carouselLi.eq(iNow).css("height");
+				$imgBox.css("height",parseInt($boxHeight)+90);
 				
 				reBulid(iNow);
 			}
@@ -175,6 +184,9 @@
 			else{
 				iNow--;
 			}
+			$boxHeight=$carouselLi.eq(iNow).css("height");
+			$imgBox.css("height",parseInt($boxHeight)+90);
+			
 			reBulid(iNow);
 		})
 		
@@ -187,6 +199,9 @@
 			else{
 				iNow++;
 			}
+			$boxHeight=$carouselLi.eq(iNow).css("height");
+			$imgBox.css("height",parseInt($boxHeight)+90);
+			
 			reBulid(iNow);
 		})
 		
@@ -212,12 +227,10 @@
 			$carouselLi.eq(iNow).fadeIn();
 			$control.eq(iNow).addClass("active");
 		}
-		var $prevCon=$(".zh-control-prev"); //			if($control.length*72 < parseInt($controlBg.css("width"))){
-											//			$nextCon.css("display","none")}
+		var $prevCon=$(".zh-control-prev"); 											
 		var $nextCon=$(".zh-control-next");
 		
 		var ulWidth=$control.length*72;
-		
 		
 		(function(){	
 			$prevCon.click(function(){
@@ -247,7 +260,7 @@
 				}
 			})
 		})()	
-	})();				
+	})();
 			</script>		
 			</div>
 		</div>
