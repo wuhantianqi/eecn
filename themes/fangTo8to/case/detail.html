@@ -133,10 +133,10 @@
 						</div>
 						<a class="zh-carousel-prev"></a>
 						<a class="zh-carousel-next"></a>
-		<script type="text/javascript">
+		<script type="text/javascript">			
+		$(document).ready(function(){	//原图显示，原图的高度最好不要超过590px
+										//已修改，自适应无需限制
 			
-					
-	(function(){		//原图显示，原图的高度最好不要超过590px
 		var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
 		
 		var $controlUl=$(".zh-control-ul");
@@ -153,7 +153,10 @@
 		var $boxHeight=$(".img_box").css("height");
 		
 		
-		$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
+		$carouselLi.eq(0).find("img").load(function(){
+			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
+		})
+		
 	
 		
 		
@@ -259,13 +262,15 @@
 					iNow2++;
 				}
 			})
-		})()	
-	})();
-			</script>		
+		})()
+		
+		})			
+		
+		</script>		
 			</div>
 		</div>
 	</div>
 </div>
 
 
-</script>
+
