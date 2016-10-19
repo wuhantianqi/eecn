@@ -115,7 +115,6 @@ li{
 	padding: 0 39px;
 	float: left;
 	border-right: 3px solid #fff;
-	cursor: pointer;
 }
 .zh-procedure ul li:nth-child(1):hover p{
 	color: #aa78bf;

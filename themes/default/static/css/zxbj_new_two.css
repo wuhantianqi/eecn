@@ -178,6 +178,11 @@ i {
     margin-right: 10px;
     font-size: 18px;
 }
+.bj_res_ul li strong del{
+	color: #bbb;
+	margin-left: 18px;
+	font-size: 18px;
+}
 .let_spac i {
     padding: 0 21px;
 }

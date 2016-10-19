@@ -96,13 +96,15 @@
     jq('#new_base_info').click(function(){
     	if (validData()) {
         
-      	var mjia = jq('#square').val() * 430;
-        jq('#bprice').html(mjia);
+      	var mjia = jq('#square').val() * 500;
+        jq('#bprice').html(mjia*0.8);
 
-        jq('#materialPay em').html(mjia*0.40);
-        jq('#artificialPay em').html(mjia*0.20);
-        jq('#designPay em').html(mjia*0.30);
-        jq('#qualityPay em').html(mjia*0.10);
+        jq('#materialPay em').html(mjia*0.48);
+        jq('#artificialPay em').html(mjia*0.32);
+        jq('#designPay em').html(0);
+        jq('#designPay').append('<del>'+mjia*0.19+'元'+'</del>')
+        jq('#qualityPay em').html(0);
+        jq('#qualityPay').append('<del>'+mjia*0.11+'元'+'</del>')
         jq('#new_base_info').css("background-position","0 -168px")
         }
     	else{
