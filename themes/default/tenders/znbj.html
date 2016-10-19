@@ -25,6 +25,7 @@
             <!-- calculate -->
             <div class="con_bj_cal col_l">
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
+                
                 <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
                     <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
                     <div class="mod_form bj_form">
@@ -107,8 +108,8 @@
                             </div>
                         </div>
                         <div class="form_line bj_btn">
-                            <!-- <a class="calc-btn" id="calc_btn" href="javascript:;"></a> -->
-                            <input class="calc-btn" type="submit" />
+                              
+                            <input class="calc-btn" id="new_base_info" type="submit" value="" style="border: none;cursor: pointer;"/>
                             <input type="hidden" name="ptag" id="myPtag" value="1_4_7_1"  />
                         </div>
                     </div>

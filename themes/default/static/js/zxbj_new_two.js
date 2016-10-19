@@ -80,20 +80,37 @@
     jq('.text_wrap > input').blur(function () {
         if (jq(this).val() == '') jq(this).parent().find('.text_lbl').show();
     });
-    jq('div.con_bj_cal').on('click', '#calc_btn', function(){
-        if (validData()) {
-        //提交表单
-        document.getElementById("new_base_info").submit();
-        var mjia = jq('#square').val() * 430;
+//  jq('div.con_bj_cal').on('click', '#calc_btn', function(){
+//      if (validData()) {
+//      //提交表单
+//      document.getElementById("new_base_info").submit();
+//      var mjia = jq('#square').val() * 430;
+//      jq('#bprice').html(mjia);
+//      jq('.bj_res_t span').html('万元');
+//      jq('#materialPay em').html(mjia*0.40);
+//      jq('#artificialPay em').html(mjia*0.20);
+//      jq('#designPay').html('<em>'+ mjia*0.30 +'元</em>');
+//      jq('#qualityPay').html('<em>'+ mjia*0.10 +'元</em>');          
+//      }
+//  })
+    jq('#new_base_info').click(function(){
+    	if (validData()) {
+        
+      	var mjia = jq('#square').val() * 430;
         jq('#bprice').html(mjia);
-        jq('.bj_res_t span').html('万元');
+
         jq('#materialPay em').html(mjia*0.40);
         jq('#artificialPay em').html(mjia*0.20);
-        jq('#designPay').html('<em>'+ mjia*0.30 +'元</em>');
-        jq('#qualityPay').html('<em>'+ mjia*0.10 +'元</em>');          
+        jq('#designPay em').html(mjia*0.30);
+        jq('#qualityPay em').html(mjia*0.10);
+        jq('#new_base_info').css("background-position","0 -168px")
         }
+    	else{
+    		return false;
+    	}
     })
-
+    
+	
     //数据校验
     function validData(){
         var chkArr = [{
