@@ -152,6 +152,9 @@
 		var $imgBox=$(".img_box");
 		var $boxHeight=$(".img_box").css("height");
 		
+		$carouselLi.eq(0).find('img').load(function(){
+			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
+		})
 		
 		$carouselLi.eq(0).find("img").load(function(){
 			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
@@ -272,5 +275,35 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="%THEME%/static/script/customcrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+var GH = $(window).height()-100;
+$(".pic_right_content").height(GH-20);
+Galleria.configure({
+    transition: 'fade',thumbCrop:true,height:GH,thumbPosition:"bottom center",extend: function() {
+            var gallery = this; // "this" is the gallery instance
+            $(window).resize(function() {gallery.play();});
+            $(".galleria-theme-classic .galleria-stage").css("bottom", "70px");
+        },
+});
+Galleria.run('#galleria');
+$(window).load(function(){
+	$("#case_right_content").mCustomScrollbar({theme:"dark-2",axis:"yx", scrollButtons:{enable:true}});
+});
+});
+$("[like]").click(function(){
+    var case_id = $(this).attr("like");
+    $.getJSON("<{link ctl='case:like' arg0=$detail.case_id}>", function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else{
+            Widget.MsgBox.success(ret.message.join(","));
+        }
+    });
+});
+})(window.KT, window.jQuery); 
+</script>
 
 

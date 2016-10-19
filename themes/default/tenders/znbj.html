@@ -15,15 +15,9 @@
    var jq = jQuery.noConflict();
 </script>
 <script src="/themes/default/static/js/common_new.js" type="text/javascript"></script>
-</head>
-<body class="narrow_980">
-    <script type="text/javascript">
-      jq('body').addClass('narrow_980');
-    </script>
-    <link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_new_two.css"/>
-    <link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_n_alink.css">
-</head>
-<body>
+<script type="text/javascript">jq('body').addClass('narrow_980');</script>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_new_two.css"/>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_n_alink.css">
 <div class="global_wrap clear zxbj_details" id="gloWrap">
     <!-- con -->
     <div class="con">
@@ -31,7 +25,7 @@
             <!-- calculate -->
             <div class="con_bj_cal col_l">
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
-                <form id="new_base_info" action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+                <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
                     <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
                     <div class="mod_form bj_form">
                         <div class="form_line">
@@ -113,7 +107,8 @@
                             </div>
                         </div>
                         <div class="form_line bj_btn">
-                            <a class="calc-btn" id="calc_btn" href="javascript:;"></a>
+                            <!-- <a class="calc-btn" id="calc_btn" href="javascript:;"></a> -->
+                            <input class="calc-btn" type="submit" />
                             <input type="hidden" name="ptag" id="myPtag" value="1_4_7_1"  />
                         </div>
                     </div>

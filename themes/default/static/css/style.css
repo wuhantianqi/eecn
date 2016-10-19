@@ -521,7 +521,7 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .com_rz_ico{ width:40px; height:20px; background-position:-51px 0px;}
 .ps_rz_ico{width:40px; height:20px; background-position:-51px -21px;}
 .tuiguang_ico{width:40px; height:20px; background-position:-51px -42px;}
-.bz_metals{ display:inline-block; border:1px solid #03bb98; color:#03bb98; font-size:12px; line-height:18px; height:18px; background:#fff;}
+.bz_metals{ display:inline-block; border:1px solid #03bb98; color:#03bb98; font-size:12px; line-height:16px; height:18px; background:#fff;}
 .bz_metals font{ width:18px; height:20px; background-position:-51px -63px; margin-right:0px;}
 .qq_ico{ width:77px; height:22px; background-position:-92px 0px;}
 .main_list_rt a.qq_ico{ margin-top:8px;}
@@ -823,7 +823,7 @@ ul.case_zhuanji li p{ line-height:35px;}
 .case_pic_top{ background:#f8f8f8;}
 /*.case_pic_top { position:relative;width:688px; height:490px; overflow:hidden;}*/
 .case_pic_top li{ width:688px; height:500px; text-align:center;}
-/*.case_pic_top img{ max-width:688px; max-height:490px;}*/
+.case_pic_top img{ max-width:688px; max-height:490px;}
 .case_pic_top a.change_a{  width:40px; height:50px; position:absolute;  top:225px; background:url(../images/sp-slide.png) no-repeat;}
 .case_pic_top a.prev_a{ left:10px; background-position:0px 0px;}
 .case_pic_top a.next_a{ right:10px; background-position:-40px 0px;}
@@ -1770,7 +1770,7 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 	font-size: 24px;
 	font-weight: 800;
 }
-.bx-wrapper{ z-index:0;box-shadow: 2px 2px 2px 1px #888;}
+.bx-wrapper{ z-index:0;/*box-shadow: 2px 2px 2px 1px #888;*/}
 
 .personAd{ width:200px; height:150px; overflow:hidden;}
 

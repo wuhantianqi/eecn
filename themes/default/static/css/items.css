@@ -1,4 +1,7 @@
- 	.sub_topnav{
+ 	body.smallpage{
+        background: url("../images/left-bar-bg.jpg");
+    }
+    .sub_topnav{
  		height: 80px;
  		margin-bottom: 0;
  	}
@@ -6,15 +9,6 @@
  		line-height: 80px;
  		font-size: 16px;
  	}
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
  	.about-lt{
         width:170px;
     }
@@ -84,7 +78,7 @@
 
     .about-lt a{
         display:inline-block;
-        width:97px;
+        width:96px;
         height:41px;
         margin-top: 7px;
         line-height:41px;
@@ -131,11 +125,11 @@
 
     /*右侧样式*/
    .about-rt{
-       /*float:left;*/
        margin-left:20px;
        width:798px;
        margin-bottom:20px;
        border:1px solid lightgrey;
+       background: #FFF;
    }
 
     .about-rt h3{
@@ -164,7 +158,6 @@
      margin:0 auto;
     }
 
-
  /*尾部*/
     .last{
         width:1000px;
@@ -172,19 +165,23 @@
         margin:10px auto;
     }
 
-
     .last li{
         display:inline-block;
         width:232px;
         height:170px;
+        overflow:hidden;
         margin-top:20px;
-        margin-right:1px;
-        padding:0 7px;
+        margin-right:20px;
         position:relative;
         left:0;
         bottom:10px;
     }
-
+    .last li:hover{
+        box-shadow: 2px 2px 3px #888888;
+    }
+    .last li:last-child{
+        margin-right:0px;
+    }
     .last li img{
         width:235px;
         height:170px;
