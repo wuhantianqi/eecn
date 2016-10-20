@@ -122,26 +122,29 @@
 	
     //数据校验
     function validData(){
-        var chkArr = [{
-            id: jq('.con_bj_cal .element select[name="shen"]')[0],
-            className: 'form_error',
-            labl: 'em',
-            lablClass: 'ico_error',
-            info: [{
-                reg: [0],
-                tip: '请选择所在地'
-            }]
-        },{
-            id: jq('.con_bj_cal .element select[name="city"]')[0],
-            parentTip: '.con_bj_cal ',
-            className: 'form_error',
-            labl: 'em',
-            lablClass: 'ico_error',
-            info: [{
-                reg: [0],
-                tip: '请选择所在地'
-            }]
-        },{
+        var chkArr = [
+//        {
+//          id: jq('.con_bj_cal .element select[name="shen"]')[0],
+//          className: 'form_error',
+//          labl: 'em',
+//          lablClass: 'ico_error',
+//          info: [{
+//              reg: [0],
+//              tip: '请选择所在地'
+//          }]
+//      },
+//			{
+//          id: jq('.con_bj_cal .element select[name="city"]')[0],
+//          parentTip: '.con_bj_cal ',
+//          className: 'form_error',
+//          labl: 'em',
+//          lablClass: 'ico_error',
+//          info: [{
+//              reg: [0],
+//              tip: '请选择所在地'
+//          }]
+//      },
+        {
             id: jq('.con_bj_cal  .text_wrap :input[name="square"]')[0],
             className: 'form_error',
             labl: 'em',
