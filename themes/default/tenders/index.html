@@ -14,29 +14,8 @@
 						<input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 						<input type="text" value="" name="data[contact]" placeholder="请输入您的姓名"/>
 						<input type="text" value="" name="data[mobile]" placeholder="请输入您的手机号码"/>
-						<div class="text-group">
-							<select name="provence">
-								<option value="">湖北</option>
-							</select>
-							<select name="city">
-								<option value="">武汉</option>
-							</select>
-							<select name="area">
-								<option value="">江汉区</option>
-                                <option value="">江岸区</option>
-                                <option value="">洪山区</option>
-                                <option value="">武昌区</option>
-                                <option value="">汉阳区</option>
-                                <option value="">江夏区</option>
-                                <option value="">黄陂区</option>
-                                <option value="">汉南区</option>
-                                <option value="">硚口区</option>
-                                <option value="">青山区</option>
-                                <option value="">新洲区</option>
-                                <option value="">东西湖区</option>
-                                <option value="">蔡甸区</option>
-							</select>
-						</div>
+						
+						<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
 						<input type="text" id="" value="" name="area-name" placeholder="小区名称"/>
 						
 						<input type="submit" value="立即免费预约"/>
@@ -53,27 +32,27 @@
 						<h3>
 							免费发布招标
 						</h3>
-						<p>免费发布招标，获得装修网全程装修管家服务</p>
+						<p>优优美家客服会在30分钟内与您取得联系并了解您的具体要求</p>
 					</li>
 					<li>
 						<span></span>
 						<h3>坐等上门服务</h3>
-						<p>3家公司上门免费量房并提供设计预算方案</p>
+						<p>优优美家根据您的要求免费为您精选三家附近装修公司为您量房设计出方案</p>
 					</li>
 					<li>
 						<span></span>
 						<h3>多套方案对比</h3>
-						<p>业主对比3套设计方案，选出最优方案</p>
+						<p>您可以根据要求对比多家公司提供的多套方案，选出最优最喜欢的</p>
 					</li>
 					<li>
 						<span></span>
-						<h3>选择服务公司</h3>
-						<p>选择方案最优，价格合理的公司签订装修合同</p>
+						<h3>多种报价选择</h3>
+						<p>根据您喜欢的设计方案可提供多种报价选择，避免增项漏项拒绝价格猫腻</p>
 					</li>
 					<li>
 						<span></span>
 						<h3>获得装修保障</h3>
-						<p>提交合同或拨打装修网热线电话获得装修保障</p>
+						<p>您在装修期间遇到任何问题都可以随时联系优优美家协助处理</p>
 					</li>
 				</ul>
 			</div>
@@ -91,7 +70,7 @@
 							<li>
 								<div class="img-wrap"><img src="%THEME%/static/images/detial1.jpg"/></div>
 								<div class="text">
-								<p>1分钟发布招标，3家装修公司免费上门服务 &nbsp;&nbsp;</p>
+								<p>1分钟发布招标，精选装修公司免费上门服务 &nbsp;&nbsp;</p>
 								<p>在优优美家装修网发布装修招标只需一分钟，让您在最短的时间内找到最合适的装修公司，优优美家为您提供的都是经过严格资格认证的正规装修公司，保证后期施工质量以及资金安全，业主可以放心选择。</p>
 								</div>
 							</li>
@@ -109,8 +88,8 @@
 							<li>
 								<div class="img-wrap"><img src="%THEME%/static/images/detail3.jpg"/></div>
 								<div class="text">
-								<p>免费赠送第三方监理，分节点严控施工质量 &nbsp;&nbsp;&nbsp;</p>
-								<p>装修要小心，一着不慎后患无穷，尤其是隐蔽工程，如果不过关，后期出了问题，不仅影响生活，整改也很麻烦，还需要花费大量的时间金钱 ，劳心劳力，所以有很多业主都选择第三方监理把控装修质量。</p>
+								<p>免费赠送装修管家服务，为您装修排忧解难 &nbsp;&nbsp;&nbsp;</p>
+								<p>装修要小心，一着不慎后患无穷，尤其是隐蔽工程，如果不过关，后期出了问题，不仅影响生活，整改也很麻烦，还需要花费大量的时间金钱 ，劳心劳力，所以有很多业主都选择优优美家装修管家服务排忧解难。</p>
 								</div>
 							</li>
 						</a>

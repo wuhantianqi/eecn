@@ -137,6 +137,7 @@
 		$(document).ready(function(){	//原图显示，原图的高度最好不要超过590px
 										//已修改，自适应无需限制
 			
+
 		var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
 		
 		var $controlUl=$(".zh-control-ul");
@@ -155,10 +156,12 @@
 		$carouselLi.eq(0).find('img').load(function(){
 			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
 		})
+
 		
 		$carouselLi.eq(0).find("img").load(function(){
 			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
 		})
+
 		
 	
 		
@@ -305,5 +308,3 @@ $("[like]").click(function(){
 });
 })(window.KT, window.jQuery); 
 </script>
-
-
