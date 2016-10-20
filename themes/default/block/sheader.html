@@ -10,6 +10,7 @@
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/public.css?<{$VER}>" />
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/style.css?<{$VER}>" />
 <link rel="stylesheet" type="text/css" href="%THEME%/static/css/append.css?<{$VER}>"/>
+<!-- 浏览器判断 IE8及以下不支持-->
 <!--[if lt IE 9]>
 	<script type="text/javascript">
 		window.onload=function(){
@@ -24,28 +25,7 @@
 	
 	</script>
 <![endif]-->
-<style>
-	.ch-veil{
-		position: fixed;
-		width: 400px;
-		height: 300px;
-		left: 50%;
-		top: 50%;
-		margin-left: -200px;
-		margin-top: -150px;
-		background-color: #f8f8f8;
-		z-index: 999;
-		padding: 50px;
-		font-size: 14px;
-	}
-	.ch-veil a{
-		font-size: 18px;
-		color: blue;
-	}
-	.ch-veil a:hover{
-		color: #ff4401;
-	}
-</style>
+
 <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.js?<{$VER}>"></script>
