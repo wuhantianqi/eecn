@@ -21,6 +21,9 @@ body{
 	font-size:12px;
 	font-family: "微软雅黑";
 }
+a[title=站长统计]{
+	display: none;
+}
 .clear{
 	clear:both;
 }
@@ -230,8 +233,12 @@ select.text:last-child{
 	width:1200px;
 	height:auto;
 	margin:0 auto;
-	overflow: hidden;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+.banner_bottom:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 .product-list {
     margin-right: -20px;
@@ -245,11 +252,11 @@ select.text:last-child{
     display: block;
     float: left;
     margin-right: 27px;
+    transition: 0.8s;
 }
 .product-item:hover{
-	width: 278px;
-    height: 238px;
-	border:1px solid #FFF;
+	transform: translate(0,-15px);
+	
 }
 .product-item:last-child{
 	margin-right: 0px;
@@ -861,6 +868,13 @@ select.text:last-child{
 	float:left;
 	margin-left:20px;
 }
+.Hotspot .Hotspot_ul .Hotspot_li img{
+	border: 2px solid #fff;
+	transition: 1s;
+}
+.Hotspot .Hotspot_ul .Hotspot_li:hover img{
+	border: 2px solid #ff4401;
+}
 .Hotspot .Hotspot_ul .Hotspot_li:first-child{
 	width:400px;
 	height:300px;
@@ -873,7 +887,7 @@ select.text:last-child{
 	width:210px;
 }
 .Hotspot .Hotspot_ul .Hotspot_li ul li{
-	margin-bottom:13px;
+	margin-bottom:14px;
 	border-bottom: 1px solid #f8f8f8;
 }
 .Hotspot .Hotspot_ul .Hotspot_li ul li:last-child{
@@ -986,17 +1000,22 @@ select.text:last-child{
 	margin:0 auto;
 }
 .link ul li{
+	width: 98px;
 	margin-left:20px;
 	font-size:14px;
 	line-height:24px;
 	float:left;
+	text-align: center;
 }
 .link ul li a:hover{
 	color:#ff4401;
 }
-.link ul li:first-child{
+.link ul>li:first-child{
 	font-size:18px;
 	margin-left:0px;
+}
+.link-detial{
+	overflow: hidden;
 }
 .footer{
 	width: 100%;

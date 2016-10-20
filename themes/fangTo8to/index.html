@@ -297,9 +297,11 @@
     <div class="link link_bottom">
         <ul>
             <li>友情链接:</li>
-            <{calldata mdl='market/links' city_id=$request.city_id limit="500"}>
-            <li><a href="<{$item.link}>" target="_blank"><{$item.title}></a></li>
-            <{/calldata}>
+            <div class="link-detial">
+	            <{calldata mdl='market/links' city_id=$request.city_id limit="500"}>
+	            <li><a href="<{$item.link}>" target="_blank"><{$item.title}></a></li>
+	            <{/calldata}>	
+           	</div>
         </ul>
     </div>
 <{include file="block/footer.html"}>

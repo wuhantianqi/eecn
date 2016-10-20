@@ -152,6 +152,15 @@
 	position: absolute;
 	
 }
+.bg h1 a{
+	position: absolute;
+	right: -460px;
+	top: 60px;
+	font-size: 14px;
+}
+.bg h1 a:hover{
+	color: #ff4401;
+}
 .left-bg{
 	background: url(../images/left-bg.jpg) no-repeat;
 	left: -5px;
@@ -167,7 +176,7 @@
 	margin-top: 30px;
 }
 .team-purchasing1>p,.team-purchasing2>p{
-	margin: 10px 0;
+	margin: 10px 0 20px;
 	line-height: 30px;
 	width: 100%;
 	text-align: center;
