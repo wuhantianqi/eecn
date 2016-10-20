@@ -14,8 +14,9 @@
 						<input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 						<input type="text" value="" name="data[contact]" placeholder="请输入您的姓名"/>
 						<input type="text" value="" name="data[mobile]" placeholder="请输入您的手机号码"/>
-						
+						<div class="text-group">
 						<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+						</div>
 						<input type="text" id="" value="" name="area-name" placeholder="小区名称"/>
 						
 						<input type="submit" value="立即免费预约"/>
