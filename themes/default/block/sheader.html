@@ -11,12 +11,41 @@
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/style.css?<{$VER}>" />
 <link rel="stylesheet" type="text/css" href="%THEME%/static/css/append.css?<{$VER}>"/>
 <!--[if lt IE 9]>
-	<script>
-
-		alert("您的浏览器版本过低，看不到许多效果哦，请升级您的浏览器（ps：谷歌浏览器和火狐浏览器都是不错的选择）")
+	<script type="text/javascript">
+		window.onload=function(){
+		var veilDiv=document.createElement("div");
+		veilDiv.setAttribute("class","ch-veil")
+		veilDiv.innerHTML="<p>您的浏览器版本过低，可能会导致页面错乱，并且看不到许多效果哦，请升级您的浏览器</p><br /><p>(ps:<a href='https://www.baidu.com/s?wd=谷歌浏览器'>谷歌浏览器</a>和<a href='https://www.baidu.com/s?wd=火狐浏览器'>火狐浏览器</a>都是不错的选择)</p><br /><p>点击任意地方关闭</p>"
+		document.body.appendChild(veilDiv);
+		veilDiv.onclick=function(){
+			veilDiv.style.display="none";
+		}
+	}
 	
 	</script>
 <![endif]-->
+<style>
+	.ch-veil{
+		position: fixed;
+		width: 400px;
+		height: 300px;
+		left: 50%;
+		top: 50%;
+		margin-left: -200px;
+		margin-top: -150px;
+		background-color: #f8f8f8;
+		z-index: 999;
+		padding: 50px;
+		font-size: 14px;
+	}
+	.ch-veil a{
+		font-size: 18px;
+		color: blue;
+	}
+	.ch-veil a:hover{
+		color: #ff4401;
+	}
+</style>
 <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.js?<{$VER}>"></script>
