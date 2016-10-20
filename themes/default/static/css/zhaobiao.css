@@ -37,9 +37,9 @@ li{
 	vertical-align: middle;
 }
 .zh-show .order{
-	width: 240px;
+	width: 244px;
 	height: 360px;
-	padding: 10px 30px;
+	padding: 10px 28px;
 	position: absolute;
 	right: 5px;
 	top: 30px;
@@ -76,21 +76,32 @@ li{
 }
 .zh-show .order form .text-group{
 	overflow: hidden;
+	margin-bottom: 8px;
 }
-.zh-show .order form .text-group input:nth-child(1){
-	/*width: 80px;
-	float: left;*/
-}
-.zh-show .order form .text-group input:nth-child(2){
-	width: 107px;
+.zh-show .order form .text-group select{
+	height: 35px;
+	line-height: 35px;
+	padding-left: 7px;
 	float: left;
-	margin-left: 5px;
+	font-size: 14px;
+	color: #333;
+}
+.zh-show .order form .text-group select:nth-child(1){
+	width: 66px;
+}
+.zh-show .order form .text-group select:nth-child(2){
+	width: 66px;
+	margin-left: 6px;
+}
+.zh-show .order form .text-group select:nth-child(3){
+	width: 100px;
+	margin-left: 6px;
 }
 .zh-show .order form>input:last-child{
 	width: 240px;
 	font-size: 18px;
 	height: 40px;
-	margin-top: 20px;
+	margin-top: 10px;
 	font-family: "微软雅黑";
 	background-color: #ff4401;
 	border: none;
