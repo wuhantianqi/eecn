@@ -9,7 +9,14 @@
 <link rel="stylesheet" href="<{$pager.res}>/style/common.css?<{$VER}>" type="text/css" />
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/public.css?<{$VER}>" />
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/style.css?<{$VER}>" />
-<link rel="stylesheet" type="text/css" href="%THEME%/static/css/append.css?<{$VER}>"/> 
+<link rel="stylesheet" type="text/css" href="%THEME%/static/css/append.css?<{$VER}>"/>
+<!--[if lt IE 9]>
+	<script>
+
+		alert("您的浏览器版本过低，看不到许多效果哦，请升级您的浏览器（ps：谷歌浏览器和火狐浏览器都是不错的选择）")
+	
+	</script>
+<![endif]-->
 <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.js?<{$VER}>"></script>
