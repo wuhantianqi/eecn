@@ -1491,13 +1491,18 @@ h1.bao_title{ color:#0da54f; font-weight:bold; text-align:center;}
 .bao_part1_top_rt h2{ margin:13px 0px; overflow:hidden;}
 .bao_part1_top_rt b.rt{ color:#0da54f;}
 p.bao_fg{ padding:5px 0px; text-align:center;}
-.bao_part1_ul li{ padding:20px 1%; width:30%; float:left;}
+.bao_part1_ul li{ width:40%; float:left;padding: 20px 0;}
+.bao_part1_ul li:last-child{width: 20%;}
 .bao_part1_ul span.bao_part1_ico{ display:inline-block; width:97px; height:97px; background:url(../images/bao_pic1.jpg) no-repeat;}
 .bao_part1_ul span.ico2{ background-position:-98px 0px;}
 .bao_part1_ul span.ico3{ background-position:-196px 0px;}
 .bao_part1_ul p.tit{ font-size:16px;  margin:20px 0px 0px 10px;}
 .bao_part1_ul p{ margin-left:10px;font-weight:bold;}
-.bao_floor{ background:url(../images/bao_ico.jpg) left center no-repeat; height:60px; padding-left:20px;}
+/*10.21修改*/
+.bao_floor{ background:url(../images/bao_ico.jpg) left center no-repeat; height:60px; padding-left:20px;margin-top: 20px;}
+#zxb-floor-2{padding-top: 20px;}
+#zxb-floor-2 .bao_floor{margin-top: 0;}
+/*10.21修改*/
 .bao_part2_top{ padding:20px 0px;}
 .bao_part2_top ul li{ width:330px; margin-right:105px; float:left}
 .bao_part2_top ul li.last{ margin-right:0px; float:right;}

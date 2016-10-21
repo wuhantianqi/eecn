@@ -15,16 +15,46 @@
 	<script type="text/javascript">
 		window.onload=function(){
 		var veilDiv=document.createElement("div");
+		veilDiv.style.width=400+'px';
+		veilDiv.style.height=300+'px';
+		veilDiv.style.position="absolute";
+		var clientWidth=document.body.clientWidth;
+		veilDiv.style.left=clientWidth/2+'px';
+		veilDiv.style.top=200+'px';
+		veilDiv.style.padding=50+'px';
+		veilDiv.style.fontSize=14+'px';
+		veilDiv.style.marginLeft=-200+'px';
+		veilDiv.style.background='#f8f8f8';
+		
 		veilDiv.setAttribute("class","ch-veil")
-		veilDiv.innerHTML="<p>您的浏览器版本过低，可能会导致页面错乱，并且看不到许多效果哦，请升级您的浏览器</p><br /><p>(ps:<a href='https://www.baidu.com/s?wd=谷歌浏览器'>谷歌浏览器</a>和<a href='https://www.baidu.com/s?wd=火狐浏览器'>火狐浏览器</a>都是不错的选择)</p><br /><p>点击任意地方关闭</p>"
+		veilDiv.innerHTML="<p>您的浏览器版本过低，可能会导致页面错乱，并且看不到许多效果哦，请升级您的浏览器</p><br /><p>(ps:<a href='https://www.baidu.com/s?wd=谷歌浏览器' id='agoogle'>谷歌浏览器</a>和<a id='afirefox' href='https://www.baidu.com/s?wd=火狐浏览器'>火狐浏览器</a>都是不错的选择)</p><br /><p>点击任意地方关闭</p>"
 		document.body.appendChild(veilDiv);
+		document.getElementById('agoogle').style.color='blue';
+		document.getElementById('afirefox').style.color='blue';
+		
+		
+		window.onscroll=function(){
+			var scrollHeight;
+			var veilTop=veilDiv.offsetTop;
+			if(document.documentElement&&document.documentElement.scrollTop){
+				scrollHeight=document.documentElement.scrollTop;
+			}
+			else if(document.body){
+				scrollHeight=document.body.scrollTop;
+			}
+			veilDiv.style.top=scrollHeight+200+'px';
+		}
+		
 		veilDiv.onclick=function(){
 			veilDiv.style.display="none";
 		}
 	}
 	
 	</script>
+
 <![endif]-->
+
+	
 
 <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
 <script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>

@@ -27,28 +27,7 @@ a[title=站长统计]{
 .clear{
 	clear:both;
 }
-/*提示ie8及以下浏览器升级样式开始*/
-.ch-veil{
-		position: fixed;
-		width: 400px;
-		height: 300px;
-		left: 50%;
-		top: 50%;
-		margin-left: -200px;
-		margin-top: -150px;
-		background-color: #f8f8f8;
-		z-index: 999;
-		padding: 50px;
-		font-size: 14px;
-	}
-	.ch-veil a{
-		font-size: 18px;
-		color: blue;
-	}
-	.ch-veil a:hover{
-		color: #ff4401;
-	}
-/*提示ie8及以下浏览器升级样式结束*/
+
 .nav_top{
 	width:100%;
 	height:32px;
