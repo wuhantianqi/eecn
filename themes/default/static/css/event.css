@@ -62,9 +62,17 @@
 }
 .jiancai a{
 	background-color: #ff8c1b;
+	transition: 0.5s;
+}
+.jiancai a:hover{
+	background-color: #00b7b2;
 }
 .zhuangxiu a{
 	background-color: #00b7b2;
+	transition: 0.5s;
+}
+.zhuangxiu a:hover{
+	background-color: #ff8c1b;
 }
 .runbox{
 	width:650px;
@@ -227,7 +235,7 @@
 }
 
 .sales-list{
-	margin-top: 30px;
+	margin-top: 20px;
 }
 .sales-list ul:after{
 	content: "";

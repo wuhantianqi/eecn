@@ -1102,7 +1102,9 @@ ul.news li span.rt{ color:#999;}
 /*---------------------------------------------------活动专题页页样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------学装修样式开始---------------------------------------------------*/
-.xue_lunz{ width:340px; height:434px; overflow:hidden;}
+.xue_lunz{ width:342px; height:437px; overflow:hidden;}
+.xue_lunz img{vertical-align: top;}
+.xue_lunz .slide{border: 1px solid #999;}
 .content_top{width:785px;}
 .content_top a{font-size:16px;color:#666;line-height: 30px;}
 .content_top a:hover{color: #ff4401;}

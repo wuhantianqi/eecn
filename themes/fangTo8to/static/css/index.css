@@ -97,9 +97,13 @@ a[title=站长统计]{
 }
 .nav-pills>li {
     float: left;
+    border-radius: 5px;
 }
 .nav-pills>li:hover{
-	background:#eee;
+	background:#ff4301;
+}
+.nav-pills>li:hover a{
+	color: #fff;
 }
 .nav>li {
     position: relative;
