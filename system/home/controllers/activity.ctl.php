@@ -57,6 +57,51 @@ class Ctl_Activity extends Ctl
         $this->tmpl = 'activity/items.html';
 	}
 
+    public function lists($cat_id = 0, $page = 1)
+    {
+        $filter = $pager = array();
+        $pager['page'] = max(intval($page), 1);
+        $pager['limit'] = $limit = 6;
+        $pager['count'] = $count = 0;
+        $filter['city_id'] = $this->request['city_id'];
+        $filter['audit'] = 1;
+         // 优惠信息
+        if ($items = K::M('company/youhui')->items($filter, null, $page, $limit, $count)) {
+            $pager['count'] = $count;
+            $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink(null, array('{page}')));
+            $this->pagedata['itemses'] = $items;
+        } 
+        $cat_id = empty($cat_id) ? 0 : (int) $cat_id;
+        $cate_list = K::M("activity/cate")->fetch_all();
+        if(!$cate = $cate_list[$cat_id]){
+            foreach($cate_list as $k=>$v){
+                $cate = $v;
+                $cat_id = $k;
+                break;
+            }
+        }
+        $pager['cat_id'] = $cat_id;
+        if ($cat_id = (int) $cat_id) {
+            $filter['cate_id'] = $cat_id;
+        }
+        // 优惠活动
+        if ($items = K::M('activity/activity')->items($filter, null, $page, $limit, $count)) {
+            $pager['count'] = $count;
+            $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink('activity:items', array($cat_id, '{page}')));
+            $this->pagedata['items'] = $items;
+        }
+       
+        $this->pagedata['cate'] = $cate;
+        $this->pagedata['pager'] = $pager;
+        $this->pagedata['cate_list'] = $cate_list = K::M("activity/cate")->fetch_all();
+        $this->seo->init('activity', array('cate_name' => $cate['title'],
+            'cate_seo_title' => $cate['seo_title'],
+            'cate_seo_keywords' => $cate['seo_keywords'],
+            'cate_seo_description' => $cate['seo_description'],
+        ));
+        $this->tmpl = 'activity/list.html';
+    }
+
 	public function detail($activity_id)
     {
         if(!($activity_id = (int) $activity_id) && !($activity_id = (int)$this->GP('activity_id'))) {

@@ -1,0 +1,53 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>><a href="<{link ctl='activity:items'}>">活动列表</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt">
+		<div class="main_activity_choose hoverno mb10">
+     		<{foreach $cate_list as $item}>
+            <a title="<{$item.title}>" href="<{link ctl='activity:items' arg0=$item.cat_id arg1=1}>"  <{if $pager.cat_id == $item.cat_id}> class="current"<{/if}> ><{$item.title}><span class="sort_ico     	  ico_list"></span></a>
+            <{/foreach}>
+		</div>
+		<div class="area mb20">
+			<ul class="block_type main_activity_ul">
+            	 <{foreach $items as $item}>
+                    <li>
+                        <div class="main_activity main_list">
+                            <a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="lt pic"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+                            <div class="main_activity_rt main_list_rt rt">
+                                <h1><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><{$item.title}></a></h1>
+                                <p>活动时间 ：<{$item.bg_time|format:'Y-m-d'}></p>
+                                <p>结束时间 ： <{$item.end_time|format:'Y-m-d'}></p>
+                                <p>活动地点 ： <{$item.addr}></p>
+                                <p>客服电话 ：<font class="fontcl2"><{$item.phone}></font></p>
+                                <h2><{if $item.end_time>time()}><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_sub_tuan"  target="_blank">我要报名</a><{else}>
+                                <a  href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_over_tuan">报名结束</a>
+                                <{/if}><span>报名人数：<b class="fontcl2"><{$item.sign_num}></b>名</span></h2>
+                            </div>
+                            <div class="cl"></div>
+                        </div>
+					</li>
+                <{/foreach}> 
+			</ul>
+			<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+<script type="text/javascript">
+(function(K, $){
+    //活动列表页头部切换
+    $(".main_activity_choose a").click(function(){
+         $(".main_activity_choose a").siblings().removeClass('current');
+         $(this).addClass('current');
+    });
+})(window.KT, window.jQuery);
+</script>            
+<{include file="block/footer.html"}>
