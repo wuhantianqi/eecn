@@ -23,13 +23,15 @@
                             <a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="lt pic"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
                             <div class="main_activity_rt main_list_rt rt">
                                 <h1><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><{$item.title}></a></h1>
-                                <p>活动时间 ：<{$item.bg_time|format:'Y-m-d'}></p>
-                                <p>结束时间 ： <{$item.end_time|format:'Y-m-d'}></p>
-                                <p>活动地点 ： <{$item.addr}></p>
-                                <p>客服电话 ：<font class="fontcl2"><{$item.phone}></font></p>
-                                <h2><{if $item.end_time>time()}><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_sub_tuan"  target="_blank">我要报名</a><{else}>
-                                <a  href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_over_tuan">报名结束</a>
-                                <{/if}><span>报名人数：<b class="fontcl2"><{$item.sign_num}></b>名</span></h2>
+                                <div class="lists-txt">
+	                                <p>活动时间 ：<{$item.bg_time|format:'Y-m-d'}></p>
+	                                <p>结束时间 ： <{$item.end_time|format:'Y-m-d'}></p>
+	                                <p>活动地点 ： <{$item.addr}></p>
+	                                <p>客服电话 ：<font class="fontcl2"><{$item.phone}></font></p>
+	                                <h2><{if $item.end_time>time()}><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_sub_tuan"  target="_blank">我要报名</a>
+	                                	<{else}><a  href="<{link ctl='activity:detail' arg0=$item.activity_id}>" class="btn btn_over_tuan">报名结束</a><{/if}></h2>
+                                </div>
+                                <div class="lists-num rt"><p>报名人数</p><b class="fontcl2"><{$item.sign_num}></b></div>
                             </div>
                             <div class="cl"></div>
                         </div>

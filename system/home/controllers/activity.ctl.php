@@ -99,7 +99,7 @@ class Ctl_Activity extends Ctl
             'cate_seo_keywords' => $cate['seo_keywords'],
             'cate_seo_description' => $cate['seo_description'],
         ));
-        $this->tmpl = 'activity/list.html';
+        $this->tmpl = 'activity/lists.html';
     }
 
 	public function detail($activity_id)

@@ -667,9 +667,9 @@ ul.main_worker_ul li.first{ border-left:none; padding:10px 20px;}
 
 /*---------------------------------------------------活动列表页面样式开始---------------------------------------------------*/
 /*活动列表头部样式开始*/
-.main_activity_choose{ background:#f8f8f8; border:1px solid #ddd;height:40px; line-height:40px;}
+.main_activity_choose{ background:#ff4401; border:1px solid #ddd;height:40px; line-height:40px;}
 .main_activity_choose a{ display:inline-block; text-align:center; border-right:1px solid #ddd; width:120px; font-size:18px; color:#333;float:left;}
-.main_activity_choose a.current{ background:url(../images/activity_hover.jpg) no-repeat; color:#ff4401;}
+.main_activity_choose a.current{ /*background:url(../images/activity_hover.jpg) no-repeat;*/ color:#fff;padding: 0 20px;}
 /*活动列表头部样式结束*/
 
 /*活动列表页样式开始*/
@@ -679,6 +679,11 @@ ul.main_worker_ul li.first{ border-left:none; padding:10px 20px;}
 .main_activity_rt h1{ margin-bottom:10px;}
 .main_activity_rt h2{ margin-top:10px; color:#666;}
 .main_activity_rt h2 .btn{ margin-right:20px;}
+/*10.21修改*/
+.main_activity_rt .lists-txt{width:600px;float: left;}
+.main_activity_rt .lists-num{width: 200px;float:right;text-align: center;margin-top: 20px;}
+.main_activity_rt .lists-num p{font-size: 16px;color: #666;}
+.main_activity_rt .lists-num .fontcl2{font-size: 45px;line-height: 45px;font-weight: 500;}
 /*活动列表页样式结束*/
 /*---------------------------------------------------活动列表页面样式结束---------------------------------------------------*/
 
@@ -1195,6 +1200,7 @@ ul.content_top_t li h2{
 h1.article_in_title{ height:40px; line-height:40px;padding: 0 20px 0 0;border-bottom: 1px dashed;margin-bottom: 20px;}
 h1.article_in_title span{ color:#333;}
 h1.article_in_title a{ font-size:12px; margin-top:15px; height:24px; line-height:24px;}
+h1.article_in_title a:hover{color: #ff4401;}
 
 /*---------------------------------------------------装修学堂样式结束---------------------------------------------------*/
 
