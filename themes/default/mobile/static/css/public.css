@@ -25,6 +25,10 @@ img{ vertical-align:top;}
 h1{font-size:16px; font-weight:normal; color:#333;}
 h2{font-size:14px;font-weight:normal; color:#333;}
 
+a[title=站长统计]{
+	display: none;
+}
+
 /*按钮样式*/
 .btn{ display:inline-block; text-align:center; line-height:32px; height:32px; cursor:pointer; color:#fff; border-radius:2px; border:none;-webkit-appearance: none;}
 .mainbtn{ background:#00af43; padding:0px 10px; font-size:14px;border:1px solid #00993a;}

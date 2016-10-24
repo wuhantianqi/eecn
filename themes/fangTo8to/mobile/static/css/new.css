@@ -479,3 +479,57 @@ p.indexMore a{color:#ff4400; display:block;}
 .categoryitem dd{ width:80%;}
 .categoryitem dd a{ display:inline-block; width:19%; height:25px; margin-left:5%; margin-bottom:10px; vertical-align:top; background:#eee; text-align:center; line-height:25px;}
 
+
+.zh-m-form{
+	width: 100%;
+	padding: 0 0.3rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+
+.zh-m-form input{    
+	width: 99%;
+    height: 1.1rem;
+    padding:0rem 0.6rem;
+	font-size: 14px;
+	border: 1px solid #e5e5e5;
+	color: #999;
+	outline: none;
+	border-radius: 5px;
+    margin-bottom: 0.2rem;
+}
+.zh-m-form form{
+	margin-bottom: 0.4rem;
+}
+/*.zh-m-form input[type=text]{
+	border-bottom: none;
+}*/
+.zh-m-form .check-txt{
+	width: 100%;
+	overflow: hidden;
+	line-height: 1.0rem;
+}
+.zh-m-form .check-txt input{
+	width: initial;
+	height: initial;
+	float: left;
+	margin-top: 0.36rem;
+}
+.zh-m-form .check-txt p{
+	float: left;
+	color: #999;
+	font-size: 16px;
+}
+.zh-m-form .check-txt p a{
+	text-decoration: underline;
+	color: #999;
+}
+
+.zh-m-form input[type=submit]{
+	margin-top: 0.2rem;
+	border-radius: 5px;
+	background-color: #ff4401;
+	border: none;
+	color: #fff;
+}
