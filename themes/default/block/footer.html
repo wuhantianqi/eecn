@@ -43,17 +43,38 @@
     <div class="content-box">
       <div class="apply-form">
         <p class="tip">已有<em class="ifocus">12860</em>位业主 成功报名</p>
-        <input type="hidden" name="data[from]" value="TZX">
-        <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
-        <input type="text" placeholder="称呼" name="data[contact]"  />
-        <input type="text" placeholder="手机号码" name="data[mobile]" />
-        <input type="submit" value="发布"  />
+        
+	        <input type="hidden" name="data[from]" value="TZX">
+	        <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
+        <div class="form-left">
+	        <input type="text" placeholder="称呼" name="data[contact]"  />
+	        <div class="square"><input type="text" placeholder="建筑面积" /><span>㎡</span></div>
+        </div>
+        <div class="form-right">
+        	<input type="text" placeholder="手机号码" name="data[mobile]" />
+        	<div class="ch-sel-group">
+        		<select name="">
+        			<option value="">武汉</option>
+        		</select>
+        		<select name="">
+        			<option value="">江汉区</option>
+        			<option value="">江岸区</option>
+        			<option value="">江夏区</option>
+        			<option value="">洪山区</option>
+        			<option value="">硚口区</option>
+        			<option value="">武昌区</option>
+        		</select>
+        	</div>
+        </div>
+	        <input type="submit" value="" />
+        
       </div> 
       <div class="qrcode-box">
         <img class="ewm" src="%THEME%/static/images/learn/app_weixin.jpg">
         <p class="desc">扫码获取装修优惠和保障</p>
+        <div class="ewm-little-bg"></div>
       </div>
-      <div class="alert"></div>
+      
     </div>
     </form> 
     <div class="close_button"><a href="javascript:;">×</a></div>
