@@ -98,7 +98,7 @@ a[title=站长统计]{
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: 5px 15px;
 }
 .nav-pills>li>a {
     border-radius: 4px;

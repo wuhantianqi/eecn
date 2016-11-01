@@ -142,6 +142,7 @@
 	width: 74px;
 	height: 40px;
 	float: left;
+	font-family: "微软雅黑";
 }
 #appoinment-bottom .content-box .apply-form .form-right .ch-sel-group select:first-child{
 	margin-right: 2px;
