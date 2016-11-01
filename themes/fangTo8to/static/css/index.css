@@ -600,15 +600,15 @@ select.text:last-child{
 	height: 80px;
 	position: relative;
 }
-.xpicture ul div a{
+.xpicture ul div span{
 	position: absolute;
 	bottom: -50px;
 	left: 97px;
 }
-.xpicture ul div:nth-child(1) a{
+.xpicture ul div:nth-child(1) span{
 	left: 56px;
 }
-.xpicture ul div:nth-child(5) a,.xpicture ul div:nth-child(7) a{
+.xpicture ul div:nth-child(5) a,.xpicture ul div:nth-child(7) span{
 	left: 92px;
 }
 .xpicture ul li{
