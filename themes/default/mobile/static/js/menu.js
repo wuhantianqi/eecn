@@ -11,16 +11,16 @@ $(document).ready(function(){
 	
 	 
     //检查对象，#boxs是要随滚动条固定的ID
-    var offset = $('.sub_choose_menu').offset();
-    $(window).scroll(function () {
-    //检查对象的顶部是否在游览器可见的范围内
-        var scrollTop = $(window).scrollTop();
-            if (offset.top < scrollTop){
-                $('.sub_choose_menu').hide();
-            }
-            else{
-                $('.sub_choose_menu').removeClass('fixed');
-            } 
-        });
+//  var offset = $('.sub_choose_menu').offset();
+//  $(window).scroll(function () {
+//  //检查对象的顶部是否在游览器可见的范围内
+//      var scrollTop = $(window).scrollTop();
+//          if (offset.top < scrollTop){
+//              $('.sub_choose_menu').hide();
+//          }
+//          else{
+//              $('.sub_choose_menu').removeClass('fixed');
+//          } 
+//      });
 });
 
