@@ -12,7 +12,7 @@
 	</div>
 </div>
 <div class="zh-company-designteam">
-	<div class="zh-company-wrap"><!--<a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">更多设计师</a>-->
+	<div class="zh-company-wrap">
 		<h2>
 			<div class="bg-line"></div>
 			<span class="zh-title">设计师团队</span>
@@ -27,96 +27,6 @@
 				<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-load="我要预约">我要预约</a>
 			</li>
             <{/calldata}>
-
-
-<!-- 			<li>
-				<img src="<{$pager.img}>/<{$item.face}>"/>
-				<div class="veil">
-					<h2>联系我们</h2>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<p>
-						设计经验：10年
-					</p>	
-					<p>
-						擅长风格：简约现代、美式乡村、新古典、地中海、简中
-					</p>
-					<p>
-						设计理念：<{$item.title}>
-					</p>
-				</div>
-				<p><{$item.name}></p>
-				<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-width='500' mini-load="我要预约">我要预约</a>
-			</li>
-			<li>
-				<img src="/themes/default/static/images/designer2.jpg"/>
-				<div class="veil">
-					<h2>联系我们</h2>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<p>
-						设计经验：10年
-					</p>	
-					<p>
-						擅长风格：简约现代、美式乡村、新古典、地中海、简中
-					</p>
-					<p>
-						设计理念：创造宜居环境，彰显个性品味！
-					</p>
-				</div>
-				<p title="李可">李可</p>
-				<a href="">我要预约</a>
-			</li>
-			<li>
-				<img src="/themes/default/static/images/designer3.jpg"/>
-				<div class="veil">
-					<h2>联系我们</h2>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<p>
-						设计经验：10年
-					</p>	
-					<p>
-						擅长风格：简约现代、美式乡村、新古典、地中海、简中
-					</p>
-					<p>
-						设计理念：创造宜居环境，彰显个性品味！
-					</p>
-				</div>
-				<p title="李可">李可</p>
-				<a href="">我要预约</a>
-			</li>
-			<li>
-				<img src="/themes/default/static/images/designer4.jpg"/>
-				<div class="veil">
-					<h2>联系我们</h2>
-					<ul>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
-					</ul>
-					<p>
-						设计经验：10年
-					</p>	
-					<p>
-						擅长风格：简约现代、美式乡村、新古典、地中海、简中
-					</p>
-					<p>
-						设计理念：创造宜居环境，彰显个性品味！
-					</p>
-				</div>
-				<p title="李可">李可</p>
-				<a href="">我要预约</a>
-			</li> -->
 		</ul>
 	</div>
 </div>
@@ -136,13 +46,6 @@
 	                 <{/foreach}>
 	            <{/if}>               
 	         <{/foreach}>
-
-
-			<!-- <li><a href="<{link ctl='case:detail' arg0=$item.case_id arg1=1}>"><img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li>
-			<li><a href=""><img src="/themes/default/static/images/company-xiaoguo1.jpg" /></a></li> -->
 		</ul>
 	</div>
 </div>
@@ -154,7 +57,7 @@
 			<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
 				<div class="img-wrap">
 					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" />
-					<p><{$item.title|cutstr:15}></p>
+					<p><{$item.title|cutstr:50}></p>
 					</a> 
 				</div>
             <{/calldata}>
@@ -186,26 +89,4 @@
 		</ul>
 </div>
 </div>
-
-<!--<script type="text/javascript">
-	$designLi=$(".zh-company-designteam>.zh-company-wrap>ul>li");
-	$veil=$(".zh-company-designteam .veil");
-	$designLi.hover(
-		function(){
-			$(this).children(".veil").stop().animate({
-				top:0
-			},500)
-			$(this).css("background-color","#ff4401");
-			$(this).children().css("color","#fff");
-		},
-		function(){
-			$(this).children(".veil").stop().animate({
-				top:-305
-			},500)
-			$(this).css("background-color","#f6f6f6");
-			$(this).children("p").css("color","#000");
-			$(this).children("a").css("color","#ff4401");
-		}
-	)
-</script>-->
 <{include file="company/block/footer.html"}>

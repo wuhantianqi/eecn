@@ -56,6 +56,12 @@ class Ctl_Tenders_Track extends Ctl
         }else{
 			$filter['look_id'] = $look_id;
 			$items = K::M('tenders/track')->items($filter);
+            // 根据看标look_id查询出信息的tenders_id
+            $itemes = K::M('tenders/look')->items($filter);
+            // 根据tenders_id更改反馈信息为0
+            $dats['tracks']=0;
+            K::M('tenders/tenders')->update($itemes[$look_id]["tenders_id"], $dats);
+
 			$this->pagedata['items'] = $items;
 			$this->pagedata['look_id'] = $look_id;
             $this->tmpl = 'admin:tenders/track/create.html';

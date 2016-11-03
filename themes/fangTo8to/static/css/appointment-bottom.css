@@ -141,10 +141,17 @@
 #appoinment-bottom .content-box .apply-form .form-right .ch-sel-group select{
 	width: 74px;
 	height: 40px;
+    font-family: "微软雅黑";
 	float: left;
 	font-family: "微软雅黑";
 }
+.ch-sel-group select.text{
+    margin-top:0px;
+}
 #appoinment-bottom .content-box .apply-form .form-right .ch-sel-group select:first-child{
+    display:none;
+}
+#appoinment-bottom .content-box .apply-form .form-right .ch-sel-group select:nth-child(2){
 	margin-right: 2px;
 }
 #appoinment-bottom .content-box .apply-form input[type=submit]{
@@ -158,6 +165,7 @@
 	border-radius: 5px;
 	background: url(../images/huoqubaojia.png) no-repeat 8px 13px;
 	background-color: #ff4401;
+    cursor: pointer;
 }
 
 #appoinment-bottom .content-box .qrcode-box{

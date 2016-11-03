@@ -217,9 +217,15 @@ class Ctl_Ucenter_Misc_Tenders extends Ctl_Ucenter
         }else if(!$content = $this->GP('tack_content')){
             $this->err->add('非法的数据提交', 211);
         }else{
+            // 设置反馈数为1
+            $dats['tracks']=1;
             $data = array('content'=>$content, 'look_id'=>$look_id);
             if($tracking_id = K::M('tenders/track')->create($data)){
-                $this->err->add('添加内容成功');
+                // 更新招标信息里面的反馈数
+                if($tracks=K::M('tenders/tenders')->update($look['tenders_id'], $dats)){
+                    $this->err->add('添加内容成功');
+                }
+                
             }
         }        
     }

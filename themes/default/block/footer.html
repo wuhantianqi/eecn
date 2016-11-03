@@ -48,22 +48,12 @@
 	        <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
         <div class="form-left">
 	        <input type="text" placeholder="称呼" name="data[contact]"  />
-	        <div class="square"><input type="text" placeholder="建筑面积" /><span>㎡</span></div>
+	        <div class="square"><input name="data[house_mj]" type="text" placeholder="建筑面积" /><span>㎡</span></div>
         </div>
         <div class="form-right">
         	<input type="text" placeholder="手机号码" name="data[mobile]" />
         	<div class="ch-sel-group">
-        		<select name="">
-        			<option value="">武汉</option>
-        		</select>
-        		<select name="">
-        			<option value="">江汉区</option>
-        			<option value="">江岸区</option>
-        			<option value="">江夏区</option>
-        			<option value="">洪山区</option>
-        			<option value="">硚口区</option>
-        			<option value="">武昌区</option>
-        		</select>
+        		<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
         	</div>
         </div>
 	        <input type="submit" value="" />
@@ -121,7 +111,15 @@
 <div class="footer_buttom">
     <p>武汉市东启创拓信息技术有限公司 版权所有</p>
     <p><!-- 百度商桥PC版 -->
-        <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E")); </script>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?32623d511dab098e970954caac35af01";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
         优优美家装修家居 ICP备案：<{$CONFIG.site.icp}></p>
 </div>
 <{widget id="public/kefu"}>

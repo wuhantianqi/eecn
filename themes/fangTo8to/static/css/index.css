@@ -675,6 +675,7 @@ select.text:last-child{
 .Reliable ul{
 	width:100%;
 	height:227px;
+	overflow: hidden;
 	background: #f8f8f8;
 	margin-top:32px;
 }

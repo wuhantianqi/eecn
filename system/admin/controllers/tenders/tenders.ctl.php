@@ -36,7 +36,6 @@ class Ctl_Tenders_Tenders extends Ctl
         	$pager['count'] = $count;
         	$pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink(null, array('{page}')), array('SO'=>$SO));
         }
-        
         $this->pagedata['items'] = $items;
         $this->pagedata['pager'] = $pager;
         $this->tmpl = 'admin:tenders/tenders/items.html';

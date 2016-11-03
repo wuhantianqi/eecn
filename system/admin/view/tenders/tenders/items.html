@@ -15,7 +15,7 @@
     <tr>
         <th class="w-100">ID</th><th>类型</th><th>城市</th><th>标题</th><th>联系人</th>
         <th>来源IP</th><th>已查看数</th><th>售价/金币</th>
-        <th class="w-100">发布时间</th><th class="w-100">是否签单</th><th class="w-150">操作</th>
+        <th class="w-100">发布时间</th><th class="w-100">是否签单</th><th class="w-100">反馈数</th><th class="w-150">操作</th>
     </tr>
     <{foreach $items as $item}>
     <tr>
@@ -30,6 +30,7 @@
         <td><{$item.gold}></td>
         <td><{$item.dateline|format}></td>
         <td><{if !$item.audit}><b class="red">待审</b><{elseif $item.sign_uid}><b class="green">已签</b><{else class="blue"}><b>未签</b><{/if}></td>
+        <td><{if !$item.tracks}>0<{else}><font class="red">新反馈</font><{/if}></td>
         <td>
             <{link ctl="tenders/tenders:detail" args=$item.tenders_id class="button" title="查看"}>
             <{link ctl="zxb/zxb:change_zxb" args=$item.tenders_id class="button" act="mini:转为装修保" confirm="mini:确定转为装修保吗？" title="转为装修保"}>
