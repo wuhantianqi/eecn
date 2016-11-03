@@ -79,7 +79,7 @@ a{
 .zh-m-form input{
 	width: 100%;
 	padding: 0 0.8rem;
-	line-height: 1.4rem;
+	line-height: 1.1rem;
 	font-size: 14px;
 	border: 1px solid #e5e5e5;
 	color: #999;
@@ -89,18 +89,18 @@ a{
 	margin-top: 0.4rem;
 	/*margin-bottom: 0.4rem;*/
 }
-.zh-m-form input[type=text]{
+/*.zh-m-form input[type=text]{
 	border-bottom: none;
-}
+}*/
 .zh-m-form .zh-m-select-group{
 	overflow: hidden;
 }
 .zh-m-form select.text{
 	float: left;
 	width: 50%;
-	height: 1.4rem;
+	height: 1.1rem;
     padding: 0 0.7rem;
-    line-height: 1.4rem;
+    line-height: 1.1rem;
     font-size: 14px;
     border: 1px solid #e5e5e5;
     color: #bbb;
