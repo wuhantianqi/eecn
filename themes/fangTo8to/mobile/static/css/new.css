@@ -518,11 +518,12 @@ p.indexMore a{color:#ff4400; display:block;}
 }
 .zh-m-form form h2 .animate-box{
 	display: inline-block;
-	width: 15%;
+	width: 30%;
+    margin-bottom: 20px;
 }
 .zh-m-form form h2 .animate-box .num-wrap{
 	display: inline-block;
-	width: 40%;
+	width: 25%;
 	background-color: #ffc119;
 }
 .zh-m-form form h2 .animate-box .num-wrap .animate-span{
