@@ -3,20 +3,44 @@
 <{include file="mobile/block/sheader.html"}>
 <body>
 <iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
-<div class="top nowrap">
+<div class="toptitle">
 	<div class="sub_top">
         <{if !$is_index_home}>
 		<a href="<{if $pager.backurl}><{$pager.backurl}><{else}><{link ctl='mobile/index'}><{/if}>" class="lt app_ico top_lt"></a>
         <{elseif $CONFIG.site.multi_city}>
 		<a href="<{link ctl='mobile/city'}>" class="lt city_link"><span class="app_ico city_ico"></span><{$request.city.city_name}>切换</a>
         <{/if}>
-		<{$tpl_page_title|default:$pager.title|default:$CONFIG.mobile.title}>
-		<p class="rt"><a href="<{link ctl='mobile/ucenter'}>" class="app_ico login_ico"></a>
+		<!--<{$tpl_page_title|default:$pager.title|default:$CONFIG.mobile.title}>-->
+		<p class="position"><a href="<{link ctl='mobile/ucenter'}>" class="app_ico login_ico"></a>
         <{if !$is_index_home}><a href="#" class="app_ico top_rt" id="dt-hd-nav"></a><{/if}>
 		</p>
+		<span class="position four-k">
+	 	</span>
+	 	<a href="" class="index-logo"></a>
+	 	<span class="location">
+	 		武汉
+	 	</span>
         <{include file="mobile/block/nav.html"}>
+        <script type="text/javascript">
+        	$(function(){
+        		$(".four-k").each(function(){
+        			$(this).click(function(){
+        				$("#dt-hd-navs-wrap").toggleClass("none");
+        			})
+        		})
+        		
+        		$("#dt-hd-navs-wrap").click(function(){
+        			$("#dt-hd-navs-wrap").toggleClass("none");
+        		})
+        		
+        		$("#dt-hd-navs-wrap>ul>li").click(function(){
+        			event.stopPropagation();
+        		})
+        	})
+        </script>
 	</div>
 </div>
+
 <!-- <div class="toptitle">
 	<a href="#" class="app_ico top_rt" id="dt-hd-nav">
 	  <div class="position four-k">
@@ -28,4 +52,3 @@
 	</a>
 	<{include file="mobile/block/nav.html"}>
 </div> -->
-<div class="content">

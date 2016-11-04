@@ -1,30 +1,74 @@
-<!doctype html>
-<html>
-<{include file="mobile/block/sheader.html"}>
-<body>
+<{assign var="is_index_home" value=true}>
+<{include file="mobile/block/header.html"}>
 <iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
 <div class="content">
 <div class="banner">
 	<img src="/themes/default/mobile/static/images/tenders_banner.png" />
 </div>
-<div class="pding">
+<div class="tenders-tips">
+	<span>免费量房</span>
+	<span>免费设计</span>
+	<span>免费报价</span>
+	<span>免费监理</span>
+</div>
+<div class="pding tenders-form">
 	<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
+		<h2><span class="stress">10秒登记</span>，免费为您推荐靠谱装修公司</h2>
 		<input type="hidden" name="data[from]" value="TZB" />
 		<input type="text" name="data[contact]" class="text full" placeholder="您的姓名" />
 		<input type="text" name="data[mobile]" class="text full" placeholder="联系方式" />
 		<input type="text" name="data[house_mj]" class="text full" placeholder="装修面积" />
-		<div class="clearfix">
-		<label>
-		<select name="data[budget_id]" class="text full"><{widget id="tenders/setting" type="budget"}></select>
-		</label>
-		</div>
 		<{widget id="data/region" city_id=$request.city_id level=2 class="text two"}>
 		<input type="text" class="text full" placeholder="请输入小区名称" />
-		<input type="submit" class="btn mainbtn_full" value="立即申请 " />
+		<input type="submit" class="btn mainbtn_full" value="免费申请 " />
+		<p>我们承诺：优优美家提供该项<span class="stress">免费服务，绝不产生任何费用</span>，为了您的利益以及我们的口碑，您的隐私将被严格保密。</p>
 	</form>
 </div>
-<div class="tenders_pic">
-<img src="/themes/default/mobile/static/images/zxsj-p1.png" />
-<img src="/themes/default/mobile/static/images/zxsj-p2.png" />
+<div class="ch-sub-main">
+	<div class="liucheng">
+		<span class="l-c-1"><i></i>免费预约</span>
+		<ico></ico>
+		<span class="l-c-2"><i></i>免费推荐</span>
+		<ico></ico>
+		<span class="l-c-3"><i></i>多家对比</span>
+		<p>已有<span class="stress">806</span>位业主获取免费报价</p>
+	</div>
+	<div class="tenders-severs">
+		<h2>免费服务，并非噱头</h2>
+		<p>实践省钱才是硬道理</p>
+		<ul>
+			<li>
+				<i></i>
+				<h3>免费验房</h3>
+				<p> 装修小白也不用担心，装护航为您提供免费专业验房服务，从源头杜绝房屋隐患。</p>
+			</li>
+			<li>
+				<i></i>
+				<h3>免费量房</h3>
+				<p> 优优美家为您提供四家装修公司，同一时间统一量房，再也不用请假扣钱去量房了。</p>
+			</li>
+			<li>
+				<i></i>
+				<h3>免费设计</h3>
+				<p>   设计费高昂的吓死人？NO！优优美家为您免费提供3套设计方案，行内高端设计大师！</p>
+			</li>
+			<li>
+				<i></i>
+				<h3>免费预算审核</h3>
+				<p>  价明细一目了然，不用担心虚假报价吓坏您的小心脏。</p>
+			</li>
+			<li>
+				<i></i>
+				<h3>免费监理</h3>
+				<p> 装修验收好麻烦？没关系，优优美家在三个装修重要阶段进行质量验收，不合格马上改！</p>
+			</li>
+			<li>
+				<i></i>
+				<h3>满意再付款</h3>
+				<p> 先装修满意再付款，资金有保障！装修公司卷款逃跑不再出现。</p>
+			</li>
+		</ul>
+	</div>
 </div>
+
 <{include file="mobile/block/footer.html"}>

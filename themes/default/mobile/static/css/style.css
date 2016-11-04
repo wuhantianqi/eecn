@@ -113,6 +113,166 @@ form.tenders select.two:last-child{ float:right;}
 .clearfix{ overflow:hidden;}
 .clearfix label{ position:relative;}
 .clearfix label:after{ position:absolute; top:10px; right:10px; width:0px; height:0px;border-style:solid; border-color:#666 transparent transparent transparent;font-size:0px;border-width:6px;content:""}
+
+.tenders-tips{
+	width: 100%;
+	padding: 0 0.2rem;
+	border-bottom: 2px solid #ff4401;
+	height: 1.1rem;
+	line-height: 1.1rem;
+}
+.tenders-tips>span{
+	display: inline-block;
+	width: 2.3rem;
+	text-align: center;
+	font-size: 16px;
+}
+.tenders-form{
+	padding: 0 0.2rem;
+	margin-bottom: 0.5rem;
+}
+.tenders-form form{
+	text-align: center;
+}
+.tenders-form form>h2{
+	font-weight: 600;
+	margin: 0.3rem 0;
+}
+.tenders-form form span.stress{
+	color: #ff4401;
+}
+.tenders-form form>input{
+	padding: 0 0.5rem;
+}
+.tenders-form form select{
+	padding: 0 0.5rem;
+	color: #999;
+}
+.tenders-form form p{
+	text-align: left;
+	padding: 0 0.5rem;
+}
+
+.ch-sub-main{
+	background-color: #f6f6f6;
+	padding: 0.2rem 0;
+}
+.ch-sub-main .liucheng{
+	padding: 0 0.2rem;
+	text-align: center;
+	background-color: #fff;
+}
+.ch-sub-main .liucheng>span{
+	display: inline-block;
+	width: 2.1rem;
+	height: 0.7rem;
+	line-height: 0.7rem;
+	font-size: 14px;
+}
+.ch-sub-main .liucheng>span i{
+	float: left;
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 0.35rem;
+	background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+	background-repeat: no-repeat;
+	background-size: 2.8rem 2.1rem;
+	background-color: #ff4401;
+}
+.ch-sub-main .liucheng>span.l-c-1 i{
+	background-position: 0.08rem -1.45rem;
+}
+.ch-sub-main .liucheng>span.l-c-2 i{
+	background-position: -0.50rem -1.50rem;
+}
+.ch-sub-main .liucheng>span.l-c-3 i{
+	background-position: -1.1rem -1.50rem;
+}
+.ch-sub-main .liucheng ico{
+	display: inline-block;
+	width: 0.7rem;
+	height: 0.7rem;
+	background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+	background-repeat: no-repeat;
+	background-size: 2.4rem 1.8rem;
+	background-position: -2.0rem 0;
+	position: relative;
+	top: 0.3rem;
+}
+.ch-sub-main .liucheng p{
+	font-size: 14px;
+	margin-top: 0.2rem;
+}
+.ch-sub-main .liucheng p .stress{
+	color: #ff4401;
+}
+.ch-sub-main .tenders-severs{
+	padding: 0.2rem;
+}
+.ch-sub-main .tenders-severs>h2{
+	color: #ff4401;
+	font-size: 20px;
+	text-align: center;
+}
+.ch-sub-main .tenders-severs>p{
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+.ch-sub-main .tenders-severs ul li{
+	overflow: hidden;
+	padding: 0.3rem 0;
+	border-bottom: 1px solid #e6e6e6;
+}
+.ch-sub-main .tenders-severs ul li i{
+	float: left;
+	width: 1.2rem;
+	height: 1.2rem;
+	border-radius: 0.6rem;
+	margin-right: 0.3rem;
+	background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+	background-repeat: no-repeat;
+	background-size: 3.6rem 2.7rem;
+	background-color: #ff4401;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(1) i{
+	background-position: 0.15rem -0.90rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(2) i{
+	background-position: -0.9rem 0.13rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(3) i{
+	background-position: -0.86rem -0.90rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(4) i{
+	background-position: -2.0rem 0.13rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(5) i{
+	background-position: -2.0rem -0.90rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(6) i{
+	background-position: 0.15rem 0.1rem;
+}
+.ch-sub-main .tenders-severs ul li:nth-child(6){
+	border-bottom: none;
+}
+.ch-sub-main .tenders-severs ul li h3{
+	float: left;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	font-size: 18px;
+	margin-bottom: 0.1rem;
+	
+}
+.ch-sub-main .tenders-severs ul li p{
+	float: left;
+	height: 0.7rem;
+	width: 8rem;
+	line-height: 0.35rem;
+	font-size: 12px;
+	color: #999;
+}
+
 /*我要装修样式结束*/
 
 /*装修保样式开始*/
