@@ -600,7 +600,7 @@ p.indexMore a{color:#ff4400; display:block;}
 .zh-m-form .check-txt p{
 	float: left;
 	color: #999;
-	font-size: 16px;
+	font-size: 14px;
 }
 .zh-m-form .check-txt p a{
 	text-decoration: underline;
@@ -626,7 +626,7 @@ p.indexMore a{color:#ff4400; display:block;}
 .index-veil .zh-m-form{
 	background-color: #fff;
 	padding: 0;
-	margin-top: 20%;
+	margin-top: 10%;
 }
 .index-veil .zh-m-form form{
 	text-align: center;
@@ -644,7 +644,7 @@ p.indexMore a{color:#ff4400; display:block;}
 	font-size: 22px;
 }
 .index-veil .zh-m-form form .check-txt{
-	padding-left: 10%;
+	padding-left: 5%;
 }
 .index-veil .zh-m-form form input{
 	width: 90%;
