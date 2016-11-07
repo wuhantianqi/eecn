@@ -69,5 +69,14 @@ class Widget_Tenders extends Model
         }
         return $data;
     }
+//  首页表单
+    public function iform(&$params)
+    {
+        $data = $params;
+        if(!$params['tpl']){
+            $params['tpl'] = 'widget:tenders/index-form.html';
+        }
+        return $data;
+    }
    
 }
