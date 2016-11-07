@@ -5,7 +5,7 @@
 .top_cont div.lt a{ margin-right:5px;}
 .top_cont div.lt a.city{ margin-top:1px; display:inline-block;}
 span.search_ico{ width:18px; height:18px; background-position:-8px 0px; margin-top:5px;}
-.content{ max-width:640px; margin:auto; border:1px solid #e3e3e3; overflow:hidden;}
+.content{ max-width:640px; margin:auto; border:1px solid #e3e3e3; overflow:hidden;background: #f8f8f8}
 a.city_link{ font-size:12px;}
 /*头部样式结束*/
 /*.app_ico{ display:inline-block; background:url(../images/app_ico.png) no-repeat; padding:0px 1px; vertical-align:middle;}*/
@@ -120,6 +120,7 @@ form.tenders select.two:last-child{ float:right;}
 	border-bottom: 2px solid #ff4401;
 	height: 2.2rem;
 	line-height: 2.2rem;
+	background: #fff;
 }
 .tenders-tips>span{
 	display: inline-block;
