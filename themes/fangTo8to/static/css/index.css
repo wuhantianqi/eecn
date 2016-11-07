@@ -321,6 +321,9 @@ select.text:last-child{
 	cursor: pointer;
 	position: relative;
 }
+.index-form .controller span.active{
+	color: #ff4401;
+}
 .index-form .controller span.active:after{
 	display: block;
 	content: "";
