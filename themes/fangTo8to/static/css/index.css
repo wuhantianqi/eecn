@@ -388,7 +388,7 @@ select.text:last-child{
 .index-form ul li form .sel-group{
 	width: 87%;
 	margin: 0 auto;
-	margin-bottom: 8px;
+	margin-bottom: 11px;
 	overflow: hidden;
 }
 .index-form ul li form select.text{
