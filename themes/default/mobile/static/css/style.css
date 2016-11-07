@@ -96,7 +96,7 @@ border-radius: 6px;margin-left: 5px;width: 12px;height: 12px;background: #fff;}
 .top_lt{ width:11px; height:13px; background-position:0px -19px; margin-top:8px;}
 .login_ico{ width:18px; height:18px; background-position:0px -53px; margin-right:3px;}
 .top_rt{ width:18px; height:18px; background-position:-20px -53px; }
-form .text{ margin-bottom:10px; line-height:32px;}
+form .text{ margin-bottom:10px; line-height:18px;}
 form input.full{ width:99%;}
 form select.full{ width:100%;}
 form textarea.full{ width:99%;}
@@ -118,8 +118,8 @@ form.tenders select.two:last-child{ float:right;}
 	width: 100%;
 	padding: 0 0.2rem;
 	border-bottom: 2px solid #ff4401;
-	height: 1.1rem;
-	line-height: 1.1rem;
+	height: 2.2rem;
+	line-height: 2.2rem;
 }
 .tenders-tips>span{
 	display: inline-block;
@@ -149,8 +149,10 @@ form.tenders select.two:last-child{ float:right;}
 	color: #999;
 }
 .tenders-form form p{
-	text-align: left;
-	padding: 0 0.5rem;
+	  text-align: left;
+	  padding: 0 0.3rem;
+	  line-height: 20px;
+	  margin-top: 0.2rem;
 }
 
 .ch-sub-main{
@@ -158,35 +160,35 @@ form.tenders select.two:last-child{ float:right;}
 	padding: 0.2rem 0;
 }
 .ch-sub-main .liucheng{
-	padding: 0 0.2rem;
+	padding: 0.4rem 0.2rem;
 	text-align: center;
 	background-color: #fff;
 }
 .ch-sub-main .liucheng>span{
-	display: inline-block;
-/*	width: 2.1rem;*/
-	height: 0.7rem;
-	line-height: 0.7rem;
-	font-size: 14px;
+	  display: inline-block;
+	  width: 2rem;
+	  height: 1rem;
+	  line-height: 0.5rem;
+	  font-size: 14px;
 }
 .ch-sub-main .liucheng>span i{
 	float: left;
-	width: 0.7rem;
-	height: 0.7rem;
-	border-radius: 0.35rem;
-	background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
-	background-repeat: no-repeat;
-	background-size: 2.8rem 2.1rem;
-	background-color: #ff4401;
+	  width: 0.9rem;
+	  height: 0.9rem;
+	  border-radius: 0.35rem;
+	  background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+	  background-repeat: no-repeat;
+	  background-size: 3.3rem 2.6rem;
+	  background-color: #ff4401;
 }
 .ch-sub-main .liucheng>span.l-c-1 i{
-	background-position: 0.08rem -1.45rem;
+	  background-position: 0.17rem -1.85rem;
 }
 .ch-sub-main .liucheng>span.l-c-2 i{
-	background-position: -0.50rem -1.50rem;
+	background-position: -0.6rem -1.9rem;
 }
 .ch-sub-main .liucheng>span.l-c-3 i{
-	background-position: -1.1rem -1.50rem;
+	background-position: -1.3rem -1.88rem;
 }
 .ch-sub-main .liucheng ico{
 	display: inline-block;
@@ -197,17 +199,18 @@ form.tenders select.two:last-child{ float:right;}
 	background-size: 2.4rem 1.8rem;
 	background-position: -2.0rem 0;
 	position: relative;
-	top: 0.3rem;
 }
 .ch-sub-main .liucheng p{
 	font-size: 14px;
 	margin-top: 0.2rem;
+	  line-height: 12px;
 }
 .ch-sub-main .liucheng p .stress{
 	color: #ff4401;
 }
 .ch-sub-main .tenders-severs{
 	padding: 0.2rem;
+	padding-left: 0.5rem;
 }
 .ch-sub-main .tenders-severs>h2{
 	color: #ff4401;
@@ -221,9 +224,13 @@ form.tenders select.two:last-child{ float:right;}
 }
 .ch-sub-main .tenders-severs ul li{
 	overflow: hidden;
-	padding: 0.3rem 0;
+	padding: 0.5rem 0;
 	border-bottom: 1px solid #e6e6e6;
 }
+.ch-sub-main .tenders-severs ul li:first-child{
+	padding: 0px 0px 0.5rem 0px;
+}
+
 .ch-sub-main .tenders-severs ul li i{
 	float: left;
 	width: 1.2rem;
@@ -260,15 +267,14 @@ form.tenders select.two:last-child{ float:right;}
 	float: left;
 	height: 0.5rem;
 	line-height: 0.5rem;
-	font-size: 18px;
+	font-size: 18px;	
 	margin-bottom: 0.1rem;
-	
 }
 .ch-sub-main .tenders-severs ul li p{
 	float: left;
 	height: 0.7rem;
-	width: 8rem;
-	line-height: 0.35rem;
+	width: 7.8rem;
+	line-height: 0.4rem;
 	font-size: 12px;
 	color: #999;
 }
