@@ -164,7 +164,7 @@ form.tenders select.two:last-child{ float:right;}
 }
 .ch-sub-main .liucheng>span{
 	display: inline-block;
-	width: 2.1rem;
+/*	width: 2.1rem;*/
 	height: 0.7rem;
 	line-height: 0.7rem;
 	font-size: 14px;
