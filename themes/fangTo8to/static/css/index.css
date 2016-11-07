@@ -338,6 +338,10 @@ select.text:last-child{
 	margin-top:10px;
 	padding-left: 6px;
 }
+.banner_left .checkbox a:hover{
+	color: #ff4401;
+	text-decoration: underline;
+}
 .menu_list_ep{
 	width: 92%;
     margin: 0 auto;

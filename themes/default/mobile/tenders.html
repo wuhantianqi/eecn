@@ -15,11 +15,38 @@
 	<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
 		<h2><span class="stress">10秒登记</span>，免费为您推荐靠谱装修公司</h2>
 		<input type="hidden" name="data[from]" value="TZB" />
-		<input type="text" name="data[contact]" class="text full" placeholder="您的姓名" />
-		<input type="text" name="data[mobile]" class="text full" placeholder="联系方式" />
-		<input type="text" name="data[house_mj]" class="text full" placeholder="装修面积" />
-		<{widget id="data/region" city_id=$request.city_id level=2 class="text two"}>
-		<input type="text" class="text full" placeholder="请输入小区名称" />
+		<label>
+			<span>您的称呼:</span>
+			<input type="text" name="data[contact]" placeholder="必填" />
+		</label>
+		<label>
+			<span>您的手机:</span>
+			<input type="text" name="data[mobile]" placeholder="必填" />
+			
+		</label>
+		<label>
+			<span>房屋面积:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+			<span class="square">㎡</span>
+		</label>
+		<label>
+			<span>小区名称:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+			
+			
+		</label>
+		<label>
+			<span>装修预算:</span>
+			<select name="">
+				<option value="">请选择装修预算</option>
+				<option value="">5w</option>
+				<option value="">5w~10w</option>
+				<option value="">10w~15w</option>
+				<option value="">15w~20w</option>
+				<option value="">20w~25w</option>
+				<option value="">25w以上</option>
+			</select>
+		</label>
 		<input type="submit" class="btn mainbtn_full" value="免费申请 " />
 		<p>我们承诺：优优美家提供该项<span class="stress">免费服务，绝不产生任何费用</span>，为了您的利益以及我们的口碑，您的隐私将被严格保密。</p>
 	</form>

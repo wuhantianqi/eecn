@@ -130,6 +130,7 @@ form.tenders select.two:last-child{ float:right;}
 }
 .tenders-form{
 	padding: 0 0.2rem;
+	padding-bottom: 0.2rem;
 	margin-bottom: 0.5rem;
 }
 .tenders-form form{
@@ -142,12 +143,37 @@ form.tenders select.two:last-child{ float:right;}
 .tenders-form form span.stress{
 	color: #ff4401;
 }
-.tenders-form form>input{
-	padding: 0 0.5rem;
+.tenders-form form label{
+	display: block;
+	padding: 0.2rem 0.3rem 0.2rem 2.2rem;
+	width: 100%;
+	position: relative;
+	border: 1px solid #dedede;
+	margin-bottom: 0.15rem;
 }
-.tenders-form form select{
-	padding: 0 0.5rem;
-	color: #999;
+.tenders-form form label span{
+	position: absolute;
+	top: 0.18rem;
+	left: 0.35rem;
+	font-size: 14px;
+}
+.tenders-form form label span.square{
+	right: 0.2rem;
+	left: initial;
+}
+.tenders-form form label input{
+	width: 100%;
+	line-height: 100%;
+	font-size: 14px;
+	border: none;
+}
+.tenders-form form label select{
+	width: 100%;
+	font-size: 14px;
+	border: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 .tenders-form form p{
 	  text-align: left;
@@ -257,7 +283,7 @@ form.tenders select.two:last-child{ float:right;}
 	background-color: #d692cc;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(4) i{
-	background-position: -2.0rem 0.13rem;
+	background-position: -2.0rem 0.14rem;
 	background-color: #e1ca84;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(5) i{
