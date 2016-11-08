@@ -62,27 +62,7 @@
 					</div>
 				</div>
 				<div class="zh-left-banner">
-					<div class="banner_left">
-	                            <h1>免费设计与报价</h1>
-	                            <p class="banner_p">10秒登记,免费获取方案报价</p>
-	                            <form action="<{link ctl='tenders:save' http='base'}>" id='tenders-form1' method="post">
-	                                <div class="ten_top">
-	                                    <input type="hidden" name="data[from]" value="TZX" />
-	                                    <input type="text" name="data[contact]" class="text full" placeholder="请输入您的姓名" />
-	                                    <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的手机号码" />
-	                                    <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
-	                                </div>
-	                                <div class="checkbox">
-	                                  <label>
-	                                    <input type="checkbox" value="" checked="checked">
-	                                        我已阅读并接受<a href="help-yonghuxieyi.html">《装修常见问题条款》</a>
-	                                  </label>
-	                            </div>
-	                                <div class="menu_list_ep">
-	                                    <input type="button" value="免费获取" mini-tenders="tenders-form1" class="btn_sub_apply btn" />
-	                                </div>
-	                            </form>
-	                    </div>
+					<{include file="index/top.html"}>
 				</div>
 			</div>
 			<div class="join-company-wrap">

@@ -17,11 +17,11 @@
 							快速获取靠谱装修报价
 						</p>
 					</div>
-					<a href="" class="li-btn">获取报价</a>
+					<a target="_blank" href="<{link ctl='tenders:znbj'}>" class="li-btn">获取报价</a>
 					<div class="sub-tips">
-						<a href="">装修咨询</a>
-						<a href="">装修监管</a>
-						<a href="">装修保障</a>
+						<a target="_blank" href="javascript:;" id="z_cixun">装修咨询</a>
+						<a target="_blank" href="<{link ctl='newactivity:housekeeper'}>">装修监管</a>
+						<a target="_blank" href="<{link ctl='zxb'}>">装修保障</a>
 					</div>
 				</li>
 				<li class="none">
@@ -33,13 +33,12 @@
 							告别装修过程各种猫腻
 						</p>
 					</div>
-					<a href="" class="li-btn">学习装修</a>
+					<a target="_blank" href="<{link ctl='newactivity'}>" class="li-btn">学习装修</a>
 					<div class="sub-tips">
-						<a href="">装修咨询</a>
-						<a href="">装修监管</a>
-						<a href="">装修保障</a>
+						<a target="_blank" href="javascript:;" id="z_cixun">装修咨询</a>
+						<a target="_blank" href="<{link ctl='newactivity:housekeeper'}>">装修监管</a>
+						<a target="_blank" href="<{link ctl='zxb'}>">装修保障</a>
 					</div>
-					
 				</li>
 			</ul>
 		</div>
@@ -360,6 +359,14 @@
 				})
 	        	
 	        })();
+	        //弹出百度商桥
+			$("#z_cixun").click(function(){
+			$("nb_invite_wrap").hide();
+			$("#nb_invite_ok").trigger("click");
+		        $("#nbWebImLightContainer").addClass('maxMessageContainer');
+		        $('#nbWebImLightContainer').removeClass('minMessageContainer');
+		        $('#nbwlToggle').removeClass('nb-webim-light-hide');
+		    });
   		})
 			
 		</script>
