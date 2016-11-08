@@ -119,16 +119,21 @@ li{
 	position: absolute;
 	right: 5px;
 	top: 20px;
+	
+}
+.zh-show .tenders-form .tenders-wrap{
+	box-shadow: 0 1px 1px 2px #dedede;
+	overflow: hidden;
 }
 .zh-show .tenders-form h2{
-	background-color: #01af63;
+	background-color: #ff4401;
 	font-size: 20px;
 	line-height: 50px;
 	text-align: center;
 	color: #fff;
 }
 .zh-show .tenders-form form{
-	background-color: #f6f6f6;
+	/*background-color: #f6f6f6;*/
 	padding: 10px 0 20px;
 }
 .zh-show .tenders-form label{
@@ -140,6 +145,15 @@ li{
 	margin: 10px 0;
 	box-sizing: border-box;
 }
+.zh-show .tenders-form label:nth-child(n+3){
+	padding-left: 10px;
+}
+.zh-show .tenders-form label:nth-child(n+3) input{
+	width: 61%;
+}
+.zh-show .tenders-form label:nth-child(n+3) select{
+	width: 61%;
+}
 .zh-show .tenders-form label input,.zh-show .tenders-form label select{
 	float: left;
 	width: 60%;
@@ -148,9 +162,19 @@ li{
 	box-sizing: border-box;
 	margin: initial;
 	vertical-align: initial;
-	outline-color: #01af63;
+	outline-color:none;
 }
-
+.zh-show .tenders-form label select{
+	outline-color: #ff4401;
+}
+.zh-show .tenders-form label input{
+	outline: none;
+	border: 1px solid #dedede;
+	padding-left: 3px;
+}
+.zh-show .tenders-form label input:focus{
+	border-color: #ff4401;
+}
 .zh-show .tenders-form label span{
 	float: left;
 }
@@ -172,7 +196,7 @@ li{
 	border: 1px solid #dedede;
 	width: 98px;
 	margin-right: 6px;
-	outline-color: #01af63;
+	outline-color: #ff4401;
 }
 .zh-show .tenders-form .ten-sel-group select.text:last-child{
 	width: 136px;
@@ -208,13 +232,13 @@ li{
 	font-size: 16px;
 	padding: 0 15px;
 	margin-right: 8px;
-	background-color: #01af63;
+	background-color: #ff4401;
 	color: #fff;
 	border: none;
 	cursor: pointer;
 }
 .zh-show .tenders-form p span.font-green{
-	color: #01af63;
+	color: #ff4401;
 }
 
 
