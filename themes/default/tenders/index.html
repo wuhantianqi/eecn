@@ -5,7 +5,7 @@
 				<img src="/themes/default/static/images/bannerk1.png">
 				<img src="/themes/default/static/images/bannerk2.png">
 				<img src="/themes/default/static/images/bannerk3.png">
-				<div class="order">
+				<!--<div class="order">
 					<h2>
 						申请靠谱装修                   
 					</h2>
@@ -22,6 +22,47 @@
 						<input type="submit" value="立即免费预约"/>
 					</form>
 					<p>已有<span>11996</span>人找到靠谱装修公司</p>
+				</div>-->
+				<div class="tenders-form">
+					<h2>免费获取3套装修设计与报价</h2>
+					<form action="" method="post">
+						<label><span><b>*</b>您的姓名：</span> <input type="text" name="" placeholder="请输入您的姓名" /></label>
+						<label><span><b>*</b>联系电话：</span> <input type="text" name="" placeholder="请输入您的联系方式" /></label>
+						<label>
+							<span> &nbsp;装修类型：</span>
+							<select name="">
+								<option value="">普通家装</option>
+								<option value="">2号家装</option>
+								<option value="">3号家装</option>
+								<option value="">4号家装</option>
+							</select>
+						</label>
+						<label>
+							<span> &nbsp;装修预算：</span>
+							<select name="">
+								<option value="">请选择装修预算</option>
+								<option value="">5w</option>
+								<option value="">5w~10w</option>
+								<option value="">10w~15w</option>
+								<option value="">15w~20w</option>
+								<option value="">20w~25w</option>
+								<option value="">25w以上</option>
+							</select>
+						</label>
+						<label><span> &nbsp;装修面积：</span> <input type="text" name="" placeholder="请输入面积(平米)" /></label>
+						<label><span> &nbsp;小区名称：</span> <input type="text" name="" placeholder="请输入小区名称" /></label>
+						<div class="ten-sel-group">
+							<span>所在地区：</span>
+							<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+						</div>
+						<label class="ch-check">
+						    <input type="checkbox" value="" checked="checked">
+						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
+					    </label>
+						
+						<p><input type="submit" value="免费发布招标"/>或拨打<span class="font-green">400-400-400-400</span></p>
+						<p>我们承诺：本站提供该项免费服务，不产生任何费用，您的隐私将被严格保密。</p>
+					</form>
 				</div>
 			</div>
 		</div>

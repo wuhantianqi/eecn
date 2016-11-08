@@ -48,6 +48,19 @@ i {
     position: relative;
     padding-bottom: 18px;
 }
+#phoneInput p{
+	float: left;
+	font-size: 12px;
+}
+#phoneInput p i{
+	float: left;
+	width: 12px;
+	height: 12px;
+	margin-top: 3px;
+	margin-right: 4px;
+	background: url(../images/gantanhao.png) no-repeat;
+}
+
 .bj_form .select {
     width: 255px;
     padding-left: 5px;

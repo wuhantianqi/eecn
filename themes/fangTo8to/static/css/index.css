@@ -161,6 +161,7 @@ select.text:last-child{
 	text-align:center;
 	box-sizing: border-box;
 	border: 1px solid #dedede;
+	box-shadow: 1px 1px 1px 1px #dedede;
 }
 .banner .banner_right div{
 	overflow: hidden;
@@ -224,6 +225,9 @@ select.text:last-child{
 	line-height: 35px;
 	font-size: 14px;
 }
+.banner .banner_right ul li .li-btn:hover{
+	opacity: 0.8;
+}
 .banner .banner_right ul li .sub-tips{
 	border-top: 1px solid #dedede;
 }
@@ -239,7 +243,67 @@ select.text:last-child{
 	border-right: none;
 }
 
+/*原来老版banner-right的样式部分开始*/
+.banner .old-banner-right{
+	width:279px;
+	height:auto;
+	float:left;
+	text-align:center;
+	background:#f8f8f8;
+}
+.banner .old-banner-right ul{
+	margin-bottom: 5px;
+}
+.banner .old-banner-right ul li{
+	width:258px;
+	margin:0 auto;
+}
+.banner .old-banner-right ul li .list-item {
+    width: 258px;
+    height: 115px;
+    background: #fff;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    margin-top: 4px;
+}
+.banner .old-banner-right ul li .list-item .item-img-1 {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 14px auto 7px auto;
+    background: url(../images/icon-img.png) no-repeat;
+    background-position: 0 -729px;
+}
+.banner .old-banner-right ul li .list-item .item-p-1 {
+    color: #444;
+    font-size: 16px;
+    text-align: center;
+    /*margin-bottom: 5px;*/
+}
+.banner .old-banner-right ul li .list-item .item-p-2 {
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+.item-img-2 {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 14px auto 7px auto;
+    background: url(../images/icon-img.png) no-repeat;
+    background-position: 0 -934px;
+}
+.item-img-3 {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 14px auto 7px auto;
+    background: url(../images/icon-img.png) no-repeat;
+    background-position: 0 -834px;
+}
 
+/*原来老版banner-right的样式部分结束*/
 
 .banner_bottom{
 	width:1200px;
@@ -268,7 +332,7 @@ select.text:last-child{
 }
 .product-item:hover{
 	transform: translate(0,-15px);
-	
+	box-shadow: 0 0 2px 2px #dedede;
 }
 .product-item:last-child{
 	margin-right: 0px;
@@ -321,6 +385,7 @@ select.text:last-child{
     float: left;
     background:#f8f8f8;
     border: 1px solid #dedede;
+    box-shadow: 1px 1px 1px 1px #dedede;
 }
 .banner_left_con{
 	width: 100%;
@@ -413,7 +478,12 @@ select.text:last-child{
 	cursor: pointer;
 	border: none;
 }
-
+.index-form ul li form input[type=submit]:hover{
+	opacity: 0.8;
+}
+.index-form ul li form label.ch-check a{
+	color: #01af63;
+}
 .index-form ul li form label.ch-check a:hover{
 	color: #ff4401;
 	text-decoration: underline;
