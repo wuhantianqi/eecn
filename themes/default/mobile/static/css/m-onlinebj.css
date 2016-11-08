@@ -78,18 +78,19 @@ a{
     font-size: 14px;
     line-height: 0.5rem;
 }
-.zh-m-form input{
+.zh-m-form .input input{
 	width: 100%;
-	padding: 0 2.1rem;
-	line-height: 1.1rem;
-	font-size: 12px;
+	padding-left:2.1rem;
+	height:1.1rem;
+	line-height: 1.2rem;
+	font-size: 14px;
 	border: 1px solid #e5e5e5;
 	color: #999;
 	outline: none;
 }
 .zh-m-form form{
 	margin-top: 0.4rem;
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.1rem;
 }
 /*.zh-m-form input[type=text]{
 	border-bottom: none;
@@ -142,7 +143,7 @@ a{
 }
 .zh-m-form>p:last-child{
 	color: #7d7d7d;
-    text-align: center;
+    text-align: left;
     font-size: 12px;
     line-height: 22px;
 }
@@ -152,7 +153,7 @@ a{
 
 .zh-m-result{
 	width: 100%;
-    padding: 0.3rem 0.3rem 0.2rem;
+    padding: 0.6rem 0.3rem 0.2rem;
     /*background-color: #fff;*/
     /* margin-top: 0.3rem; */
     /* border-top: 1px solid #e5e5e5; */
@@ -205,7 +206,7 @@ a{
 
 .zh-m-pk{
 	width: 100%;
-	margin: 0.3rem 0;
+	margin: 0.1rem 0;
 	border-top: 1px solid #e5e5e5;
 	/*border-bottom: 1px solid #e5e5e5;*/
 }
@@ -298,61 +299,67 @@ p.zh-m-copy-right{
     color: #0d9bdf;
 }
 .liucheng{
-	padding: 0.4rem 0.2rem;
+	padding: 0.3rem 0.2rem;
 	text-align: center;
 	background-color: #fff;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0.4rem 0;
+	margin-top: 0.3rem;
 }
 .liucheng>span{
 	  display: inline-block;
-	  width: 2rem;
 	  height: 1rem;
-	  line-height: 0.5rem;
-	  font-size: 14px;
+	  line-height: 0.4rem;
+	  font-size: 12px;
 }
 .liucheng>span i{
 	float: left;
-	  width: 0.9rem;
-	  height: 0.9rem;
-	  border-radius: 0.35rem;
-	  background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
-	  background-repeat: no-repeat;
-	  background-size: 3.3rem 2.6rem;
-	  background-color: #ff4401;
+    margin-right: 5px;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 0.45rem;
+    background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+    background-repeat: no-repeat;
+    background-size: 2rem 1.6rem;
+    background-color: #ff4401;
 }
 .liucheng>span.l-c-1 i{
-	  background-position: 0.17rem -1.85rem;
+	  background-position: 0.16rem 0.11rem;
 }
 .liucheng>span.l-c-2 i{
-	background-position: -0.6rem -1.9rem;
+	background-position: -0.44rem 0.12rem;
 }
 .liucheng>span.l-c-3 i{
-	background-position: -1.3rem -1.88rem;
+	background-position: -1.04rem 0.12rem;
 }
 .liucheng ico{
 	display: inline-block;
-	width: 0.7rem;
-	height: 0.7rem;
-	background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
-	background-repeat: no-repeat;
-	background-size: 2.4rem 1.8rem;
-	background-position: -2.0rem 0;
-	position: relative;
+    width: 0.7rem;
+    height: 0.8rem;
+    background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
+    background-repeat: no-repeat;
+    background-size: 2.4rem 1.8rem;
+    background-position: -1.9rem 0.2rem;
+    position: relative;
 }
 .liucheng p{
 	font-size: 14px;
-	margin-top: 0.2rem;
-	  line-height: 12px;
+	/*margin-top: 0.2rem;*/
+	line-height: 20px;
 }
 .liucheng p .stress{
 	color: #ff4401;
 }
 .zh-m-result .cast-list{
 	height: 1.5rem;
+	margin-bottom: 0.5rem;
 }
 .zh-m-result .cast-list:first-child{
 	border:1px solid red;
+}
+.zh-m-result .cast-list:first-child .wenz-right{
+	height: 1.4rem;
+}
+.zh-m-result .cast-list:first-child .wenz-right .cast-word{
+	height: 1.4rem;
 }
 .zh-m-result .cast-list:first-child .wenz-right .cast-word p:nth-child(1){
 	color:red;
@@ -375,9 +382,6 @@ p.zh-m-copy-right{
 .zh-m-result .cast-list .wenz-right .cast-word p:nth-child(1){
 	height: 0.8rem;
     line-height: 0.8rem;
-}
-.zh-m-result .cast-list .cast-word p:nth-child(2){
-	line-height:0.4rem;
 }
 .zh-m-result .cast-list .wenz-right{
 	width: 6.6rem;
@@ -420,6 +424,9 @@ p.zh-m-copy-right{
     line-height: 0.8rem;
     margin-left: 0.64rem;
     display: block;
+}
+.zh-m-result .cast-list:first-child .wenz-right .cast-word p:nth-child(2){
+	height: 0.6rem;
 }
 
 

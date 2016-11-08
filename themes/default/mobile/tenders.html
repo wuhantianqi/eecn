@@ -32,22 +32,14 @@
 		<label>
 			<span>小区名称:</span>
 			<input type="text" name="data[house_mj]" placeholder="选填" />
-			
-			
 		</label>
 		<label>
 			<span>装修预算:</span>
-			<select name="">
-				<option value="">请选择装修预算</option>
-				<option value="">5w</option>
-				<option value="">5w~10w</option>
-				<option value="">10w~15w</option>
-				<option value="">15w~20w</option>
-				<option value="">20w~25w</option>
-				<option value="">25w以上</option>
+			<select name="data[budget_id]">
+				<{widget id="tenders/setting" type="budget"}>
 			</select>
 		</label>
-		<input type="submit" class="btn mainbtn_full" value="免费申请 " />
+		<input type="submit" class="btn mainbtn_full tenders_btn" value="免费申请 " />
 		<p>我们承诺：优优美家提供该项<span class="stress">免费服务，绝不产生任何费用</span>，为了您的利益以及我们的口碑，您的隐私将被严格保密。</p>
 	</form>
 </div>
