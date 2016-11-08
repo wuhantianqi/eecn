@@ -169,7 +169,7 @@ select.text:last-child{
 .right-controller span{
 	float: left;
 	width: 50%;
-	font-size: 16px;
+	font-size: 14px;
 	box-sizing: border-box;
 	line-height: 50px;
 	cursor: pointer;
@@ -398,6 +398,8 @@ select.text:last-child{
 .index-form ul li form input{
 	width: 85%;
 	margin-bottom: 8px;
+	outline-color: #ff4401;
+	outline-width: 1px;
 }
 .index-form ul li form input[type=checkbox]{
 	width: initial;
@@ -432,6 +434,7 @@ select.text:last-child{
 	border: 1px solid #dedede;
 	float: left;
 	vertical-align: left;
+	outline-color: #ff4401;
 }
 .index-form ul li form select.text:last-child{
 	width: 93px;
