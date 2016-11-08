@@ -239,6 +239,9 @@ select.text:last-child{
 	line-height: 40px;
 	font-size: 14px;
 }
+.banner .banner_right ul li .sub-tips a:hover{
+	color: #ff4401;
+}
 .banner .banner_right ul li .sub-tips a:last-child{
 	border-right: none;
 }
@@ -464,8 +467,10 @@ select.text:last-child{
 .index-form ul li form input{
 	width: 85%;
 	margin-bottom: 8px;
-	outline-color: #ff4401;
-	outline-width: 1px;
+	outline: none;
+}
+.index-form ul li form input:focus{
+	border-color: #ff4401;
 }
 .index-form ul li form input[type=checkbox]{
 	width: initial;
