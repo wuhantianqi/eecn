@@ -3,27 +3,43 @@
 		<{include file="index/top.html"}>
 		<div class="banner_content"><{adv id="43" name="首页123" city_id=$request.city_id}></div>
 		<div class="banner_right">
+			<div class="right-controller">
+				<span class="active">在线智能报价</span>
+				<span>快速学习装修</span>
+			</div>
 			<ul>
 				<li>
-					<a class="list-item" href="<{link ctl='newactivity'}>" target="_blank">
-			          <span class="item-img-1"></span>
-			          <p class="item-p-1">装修小白学装修</p>
-			          <p class="item-p-2">专注优质装修服务，三分钟学装修</p>
-			        </a>
+					<div class="li-main">
+						<i></i>
+						<h3>拿报价</h3>
+						<p>
+							10秒填写资料<br />
+							快速获取靠谱装修报价
+						</p>
+					</div>
+					<a href="" class="li-btn">获取报价</a>
+					<div class="sub-tips">
+						<a href="">装修咨询</a>
+						<a href="">装修监管</a>
+						<a href="">装修保障</a>
+					</div>
 				</li>
-				<li>
-					<a class="list-item" href="<{link ctl='newactivity:housekeeper'}>" target="_blank" style="height: 114px;">
-			          <span class="item-img-2"></span>
-			          <p class="item-p-1">装修管家全程监管</p>
-			          <p class="item-p-2">一对一帮您解决装修中的大小麻烦事</p>
-			        </a>
-				</li>
-				<li>
-					<a class="list-item" href="<{link ctl='zxb'}>" target="_blank">
-			          <span class="item-img-3"></span>
-			          <p class="item-p-1">优优美家装修保</p>
-			          <p class="item-p-2">提供一站式装修资金安全解决方案</p>
-			        </a>
+				<li class="none">
+					<div class="li-main">
+						<i></i>
+						<h3>学装修</h3>
+						<p>
+							3分钟快速学装修<br />
+							告别装修过程各种猫腻
+						</p>
+					</div>
+					<a href="" class="li-btn">学习装修</a>
+					<div class="sub-tips">
+						<a href="">装修咨询</a>
+						<a href="">装修监管</a>
+						<a href="">装修保障</a>
+					</div>
+					
 				</li>
 			</ul>
 		</div>
@@ -326,7 +342,25 @@
 	                threshold: 0
 	       		});
        		}
+	        
+	       
   		);
-
+  		$(function(){
+  			 (function(){
+	        	var $rightController=$(".right-controller span");
+	        	var $tabLi=$(".banner_right ul li");
+	        	
+	        	$rightController.mouseover(function(){
+					var $index=$(this).index();
+					$(this).siblings().removeClass("active");
+					$(this).addClass("active");
+					
+					$tabLi.eq($index).siblings().addClass("none");
+					$tabLi.eq($index).removeClass("none");
+				})
+	        	
+	        })();
+  		})
+			
 		</script>
 <{include file="block/footer.html"}>

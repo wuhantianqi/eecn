@@ -24,7 +24,7 @@
 			    <input type="checkbox" value="" checked="checked">
 			    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
 			    </label>  
-		        <input type="submit" value="立即申请" class="btn btn_sub_apply" />
+		        <input type="submit" value="立即申请" class="btn_sub_apply" />
 		        <p>已累计帮主<span class="stress">16134</span>位业主解决装修难题</p>
     		</form>
     	</li>
@@ -44,7 +44,7 @@
 		        <{/if}>
 				<label class="ch-check">
 			    
-		        <input type="submit" value="立即申请" class="btn btn_sub_apply" />
+		        <input type="submit" value="立即申请" class="btn_sub_apply" />
 		        <p>已累计帮主<span class="stress">16134</span>位业主解决装修难题</p>
     		</form>
     	</li>
@@ -64,7 +64,7 @@
 		        <{/if}>
 				<label class="ch-check">
 			    
-		        <input type="submit" value="立即申请" class="btn btn_sub_apply" />
+		        <input type="submit" value="立即申请" class="btn_sub_apply" />
 		        <p>已累计帮主<span class="stress">16134</span>位业主解决装修难题</p>
     		</form>
     	</li>
@@ -84,7 +84,7 @@
 		        <{/if}>
 				<label class="ch-check">
 			    
-		        <input type="submit" value="立即申请" class="btn btn_sub_apply" />
+		        <input type="submit" value="立即申请" class="btn_sub_apply" />
 		        <p>已累计帮主<span class="stress">16134</span>位业主解决装修难题</p>
     		</form>
     	</li>
@@ -95,18 +95,35 @@
 		$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
 		});
 			
-		(function(){
-			var $controller=$(".controller span");
-			var $formLi=$(".index-form ul li");
+//		(function(){
+//			var $controller=$(".controller span");
+//			var $formLi=$(".index-form ul li");
+//			$controller.mouseover(function(){
+//				var $index=$(this).index();
+//				$(this).siblings().removeClass("active");
+//				$(this).addClass("active");
+//				
+//				$formLi.eq($index).siblings().addClass("none");
+//				$formLi.eq($index).removeClass("none");
+//			})
+//		})();
+		
+		function tabFunction($controller,$tabLi){
 			$controller.mouseover(function(){
 				var $index=$(this).index();
 				$(this).siblings().removeClass("active");
 				$(this).addClass("active");
 				
-				$formLi.eq($index).siblings().addClass("none");
-				$formLi.eq($index).removeClass("none");
+				$tabLi.eq($index).siblings().addClass("none");
+				$tabLi.eq($index).removeClass("none");
 			})
+		}
+		(function(){
+			var $controller=$(".controller span");
+			var $formLi=$(".index-form ul li");
+			tabFunction($controller,$formLi);
 		})();
+		
 	
     })
 	

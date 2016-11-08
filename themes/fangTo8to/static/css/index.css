@@ -156,62 +156,91 @@ select.text:last-child{
 }
 .banner .banner_right{
 	width:279px;
-	height:auto;
+	height:360px;
 	float:left;
 	text-align:center;
-	background:#f8f8f8;
+	box-sizing: border-box;
+	border: 1px solid #dedede;
+}
+.banner .banner_right div{
+	overflow: hidden;
+}
+
+.right-controller span{
+	float: left;
+	width: 50%;
+	font-size: 16px;
+	box-sizing: border-box;
+	line-height: 50px;
+	cursor: pointer;
+}
+.right-controller span:first-child{
+	border-right: 1px solid #dedede;
+}
+.right-controller span.active{
+	color: #fff;
+	background-color: #ff4401;
 }
 .banner .banner_right ul{
-	margin-bottom: 5px;
+	position: relative;
 }
 .banner .banner_right ul li{
-	width:258px;
-	margin:0 auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-top: 60px;
+	border-top: 1px solid #dedede;
 }
-.banner .banner_right ul li .list-item {
-    width: 258px;
-    height: 115px;
-    background: #fff;
-    margin: 0 auto;
-    display: block;
-    overflow: hidden;
-    margin-top: 4px;
+.banner .banner_right ul li .li-main i{
+	float: left;
+	width: 74px;
+	height: 74px;
+	background: url(../images/index_baojia.png) no-repeat;
+	margin: 8px 20px 0;
 }
-.banner .banner_right ul li .list-item .item-img-1 {
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: 14px auto 7px auto;
-    background: url(../images/icon-img.png) no-repeat;
-    background-position: 0 -729px;
+.banner .banner_right ul li:nth-child(2) .li-main i{
+	background-image: url(../images/index_kan.png);
 }
-.banner .banner_right ul li .list-item .item-p-1 {
-    color: #444;
-    font-size: 16px;
-    text-align: center;
-    /*margin-bottom: 5px;*/
+.banner .banner_right ul li .li-main h3{
+	float: left;
+	width: 100px;
+	text-align: left;
+	color: #ff4401;
+	font-size: 18px;
+	margin-bottom: 8px;
 }
-.banner .banner_right ul li .list-item .item-p-2 {
-    color: #999;
-    font-size: 12px;
-    text-align: center;
+.banner .banner_right ul li .li-main p{
+	float: left;
+	text-align: left;
+	line-height: 20px;
+	font-size: 14px;
 }
-.item-img-2 {
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: 14px auto 7px auto;
-    background: url(../images/icon-img.png) no-repeat;
-    background-position: 0 -934px;
+.banner .banner_right ul li .li-btn{
+	display: block;
+	width: 50%;
+	color: #fff;
+	background-color: #ff4401;
+	margin: 45px auto;
+	line-height: 35px;
+	font-size: 14px;
 }
-.item-img-3 {
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: 14px auto 7px auto;
-    background: url(../images/icon-img.png) no-repeat;
-    background-position: 0 -834px;
+.banner .banner_right ul li .sub-tips{
+	border-top: 1px solid #dedede;
 }
+.banner .banner_right ul li .sub-tips a{
+	float: left;
+	width: 33%;
+	border-right: 1px solid #dedede;
+	box-sizing: border-box;
+	line-height: 40px;
+	font-size: 14px;
+}
+.banner .banner_right ul li .sub-tips a:last-child{
+	border-right: none;
+}
+
+
+
 .banner_bottom{
 	width:1200px;
 	height:auto;
@@ -299,6 +328,7 @@ select.text:last-child{
 	background-color: #fff;
 	box-sizing: border-box;
 }
+
 .index-form{
 
 }
@@ -376,6 +406,9 @@ select.text:last-child{
 .index-form ul li form input[type=submit]{
 	margin-top: 3px;
 	margin-bottom: 3px;
+	color: #fff;
+	cursor: pointer;
+	border: none;
 }
 
 .index-form ul li form label.ch-check a:hover{
