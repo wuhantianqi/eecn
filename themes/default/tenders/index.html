@@ -23,7 +23,8 @@
 					</form>
 					<p>已有<span>11996</span>人找到靠谱装修公司</p>
 				</div>-->
-				<div class="tenders-form">
+				
+				<!--<div class="tenders-form">
 					<div class="tenders-wrap">
 					<h2>免费获取3套装修设计与报价</h2>
 					<form action="<{link ctl='tenders:save' http='base'}>" mini-form='tenders_tzx' id="tenders-tzx" method="post">
@@ -57,9 +58,43 @@
 						<p>我们承诺：本站提供该项免费服务，不产生任何费用，您的隐私将被严格保密。</p>
 					</form>
 					</div>
+				</div>-->
+			
+			
+				<div class="tenders-form2">
+					<h2>免费户型设计与报价</h2>
+					<p>已累计帮助<span class="stress">16134</span>位业主解决装修难题</p>
+					<form action="<{link ctl='tenders:save' http='base'}>" mini-form='tenders_tzx' id="tenders-tzx" method="post">
+						<input type="hidden" name="data[from]" value="TZX" />
+						<input type="text" name="data[contact]" placeholder="请输入您的称呼" />
+						<input type="text" name="data[mobile]" placeholder="请输入您的常用手机号码" />
+						<div class="input_group">
+							<input type="text" name="data[house_mj]" placeholder="装修面积" />
+							<input type="text" name="data[home_name]" placeholder="小区名称" />
+						</div>
+						<div class="sel_group">
+							<select name="data[type_id]">
+								<{widget id="tenders/setting" type="type"}>
+							</select>
+							
+							<select name="data[budget_id]">
+								<{widget id="tenders/setting" type="budget"}>
+							</select>
+						</div>
+						<div class="area-sel-group">
+							<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+						</div>
+						<label class="ch-check">
+						    <input type="checkbox" value="" checked="checked">
+						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
+					    </label>
+						<input type="submit" value="立即免费申请"/>
+						<p>我们承诺：本站提供该项<span class="stress">免费服务，不产生任何费用</span>，您的隐私将被严格保密。</p>
+					</form>
 				</div>
 			</div>
 		</div>
+		
 		<div class="zh-content">
 			<div class="zh-procedure">
 				<ul>
