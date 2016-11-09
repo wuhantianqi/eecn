@@ -318,17 +318,17 @@ p.zh-m-copy-right{
     border-radius: 0.45rem;
     background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
     background-repeat: no-repeat;
-    background-size: 2rem 1.6rem;
+    background-size: 1.1rem 12.0rem;
     background-color: #ff4401;
 }
 .liucheng>span.l-c-1 i{
-	  background-position: 0.16rem 0.11rem;
+	  background-position: -0.12rem -7.31rem;
 }
 .liucheng>span.l-c-2 i{
-	background-position: -0.44rem 0.12rem;
+	background-position: -0.12rem -8.56rem;
 }
 .liucheng>span.l-c-3 i{
-	background-position: -1.04rem 0.12rem;
+	background-position: -0.12rem -9.75rem;
 }
 .liucheng ico{
 	display: inline-block;
@@ -353,7 +353,7 @@ p.zh-m-copy-right{
 	margin-bottom: 0.5rem;
 }
 .zh-m-result .cast-list:first-child{
-	border:1px solid red;
+	border:1px solid #f8b299;
 }
 .zh-m-result .cast-list:first-child .wenz-right{
 	height: 1.4rem;
@@ -365,13 +365,13 @@ p.zh-m-copy-right{
 	color:red;
 }
 .zh-m-result .cast-list:nth-child(2){
-	border:1px solid green;
+	border:1px solid #bae3cb;
 }
 .zh-m-result .cast-list:nth-child(2) .wenz-right .cast-word p:nth-child(1){
 	color:green;
 }
 .zh-m-result .cast-list:nth-child(3){
-	border:1px solid blue;
+	border:1px solid #c0d6f8;
 }
 .zh-m-result .cast-list:nth-child(3) .wenz-right .cast-word p:nth-child(1){
 	color:blue;

@@ -1,5 +1,5 @@
 body{ font-size:14px; padding:0px; margin:0px; background:#fff; color:#444; line-height:32px; width:100%;-webkit-overflow-scrolling:touch;}
-div,form,img,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,i,table,tr,td,th,fieldset,label,legend,button,input{ margin:0;padding:0; font-family:"宋体";}
+div,form,img,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,i,table,tr,td,th,fieldset,label,legend,button,input{ margin:0;padding:0; font-family:"微软雅黑";}
 ul,li{list-style:none;}
 a,img,a img{border:0px;color:#333;}
 a{text-decoration:none;cursor:pointer; }
@@ -32,7 +32,7 @@ a[title=站长统计]{
 /*按钮样式*/
 .btn{ display:inline-block; text-align:center; line-height:32px; height:32px; cursor:pointer; color:#fff; border-radius:2px; border:none;-webkit-appearance: none;}
 .mainbtn{ background:#00af43; padding:0px 10px; font-size:14px;border:1px solid #00993a;}
-.mainbtn_full{ width:100%; padding:0px; background:#00af43; border:1px solid #00993a;  font-size:16px;line-height:40px; height:40px;}
+.mainbtn_full{ width:100%; padding:0px; background:#ff4401; border:1px solid #fff4401;  font-size:16px;line-height:40px; height:40px;}
 .subbtn{ background:#fe9602; padding:0px 10px; font-size:14px; border:1px solid #dd8202;}
 .subbtn_full{ background:#fe9602; width:100%; padding:0px; border:1px solid #dd8202;  font-size:16px; line-height:40px; height:40px;}
 .btn:hover{ color:#fff; text-decoration:none;}

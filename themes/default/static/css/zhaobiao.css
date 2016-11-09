@@ -118,7 +118,7 @@ li{
 	padding: 10px 28px;
 	position: absolute;
 	right: 5px;
-	top: 20px;
+	top: 0px;
 	
 }
 .zh-show .tenders-form .tenders-wrap{
@@ -133,7 +133,7 @@ li{
 	color: #fff;
 }
 .zh-show .tenders-form form{
-	/*background-color: #f6f6f6;*/
+	background-color: #fff;
 	padding: 10px 0 20px;
 }
 .zh-show .tenders-form label{

@@ -26,32 +26,24 @@
 				<div class="tenders-form">
 					<div class="tenders-wrap">
 					<h2>免费获取3套装修设计与报价</h2>
-					<form action="" method="post">
-						<label><span><b>*</b>您的姓名：</span> <input type="text" name="" placeholder="请输入您的姓名" /></label>
-						<label><span><b>*</b>联系电话：</span> <input type="text" name="" placeholder="请输入您的联系方式" /></label>
+					<form action="<{link ctl='tenders:save' http='base'}>" mini-form='tenders_tzx' id="tenders-tzx" method="post">
+					<input type="hidden" name="data[from]" value="TZX" />
+						<label><span><b>*</b>您的姓名：</span> <input type="text" name="data[contact]" placeholder="请输入您的姓名" /></label>
+						<label><span><b>*</b>联系电话：</span> <input type="text" name="data[mobile]" placeholder="请输入您的联系方式" /></label>
 						<label>
 							<span> &nbsp;装修类型：</span>
-							<select name="">
-								<option value="">普通家装</option>
-								<option value="">2号家装</option>
-								<option value="">3号家装</option>
-								<option value="">4号家装</option>
+							<select name="data[type_id]">
+								<{widget id="tenders/setting" type="type"}>
 							</select>
 						</label>
 						<label>
 							<span> &nbsp;装修预算：</span>
-							<select name="">
-								<option value="">请选择装修预算</option>
-								<option value="">5w</option>
-								<option value="">5w~10w</option>
-								<option value="">10w~15w</option>
-								<option value="">15w~20w</option>
-								<option value="">20w~25w</option>
-								<option value="">25w以上</option>
+							<select name="data[budget_id]">
+								<{widget id="tenders/setting" type="budget"}>
 							</select>
 						</label>
-						<label><span> &nbsp;装修面积：</span> <input type="text" name="" placeholder="请输入面积(平米)" /></label>
-						<label><span> &nbsp;小区名称：</span> <input type="text" name="" placeholder="请输入小区名称" /></label>
+						<label><span> &nbsp;装修面积：</span> <input type="text" name="data[house_mj]" placeholder="请输入面积(平米)" /></label>
+						<label><span> &nbsp;小区名称：</span> <input type="text" name="data[home_name]" placeholder="请输入小区名称" /></label>
 						<div class="ten-sel-group">
 							<span> &nbsp;所在地区：</span>
 							<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>

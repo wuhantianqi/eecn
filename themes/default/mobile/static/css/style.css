@@ -212,17 +212,17 @@ form.tenders select.two:last-child{ float:right;}
     border-radius: 0.45rem;
     background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
     background-repeat: no-repeat;
-    background-size: 2rem 1.6rem;
+    background-size: 1.1rem 12.0rem;
     background-color: #ff4401;
 }
 .ch-sub-main .liucheng>span.l-c-1 i{
-	  background-position: 0.16rem 0.11rem;
+	  background-position: -0.12rem -7.31rem;
 }
 .ch-sub-main .liucheng>span.l-c-2 i{
-	background-position: -0.44rem 0.12rem;
+	background-position: -0.12rem -8.56rem;
 }
 .ch-sub-main .liucheng>span.l-c-3 i{
-	background-position: -1.04rem 0.12rem;
+	background-position: -0.12rem -9.75rem;
 }
 .ch-sub-main .liucheng ico{
 	display: inline-block;
@@ -274,30 +274,30 @@ form.tenders select.two:last-child{ float:right;}
     margin-right: 0.3rem;
     background-image: url(/themes/default/mobile/static/images/tenders-mainIco.png);
     background-repeat: no-repeat;
-    background-size: 3.4rem 2.5rem;
+    background-size: 1.6rem 15.5rem;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(1) i{
-	background-position: -0.68rem 0.28rem;
+	background-position: -0.06rem -0.1rem;
     background-color: #83e4db;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(2) i{
-	background-position: 0.28rem -0.73rem;
+	background-position: -0.05rem -1.63rem;
     background-color: #d3c097;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(3) i{
-	background-position: -0.68rem -0.73rem;
+	background-position: -0.05rem -3.16rem;
 	background-color: #d692cc;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(4) i{
-	background-position: -1.7rem 0.28rem;
+	background-position: -0.09rem -4.65rem;
 	background-color: #e1ca84;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(5) i{
-	background-position: -1.7rem -0.6rem;
+	background-position: -0.09rem -6.2rem;
 	background-color: #70d5eb;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(6) i{
-	background-position: 0.28rem 0.28rem;
+	background-position: -0.08rem -7.7rem;
 	background-color: #98d588;
 }
 .ch-sub-main .tenders-severs ul li:nth-child(6){
