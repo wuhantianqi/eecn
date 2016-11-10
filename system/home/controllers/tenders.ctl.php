@@ -31,9 +31,14 @@ class Ctl_Tenders extends Ctl
             $this->pagedata['items'] = $items;
         }     
     }
+    //智能报价
 	public function znbj(){
 		$this->tmpl = 'tenders/znbj.html';
 	}
+    // 全网弹出层
+    public function popup(){
+        $this->tmpl = 'tenders/popup.html';
+    }
     public function detail($tenders_id)
     {
         if(!$tenders_id = (int)$tenders_id){
