@@ -384,7 +384,7 @@ li{
 	height: 72px;
 	margin: 0 auto;
 	border-radius: 36px;
-	background: url(../images/tenders-mainIco.png) no-repeat 0 0;
+	background: url(../images/tenders-mainIco.png) no-repeat 2px -2px;
 	background-color: #01af63;
 }
 .ch-liucheng ul li:nth-child(2) i{
@@ -398,6 +398,11 @@ li{
 }
 .ch-liucheng ul li:nth-child(5) i{
 	background-position: -288px 0;
+}
+
+.ch-liucheng ul li i:hover{
+	background-image: url(../images/tenders-mainIcoHover.png);
+	background-color: #fff;
 }
 
 .ch-liucheng ul li p{
@@ -430,7 +435,7 @@ li{
 	width: 465px;
 }
 .ch-tired .tired-middle{
-	margin: 30px 30px 0;
+	margin: 15px 30px 0;
 	
 }
 .ch-tired .tired-middle i{
@@ -539,6 +544,7 @@ li{
 .xinzeng>p{
 	text-align: center;
 	color: #999;
+	padding: 0 100px;
 	font-size: 16px;
 	margin: 0 0 20px;
 }
@@ -548,12 +554,21 @@ li{
 .xinzeng ul li{
 	float: left;
 	width: 370px;
+	padding-top: 20px;
 	margin-right: 45px;
 	text-align: center;
 }
 .xinzeng ul li:last-child{
 	margin-right: 0;
 }
+.xinzeng ul li img{
+	transition: 0.8s;
+}
+.xinzeng ul li img:hover{
+	transform: translate(0,-10px);
+	box-shadow: 0 0 2px 1px #999;
+}
+
 .xinzeng ul li p{
 	font-size: 16px;
 	color: #999;
