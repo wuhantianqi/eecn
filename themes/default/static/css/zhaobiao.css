@@ -36,6 +36,11 @@ li{
 .zh-show .wrap img{
 	vertical-align: middle;
 }
+.zh-show .banner-gif{
+	position: absolute;
+	top: 94px;
+	right: 420px;
+}
 /*.zh-show .order{
 	width: 244px;
 	height: 360px;
