@@ -116,18 +116,29 @@ form.tenders select.two:last-child{ float:right;}
 
 .tenders-tips{
 	width: 100%;
-	padding: 0 0.29rem;
-	border-bottom: 1px solid #f4f4f4;
-	height: 1.2rem;
-	line-height: 1.2rem;
-	background: #fff;
-	margin-top:0.4rem;
+    padding: 0 0.29rem;
+    border-bottom: 1px solid #f4f4f4;
+    height: 1.8rem;
+    line-height: 1.74rem;
+    background: #fff;
+    margin-top: 0.4rem;
 }
 .tenders-tips>span{
 	display: inline-block;
-	width: 2.2rem;
+	width: 2.28rem;
+	height: 1.8rem;
 	text-align: center;
 	font-size: 16px;
+}
+.tenders-tips .h_hover{
+	color:#FF4401;
+}
+.tenders-tips .h_hover:after{
+	content:'';
+	width: 2.2rem;
+	height:0.5px;
+	display: block;
+	border-bottom:2px solid #FF4401;
 }
 .tenders-form{
 	padding: 0 0.2rem;
@@ -142,6 +153,7 @@ form.tenders select.two:last-child{ float:right;}
     /* margin: 0.3rem 0; */
     height: 1.5rem;
     line-height: 1.3rem;
+    font-size:18px;
 }
 .tenders-form form span.stress{
 	color: #ff4401;

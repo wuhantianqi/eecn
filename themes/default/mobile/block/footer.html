@@ -27,7 +27,11 @@
 		        $('#nbWebImLightContainer').removeClass('minMessageContainer');
 		        $('#nbwlToggle').removeClass('nb-webim-light-hide');
 		    });
-		    
+		    //找装修公司/在线智能报价按钮切换
+			$(document).on('click','.tenders-tips span',function(){
+				$(".tenders-tips span").removeClass("h_hover");
+				$(this).addClass("h_hover");
+			})
 //		    (function(){
 //		    	var winURL=window.location.href;
 //		    	var $title=$("title");

@@ -205,7 +205,7 @@ class Ctl_Tenders extends Ctl
 								$data['huxing'] = K::M('content/html')->encode($a['photo']);
 							}
 						}
-					}
+					}                  
 					$data['city_id'] = empty($data['city_id']) ? $this->request['city_id'] : $data['city_id'];
 					if($tenders_id = K::M('tenders/tenders')->create($data)){
 						if($attr = $this->GP('attr')){

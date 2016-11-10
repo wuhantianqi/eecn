@@ -43,27 +43,6 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class="team-purchasing1">
-				<div class="bg">
-					<h1>
-						城市优惠活动
-						<span class="left-bg"></span>
-						<span class="right-bg"></span>
-						<a href="<{link ctl='activity:lists'}>">> 更多</a>
-					</h1>
-				</div>
-				<p>在这个季节，在您的身边，优优美家优惠活动从没停过！</p>
-				<ul>
-					<{foreach $items as $item}>
-	                    <li>
-							<a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-							<p><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><{$item.title}></a></p>
-							<p>时间：<{$item.bg_time|format:'Y-m-d'}></p>
-							<p>地点：<{$item.addr}></p>
-						</li>
-	                <{/foreach}> 
-				</ul>
-			</div>
 			<div class="team-purchasing2">
 				<div class="bg">
 					<h1>
@@ -138,7 +117,29 @@
 						</li> -->
 					</ul>
 				</div>
-			</div>			
+			</div>
+			<div class="team-purchasing1">
+				<div class="bg">
+					<h1>
+						城市优惠活动
+						<span class="left-bg"></span>
+						<span class="right-bg"></span>
+						<a href="<{link ctl='activity:lists'}>">> 更多</a>
+					</h1>
+				</div>
+				<p>在这个季节，在您的身边，优优美家优惠活动从没停过！</p>
+				<ul>
+					<{foreach $items as $item}>
+	                    <li>
+							<a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+							<p><a href="<{link ctl='activity:detail' arg0=$item.activity_id}>"  target="_blank"><{$item.title}></a></p>
+							<p>时间：<{$item.bg_time|format:'Y-m-d'}></p>
+							<p>地点：<{$item.addr}></p>
+						</li>
+	                <{/foreach}> 
+				</ul>
+			</div>
+						
 		</div>
 		<script type="text/javascript" src="<{$pager.res}>/script/cloud-zoom.js"></script>
 		<script type="text/javascript" src="<{$pager.res}>/script/raty/jquery.raty.js"></script>

@@ -24,7 +24,7 @@ li{
 
 .zh-show{
 	width: 100%;
-	background:#9bf1bf no-repeat center;
+	background:#06b166 no-repeat center;
 }
 .zh-show .wrap{
 	width: 1180px;
@@ -402,7 +402,7 @@ li{
 
 .ch-liucheng ul li i:hover{
 	background-image: url(../images/tenders-mainIcoHover.png);
-	background-color: #fff;
+	background-color: #aef5d6;
 }
 
 .ch-liucheng ul li p{
@@ -412,6 +412,7 @@ li{
 .ch-liucheng ul li p:last-child{
 	font-weight: 500;
 	font-size: 14px;
+	color: #888;
 }
 
 
@@ -478,13 +479,14 @@ li{
 	float: left;
 	width: 330px;
 	font-size: 18px;
+	color: #666;
 }
 
 .ch-result{
 	width: 1200px;
 	margin: 0 auto;
 	overflow: hidden;
-	padding: 50px 0;
+	/*padding: 50px 0;*/
 }
 .ch-result h1{
 	text-align: center;
@@ -498,6 +500,7 @@ li{
 .ch-result .result-left{
 	width: 465px;
 	text-align: right;
+	color: #666;
 }
 .ch-result .result-left .txt{
 	text-align: left;
@@ -528,6 +531,7 @@ li{
 }
 .ch-result .result-right{
 	width: 465px;
+	color: #666;
 }
 
 .xinzeng{
@@ -538,12 +542,12 @@ li{
 .xinzeng>h1{
 	text-align: center;
 	color: #01af63;
-	font-size: 35px;
+	font-size: 26px;
 	margin: 0 0 20px;
 }
 .xinzeng>p{
 	text-align: center;
-	color: #999;
+	color: #888;
 	padding: 0 100px;
 	font-size: 16px;
 	margin: 0 0 20px;
@@ -566,13 +570,16 @@ li{
 }
 .xinzeng ul li img:hover{
 	transform: translate(0,-10px);
-	box-shadow: 0 0 2px 1px #999;
+	box-shadow: 0 0 2px 1px #888;
 }
 
 .xinzeng ul li p{
 	font-size: 16px;
-	color: #999;
+	color: #888;
 	margin-top: 10px;
+}
+.Reliable ul li.tenders-li:hover{
+	box-shadow: 0 0 2px 1px #01af63;
 }
 .zh-content{
 	width:1200px;
@@ -707,7 +714,7 @@ li{
 	padding-bottom: 15px;
 }
 .zh-detial ul li:hover,.zh-trick-list ul li:hover{
-	box-shadow: 0 0 5px 2px #eee;
+	box-shadow: 0 0 2px 1px #01af63;
 }
 .zh-detial ul li:hover img{
 	transform: scale(1.1);
@@ -771,7 +778,7 @@ li{
 	margin-bottom: 14px;
 }
 .zh-trick-list ul li h2{
-	color: #ff4401;
+	color: #01af63;
 	font-size: 20px;
 	text-align: center;
 	font-weight: 500;
@@ -779,7 +786,7 @@ li{
 .zh-trick-list ul li p{
 	font-size: 14px;
 	margin-top: 10px;
-	color: #333;
+	color: #666;
 }
 .zh-customer{
 	margin: 50px 0;
@@ -794,13 +801,13 @@ li{
 	font-size: 18px;
 	line-height: 60px;
 	overflow: hidden;
-	background-color: #ff4401;
+	background-color: #01af63;
 }
 .zh-customer-list .t-head span{
 	width: 196px;
 	float: left;
 	text-align: center;
-	color: #999;
+	color: #888;
 	color: #fff;
 }
 .zh-customer-list .run-ul li span{
@@ -809,7 +816,7 @@ li{
 	line-height: 40px;
 	font-size: 14px;
 	text-align: center;
-	color: #999;
+	color: #888;
 }
 .zh-customer-list .run-ul li span:nth-child(4){
 	width: 200px;

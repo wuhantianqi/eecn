@@ -92,7 +92,7 @@ Widget.Dialog.iframe = function(link, title, width, handler){
 	var opt = $.extend({},option);
 	opt.title = title || "";
 	opt.width = width || 700;
-	Widget.MsgBox.success("数据处理中...");
+	Widget.MsgBox.success("数据处理中...11111111111111");
 	Widget.MsgBox.load("数据努力加载中...");
 	var callback = K.GGUID();
 	if(link.indexOf("?")<0){
@@ -108,7 +108,7 @@ Widget.Dialog.iframe = function(link, title, width, handler){
 }
 Widget.Dialog.Select = function(link, multi, handler, opt){
 	var option = {width:700,height:560,modal:true,dialogClass:'ui-hack-widget-dialog',position:{my: "center top",at: "center top+80px",of: window},minHeight:500,maxWidth:600};
-	Widget.MsgBox.success("数据处理中...");
+	Widget.MsgBox.success("数据处理中...2222222222222");
 	Widget.MsgBox.load("数据努力加载中...");
 	opt = $.extend(opt||{},option);
 	multi = multi || 'N';
@@ -186,8 +186,8 @@ $(document).ready(function(){
 		if(act.indexOf('remove:')>=0){
 			remove = act.replace("remove:","");
 		}
-		Widget.MsgBox.success("数据处理中...");
-		Widget.MsgBox.load("数据处理中...");
+		Widget.MsgBox.success("数据处理中...333333333333333");
+		Widget.MsgBox.load("数据处理中...44444444444");
 		var link = $(this).attr("action") || $(this).attr("href");
 		$.getJSON(link,function(ret){
 			if(ret.error == 101){
@@ -243,8 +243,9 @@ $(document).ready(function(){
 		}
 		window.__MINI_LOAD = true;
 
-		Widget.MsgBox.success("数据处理中...");
-		Widget.MsgBox.load("数据处理中..");
+		Widget.MsgBox.success("数据处理中...55555555555");
+		Widget.MsgBox.load("数据处理中..66666666666");
+		alert($(this).find("input[name='data[mobile]']").val());
 		if($(this).find("[name='MINI']").size()<1){
 			$(this).prepend('<input type="hidden" name="MINI" value="form" />');
 		}
@@ -271,8 +272,8 @@ $(document).ready(function(){
 		var action = $(this).attr("action") || $(form).attr("action");
 		$(form).attr("action", action).attr("target", "miniframe").attr("method", "post");
 		var value = $(this).attr("mini-value") || "true";
-		Widget.MsgBox.success("数据处理中...");
-		Widget.MsgBox.load("数据处理中...");
+		Widget.MsgBox.success("数据处理中...7777777777777");
+		Widget.MsgBox.load("数据处理中...8888888888888");
 		if($(form).find("[name='MINI']").size()<1){
 			$(form).prepend('<input type="hidden" name="MINI" value="iframe" />');
 		}
