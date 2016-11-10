@@ -92,7 +92,7 @@ Widget.Dialog.iframe = function(link, title, width, handler){
 	var opt = $.extend({},option);
 	opt.title = title || "";
 	opt.width = width || 700;
-	Widget.MsgBox.success("数据处理中...11111111111111");
+	Widget.MsgBox.success("数据处理中...");
 	Widget.MsgBox.load("数据努力加载中...");
 	var callback = K.GGUID();
 	if(link.indexOf("?")<0){
@@ -108,7 +108,7 @@ Widget.Dialog.iframe = function(link, title, width, handler){
 }
 Widget.Dialog.Select = function(link, multi, handler, opt){
 	var option = {width:700,height:560,modal:true,dialogClass:'ui-hack-widget-dialog',position:{my: "center top",at: "center top+80px",of: window},minHeight:500,maxWidth:600};
-	Widget.MsgBox.success("数据处理中...2222222222222");
+	Widget.MsgBox.success("数据处理中...");
 	Widget.MsgBox.load("数据努力加载中...");
 	opt = $.extend(opt||{},option);
 	multi = multi || 'N';
@@ -186,8 +186,8 @@ $(document).ready(function(){
 		if(act.indexOf('remove:')>=0){
 			remove = act.replace("remove:","");
 		}
-		Widget.MsgBox.success("数据处理中...333333333333333");
-		Widget.MsgBox.load("数据处理中...44444444444");
+		Widget.MsgBox.success("数据处理中...");
+		Widget.MsgBox.load("数据处理中...");
 		var link = $(this).attr("action") || $(this).attr("href");
 		$.getJSON(link,function(ret){
 			if(ret.error == 101){
@@ -237,15 +237,15 @@ $(document).ready(function(){
 		Widget.Dialog.Load(link,title,width);
 	});
 	$("form[mini-form]").die("submit").live("submit",function(){
-		window.__MINI_LOAD = window.__MINI_LOAD || false;
-		if(window.__MINI_LOAD){ //防止重复提交
-			return false;
-		}
-		window.__MINI_LOAD = true;
+		// window.__MINI_LOAD = window.__MINI_LOAD || false;
+		// if(window.__MINI_LOAD){ //防止重复提交
+		// 	return false;
+		// }
+		// window.__MINI_LOAD = true;
 
-		Widget.MsgBox.success("数据处理中...55555555555");
-		Widget.MsgBox.load("数据处理中..66666666666");
-		alert($(this).find("input[name='data[mobile]']").val());
+		Widget.MsgBox.success("数据处理中...");
+		Widget.MsgBox.load("数据处理中..");
+
 		if($(this).find("[name='MINI']").size()<1){
 			$(this).prepend('<input type="hidden" name="MINI" value="form" />');
 		}
@@ -254,8 +254,20 @@ $(document).ready(function(){
 		if($(this).find("input[type='file']").size()>0){
 			$(this).attr("ENCTYPE", "multipart/form-data");
 		}
+		//判断手机号必须是11位
+		var phone =/^1[3|4|5|6|7|8]\d{9}$/;
+		// 手机号码如果为空会有之前系统自带的功能去判断，这里只判断有值的情况
+		if($(this).find("input[name='data[mobile]']").val().length >0 && !phone.test( $(this).find("input[name='data[mobile]']").val() )){
+		    Widget.MsgBox.load("请填写11位正确的手机号码");
+		    // 3秒关闭提示框
+		    setTimeout( messageb, 3000); 
+			return false;
+		}
 		return true;
 	});
+	function messageb(){
+		$("#MessageBox").hide();
+	}
 	$("[mini-submit],a[mini-submit]").die("click").live("click",function(e){
 		e.stopPropagation();e.preventDefault();
 		window.__MINI_LOAD = window.__MINI_LOAD || false;
@@ -272,8 +284,8 @@ $(document).ready(function(){
 		var action = $(this).attr("action") || $(form).attr("action");
 		$(form).attr("action", action).attr("target", "miniframe").attr("method", "post");
 		var value = $(this).attr("mini-value") || "true";
-		Widget.MsgBox.success("数据处理中...7777777777777");
-		Widget.MsgBox.load("数据处理中...8888888888888");
+		Widget.MsgBox.success("数据处理中...");
+		Widget.MsgBox.load("数据处理中...");
 		if($(form).find("[name='MINI']").size()<1){
 			$(form).prepend('<input type="hidden" name="MINI" value="iframe" />');
 		}
