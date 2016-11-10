@@ -361,12 +361,204 @@ li{
 
 
 
+.ch-wrap{
+	width: 100%;
+	background-color: #f6f6f6;
+}
+.ch-liucheng{
+	width: 1200px;
+	margin:0 auto;
+}
+.ch-liucheng ul{
+	overflow: hidden;
+}
+.ch-liucheng ul li{
+	float: left;
+	width: 236px;
+	padding: 20px 0;
+	text-align: center;
+}
+.ch-liucheng ul li i{
+	display: block;
+	width: 72px;
+	height: 72px;
+	margin: 0 auto;
+	border-radius: 36px;
+	background: url(../images/tenders-mainIco.png) no-repeat 0 0;
+	background-color: #01af63;
+}
+.ch-liucheng ul li:nth-child(2) i{
+	background-position: -72px 0;
+}
+.ch-liucheng ul li:nth-child(3) i{
+	background-position: -144px 0;
+}
+.ch-liucheng ul li:nth-child(4) i{
+	background-position: -212px -2px;
+}
+.ch-liucheng ul li:nth-child(5) i{
+	background-position: -288px 0;
+}
+
+.ch-liucheng ul li p{
+	font-size: 16px;
+	font-weight: 700;
+}
+.ch-liucheng ul li p:last-child{
+	font-weight: 500;
+	font-size: 14px;
+}
 
 
 
+.ch-tired{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 50px 0;
+}
+.ch-tired>div{
+	float: left;
+}
+.ch-tired h1{
+	text-align: center;
+	color: #01af63;
+	font-size: 35px;
+	margin: 0 0 20px;
+}
+.ch-tired .tired-left{
+	width: 465px;
+}
+.ch-tired .tired-middle{
+	margin: 30px 30px 0;
+	
+}
+.ch-tired .tired-middle i{
+	display: block;
+	width: 200px;
+	height: 200px;
+	background: url(../images/zhaobiao001.png) no-repeat 0 0;
+}
+.ch-tired .tired-middle p{
+	font-size: 35px;
+	text-align: center;
+	color: #eaaa0c;
+	line-height: initial;
+}
+.ch-tired .tired-right{
+	width: 465px;
+}
+.ch-tired .i_text{
+	overflow: hidden;
+	margin: 30px 0 50px;
+}
+.ch-tired .i_text i{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin: 0 20px;
+	background: url(../images/zhaobiao003.png) no-repeat 0 0;
+}
 
+.ch-tired .tired-left .i_text:nth-child(2) i{
+	background-position: -160px 0;
+}
+.ch-tired .tired-right .i_text:nth-child(1) i{
+	background-position: -80px 0;
+}
+.ch-tired .tired-right .i_text:nth-child(2) i{
+	background-position: -240px 0;
+}
+.ch-tired .i_text p{
+	float: left;
+	width: 330px;
+	font-size: 18px;
+}
 
+.ch-result{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 50px 0;
+}
+.ch-result h1{
+	text-align: center;
+	color: #01af63;
+	font-size: 35px;
+	margin: 0 0 20px;
+}
+.ch-result>div{
+	float: left;
+}
+.ch-result .result-left{
+	width: 465px;
+	text-align: right;
+}
+.ch-result .result-left .txt{
+	text-align: left;
+}
+.ch-result .result-middle{
+	margin: 30px 30px 0;
+}
+.ch-result .result-middle i{
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	background: url(../images/zhaobiao002.png) no-repeat 20px 20px;
+}
+.ch-result .txt{
+	padding: 10px 20px;
+	font-size: 16px;
+	display: inline-block;
+	width: 350px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	border: 2px solid #01af63;
+	border-radius: 10px;
+}
+.ch-result .txt:hover{
+	color: #fff;
+	background-color: #01af63;
+}
+.ch-result .result-right{
+	width: 465px;
+}
 
+.xinzeng{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+.xinzeng>h1{
+	text-align: center;
+	color: #01af63;
+	font-size: 35px;
+	margin: 0 0 20px;
+}
+.xinzeng>p{
+	text-align: center;
+	color: #999;
+	font-size: 16px;
+	margin: 0 0 20px;
+}
+.xinzeng ul{
+	overflow: hidden;
+}
+.xinzeng ul li{
+	float: left;
+	width: 370px;
+	margin-right: 45px;
+	text-align: center;
+}
+.xinzeng ul li:last-child{
+	margin-right: 0;
+}
+.xinzeng ul li p{
+	font-size: 16px;
+	color: #999;
+	margin-top: 10px;
+}
 .zh-content{
 	width:1200px;
 	margin: 0 auto;
