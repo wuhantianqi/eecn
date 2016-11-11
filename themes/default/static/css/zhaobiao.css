@@ -36,10 +36,24 @@ li{
 .zh-show .wrap img{
 	vertical-align: middle;
 }
-.zh-show .banner-gif{
+.zh-show .ul-wrap{
 	position: absolute;
 	top: 94px;
 	right: 420px;
+	width: 330px;
+	height: 330px;
+	overflow: hidden;
+}
+.zh-show .ul-wrap ul{
+	position: absolute;
+	width: 3000px;
+}
+.zh-show .ul-wrap ul li{
+	float: left;
+}
+.zh-show .ul-wrap ul li img{
+	width: 330px;
+	height: 330px;
 }
 /*.zh-show .order{
 	width: 244px;

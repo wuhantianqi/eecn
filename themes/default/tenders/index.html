@@ -5,7 +5,13 @@
 				<img src="/themes/default/static/images/bannerk1.png" />
 				<img src="/themes/default/static/images/bannerk2.png" />
 				<img src="/themes/default/static/images/bannerk3.png" />
-				<img src="/themes/default/static/images/tenders-banner.gif" class="banner-gif" />
+				<div class="ul-wrap">
+					<ul>
+						<li><img src="/themes/default/static/images/tenders-ul1.png" /></li>
+						<li><img src="/themes/default/static/images/tenders-ul2.png" /></li>
+						<li><img src="/themes/default/static/images/tenders-ul3.png" /></li>						
+					</ul>
+				</div>
 				<!--<div class="order">
 					<h2>
 						申请靠谱装修                   
@@ -486,6 +492,32 @@
 				obj.html(str);
 		      });
 		    }, 100);
+		    
+		    (function(){  //靠谱装修表单旁边的轮播图效果
+		    	var timer;
+				var iNow=1;
+				var $bannerUl=$(".ul-wrap ul");
+				var $bannerLi=$(".ul-wrap ul li")
+				var $liWidth=$bannerLi.eq(0).width();
+				$bannerLi.clone().appendTo($bannerUl);
+				var ulWidth=$bannerLi.length*$bannerLi.width()*2;
+				$bannerUl.css('width',ulWidth);
+				timer=setInterval(function(){
+					if(iNow==3){
+						$bannerUl.animate({
+							left: -iNow*$liWidth
+						},800,function(){$bannerUl.css('left','0')});
+						iNow=1;
+					}
+					else{
+						$bannerUl.animate({
+							left: -iNow*$liWidth
+						},800);
+						iNow++;
+					}
+				},3000)
+				timer;
+		    })();
 		});
 		})(window.KT, window.jQuery);
 		</script>
