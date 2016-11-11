@@ -9,6 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="%THEME%/static/css/index.css?<{$VER}>"/>
 	<!-- 底部弹出表单 -->
 	<link rel="stylesheet" href="/themes/fangTo8to/static/css/appointment-bottom.css" />
+	<div class="top-ad">
+		<ul>
+			<li><a href=""><img src="%THEME%/static/images/top-ad1.jpg"/></a></li>
+			<li><a href=""><img src="%THEME%/static/images/top-ad2.jpg"/></a></li>
+		</ul>
+	</div>
 	<div class="nav_top">
 		<!--顶部内容-->
 		<{include file="block/top-header.html"}>
@@ -66,3 +72,29 @@
 		<div class="nav_left"><a href="/"><img src="%THEME%/static/images/logo.png" alt=""></a></div>
 	</div>
 	<hr />
+	<script type="text/javascript">
+		$(function(){   //顶端广告效果
+			(function(){
+				var timer;
+				var iNow=1;
+				var $adUl=$(".top-ad ul");
+				var $adLi=$(".top-ad ul li")
+				$adLi.clone().appendTo($adUl);
+				timer=setInterval(function(){
+					if(iNow==2){
+						$adUl.animate({
+							top: -iNow*60
+						},800,function(){$adUl.css('top','0')});
+						iNow=1;
+					}
+					else{
+						$adUl.animate({
+							top: -iNow*60
+						},800);
+						iNow++;
+					}
+				},3000)
+				timer;
+			})();
+		})
+	</script>
