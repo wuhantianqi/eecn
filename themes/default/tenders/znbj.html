@@ -1,5 +1,109 @@
-﻿<{include file="block/header.html"}>
-	
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{include file="block/sheader.html"}>
+</head>
+<body>
+	<!-- 表单提交提示框 -->
+	<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+	<link rel="stylesheet" type="text/css" href="%THEME%/static/css/index.css?<{$VER}>"/>
+	<!-- 底部弹出表单 -->
+	<link rel="stylesheet" href="/themes/fangTo8to/static/css/appointment-bottom.css" />
+	<div class="top-ad">
+		<ul>
+			<li><a target="_blank" href=""><img src="%THEME%/static/images/top-ad1.jpg"/></a></li>
+			<li><a target="_blank" href=""><img src="%THEME%/static/images/top-ad2.jpg"/></a></li>
+		</ul>
+	</div>
+	<div class="nav_top">
+		<!--顶部内容-->
+		<{include file="block/top-header.html"}>
+	</div>
+	<div class="nav_nav">
+		<div class="nav_right">
+			<ul class="nav nav-pills" role="tablist">
+		      <li role="presentation"><a class="" href="/">首页</a></li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='tenders'}>" aria-expanded="false">
+		          靠谱装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='activity'}>" aria-expanded="false">
+		          优惠信息 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='article'}>" aria-expanded="false">
+		          学装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='case:decorationCase'}>" aria-expanded="false">
+		          效果图 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		    </ul>
+		</div>
+		<div class="nav_left"><a href="/"><img src="%THEME%/static/images/logo.png" alt=""></a></div>
+	</div>
+	<hr />
+	<script type="text/javascript">
+	 var jQ=jQuery.noConflict();
+		jQ(function(){   //顶端广告效果
+			(function(){
+				var timer;
+				var iNow=1;
+				var $adUl=$(".top-ad ul");
+				var $adLi=$(".top-ad ul li")
+				$adLi.clone().appendTo($adUl);
+				timer=setInterval(function(){
+					if(iNow==2){
+						$adUl.animate({
+							top: -iNow*60
+						},800,function(){$adUl.css('top','0')});
+						iNow=1;
+					}
+					else{
+						$adUl.animate({
+							top: -iNow*60
+						},800);
+						iNow++;
+					}
+				},3000)
+				timer;
+			})();
+		})
+	</script>
+
+
+
+
+
 <link rel="stylesheet" type="text/css" href="/themes/default/static/css/new_global.css">
 <!--[if lt IE 9]>
 <script src="/themes/default/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
@@ -186,7 +290,33 @@
 
 <link type="text/css" rel="stylesheet" href="/themes/default/static/css/popupsubmodal.css">
 
-<{include file="block/small-footer.html"}>
+
+
+
+
+
+
+<div class="sub_footer">
+    <p><{calldata mdl="article/article" city_id=$request.city_id from='about' limit="6"}><a href="<{link ctl='about' arg0=$item.page}>"><{$item.title}></a> <{if !$last}>|<{/if}> <{/calldata}></p>
+    <p>免责声明：本网站部分内容由用户自行上传，如权利人发现存在误传其作品情形，请及时与本站联系。</p>
+    <p>Copyright &copy; 2011-2015 All Rights Reserved 优优美家装修网和东启创拓公司 保留所有权利</p>
+    <p>    <!-- 百度商桥PC版 -->
+    <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E")); </script>优优美家装修家居 ICP备案：<{$CONFIG.site.icp}></p>
+</div>
+<!--底边内容结束-->
+<!--<{widget id="public/kefu"}>-->
+<link rel="stylesheet" href="<{$pager.res}>/script/bxslider/jq.bxslider.css" type="text/css" />
+<script type="text/javascript"  src="<{$pager.res}>/script/bxslider/jq.bxslider.min.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+    $('[bxSlider]').bxSlider({ mode: 'fade',captions: true, auto:true});
+});
+})(window.KT, window.jQuery);
+</script>
+<p class="none"><{$CONFIG.site.tongji}></p>
+</body>
+</html>
 
 
 
