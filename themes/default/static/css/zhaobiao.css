@@ -590,7 +590,7 @@ li{
 }
 .xinzeng ul li img:hover{
 	transform: translate(0,-10px);
-	box-shadow: 0 0 2px 1px #888;
+	box-shadow: 0 0 2px 1px #01af63;
 }
 
 .xinzeng ul li p{
