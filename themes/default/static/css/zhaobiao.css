@@ -45,11 +45,12 @@ li{
 	overflow: hidden;
 }
 .zh-show .ul-wrap ul{
-	position: absolute;
-	width: 3000px;
+	position: relative;
 }
 .zh-show .ul-wrap ul li{
-	float: left;
+	position: absolute;
+	top: 0;
+	left:0;
 }
 .zh-show .ul-wrap ul li img{
 	width: 330px;
