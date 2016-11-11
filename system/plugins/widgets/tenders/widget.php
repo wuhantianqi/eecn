@@ -78,5 +78,15 @@ class Widget_Tenders extends Model
         }
         return $data;
     }
+    
+//  首页表单
+    public function companyForm(&$params)
+    {
+        $data = $params;
+        if(!$params['tpl']){
+            $params['tpl'] = 'widget:tenders/companyForm.html';
+        }
+        return $data;
+    }
    
 }

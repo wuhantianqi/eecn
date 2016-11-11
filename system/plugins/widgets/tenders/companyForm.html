@@ -1,0 +1,84 @@
+<div class="company-form">
+    <div class="controller">
+    	<span class="active">找靠谱公司</span>
+    	<span>设计与报价</span>
+    </div>
+    <ul>
+    	<li>
+    		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+    			<h2>10秒筛出您家附近靠谱装修公司</h2>
+		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
+		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
+		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的小区名称" /> 
+		        <div class="sel-group">
+		        	<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+		        </div>
+		        
+		        <{if $CONFIG.access.verifycode.tender}>
+		         <input class="text short lt" type="text" name="verifycode" placeholder="请输入验证码"/><img verify="#<{$widget.HASH}>" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="<{$widget.HASH}>" class="yz_pic rt"/>
+		        <{/if}>
+		        <input type="submit" value="帮您推荐附近靠谱装修公司" class="btn_sub_apply" />
+    		</form>
+    	</li>
+    	<li class="none">
+    		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+    			<h2>10秒筛出您家附近靠谱装修公司</h2>
+		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
+		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
+		        <select name="data[budget_id]" class="budget">
+					<{widget id="tenders/setting" type="budget"}>
+				</select>
+		        <div class="sel-group">
+		        	<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+		        </div>
+		        
+		        <{if $CONFIG.access.verifycode.tender}>
+		         <input class="text short lt" type="text" name="verifycode" placeholder="请输入验证码"/><img verify="#<{$widget.HASH}>" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="<{$widget.HASH}>" class="yz_pic rt"/>
+		        <{/if}>
+		        <input type="submit" value="帮您推荐附近靠谱装修公司" class="btn_sub_apply" />
+    		</form>
+    	</li>
+    </ul>
+    <script>
+    $(function(){
+    	$("[verify]").click(function(){
+		$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
+		});
+			
+//		(function(){
+//			var $controller=$(".controller span");
+//			var $formLi=$(".index-form ul li");
+//			$controller.mouseover(function(){
+//				var $index=$(this).index();
+//				$(this).siblings().removeClass("active");
+//				$(this).addClass("active");
+//				
+//				$formLi.eq($index).siblings().addClass("none");
+//				$formLi.eq($index).removeClass("none");
+//			})
+//		})();
+		
+		function tabFunction($controller,$tabLi){
+			$controller.mouseover(function(){
+				var $index=$(this).index();
+				$(this).siblings().removeClass("active");
+				$(this).addClass("active");
+				
+				$tabLi.eq($index).siblings().addClass("none");
+				$tabLi.eq($index).removeClass("none");
+			})
+		}
+		(function(){
+			var $controller=$(".controller span");
+			var $formLi=$(".company-form>ul>li");
+			tabFunction($controller,$formLi);
+		})();
+		
+	
+    })
+	
+	</script>
+	
+</div>
