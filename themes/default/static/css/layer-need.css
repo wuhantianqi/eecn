@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+.dialog .tab{
+	width: 50px;
+	height: 450px;
+	float: left;
+}
+.dialog .tab span{
+	display: inline-block;
+	box-sizing: border-box;
+	height: 225px;
+	padding: 70px 20px;
+	font-size: 14px;
+	background-color: #f6f6f6;
+	cursor: pointer;
+}
+.dialog .tab span.active{
+	background-color: #fff;
+	border-left: 3px solid #01af63;
+	padding-left: 17px;
+	color: #01af63;
+}
+.dialog>ul{
+	float: left;
+	width: 980px;
+	height: 450px;
+	position: relative;
+}
+.dialog>ul>li{
+	width: 980px;
+	overflow: hidden;
+	position: absolute;
+}
+
+
+
+
+
+
+
+.con_bj{
+	box-shadow: initial;
+}
+.bj_form .area_text{
+	font-size: 14px;
+}
+.bj_form .text{
+	font-size: 14px;
+}
+.bj_form .area_text_sel{
+	width: 255px;
+	border-color: #ddd;
+}
+.pop-sheji>h3{
+	font-size: 26px;
+	text-align: center;
+}
+.pop-sheji form input[type=submit]{
+	display: block;
+	width: 180px;
+	background-color: #ff4401;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	line-height: 30px;
+	margin: 0 auto;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.pop-sheji form .check-box{
+	text-align: center;
+	margin: 20px 0;
+}
+.pop-sheji form .check-box input{
+	position: relative;
+	top: 2px;
+}
+.pop-sheji form .check-box a{
+	color: #01af63;
+}
+.pop-sheji form .check-box a:hover{
+	color: #ff4401;
+}
+.buzhou{
+	margin-right: 60px;
+	padding-top: 50px;
+}
+.buzhou .bg{
+	display: inline-block;
+	width: 349px;
+	height: 322px;
+	background: url(../images/dialog.png) no-repeat -33px -346px;
+}
+.bj_form input:focus{
+	border-color: #01af63;
+}
+.bj_form select:focus{
+	border-color: #01af63;
+}
