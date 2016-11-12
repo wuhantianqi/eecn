@@ -1,16 +1,16 @@
 <div class="company-form">
     <div class="controller">
-    	<span class="active">找靠谱公司</span>
-    	<span>设计与报价</span>
+    	<span class="active"><em></em>找靠谱公司</span>
+    	<span><em></em>设计与报价</span>
     </div>
     <ul>
     	<li>
     		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-    			<h2>10秒筛出您家附近靠谱装修公司</h2>
+    			<h2>10秒筛选出您家附近的靠谱装修公司</h2>
 		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
 		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
-		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的小区名称" /> 
+		        <input type="text" name="data[home_name]" class="text full" placeholder="请输入您的小区名称" /> 
 		        <div class="sel-group">
 		        	<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
 		        </div>
@@ -23,7 +23,7 @@
     	</li>
     	<li class="none">
     		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-    			<h2>10秒筛出您家附近靠谱装修公司</h2>
+    			<h2>10秒登记免费获取专业设计方案报价</h2>
 		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
 		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
@@ -46,7 +46,34 @@
     	$("[verify]").click(function(){
 		$($(this).attr("verify")).attr("src", "/index.php?magic-verify&_"+Math.random());
 		});
-			
+		
+		(function(){
+			var $formLi=$(".company-form>ul>li");
+			$(".controller span").mouseover(function(event) {
+				var $index=$(this).index();
+				if($index === 0){
+					$(this).find("em").css({
+						"background-position":"0px -24px",
+					});
+					$(this).siblings().find("em").css({
+						"background-position":"-22px 0px",	
+					});
+				}else{
+					$(this).find("em").css({
+						"background-position":"-22px -24px",	
+					});
+					$(this).siblings().find("em").css({
+						"background-position":"0px -0px",
+					});
+				}
+				
+				$(this).siblings().removeClass("active");
+				$(this).addClass("active");
+
+				$formLi.eq($index).siblings().addClass("none");
+				$formLi.eq($index).removeClass("none");
+			})
+		})();
 //		(function(){
 //			var $controller=$(".controller span");
 //			var $formLi=$(".index-form ul li");
@@ -60,21 +87,23 @@
 //			})
 //		})();
 		
-		function tabFunction($controller,$tabLi){
-			$controller.mouseover(function(){
-				var $index=$(this).index();
-				$(this).siblings().removeClass("active");
-				$(this).addClass("active");
+		// function tabFunction($controller,$tabLi){
+		// 	$controller.mouseover(function(){
+		// 		var $index=$(this).index();
+		// 		$(this).siblings().removeClass("active");
+		// 		$(this).addClass("active");
 				
-				$tabLi.eq($index).siblings().addClass("none");
-				$tabLi.eq($index).removeClass("none");
-			})
-		}
-		(function(){
-			var $controller=$(".controller span");
-			var $formLi=$(".company-form>ul>li");
-			tabFunction($controller,$formLi);
-		})();
+		// 		$tabLi.eq($index).siblings().addClass("none");
+		// 		$tabLi.eq($index).removeClass("none");
+		// 	}).mouseout(function() {
+				
+		// 	});
+		// }
+		// (function(){
+		// 	var $controller=$(".controller span");
+		// 	var $formLi=$(".company-form>ul>li");
+		// 	tabFunction($controller,$formLi);
+		// })();
 		
 	
     })

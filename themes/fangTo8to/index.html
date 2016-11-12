@@ -126,7 +126,7 @@
 				<a href="/case-items-74-0-0-0-1.html" target="_blank"><img  src="%THEME%/static/images/r2.jpg" width="240" height="185" alt="客厅" /></a>
 				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
 			</li><li>
-				<a href="/case-items-74-97-0-0-1.html" target="_blank"><img  src="%THEME%/static/images/r3.jpg" width="240" height="185" alt="鞋柜" /></a>
+				<a href="/case-items-74-0-0-0-1.html" target="_blank"><img  src="%THEME%/static/images/r3.jpg" width="240" height="185" alt="鞋柜" /></a>
 				<p class="text"><span class="lt"></span><span class="rt"><span class="index_ico like_ico"></span></span></p>
 			</li><li>
 				<a href="/case-items-86-0-0-0-1.html" target="_blank"><img  src="%THEME%/static/images/r4.jpg" width="240" height="185" alt="书房" /></a>
@@ -296,7 +296,7 @@
 			</li>
 			<li class="Hotspot_li">
 				<h3><p>武汉新闻</p></h3>
-				<{calldata mdl="company/news" city_id=$request.city_id order="views:DESC" limit="7"}>
+				<{calldata mdl="company/news" city_id=$request.city_id order="dateline:DESC" limit="7"}>
 				<p><a href="<{link ctl='news:detail' arg0=$item.news_id}>" target="_blank"><{$item.title|cutstr:25}></a>
 				</p>
 				<{/calldata}>

@@ -878,7 +878,8 @@ select.text:last-child{
 }
 .Reliable{
 	width:1200px;
-	height: auto;
+	height: 476px;
+	overflow: hidden;
 	margin:0 auto;
 	padding-top:50px;
 }
@@ -896,16 +897,15 @@ select.text:last-child{
     margin: 0 auto;
     background: #FFF;
 }
-.Reliable{
-}
 .Reliable>ul{
-	width:900px;
-	padding-bottom: 10px;
-	margin-right: 20px;	
+	width:909px;
+	height: 320px;
+	padding-bottom: 14px;	
 	overflow: hidden;
 	background: #f8f8f8;
 	margin-top:32px;
 	float: left;
+	border: 1px solid #eee;
 }
 .Reliable>ul>li{
 	width: 168px;
@@ -917,7 +917,7 @@ select.text:last-child{
     float: left;
 }
 .Reliable>ul>li:nth-child(5n+1){
-	margin-left: 10px;
+	margin-left: 14px;
 }
 .Reliable>ul>li:hover{
 	box-shadow: 0 0 3px 1px #888;
@@ -927,32 +927,59 @@ select.text:last-child{
     height: 91px;
 }
 .Reliable .company-form-wrap{
-	width: 280px;
+	width: 288px;
 	margin-top: 32px;
 	float: left;
-	box-shadow: 0 0 2px 2px #dedede;
+	border: 1px solid #eee;
+	border-left:none;
 }
 .company-form{
 	text-align: center;
-	height: 328px;
+	height: 334px;
 }
 .company-form .controller{
+	width:100%;
 	overflow: hidden;
 	border-bottom: 1px solid #dedede;
+	position: relative;
 }
 .company-form .controller span{
 	width:50%;
 	float: left;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 40px;
 	box-sizing: border-box;
 	border-right: 1px solid #dedede;
+	text-indent: 2em;
+}
+.company-form .controller span:first-child em{
+	content: '';
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    background-image: url(../images/new_index_form.png); 
+    background-position:0px -24px;
 }
 .company-form .controller span:last-child{
 	border-right-color: transparent;
 }
+.company-form .controller span:last-child em{
+	content: '';
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 162px;
+    background-image: url(../images/new_index_form.png); 
+	background-position:-22px 0px;
+}
 .company-form .controller span.active{
 	color: #ff4401;
+	background: #f8f8f8;
 }
 .company-form ul{
 	position: relative;
@@ -964,20 +991,22 @@ select.text:last-child{
 }
 .company-form ul li h2{
 	font-size: 12px;
-	color: #ff4401;
-	margin: 5px 0;
+	color: #666;
+	margin-top: 10px;
+	text-align: left;
+    text-indent: 1.5em;
 }
 .company-form ul li form input {
-    width: 85%;
-    margin-bottom: 8px;
+    width: 86%;
+    margin-bottom: 10px;
     outline: none;
 }
 .company-form ul li form input:focus{
 	border-color: #ff4401;
 }
 .company-form ul li form .budget{
-	width: 246px;
-    margin-bottom: 8px;
+	width: 255px;
+    margin-bottom: 10px;
     outline: none;
     height: 34px;
     border: 1px solid #dedede;
@@ -1001,7 +1030,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form select.text:last-child{
-	width:104px;
+	width:111px;
 	margin-right: 0;
 }
 .company-form ul li form select:focus{
@@ -1009,12 +1038,13 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form input[type=submit]{
+	width:87%;
     margin-top: 13px;
     margin-bottom: 20px;
     color: #fff;
     cursor: pointer;
     border: none;
-    font-size: 16px;
+    font-size: 15px;
 }
 .company-form ul li form input[type=submit]:hover{
 	opacity: 0.9;
