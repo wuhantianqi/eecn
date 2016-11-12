@@ -1,0 +1,209 @@
+
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/new_global.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_new_two.css"/>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_n_alink.css">
+<link rel="stylesheet" href="/themes/default/static/css/layer-need.css" />
+<div class="dialog">
+	<div class="tab">
+		<span class="active">免费设计</span>
+		<span>免费报价</span>
+	</div>
+	<ul>
+		<li>
+			<div class="con_bj clear">
+            <!-- calculate -->
+            <div class="con_bj_cal col_l">
+                <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
+                
+                <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+                    <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+                    <div class="mod_form bj_form">
+                        <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
+                            <div class="element">
+                                <div class="clear">
+                                    <input type="hidden" name="dangci" value="jianzhuang">
+                                    <select id="User_Shen" name="shen" class="select select_s col_l">
+                                        <option value="">武汉</option>
+                                    </select>
+                                    <select id="User_City" name="city" class="select select_s col_l">
+                                        <option value="">区域</option>
+                                        <option value="">江汉区</option>
+                                        <option value="">江岸区</option>
+                                        <option value="">洪山区</option>
+                                        <option value="">武昌区</option>
+                                        <option value="">汉阳区</option>
+                                        <option value="">江夏区</option>
+                                        <option value="">黄陂区</option>
+                                        <option value="">汉南区</option>
+                                        <option value="">硚口区</option>
+                                        <option value="">青山区</option>
+                                        <option value="">新洲区</option>
+                                        <option value="">东西湖区</option>
+                                        <option value="">蔡甸区</option>
+                                        
+                                    </select>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="" class="label" ><em class="label_start">*</em>房屋面积：</label>
+                            <div class="element">
+                                <div class="text_wrap">
+                                    <input type="text" class="text area_text" name="square"  placeholder="请输入您的房屋面积">
+                                    <em class="unit" style="color: black;">m&sup2;</em>
+                                </div>
+                                <!--<p class="text_area">* 输入面积小于30㎡时，报价结果按30㎡计算</p>-->
+                            </div>
+                        </div>
+
+                        <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>装修类型：</label>
+                            <div class="element">
+                            	<div class="text_wrap">
+                                    <select name="data[type_id]" class="area_text area_text_sel">
+										<{widget id="tenders/setting" type="type"}>
+									</select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
+                            <div class="element">
+                            	<div class="text_wrap">
+                                    <input type="text" class="text area_text" placeholder="请输入您的小区名称">                          
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form_line" id="phoneInput">
+                            <label for="" class="label" ><em class="label_start">*</em>手机号码：</label>
+                            <div class="element">
+                                <div class="text_wrap"><input type="text" class="text" name="data[mobile]" placeholder="请输入您的手机号码"></div>
+                            </div>
+                            <p><i></i>优优美家承诺：我们将严格保密您的私人信息,此服务为全程免费，绝无任何收费信息。</p>
+                        </div>
+                        <div class="form_line bj_btn">
+                              
+                            <input class="calc-btn" id="new_base_info" type="submit" value="" style="border: none;cursor: pointer;"/>
+                            <input type="hidden" name="ptag" id="myPtag" value="1_4_7_1"  />
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- results -->
+            <div class="con_bj_res col_r">
+                <!--<h3>计算结果</h3>-->
+                <div class="bj_res_con">
+                    <div class="bj_res_t clear">您的装修预算约<b id="bprice">？</b><span>元</span></div>
+                    <ul class="bj_res_ul">
+                        <li class="clear"><span>材料费：</span><strong id="materialPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>人工费：</span><strong id="artificialPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>设计费：</span><strong id="designPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>质检费：</span><strong id="qualityPay"><em>？</em>元</strong></li>
+                    </ul>
+                </div>
+                <div class="bj_explain" style="display:none">
+                    <p class="attention"><b>*</b>稍候装修管家将回电您，免费提供装修咨询服务</p>
+                    <p><b>*</b>因材料品牌及工程量不同，具体报价以量房实测为准</p>
+                </div>
+            </div>
+        </div>
+
+		</li>
+		<li class="none">
+			<div class="con_bj_cal col_l pop-sheji">
+			<h3>免费户型设计</h3>
+			<form action="" method="post" mini-form="fast-tenders">
+				<div class="mod_form bj_form">
+					<div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
+                            <div class="element">
+                                <div class="clear">
+                                    <input type="hidden" name="dangci" value="jianzhuang">
+                                    <select id="User_Shen" name="shen" class="select select_s col_l">
+                                        <option value="">武汉</option>
+                                    </select>
+                                    <select id="User_City" name="city" class="select select_s col_l">
+                                        <option value="">区域</option>
+                                        <option value="">江汉区</option>
+                                        <option value="">江岸区</option>
+                                        <option value="">洪山区</option>
+                                        <option value="">武昌区</option>
+                                        <option value="">汉阳区</option>
+                                        <option value="">江夏区</option>
+                                        <option value="">黄陂区</option>
+                                        <option value="">汉南区</option>
+                                        <option value="">硚口区</option>
+                                        <option value="">青山区</option>
+                                        <option value="">新洲区</option>
+                                        <option value="">东西湖区</option>
+                                        <option value="">蔡甸区</option>
+                                        
+                                    </select>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                </div>
+                            </div>
+                        </div>
+					<div class="form_line">
+                        <label for="" class="label"><em class="label_start">*</em>您的称呼：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" placeholder="请输入您的称呼">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line">
+                        <label for="" class="label"><em class="label_start">*</em>手机号码：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" placeholder="填手机号码，抢免费设计名额">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line">
+                        <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" placeholder="请输入您的小区名称">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line check-box">
+                        <input type="checkbox" value="" checked="checked">
+						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
+                    </div>
+					<input type="submit" value="立即申请" />
+				</div>
+			</form>
+			</div>
+			<div class="col_r buzhou">
+				<div class="bg">
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<script src="/themes/default/static/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var $tab=$(".dialog>.tab>span");
+		var $diaLi=$(".dialog>ul>li");
+		
+		$tab.click(function(){
+			var $index=$(this).index();
+			$(this).siblings().removeClass('active');
+			$(this).addClass('active');
+			
+			$diaLi.addClass('none');
+			$diaLi.eq($index).removeClass('none');
+		})
+	})
+</script>
+
+
+
+
+

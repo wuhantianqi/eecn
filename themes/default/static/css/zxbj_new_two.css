@@ -25,6 +25,7 @@ i {
 }
 .con_bj h3 {
     font-size: 20px;
+    font-weight: 500;
 }
 .con_bj_cal {
     position: relative;
@@ -36,6 +37,9 @@ i {
     width: 370px;
     padding-top: 30px;
     font-size: 14px;
+}
+.bj_form input{
+	box-sizing: content-box;
 }
 .bj_form .label {
     font-size: 16px;
@@ -254,7 +258,7 @@ i {
 .calputer_tit span {
     margin-left: 10px;
     color: #f36f20;
-    font-size: 12px;
+    font-size: 14px;
 }
 .con_bj_res .bj_explain {
     margin-top: 10px;

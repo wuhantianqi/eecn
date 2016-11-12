@@ -89,7 +89,7 @@ if(!(browerObj.name == "msie" && browerObj.version < 10)) {
         </div>
         <div class="min2_ft">
             <div class="ft_tit">你还不知道钱都去哪儿了吗？</div>
-            <a href="<{link ctl='tenders'}>" class="btn_znbj" target="_blank">优优美家智能报价</a>
+            <a href="javascript:void(0);" class="btn_znbj" target="_blank">优优美家智能报价</a>
         </div>
     </div>
     </div>
@@ -279,6 +279,8 @@ if(!(browerObj.name == "msie" && browerObj.version < 10)) {
       </div>
       <div class="pop_ft">打开微信，点击底部的“发现”，<br>使用“扫一扫”即可将网页分享至朋友圈。</div>
   </div>
+  <script src="/themes/default/static/js/layer/layer.js"></script>
+  
 <script>
 var animateTime = 700,
     step_item = 2;
@@ -307,6 +309,15 @@ jq(function() {
   });
   clickStep();
   shareWeixin();
+  
+  jQuery(".btn_znbj").on('click',function(){
+				layer.open({
+					type: 2,	
+					title:'',
+				    area: ['1030px', '450px'], //宽高
+				    content: ['http://www.beneecn.cc/index.php?tenders-popup.html','no']
+				});
+			})
 });
 
 function shareWeixin() {
