@@ -993,7 +993,7 @@ select.text:last-child{
 	margin-top: 10px;
 }
 .company-form ul li form input {
-    width: 86%;
+    width: 80%;
     margin-bottom: 10px;
     outline: none;
 }
@@ -1001,7 +1001,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form .budget{
-	width: 255px;
+	width: 237px;
     margin-bottom: 10px;
     outline: none;
     height: 34px;
@@ -1009,7 +1009,7 @@ select.text:last-child{
 }
 
 .company-form ul li form .sel-group {
-    width: 88%;
+    width: 82%;
     margin: 0 auto;
     margin-bottom: 11px;
     overflow: hidden;
@@ -1026,7 +1026,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form select.text:last-child{
-	width:111px;
+	width:94px;
 	margin-right: 0;
 }
 .company-form ul li form select:focus{
@@ -1034,7 +1034,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form input[type=submit]{
-	width:87%;
+	width:82%;
     margin-top: 13px;
     margin-bottom: 20px;
     color: #fff;
