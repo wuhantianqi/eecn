@@ -23,35 +23,51 @@ $(function(){
 	
 	
 	$("#baojia-form").validate({
+		submitHandler: function(){      
+		    $("#baojia-form").ajaxSubmit({
+		    	type:"post",
+		    	url:"<{link ctl='tenders:save'}>",
+		    	dataType:xhr,
+		    	success: function() {
+		    		alert(123);
+		    	},
+		    	error:function(){
+		    		alert("失败");
+		    	}
+		    });
+		},
 		rules:{
-			square:{
+			"data[house_mj]":{
 				required:true,
 				minlength:2,
 				maxlength:4,
 				
 			},
 			xiaoqu:{
-				required:true,
+				
 			},
-			phone:{
+			"data[mobile]":{
 				required:true,
 				isMobile:true
 			}
-			
 		},
 		messages:{
-			square:{
-				required:"请输入用户名",
+			"data[house_mj]":{
+				required:"请输入房屋面积",
 				minlength:"房子太小了吧,亲",
 				maxlength:"房子太大了吧，亲"
 			},
-			xiaoqu:"请输入小区名称",
-			phone:{
+			
+			"data[mobile]":{
 				required:"请输入手机号码",
 				isMobile:"请正确填写您的手机号码"
 			}
 		},
-		onkeyup:false
+		onkeyup:false,
+		
+		
+		
+		
 	});
 
 
@@ -59,20 +75,20 @@ $(function(){
 	
 	$("#sheji-form").validate({
 		rules:{
-			name:{
+			"data[contact]":{
 				required:true,
 			},
-			phone:{
+			"data[mobile]":{
 				required:true,
 				isMobile:true
 			},
 			xiaoqu:{
-				required:true,
+				
 			}
 		},
 		messages:{
-			name:"请输入用户名",
-			phone:{
+			"data[contact]":"请输入用户名",
+			"data[mobile]":{
 				required:"请输入手机号码",
 				isMobile:"请正确填写您的手机号码"
 			},
