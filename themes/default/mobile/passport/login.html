@@ -1,5 +1,6 @@
 <{assign var="tpl_page_title" value="登录页"}>
 <{include file="mobile/block/header.html"}>
+<nav class="pding_log">快速登录</nav>
 <div class="pding login_cont">
 	<form id='login-form' class="login_form mb10">
 		<table>
@@ -22,14 +23,15 @@
 			</tr>
 			<{/if}>
 		</table>
-		<label class="rt">
+		<label>
 			<input type="checkbox" name="keep" class="check" />
 			30天之内自动登录</label>
 		<a  href="#" id='login-btn' class="btn subbtn_full">立即登录</a>
+		<p>没有账号？<a href="<{link ctl='mobile/passport:signup'}>" class="fontcl2">立即注册</a></p>
 	</form>
-	<p>第三方账号登录：</p>
+	<p class="mobile_lo">第三方账号登录</p>
 	<div class="other_login"> <a href="<{link ctl='mobile/passport:qqlogin'}>" class="qq_login"> <span class="app_ico qq_login_ico lt"></span> <span class="text">QQ账号登录</span> </a> <a href="<{link ctl='mobile/passport:weibo'}>" class="weibo_login"> <span class="app_ico weibo_login_ico lt"></span> <span class="text">微博账号登录</span> </a> </div>
-	<p>没有账号？<a href="<{link ctl='mobile/passport:signup'}>" class="fontcl2">立即注册</a></p>
+	
 </div>
 <script type="text/javascript">
 $(document).ready(function(){

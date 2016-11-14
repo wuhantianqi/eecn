@@ -13,7 +13,7 @@
 		        <input type="text" name="data[home_name]" class="text full" placeholder="请输入您的小区名称" /> 
 		        <div class="sel-group">
 		        	<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
-		        </div>
+		        </div>            
 		        
 		        <{if $CONFIG.access.verifycode.tender}>
 		         <input class="text short lt" type="text" name="verifycode" placeholder="请输入验证码"/><img verify="#<{$widget.HASH}>" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="<{$widget.HASH}>" class="yz_pic rt"/>
@@ -37,7 +37,7 @@
 		        <{if $CONFIG.access.verifycode.tender}>
 		         <input class="text short lt" type="text" name="verifycode" placeholder="请输入验证码"/><img verify="#<{$widget.HASH}>" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="<{$widget.HASH}>" class="yz_pic rt"/>
 		        <{/if}>
-		        <input type="submit" value="帮您推荐附近靠谱装修公司" class="btn_sub_apply" />
+		        <input type="submit" value="免费为您出设计方案报价" class="btn_sub_apply" />
     		</form>
     	</li>
     </ul>

@@ -905,7 +905,6 @@ select.text:last-child{
 	background: #f8f8f8;
 	margin-top:32px;
 	float: left;
-	border: 1px solid #eee;
 }
 .Reliable>ul>li{
 	width: 168px;
@@ -931,11 +930,10 @@ select.text:last-child{
 	margin-top: 32px;
 	float: left;
 	border: 1px solid #eee;
-	border-left:none;
 }
 .company-form{
 	text-align: center;
-	height: 334px;
+	height: 332px;
 }
 .company-form .controller{
 	width:100%;
@@ -991,13 +989,11 @@ select.text:last-child{
 }
 .company-form ul li h2{
 	font-size: 12px;
-	color: #666;
+	color: #ff4401;
 	margin-top: 10px;
-	text-align: left;
-    text-indent: 1.5em;
 }
 .company-form ul li form input {
-    width: 86%;
+    width: 80%;
     margin-bottom: 10px;
     outline: none;
 }
@@ -1005,7 +1001,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form .budget{
-	width: 255px;
+	width: 237px;
     margin-bottom: 10px;
     outline: none;
     height: 34px;
@@ -1013,7 +1009,7 @@ select.text:last-child{
 }
 
 .company-form ul li form .sel-group {
-    width: 88%;
+    width: 82%;
     margin: 0 auto;
     margin-bottom: 11px;
     overflow: hidden;
@@ -1030,7 +1026,7 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form select.text:last-child{
-	width:111px;
+	width:94px;
 	margin-right: 0;
 }
 .company-form ul li form select:focus{
@@ -1038,16 +1034,18 @@ select.text:last-child{
 	border-color: #ff4401;
 }
 .company-form ul li form input[type=submit]{
-	width:87%;
+	width:82%;
     margin-top: 13px;
     margin-bottom: 20px;
     color: #fff;
     cursor: pointer;
     border: none;
     font-size: 15px;
+    transition:background-color ease .2s ;
+    background-color:#03b085;
 }
 .company-form ul li form input[type=submit]:hover{
-	opacity: 0.9;
+	background-color: #ff4401;
 }
 .knowledge{
 	width:1200px;
