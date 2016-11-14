@@ -729,7 +729,46 @@ form .text {
 	margin: 0px auto;
 	margin-bottom: 30%;
 }
-.position a:last-child{
+.position a:nth-child(2){
 	display: none;
 }
 /* 登录页样式修改 */
+/*注册页修改*/
+.login_form_nav{
+	width: 100%;
+    line-height: 40px;
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+.login_zuce .login_form input.text, .login_form select.text{
+	border: none;
+	background:#f8f8f8;
+	padding-left: 0.4rem;
+}
+.login_zuce .login_form select.text{
+	margin-bottom: 10px;
+}
+.login_zuce .login_form tr:last-child td p{
+	width:4.5rem;
+}
+.login_zuce .login_form tr:last-child td .rt{
+	margin-top: 3px;
+}
+.login_zuce .login_form input.short{
+	width: 100%;
+}
+.login_zuce select.full{
+	width: 99%;
+}
+.login_zuce .login_form .subbtn_full{
+	width: 99%;
+	margin-top:0.5rem;
+}
+.login_zuce .clearfix label:after{
+	top:18px;
+}
+.login_zuce{
+	margin-bottom:2rem;
+}
+/*注册页修改*/
