@@ -17,10 +17,11 @@ $(function(){
 	
 	jQuery.validator.addMethod("isMobile", function(value, element) {  //验证手机
 	    var length = value.length;
-//	    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/; && mobile.test(value)   , "请正确填写您的手机号码"
-	    return this.optional(element) || (length == 11);
+	    var mobile = /^1{1}[34578]{1}\d{9}$/;  // && mobile.test(value)   , "请正确填写您的手机号码"
+	    return this.optional(element) || (length == 11) && mobile.test(value);
 	});
-
+	
+	
 	$("#baojia-form").validate({
 		rules:{
 			square:{
@@ -52,6 +53,9 @@ $(function(){
 		},
 		onkeyup:false
 	});
+
+
+	
 	
 	$("#sheji-form").validate({
 		rules:{
@@ -76,5 +80,41 @@ $(function(){
 		},
 		onkeyup:false
 	});
+	
+	$('#new_base_info').click(function(){
+    	if ($("#baojia-form").valid()) {
+    		
+	      	var mjia = $('#square').val()*500;
+	      	
+	      	var mjiaNum=(mjia*0.8/10000).toFixed(1);
+	      	
+	        $('#bprice').html(mjiaNum);
+	        $('.bj_res_t span').html("万元");
+	
+	        $('#materialPay em').html(mjia*0.48);
+	        $('#artificialPay em').html(mjia*0.32);
+	        
+	        $('#designPay em').html(0);
+	        if($('#designPay del')[0]){
+	        	$('#designPay del').eq(0).html(mjia*0.19+'元')
+	        }
+	        else{
+	        	$('#designPay').append('<del>'+mjia*0.19+'元'+'</del>')
+	        }
+	          
+	        $('#qualityPay em').html(0);
+	        if($('#qualityPay del')[0]){
+	        	$('#qualityPay del').eq(0).html(mjia*0.19+'元')
+	        }
+	        else{
+	        	$('#qualityPay').append('<del>'+mjia*0.19+'元'+'</del>')
+	        }
+        
+        $('#new_base_info').css("background-position","0 -168px")
+        }
+    	else{
+    		return false;
+    	}
+   });
 	
 })
