@@ -15,7 +15,7 @@
             <div class="con_bj_cal col_l">
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
                 
-                <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+                <form action="" id="baojia-form" method="post">
                     <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
                     <div class="mod_form bj_form">
                         <div class="form_line">
@@ -27,7 +27,6 @@
                                         <option value="">武汉</option>
                                     </select>
                                     <select id="User_City" name="city" class="select select_s col_l">
-                                        <option value="">区域</option>
                                         <option value="">江汉区</option>
                                         <option value="">江岸区</option>
                                         <option value="">洪山区</option>
@@ -50,8 +49,8 @@
                         <div class="form_line">
                             <label for="" class="label" ><em class="label_start">*</em>房屋面积：</label>
                             <div class="element">
-                                <div class="text_wrap">
-                                    <input type="text" class="text area_text" name="square"  placeholder="请输入您的房屋面积">
+                                <div class="text_wrap square">
+                                    <input type="text" class="text area_text" name="square" placeholder="请输入您的房屋面积">
                                     <em class="unit" style="color: black;">m&sup2;</em>
                                 </div>
                                 <!--<p class="text_area">* 输入面积小于30㎡时，报价结果按30㎡计算</p>-->
@@ -72,7 +71,7 @@
                             <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
                             <div class="element">
                             	<div class="text_wrap">
-                                    <input type="text" class="text area_text" placeholder="请输入您的小区名称">                          
+                                    <input type="text" class="text area_text" name="xiaoqu" placeholder="请输入您的小区名称">                          
                                 </div>
                             </div>
                         </div>
@@ -80,7 +79,7 @@
                         <div class="form_line" id="phoneInput">
                             <label for="" class="label" ><em class="label_start">*</em>手机号码：</label>
                             <div class="element">
-                                <div class="text_wrap"><input type="text" class="text" name="data[mobile]" placeholder="请输入您的手机号码"></div>
+                                <div class="text_wrap"><input type="text" class="text" name="phone" placeholder="请输入您的手机号码"></div>
                             </div>
                             <p><i></i>优优美家承诺：我们将严格保密您的私人信息,此服务为全程免费，绝无任何收费信息。</p>
                         </div>
@@ -116,7 +115,7 @@
 		<li class="none">
 			<div class="con_bj_cal col_l pop-sheji">
 			<h3>免费户型设计</h3>
-			<form action="" method="post" mini-form="fast-tenders">
+			<form action="" method="post" id="sheji-form">
 				<div class="mod_form bj_form">
 					<div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
@@ -151,7 +150,7 @@
                         <label for="" class="label"><em class="label_start">*</em>您的称呼：</label>
                         <div class="element">
                         	<div class="text_wrap">
-                                <input type="text" class="text area_text" placeholder="请输入您的称呼">                          
+                                <input type="text" class="text area_text" name="name" placeholder="请输入您的称呼">                          
                             </div>
                         </div>
                     </div>
@@ -159,7 +158,7 @@
                         <label for="" class="label"><em class="label_start">*</em>手机号码：</label>
                         <div class="element">
                         	<div class="text_wrap">
-                                <input type="text" class="text area_text" placeholder="填手机号码，抢免费设计名额">                          
+                                <input type="text" class="text area_text" name="phone" placeholder="填手机号码，抢免费设计名额">                          
                             </div>
                         </div>
                     </div>
@@ -167,12 +166,12 @@
                         <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
                         <div class="element">
                         	<div class="text_wrap">
-                                <input type="text" class="text area_text" placeholder="请输入您的小区名称">                          
+                                <input type="text" class="text area_text" name="xiaoqu" placeholder="请输入您的小区名称">                          
                             </div>
                         </div>
                     </div>
                     <div class="form_line check-box">
-                        <input type="checkbox" value="" checked="checked">
+                        <input type="checkbox" value="" checked="checked" name="agree">
 						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
                     </div>
 					<input type="submit" value="立即申请" />
@@ -187,21 +186,9 @@
 	</ul>
 </div>
 <script src="/themes/default/static/js/jquery-3.1.0.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		var $tab=$(".dialog>.tab>span");
-		var $diaLi=$(".dialog>ul>li");
-		
-		$tab.click(function(){
-			var $index=$(this).index();
-			$(this).siblings().removeClass('active');
-			$(this).addClass('active');
-			
-			$diaLi.addClass('none');
-			$diaLi.eq($index).removeClass('none');
-		})
-	})
-</script>
+<script src="/themes/default/static/js/jquery.validate.min.js"></script>
+<script src="/themes/default/static/js/layer-need.js"></script>
+
 
 
 
