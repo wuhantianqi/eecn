@@ -1,10 +1,10 @@
 <{assign var="tpl_page_title" value="用户注册"}>
 <{include file="mobile/block/header.html"}>
-<div class="pding login_cont">
+<nav class="login_form_nav">快速注册</nav>
+<div class="pding login_cont login_zuce">
 	<form class="login_form" id='login-form'>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
-				<td class="title">账户类型</td>
 				<td>
 					<div class="clearfix">
 						<label>
@@ -20,35 +20,30 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="title">用户名</td>
 				<td>
-					<input type="text" name="data[uname]" class="text full" id="register_zh" />
+					<input type="text" name="data[uname]" class="text full" id="register_zh" placeholder="请输入用户名"/>
 				</td>
 			</tr>
 			<tr>
-				<td class="title">联系邮箱</td>
 				<td>
-					<input type="text" name="data[mail]" class="text full" id="register_mm"/>
+					<input type="text" name="data[mail]" class="text full" id="register_mm" placeholder="请输入联系邮箱"/>
 				</td>
 			</tr>
 			<tr>
-				<td class="title">用户密码</td>
 				<td>
-					<input type="password" name="data[passwd]" class="text full" id="register_zh"/>
+					<input type="password" name="data[passwd]" class="text full" id="register_zh" placeholder="请输入用户密码"/>
 				</td>
 			</tr>
 			<tr>
-				<td class="title">确认密码</td>
 				<td>
-					<input type="password" name="confirmpasswd" class="text full" id="register_mm"/>
+					<input type="password" name="confirmpasswd" class="text full" id="register_mm" placeholder="请输入确认密码"/>
 				</td>
 			</tr>
 			<{if $CONFIG.access.verifycode.signup}>
 			<tr>
-				<td class="title">验证码</td>
 				<td>
-					<p class="input short lt" style="width:105px;">
-						<input class="text short"  style="width:100px;" name="verifycode" type="text" placeholder="请输入验证码"/>
+					<p class="input short lt">
+						<input class="text short" name="verifycode" type="text" placeholder="请输入验证码"/>
 					</p>
 					<div class="rt"><img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/></div>
 				</td>
