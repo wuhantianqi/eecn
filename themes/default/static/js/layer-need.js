@@ -27,7 +27,8 @@ $(function(){
 		    $("#baojia-form").ajaxSubmit({
 		    	type:"post",
 		    	url:"<{link ctl='tenders:save'}>",
-		    	dataType:xhr,
+		    	dataType:"json",
+		    	data:$("#baojia-form").serialize(),
 		    	success: function() {
 		    		alert(123);
 		    	},
