@@ -31,13 +31,6 @@
 	overflow: hidden;
 	position: absolute;
 }
-
-
-
-
-
-
-
 .con_bj{
 	box-shadow: initial;
 }
@@ -114,4 +107,7 @@ div.square .unit{
 	position: absolute;
 	right: 20px;
 	top: 7px;
+}
+.t_top{
+	display: none;
 }

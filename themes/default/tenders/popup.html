@@ -12,17 +12,18 @@
 		<li>
 			<div class="con_bj_cal col_l pop-sheji">
 			<h3>免费户型设计</h3>
-			<form action="" method="post" id="sheji-form">
+            <form action="<{link ctl='tenders:save'}>" id="sheji-form" method="post">
+                <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 				<div class="mod_form bj_form">
 					<div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
                             <div class="element">
                                 <div class="clear">
-                                    <input type="hidden" name="dangci" value="jianzhuang">
-                                    <select id="User_Shen" name="shen" class="select select_s col_l">
+                                    <input type="hidden"  value="jianzhuang">
+                                    <select id="User_Shen"  class="select select_s col_l">
                                         <option value="">武汉</option>
                                     </select>
-                                    <select id="User_City" name="city" class="select select_s col_l">
+                                    <select id="User_City"  class="select select_s col_l">
                                         <option value="">江汉区</option>
                                         <option value="">江岸区</option>
                                         <option value="">洪山区</option>
@@ -35,10 +36,9 @@
                                         <option value="">青山区</option>
                                         <option value="">新洲区</option>
                                         <option value="">东西湖区</option>
-                                        <option value="">蔡甸区</option>
-                                        
+                                        <option value="">蔡甸区</option>                                       
                                     </select>
-                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" ><option value="">县/市</option></select></div>
                                 </div>
                             </div>
                         </div>
@@ -59,15 +59,15 @@
                         </div>
                     </div>
                     <div class="form_line">
-                        <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
+                        <label for="" class="label">小区名称：</label>
                         <div class="element">
                         	<div class="text_wrap">
-                                <input type="text" class="text area_text" name="xiaoqu" placeholder="请输入您的小区名称">                          
+                                <input type="text" class="text area_text" name="data[home_name]" placeholder="请输入您的小区名称">                          
                             </div>
                         </div>
                     </div>
                     <div class="form_line check-box">
-                        <input type="checkbox" value="" checked="checked" name="agree">
+                        <input type="checkbox" value="" checked="checked" >
 						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
                     </div>
 					<input type="submit" value="立即申请" />
@@ -92,11 +92,11 @@
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
                             <div class="element">
                                 <div class="clear">
-                                    <input type="hidden" name="dangci" value="jianzhuang">
-                                    <select id="User_Shen" name="shen" class="select select_s col_l">
+                                    <input type="hidden"  value="jianzhuang">
+                                    <select id="User_Shen"  class="select select_s col_l">
                                         <option value="">武汉</option>
                                     </select>
-                                    <select id="User_City" name="city" class="select select_s col_l">
+                                    <select id="User_City"  class="select select_s col_l">
                                         <option value="">江汉区</option>
                                         <option value="">江岸区</option>
                                         <option value="">洪山区</option>
@@ -112,7 +112,7 @@
                                         <option value="">蔡甸区</option>
                                         
                                     </select>
-                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" ><option value="">县/市</option></select></div>
                                 </div>
                             </div>
                         </div>
@@ -138,10 +138,10 @@
                             </div>
                         </div>
                         <div class="form_line">
-                            <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
+                            <label for="" class="label">小区名称：</label>
                             <div class="element">
                             	<div class="text_wrap">
-                                    <input type="text" class="text area_text" name="xiaoqu" placeholder="请输入您的小区名称" id="xiaoqu">                          
+                                    <input type="text" class="text area_text" name="data[home_name]" placeholder="请输入您的小区名称" id="xiaoqu">                          
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="form_line bj_btn">
                               
                             <input class="calc-btn" id="new_base_info" type="submit" value="" style="border: none;cursor: pointer;"/>
-                            <input type="hidden" name="ptag" id="myPtag" value="1_4_7_1"  />
+                            <input type="hidden" id="myPtag" value="1_4_7_1"  />
                         </div>
                     </div>
                 </form>
@@ -185,6 +185,8 @@
 		
 	</ul>
 </div>
+<!-- 弹出提示层 -->
+<div class="t_top"></div>
 <script src="/themes/default/static/js/jquery-3.1.0.min.js"></script>
 <script src="/themes/default/static/js/jquery.validate.min.js"></script>
 <script src="/themes/default/static/js/jquery.form.js"></script>

@@ -13,25 +13,37 @@ $(function(){
 			$diaLi.eq($index).removeClass('none');
 		})
 	})();
-	
-	
+
 	jQuery.validator.addMethod("isMobile", function(value, element) {  //验证手机
 	    var length = value.length;
 	    var mobile = /^1{1}[34578]{1}\d{9}$/;  // && mobile.test(value)   , "请正确填写您的手机号码"
 	    return this.optional(element) || (length == 11) && mobile.test(value);
 	});
-	
+
 	
 	$("#baojia-form").validate({
 		submitHandler: function(){      
 		    $("#baojia-form").ajaxSubmit({
 		    	type:"post",
-		    	url:"<{link ctl='tenders:save'}>",
-		    	dataType:"json",
-		    	data:$("#baojia-form").serialize(),
-		    	success: function() {
-		    		alert(123);
-		    	},
+		    	dataType:"json",          
+		    	url:"/index.php?tenders-save.html",
+	            success: function(data) { 
+	                if(data.error==0){
+	                	$('.t_top').css({
+						    "display": "block",
+						    "position": "absolute",
+						    "width": "20%",
+						    "text-align": "center",
+						    "top": "33%",
+						    "left": "42%",
+						    "background": "#ff4401",
+						    "color": "#FFF",
+						    "padding": "10px",
+						    "border-radius": "5px",
+						    "line-height": "24px",
+	                	}).text("报价成功！优优美家装修网客服将于24小时内联系您，请您保持手机畅通");
+	                }
+	            },
 		    	error:function(){
 		    		alert("失败");
 		    	}
@@ -65,16 +77,40 @@ $(function(){
 			}
 		},
 		onkeyup:false,
-		
-		
-		
-		
+	
 	});
 
 
 	
 	
 	$("#sheji-form").validate({
+		submitHandler: function(){      
+		    $("#sheji-form").ajaxSubmit({
+		    	type:"post",
+		    	dataType:"json",          
+		    	url:"/index.php?tenders-save.html",
+	            success: function(data) { 
+	                if(data.error==0){
+	                	$('.t_top').css({
+						    "display": "block",
+						    "position": "absolute",
+						    "width": "20%",
+						    "text-align": "center",
+						    "top": "33%",
+						    "left": "42%",
+						    "background": "#ff4401",
+						    "color": "#FFF",
+						    "padding": "10px",
+						    "border-radius": "5px",
+						    "line-height": "24px",
+	                	}).text("申请成功！优优美家装修网客服将于24小时内联系您，请您保持手机畅通");
+	                }
+	            },
+		    	error:function(){
+		    		alert("失败");
+		    	}
+		    });
+		},
 		rules:{
 			"data[contact]":{
 				required:true,
