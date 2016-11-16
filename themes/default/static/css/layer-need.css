@@ -110,4 +110,23 @@ div.square .unit{
 }
 .t_top{
 	display: none;
+/*    position: absolute;
+    width: 20%;
+    text-align: center;
+    top: 33%;
+    left: 42%;
+    background: #ff4401;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 5px;*/
+}
+.t_top a{
+	position: absolute;
+    right: -5%;
+    top: -28%;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    background-position: -149px -31px;
+    background-image: url(../images/icon.png);
 }

@@ -1042,10 +1042,10 @@ select.text:last-child{
     border: none;
     font-size: 15px;
     transition:background-color ease .2s ;
-    background-color:#03b085;
+    background-color: #ff4401;
 }
 .company-form ul li form input[type=submit]:hover{
-	background-color: #ff4401;
+	background-color:#03b085;
 }
 .knowledge{
 	width:1200px;
