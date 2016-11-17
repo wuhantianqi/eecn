@@ -189,7 +189,7 @@ $(function(){
 	        	$('#qualityPay').append('<del>'+mjia*0.19+'元'+'</del>')
 	        }
         
-        $('#new_base_info').css("background-position","0 -168px")
+        	$('#new_base_info').css("background-position","0 -168px");
         }
     	else{
     		return false;

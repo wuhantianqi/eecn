@@ -341,6 +341,23 @@ body{width: 100%;font-family: 'Microsoft YaHei';background: url(../images/3min_b
 .material_box_text2{margin: 0 auto;background-position: 0 -76px;}
 .material_box_floor2 .material_box_floor{top: 189px;}
 /* 08分享给你的朋友 */
+.wrap_form{
+	position: relative;
+	padding-top:10%;
+	z-index: 999;
+}
+.wrap_pop_form{
+	width: 1450px;
+    height: 650px;
+    margin: 0 auto;
+    left: 16%;
+    position: absolute;
+    background: #FFF;
+}
+.share_box .css3 .share_box_title {
+    top: 49%;
+}
+
 .share_box_title{display: block;position: absolute;top: 35%;/* 378/1080 */left: 50%;width: 1137px;height: 52px;margin-left: -568px;text-indent: -999em;background: url(../images/3min_title8.png) no-repeat;}
 .share_box a{position: absolute;top: 57.22%;/* 618/1080 */width: 170px; height: 163px;}
 .share_box .share_weixin{left: 27.13%;/* 521/1920 */background-position: 0 -107px;}

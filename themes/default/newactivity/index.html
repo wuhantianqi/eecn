@@ -247,14 +247,17 @@ if(!(browerObj.name == "msie" && browerObj.version < 10)) {
   </div>
     <!-- 08分享给你的朋友 -->
   <div class="wrap">
-    <div class="share_box bdsharebuttonbox">
-      <h2 class="share_box_title">开始你的装修之旅吧，别忘了分享给你的朋友</h2>
+    <div class="wrap_form">
+      <div class="wrap_pop_form">
+        <{include file="tenders/popup.html"}>
+      </div>
+    </div>
+    <!-- <div class="share_box bdsharebuttonbox">
+      <h2 class="share_box_title" style="top:49%;">开始你的装修之旅吧，别忘了分享给你的朋友</h2>
       <a href="javascript:;" class="share_weixin" title="微信"></a>
       <a href="javascript:;" class="share_weibo" data-cmd="tsina" title="微博"></a>
       <a href="javascript:void(0);" class="share_douban" data-cmd="douban" title="QQ空间" onclick="window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(document.location.href));return false;" title="分享到QQ空间"></a>
-      <!-- <a href="javascript:;" class="share_douban" data-cmd="douban" title="豆瓣"></a> 
-      <!-- <a href="javascript:;" class="share_renren" data-cmd="renren" title="人人"></a> -->
-    </div>
+    </div> -->
   </div> 
   </div>
   <!-- 导航 -->
@@ -527,9 +530,209 @@ window._bd_share_config = {
     }]
 };
 with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-
 </script>
 <script type="text/javascript"  src="/themes/default/static/js/share.js?<{$VER}>"></script>
+<style type="text/css">
+  /*表单样式重写*/
+  .wrap_pop_form{
+    height: 656px;
+  }
+  .dialog .tab {
+    width: 62px;
+    height: 656px;
+    float: left;
+  }
+  .bj_form .text{
+    font-size: 20px;
+  }
+  .dialog .tab span {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 328px;
+    padding: 70px 20px;
+    font-size: 24px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+  }
+  .dialog>ul>li{
+    width: 1388px;
+  }
+  .con_bj_cal {
+    position: relative;
+    width: 610px;
+    padding: 50px 40px 30px;
+    border-right: 1px solid #eee;
+  }
+  .pop-sheji>h3 {
+    font-size: 42px;
+    text-align: center;
+  }
+  .bj_form {
+    width: 610px;
+    padding-top: 40px;
+    font-size: 24px;
+  }
+  .bj_form .label {
+    width: 21%;
+    font-size: 22px;
+    color: #333;
+    text-align: left;
+    margin-left: 0;
+  }
+  .bj_form .element {
+      width: 430px;
+      position: relative;
+      padding-bottom: 25px;
+  }
+  .bj_form .select_s {
+      width: 193px;
+      height: 46px;     
+      font-size: 20px;
+      color: #999;
+      margin-right: 10px;
+  }
+  .bj_form .area_text {
+      width: 363px;
+      height:34px;
+      margin-right:20px;
+  }
+  label.error{
+    font-size: 14px;
+  }
+  .pop-sheji form .check-box{
+    font-size: 18px;
+  }
+  .pop-sheji form .check-box input {
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+  }
+  .pop-sheji form input[type=submit] {
+    display: block;
+    width: 300px;
+    background-color: #ff4401;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    line-height: 60px;
+    margin: 0 auto;
+    margin-top: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .mod_form .form_line{
+    margin-left: 35px;
+  }
+  .buzhou .bg{
+    width: 580px;
+    height: 450px;
+    margin-top: 60px;
+    background: url(/themes/default/static/images/dialog.png) no-repeat;
+    background-size: 2000px 1200px;
+    background-position: 10px -450px;
+  }
+  .con_bj .con_bj_cal{
+    width: 610px;
+  }
+  .con_bj h3.calputer_tit{
+    font-size: 30px;
+  }
+  .con_bj .bj_form{
+    width: 500px;
+    margin-right:91px;
+  }
+  .con_bj .mod_form .form_line{
+    margin-left: 0px;
+  }
+  .con_bj .bj_form .label{
+    width: 25%;
+  }
+  .con_bj .bj_form .element{
+    width: 360px;
+  }
+  .con_bj .bj_form .select_s{
+    width: 170px;
+  }
+  .con_bj .calc-btn{
+    width: 200px;
+    height: 200px;
+    top: 188px;
+    right: -175px;
+    background-position: 0px -166px;
+    background-size: 200px 200px;
+  }
+  .con_bj .bj_form .area_text{
+    width: 318px;
+  }
+  .con_bj .bj_form div:nth-child(5) .text{
+    width: 328px;
+    height: 32px;
+  }
+  .con_bj .bj_form .area_text_sel{
+    width: 350px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+  }
+  .con_bj .calc-btn {
+      width: 173px;
+      height: 230px;
+      top: 150px;
+      right: -88px;
+      background-position: 0px -170px;
+      background-size: 560px 380px;
+  }
+  .con_bj .calc-btn:hover {
+      width: 173px;
+      height: 230px;
+      top: 150px;
+      right: -88px;
+      background-position: 0px 32px;
+      background-size: 560px 380px;
+  }
+  .con_bj .con_bj_res {
+    width: 500px;
+    padding: 100px 50px 0 0;
+    color: #333;
+    font-size: 32px;
+  }
+  .con_bj .con_bj_res .bj_res_t{
+    font-size: 32px;
+  }
+  .con_bj .con_bj_res .bj_res_t b{
+    font-size: 32px;
+  }
+  .con_bj .con_bj_res .bj_res_t span{
+    font-size: 32px;
+  }
+  .con_bj .con_bj_res .bj_res_ul{
+    margin: 50px auto 0;
+  }
+  .con_bj .con_bj_res .bj_res_ul li {
+    height: 60px;
+    line-height: 60px;
+  }
+  .con_bj .con_bj_res .bj_res_ul li span {
+    float: left;
+    width: 50%;
+    height: 60px;
+    text-align: right;
+    font-size: 24px;
+  }
+  .con_bj .con_bj_res .bj_res_ul li strong {
+      float: left;
+      width: 50%;
+      height: 60px;
+      line-height: 60px;
+      font-weight: normal;
+      text-align: left;
+      font-size: 24px;
+  }
+  .con_bj .con_bj_res .bj_res_ul li strong em{
+    font-size: 24px;
+  }
+</style>
 </body>
 </html>
 
