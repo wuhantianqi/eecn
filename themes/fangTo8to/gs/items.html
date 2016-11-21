@@ -5,53 +5,57 @@
 </div>
 <div class="mainwd">
 	<!--主体左边内容开始-->
-	<div class="main_content lt">
-		<div class="mb20 area choose_option to_choose_option">
-			<table cellpadding="0" cellspacing="0">
-				<tr>
-					<td class="tit">区域</td>
-					<td>
-						<a href="<{$area_all_link}>" <{if empty($pager.area_id)}>class="current"<{/if}>>不限</a>
+	<div class="main_content lt main_content_items">
+		<!-- 
+			<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+	        <input type="hidden" name="data[from]" value="TZX" />
+	        <div class="apply">
+	            <div id="index_apply" class="apply_form">
+	                <span class="formtit">申请免费设计</span>
+	                <input name="apply_type" type="hidden" value="17" />
+	                <input class="inptxt" name="data[contact]" type="text" placeholder="您的姓名" />
+	                <input class="inptxt" name="data[mobile]" type="text" placeholder="手机号码" />
+	                <input class="btn" name="apply" type="submit" value="立即申请" />
+	            </div>
+	        </div>
+	    	</form> 
+    	-->
+		<div class="mb20 mb_list main_content_n">
+			<div class="mb20 area choose_option to_choose_option">
+				<div class="zgs_select_type">
+				  <dl class="zgs_st_dl">
+				    <dt>区域</dt><!--服务区域--> 
+				    <dd>
+				    	<a href="<{$area_all_link}>" rel="nofollow">不限</a>
 						<{foreach $area_list  as $v}>
-						<a href="<{$v.link}>" <{if $v.area_id==$pager.area_id}>class="current"<{/if}>><{$v.area_name}></a>
+						<a href="<{$v.link}>" rel="nofollow" <{if $v.area_id==$pager.area_id}>class="current"<{/if}>><{$v.area_name}></a>
 						<{/foreach}>
-					</td>
-				</tr>
-				<{if $group_list}>
-				<tr>
-					<td class="tit">等级</td>
-					<td>
-						<a href="<{$group_all_link}>" <{if empty($pager.group_id)}>class="current"<{/if}>>不限</a>
-						<{foreach $group_list as $v}>
-						<a href="<{$v.link}>" <{if $v.group_id==$pager.group_id}>class="current"<{/if}>><{$v.group_name}></a>
-						<{/foreach}>
-					</td>
-				</tr>
-				<{/if}>              
-				<{foreach $attr_values as $v}>
-				<tr>
-					<td class="tit"><{$v.title}></td>
-					<td><a href="<{$v.link}>" <{if $v.checked}>class="current"<{/if}>>不限</a>
-						<{foreach $v.values as $vv}>
-						<a  href="<{$vv.link}>"  <{if $vv.checked}>class="current"<{/if}>><{$vv.title}></a>
-						<{/foreach}>
-				</tr>
-				<{/foreach}>
-			</table>
-		</div>
-		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-        <input type="hidden" name="data[from]" value="TZX" />
-        <div class="apply">
-            <div id="index_apply" class="apply_form">
-                <span class="formtit">申请免费设计</span>
-                <input name="apply_type" type="hidden" value="17" />
-                <input class="inptxt" name="data[contact]" type="text" placeholder="您的姓名" />
-                <input class="inptxt" name="data[mobile]" type="text" placeholder="手机号码" />
-                <input class="btn" name="apply" type="submit" value="立即申请" />
-            </div>
-        </div>
-    	</form>
-		<div class="mb20 mb_list">
+				    </dd>
+				  </dl>
+				  <{if $group_list}>
+				  <dl class="zgs_st_dl">
+				    <dt>等级</dt><!--服务区域--> 
+				    <dd>
+				    	<a href="<{$group_all_link}>" rel="nofollow" <{if empty($pager.group_id)}>class="current"<{/if}>>不限</a>
+				    	<{foreach $group_list as $v}>
+				    	<a href="<{$v.link}>" rel="nofollow" <{if $v.group_id==$pager.group_id}>class="current"<{/if}>><{$v.group_name}></a>
+				    	<{/foreach}>
+				    </dd>
+				  </dl>
+				  <{/if}>   
+				  <{foreach $attr_values as $v}>
+				  <dl class="zgs_st_dl">
+				    <dt><{$v.title}></dt><!--服务区域--> 
+				    <dd>
+				    	<a href="<{$v.link}>" rel="nofollow" <{if $v.checked}>class="current"<{/if}>>不限</a>
+				    	<{foreach $v.values as $vv}>
+				    	<a href="<{$vv.link}>" rel="nofollow" <{if $vv.checked}>class="current"<{/if}>><{$vv.title}></a>
+				    	<{/foreach}>
+				    </dd>
+				  </dl>
+				  <{/foreach}>
+				</div>
+			</div>
 			<div class="sort_box">
 				<p class="sort_list hoverno">
 					<{foreach $order_list  as $k=>$v}>
@@ -98,6 +102,39 @@
 				<{/if}>
 			</div>
 		</div>
+		<div class="main_content_from" id="fixedMenu_keleyi_com">
+			<div>
+				<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
+			</div>
+			
+			<!-- <div class="banner">
+				<div class="old-banner-right">
+					<ul>
+						<li>
+							<a class="list-item" href="<{link ctl='newactivity'}>" target="_blank">
+					          <span class="item-img-1"></span>
+					          <p class="item-p-1">装修小白学装修</p>
+					          <p class="item-p-2">专注优质装修服务，三分钟学装修</p>
+					        </a>
+						</li>
+						<li>
+							<a class="list-item" href="<{link ctl='newactivity:housekeeper'}>" target="_blank" style="height: 114px;">
+					          <span class="item-img-2"></span>
+					          <p class="item-p-1">装修管家全程监管</p>
+					          <p class="item-p-2">一对一帮您解决装修中的大小麻烦事</p>
+					        </a>
+						</li>
+						<li>
+							<a class="list-item" href="<{link ctl='zxb'}>" target="_blank">
+					          <span class="item-img-3"></span>
+					          <p class="item-p-1">优优美家装修保</p>
+					          <p class="item-p-2">提供一站式装修资金安全解决方案</p>
+					        </a>
+						</li>
+					</ul>
+				</div>
+			</div> -->
+		</div>
 	</div>
 	<!--主体左边内容结束-->
 	<!--主体右边内容开始-->
@@ -143,5 +180,25 @@
 	<div class="cl"></div> -->
 	<!--主体右边内容结束-->
 </div>
+<script type="text/javascript">
+(function(K, $){
+    //活动专题页面 定位导航
+    $(function () {
+        var ie6 = document.all;
+        var dv = $('#fixedMenu_keleyi_com'), st;
+        dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+        $(window).scroll(function () {
+            st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+            if (st > parseInt(dv.attr('otop'))) {
+            if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+            dv.css({ position: 'absolute', top: st });
+            }
+            else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 , right: 191 });
+            } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+        });
+    });    
+})(window.KT, window.jQuery)    
+</script>
+
 <div style="clear:both"></div>
 <{include file="block/footer.html"}>
