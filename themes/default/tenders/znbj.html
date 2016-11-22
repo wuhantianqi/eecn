@@ -321,7 +321,7 @@
                     </ul>
                 </div>
                 <div class="bj_explain" style="display:none">
-                    <p class="attention"><b>*</b>稍候装修管家将回电您，免费提供装修咨询服务</p>
+                    <p class="attention"><b>*</b>稍候装修管家将给您回电，免费提供装修咨询服务</p>
                     <p><b>*</b>因材料品牌及工程量不同，具体报价以量房实测为准</p>
                 </div>
             </div>
@@ -389,6 +389,19 @@ $(document).ready(function(){
 </script>
 <p class="none"><{$CONFIG.site.tongji}></p>
 </body>
+<!-- 快速隐藏提示框，并显示提示信息 -->
+<script>
+    jq('#new_base_info').on('click',function(){ 
+        if(jq("input[name='data\[mobile\]']").val() != ""){
+           var t1= window.setTimeout(messagebox,2000);   //2秒后关闭提示框 
+        }
+    })
+    function messagebox(){
+        jq("#MessageBox").css("display","none");
+        jq(".bj_explain").css("display","block");
+        window.clearTimeout(t1);//去掉定时器
+    }
+</script>
 </html>
 
 
