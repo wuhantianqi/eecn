@@ -1,3 +1,103 @@
+<style>
+	.Reliable .company-form-wrap {
+	    width: 288px;
+	    margin-top: 32px;
+	    float: left;
+	    border: 1px solid #eee;
+	}
+	.company-form {
+	    text-align: center;
+	    height: 332px;
+	}
+	.company-form .controller {
+	    width: 100%;
+	    overflow: hidden;
+	    border-bottom: 1px solid #dedede;
+	    position: relative;
+	}
+	.company-form .controller span.active {
+	    color: #ff4401;
+	    background: #f8f8f8;
+	}
+
+	.company-form .controller span {
+	    width: 50%;
+	    float: left;
+	    font-size: 16px;
+	    line-height: 40px;
+	    box-sizing: border-box;
+	    border-right: 1px solid #dedede;
+	    text-indent: 2em;
+	}
+	.company-form .controller span:first-child em {
+	    content: '';
+	    width: 18px;
+	    height: 18px;
+	    display: block;
+	    position: absolute;
+	    top: 12px;
+	    left: 20px;
+	    background-image: url(/themes/fangTo8to/static/images/new_index_form.png);
+	    background-position: 0px -24px;
+	}
+	.company-form ul {
+	    position: relative;
+	}
+	.company-form ul li {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	.company-form ul li h2 {
+	    font-size: 12px;
+	    color: #ff4401;
+	    margin-top: 10px;
+	}
+	.company-form ul li form input {
+	    width: 80%;
+	    margin-bottom: 10px;
+	    outline: none;
+	}
+	input.text, select.text, textarea.text {
+	    border: 1px solid #e3e3e3;
+	    height: 26px;
+	    line-height: 26px;
+	    padding: 3px 0px 3px 5px;
+	    font-size: 12px;
+	    color: #555;
+	}
+	.company-form ul li form .sel-group {
+	    width: 82%;
+	    margin: 0 auto;
+	    margin-bottom: 11px;
+	    overflow: hidden;
+	}
+	.company-form ul li form .sel-group select.text {
+	    margin-top: 0;
+	    width: 76px;
+	    box-sizing: border-box;
+	    border: 1px solid #dedede;
+	    float: left;
+	}
+	select.text {
+	    height: 34px;
+	    line-height: 34px;
+	    padding: 3px 0px 3px 5px;
+	    font-size: 12px;
+	    color: #555;
+	}
+	.company-form ul li form input[type=submit] {
+	    width: 82%;
+	    margin-top: 13px;
+	    margin-bottom: 20px;
+	    color: #fff;
+	    cursor: pointer;
+	    border: none;
+	    font-size: 15px;
+	    transition: background-color ease .2s;
+	    background-color: #ff4401;
+	}
+</style>
 <div class="company-form">
     <div class="controller">
     	<span class="active"><em></em>找靠谱公司</span>
@@ -104,10 +204,7 @@
 		// 	var $formLi=$(".company-form>ul>li");
 		// 	tabFunction($controller,$formLi);
 		// })();
-		
-	
     })
-	
 	</script>
 	
 </div>

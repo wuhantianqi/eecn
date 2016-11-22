@@ -1,13 +1,77 @@
 /*装修公司蓝色模板样式*/
-.company_top{ background:#0193dc;}
-.company_top_rt{ background:#0193dc;}
-.company_nav{ background:#0193dc;}
-.company_nav ul a.current, .company_nav ul a:hover{ background:#0171b7;}
-.company_nav_rt{ background:#0171b7;}
-.btn_sub_sm,.btn_sub_tuan,.btn_sub_smler{ background:url(blue_btn.png) repeat-x center center; border:1px solid #0193dc;}
-.sub_com_design li .btn:hover{ background:#0193dc;}
-.sub_com_title b{ border-bottom:2px solid #0193dc;}
-ul.sub_com_de_list li:hover{ border-bottom:1px solid #0193dc;}
-ul.line_type li:hover{ border-bottom:1px solid #0193dc;}
-ul.main_youhui li .be_paint{ background:url(blue_com.png) no-repeat; background-position:-21px 0px;}
+.company-blue{
+	margin-top:20px;
+	width: 1000px;
+	height: 60px;
+	overflow: hidden;
+}
+.company_content_blue{
+	width: 1000px;
+	margin:0 auto;
+}
+.company_top_blue{
+	width: 700px;
+	float:left;
+	margin-bottom:20px;
+}
+.company_top img.pic{
+	width: 130px;
+	height: 130px;
+}
+.company_content_blue .company_top img.pic{
+	border: 0px;
+}
+.company_top_blue_right{
+	width: 290px;
+	height: auto;
+	margin-bottom:20px;
+	margin-top: 45px;
+	background: #eee;
+	float:right;
+}
+.zh-company-about{
+	background-color: #FFF;
+}
+.company_top_blue_right .company-form ul li form input{
+	width: 72%;
+}
+.company_top_blue_right .company-form ul li form .sel-group{
+	width: 74%;
+}
+.company_top_blue_right .company-form ul li form .sel-group select.text{
+	width: 60px;
+	margin-right: 4px;
+}
+.company_top_blue_right .company-form ul li form select.text:last-child {
+    width: 85px;
+    margin-right: 0px;
+}
+.company_top_blue_right .company-form ul li form select.budget{
+	width: 215px;
+	margin-bottom: 10px;
+	outline: none;
+	height: 34px;
+	border: 1px solid #dedede;
+}
+.company_top_blue_right .company_white{
+	width: 100%;
+	height: 20px;
+	background: #FFF;
+}
+.company_banner_left{
+	width: 290px;
+	height: auto;
+}
+.company_banner_left ul{
+	width: 290px;
+	height: 150px;
+	overflow: hidden;
+}
+.zh-company-wrap{
+	width: 660px;
+	padding:0 20px;
+}
+.clear{
+	clear: both;
+}
 /*装修公司蓝色模板样式*/

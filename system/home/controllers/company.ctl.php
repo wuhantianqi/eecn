@@ -58,11 +58,14 @@ class Ctl_Company extends Ctl
         }
         $this->pagedata['items'] = $items;
 
-
 		$this->pagedata['comment_list'] = $comment_list;        
         $this->seo->set_company($company);
         $this->seo->init('company');
+        // 如果选择blue蓝色模板就是跳转到临时模板
+        $blue = substr($company['skin_cfg']['photo'],-8,-4);
+        $this->pagedata['blue'] = $blue === "blue" ? 1 : 0;  
         $this->tmpl = 'company/index.html';
+        
     }
 
     public function about($company_id)
