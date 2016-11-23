@@ -21,7 +21,7 @@ nav{
 a.on{ color:#ff4401;}
 .inptxt{ padding:0 10px; width:300px; height:40px; font:14px "microsoft yahei"; line-height:40px\9; color:#333; background-color:#fff;}
 /*pictxt*/
-.infotxt{ position:absolute; left:0; right:0; bottom:0; padding:0 10px; height:30px; color:#fff; background-color:rgba(81,81,81,.9); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5515151,endColorstr=#E5515151);}
+.infotxt{ position:absolute; left:0; right:0; bottom:0;  height:30px; color:#fff;  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5515151,endColorstr=#E5515151);}
 :root .infotxt{ filter:none;}
 .infotxt h3,.infotxt p{ width:100%; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
 .infotxt h3{ margin-top:8px; font-size:23px; color: #fff;}
@@ -124,6 +124,24 @@ a.on{ color:#ff4401;}
 .priority-list li{ float:left; position:relative; margin:0 0 15px 12px; height:194px; border:2px solid #f8f8f8; transition:border-color linear .5s;}
 .priority-list li:hover{ border-color:#01af63;}
 .priority-list .infotxt{ line-height:30px;}
+.priority-list .infotxt p{
+	width:40%;
+	text-align: center;
+	background: #01af63;
+	/*background: #ff4401;*/
+	float:left;
+	transition:background-color linear .3s;
+	cursor: pointer;
+}
+.priority-list .infotxt p:hover{
+	background: #ff4401;
+}
+.priority-list .infotxt p a{
+	color:#FFF;
+}
+.priority-list .infotxt p:first-child{
+	margin-right:20%;
+}
 .pri-img img{ width:280px; height:190px;}
 .priority-list li.pri-1{ width:584px; *width:580px; height:393px;}
 .pri-1 .pri-img img{ width:580px; height:389px;}
@@ -144,12 +162,58 @@ a.on{ color:#ff4401;}
 .pictxt li:nth-child(4n){margin-left:16px;}
 .pictxt li:hover{ border-color:#01af63;}
 .ptx-img{ position:relative;}
-.ptx-img img{ width:280px; height:211px;}   
-.ptx-info{ padding:16px 10px 18px;}
+.ptx-img img{ width:280px; height:211px;}  
+.ptx-img .ptx_fixt{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top:129px;
+	color:#FFF;
+} 
+.ptx-img .ptx_fixt p{
+	width:40%;
+	height: 30px;
+	text-align: center;
+	background: #01af63;
+	padding:5px;
+	/*background: #ff4401;*/
+	float:left;
+	transition:background-color linear .3s;
+	cursor: pointer;
+}
+.ptx-img .ptx_fixt p:hover{
+	background: #ff4401;
+}
+.ptx-img .ptx_fixt p a{
+	color:#FFF;
+}
+.ptx-img .ptx_fixt p:first-child{
+	margin-right:20%;
+}
+.tbox{
+	margin-top:50px;
+}
+.ptx-info{ padding:16px 10px 18px; position: relative;}
 .ptx-name{ height:35px; font-size:14px; line-height:35px; overflow:hidden;}
 .ptx-des{ height:16px; color:#999; line-height:16px; overflow:hidden;}
 .example .ptx-name{ margin-bottom:4px;}
-
+.ptx-info span{
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #01af63;
+	/*background: #ff4401;*/
+	transition:background-color linear .3s;
+	position: absolute;
+	color: #FFF;
+	top:29px;
+	right:10px;
+	cursor: pointer;
+}
+.ptx-info span:hover{
+	background: #ff4401;
+}
 .smlpart{ margin-bottom:20px; text-align:center; border-top:1px solid #eee; border-bottom:1px solid #eee; overflow:hidden;}
 .smlpart-list{ white-space:nowrap; font-size:0;}
 .smlpart-list li{ position:relative; display:inline-block; *display:inline; *zoom:1;}

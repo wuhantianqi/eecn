@@ -221,7 +221,7 @@ ul.index_nwod_list li span{ width:25%;}
 
 ul.block_type li{ padding:20px 10px;}
 ul.block_type li:hover{ background:#fff; box-shadow:0px 0px 3px #ff4401 inset;}
-.main_com_rt h3{ border:none; margin-bottom:3px; line-height:30px; width: 50%; margin-top: 10px}
+.main_com_rt h3{ border:none; margin-bottom:3px; line-height:30px; width: 80%; margin-top: 10px}
 .main_com_rt h3 a{ font-weight:bold; color:#333;}
 .main_com_rt div.lt p.sp_list small{ margin:0px 8px; color:#ccc;}
 .main_com_rt div.lt p.sp_list span{ margin:0px;}
