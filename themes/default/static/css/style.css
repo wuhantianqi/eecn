@@ -1768,11 +1768,15 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 
 /*---------------------------------------------------楼盘地图样式开始---------------------------------------------------*/
 .main{ width:100%; overflow:hidden; position:relative; z-index:1;}
-.map_nav{ border-bottom:2px solid #fd7700; height:35px; margin-top:15px;}
+.map_nav{ border-bottom:2px solid #fd7700; height:60px; }
 .map_nav li{ float:left; margin:0px 5px;}
 .map_nav li a{ display:inline-block; padding:0px 25px; height:34px; line-height:34px; border-radius:2px; background:url(../images/map_bg1.png) repeat-x; font-size:14px; font-weight:bold; border:1px solid #ddd; border-bottom:none;}
 .map_nav li a.current{ background:url(../images/map_bg2.png) repeat-x; color:#fff; border:1px solid #ff912e;}
-.map_search{ margin:3px 0px 0px 10px; border:1px solid #ddd; height:26px;}
+.map_search {
+    margin: 15px 0px 0px 10px;
+    border: 1px solid #ddd;
+    height: 26px;
+}
 .map_search input.text{ height:18px; line-height:18px;border:none; width:200px;}
 .map_search input.btn{ width:60px; height:26px; background:url(../images/map_btn.png) no-repeat; border:none; border-radius:0px;}
 .map_side{ width:370px; position:absolute; left:0px; top:0px;}

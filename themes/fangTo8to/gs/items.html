@@ -57,11 +57,14 @@
 				</div>
 			</div>
 			<div class="sort_box">
-				<p class="sort_list hoverno">
-					<{foreach $order_list  as $k=>$v}>
-					<a href="<{$v.link}>"><{$v.title}><span <{if $k == $pager.order}>class="sort_ico ico_list sort_on_ico"<{else}>class="sort_ico ico_list"<{/if}>></span></a>
-					<{/foreach}>
-				</p>
+				<{adv id="58" name="eecn/装修公司列表页广告位" city_id=$request.city_id}>
+				<!-- 去掉排序
+					<p class="sort_list hoverno">
+						<{foreach $order_list  as $k=>$v}>
+						<a href="<{$v.link}>"><{$v.title}><span <{if $k == $pager.order}>class="sort_ico ico_list sort_on_ico"<{else}>class="sort_ico ico_list"<{/if}>></span></a>
+						<{/foreach}>
+					</p> 
+				-->
 			</div>
 			<div class="area">
 				<ul class="block_type">

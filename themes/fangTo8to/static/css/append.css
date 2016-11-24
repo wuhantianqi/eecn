@@ -238,7 +238,13 @@ ul.main_worker_ul li.first{ padding:20px;}
 .to_choose_option td.tit{  width:70px;}
 .to_choose_option a{ margin:0px 20px 10px 0px}
 .to_choose_option table{ margin-bottom:-1px;}
-.sort_box{ height:38px; line-height:38px;margin-bottom:13px;margin-top:40px;position:relative;}
+.sort_box{ 
+	width: 900px;
+	height:60px; 
+	border:none;
+	margin-bottom:20px;
+	margin-top:40px;
+}
 .xieriji{
 	text-align: center;
     line-height: 38px;
