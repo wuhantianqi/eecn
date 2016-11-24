@@ -2,7 +2,7 @@
 <{if $blue}>
 <!-- 临时页面 -->
 <div class="company-zh-banner company-blue">
-	<!-- <{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}> -->
+	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
 </div>
 <div class="company_content_blue">
 	<div class="company_top company_top_blue">
@@ -72,7 +72,7 @@
 	<div class="subwd">
 		<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
 		<div class="company_top_lt lt">
-			<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.name}></a>
+			<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.title}></a>
 				<{if $company.verify_name == 2}>
 				<span class="com_rz_ico ico_list"></span>
                 <{elseif $company.verify_name == 1}>
