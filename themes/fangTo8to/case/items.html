@@ -47,8 +47,9 @@
                 <a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank">
                 <img src="<{$pager.img}>/<{$item.photo}>_thumb.jpg" />
                 </a>
-                <span class="bg"></span>
-                <span class="text"><a href="<{link ctl='case:detail' arg0=$item.case_id}>">免费户型设计</a>
+                <span class="text">
+                  <a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank">查看详情</a>
+                  <a href="javascript:;">免费户型设计</a>
                 </span>
             </div>
             <p class="tit"><a href="<{link ctl='case:detail' arg0=$item.case_id}>"  target="_blank"><{$item.title}></a>
@@ -73,6 +74,15 @@
      }).mouseleave(function(){
         $(this).find(".opacity_img span").hide();
      });
+    //弹出效果图
+    $(".text a:last-child").on('click',function(){
+      layer.open({
+        type: 2,  
+        title:'',
+          area: ['1030px', '465px'], //宽高
+          content: ['http://www.alyeecn.cc/index.php?tenders-popup.html','no']
+      });
+    })
 })(window.KT, window.jQuery);
 </script>
 <{include file="block/footer.html"}>
