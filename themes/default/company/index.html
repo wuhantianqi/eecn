@@ -2,7 +2,7 @@
 <{if $blue}>
 <!-- 临时页面 -->
 <div class="company-zh-banner company-blue">
-	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
+	<!-- <{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}> -->
 </div>
 <div class="company_content_blue">
 	<div class="company_top company_top_blue">
@@ -30,7 +30,7 @@
 		<div class="zh-company-about">
 			<div class="zh-company-wrap">
 			<p>
-				<{$company.desc|cutstr:650}>
+				<{$company.desc}>
 			</p>
 			</div>
 		</div>
@@ -40,11 +40,11 @@
 		<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
 		<div class="company_white"></div>
 		<div class="company_banner_left">
-			<{adv id="54" name="装修公司内页右侧1" city_id=$request.city_id}>
+			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
 			<div class="company_white"></div>
-			<{adv id="54" name="装修公司内页右侧1" city_id=$request.city_id}>
+			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
 			<div class="company_white"></div>
-			<{adv id="54" name="装修公司内页右侧1" city_id=$request.city_id}>
+			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
 		</div>
 	</div>
 </div>

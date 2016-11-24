@@ -22,7 +22,7 @@
 	border: 0px;
 }
 .company_top_blue_right{
-	width: 290px;
+	width: 260px;
 	height: auto;
 	margin-bottom:20px;
 	margin-top: 45px;
@@ -36,22 +36,25 @@
 	width: 72%;
 }
 .company_top_blue_right .company-form ul li form .sel-group{
-	width: 74%;
+	width: 75%;
 }
 .company_top_blue_right .company-form ul li form .sel-group select.text{
-	width: 60px;
+	width: 54px;
 	margin-right: 4px;
 }
 .company_top_blue_right .company-form ul li form select.text:last-child {
-    width: 85px;
+    width: 79px;
     margin-right: 0px;
 }
 .company_top_blue_right .company-form ul li form select.budget{
-	width: 215px;
+	width: 195px;
 	margin-bottom: 10px;
 	outline: none;
 	height: 34px;
 	border: 1px solid #dedede;
+}
+.company_top_blue_right .company-form .controller span:last-child em{
+	left: 149px;
 }
 .company_top_blue_right .company_white{
 	width: 100%;
@@ -59,17 +62,16 @@
 	background: #FFF;
 }
 .company_banner_left{
-	width: 290px;
+	width: 260px;
 	height: auto;
 }
 .company_banner_left ul{
-	width: 290px;
+	width: 260px;
 	height: 150px;
 	overflow: hidden;
 }
 .zh-company-wrap{
-	width: 660px;
-	padding:0 20px;
+	width: 700px;
 }
 .clear{
 	clear: both;
