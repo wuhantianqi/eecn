@@ -229,7 +229,7 @@ class Ctl_Company_Company extends Ctl
                                 if ($k === 'logo') {
                                     $size['photo'] = $cfg['companydecorate1'] ? $cfg['companydecorate1'] : '200X100';
                                 } else {
-                                    $size['photo'] = $cfg['companydecorate2'] ? $cfg['companydecorate2'] : '300X300';
+                                    $size['photo'] = $cfg['companydecorate2'] ? $cfg['companydecorate2'] : '160X160';
                                 }
                                 $oImg->thumbs($a['file'], array($size['photo'] => $a['file']));
                             }

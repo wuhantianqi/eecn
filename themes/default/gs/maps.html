@@ -28,27 +28,12 @@ $(document).ready(function()
 }
 )
 </script>
-<div class="map_nav hoverno">
-	<!-- <ul class="lt">
-		<li>
-			<a href="<{link ctl='home:map'}>">楼盘地图</a>
-		</li>
-        <li>
-			<a href="<{link ctl='site:map'}>">工地地图</a>
-		</li>
-		<li>
-			<a href="<{link ctl='gs:map'}>"  class="current">公司地图</a>
-		</li>
-	</ul> -->
-  
-	<div class="map_search lt">
-		<input class="text" type="text" id='Baidu_Map_SO_Key' placeholder="请输入关键字" />
-		<input id = 'Baidu_Map_SO_Btn' onclick="search()"  type="button" class="btn" value="搜索" />
-	</div>
-	<div class="cl"></div>
-</div>
 <div class="main">
 	<div class="map_side">
+		<div class="map_search lt">
+			<input class="text" type="text" id='Baidu_Map_SO_Key' placeholder="请输入关键字" />
+			<input id = 'Baidu_Map_SO_Btn' onclick="search()"  type="button" class="btn" value="搜索" />
+		</div>
 		<div class="map_side_sort pding" id = 'attr'>
 			<select  id ='area' onchange="change()" class="text">
 				<option>区域</option>
@@ -180,7 +165,7 @@ $(document).ready(function()
 			content +="<p>公司地址："+data.addr+"</p>";
 			content +="<p>联系人："+data.contact+"</p>";
 			content +="<p>联系电话："+data.phone+"</p>";
-			content +="<a href="+data.link+" class='rt' style='margin-right:25px;'>查看公司详情>></a>";
+			content +="<a onclick='gsmaps()'>免费预约</a><a href="+data.link+" class='rt' style='margin-right:25px;'>查看详情</a>";
 			content +="</div><div class='cl'></div></div></div>";		
 				
 			
@@ -220,7 +205,7 @@ $(document).ready(function()
             var i = 0;
             for(a in data){
               i++;
-                addMarker(data[a]);        
+                addMarker(data[a]);       
                 str+='<li rel='+data[a].company_id+' class="map_main_l_b_1"><a  target="_blank" title="'+data[a].name+'"  href="'+data[a].link+'"><h3>'+data[a].name+'</h3></a>';
 				str+='				<p>地址：'+data[a].addr+'</p>';
 				str+='           <p class="cl"></p>';
@@ -245,6 +230,15 @@ $(document).ready(function()
             );
         }
     };
+    //弹出表单
+    function gsmaps(){
+    	layer.open({
+    		type: 2,	
+    		title:'',
+    	    area: ['1030px', '465px'], //宽高
+    	    content: ['http://www.alyeecn.cc/index.php?tenders-popup.html','no']
+    	});
+    }
 </script>    
 
 

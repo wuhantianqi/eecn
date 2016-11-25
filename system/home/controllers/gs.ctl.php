@@ -174,7 +174,7 @@ class Ctl_Gs extends Ctl
                     $data[$val['company_id']] = array(
                         'company_id' => $val['company_id'],
                         'link' => $val['company_url'],
-                        'name' => $val['name'],
+                        'name' => $val['title'],
                         'thumb' => $val['thumb'],
                         'contact' => $val['contact'],
 						'phone' => $val['show_phone'],

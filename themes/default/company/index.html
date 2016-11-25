@@ -2,7 +2,7 @@
 <{if $blue}>
 <!-- 临时页面 -->
 <div class="company-zh-banner company-blue">
-	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
+	<!-- <{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}> -->
 </div>
 <div class="company_content_blue">
 	<div class="company_top company_top_blue">
@@ -45,6 +45,13 @@
 			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
 			<div class="company_white"></div>
 			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
+		</div>
+		<div class="company_left_went">
+			<h2>热门装修资讯</h2>
+			<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8"}>
+				<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:50}></a></p>
+                   <!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
+           <{/KT}>			
 		</div>
 	</div>
 </div>

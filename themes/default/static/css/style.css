@@ -598,13 +598,13 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 .gs-show-right{width: 360px;height: 350px;position: absolute;right: -360px;top: 0;}
 /*装修公司展示结束*/
 /*装修公司列表开始*/
-.main_list a.pic img{ padding:3px; background:#fff;}
+.main_list a.pic img{ background:#fff;}
 .main_list_rt div.lt{ width:70%; overflow:hidden;font-size:14px;}
 .main_list_rt div.lt p{ line-height:30px; height:30px; overflow:hidden;}
-.main_company a.pic img{width:150px; height:150px;}
+.main_company a.pic img{width:160px; height:160px;}
 .main_company a.pic{ position:relative;     padding: 10px 10px;}
 .main_company a.pic .qijian_ico{ position:absolute; top:-6px; left:-9px; width:71px; height:72px; background-position:-170px 0px;}
-.main_com_rt{width:80%;}
+.main_com_rt{width:79%;}
 .main_list_rt h3{ color:#666; border-bottom:1px dashed #ddd; width:100%; overflow:hidden; line-height:35px;}
 .com_rz_ico{ width:40px; height:20px; background-position:-51px 0px;}
 .ps_rz_ico{width:40px; height:20px; background-position:-51px -21px;}
@@ -1773,23 +1773,32 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 .map_nav li a{ display:inline-block; padding:0px 25px; height:34px; line-height:34px; border-radius:2px; background:url(../images/map_bg1.png) repeat-x; font-size:14px; font-weight:bold; border:1px solid #ddd; border-bottom:none;}
 .map_nav li a.current{ background:url(../images/map_bg2.png) repeat-x; color:#fff; border:1px solid #ff912e;}
 .map_search {
-    margin: 15px 0px 0px 10px;
+    margin: 15px 0px 15px 10px;
     border: 1px solid #ddd;
-    height: 26px;
+    height: 32px;
 }
-.map_search input.text{ height:18px; line-height:18px;border:none; width:200px;}
-.map_search input.btn{ width:60px; height:26px; background:url(../images/map_btn.png) no-repeat; border:none; border-radius:0px;}
-.map_side{ width:370px; position:absolute; left:0px; top:0px;}
-.map{ position:relative; margin-left:370px; border:1px solid #b7bdc5;}
+.map_search input.text{ height:26px; line-height:26px;border:none; width:159px;}
+.map_search input.btn{ width:60px; height:32px; background:#f8790a; border:none; border-radius:0px;}
+.map_side{ width:260px; position:absolute; left:0px; top:0px;}
+.map{ position:relative; margin-left:260px; border:1px solid #b7bdc5;}
 .mapinfo_but_con{ position:absolute; top:300px; left:-1px; background:#fff; box-shadow:0px 1px 3px #ccc; border:1px solid #b7bdc5; border-left:none; border-radius:0px 3px 3px 0px;width:20px; height:60px; z-index:100; background-position:-2px -5px;}
 .mapinfo_but_con a{ display:block; background:url(../images/mapIcon.png) no-repeat; width:10px; height:10px; margin:25px 0px 0px 4px;}
 .mapinfo_but_con a.but_open{ background-position:0px 0px;}
 .mapinfo_but_con a.but_close{ background-position:0px -14px;}
+.map_side_sort{
+	margin-bottom: 15px;
+}
 .map_side_sort select{ float:left; width:115px; margin:0px; height:32px;}
 .map_side_sort select:hover{ background:#f8f8f8;}
 .map_side .side_tit{ border-top:2px solid #999; font-size:14px;}
-.map_side_menu li{ padding:10px; border-bottom:1px solid #ddd;}
+.map_side_menu li{border-bottom:1px solid #ddd;}
+#map_main_l_b li{
+	padding: 10px;
+}
 .map_side_menu li b{ font-size:16px;}
+.map_side_menu li h3{
+	font-size: 14px;
+}
 .map_position{ position:relative; background:#1974e2; border:1px solid #1763c1; display:inline-block; padding:2px 3px; color:#fff; cursor:pointer; height:18px; line-height:18px; border-radius:2px;}
 .map_position a{ color:#fff;}
 .map_position a:hover{ text-decoration:none;}
@@ -1801,10 +1810,23 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 .map_tip_top{ width:100%;}
 .map_tip_top h3{ font-weight:bold; margin-bottom:5px;}
 .map_tip_intro p{ color:#555;}
-.map_tip_intro img.pic{ width:180px; height:130px;}
-.map_tip_intro div.rt{ width:56%; line-height:24.5px;}
-.map_tip_intro div.rt a{ color:#004499;}
+.map_tip_intro img.pic{ width:150px; height:150px;}
+.map_tip_intro div.rt{ width:60%; line-height:22px;}
+.map_tip_intro div.rt a{
+	font-size: 16px;
+	margin-top: 10px;
+	height:30px; 
+	line-height: 30px;
+}
+.map_tip_intro div.rt a:nth-child(4){
+	width:120px; 
+	text-align: center;
+	background: #ff4401; 
+	color: #FFF;
+	display: inline-block;
+}
 .map_tip_intro b.fontcl2{ font-size:16px;}
+
 /*---------------------------------------------------楼盘地图样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------小区团装详情页样式开始---------------------------------------------------*/

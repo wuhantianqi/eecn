@@ -123,7 +123,7 @@ a.on{ color:#ff4401;}
 .priority{ margin-left:-20px; margin-bottom: 35px;}
 .priority-list li{ float:left; position:relative; margin:0 0 15px 12px; height:194px; border:2px solid #f8f8f8; transition:border-color linear .5s;}
 .priority-list li:hover{ border-color:#01af63;}
-.priority-list .infotxt{ line-height:30px;}
+.priority-list .infotxt{ line-height:30px; display: none;}
 .priority-list .infotxt p{
 	width:40%;
 	text-align: center;
@@ -166,6 +166,7 @@ a.on{ color:#ff4401;}
 .ptx-img .ptx_fixt{
 	width: 100%;
 	height: auto;
+	display: none;
 	position: absolute;
 	top:130px;
 	color:#FFF;

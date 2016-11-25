@@ -70,6 +70,13 @@
 	height: 150px;
 	overflow: hidden;
 }
+.company_left_went{
+	width: 93%;
+	padding:10px;
+}
+.company_left_went h2{
+	border-bottom: 1px solid #dedede;
+}
 .zh-company-wrap{
 	width: 700px;
 }

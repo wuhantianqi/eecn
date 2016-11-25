@@ -458,6 +458,18 @@
     </div>
 </div>
 <script>
+    // 显示隐藏
+    $('.pribox').mousemove(function(event) {
+        $(this).find('.infotxt').show();
+    }).mouseleave(function(ev){
+        $(this).find('.infotxt').hide();
+    });
+    $('.ptx-img').mousemove(function(event) {
+        $(this).find('.ptx_fixt').show();
+    }).mouseleave(function(ev){
+        $(this).find('.ptx_fixt').hide();
+    });
+    // 弹出框
     $(".infotxt p:last-child").on('click',function(){
         layer.open({
             type: 2,    
