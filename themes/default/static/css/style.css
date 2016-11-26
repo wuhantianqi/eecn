@@ -440,11 +440,10 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 /*筛选框样式开始*/
 .main_content_items{ width:100%;padding-top:40px;}
 .main_content_from{
-	width: 290px;
+	width: 260px;
 	height: auto;
 	float:right;
 	position: relative;
-	/*margin-top: 40px;*/
 }
 .main_content_from .company-form{
 	height: 390px;
@@ -459,29 +458,29 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 	width: 290px;
 } 
 .main_content_from .company-form ul li form .sel-group select.text{
-	width: 60px;
+	width: 55px;
 } 
 .main_content_from .company-form ul li form select.text:last-child{
-	width: 85px;
+	width: 70px;
 }
 .main_content_from .company-form ul li form .budget{
-	width: 216px;
+	width: 191px;
 }
-.zgs_select_type {
-    border: 1px solid #eaeaea;
-    float: left;
-    width: 898px;
-    margin-bottom: 40px;
+#fixedMenu_keleyi_com .company-form .controller span:last-child em{
+	left: 149px;
 }
-.zgs_select_type dl {
+#fixedMenu_keleyi_com  .company-form ul li h2{
+	margin-top:5px;
+}
+.zgs_clr_fc dl {
     border-top: 1px dotted #eaeaea;
-    width: 100%;
+    width: 260px;
     top: -1px;
     position: relative;
     /* float: left; */
     overflow: hidden;
 }
-.zgs_select_type dl dt {
+.zgs_clr_fc dl dt {
     width: 77px;
     border-right: 1px solid #eaeaea;
     text-align: center;
@@ -494,13 +493,13 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
     color: #999;
     background-color: #f8f8f8;
 }
-.zgs_select_type dl dd {
+.zgs_clr_fc dl dd {
     float: left;
-    width: 820px;
+    width: 260px;
     margin-left: 110px;
     display: inline;
 }
-.zgs_select_type dl dd a {
+.zgs_clr_fc dl dd a {
     float: left;
     height: 40px;
     line-height: 40px;
@@ -510,6 +509,97 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+.zgs_clr_fc{
+    padding: 10px 12px 4px 12px;
+    border: 1px solid #e8e8e8;
+    width: 234px;
+    margin-top: 20px;
+}
+.zgs_cl_right, .zgs_cl_right .zgs_clr_newOrder h2 {
+    float: left;
+    width: 100%;
+    height: 29px;
+    line-height: 28px;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+    z-index: 3;
+    background: #fff;
+    font-weight: bold;
+}
+.zgs_clr_fc .zcf_title {
+    width: 100%;
+    height: auto;
+    margin-left: 23px;
+    font-size: 14px;
+    line-height: 18px;
+}
+.zgs_clr_fc ul {
+    position: relative;
+    top: -1px;
+    width: 214px;
+    z-index: 2;
+}
+.zgs_clr_fc ul li {
+    float: left;
+    width: 214px;
+    height: 88px;
+    border-top: 1px dotted #d9d9d9;
+    position: relative;
+}
+.zgs_clr_fc ul li span.zcf_kxy {
+    width: 23px;
+    height: 28px;
+    top: 28px;
+    left: 5px;
+    background-position: 0 -34px;
+}
+
+.zgs_clr_fc ul li span {
+    position: absolute;
+    background: url(http://img.to8to.com/decorate_gallery/images/png/zgs_index.png?20150204) no-repeat;
+    _background: url(http://img.to8to.com/decorate_gallery/images/gif/zgs_index.gif?20150204) no-repeat;
+    overflow: hidden;
+}
+.zgs_clr_fc ul li b {
+    position: absolute;
+    width: 150px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #999;
+    left: 46px;
+    top: 21px;
+    font-weight: normal;
+}
+.zgs_clr_fc ul li em {
+    position: absolute;
+    width: 165px;
+    height: 16px;
+    line-height: 16px;
+    color: #666;
+    left: 46px;
+    top: 43px;
+    font-weight: normal;
+}
+.zgs_clr_fc input {
+    display: block;
+    margin: 3px auto 15px;
+    width: 214px;
+    height: 40px;
+    text-align: center;
+    border: 0;
+    background: #f26f20;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+.zgs_cl_right div.zgs_clr_ad {
+    margin-top: 14px;
+    float: left;
+    font-size: 0;
+    display: inline;
 }
 
 .main_content_n{
@@ -1254,6 +1344,12 @@ ul.content_top_t li h2{
 .content_liuc_title a:hover b{color: #000;}
 .content_liuc_title p.title{ border-bottom:1px solid #2dca85;}
 .content_liuc_title p.title span{font-size: 18px;display:inline-block; background:#fff; color:#01af63; padding:0px 5px;}
+.content_liuc_title p.title a{
+	font-size: 14px;
+	color: #999;
+	display: inline-block;
+	float: right;
+}
 .content_liuc_title .content_list li{
 	margin:8px auto;
 }
@@ -1288,8 +1384,17 @@ ul.content_top_t li h2{
 .cont_item_ul li h2 a:hover{ color:#ff4401;}
 .cont_item_text{ width:80%;}
 h1.article_in_title{ height:40px; line-height:40px;padding: 0 20px 0 0;border-bottom: 1px dashed;margin-bottom: 20px;}
-h1.article_in_title span{ color:#333;}
-h1.article_in_title a{ font-size:12px; margin-top:15px; height:24px; line-height:24px;}
+h1.article_in_title span a{
+	color:#333;
+	font-size: 20px;
+}
+h1.article_in_title a{ 
+	font-size: 14px;
+    margin-top: 15px;
+    height: 24px;
+    line-height: 24px;
+    color: #999;
+}
 h1.article_in_title a:hover{color: #ff4401;}
 
 /*---------------------------------------------------装修学堂样式结束---------------------------------------------------*/

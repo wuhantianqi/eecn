@@ -84,9 +84,9 @@
 									<p><font class="graycl">联系电话：</font><{$item.show_phone}></p>
 									<div class="to_comlist_btn">
 									<{if $item.group.priv.allow_yuyue == 1}>
-									<a href="<{link ctl='gs:yuyue'  arg0=$item.company_id http='ajax'}>" mini-width='500' mini-load="免费预约" class="btn_sub_big btn">免费预约</a>
+									<a href="javascript:;" class="btn_sub_big btn">免费预约</a>
 									<{/if}>
-									<a href="<{link ctl='tenders:fast' arg0=$item.uid http='ajax'}>" mini-width='500' mini-load="立即招标" class="btn_sub_big btn zbBtn">立即招标</a>
+									<a href="javascript:;" class="btn_sub_big btn zbBtn">立即招标</a>
 									</div>
 								</div>
 								<div class="rt to_com_xy_rt">
@@ -184,23 +184,31 @@
 	<!--主体右边内容结束-->
 </div>
 <script type="text/javascript">
-(function(K, $){
-    //活动专题页面 定位导航
-    $(function () {
-        var ie6 = document.all;
-        var dv = $('#fixedMenu_keleyi_com'), st;
-        dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
-        $(window).scroll(function () {
-            st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
-            if (st > parseInt(dv.attr('otop'))) {
-            if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
-            dv.css({ position: 'absolute', top: st });
-            }
-            else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 , right: 191 });
-            } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
-        });
-    });    
-})(window.KT, window.jQuery)    
+// (function(K, $){
+//     //活动专题页面 定位导航
+//     $(function () {
+//         var ie6 = document.all;
+//         var dv = $('#fixedMenu_keleyi_com'), st;
+//         dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+//         $(window).scroll(function () {
+//             st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+//             if (st > parseInt(dv.attr('otop'))) {
+//             if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+//             dv.css({ position: 'absolute', top: st });
+//             }
+//             else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 , right: 191 });
+//             } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+//         });
+//     });    
+// })(window.KT, window.jQuery)    
+$(document).on('click','.btn_sub_big',function(){
+	layer.open({
+		type: 2,	
+		title:'',
+	    area: ['1030px', '465px'], //宽高
+	    content: ['/index.php?tenders-popup.html','no']
+	});
+})
 </script>
 
 <div style="clear:both"></div>
