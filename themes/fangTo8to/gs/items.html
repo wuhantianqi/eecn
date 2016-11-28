@@ -84,9 +84,9 @@
 									<p><font class="graycl">联系电话：</font><{$item.show_phone}></p>
 									<div class="to_comlist_btn">
 									<{if $item.group.priv.allow_yuyue == 1}>
-									<a href="javascript:;" class="btn_sub_big btn">免费预约</a>
+									<a href="javascript:;" class="btn_sub_big btn">免费帮我做设计</a>
 									<{/if}>
-									<a href="javascript:;" class="btn_sub_big btn zbBtn">立即招标</a>
+									<a href="javascript:;" class="btn_sub_big btn zbBtn">免费帮我出报价</a>
 									</div>
 								</div>
 								<div class="rt to_com_xy_rt">
@@ -109,7 +109,38 @@
 			<div>
 				<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
 			</div>
-			
+			<div class="zgs_clr_fc">
+	            <span class="zcf_title">在优优美家找装修公司价格实惠；<br>施工质量严格监管，不低于行业标准。</span>
+	            <ul>
+	              <li>
+	                <span class="zcf_kxy"></span>
+	                <b>不懂装修注意事项？</b>
+	                <em>优优美家300名家装顾问.免费一对一帮你解疑惑。</em>
+	              </li>
+	              <li>
+	                <span class="zcf_bfa"></span>
+	                <b>不懂验房和装修验收？</b>
+	                <em>200名专业质检免费帮你做5次验收，1次突击检查。</em>
+	              </li>
+	              <li>
+	                <span class="zcf_bbj"></span>
+	                <b>怕装修猫腻、偷工减料？</b>
+	                <em>"五星服务"、"四标规范"免费帮你做把控。</em>
+	              </li>
+	              <li>
+	                <span class="zcf_bbz"></span>
+	                <b>怕给了钱，质量没保障？</b>
+	                <em>"装修保"免费帮你保障，满意了才付装修款。</em>
+	              </li>
+	          </ul>
+	          <input type="button" value="享受省心的装修服务" class="zcz_btn">
+	        </div>
+	        <div class="zgs_clr_ad">
+	        	<{adv id="59" name="eecn/装修公司列表页右下角广告位1" city_id=$request.city_id}>
+	        </div>
+	        <div class="zgs_clr_ad">
+               <{adv id="60" name="eecn/装修公司列表页右下角广告位2" city_id=$request.city_id}>
+            </div>
 			<!-- <div class="banner">
 				<div class="old-banner-right">
 					<ul>
@@ -202,6 +233,14 @@
 //     });    
 // })(window.KT, window.jQuery)    
 $(document).on('click','.btn_sub_big',function(){
+	layer.open({
+		type: 2,	
+		title:'',
+	    area: ['1030px', '465px'], //宽高
+	    content: ['/index.php?tenders-popup.html','no']
+	});
+})
+$(document).on('click','.zcz_btn',function(){
 	layer.open({
 		type: 2,	
 		title:'',
