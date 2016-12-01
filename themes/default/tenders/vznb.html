@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <{include file="block/sheader.html"}>
@@ -64,7 +64,6 @@
                 </div>
                 <div class="rt">
                      <font  class="tp_contactus"><a href="javascript:void(0)" class="over ">客户服务<span class="login_ico con_ico"></span></a>
-                     	<input name="company_id" type="hidden" class="input" value="50" />
                         <div class="tp_contactus_box">
                             <p class="tel">装修热线:<font class="fontcl1"><{$CONFIG.site.phone}></font></p>
                             <ul class="tpService">
@@ -211,8 +210,8 @@
                     <div class="con_bj_cal col_l">
                         <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
                         
-                        <!-- <form action="<{link ctl='tenders:save'}>" id="sheji-form" method="post"> -->
-                        <form action="" id="baojia-form" method="post">
+                        <!-- <form action="<{link ctl='tenders:save'}>" id="baojia-form" method="post"> -->
+                        <form action="<{link ctl='tenders:save' http='base'}>" id="baojia-form" method="post">
                             <input type="hidden" name="data[from]" value="TZX" />
                             <div class="mod_form bj_form">
                                 <div class="form_line">
@@ -254,7 +253,7 @@
                                     </div>
                                 </div>
 
-                               <!--  <div class="form_line">
+                                <div class="form_line">
                                     <label for="" class="label"><em class="label_start">*</em>装修类型：</label>
                                     <div class="element">
                                         <div class="text_wrap">
@@ -263,12 +262,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form_line">
-                                    <label for="" class="label"><em class="label_start">*</em>小区名称：</label>
+                                    <label for="" class="label">小区名称：</label>
                                     <div class="element">
                                         <div class="text_wrap">
-                                            <input type="text" class="text area_text" name="data[contact]" placeholder="请输入您的小区名称" id="xiaoqu">                          
+                                            <input type="text" class="text area_text" name="data[home_name]" placeholder="请输入您的小区名称" id="xiaoqu">                          
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +279,7 @@
                                     </div>
                                     
                                 </div>
-                                <{if $yuyue_yz}>
+                                <{if $tender_yz}>
                                 <div class="form_line" id="phoneInput">
                                     <label for="" class="label" ><em class="label_start">*</em>验 证 码：</label>
                                     <div class="element">
@@ -361,7 +360,7 @@ $("[verify]").click(function(){
         padding-top: 20px;
     }
     .dialog>ul {
-        height: 540px;
+        height: 530px;
     }
     .calc-btn {
         top: 160px;
@@ -369,13 +368,12 @@ $("[verify]").click(function(){
     .con_bj_res {
         padding: 60px 50px 0 0;
     }
+    #phoneInput .text_wrap .text{
+        width: 150px;
+    }
     #phoneInput .text_wrap p{
-        width: 86px;
-        height: 40px;
-        overflow: hidden;
-        position: absolute;
-        right: 10px;
-        top: 1px;
+        width: 80px;
+        float: right;
     }
     #yuyue-verify{
         width: 80px;
@@ -385,3 +383,8 @@ $("[verify]").click(function(){
     }
 </style>
 </html>
+
+
+
+
+

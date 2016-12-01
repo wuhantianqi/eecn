@@ -2,7 +2,7 @@
 <{if $blue}>
 <!-- 临时页面 -->
 <div class="company-zh-banner company-blue">
-	<!-- <{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}> -->
+	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
 </div>
 <div class="company_content_blue">
 	<div class="company_top company_top_blue">
@@ -60,14 +60,14 @@
 <!--装修公司头部开始-->
 <div class="company-zh-banner">
 	<div bxSlider="company_banner">
-	<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
-	<div class="slider">
-		<a href="<{$item.link}>" title="<{$item.title}>" target="_blank">
-			<img src="<{$pager.img}>/<{$item.photo}>" width="1920" height="260">
-		</a>
-	</div>
-	<{/calldata}>
-	<{if $calldata_count<1}>
+		<{calldata mdl="company/banner" company_id=$company.company_id limit="5" nocache=true}>
+		<div class="slider">
+			<a href="<{$item.link}>" title="<{$item.title}>" target="_blank">
+				<img src="<{$pager.img}>/<{$item.photo}>" width="1920" height="260">
+			</a>
+		</div>
+		<{/calldata}>
+		<{if $calldata_count<1}>
 		<div class="slider">
 			<a>
 				<img src="<{$pager.img}>/default/company_banner.jpg" width="1920" height="260">
@@ -75,8 +75,8 @@
 		</div><{/if}>
 	</div>
 </div>
-<div class="company_top">
-	<div class="subwd">
+<div class="company_top company_top_xia">
+	<div class="subwd subwdes">
 		<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
 		<div class="company_top_lt lt">
 			<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.title}></a>
@@ -93,72 +93,28 @@
 				<{if $company.group.show_phone && $company.mobile}><span><font class="com_ico com_phone"></font><{$company.mobile}></span><{/if}>
 				<span class=""><{$company.show_qq|qq}></span>
 			</h2>
-			<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
+			<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:55}></p>    
 		</div>
-		<div class="company_top_rt pingfen_bar rt">
+		<!-- <div class="company_top_rt pingfen_bar rt">
 			<p class="title">综合评价：<{$company.avg_score}></p>
 			<{foreach $CONFIG.score.company as $k=>$v}><{if $v@index>2}><{break}><{/if}>
 			<p><{$v}>：<span class="bar probar_gray"><span class="bar probar_color bar2" style="width:<{$company.avg_scores[$k]*20}>%"></span></span><{sprintf("%.2f",$company.avg_scores[$k])}></p>
 			<{/foreach}>
+		</div> -->
+		<div class="cl"></div>
+		<div class="zh-company-wrap">
+			<h2><p>公司介绍</p><p>|</p><p>选我们，满足您所有需求</p></h2>
+			<div class="zhuan_xiu_gongsi">
+				<{$company.desc|cutstr:500}>
+				<a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">【了解更多】</a>
+			</div>
 		</div>
-		<div class="cl"></div>
+	</div>
+	<div class="zh_compan_form">
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
 	</div>
 </div>
-	<style type="text/css">
-		.apply{
-			width: 1000px;
-			margin: 0 auto;
-		}
-		.apply_form#index_apply{
-			padding-left: 30px;
-			margin-bottom: 30px;
-		}
-		.apply #index_apply>.inptxt{
-			width: 250px;
-		}
-		.apply .apply_form>.btn{
-			width: 250px;
-		}
-	</style>
-		<div class="apply">
-			<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-			<input type="hidden" name="data[from]" value="TZX" />
-            <div id="index_apply" class="apply_form">
-                <span class="formtit">申请免费设计</span>
-                <input name="apply_type" type="hidden" value="17" />
-                <input class="inptxt" name="data[contact]" type="text" placeholder="您的姓名" />
-                <input class="inptxt" name="data[mobile]" type="text" placeholder="手机号码" />
-                <input class="btn" name="apply" type="submit" value="立即申请" />
-            </div>
-            </form>
-        </div>
-<!--<div class="company_nav mb10">
-	<div class="subwd">
-		<ul class="lt hoverno">
-			<li><a href="<{$company.company_url}>"<{if $request.act == 'detail'}> class="current"<{/if}>>首页</a></li>
-			<li><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>"<{if $request.act == 'about'}> class="current"<{/if}>>企业介绍</a></li>
-			<li><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>"<{if $request.act == 'team'}> class="current"<{/if}>>设计团队</a></li>
-			<li><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>"<{if $request.act == 'cases'}> class="current"<{/if}>>装修案例</a></li>
-			<li><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>"<{if $request.act == 'site'}> class="current"<{/if}>>在建工地</a></li>
-			<li><a href="<{link ctl='company:youhui' arg0=$company.company_id company=$company}>"<{if $request.act == 'youhui'}> class="current"<{/if}>>优惠信息</a></li>
-			<li><a href="<{link ctl='company:news' arg0=$company.company_id company=$company}>"<{if $request.act == 'news'}> class="current"<{/if}>>企业新闻</a></li>
-			<li><a href="<{link ctl='company:comment' arg0=$company.company_id company=$company}>"<{if $request.act == 'comment'}> class="current"<{/if}>>业主评价</a></li>
-		</ul>
-		<div class="rt company_nav_rt"><p>信誉：<{$company.score}></p></div>
-		<div class="cl"></div>
-	</div>
-</div>-->
-<!--装修公司头部结束-->
-<div class="zh-company-about">
-	<div class="zh-company-wrap">
-	<h2><div class="bg-line"></div><span class="zh-title">公司介绍</span></h2>
-	<p class="under-title">选我们，满足您所有需求</p>
-	<p>
-		<{$company.desc|cutstr:650}>
-		<a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">【了解更多】</a>
-	</p>
-	</div>
-</div>
+<div class="cl"></div>
 <div class="zh-company-designteam">
 	<div class="zh-company-wrap">
 		<h2>

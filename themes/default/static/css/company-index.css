@@ -49,10 +49,29 @@ img{
 .com_ico{
 	background-color: #ff4401;
 }
-.company_top_rt{
-	background-color: #f0f0f0;
+.smallpage .company_top_xia{
+	width: 1000px;
+	height: auto;
+	margin:0 auto;
+}
+.subwdes{
+	width: 700px;
+	height: auto;
+	margin:0 auto;
+	float:left;
+}
+.subwdes .company_top_rt{
+	width:290px;
+	background-color: #FFF;
 	color: #000;
 	margin-top: 20px;
+	padding:0px;
+}
+.subwdes .company_top_rt p.title{
+	text-align: left;
+}
+.subwdes .company_top_rt p {
+    line-height: 28px;
 }
 .zh-company-wrap{
 	width: 1000px;
@@ -120,6 +139,43 @@ img{
 .zh-company-about .zh-company-wrap>p>a:hover{
 	color: #ff4401;
 	text-decoration: none;
+}
+.subwdes .zh-company-wrap{
+	width: 700px;
+	height: auto;
+	background: #FFF;
+}
+.company_top_xia .zh_compan_form{
+	width: 290px;
+	height: auto;
+	background: #eee;
+	float: right;
+	margin-bottom: 20px;
+}
+.subwdes .zh-company-wrap>h2 p{
+	line-height: 20px;
+	font-size: 14px;
+	margin-top:3px;
+	color: #999;
+	float: left;
+	overflow: hidden;
+	margin-right:10px;
+}
+.subwdes .zh-company-wrap>h2 p:first-child{
+	font-size: 20px;
+	margin-top:0px;
+	color: #333;
+}
+.subwdes .zh-company-wrap .zhuan_xiu_gongsi{
+	height: 140px;
+	overflow: hidden;
+	padding: 10px 0px;
+}
+.zhuan_xiu_gongsi{
+	clear: both;
+	width: 670px;
+	height: auto;
+	padding: 15px;
 }
 .zh-company-designteam{
 	width: 100%;

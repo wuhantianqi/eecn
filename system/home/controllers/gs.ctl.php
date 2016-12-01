@@ -222,6 +222,7 @@ class Ctl_Gs extends Ctl
 						$data['city_id'] = $this->request['city_id'];
 						if($yuyue_id = K::M('company/yuyue')->create($data)){
                             K::M('company/yuyue')->yuyue_count($company_id);
+                            $this->tmpl = null;  //添加一行代码
 							$this->err->add('预约装修公司成功！');
 						}
 					}

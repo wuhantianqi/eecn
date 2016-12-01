@@ -171,7 +171,7 @@ body{font-family: "微软雅黑";}
 	margin-top: 0.5rem;
 }
 .zh-m-gjxq .zh-m-designer p{
-	color: #999;
+	color: #333;
 	line-height: 20px;
 }
 .zh-m-gjxq .zh-m-designer p.first-line{
@@ -189,7 +189,7 @@ body{font-family: "微软雅黑";}
 .zh-m-gjxq .zh-m-designer .btn-convercation{
 	display: inline-block;
 	padding: 3px;
-	background-color: #0ec9c3;
+	background-color: #fff;
 	border-radius: 3px;
 	margin-top:0.1rem;
 }
@@ -197,7 +197,7 @@ body{font-family: "微软雅黑";}
 .zh-m-gjxq .zh-detial h1{
 	width: 100%;
 	background-color: #f6f6f6;
-	color: #0ec9c3;
+	color: #ff4401;
 	text-align: center;
 	font-size: 22px;
 	font-weight: 500;

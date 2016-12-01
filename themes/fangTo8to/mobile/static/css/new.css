@@ -699,3 +699,52 @@ p.indexMore a{color:#ff4400; display:block;}
 .index-veil .zh-m-form form input[type=checkbox]{
 	width: initial;
 }
+.free-design-gift {
+    padding-bottom: 20px;
+}
+.free-design-gift-wrap {
+    padding: 0 15px;
+    position: relative;
+    overflow: hidden;
+}
+.free-design-gift-box {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #fe8864;
+    width: 48%;
+    font-size: 14px;
+    line-height: 16px;
+    height: 74px;
+}
+.free-design-gift-box:nth-child(1) {
+    float: left;
+    padding: 20px 19px 20px 10px;
+}
+.free-design-gift-box:nth-child(2) {
+    float: right;
+    padding: 20px 10px 20px 19px;
+}
+.free-design-gift-circle {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fe8864;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    color: #fe8864;
+}
+.site-info {
+    padding: 8px 4.6875%;
+    text-indent: 2em;
+    font-size: 14px;
+    line-height: 2em;
+    border-top: 1px solid #d9d9d9;
+}

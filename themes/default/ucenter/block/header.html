@@ -54,7 +54,7 @@
                     <ul class="sub_menu">
                         <{foreach $menu.items as $item}>
                         <{if $item.menu}>
-                        <li><a href="<{link ctl=$item.ctl}>"<{if $request.ctlmap.ctl==$item.ctl || $request.ctlmap.nav==$item.ctl}> class="on"<{/if}>><{$item.title}></a></li>
+                        <li <{if $item.title=="我要投标"}> style="display:none" <{/if}> ><a href="<{link ctl=$item.ctl}>"<{if $request.ctlmap.ctl==$item.ctl || $request.ctlmap.nav==$item.ctl}> class="on"<{/if}>><{$item.title}></a></li>
                         <{/if}>
                         <{/foreach}>
                     </ul>

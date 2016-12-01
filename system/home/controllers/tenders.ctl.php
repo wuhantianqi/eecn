@@ -39,6 +39,7 @@ class Ctl_Tenders extends Ctl
     public function popup(){
         $this->tmpl = 'tenders/popup.html';
     }
+
     public function detail($tenders_id)
     {
         if(!$tenders_id = (int)$tenders_id){
@@ -251,7 +252,7 @@ class Ctl_Tenders extends Ctl
             $this->err->add('非法的数据提交', 201); 
         }          
     }
-    //单独页面表单提交
+    //单独验证码页面表单提交
     public function saves()
     {   
         if($data= $this->checksubmit('data')){
@@ -260,7 +261,7 @@ class Ctl_Tenders extends Ctl
             }else{
                 $verifycode_success = true;
                 $access = $this->system->config->get('access');
-                if($access['verifycode']['tender']){
+                if($access['verifycode']['vznb']){
                     if(!$verifycode = $this->GP('verifycode')){
                         $verifycode_success = false;
                         $this->err->add('验证码不正确', 212);
@@ -283,7 +284,7 @@ class Ctl_Tenders extends Ctl
                                 $data['huxing'] = K::M('content/html')->encode($a['photo']);
                             }
                         }
-                    }
+                    }                  
                     $data['city_id'] = empty($data['city_id']) ? $this->request['city_id'] : $data['city_id'];
                     if($tenders_id = K::M('tenders/tenders')->create($data)){
                         if($attr = $this->GP('attr')){
@@ -294,7 +295,7 @@ class Ctl_Tenders extends Ctl
                         K::M('sms/sms')->send($data['mobile'], 'tenders', $smsdata);
                         K::M('sms/sms')->admin('admin_tenders', $smsdata);
                         K::M('helper/mail')->sendadmin('admin_tenders',$maildata);
-                        
+                        $this->tmpl = 'tenders/success.html';
                         $wx_tenders_qr = false;
                         if($wechatCfg = $this->system->config->get('wechat')){
                             if($client = K::M('weixin/weixin')->admin_wechat_client()){
@@ -322,7 +323,7 @@ class Ctl_Tenders extends Ctl
             }
         }else{
             $this->err->add('非法的数据提交', 201); 
-        }          
+        }            
     }
 
 

@@ -141,9 +141,7 @@
 		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
 		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
 		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
-		        <select name="data[budget_id]" class="budget">
-					<{widget id="tenders/setting" type="budget"}>
-				</select>
+		        <input type="text" name="data[home_name]" class="text full" placeholder="请输入您的小区名称" /> 
 		        <div class="sel-group">
 		        	<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
 		        </div>
