@@ -258,9 +258,6 @@ ul.index_home li p{ height:30px; overflow:hidden;}
 /*2F找我家设计方案右侧工具样式结束*/
 
 /*3F团装活动样式开始*/
-.zh-show .wrap_group{
-	height: 300px;
-}
 ul.index_tuanz li{ float:left; margin:10px 0px 5px 7px; width:220px; height:260px; overflow:hidden;}
 ul.index_tuanz li.first{ margin-left:0px;}
 ul.index_tuanz li img{ width:220px; height:165px;}
@@ -269,7 +266,6 @@ ul.index_tuanz li  p{ height:30px; overflow:hidden;}
 ul.index_tuanz li  p.colorbg{ padding:5px;}
 ul.index_tuanz li p b{ font-size:18px;}
 .index_tuanz span.time_ico{ width:15px; height:15px; background-position:0px -16px;}
-
 /*3F团装活动样式结束*/
 
 /*4F热门案例样式开始*/
@@ -1958,13 +1954,15 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 .map_tip_top{ width:100%;}
 .map_tip_top h3{ font-weight:bold; margin-bottom:5px;}
 .map_tip_intro p{ color:#555;}
-.map_tip_intro div.lt img{
-	max-width: 150px;
-	max-height: 150px;
+.map_tip_intro div.lt{
+	width:150px; 
+	height:150px;
+	line-height: 150px;
 	overflow: hidden;
-	-moz-transform:scale(2,2); 
-	-webkit-transform:scale(2,2); 
-	-o-transform:scale(2,2); 
+}
+.map_tip_intro img.pic{
+	display:inline-block，
+	vertical-align:middle
  }
 .map_tip_intro div.rt{ width:60%; line-height:22px;}
 .map_tip_intro div.rt a{

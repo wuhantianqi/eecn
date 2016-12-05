@@ -35,7 +35,7 @@
 .sub_com_design li .btn{ width:100%; height:26px; background:#666; border-radius:0px; font-size:14px; line-height:26px;}
 .sub_com_design li .btn:hover{ background:#fe7902;}
 
-.bz_metals{ display:inline-block; border:1px solid #03bb98; color:#03bb98; font-size:12px; line-height:22px; height:18px; background:#fff;}
+.bz_metals{ display:inline-block; border:1px solid #03bb98; color:#03bb98; font-size:12px; line-height:19px; height:18px; background:#fff;}
 .bz_metals font{ width:18px; height:19px; background-position:-51px -63px; margin-right:0px; vertical-align:top;}
 
 .sub_com_list{ border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;}
@@ -87,7 +87,7 @@ ul.sub_com_de_list li.first{ margin-left:0px;}
 ul.sub_com_de_list li a.pic{width:93%; height:100%; padding:10px;display:block;}
 ul.sub_com_de_list li a.pic img{ width:150px; height:150px; border:1px solid #e3e3e3;}
 .sub_com_de_rt{ width:93%;}
-.sub_com_contro{ padding:10px 0px;}
+.sub_com_contro{ padding:10px 0px;    font-size: 14px;}
 .sub_com_contro img.video{ float:left; margin-right:10px;}
 .zizhi_box { float:left; margin:8px; }
 .zizhi_box img{ border:3px solid #ccc;width:230px; height:180px;}
@@ -130,7 +130,6 @@ ul.sub_com_de_list li a.pic img{ width:150px; height:150px; border:1px solid #e3
 	height: 130px;
 }
 .com_ico{
-	background-color: #ff4401;
 }
 .company_top_rt{
 	background-color: #f0f0f0;

@@ -17,7 +17,6 @@ if(!file_exists(__CORE_DIR.'data/install.lock')){
 require(__CORE_DIR."framework/kernel.php");
 class Index extends kernel
 {
-
 	protected $_default_request = array('ctl'=>'index','act'=>'index','type'=>'html','args'=>null);
 	protected function _init()
 	{	

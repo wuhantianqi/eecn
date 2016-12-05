@@ -143,6 +143,7 @@ img{
 .subwdes .zh-company-wrap{
 	width: 700px;
 	height: auto;
+	margin-top:20px;
 	background: #FFF;
 }
 .company_top_xia .zh_compan_form{
@@ -167,7 +168,7 @@ img{
 	color: #333;
 }
 .subwdes .zh-company-wrap .zhuan_xiu_gongsi{
-	height: 140px;
+	height: 130px;
 	overflow: hidden;
 	padding: 10px 0px;
 }
@@ -206,8 +207,8 @@ img{
 }
 .zh-company-designteam .zh-company-wrap>ul>li img{
 	display: block;
-	width: 200px;
-	height: 200px;
+	width: 180px;
+	height: 180px;
 	margin: 0 auto;
 	margin-top: 20px;
 }

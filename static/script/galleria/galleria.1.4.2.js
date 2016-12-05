@@ -2834,7 +2834,8 @@ Galleria.prototype = {
 
                     self._width = num.width;
                     self._height = num.height;
-                    self._ratio = self._ratio || num.height/num.width;
+                    // self._ratio = self._ratio || num.height/num.width;
+                    self._ratio = 1;
 
                     // for some strange reason, webkit needs a single setTimeout to play ball
                     if ( Galleria.WEBKIT ) {

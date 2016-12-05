@@ -22,4 +22,9 @@ class Ctl_Newactivity extends Ctl
     {
         $this->tmpl = 'newactivity/loan.html';
     }
+    // 管家管家页面
+    public function tubehome()
+    {
+        $this->tmpl = 'newactivity/m-house-keeper.html';
+    }
 }

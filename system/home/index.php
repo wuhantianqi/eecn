@@ -68,7 +68,6 @@ class Index extends kernel
 
     protected function _route($uri=null)
     {
-
         $this->config->load(array('domain','routeurl'));
         if($uri === null && $this->_cust_uri !==null){
             $uri = $this->_cust_uri;

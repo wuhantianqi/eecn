@@ -69,7 +69,7 @@ class Widget_Tenders extends Model
         }
         return $data;
     }
-    //首页表单
+//  首页表单
     public function iform(&$params)
     {
         $data = $params;
@@ -79,21 +79,12 @@ class Widget_Tenders extends Model
         return $data;
     }
     
-    //页面弹出表单
+//  首页表单
     public function companyForm(&$params)
     {
         $data = $params;
         if(!$params['tpl']){
             $params['tpl'] = 'widget:tenders/companyForm.html';
-        }
-        return $data;
-    }
-    //加验证码的计算表单
-    public function verificationForm(&$params)
-    {
-        $data = $params;
-        if(!$params['tpl']){
-            $params['tpl'] = 'widget:tenders/verificationForm.html';
         }
         return $data;
     }

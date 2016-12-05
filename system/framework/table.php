@@ -90,7 +90,7 @@ class Mdl_Table extends Model
         $limit = $this->limit($p, $l);
         $items = array();
         if($count = $this->count($where)){
-            $sql = "SELECT * FROM ".$this->table($this->_table)." WHERE $where $orderby $limit";
+            $sql = "SELECT * FROM ".$this->table($this->_table)." WHERE $where $orderby $limit";   
             if($rs = $this->db->Execute($sql)){
                 while($row = $rs->fetch()){
                     $row = $this->_format_row($row);
