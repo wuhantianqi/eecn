@@ -1,0 +1,58 @@
+<{assign var="is_index_home" value=true}>
+<{include file="mobile/block/header.html"}>
+<div class="banner">
+    <{adv id="17" name="手机版首页轮播广告" city_id=$request.city_id limit="5"}>
+</div>
+<div class="pding">
+    <div class="nav">
+        <ul>
+        <li><a href="<{link ctl='mobile/case'}>"><span class="index_ico index_ico1"></span><p>效果图</p></a></li>
+        <li><a href="<{link ctl='mobile/article'}>"><span class="index_ico index_ico2"></span><p>学装修</p></a></li>
+        <li><a href="<{link ctl='mobile/designer'}>"><span class="index_ico index_ico3"></span><p>设计师</p></a></li>
+        <li><a href="<{link ctl='mobile/company'}>"><span class="index_ico index_ico5"></span><p>装修公司</p></a></li>
+        <li><a href="<{link ctl='mobile/tenders'}>"><span class="index_ico index_ico6"></span><p>我要装修</p></a></li>
+        <li><a href="<{link ctl='mobile/product'}>"><span class="index_ico index_ico9"></span><p>建材商城</p></a></li>
+        <li><a href="<{link ctl='mobile/youhui'}>"><span class="index_ico index_ico16"></span><p>优惠信息</p></a></li>
+        <li><a href="#" id="dt-hd-nav"><span class="index_ico index_ico11"></span><p>更多</p></a></li>
+        <div class="cl"></div>
+    </div>
+</div>
+<div class="mb10">
+    <p class="pub_tit">推荐装修公司</p>
+    <ul class="app_menu">
+        <{KT id="37" name="手机版首页推荐公司" city_id=$request.city_id}>
+        <li>
+            <a href="<{link ctl='mobile/company' arg0=$item.company_id}>">
+                <img src="<{$pager.img}>/<{$item.logo}>" class="lt pic" />
+                <h2><{$item.name}></h2>
+                 <p class="nowrap">口号：<{$item.slogan}></p>
+                <p class="nowrap"><span>案例(<font class="fontcl2"><{$item.case_num}></font>)</span><span>工地(<font class="fontcl2"><{$item.site_num}></font>)</span></p>
+                <div class="cl"></div>
+            </a>
+        </li>
+        <{/KT}>
+    </ul>
+</div>
+<div class="mb10">
+    <p class="pub_tit">优惠信息</p>
+    <ul class="app_menu">
+        <{KT id="38" name="手机版首页推荐优惠信息" city_id=$request.city_id}>
+        <li>
+            <a href="<{link ctl='mobile/youhui:detail' arg0=$item.youhui_id}>">
+                <div class="index_youhui opacity_img">
+                    <img src="<{$pager.img}>/<{$item.photo}>" />
+                    <p class="bg"></p><p class="text"><{$item.title}></p>
+                </div>
+            </a>
+        </li>
+        <{/KT}>
+    </ul>
+</div>
+<script type="text/javascript" src="%THEME%/mobile/static/script/flipsnap.min.js"></script>
+<script type="text/javascript" src="%THEME%/mobile/static/script/banner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.KT.initBanner(".banner", 0.5, true,5000);
+});
+</script>
+<{include file="mobile/block/footer.html"}>

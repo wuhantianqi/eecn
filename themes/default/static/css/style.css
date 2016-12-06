@@ -1258,9 +1258,29 @@ ul.news li span.rt{ color:#999;}
 
 /*---------------------------------------------------活动专题页样式开始---------------------------------------------------*/
 .aczt_banner{ height:350px; margin:0px auto 2px auto; text-align:center; overflow:hidden;}
-.aczt_nav { width:998px; z-index:100;  height:60px; background:#eee; overflow:hidden;}
-.aczt_nav ul li{ float:left;}
+.aczt_nav { width:1000px; z-index:100;  height:60px; background:#eee; overflow:hidden;}
+.aczt_nav ul li{ 
+	height: 40px;
+	margin-top:10px;
+    float: left;
+    margin-right: 19px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.aczt_nav ul li:first-child{
+	width: 110px;
+	height: 60px;
+	margin-top:0px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 16px;
+	border-right:1px solid #d5d5d5;
+}
 .aczt_nav ul li a{ display:inline-block; padding:0px 20px; line-height:38px; color:#fff; font-size:16px;}
+.aczt_nav ul li .gray_btn{
+	background: #aaa;
+	color:black;
+}
 #fixedMenu_keleyi_com .company-form ul li{
 	height:60px;
 	line-height:60px;
