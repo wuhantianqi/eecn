@@ -17,7 +17,7 @@ class Mdl_Tenders_Tenders extends Mdl_Table
     protected $_cols = 'tenders_id,from,allow_looks,city_id,area_id,zxb_id,title,uid,contact,mobile,home_id,home_name,way_id,type_id,style_id,budget_id,service_id,house_type_id,house_mj,huxing,addr,comment,zx_time,tx_time,gold,max_look,looks,views,tracks,new_track,sign_uid,sign_time,sign_company_id,sign_info,status,remark,audit,clientip,dateline';
     protected $_orderby = array('tenders_id'=>'DESC');
 
-    protected $_from_list = array('TZX'=>'招标','ZXB'=>'装修保','TBJ'=>'报价','TLF'=>'量房','TSJ'=>'设计','TJC'=>'建材');
+    protected $_from_list = array('TZX'=>'招标','ZXB'=>'装修保','TBJ'=>'报价','TLF'=>'量房','TSJ'=>'设计','TJC'=>'建材','ILTZCOMPANY'=>'首页找公司','ILTKPROGRAMME'=>'首页看方案','ILTSCOST'=>'首页审报价','ILTGCONSTRUCTION'=>'首页管施工','IJRCOMPANY'=>'首页找靠谱公司','IJRDESIGNCOST'=>'首页设计与报价','RENOVATIONCOMPANY'=>'装修公司列表页找靠谱公司','RENOVATIONDESIGNCOST'=>'装修公司列表页设计与报价','RENOVATIONDESIGN'=>'装修公司列表页弹出框免费设计','RENOVATIONOFFER'=>'装修公司列表页弹出框免费报价','IRENOVATIONCOMPANY'=>'装修公司首页找靠谱公司','IRENOVATIONDESIGNCOST'=>'装修公司首页设计与报价','BOTTOMFROM'=>'底部弹出框','RRTDESIGNCOST'=>'靠谱装修页面设计与报价','RRTCOMPANY'=>'靠谱装修页面找靠谱公司','RRTDESIGNCOST'=>'靠谱装修页面设计与报价','EFFECTDESIGN'=>'效果图页面弹框免费设计','EFFECTOFFER'=>'效果图页面弹框免费报价','EFFECTLISTDESIGN'=>'效果图列表页弹框免费设计','EFFECTLISTOFFER'=>'效果图列表页弹框免费报价','DETAILSPICTURE'=>'效果图详情图片页右侧表单','ZNBJFROM'=>'智能报价单独页面表单','THREEONEDESIGN'=>'第二屏装修的钱去哪儿了弹出表单免费设计','THREEONEOFFER'=>'第二屏装修的钱去哪儿了弹出表单免费报价','HOUSEKEEPER'=>'申请装修管家服务表单','XARTICLELR'=>'学装修文章内页右侧表单','XARTICLELISTL'=>'学装修文章列表左侧表单');
 
     public function create($data, $checked=false)
     {

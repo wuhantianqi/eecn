@@ -204,7 +204,8 @@
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
                 
                 <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-                    <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+                    <!-- <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" /> -->
+                    <input type="hidden" name="data[from]" value="ZNBJFROM" />
                     <div class="mod_form bj_form">
                         <div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>

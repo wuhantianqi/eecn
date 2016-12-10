@@ -121,7 +121,7 @@
     	<li>
     		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
     			<h2>10秒筛选出您家附近的靠谱装修公司</h2>
-		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>COMPANY" />
 		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
 		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
 		        <input type="text" name="data[home_name]" class="text full" placeholder="请输入您的小区名称" /> 
@@ -138,7 +138,7 @@
     	<li class="none">
     		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
     			<h2>10秒登记免费获取专业设计方案报价</h2>
-		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+		        <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>DESIGNCOST" />
 		        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
 		        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />
 		        <input type="text" name="data[home_name]" class="text full" placeholder="请输入您的小区名称" /> 

@@ -36,7 +36,8 @@ class Ctl_Tenders extends Ctl
 		$this->tmpl = 'tenders/znbj.html';
 	}
     // 全网弹出层
-    public function popup(){
+    public function popup($tenders){
+        $this->pagedata['data'] = $tenders;
         $this->tmpl = 'tenders/popup.html';
     }
     // 转化页

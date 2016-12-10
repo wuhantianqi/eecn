@@ -33,15 +33,15 @@ a{text-decoration:none;cursor:pointer; }
 	background: url(../images/zh/img_p4.jpg) center no-repeat;
 }
 .zh_content div.center_five{
-	height: 669px;
+	height: 500px;
 	background: url(../images/zh/img_p5.jpg) center no-repeat;
 }
 .zh_content div.center_foure{
-	height: 609px;
+	height: 520px;
 	background: url(../images/zh/img_p6.jpg) center no-repeat;
 }
 .zh_content div.center_six{
-	height: 636px;
+	height: 510px;
 	background: url(../images/zh/img_p7.jpg) center no-repeat;
 }
 .zh_content div.center_sever{
@@ -50,18 +50,22 @@ a{text-decoration:none;cursor:pointer; }
 }
 .zh_content div div.father{
 	width: 1200px;
-	height: 580px;
+	height: 500px;
 	position: absolute;
 	margin:0 calc(50% - 600px);
 }
 .zh_content div div.father nav{
-	width: 100%;
-	height: 31px;
-	line-height: 31px;
+	width: 59%;
+    height: 31px;
+    margin: 0 auto;
+    line-height: 31px;
 }
 .zh_content div div.father nav ul li{
 	float:left;
-	margin-right:30px;
+	margin-right:50px;
+}
+.zh_content div div.father nav ul li:last-child{
+	margin-right:0px;
 }
 .zh_content div div.father nav ul li a{
 	font-size: 16px;
@@ -80,8 +84,8 @@ a{text-decoration:none;cursor:pointer; }
 	line-height: 42px;
 	border-radius: 5px;
 	display: block;
-	color:#000;
-	border: 1px solid #000;
+	color:white;
+	background: green;
 	cursor: pointer;
 	position: absolute;
 	transition: background-color linear .3s;
@@ -97,6 +101,10 @@ a{text-decoration:none;cursor:pointer; }
 	top: 420px;
 	left: 550px;
 	color:#FFF;
+}
+.zh_content div div.one a.bu:hover{
+	background: white;
+	color:green;
 }
 .zh_content div div.two a.bu{
 	top: 352px;
@@ -127,11 +135,16 @@ a{text-decoration:none;cursor:pointer; }
 	height: auto;
 }
 .father_nav ul li{
-	width: 400px;
+	width: 390px;
 	height: auto;
 	text-align: center;
 	float: left;
 	margin-top:20px;
+	margin-right: 7px;
+}
+.father_nav ul li:last-child{
+	margin-left: 62px;
+	width: 309px;
 }
 .father_nav ul li p{
 	color: white;
@@ -144,8 +157,11 @@ a{text-decoration:none;cursor:pointer; }
 }
 .father_conten{
 	position: absolute;
-	top:190px;
+	top:80px;
 	left: 70px;
+}
+.center_three .father_conten{
+	top:175px;
 }
 .father_conten p{
 	color: white;
@@ -207,14 +223,16 @@ a{text-decoration:none;cursor:pointer; }
 .zh_content div div.father .father_img{
 	width: 600px;
 	height: 300px;
-	background-color: white;
 	position: absolute;
-	top: 200px;
+	top: 100px;
 	left: 500px;
+}
+.zh_content div.center_three div.father .father_img{
+	top: 200px;
 }
 .zh_content div div.father_left .father_conten{
 	color:black;
-	top: 200px;
+	top: 96px;
 	left: 800px;
 }
 .zh_content div div.father_left .father_conten h2{
@@ -232,11 +250,15 @@ a{text-decoration:none;cursor:pointer; }
     border-bottom: 5px solid transparent;
 }
 .zh_content div div.father_left .father_img{
-	top: 190px;
+	top: 100px;
 	left: 70px;
 }
 .zh_content div div.father_left a.bu{
 	left:810px;
+	top: 400px;
+}
+.zh_content div.center_foure div.father a.bu{
+	top: 415px;
 }
 .zh_content div.center_sever div.father{
 	width: 1200px;

@@ -69,7 +69,7 @@ class Widget_Tenders extends Model
         }
         return $data;
     }
-//  首页表单
+//  首页左上角组合表单
     public function iform(&$params)
     {
         $data = $params;

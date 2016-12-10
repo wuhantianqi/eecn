@@ -12,7 +12,7 @@
 			<div class="con_bj_cal col_l pop-sheji">
 			<h3>免费户型设计</h3>
             <form action="<{link ctl='tenders:save'}>" id="sheji-form" method="post">
-                <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+                <input type="hidden" name="data[from]" value="<{$data|default:'TZX'}>DESIGN" />
 				<div class="mod_form bj_form">
 					<div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
@@ -85,7 +85,7 @@
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
                 
                 <form action="<{link ctl='tenders:save'}>" id="baojia-form" method="post">
-                    <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" />
+                    <input type="hidden" name="data[from]" value="<{$data|default:'TZX'}>OFFER" />
                     <div class="mod_form bj_form">
                         <div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>

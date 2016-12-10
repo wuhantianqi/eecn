@@ -37,7 +37,7 @@
 		<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
 	</div>
 	<div class="company_top_blue_right">
-		<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
 		<div class="company_white"></div>
 		<div class="company_banner_left">
 			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
@@ -111,7 +111,7 @@
 		</div>
 	</div>
 	<div class="zh_compan_form">
-		<{widget id="tenders/companyForm" title="装修四大困惑" from="TSJ"}>
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
 	</div>
 </div>
 <div class="cl"></div>
@@ -170,13 +170,21 @@
 		<div class="right-part">
 			<h2>企业新闻<span><a href="<{link ctl='company:news' arg0=$company.company_id company=$company}>">>>更多</a></span></h2>
 			<ul>
-				<{calldata mdl='company/news' company_id=$company.company_id limit=6 noext=true nocache=true}>
+				<{KT name="仿土巴兔首页热点新闻" city_id=$request.city_id limit=6}>
+				<li>
+					<a href="<{link ctl='article:detail' arg0=$item.article_id}>" target="_blank">
+						<h3><{$item.title|cutstr:80}><span class="zh-update-time"><{$item.dateline|format:"Y:m:d"}></span></h3>
+					</a>
+				</li>
+				<{/KT}>
+				<!-- 原信息，对应装修公司自己新闻 -->
+				<!-- <{calldata mdl='company/news' company_id=$company.company_id limit=6 noext=true nocache=true}>
 				<li>
 					<a href="<{link ctl='news:detail' arg0=$item.news_id}>">
 						<h3><{$item.title|cutstr:80}><span class="zh-update-time"><{$item.dateline|format:"Y:m:d"}></span></h3>
 					</a>
 				</li>
-                <{/calldata}>
+                <{/calldata}> -->
 			</ul>
 		</div>
 	</div>
