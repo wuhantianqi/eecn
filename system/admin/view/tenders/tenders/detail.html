@@ -57,7 +57,8 @@
 </tr>
 <tr>
     <th>装修时间：</th><td><{$detail.zx_time|default:'--'}></td>
-    <th>下次联系时间：</th><td><{$detail.tx_time|default:'--'}></td><td colspan="10"></td>
+    <th>房屋面积：</th><td><{$detail.house_mj|default:'--'}></td>
+    <!-- <th>下次联系时间：</th><td><{$detail.tx_time|default:'--'}></td><td colspan="10"></td> -->
 </tr>
 <tr>
     <th>最大查看数：</th><td><{$detail.max_look}></td>
@@ -76,7 +77,7 @@
 </tr>
 <tr><th></th><td colspan="10"><b class="red">装修需求</b></td></tr>
 <tr><th>装修方式：</th><td><{$detail.way_title}></td><th>招标类型：</th><td><{$detail.type_title}></td></tr>
-<tr><th>喜欢风格：</th><td><{$detail.style_title}></td><th>预算范围：</th><td><{$detail.budget_title}></td></tr>
+<tr><th>喜欢风格：</th><td><{$detail.style_title}></td><th>预算范围：</th><td><{$detail.budget_id}></td></tr>
 <tr><th>服务需求：</th><td><{$detail.service_title}></td><th>空间户型：</th><td><{$detail.house_type_title}></td></tr>
 <{widget id="attr/info" from=$detail.from_attr_key value=$detail.attrvalues}>
 <tr><td colspan="10" style="height:5px;"></td></tr>

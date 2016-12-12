@@ -256,78 +256,15 @@ class Ctl_Tenders extends Ctl
             $this->err->add('非法的数据提交', 201); 
         }          
     }
-    //单独页面表单提交
-    public function saves()
+    //短信验证码
+    public function shortMessage()
     {   
-        if($data= $this->checksubmit('data')){
-            if(!$data = $this->check_fields($data,$this->_tenders_allow_fields)){
-                $this->err->add('非法的数据提交', 201);
-            }else{
-                $verifycode_success = true;
-                $access = $this->system->config->get('access');
-                if($access['verifycode']['tender']){
-                    if(!$verifycode = $this->GP('verifycode')){
-                        $verifycode_success = false;
-                        $this->err->add('验证码不正确', 212);
-                    }else if(!K::M('magic/verify')->check($verifycode)){
-                        $verifycode_success = false;
-                        $this->err->add('验证码不正确', 212);
-                    }
-                }
-                if($verifycode_success){
-                    $data['uid'] = (int)$this->uid;
-                    if(empty($data['city_id'])){
-                        $data['city_id'] = $this->request['city_id'];
-                    }
-                    if(empty($data['contact']) && ($this->uid)){
-                        $data['contact'] = $this->MEMBER['uname'];
-                    }
-                    if($attach = $_FILES['huxing']){
-                        if(UPLOAD_ERR_OK == $attach['error']){
-                            if($a = K::M('magic/upload')->upload($attach, 'tenders')){
-                                $data['huxing'] = K::M('content/html')->encode($a['photo']);
-                            }
-                        }
-                    }
-                    $data['city_id'] = empty($data['city_id']) ? $this->request['city_id'] : $data['city_id'];
-                    if($tenders_id = K::M('tenders/tenders')->create($data)){
-                        if($attr = $this->GP('attr')){
-                            K::M('tenders/attr')->update($tenders_id, $attr);
-                        }
-                        $this->pagedata['tenders_id'] = $tenders_id;
-                        $smsdata = $maildata = array('contact'=>$data['contact'] ? $data['contact'] : '业主','mobile'=>$data['mobile']);
-                        K::M('sms/sms')->send($data['mobile'], 'tenders', $smsdata);
-                        K::M('sms/sms')->admin('admin_tenders', $smsdata);
-                        K::M('helper/mail')->sendadmin('admin_tenders',$maildata);
-                        
-                        $wx_tenders_qr = false;
-                        if($wechatCfg = $this->system->config->get('wechat')){
-                            if($client = K::M('weixin/weixin')->admin_wechat_client()){
-                                if($client->weixin_type == 1){
-                                    $data = array('uid'=>$uid, 'type'=>'tenders', 'addon'=>array('tenders_id'=>$tenders_id));
-                                    if($scene_id = K::M('weixin/authcode')->create($data)){
-                                        if($ticket = $client->getQrcodeTicket(array('scene_id'=>$scene_id, 'expire'=>1800))){
-                                            $wx_tenders_qr = $client->getQrcodeImgUrlByTicket($ticket);
-                                            $this->pagedata['wx_tenders_qr'] = $wx_tenders_qr;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        $this->err->set_data('tenders_id', $tenders_id);
-                        $this->err->set_data('wx_tenders_qr', $wx_tenders_qr);
-                        $this->err->set_data('show_content', $this->output(true));
-                        $this->tmpl = null;
-                        if($this->uid){
-                            $this->err->set_data('forward',  $this->mklink('ucenter/member/yuyue:tendersDetail',array($tenders_id)));
-                        }                        
-                        $this->err->add('恭喜您发布招标成功！');
-                    }
-                }
-            }
-        }else{
-            $this->err->add('非法的数据提交', 201); 
-        }          
+        $number = rand(1000,9999);       //验证码
+        $smsdata = "亲爱的用户你好,你的验证码是：".$number.",有效期半个小时,请注意及时验证";
+        $mobile = $this->GP('mobile');   //手机号
+        K::M('sms/sms')->_send($data['mobile'], $smsdata); 
+        $session =K::M('system/session')->start();    //获取session
+        $session->set('mobile',$number);              //设置session     
     }
 
 

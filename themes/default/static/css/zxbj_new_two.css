@@ -80,12 +80,19 @@ i {
 }
 .bj_form .text {
     width: 233px;
+    padding: 5px 10px;
     font-size: 16px;
+}
+.bj_form .clear_sity .text{
+    width: 75px;
+}
+.bj_form .clear_sity .text:last-child{
+    width: 96px;
 }
 .bj_form .area_text {
     width: 223px;
     font-size: 16px;
-    padding: 7px 20px 7px 10px;
+    padding: 6px 20px 6px 10px;
 }
 .bj_form .text_wrap {
     position: static;

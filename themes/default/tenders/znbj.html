@@ -204,35 +204,13 @@
                 <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
                 
                 <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
-                    <!-- <input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>" /> -->
                     <input type="hidden" name="data[from]" value="ZNBJFROM" />
                     <div class="mod_form bj_form">
                         <div class="form_line">
                             <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
                             <div class="element">
-                                <div class="clear">
-                                    <input type="hidden" name="dangci" value="jianzhuang">
-                                    <select id="User_Shen" name="shen" class="select select_s col_l" onchange="changeProvince('User_Shen','User_City','User_Town');">
-                                        <option value="">武汉</option>
-                                    </select>
-                                    <select id="User_City" name="city" class="select select_s col_l" <!--onchange="changeTown('User_Shen','User_City','User_Town');"-->>
-                                        <option value="">区域</option>
-                                        <option value="">江汉区</option>
-                                        <option value="">江岸区</option>
-                                        <option value="">洪山区</option>
-                                        <option value="">武昌区</option>
-                                        <option value="">汉阳区</option>
-                                        <option value="">江夏区</option>
-                                        <option value="">黄陂区</option>
-                                        <option value="">汉南区</option>
-                                        <option value="">硚口区</option>
-                                        <option value="">青山区</option>
-                                        <option value="">新洲区</option>
-                                        <option value="">东西湖区</option>
-                                        <option value="">蔡甸区</option>
-                                        
-                                    </select>
-                                    <div style="display:none"><select class="langSelect" id="User_Town" name="town"><option value="">县/市</option></select></div>
+                                <div class="clear clear_sity">
+                                    <{widget id="data/region" city_id=$request.city_id class="text short"}>
                                 </div>
                             </div>
                         </div>
@@ -240,7 +218,7 @@
                             <label for="" class="label" ><em class="label_start">*</em>房屋面积：</label>
                             <div class="element">
                                 <div class="text_wrap">
-                                    <input type="text" class="text area_text" name="square" id="square">
+                                    <input type="text" class="text area_text" name="data[house_mj]" id="square">
                                     <em class="text_lbl">输入您的房屋面积</em>
                                     <em class="unit" style="color: black;">m&sup2;</em>
                                 </div>
@@ -252,7 +230,7 @@
                             <label for="" class="label"><em class="label_start">*</em>房屋户型：</label>
                             <div class="element">
                                 <div class="clear">
-                                    <select name="shi" id="shi" class="select select_s select_s_s col_l">
+                                    <select id="shi" class="select select_s select_s_s col_l">
                                         <option value="1">1室</option>
                                         <option value="2">2室</option>
                                         <option value="3">3室</option>
@@ -260,7 +238,7 @@
                                         <option value="5">5室</option>
                                         <option value="6">6室</option>
                                     </select>
-                                    <select name="ting" id="ting" class="select select_s select_s_s col_l">
+                                    <select id="ting" class="select select_s select_s_s col_l">
                                         <option value="1">1厅</option>
                                         <option value="2">2厅</option>
                                         <option value="3">3厅</option>
@@ -268,12 +246,12 @@
                                         <option value="5">5厅</option>
                                         <option value="6">6厅</option>
                                     </select>
-                                    <select name="chu" id="chu" class="select select_s select_s_s col_l">
+                                    <select id="chu" class="select select_s select_s_s col_l">
                                         <option value="1">1厨</option>
                                         <option value="2">2厨</option>
                                         <option value="3">3厨</option>
                                     </select>
-                                    <select name="wei" id="wei" class="select select_s col_l">
+                                    <select id="wei" class="select select_s col_l">
                                         <option value="1">1卫</option>
                                         <option value="2">2卫</option>
                                         <option value="3">3卫</option>
@@ -281,7 +259,7 @@
                                         <option value="5">5卫</option>
                                         <option value="6">6卫</option>
                                     </select>
-                                    <select name="yangtai" id="yangtai" class="select select_s col_l">
+                                    <select id="yangtai" class="select select_s col_l">
                                         <option value="1">1阳台</option>
                                         <option value="2">2阳台</option>
                                         <option value="3">3阳台</option>
@@ -301,9 +279,9 @@
                             <p><i></i>优优美家承诺：我们将严格保密您的私人信息,此服务为全程免费，绝无任何收费信息。</p>
                         </div>
                         <div class="form_line bj_btn">
-                              
+                            <input type="hidden" name="data[budget_id]" id="contact" value=""  />  
                             <input class="calc-btn" id="new_base_info" type="submit" value="" style="border: none;cursor: pointer;"/>
-                            <input type="hidden" name="ptag" id="myPtag" value="1_4_7_1"  />
+                            
                         </div>
                     </div>
                 </form>
@@ -390,19 +368,6 @@ $(document).ready(function(){
 </script>
 <p class="none"><{$CONFIG.site.tongji}></p>
 </body>
-<!-- 快速隐藏提示框，并显示提示信息 -->
-<script>
-    jq('#new_base_info').on('click',function(){ 
-        if(jq("input[name='data\[mobile\]']").val() != ""){
-           var t1= window.setTimeout(messagebox,2000);   //2秒后关闭提示框 
-        }
-    })
-    function messagebox(){
-        jq("#MessageBox").css("display","none");
-        jq(".bj_explain").css("display","block");
-        window.clearTimeout(t1);//去掉定时器
-    }
-</script>
 </html>
 
 

@@ -96,22 +96,9 @@
 			<{/if}>
 		</div>
 		<div class="img_content init" style="margin-right:290px;">
-			<div class="case_pic_top img_box">
-				
-					<!--<{foreach $photos as $item}>    
-					<li>
-						<div class="opacity_img hoverno">
-							<a href="<{$pager.img}>/<{$item.photo}>" class="img_a">
-							<img src="<{$pager.img}>/<{$item.photo}>_small.jpg" data-big="<{$pager.img}>/<{$item.photo}>"/>
-							</a>
-							<span class="bg"></span>
-							<span class="text"><a href="<{link ctl='case:detail' arg0=$item.case_id}>">免费户型设计</a>
-							</span>
-						</div>
-					</li>
-					<{/foreach}>-->
+			<div class="img_box img_box_deta">
 						<div class="zh-carousel">
-							<ul class="zh-carousel-ul">
+							<ul class="zh-carousel-ul" style="height:600px;">
 								<{foreach $photos as $item}>
 								<li>
 									<a href="#"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
@@ -133,137 +120,137 @@
 						</div>
 						<a class="zh-carousel-prev"></a>
 						<a class="zh-carousel-next"></a>
-		<script type="text/javascript">
-			
-					
-	$(function(){		//原图显示，原图的高度最好不要超过590px
-		var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
-		
-		var $controlUl=$(".zh-control-ul");
-		var $control =$(".zh-carousel .zh-control-ul li");
-		
-		var $prev = $(".zh-carousel-prev");
-		var $next = $(".zh-carousel-next");
-		
-		var $prevCon=$(".zh-control-prev");
-		var $nextCon=$(".zh-control-next");
-		var $controlBg=$(".control-bg");
-		
-		var $imgBox=$(".img_box");
-		var $boxHeight=$(".img_box").css("height");
-		
-		$carouselLi.eq(0).find('img').load(function(){
-			$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+90);
-		})
-		
-	
-		
-		
-		var timer=null;
-		var iNow =0;
-		var iNow2 =1;
-		
-		$control.eq(0).addClass("active");
-		
-		$control.click(
-			function(){
-//				clearInterval(timer);
-				$index = $(this).index();
-				iNow = $index;
-				$boxHeight=$carouselLi.eq(iNow).css("height");
-				$imgBox.css("height",parseInt($boxHeight)+90);
-				
-				reBulid(iNow);
-			}
-			
-		)
 
-		$prev.click(function(){
-//			clearInterval(timer);
-			if(iNow==0){
-				iNow=$carouselLi.length-1;
-			}
-			else{
-				iNow--;
-			}
-			$boxHeight=$carouselLi.eq(iNow).css("height");
-			$imgBox.css("height",parseInt($boxHeight)+90);
-			
-			reBulid(iNow);
-		})
-		
-		$next.click(function(){
-//			clearInterval(timer);
-			if(iNow==$carouselLi.length-1){
-				
-				iNow=0;
-			}
-			else{
-				iNow++;
-			}
-			$boxHeight=$carouselLi.eq(iNow).css("height");
-			$imgBox.css("height",parseInt($boxHeight)+90);
-			
-			reBulid(iNow);
-		})
-		
-		function auto(){
-			if(iNow==$carouselLi.length-1){
-				
-				iNow=0;
-			}
-			else{
-				iNow++;
-			}
-			reBulid(iNow);
-		}
-		
-		function reBulid(num){
-			$carouselLi.each(function(){
-				$carouselLi.fadeOut();
-			})
-			$control.each(function(){
-				$control.removeClass("active");
-			})
-			
-			$carouselLi.eq(iNow).fadeIn();
-			$control.eq(iNow).addClass("active");
-		}
-		var $prevCon=$(".zh-control-prev"); 											
-		var $nextCon=$(".zh-control-next");
-		
-		var ulWidth=$control.length*72;
-		
-		(function(){	
-			$prevCon.click(function(){
-				if(iNow2==1){
-					return false;
-				}
-				else{
-					iNow2--;
-					$controlUl.animate({
-					left:-(iNow2-1)*72
-				},200);
-				
-				}
-			})
-			
-			$nextCon.click(function(){
-				
-				var ulLeft=Math.abs(parseInt($controlUl.css("left")));
-				if((ulLeft+1008)>=ulWidth){
-					return false;
-				}
-				else{
-					$controlUl.animate({
-						left:-iNow2*72
-					},200);
-					iNow2++;
-				}
-			})
-		})()	
-	});
-			</script>		
+				<script type="text/javascript">						
+					$(function(){		//原图显示，原图的高度最好不要超过590px
+						var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
+						
+						var $controlUl=$(".zh-control-ul");
+						var $control =$(".zh-carousel .zh-control-ul li");
+						
+						var $prev = $(".zh-carousel-prev");
+						var $next = $(".zh-carousel-next");
+						
+						var $prevCon=$(".zh-control-prev");
+						var $nextCon=$(".zh-control-next");
+						var $controlBg=$(".control-bg");
+						
+						var $imgBox=$(".img_box");
+						var $boxHeight=$(".img_box").css("height");
+						var $fatherHeights = $('.zh-carousel-ul');
+						
+						$carouselLi.eq(0).find('img').load(function(){
+							$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+120);
+						})
+						var timer=null;
+						var iNow =0;
+						var iNow2 =1;
+						
+						$control.eq(0).addClass("active");
+						
+						$control.click(
+							function(){
+				//				clearInterval(timer);
+								$index = $(this).index();
+								iNow = $index;
+								$boxHeight=$carouselLi.eq(iNow).css("height");
+								$imgBox.css("height",parseInt($boxHeight)+120);
+								$fatherHeights.css("height",parseInt($boxHeight)+40);
+								reBulid(iNow);
+							}			
+						)
+						$prev.click(function(){
+				//			clearInterval(timer);
+							if(iNow==0){
+								iNow=$carouselLi.length-1;
+							}
+							else{
+								iNow--;
+							}
+							$boxHeight=$carouselLi.eq(iNow).css("height");
+							$imgBox.css("height",parseInt($boxHeight)+120);
+							$fatherHeights.css("height",parseInt($boxHeight)+40);
+							reBulid(iNow);
+						})
+						
+						$next.click(function(){
+				//			clearInterval(timer);
+							if(iNow==$carouselLi.length-1){
+								
+								iNow=0;
+							}
+							else{
+								iNow++;
+							}
+							$boxHeight=$carouselLi.eq(iNow).css("height");
+							$imgBox.css("height",parseInt($boxHeight)+120);
+							$fatherHeights.css("height",parseInt($boxHeight)+40);
+							reBulid(iNow);
+						})
+
+						function auto(){
+							if(iNow==$carouselLi.length-1){
+								
+								iNow=0;
+							}
+							else{
+								iNow++;
+							}
+							reBulid(iNow);
+						}
+						
+						function reBulid(num){
+							$carouselLi.each(function(){
+								$carouselLi.fadeOut();
+							})
+							$control.each(function(){
+								$control.removeClass("active");
+							})
+							
+							$carouselLi.eq(iNow).fadeIn();
+							$control.eq(iNow).addClass("active");
+						}
+						var $prevCon=$(".zh-control-prev"); 											
+						var $nextCon=$(".zh-control-next");
+						
+						var ulWidth=$control.length*72;
+						
+						(function(){	
+							$prevCon.click(function(){
+								if(iNow2==1){
+									return false;
+								}
+								else{
+									iNow2--;
+									$controlUl.animate({
+									left:-(iNow2-1)*72
+								},200);
+								
+								}
+							})
+							
+							$nextCon.click(function(){
+								
+								var ulLeft=Math.abs(parseInt($controlUl.css("left")));
+								if((ulLeft+1008)>=ulWidth){
+									return false;
+								}
+								else{
+									$controlUl.animate({
+										left:-iNow2*72
+									},200);
+									iNow2++;
+								}
+							})
+						})()
+
+					});
+					function fatherHeight(){
+						//获取大图下面的第一张图片高度并赋值给ul父元素
+						var he =$(".zh-carousel-ul li:first-child").height();	
+						$(".zh-carousel-ul").height(he+40);
+					}
+				</script>		
 			</div>
 		</div>
 	</div>

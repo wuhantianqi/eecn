@@ -35,6 +35,9 @@ ul.paihang li .ph_num_cl{ background:#ff4401;}
 .qu_choose a.huida{ background:#01af63;}
 .sub_case_rtpic a{ margin:4px;}
 .new_pinglun ul li img{ width:40px; height:40px; margin-right:5px; border-radius:30px;}
+.img_box_deta{
+	height: 644px;
+}
 .img_box a img{ width:220px; height:auto;}
 .img_box p{ line-height:34px;}
 .img_box p span{ margin-right:10px;}
@@ -319,7 +322,7 @@ h2.subSite_Tit a:first-child.on{ border-left:none;}
 .picture .pic_container.full .pic_right_content {visibility:hidden;}
 .picture .pic_container.full .img_content {margin-right: 0;}
 .picture .pic_container.full .custom_scroll {display: none;}
-.img_content {padding:10px; background:#fff;font-size: 12px;min-height: 300px;margin-right: 265px;position: relative;z-index: 1;}
+.img_content {padding:10px; background:#fff;font-size: 12px;min-height: 680px;margin-right: 265px;position: relative;z-index: 1;}
 .pic_right_content {position: absolute;top: 0;right: 0;width: 250px;height:auto;overflow-x:hidden;overflow-y:auto;  z-index: 0;}
 
 /*.case_pic_top{ width:100%; background:none;}*/
@@ -494,7 +497,7 @@ em{ font-style:normal;}
 	width: initial;
 }
 .zh-carousel .control-bg{
-	position: absolute;
+	position: relative;
 	bottom: 10px;
 	width: 1008px;
 	height: 62px;

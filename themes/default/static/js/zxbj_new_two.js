@@ -95,31 +95,42 @@
 //  })
     jq('#new_base_info').click(function(){
     	if (validData()) {
-        
       	var mjia = jq('#square').val()*500;
       	
       	var mjiaNum=(mjia*0.8/10000).toFixed(1);
       	
         jq('#bprice').html(mjiaNum);
+
+        jq("input[name='data\[house_mj\]']").val(jq("#square").val());  //赋值面积
+        jq("#contact").val(mjiaNum);   //将价格赋值给标题
+
         jq('.bj_res_t span').html("万元");
 
         jq('#materialPay em').html(mjia*0.48);
         jq('#artificialPay em').html(mjia*0.32);
         
         jq('#designPay em').html(0);
-        jq('#designPay').append('<del>'+mjia*0.19+'元'+'</del>')
+        jq('#designPay').append('<del>'+mjia*0.19+'元'+'</del>');
         
         jq('#qualityPay em').html(0);
-        jq('#qualityPay').append('<del>'+mjia*0.11+'元'+'</del>')
+        jq('#qualityPay').append('<del>'+mjia*0.11+'元'+'</del>');
         
-        jq('#new_base_info').css("background-position","0 -168px")
-        }
-    	else{
+        jq('#new_base_info').css("background-position","0 -168px");
+        messagebox();
+
+        }else{
     		return false;
     	}
     })
-    
-	
+    // 快速隐藏提示框
+	function messagebox(){
+        squareRemind = setTimeout(function(){
+            jq("#MessageBox").css("display","none");
+            jq(".bj_explain").css("display","block");
+            clearTimeout(squareRemind);
+        },2000)
+    }
+
     //数据校验
     function validData(){
         var chkArr = [
@@ -145,7 +156,7 @@
 //          }]
 //      },
         {
-            id: jq('.con_bj_cal  .text_wrap :input[name="square"]')[0],
+            id: jq('.con_bj_cal  .text_wrap :input[name="data[house_mj]"]')[0],
             className: 'form_error',
             labl: 'em',
             lablClass: 'ico_error',

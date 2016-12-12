@@ -21,7 +21,7 @@
     <tr>
         <td><label><input type="checkbox" value="<{$item.tenders_id}>" name="tenders_id[]" CK="PRI"/><{$item.tenders_id}><{if !$item.audit}><font class="red">&nbsp;new!</font><{/if}><label>
         </td>
-        <td><{$item.from_title}></td>
+        <td title="<{$item.from_title}>"><{$item.from_title|cutstr:20}></td>
         <td><{$item.city_name}></td>
         <td><{$item.title}></td>
         <td><{$item.contact}></td>
