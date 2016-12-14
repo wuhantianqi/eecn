@@ -35,6 +35,10 @@ class Ctl_Tenders extends Ctl
 	public function znbj(){
 		$this->tmpl = 'tenders/znbj.html';
 	}
+    //带验证码智能报价
+    public function vznbj(){
+        $this->tmpl = 'tenders/vznbj.html';
+    }
     // 全网弹出层
     public function popup($tenders){
         $this->pagedata['data'] = $tenders;
@@ -260,11 +264,11 @@ class Ctl_Tenders extends Ctl
     public function shortMessage()
     {   
         $number = rand(1000,9999);       //验证码
-        $smsdata = "亲爱的用户你好,你的验证码是：".$number.",有效期半个小时,请注意及时验证";
         $mobile = $this->GP('mobile');   //手机号
-        K::M('sms/sms')->_send($data['mobile'], $smsdata); 
-        $session =K::M('system/session')->start();    //获取session
-        $session->set('mobile',$number);              //设置session     
+        $smsdata =  array('contact'=>$smsdata,'mobile'=>$mobile);
+        $data = K::M('sms/sms')->vsend($mobile, 'tenders',  $smsdata, $number);        
+        $this->tmpl = null; 
+        $this->err->add($number,1);    
     }
 
 

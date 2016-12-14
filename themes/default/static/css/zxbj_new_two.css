@@ -86,6 +86,21 @@ i {
 .bj_form .clear_sity .text{
     width: 75px;
 }
+.bj_form span.text_wrap .text{
+    width: 100px;
+    margin-right:7px;
+}
+.bj_form .element span:last-child{
+    width: 75px;
+    height: 60px;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.bj_form .element span:last-child:hover{
+    color: #fff;
+    background: #999;
+}
 .bj_form .clear_sity .text:last-child{
     width: 96px;
 }
@@ -109,6 +124,12 @@ i {
     bottom: 0px;
     left: 0;
     font-size: 12px;
+}
+select.text{
+    margin-top: 0px;
+}
+.form_line_wen{
+    float:left;
 }
 .ele_b {
     margin-left: -10px;

@@ -356,7 +356,7 @@ select.text:last-child{
     display: block;
 }
 .product-list .provider .product-color {
-    background: #00b7b1;
+    background: #01af63;
 }
 .product-color {
     width: auto;
@@ -528,16 +528,16 @@ select.text:last-child{
     background: url(../images/index-22.png) no-repeat center 100px #fff4e7;
 }
 .product-list .zbh .product-color {
-    background: #ff8c1b;
+    background: #01af63;
 }
 .product-list .jubu {
     background: url(../images/index-33.png) no-repeat center 100px #fff8e6;
 }
 .product-list .jubu .product-color {
-    background: #57eaaa;
+    background: #01af63;
 }
 .product-list .guanjia .product-color {
-    background: #22ac38;
+    background: #01af63;
 }
 .product-list .guanjia {
     background: url(../images/index-44.png) no-repeat center 100px #f2f8ec;
@@ -638,7 +638,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) no-repeat;
 }
 .technologicalP ul li:first-child:hover{
-	background:#57eaaa;
+	background: #01af63;
 }
 .technologicalP ul li:first-child:hover p{
 	color:#FFF;
@@ -650,7 +650,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -45px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(2):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(2):hover p{
 	color:#FFF;
@@ -662,7 +662,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -90px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(3):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(3):hover p{
 	color:#FFF;
@@ -674,7 +674,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -135px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(4):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(4):hover p{
 	color:#FFF;
@@ -686,7 +686,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -180px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(5):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(5):hover p{
 	color:#FFF;
@@ -698,7 +698,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -225px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(6):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(6):hover p{
 	color:#FFF;
@@ -710,7 +710,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -270px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(7):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(7):hover p{
 	color:#FFF;
@@ -722,7 +722,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -315px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(8):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(8):hover p{
 	color:#FFF;
@@ -734,7 +734,7 @@ select.text:last-child{
 	background: url(../images/zhuyelc.png) -360px 0px no-repeat;
 }
 .technologicalP ul li:nth-child(9):hover{
-	background:#57eaaa;
+	background:#01af63;
 }
 .technologicalP ul li:nth-child(9):hover p{
 	color:#FFF;

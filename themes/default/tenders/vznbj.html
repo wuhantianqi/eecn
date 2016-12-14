@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<{include file="block/sheader.html"}>
+</head>
+<body>
+	<!-- 表单提交提示框 -->
+	<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+	<link rel="stylesheet" type="text/css" href="/themes/fangTo8to/static/css/index.css?<{$VER}>"/>
+	<!-- 底部弹出表单 -->
+	<link rel="stylesheet" href="/themes/fangTo8to/static/css/appointment-bottom.css" />
+	<div class="top-ad">
+		<ul>
+			<li><a target="_blank" href="<{link ctl='tenders:znbj'}>"><img src="/themes/fangTo8to/static/images/top-ad1.jpg"/></a></li>
+			<li><a target="_blank" href="<{link ctl='newactivity'}>"><img src="/themes/fangTo8to/static/images/top-ad2.jpg"/></a></li>
+		</ul>
+	</div>
+	<div class="nav_top">
+		<!--顶部内容-->
+		<div class="top_nav colorbg">
+            <div class="mainwd">
+                <div class="lt">
+                    <{if $MEMBER.uid}>
+                    <ul class="top_nav_login hoverno">
+                        <li>
+                            <a href="<{link ctl='ucenter/member:index'}>"><span class="login_ico denglu_ico"></span>个人中心<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/member:index'}>">个人中心</a>
+                                <a href="<{link ctl='ucenter/member/diary:index'}>">装修日记</a>
+                                <a href="<{link ctl='ucenter/member/ask:index'}>">装修问答</a>
+                                <a href="<{link ctl='ucenter/member/yuyue:tenders'}>">我的招标</a>
+                                <a href="<{link ctl='ucenter/member/yuyue:company'}>">我的预约</a>
+                                <a href="<{link ctl='passport:loginout'}>">退出</a>
+                            </div>
+                        </li>
+                        <{if $MEMBER.from == 'company'}>
+                        <li>
+                            <a href="<{link ctl='ucenter/company:index'}>"><span class="ico_list in_t_s_ico"></span>公司管理<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/company:info'}>">公司设置</a>
+                                <a href="<{link ctl='ucenter/company/case:index'}>">案例管理</a>
+                                <a href="<{link ctl='ucenter/company/youhui:index'}>">优惠信息</a>
+                                <a href="<{link ctl='ucenter/company/yuyue:company'}>">预约管理</a>
+                            </div>
+                        </li>
+                        <{elseif $MEMBER.from == 'shop'}>
+                        <li>
+                            <a href="<{link ctl='ucenter/shop:index'}>"><span class="ico_list in_t_s_ico"></span>商铺管理<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/shop:info'}>">商铺设置</a>
+                                <a href="<{link ctl='ucenter/shop/order:index'}>">订单管理</a>
+                                <a href="<{link ctl='ucenter/shop/yuyue:shop'}>">预约管理</a>
+                            </div>
+                        </li>
+                        <{/if}>
+                        <li><a href="<{link ctl='passport:loginout'}>">退出</a></li>
+                    </ul>
+                    <{else}>
+                    <div>
+                        <a target="_blank" href="<{link ctl='passport'}>" mini-login="login"><span class="login_ico denglu_ico"></span>登录</a>  |
+                        <a target="_blank" href="<{link ctl='passport:reg'}>">注册</a>
+                    </div>
+                    <{/if}>
+                </div>
+                <div class="rt">
+                     <font  class="tp_contactus"><a href="javascript:void(0)" class="over ">客户服务<span class="login_ico con_ico"></span></a>
+                        <div class="tp_contactus_box">
+                            <p class="tel">装修热线:<font class="fontcl1"><{$CONFIG.site.phone}></font></p>
+                            <ul class="tpService">
+                                <li>
+                                    <span class="login_ico tpSer1"></span>
+                                    <p><a href="<{link ctl="tenders"}>">免费招标</a></p>
+                                </li>
+                                <li>
+                                    <span class="login_ico tpSer2"></span>
+                                    <p><a href="<{link ctl="zxb"}>">装修保</a></p>
+                                </li>
+                                <li>
+                                    <span class="login_ico tpSer3"></span>
+                                    <p><a href="<{link ctl='about:about'}>">关于我们</a></p>
+                                </li>
+                            </ul>
+                            <div class="cl"></div>
+                            <div class="cont_bt">
+                            <img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" class="cont_ewm lt"/>
+                            <p class="lt bt">扫描二维码  关注官方微信</p>
+                            </div>
+                        </div>
+                    </font>|
+                    <font><span class="ico_list in_t_tel_ico"></span>装修热线 ：<b class="fontcl2"><{$CONFIG.site.phone}></b></font>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="nav_nav">
+		<div class="nav_right">
+			<ul class="nav nav-pills" role="tablist">
+		      <li role="presentation"><a class="" href="/">首页</a></li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='tenders'}>" aria-expanded="false">
+		          靠谱装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='activity'}>" aria-expanded="false">
+		          优惠信息 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='article'}>" aria-expanded="false">
+		          学装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='case:decorationCase'}>" aria-expanded="false">
+		          效果图 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		    </ul>
+		</div>
+		<div class="nav_left"><a href="/"><img src="/themes/fangTo8to/static/images/logo.png" alt=""></a></div>
+	</div>
+	<hr />
+	<script type="text/javascript">
+	 var jQ=jQuery.noConflict();
+		jQ(function(){   //顶端广告效果
+			(function(){
+				var timer;
+				var iNow=1;
+				var $adUl=jQ(".top-ad ul");
+				var $adLi=jQ(".top-ad ul li");
+				$adLi.clone().appendTo($adUl);
+				timer=setInterval(function(){
+					if(iNow==2){
+						$adUl.animate({
+							top: -iNow*60
+						},800,function(){$adUl.css('top','0')});
+						iNow=1;
+					}
+					else{
+						$adUl.animate({
+							top: -iNow*60
+						},800);
+						iNow++;
+					}
+				},3000)
+				timer;
+			})();
+		})
+	</script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/new_global.css">
+<!--[if lt IE 9]>
+<script src="/themes/default/static/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if gte IE 9]>
+<script src="/themes/default/static/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if !IE]><!-->
+<script src="/themes/default/static/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<!--<![endif]-->
+
+<script>
+   var jq = jQuery.noConflict();
+</script>
+<script src="/themes/default/static/js/common_new.js" type="text/javascript"></script>
+<script type="text/javascript">jq('body').addClass('narrow_980');</script>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_new_two.css"/>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_n_alink.css">
+<div class="global_wrap clear zxbj_details" id="gloWrap">
+    <!-- con -->
+    <div class="con">
+        <div class="con_bj clear">
+            <!-- calculate -->
+            <div class="con_bj_cal col_l">
+                <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="num_man">128</em> 位业主获取了装修预算</span></h3>
+                
+                <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+                    <input type="hidden" name="data[from]" value="ZNBJFROM" />
+                    <div class="mod_form bj_form">
+                        <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
+                            <div class="element">
+                                <div class="clear clear_sity">
+                                    <{widget id="data/region" city_id=$request.city_id class="text short"}>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="" class="label" ><em class="label_start">*</em>房屋面积：</label>
+                            <div class="element">
+                                <div class="text_wrap">
+                                    <input type="text" class="text area_text" name="data[house_mj]" id="square">
+                                    <em class="text_lbl">输入您的房屋面积</em>
+                                    <em class="unit" style="color: black;">m&sup2;</em>
+                                </div>
+                                <p class="text_area">* 输入面积小于30㎡时，报价结果按30㎡计算</p>
+                            </div>
+                        </div>
+
+                        <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>房屋户型：</label>
+                            <div class="element">
+                                <div class="clear">
+                                    <select id="shi" class="select select_s select_s_s col_l">
+                                        <option value="1">1室</option>
+                                        <option value="2">2室</option>
+                                        <option value="3">3室</option>
+                                        <option value="4">4室</option>
+                                        <option value="5">5室</option>
+                                        <option value="6">6室</option>
+                                    </select>
+                                    <select id="ting" class="select select_s select_s_s col_l">
+                                        <option value="1">1厅</option>
+                                        <option value="2">2厅</option>
+                                        <option value="3">3厅</option>
+                                        <option value="4">4厅</option>
+                                        <option value="5">5厅</option>
+                                        <option value="6">6厅</option>
+                                    </select>
+                                    <select id="chu" class="select select_s select_s_s col_l">
+                                        <option value="1">1厨</option>
+                                        <option value="2">2厨</option>
+                                        <option value="3">3厨</option>
+                                    </select>
+                                    <select id="wei" class="select select_s col_l">
+                                        <option value="1">1卫</option>
+                                        <option value="2">2卫</option>
+                                        <option value="3">3卫</option>
+                                        <option value="4">4卫</option>
+                                        <option value="5">5卫</option>
+                                        <option value="6">6卫</option>
+                                    </select>
+                                    <select id="yangtai" class="select select_s col_l">
+                                        <option value="1">1阳台</option>
+                                        <option value="2">2阳台</option>
+                                        <option value="3">3阳台</option>
+                                        <option value="4">4阳台</option>
+                                        <option value="5">5阳台</option>
+                                        <option value="6">6阳台</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_line" id="phoneInput">
+                            <label for="" class="label" ><em class="label_start">*</em>手机号码：</label>
+                            <div class="element">
+                                <div class="text_wrap"><input type="text" class="text" name="data[mobile]"><em class="text_lbl">请输入你常用的手机号</em></div>
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <label for="" class="label" ><em class="label_start">*</em>验 证 码：</label>
+                            <div class="element verification">
+                                <span class="text_wrap"><input type="text" class="text" name="verification"><em class="text_lbl">请输入验证码</em></span>
+                                <span>获取手机验证码</span>
+                            </div>
+                            <p class="form_line_wen"><i></i>优优美家承诺：我们将严格保密您的私人信息,此服务为全程免费，绝无任何收费信息。</p>
+                            <input type="hidden" id="veritry" value="">
+                        </div>
+                        <div class="form_line bj_btn">
+                            <input type="hidden" name="data[budget_id]" id="contact" value=""  />  
+                            <input class="calc-btn" id="new_base_info" type="submit" value="" style="border: none;cursor: pointer;"/>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- results -->
+            <div class="con_bj_res col_r">
+                <!--<h3>计算结果</h3>-->
+                <div class="bj_res_con">
+                    <div class="bj_res_t clear">您的装修预算约<b id="bprice">？</b><span>元</span></div>
+                    <ul class="bj_res_ul">
+                        <li class="clear"><span>材料费：</span><strong id="materialPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>人工费：</span><strong id="artificialPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>设计费：</span><strong id="designPay"><em>？</em>元</strong></li>
+                        <li class="clear"><span>质检费：</span><strong id="qualityPay"><em>？</em>元</strong></li>
+                    </ul>
+                </div>
+                <div class="bj_explain" style="display:none">
+                    <p class="attention"><b>*</b>稍候装修管家将给您回电，免费提供装修咨询服务</p>
+                    <p><b>*</b>因材料品牌及工程量不同，具体报价以量房实测为准</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/themes/default/static/js/vzxbj_new_two.js" type="text/javascript"></script>
+   <!-- <script src="/themes/default/static/js/globalprovinces.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+//      var gpm = new GlobalProvincesModule;               //城市类
+//      gpm.def_province = ["省/市", ""];
+//      gpm.def_city1 = ["市/地区", ""];
+//      gpm.def_city2 = ["县/市", ""];
+//      gpm.initProvince($('User_Shen'));
+        
+        //解决大屏幕底部定位导致信息显示不全问题
+        jq(function(){
+            function setMinHeight(){
+                var htmlObj = document.documentElement,
+                    wrapObj = document.getElementById('gloWrap'),
+                    windowHeight  = htmlObj.clientHeight || bodyObj.clientHeight,
+                    wrapHeight = wrapObj.offsetHeight,
+                    wrapTop = wrapObj.offsetTop,
+                    wrapPos = wrapHeight + wrapTop;
+                
+                if (wrapPos < windowHeight) {
+                    var pos = windowHeight - wrapPos;
+                    wrapObj.getElementsByClassName('con')[0].style.paddingBottom = pos +'px';
+                };
+            }
+            setMinHeight();
+            jq(window).on('resize', function(){
+                setMinHeight();
+            })
+        })
+    </script>
+</div>
+<link type="text/css" rel="stylesheet" href="/themes/default/static/css/popupsubmodal.css">
+<div class="sub_footer">
+    <p><{calldata mdl="article/article" city_id=$request.city_id from='about' limit="6"}><a href="<{link ctl='about' arg0=$item.page}>"><{$item.title}></a> <{if !$last}>|<{/if}> <{/calldata}></p>
+    <p>免责声明：本网站部分内容由用户自行上传，如权利人发现存在误传其作品情形，请及时与本站联系。</p>
+    <p>Copyright &copy; 2011-2015 All Rights Reserved 优优美家装修网和东启创拓公司 保留所有权利</p>
+    <p>    <!-- 百度商桥PC版 -->
+    <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E")); </script>优优美家装修家居 ICP备案：<{$CONFIG.site.icp}></p>
+</div>
+<!--底边内容结束-->
+<!--<{widget id="public/kefu"}>-->
+<link rel="stylesheet" href="<{$pager.res}>/script/bxslider/jq.bxslider.css" type="text/css" />
+<script type="text/javascript"  src="<{$pager.res}>/script/bxslider/jq.bxslider.min.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+    $('[bxSlider]').bxSlider({ mode: 'fade',captions: true, auto:true});
+});
+})(window.KT, window.jQuery);
+</script>
+<p class="none"><{$CONFIG.site.tongji}></p>
+</body>
+</html>
+
+
+
+
+

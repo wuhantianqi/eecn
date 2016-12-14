@@ -172,4 +172,48 @@ class Mdl_Sms_Sms extends Model
         $content = str_replace($a, $b, $tmpl);
         return $content;
     }
+
+    //带验证码的控制器
+    public function vsend($mobile, $tmpl, $data=array(), $number, $checked=false)
+    {   
+        if(!$content = $this->_vparse($tmpl, $data, $number)){
+            return false;
+        }
+        if(!$checked && !defined('IN_ADMIN')){
+            if(!$this->check_sms(__IP, $title)){
+                $this->err->add($title, 451);
+                return false;
+            }
+        }
+        $status = $this->_send($mobile, $content);
+        return $status;
+    }
+
+    protected function _vparse($tmpl, $data=array(), $number)
+    {
+        if(preg_match('/^[\w\-\:]+$/i', $tmpl)){
+            $ident = $tmpl;
+            if(strpos($ident, 'sms_') === false){
+                $ident = 'sms_'.$tmpl;
+            }
+            if($detail = K::M('system/systmpl')->detail_by_key($ident)){
+                if(!$detail['is_open']){
+                    return false;
+                }
+                $tmpl = $detail['tmpl'];
+            }
+        }
+        //强行将要发送的验证码的信息改正过来了
+        $tmpl = "亲爱的用户你好,你的验证码是：".$number.",有效期半个小时,请注意及时验证 【{site_title}】";
+        $a = $b = array();
+        foreach((array)$data as $k=>$v){
+            $a[] = '{'.$k.'}';
+            $b[] = $v;
+        }
+        $a[] = '{site_title}'; $a[] = '{site_phone}'; $a[] = '{city_name}'; $a[] = '{dateline}';$a[]='{site_name}';
+        $b[] = $this->_sitetitle; $b[] = $this->_sitephone; $b[] = $this->_cityname; $b[] = $this->_dateline; $b[] = $this->_sitetitle;
+        $content = str_replace($a, $b, $tmpl);
+        return $content;
+    }
+
 }

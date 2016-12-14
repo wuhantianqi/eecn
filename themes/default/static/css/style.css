@@ -138,7 +138,7 @@ p.sub_nav_prt{ line-height:40px;}
 /*灰色1000px底部样式结束 */
 
 /*右侧导航样式开始 */
-.rightNav{ position:fixed;right:25px; top:270px; width:auto; height:auto; z-index:99;}
+.rightNav{ position:fixed;right:1px; top:270px; width:auto; height:auto; z-index:99;}
 .rightNav li{ margin-bottom:1px; width:auto; height:auto; cursor:pointer; position:relative;}
 .rightNav li .show{ display:block;width:58px; height:58px;background:#fff none repeat scroll 0 0; text-align:center;border:1px solid #eee;}
 .rightNav li .show span.ico{ display:block; width:56px; height:36px; }

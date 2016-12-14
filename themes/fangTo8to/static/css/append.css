@@ -248,6 +248,10 @@ ul.main_worker_ul li.first{ padding:20px;}
 	margin-bottom:20px;
 	margin-top:40px;
 }
+.sort_box_new{
+	width: 1200px;
+    height: 38px;
+}
 .xieriji{
 	text-align: center;
     line-height: 38px;
