@@ -96,162 +96,82 @@
 			<{/if}>
 		</div>
 		<div class="img_content init" style="margin-right:290px;">
-			<div class="img_box img_box_deta">
-						<div class="zh-carousel">
-							<ul class="zh-carousel-ul" style="height:600px;">
-								<{foreach $photos as $item}>
-								<li>
-									<a href="#"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
-								</li>
-								<{/foreach}>
-								
-							</ul>
-							<div class="control-bg">
-								<div class="zh-run-box">
-									<ul class="zh-control-ul">										
-										<{foreach $photos as $item}>
-										<li><img src="<{$pager.img}>/<{$item.photo}>_small.jpg"/></li>
-										<{/foreach}>									
-									</ul>
-								</div>
-								<a class="zh-control-prev"></a>
-								<a class="zh-control-next"></a>
-							</div>
-						</div>
-						<a class="zh-carousel-prev"></a>
-						<a class="zh-carousel-next"></a>
-
-				<script type="text/javascript">						
-					$(function(){		//原图显示，原图的高度最好不要超过590px
-						var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
-						
-						var $controlUl=$(".zh-control-ul");
-						var $control =$(".zh-carousel .zh-control-ul li");
-						
-						var $prev = $(".zh-carousel-prev");
-						var $next = $(".zh-carousel-next");
-						
-						var $prevCon=$(".zh-control-prev");
-						var $nextCon=$(".zh-control-next");
-						var $controlBg=$(".control-bg");
-						
-						var $imgBox=$(".img_box");
-						var $boxHeight=$(".img_box").css("height");
-						var $fatherHeights = $('.zh-carousel-ul');
-						
-						$carouselLi.eq(0).find('img').load(function(){
-							$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+120);
-						})
-						var timer=null;
-						var iNow =0;
-						var iNow2 =1;
-						
-						$control.eq(0).addClass("active");
-						
-						$control.click(
-							function(){
-				//				clearInterval(timer);
-								$index = $(this).index();
-								iNow = $index;
-								$boxHeight=$carouselLi.eq(iNow).css("height");
-								$imgBox.css("height",parseInt($boxHeight)+120);
-								$fatherHeights.css("height",parseInt($boxHeight)+40);
-								reBulid(iNow);
-							}			
-						)
-						$prev.click(function(){
-				//			clearInterval(timer);
-							if(iNow==0){
-								iNow=$carouselLi.length-1;
-							}
-							else{
-								iNow--;
-							}
-							$boxHeight=$carouselLi.eq(iNow).css("height");
-							$imgBox.css("height",parseInt($boxHeight)+120);
-							$fatherHeights.css("height",parseInt($boxHeight)+40);
-							reBulid(iNow);
-						})
-						
-						$next.click(function(){
-				//			clearInterval(timer);
-							if(iNow==$carouselLi.length-1){
-								
-								iNow=0;
-							}
-							else{
-								iNow++;
-							}
-							$boxHeight=$carouselLi.eq(iNow).css("height");
-							$imgBox.css("height",parseInt($boxHeight)+120);
-							$fatherHeights.css("height",parseInt($boxHeight)+40);
-							reBulid(iNow);
-						})
-
-						function auto(){
-							if(iNow==$carouselLi.length-1){
-								
-								iNow=0;
-							}
-							else{
-								iNow++;
-							}
-							reBulid(iNow);
-						}
-						
-						function reBulid(num){
-							$carouselLi.each(function(){
-								$carouselLi.fadeOut();
-							})
-							$control.each(function(){
-								$control.removeClass("active");
-							})
-							
-							$carouselLi.eq(iNow).fadeIn();
-							$control.eq(iNow).addClass("active");
-						}
-						var $prevCon=$(".zh-control-prev"); 											
-						var $nextCon=$(".zh-control-next");
-						
-						var ulWidth=$control.length*72;
-						
-						(function(){	
-							$prevCon.click(function(){
-								if(iNow2==1){
-									return false;
-								}
-								else{
-									iNow2--;
-									$controlUl.animate({
-									left:-(iNow2-1)*72
-								},200);
-								
-								}
-							})
-							
-							$nextCon.click(function(){
-								
-								var ulLeft=Math.abs(parseInt($controlUl.css("left")));
-								if((ulLeft+1008)>=ulWidth){
-									return false;
-								}
-								else{
-									$controlUl.animate({
-										left:-iNow2*72
-									},200);
-									iNow2++;
-								}
-							})
-						})()
-
-					});
-					function fatherHeight(){
-						//获取大图下面的第一张图片高度并赋值给ul父元素
-						var he =$(".zh-carousel-ul li:first-child").height();	
-						$(".zh-carousel-ul").height(he+40);
-					}
-				</script>		
+			<script type="text/javascript" src="%THEME%/static/script/customcrollbar/jquery-1.8.3.min.js"></script>
+			<script type="text/javascript" src="%THEME%/static/script/customcrollbar/pic_tab.js"></script>
+			<style type="text/css">
+			.ban2{ width:800px; height:500px; position:relative; overflow:hidden;margin:0 auto;}
+			.ban2 ul{ position:absolute; left:0; top:0;}
+			.ban2 ul li{ width:800px; height:500px; }
+			.ban2 ul li img{ margin:0 auto; display:block; max-width:800px; max-height:500px}
+			.num{ height:82px;overflow:hidden; width:726px; position:relative;float:left;}
+			.min_pic{     
+				padding-top: 30px;
+    			width: 800px;
+    			margin:0 auto;
+    		}
+			.num ul{ position:absolute; left:0; top:0;}
+			.num ul li{ width:80px; height:70px; margin-right:5px; padding:1px;padding-top:10px;}
+			.num ul li.on{ border:1px solid red; padding:0;padding-top:10px;}
+			.prev_btn1{ width:16px; text-align:center; height:18px; margin-top:31px; margin-right:20px; cursor:pointer; float:left;}
+			.next_btn1{  width:16px; text-align:center; height:18px; margin-top:40px;cursor:pointer;float:right;}
+			.prev1{ position:absolute; top:220px; left:20px; width:28px; height:51px;z-index:9;cursor:pointer;}
+			.next1{ position:absolute; top:220px; right:20px; width:28px; height:51px;z-index:9;cursor:pointer;}
+			</style>
+			<div class="ban" id="demo1">
+				<div class="ban2" id="ban_pic1">
+					<div class="prev1" id="prev1"><img src="%THEME%/static/imageses/index_tab_l.png" width="28" height="51"  alt=""></div>
+					<div class="next1" id="next1"><img src="%THEME%/static/imageses/index_tab_r.png" width="28" height="51"  alt=""></div>
+					<ul>
+						<{foreach $photos as $item}>
+						<li><a href="javascript:;"><img src="<{$pager.img}>/<{$item.photo}>" alt=""></a></li>
+						<{/foreach}>
+					</ul>
+				</div>
+				<div class="min_pic">
+					<div class="prev_btn1" id="prev_btn1"><img src="%THEME%/static/imageses/feel3.png" width="9" height="18"  alt=""></div>
+					<div class="num clearfix" id="ban_num1">
+						<ul>
+							<{foreach $photos as $item}>
+							<li><a href="javascript:;"><img src="<{$pager.img}>/<{$item.photo}>_small.jpg" width="60" height="60" alt=""></a></li>
+							<{/foreach}>	
+						</ul>
+					</div>
+					<div class="next_btn1" id="next_btn1"><img src="%THEME%/static/imageses/feel4.png" width="9" height="18"  alt=""></div>
+				</div>
 			</div>
+
+
+			<script src="js/pic_tab.js"></script>
+			<script type="text/javascript">
+			jq('#demo1').banqh({
+				box:"#demo1",//总框架
+				pic:"#ban_pic1",//大图框架
+				pnum:"#ban_num1",//小图框架
+				prev_btn:"#prev_btn1",//小图左箭头
+				next_btn:"#next_btn1",//小图右箭头
+				// pop_prev:"#prev2",//弹出框左箭头
+				// pop_next:"#next2",//弹出框右箭头
+				prev:"#prev1",//大图左箭头
+				next:"#next1",//大图右箭头
+				// pop_div:"#demo2",//弹出框框架
+				// pop_pic:"#ban_pic2",//弹出框图片框架
+				// pop_xx:".pop_up_xx",//关闭弹出框按钮
+				// mhc:".mhc",//朦灰层
+				autoplay:true,//是否自动播放
+				interTime:5000,//图片自动切换间隔
+				delayTime:400,//切换一张图片时间
+				// pop_delayTime:400,//弹出框切换一张图片时间
+				order:0,//当前显示的图片（从0开始）
+				picdire:true,//大图滚动方向（true为水平方向滚动）
+				mindire:true,//小图滚动方向（true为水平方向滚动）
+				min_picnum:5,//小图显示数量
+				pop_up:false//大图是否有弹出框
+			})
+			</script>
+			<!-- 代码end -->
+
+
+
 		</div>
 	</div>
 </div>

@@ -112,7 +112,7 @@
         
     jq('#new_base_info').click(function(){
         if (validData()) {           //提交前验证信息
-            if( jq("#veritry").val() != "" && jq("input[name='verification']").val() == jq("#veritry").val() ){
+            if( jq("input[name='verification']").val() == jq("#veritry").val() ){
                 var mjia = jq('#square').val()*500;
                 
                 var mjiaNum=(mjia*0.8/10000).toFixed(1);
@@ -136,7 +136,11 @@
                 jq('#new_base_info').css("background-position","0 -168px");
                 messagebox();
             }else{
-                layer.msg('验证码错误，请重新输入');
+                if( jq("#veritry").val() != "" && isNaN(jq("#veritry").val()) ){
+                    layer.msg(jq("#veritry").val());  
+                }else{
+                    layer.msg('验证码错误，请重新输入');
+                }
                 return false;
             }           
         }else{

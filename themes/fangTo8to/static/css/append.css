@@ -326,7 +326,7 @@ h2.subSite_Tit a:first-child.on{ border-left:none;}
 .picture .pic_container.full .pic_right_content {visibility:hidden;}
 .picture .pic_container.full .img_content {margin-right: 0;}
 .picture .pic_container.full .custom_scroll {display: none;}
-.img_content {padding:10px; background:#fff;font-size: 12px;min-height: 680px;margin-right: 265px;position: relative;z-index: 1;}
+.img_content {padding:10px; background:#fff;font-size: 12px;min-height: 627px;margin-right: 265px;position: relative;z-index: 1;}
 .pic_right_content {position: absolute;top: 0;right: 0;width: 250px;height:auto;overflow-x:hidden;overflow-y:auto;  z-index: 0;}
 
 /*.case_pic_top{ width:100%; background:none;}*/
