@@ -751,6 +751,10 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 /*装修公司列表结束*/
 
 /*右边招标样式开始*/
+.mainwd .pin-wrapper{
+	width: 290px;
+	float:left;
+}
 .sub_content{ width:100%;}
 .side_content{ width:250px; float:right;}
 .side_content .side_content_kon{
