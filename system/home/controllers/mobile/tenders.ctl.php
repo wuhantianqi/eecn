@@ -34,6 +34,11 @@ class Ctl_Mobile_Tenders extends Ctl_Mobile
     {
         $this->tmpl = 'mobile/newpage/m-house-keeper.html';
     }
+    // 设计方案+装修报价活动页
+    public function programme()
+    {
+        $this->tmpl = 'mobile/newpage/programme.html';
+    }
     public function save()
     {
         if($data= $this->checksubmit('data')){
