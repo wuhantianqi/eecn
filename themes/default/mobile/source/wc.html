@@ -1,0 +1,190 @@
+<{assign var="is_index_home" value=true}>
+<{include file="mobile/block/header.html"}>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<link type="text/css" rel="stylesheet" href="/themes/default/mobile/static/css/source.css" />
+<div class="content">
+<div class="banner">
+	<img src="/themes/default/mobile/static/images/programme_banner.jpg" />
+</div>
+<div class="tenders-xuzhi">
+	<b>www.eecn.cc<em>活动须知</em></b>
+	<p>报名成功后，会有4位设计师免费提供 4套设计方案+4份报价单。
+	方案不满意可<i>免费修改，直到满意为止。</i>通过综合对比，选出性价比最高的装修方案。
+	本活动由优优美家网联合武汉上百家装饰公司共同发起。
+	优优美家承诺：<i>本次服务0收费，</i>如有收费现象您可以拨打举报电话:<i>027-87011088。</i></p>
+</div>
+<div class="tenders-tips">
+	<span class="h_hover">免费量房</span>
+	<span>免费设计</span>
+	<span>免费报价</span>
+	<span>免费监理</span>
+</div>
+<div class="pding tenders-form">
+	<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
+		<h2><span class="stress">10秒登记</span>，免费为您推荐靠谱装修公司</h2>
+		<input type="hidden" name="data[from]" value="<{$name}>" />
+		<label>
+			<span>您的称呼:</span>
+			<input type="text" name="data[contact]" placeholder="必填" />
+		</label>
+		<label>
+			<span>您的手机:</span>
+			<input type="text" name="data[mobile]" placeholder="必填" />
+			
+		</label>
+		<label>
+			<span>房屋面积:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+			<span class="square">㎡</span>
+		</label>
+		<label>
+			<span>小区名称:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+		</label>
+		<label>
+			<span>装修预算:</span>
+			<select name="data[budget_id]">
+				<{widget id="tenders/setting" type="budget"}>
+			</select>
+		</label>
+		<input type="submit" class="btn mainbtn_full tenders_btn" value="免费申请 " />
+		<p>我们承诺：优优美家提供该项<span class="stress">免费服务，绝不产生任何费用</span>，为了您的利益以及我们的口碑，您的隐私将被严格保密。</p>
+	</form>
+</div>
+<div class="ch-sub-main">
+	<div class="liucheng">
+		<span class="l-c-1"><i></i>免费<br>预约</span>
+		<ico></ico>
+		<span class="l-c-2"><i></i>免费<br>推荐</span>
+		<ico></ico>
+		<span class="l-c-3"><i></i>多家<br>对比</span>
+		<p>已有<span class="stress">806</span>位业主获取免费报价</p>
+	</div>
+	<div class="reason">
+		<p class="box-title"><img alt="" class="title-img-3" src="//static.tugou.com/tuan-m/index/img/v3-img-3.png"></p>
+		<div class="reason-list reason-list-1" style="background-image: url(&quot;//static.tugou.com/tuan-m/index/img/v3-img-4.png&quot;);">
+		<div class="reason-body">
+		<p class="reason-title">1.品牌多 规模大</p>
+		<p class="reason-describe"><a class="reason-icon-1">&nbsp;</a>全城 <span>100</span>大装修品牌，装修公司、建材、家具、软装、灯饰、家电一站式购齐</p>
+		<p class="reason-describe"><a class="reason-icon-2">&nbsp;</a>全国 <span>900万</span>装修业主共同选择</p>
+		</div>
+		</div>
+		<div class="reason-list reason-list-2" style="background-image: url(&quot;//static.tugou.com/tuan-m/index/img/v3-img-5.png&quot;);">
+		<div class="reason-body">
+		<p class="reason-title">2.严选全城优质装修品牌</p>
+		<p class="reason-describe"><a class="reason-icon-3">&nbsp;</a><span>只选好品牌</span><br>
+		全国一线大品牌<br>
+		本地最受欢迎品牌<br>
+		业主口碑推荐品牌</p>
+		<p class="reason-describe"><a class="reason-icon-4">&nbsp;</a><span>严审</span>品牌资质，确保服务<br>
+		质量，100%正品保障</p>
+		</div>
+		</div>
+		<div class="reason-list reason-list-3" style="background-image: url(&quot;//static.tugou.com/tuan-m/index/img/v3-img-6.png&quot;);">
+		<div class="reason-body">
+		<p class="reason-title">3.花一天时间省半年工资</p>
+		<p class="reason-describe"><a class="reason-icon-5">&nbsp;</a>厂家直供，价格透明，确保全城底价</p>
+		<p class="reason-describe"><a class="reason-icon-6">&nbsp;</a>万人团购，确保团购价比个人零售价低<span>30%-50%</span>，全城比价、买贵就赔</p>
+		<p class="reason-describe"><a class="reason-icon-7">&nbsp;</a>签订保价承诺，杜绝隐性消费</p>
+		</div>
+		</div>
+		<div class="reason-list reason-list-4" style="background-image: url(&quot;//static.tugou.com/tuan-m/index/img/v3-img-7.png&quot;);">
+		<div class="reason-body">
+		<p class="reason-title">4.专业装修管家<br>
+		一对一全程监管</p>
+		<p class="reason-describe"><a class="reason-icon-8">&nbsp;</a>随时答疑解惑</p>
+		<p class="reason-describe"><a class="reason-icon-9">&nbsp;</a>推荐口碑装修公司</p>
+		<p class="reason-describe"><a class="reason-icon-10">&nbsp;</a>审核预算报价</p>
+		<p class="reason-describe"><a class="reason-icon-11">&nbsp;</a>指导材料选购</p>
+		<p class="reason-describe"><a class="reason-icon-12">&nbsp;</a>提供专业监理</p>
+		</div>
+		</div>
+	</div>
+	<div class="welfare">
+		<p class="box-title"><img alt="" class="title-img-5" src="//static.tugou.com/tuan-m/index/img/v3-img-13.png"></p>
+		<ul>
+		<li style="background-image: url(//img.citytogo.com.cn/uploads/index/privilege-img-1.png)">
+		<p class="item-title">签到有礼，免费送</p>
+		<p class="item-desc">前1000户报名且到场可以领取精美礼品一份</p>
+		</li>
+		<li style="background-image: url(//img.citytogo.com.cn/uploads/index/privilege-img-2.png)">
+		<p class="item-title">转发有礼，VIP有礼</p>
+		<p class="item-desc">报名后添加小橙微信(13067907019)即可参与朋友圈转发活动，到场可领取礼品一份</p>
+		</li>
+		<li style="background-image: url(//img.citytogo.com.cn/uploads/index/privilege-img-3.png)">
+		<p class="item-title">超级红包墙，每个都有奖</p>
+		<p class="item-desc">每下2个不同品牌定单就可抽取红包1个，电水壶、电烤箱、现金等超多大奖抽完为止</p>
+		</li>
+		<li style="background-image: url(//img.citytogo.com.cn/uploads/index/privilege-img-4.png)">
+		<p class="item-title">抽家电大奖</p>
+		<p class="item-desc">下单就可参与抽家电大奖，冰箱、洗衣机、微波炉、电烤箱…10万家电，通通抽给你</p>
+		</li>
+		</ul>
+	</div>
+	<div class="guarantee-panel">
+    <p class="box-title">
+      <img alt="" class="title-img-6" src="//static.tugou.com/tuan-m/index/img/v3-img-14.png">
+    </p>
+    <ul class="guarantee-body">
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-1"></p>
+        <p class="desc1">
+          品牌保障
+        </p>
+        <p class="desc2">
+          严选品牌 资质审核
+        </p>
+      </li>
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-2"></p>
+        <p class="desc1">
+          正品保障
+        </p>
+        <p class="desc2">
+          厂家直供 100%正品
+        </p>
+      </li>
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-3"></p>
+        <p class="desc1">
+          低价保障
+        </p>
+        <p class="desc2">
+          全城比价 买贵就赔
+        </p>
+      </li>
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-4"></p>
+        <p class="desc1">
+          质量保障
+        </p>
+        <p class="desc2">
+          品质抽检 口碑推荐
+        </p>
+      </li>
+      
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-5"></p>
+        <p class="desc1">
+          服务保障
+        </p>
+        <p class="desc2">
+          装修管家 全程服务
+        </p>
+      </li>
+      <li class="gt-item">
+        <p class="guarantee-img guarantee-img-6"></p>
+        <p class="desc1">
+          售后保障
+        </p>
+        <p class="desc2">
+          30分钟响应 72小时解决
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<{include file="mobile/block/footer.html"}>
+		
+
+		
