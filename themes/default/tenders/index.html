@@ -511,6 +511,13 @@
 				},3000)
 				timer;
 		    })();
+		    //鼠标移入移出变色
+			$(document).on('mousemove','.tenders-form2 input',function(){				
+				$('.tenders-form2 input').css('border-color', '#e3e3e3');
+				$(this).css('border-color','#ff4401');
+			}).on('mouseout','.tenders-form2 input',function(){
+				$(this).css('border-color', '#e3e3e3');
+			})
 		});
 		})(window.KT, window.jQuery);
 		</script>

@@ -123,7 +123,13 @@
 			var $formLi=$(".index-form ul li");
 			tabFunction($controller,$formLi);
 		})();
-		
+		//鼠标移入移出变色
+		$(document).on('mousemove','.index-form ul li input',function(){
+			$(this).css('border-color','#ff4401');
+			$(this).siblings().css('border-color', '#e3e3e3');
+		}).on('mouseout','.index-form ul li input',function(){
+			$(this).css('border-color', '#e3e3e3');
+		})
 	
     })
 	
