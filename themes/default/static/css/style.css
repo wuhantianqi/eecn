@@ -1580,30 +1580,70 @@ p.img{ text-align:center; margin:10px auto;}
 /*---------------------------------------------------装修日记页面样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------小区楼盘详情页面样式开始---------------------------------------------------*/
-.subwd_terminal{
-	position: relative;
-}
 /*头部导航样式开始*/
 .home_top span.lt font{ margin-left:20px; font-size:14px; color:#666;}
 .home_top span.rt{ font-size:18px;}
-.home_nav{ background:#f8f8f8; border-top:3px solid #00ad28; height:35px; line-height:35px; border-bottom:1px solid #ddd;}
-.home_nav a{ display:inline-block; padding:0px 20px; font-size:16px; margin-right:2px;}
-.home_nav a.current,.home_nav a:hover{ background:#00ad28; color:#fff;}
-/*头部导航样式结束*/
-/*右边悬浮start*/
-.switch-button{
-	width: 28px;
-	height: 100px;
-	background-color: #000;
-	position: absolute;
-	top:0px;
-	right: -10px;
+.home_nav_article{ 
+	width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    background: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    height: 48px;
+    line-height: 48px; 
 }
-/*右边悬浮end*/
+.home_nav_article a{ 
+	display:block; 
+	float:left;
+	padding:0px 20px; 
+	font-size:16px; 
+	border-right: 1px solid #e8e8e8;
+}
+.home_nav_article a.current,.home_nav_article a:hover{ border-top:2px solid #00ad28; color:#00ad28;margin-top:-1px;}
+/*头部导航样式结束*/
 /*左边详情样式开始*/
 .sub_home_lt{ width:100%;}
+.home_index_top{
+	position: relative;
+	background-color: #f8f8f8;
+	padding:15px;
+	margin: 15px 0 30px 0;
+}
+.home_index_top .btn_sub_tuan{
+	margin-top: 9px;
+}
+.qu-weixing{
+	width: 185px;
+	height: 163px;
+	position: absolute;
+	top: 46px;
+    right: 55px;
+	background-image: url(../images/zxgl_erweima.png);
+}
+.qu-weixing::before{
+	content: "";
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 29px;
+    right: 36px;
+	display: block;
+	background-image: url(../images/learn/app_weixin.jpg);
+	background-size: 90px;
+}
+.mb10-detail{
+	margin-top:20px;
+	border-bottom: 1px dotted #e8e8e8;
+}
+.mb10-detail .home_title{
+	font-size: 24px;
+}
+.mb10-detail .home_box{
+	margin-top: 15px;
+	padding-top: 20px;
+}
 .home_index_top .pic{ width:300px; height:225px;}
-.home_index_top div.rt{ width:55%;}
+.home_index_top div.rt{ width:62%;}
 .home_index_top div.rt p{ font-size:14px; line-height:30px;}
 .home_box { border-top:2px solid #00ad28;}
 .home_title a{ font-size:12px; height:20px; margin-top:5px;}
@@ -1618,6 +1658,9 @@ ul.home_design a.fontcl2:hover{ color:#ff4401;}
 .home_pic_list li img,.home_pic_list li .opacity_img{ width:220px; height:165px;}
 .home_pic_list li .opacity_img p.text{ text-align:center;}
 .home_pic_list li { float:left; margin:0px 8px 10px 8px;}
+.home_pic_list li:first-child{
+	margin-left: 0px;
+}
 /*左边详情样式结束*/
 
 /*其它小区楼盘详情页样式开始*/

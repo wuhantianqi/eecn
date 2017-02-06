@@ -10,10 +10,27 @@
 <!--面包屑导航结束-->
 <!--头部导航开始-->
 <div class="subwd mb10">
-    <h1 class="home_top"><span class="lt"><{$home.name}> <font> (<{$home.views}>人浏览)</font></span><span class="rt">本楼群盘QQ群 : <b class="fontcl1"> <{$home.qq_qun}></b></span></h1>
+    <h1 class="home_top"><span class="lt"><{$home.name}> <font> (<{$home.views}>人浏览)</font></span>
+    <!-- <span class="rt">本楼群盘QQ群 : <b class="fontcl1"> <{$home.qq_qun}></b></span> -->
+    </h1>
     <div class="cl"></div>
+    <div class="pding area mb10 home_index_top">
+        <img src="<{$pager.img}>/<{$home.thumb}>" class="pic lt" />
+        <div class="rt">
+            <p>楼盘地址：    <{$home.addr}></p>
+            <p>竣工时间：    <{$home.jf_date}></p>
+            <p>参考均价： <font class="fontcl2"><{$home.price}></font>元/平方米</p>
+            <p>开盘时间：    <{$home.kp_date}></p>
+            <p>开发商： <{$home.kfs}> </p>
+            <p>小区地址：<{$home.addr}></p>
+            <a href="<{link ctl='tenders:fast' home_id=$home_id http='ajax'}>" mini-load="申请免费设计" mini-width="500" class="btn_sub_tuan btn">申请免费设计</a>
+            <span class="qu-weixing">
+            </span>
+        </div>
+        <div class="cl"></div>
+    </div>
 </div>
-<div class="home_nav hoverno mb10">
+<div class="home_nav_article hoverno mb10">
     <div class="subwd">
         <a href="<{link ctl='home:detail' arg0=$home.home_id}>" <{if strpos($request.uri,'detail')}>class="current"<{/if}>>楼盘主页</a>
    <!--      <a href="<{link ctl='home:cases' arg0=$home.home_id}>" <{if strpos($request.uri,'cases') || strpos($uri,'caseDetail')}>class="current"<{/if}>>设计方案</a> -->
@@ -25,4 +42,4 @@
     </div>
 </div>
 <!--头部导航结束-->
-<div class="subwd subwd_terminal">
+<div class="subwd">
