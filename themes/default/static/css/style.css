@@ -258,9 +258,10 @@ ul.index_home li p{ height:30px; overflow:hidden;}
 /*2F找我家设计方案右侧工具样式结束*/
 
 /*3F团装活动样式开始*/
-ul.index_tuanz li{ float:left; margin:10px 0px 5px 7px; width:220px; height:260px; overflow:hidden;}
+ul.index_tuanz li{ float:left; margin:10px 0px 5px 7px; width:280px; height:280px; overflow:hidden;}
 ul.index_tuanz li.first{ margin-left:0px;}
-ul.index_tuanz li img{ width:220px; height:165px;}
+
+ul.index_tuanz li img{ width:280px; height:165px;}
 ul.index_tuanz li .index_tuanz_btm p{ overflow:hidden; padding:0px 5px;}
 ul.index_tuanz li  p{ height:30px; overflow:hidden;}
 ul.index_tuanz li  p.colorbg{ padding:5px;}
@@ -729,7 +730,7 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 /*装修公司列表开始*/
 .main_list a.pic img{ background:#fff;}
 .main_list_rt div.lt{ width:70%; overflow:hidden;font-size:14px;}
-.main_list_rt div.lt p{ line-height:30px; height:30px; overflow:hidden;}
+.main_list_rt div.lt p{ height:28px; overflow:hidden;}
 .main_company a.pic img{width:160px; height:160px;}
 .main_company a.pic{ position:relative;     padding: 10px 10px;}
 .main_company a.pic .qijian_ico{ position:absolute; top:-6px; left:-9px; width:71px; height:72px; background-position:-170px 0px;}
@@ -772,7 +773,7 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 	padding:10px;
 } 
 .mb20 .side_content_xianqi{
-	width: 250px;
+	width: 230px;
 	margin-left:0px;
     border:none;
 }
@@ -836,9 +837,9 @@ ul.paihang li .ph_num_cl{ background:#00ad28;}
 /*---------------------------------------------------找设计师列表页面样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------小区楼盘列表页面样式开始---------------------------------------------------*/
-ul.main_tuanz li{ margin:10px 0px 5px 6px;}
+ul.main_tuanz li{ margin:10px 0px 5px 16px;}
 .main_home a.pic img{ width:200px; height:150px;}
-.main_home_rt{ width:75%;}
+.main_home_rt{ width:75%; padding-right: 30px;}
 .price_ico{ width:15px; height:15px; background-position:-15px -60px;}
 .time_ico{ width:15px; height:15px; background-position:0px -75px;}
 .main_home_rt p.sp_list a{ margin-right:20px; display:inline-block; text-decoration:underline;}
@@ -1579,6 +1580,9 @@ p.img{ text-align:center; margin:10px auto;}
 /*---------------------------------------------------装修日记页面样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------小区楼盘详情页面样式开始---------------------------------------------------*/
+.subwd_terminal{
+	position: relative;
+}
 /*头部导航样式开始*/
 .home_top span.lt font{ margin-left:20px; font-size:14px; color:#666;}
 .home_top span.rt{ font-size:18px;}
@@ -1586,7 +1590,16 @@ p.img{ text-align:center; margin:10px auto;}
 .home_nav a{ display:inline-block; padding:0px 20px; font-size:16px; margin-right:2px;}
 .home_nav a.current,.home_nav a:hover{ background:#00ad28; color:#fff;}
 /*头部导航样式结束*/
-
+/*右边悬浮start*/
+.switch-button{
+	width: 28px;
+	height: 100px;
+	background-color: #000;
+	position: absolute;
+	top:0px;
+	right: -10px;
+}
+/*右边悬浮end*/
 /*左边详情样式开始*/
 .sub_home_lt{ width:100%;}
 .home_index_top .pic{ width:300px; height:225px;}

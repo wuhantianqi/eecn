@@ -321,11 +321,12 @@
 	</div>
 	<div class="clear"></div>
     <div class="link link_bottom">
+    	<p class="link-you">友情链接 <span>( 联系QQ: 1229992339 )</span></p>
         <ul>
-            <li>友情链接:</li>
+            <!-- <li>友情链接:</li> -->
             <div class="link-detial">
 	            <{calldata mdl='market/links' city_id=$request.city_id limit="500"}>
-	            <li><a href="<{$item.link}>" target="_blank"><{$item.title}></a></li>
+	            <li><a rel="nofollow" href="<{$item.link}>" target="_blank"><{$item.title}></a></li>
 	            <{/calldata}>	
            	</div>
         </ul>
