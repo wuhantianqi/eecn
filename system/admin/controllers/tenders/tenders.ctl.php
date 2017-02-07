@@ -143,6 +143,7 @@ class Ctl_Tenders_Tenders extends Ctl
                         }                        
                     }
                     $this->err->add('修改内容成功');
+                    $this->err->set_data('forward', '?tenders/tenders-index.html');
                 }  
             } 
         }else{

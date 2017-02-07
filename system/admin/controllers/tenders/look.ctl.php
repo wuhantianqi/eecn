@@ -158,10 +158,12 @@ class Ctl_Tenders_Look extends Ctl
                                     }
                                     K::M('shop/shop')->update_count($this->shop['shop_id'], 'tenders_num'); break;
                             }
+
+                            // $member['mobile'] = $detail['mobile'] = 17786044529;
                             $smsdata = $maildata = array('contact'=>$detail['contact'] ? $detail['contact'] : '业主','mobile'=>$detail['mobile']);
-                            K::M('sms/sms')->send($member['mobile'], 'admin_tenders_look', $smsdata);
-                            K::M('helper/mail')->send($member['mail'], 'admin_tenders_look', $maildata);
-                            $this->err->set_data('forward', '?tenders/tenders-detail-'.$tenders_id.'.html');
+                            K::M('sms/sms')->send($member['mobile'], 'sms_admin_company_tenders', $smsdata);
+                            // K::M('helper/mail')->send($member['mail'], 'admin_tenders_look', $maildata);
+                            // $this->err->set_data('forward', '?tenders/tenders-detail-'.$tenders_id.'.html');
                             $this->err->add('分标成功');
                         }
                         
