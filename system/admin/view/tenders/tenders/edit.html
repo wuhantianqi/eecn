@@ -26,6 +26,8 @@
 </tr>
 <tr><th>联系人：</th><td><input type="text" name="data[contact]" value="<{$detail.contact|default:''}>" class="input w-300"/></td></tr>
 <tr><th><span class="red">*</span>手机号：</th><td><input type="text" name="data[mobile]" value="<{$detail.mobile|default:''}>" class="input w-300"/></td></tr>
+<!-- 不需要手机验证 -->
+<input type="hidden" name="Editingbidding" value="1">
 <tr>
     <th>小区：</th>
     <td>

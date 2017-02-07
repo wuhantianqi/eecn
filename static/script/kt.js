@@ -254,14 +254,23 @@ $(document).ready(function(){
 		if($(this).find("input[type='file']").size()>0){
 			$(this).attr("ENCTYPE", "multipart/form-data");
 		}
-		//判断手机号必须是11位
-		var phone =/^1[3|4|5|6|7|8]\d{9}$/;
-		// 手机号码如果为空会有之前系统自带的功能去判断，这里只判断有值的情况
-		if($(this).find("input[name='data[mobile]']").val().length >0 && !phone.test( $(this).find("input[name='data[mobile]']").val() )){
-		    Widget.MsgBox.load("请填写11位正确的手机号码");
-		    // 3秒关闭提示框
-		    setTimeout( messageb, 3000); 
-			return false;
+		if($(this).find("input[name='Editingbidding']").val()){   //后台手机验证只需要8位或者11位
+			if( $(this).find("input[name='data[mobile]']").val().length != 11 ){
+			    Widget.MsgBox.load("请填写正确的手机号码或座机号");
+			    // 3秒关闭提示框
+			    setTimeout( messageb, 3000); 
+				return false;
+			}
+		}else{
+			//判断手机号必须是11位
+			var phone =/^1[3|4|5|6|7|8]\d{9}$/;
+			// 手机号码如果为空会有之前系统自带的功能去判断，这里只判断有值的情况
+			if($(this).find("input[name='data[mobile]']").val().length >0 && !phone.test( $(this).find("input[name='data[mobile]']").val() )){
+			    Widget.MsgBox.load("请填写11位正确的手机号码");
+			    // 3秒关闭提示框
+			    setTimeout( messageb, 3000); 
+				return false;
+			}
 		}
 		return true;
 	});
