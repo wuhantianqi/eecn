@@ -266,44 +266,44 @@ a {
 }
 .cast-list {
     width: 100%;
-    height: 5.3rem;
+    height: 9.5rem;
     margin-bottom: 0.16rem;
     overflow: hidden;
 }
 .cast-left {
-    width: 4.5rem;
-    height: 5.3rem;
+    width: 4.6rem;
+    height: 4.6rem;
     overflow: hidden;
     float: left;
-    margin-right: 0.4rem;
+    margin-right: 0.2rem;
 }
 .cast-left img {
-    width: 4.5rem;
-    height: 3.8rem;
+    width: 4.6rem;
+    height: 3.9rem;
 }
 .cast-right {
-    width: 4.5rem;
-    height: 5.3rem;
+    width: 4.6rem;
+    height: 4.6rem;
     overflow: hidden;
     float: left;
 }
 .cast-right img {
-    width: 4.5rem;
-    height: 3.8rem;
+    width: 4.6rem;
+    height: 3.9rem;
 }
 .cast-word {
-    width: 4.5rem;
-    height: 1.5rem;
+    width: 4.6rem;
+    height: 0.6rem;
     background: #F6F6F6;
     text-align: left;
     overflow: hidden;
 }
 .cast-word p:nth-child(1) {
     width: 100%;
-    height: 0.85rem;
-    line-height: 0.9rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
     /* margin: 0.1rem auto; */
-    font-size: 16px;
+    font-size: 14px;
     color: #444;
     padding-left: 0.1rem;
 }
@@ -480,7 +480,39 @@ a {
     line-height: 0.5rem;
 }
 .content{ border:none; }
-.tender{ background:#fff;}
+.tender{ 
+    background: rgba(0, 0, 0, 0.7);
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+.foot-kefu {
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    width: 100%;
+    left: 0;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+}
+.footer-img li {
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.footer-img li:first-child{
+    border-right:1px solid #FFF;
+}
+.foot-kefu a img {
+    height: 48px;
+}
 .app_menu{ background:#fff;}
 .nav{ background:#fff; margin:0px; margin-bottom:10px; border:none; border-bottom:1px solid #eee;}
 .pub_tit{ background:#fff; border-top:1px solid #e3e3e3;  border-bottom:1px solid #eee;; padding:5px 0px 5px 10px;position:relative; font-size:18px; color:#555;}
@@ -493,6 +525,233 @@ a {
 .choose_menu_cont span{ height:7px;}
 .page{ background:#fff;}
 .pding{ background:#fff;}
+.zx-wtg-wrap {
+    width: auto;
+    height: 60px;
+    border: 1px solid #ddd;
+    margin:0px 0.8rem;
+    margin-bottom: 20px;
+    margin-top:15px;
+    position: relative;
+    background-color: #fff;
+    -webkit-user-select: initial;
+}
+.zx-wtg-wrap .zx-wtg-logo {
+    background: url(/themes/default/mobile/static/images/share-icon.png) no-repeat;
+    width: 44px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    left: 0.2rem;
+    top: 8px;
+    -webkit-user-select: none;
+}
+.zx-wtg-wrap h2 {
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    text-indent: 1.8rem;
+    -webkit-user-select: none;
+}
+.zx-wtg-wrap p {
+    font-size: 12px;
+    line-height: 14px;
+    color: #666;
+    text-indent: 1.8rem;
+    -webkit-user-select: none;
+}
+#share-wrapper {
+    margin: 20px 0.8rem;
+}
+.share-wrapper-inner {
+    display: -moz-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+}
+#share-wrapper .share-wrapper-inner em {
+    margin-right: 10px;
+    line-height: 50px;
+    color: #a4a4a4;
+}
+#share-list {
+    display: -moz-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1 1 40px;
+    -moz-flex: 1 1 40px;
+    -ms-flex: 1 1 40px;
+    flex: 1 1 40px;
+}
+#sprite-icons-movement {
+    background-position: -164px 0;
+    width: 40px;
+    height: 40px;
+}
+#sprite-icons-qq, #sprite-icons-qzone, #sprite-icons-sina, #sprite-icons-wechat, #sprite-icons-movement {
+    background-image: url(/themes/default/mobile/static/images/share.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 204px 40px;
+    -moz-background-size: 204px 40px;
+    background-size: 204px 40px;
+}
+#share-wrapper .share-wrapper-inner a {
+    display: block;
+}
+#zx-wtg-wrap em {
+    font-weight: 700;
+    color: #666;
+    -webkit-user-select: initial;
+}
+#sprite-icons-wechat {
+    background-position: 0 0;
+    width: 40px;
+    height: 40px;
+}
+#sprite-icons-sina {
+    background-position: -41px 0;
+    width: 40px;
+    height: 40px;
+}
+#sprite-icons-qzone {
+    background-position: -82px 0;
+    width: 40px;
+    height: 40px;
+}
+#sprite-icons-qq {
+    background-position: -123px 0;
+    width: 40px;
+    height: 40px;
+}
+.share-link-box {
+    background-color: rgba(0,0,0,.54);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+.share-detail-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,.9);
+    z-index: 15000;
+    display: none;
+}
+.share-detail-box .share-detail-div {
+    position: relative;
+    padding: 5%;
+}
+.share-detail-div .share-load-close {
+    background-position: 0 -57px;
+    width: 24px;
+    height: 25px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+}
+.share-con-border .share-load-icon1, .share-con-border .share-load-icon2, .share-detail-div .share-load-close {
+    display: inline-block;
+    background-image: url(//img.to8to.com/wap/v2/share_icon.png);
+    background-repeat: no-repeat;
+    background-size: 25px 82px;
+}
+.share-detail-box .share-detail-div .load-head {
+    padding-bottom: 5%;
+}
+.share-detail-div .load-head h3 {
+    text-align: center;
+}
+.share-detail-div .share-load-con {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 4%;
+}
+.share-load-con .share-con-title {
+    margin-bottom: 5%;
+}
+.share-load-con .share-con-border {
+    border: 1px dashed #b9b9b9;
+    border-radius: 5px;
+    padding: 3%;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.share-con-border .share-load-icon1 {
+    background-position: 0 0;
+    width: 24px;
+    height: 24px;
+    margin: 0 3px;
+    vertical-align: middle;
+}
+
+.share-con-border .share-load-icon1, .share-con-border .share-load-icon2, .share-detail-div .share-load-close {
+    display: inline-block;
+    background-image: url(//img.to8to.com/wap/v2/share_icon.png);
+    background-repeat: no-repeat;
+    background-size: 25px 82px;
+}
+.share-con-border .share-load-icon2 {
+    background-position: 0 -29px;
+    width: 23px;
+    height: 23px;
+    margin: 0 3px;
+    vertical-align: middle;
+}
+.share-load-con .share-load-btn {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #34c083;
+    text-align: center;
+    color: #fff;
+    padding: 4% 0;
+    margin-bottom: 8%;
+}
+.share-load-con .share-con-title {
+    margin-bottom: 5%;
+}
+.share-load-con .share-con-border {
+    border: 1px dashed #b9b9b9;
+    border-radius: 5px;
+    padding: 3%;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.wen-tuijian{
+    padding:0.2rem 0.8rem;
+    font-size: 14px;
+}
 .designer_nav{ background:#fff; margin:0px; border-bottom:1px solid #ddd;}
 .case_aterfall_li{ background:#fff;}
 .pingjia_bg{ background:#fff;}
@@ -747,4 +1006,29 @@ p.indexMore a{color:#ff4400; display:block;}
     font-size: 14px;
     line-height: 2em;
     border-top: 1px solid #d9d9d9;
+}
+.top-sct-zxrx {
+    display: block;
+    width: 100%;
+    height: 38px;
+    line-height: 46px;
+    text-align: center;
+}
+.top-sct-zxrx .span-info {
+    font-size: 14px;
+    color: #333333;
+}
+.top-sct-zxrx .icon-tel-green {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 9px;
+    margin-top:-7px;
+}
+
+.icon-tel-green {
+/*    background-position: -50px -110px;*/
+    width: 22px;
+    height: 22px;
+    background: url(/themes/default/mobile/static/images/index-page-sprite-v2.jpg) no-repeat;
+    background-size: 22px 22px;
 }

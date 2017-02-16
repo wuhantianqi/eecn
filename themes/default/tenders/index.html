@@ -396,7 +396,7 @@
 					<div class="t-head">
 						<span>发布日期</span>
 						<span>称呼</span>
-						<span>类型</span>
+						<span>面积</span>
 						<span>标题</span>
 						<span>预算</span>
 						<span>详情</span>
@@ -407,7 +407,7 @@
 						<li>
 	                        <span><{$item.dateline|format:"m-d"}></span>
 							<span><{$item.contact}></span>
-							<span><{$item.from_title}></span>
+							<span><{$item.house_mj}>m²</span>
 							<span><{$item.title|cutstr:20}></span>
 							<span><{$item.budget_title}></span>
 							<span><a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>">查看</a></span>

@@ -12,15 +12,25 @@
 <!--面包屑导航结束-->
 <div class="mainwd mainwd_float mainwd_float_wen">
 	<div class="main_content lt main_content_wenda">
-		<{adv id="49" name="文章页顶部广告位" city_id=$request.city_id}>
+		<div class="main_content_wenda_lun"><{adv id="49" name="文章页顶部广告位" city_id=$request.city_id}></div>
 		<div class=" area pding mb10 article_box article_box_gu">
 			<h1><{$detail.title}></h1>
 			<p class="graycl tp">
-				<span class="lt"><font class="fontcl2"><{$detail.views}></font>人已浏览   时间 : <{$detail.dateline|format}></span>
+				<span class="lt"><font class="fontcl2"><{$detail.views}></font>人已浏览    时间 : <{$detail.dateline|format}></span>
 				<span class="rt">
-				<div class="bdsharebuttonbox rt"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-				</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></span>
+					<!-- JiaThis Button BEGIN -->
+					<div class="jiathis_style">
+					<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><span id="i-want-share-btn">我要分享<i class="ico_arrdown"></i></span></a>
+					</div>
+					<script type="text/javascript" >
+					var jiathis_config={
+						hideMore:false
+					}
+					</script>
+					<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+					<!-- JiaThis Button END -->
+
+				</span>
 			</p>
 			<div class="cl"></div>
 			<p class="colorbg daoyu">导语：<{$detail.desc}></p>
@@ -29,13 +39,23 @@
 				<div class="page hoverno"><p><{for $page=1 to $detail.content_count}><a href="<{link ctl='article:detail' arg0=$detail.article_id arg1=$page}>"<{if $pager.page == $page}> class="current"<{/if}>><{$page}></a><{/for}></p></div>
 				<{/if}>
 			</div>
+	        <div class="mod_share">
+	            <span class="col_l">分享到：</span>
+	            <div class="bdsharebuttonbox">
+					<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+					<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+					<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+					<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+				</div>
+	        </div>
+			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 			<div class="article_box_bottom">
 				<p class="tp">
 					<{if $pager.prev}>
-					<a href="<{link ctl='article:detail' arg0=$pager.prev.article_id}>" class="lt fontcl1">上一篇：<{$pager.prev.title}></a>
+					<a href="<{link ctl='article:detail' arg0=$pager.prev.article_id}>" class="lt fontcl1">上一篇：<{$pager.prev.title|cutstr:30}></a>
 					<{/if}>
 					<{if $pager.next}>
-					<a href="<{link ctl='article:detail' arg0=$pager.next.article_id}>" class="rt fontcl1">上一篇：<{$pager.next.title}></a></p>
+					<a href="<{link ctl='article:detail' arg0=$pager.next.article_id}>" class="rt fontcl1">上一篇：<{$pager.next.title|cutstr:30}></a></p>
 					<{/if}>
 				<h2>相关推荐：</h2>
 				<ul class="ari_xg_tui">
@@ -53,7 +73,7 @@
 			<h3>评论(共<font class="fontcl2"><{$detail.comments}></font>条)</h3>
 			<form action="<{link ctl='article:savecomment'}>" mini-form="comment" method="post" class="pinglun">
 				<input type="hidden" name="article_id" value="<{$detail.article_id}>" />
-				<img src="<{$pager.img}>/<{$MEMBER.face}>" width="90" class="lt" />
+				<img src="<{$pager.img}>/<{$MEMBER.face}>" class="lt" />
 				<div class="rt">
 					<textarea name='content' class="text" placeholder="随便说点什么..."></textarea>
 					<br />

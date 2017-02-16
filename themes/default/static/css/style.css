@@ -667,7 +667,13 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 	padding:0px;
 }
 .main_content_wenda{
-	width:900px;
+	width:800px;
+	overflow: hidden;
+}
+.main_content_wenda_lun{
+	width: 800px;
+	height: 300px;
+	overflow: hidden;
 }
 .mainwd_float_wen{
 	position: relative;
@@ -755,6 +761,7 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 .mainwd .pin-wrapper{
 	width: 290px;
 	float:left;
+	margin-left:10px;
 }
 .sub_content{ width:100%;}
 .side_content{ width:250px; float:right;}
@@ -1087,12 +1094,28 @@ top:205px;right:0;border-radius:3px;}
 
 /*左侧评论样式开始*/
 .sub_case_lt{ width:730px;}
+form.pinglun .lt{
+	width: 80px;
+	height: 80px;
+	margin-top: 20px;
+	border-radius: 80px;
+	display: block;
+	float: left;
+}
 form.pinglun img.pic{ width:42px; height:42px;}
-form.pinglun div.rt{ width:770px;}
-form.pinglun textarea{ width:99%; height:100px;}
+form.pinglun div.rt{ 
+	width: 670px;
+    float: left;
+    margin-left: 30px;
+}
+form.pinglun textarea{ 
+	width: 99%;
+    height: 80px;
+    margin-top: 13px;
+}
 .yanma{line-height:35px;margin-top: 5px;}
 .yanma a{margin-left:5px;}
-form.pinglun .pinglun_btn{ margin:10px 0px; background:#eee; width:100%; line-height:22px; font-size:14px;height:30px; border:1px solid #bbb;}
+form.pinglun .pinglun_btn{background:#eee; width:100%; line-height:22px; font-size:14px;height:30px; border:1px solid #bbb;}
 form.pinglun .pinglun_btn_bottom{width:150px;}
 .pinglun_btn:hover{ color:#333;}
 .new_pinglun p.tit{ border-bottom:1px solid #ddd; font-size:16px;}
@@ -1466,14 +1489,52 @@ h1.article_in_title a:hover{color: #ff4401;}
 /*---------------------------------------------------装修学堂详情页样式开始---------------------------------------------------*/
 .article_box h1{ text-align:center;}
 .article_box p.tp{ margin:10px 0px;}
-.article_box .daoyu{     padding: 28px;font-size: 16px;line-height: 32px;background:#f8f8f8;color:#555; }
-.article_box_text{ width:100%; margin-top:10px;font-size: 14px;text-indent:2em;}
+.jiathis_style{
+	float: right;
+	margin-top: 3px;
+}
+#i-want-share-btn {
+    z-index: 10;
+    display: block;
+    width: 80px;
+    height: 22px;
+    cursor: pointer;
+    text-indent: 8px;
+    border: 1px solid #fff;
+    position: relative;
+}
+#i-want-share-btn .ico_arrdown{
+	width: 0;
+    height: 0;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 5px solid #999;
+}
+
+.article_box .daoyu{font-size: 14px;line-height: 32px; text-indent: 2rem;}
+.article_box_text{ width:100%; margin-top:10px;font-size: 14px;}
 p.img{ text-align:center; margin:10px auto;}
 .article_box_bottom {overflow:hidden;}
 .article_box_bottom p.tp{ overflow:hidden; border-bottom:2px solid #7ac49f;font-size: 16px}
 .article_box_bottom p.tp a:hover{ color:#00ad28;}
 .ari_xg_tui{ width:100%;}
 .ari_xg_tui li{ float:left; width:50%; line-height:30px; height:30px; overflow:hidden;font-size: 16px;}
+.mod_share{
+	width:100%;
+	height: 80px;
+	line-height: 80px;
+}
+.mod_share .col_l{
+	float:left;
+}
+.bdshare-button-style0-24{
+	float:left;
+	margin-left: 20px;
+    margin-top: 22px;
+}
 /*---------------------------------------------------装修学堂详情页样式结束---------------------------------------------------*/
 
 /*---------------------------------------------------知识问答样式开始---------------------------------------------------*/

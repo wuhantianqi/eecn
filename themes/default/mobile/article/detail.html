@@ -2,12 +2,32 @@
 <{include file="mobile/block/header.html"}>
 <h1 class="center"><{$detail.title}></h1>
 <div class="cl"></div>
-<div class="article_cont pding">
-	<{$detail.desc}>
+<div class="article_cont">
+	<p><{$detail.desc}></p>
     <br>
     <{$detail.content}>
 </div>
-<div class="pding">
+<section class="zx-wtg-wrap">
+    <i class="zx-wtg-logo"></i>
+    <h2>欢迎您关注优优美家微信</h2>
+    <p>打开微信，关注微信号：<em>eecnnews</em></p>
+</section>
+<!-- 百度分享代码 -->
+<div id="share-wrapper">
+    <div class="share-wrapper-inner">
+        <em>分享到</em>
+        <div class="bdsharebuttonbox" id="share-list">
+            <a href="#" id="sprite-icons-qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" id="sprite-icons-sina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="javascript:;" id="sprite-icons-wechat" title="分享到微信"></a>
+        </div>
+    </div>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<div class="pding wen-tuijian">
 	<h2>相关推荐</h2>
 	<ul class="article_menu">
     	<{foreach $items as $item}>
@@ -21,4 +41,36 @@
         <{/foreach}>
 	</ul>
 </div>
+
+<div class="share-link-box"></div>
+<div class="share-detail-box">                                    
+    <div class="share-detail-div">                                        
+        <a href="javascript:;" class="share-load-close"></a>                                        
+        <div class="load-head">                                            
+            <h3>微信分享</h3>                                        
+        </div>                                        
+        <div class="share-load-con">                                            
+            <p class="share-con-title">方式一：</p>                                            
+            <p class="share-con-border">点击浏览器底部<i class="share-load-icon1"></i>或<i class="share-load-icon2"></i>分享到微信或朋友圈</p>                                            
+            <p><a href="javascript:;" class="share-load-btn">我知道了</a></p>
+            <p class="share-con-title">方式二：长按复制下方链接，去粘贴给好友吧：</p>
+            <p class="share-con-border"><a href="<{link ctl='mobile/article:detail' arg0=$article_id}>"><{link ctl='mobile/article:detail' arg0=$article_id}></a></p>                                        
+        </div>                                    
+    </div>                                
+</div>
+<script>
+    /*微信分享*/
+    $(document).on('click','#sprite-icons-wechat',function(){
+        $('.share-link-box').show();
+        $('.share-detail-box').show();
+    })
+    $(document).on('click','.share-load-close',function(){
+        $('.share-link-box').hide();
+        $('.share-detail-box').hide();
+    })
+    $(document).on('click','.share-load-btn',function(){
+        $('.share-link-box').hide();
+        $('.share-detail-box').hide();
+    })
+</script>
 <{include file="mobile/block/footer.html"}>

@@ -503,6 +503,7 @@ select.text:last-child{
 }
 .index-form ul li form span.stress{
 	color: #ff4401;
+	font-size: 14px;
 }
 .index-form ul li form .sel-group{
 	width: 87%;

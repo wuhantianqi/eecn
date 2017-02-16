@@ -82,6 +82,7 @@ class Ctl_Mobile_Article extends Ctl_Mobile
 			$this->pagedata['content'] = K::M('article/content')->detail($detail['article_id']);
             $pager = array();
 			$pager['backurl'] = $this->mklink('mobile/article:items',array('cat_id'=>$detail['cat_id']));
+            $this->pagedata['article_id'] = $article_id;
 			$this->pagedata['pager'] = $pager;
             $this->tmpl = 'mobile/article/detail.html'; 
         }

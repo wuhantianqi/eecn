@@ -13,7 +13,6 @@ a.city_link{ font-size:12px;}
 /*底部招标样式开始*/
 .tender{ background:#f5f5f5; border-top:1px solid #ccc;     
 	height: 1.4rem;
-    line-height: 1.4rem; 
     position:fixed; left:0px; bottom:0px; width:100%;
     z-index: 5;
  }
@@ -22,7 +21,7 @@ a.city_link{ font-size:12px;}
 /*底部招标样式结束*/
 
 /*底部样式开始*/
-.footer{ background:#f5f5f5; border-top:1px solid #ccc;height:45px;width:100%;}
+.footer{border-top:1px solid #ccc;height:55px;width:100%;}
 .footer_cont{ padding:3px 5px 0px 5px;text-align: center;}
 .footer_cont font{ margin-right:10px;}
 .footer_cont p font.on{ color:#00af43; font-size: 14px;cursor: pointer;}
@@ -350,7 +349,18 @@ form.tenders select.two:last-child{ float:right;}
 .nowrap{white-space:nowrap;text-overflow:ellipsis; overflow:hidden;}
 .study_menu h2{ white-space:nowrap;}
 .study_menu img{ width:60px; height:60px; margin-right:2%;}
-.article_cont{ background:#f5f5f5; }
+.center {
+    text-align: center;
+    line-height: 1rem;
+}
+.article_cont{ 
+	padding:0px 0.8rem;
+	font-size: 16px;
+	line-height: 24px;
+	 }
+.article_cont p:first-child{
+	text-indent: 0.8rem;
+}
 .article {font-size:14px;line-height:32px; font-family:"微软雅黑";}
 .article p{ text-indent:2em; }
 .article_menu li{ line-height:35px; border-bottom:1px dashed #ccc; }

@@ -6,6 +6,11 @@ body{ font-size:12px; font-family:"Microsoft YaHei","微软雅黑","宋体", Ari
 ul,li{list-style:none;}
 a,img,a img{border:0px;}
 a{text-decoration:none;cursor:pointer; }
+.nav_top_zh {
+    width: 100%;
+    height: 32px;
+    background: #f8f8f8 center;
+}
 .zh_content div.center_first,.zh_content div.center_one,.zh_content div.center_two,.zh_content div.center_three,.zh_content div.center_five,.zh_content div.center_foure,.zh_content div.center_six,.zh_content div.center_sever{
 	width: 100%;
 	height: auto;

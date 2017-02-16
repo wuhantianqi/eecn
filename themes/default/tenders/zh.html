@@ -1,38 +1,190 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" rel="stylesheet" href="/themes/default/static/css/style.css?<{$VER}>" />
-    <link rel="stylesheet" type="text/css" href="/themes/default/static/css/zh.css?<{$VER}>"/>
-    <script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
-    <script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>
-    <script type="text/javascript"  src="<{$pager.res}>/script/kt.js?<{$VER}>"></script>
-    <script type="text/javascript"  src="<{$pager.res}>/ui/j.ui.js?<{$VER}>"></script>
-    <script type="text/javascript"  src="<{$pager.res}>/script/widget.login.js?<{$VER}>"></script>
-    <script type="text/javascript"  src="<{$pager.res}>/script/widget.msgbox.js?<{$VER}>"></script>
-    <script type="text/javascript"  src="/themes/default/static/js/scroll.js?<{$VER}>"></script>
-    <script src="/themes/default/static/js/layer/layer.js"></script>
-    <title>优优美家装修网_活动页</title>
-  </head>
-  <body>
-    <div class="zh_content">
-        <div class="center_first">
-            <span class="pic"><img src="/themes/default/static/images/zh/img_p1.jpg" alt=""></span>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<{include file="block/sheader.html"}>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zh.css?<{$VER}>"/>
+</head>
+<body>
+    <!-- 表单提交提示框 -->
+    <iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+    <link rel="stylesheet" type="text/css" href="/themes/fangTo8to/static/css/index.css?<{$VER}>"/>
+    <!-- 底部弹出表单 -->
+    <link rel="stylesheet" href="/themes/fangTo8to/static/css/appointment-bottom.css" />
+    <div class="nav_top_zh">
+        <!--顶部内容-->
+        <div class="top_nav colorbg">
+            <div class="mainwd">
+                <div class="lt">
+                    <{if $MEMBER.uid}>
+                    <ul class="top_nav_login hoverno">
+                        <li>
+                            <a href="<{link ctl='ucenter/member:index'}>"><span class="login_ico denglu_ico"></span>个人中心<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/member:index'}>">个人中心</a>
+                                <a href="<{link ctl='ucenter/member/diary:index'}>">装修日记</a>
+                                <a href="<{link ctl='ucenter/member/ask:index'}>">装修问答</a>
+                                <a href="<{link ctl='ucenter/member/yuyue:tenders'}>">我的招标</a>
+                                <a href="<{link ctl='ucenter/member/yuyue:company'}>">我的预约</a>
+                                <a href="<{link ctl='passport:loginout'}>">退出</a>
+                            </div>
+                        </li>
+                        <{if $MEMBER.from == 'company'}>
+                        <li>
+                            <a href="<{link ctl='ucenter/company:index'}>"><span class="ico_list in_t_s_ico"></span>公司管理<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/company:info'}>">公司设置</a>
+                                <a href="<{link ctl='ucenter/company/case:index'}>">案例管理</a>
+                                <a href="<{link ctl='ucenter/company/youhui:index'}>">优惠信息</a>
+                                <a href="<{link ctl='ucenter/company/yuyue:company'}>">预约管理</a>
+                            </div>
+                        </li>
+                        <{elseif $MEMBER.from == 'shop'}>
+                        <li>
+                            <a href="<{link ctl='ucenter/shop:index'}>"><span class="ico_list in_t_s_ico"></span>商铺管理<span class="ico_list login_litico"></span></a>
+                            <div class="top_nav_login_son">
+                                <a href="<{link ctl='ucenter/shop:info'}>">商铺设置</a>
+                                <a href="<{link ctl='ucenter/shop/order:index'}>">订单管理</a>
+                                <a href="<{link ctl='ucenter/shop/yuyue:shop'}>">预约管理</a>
+                            </div>
+                        </li>
+                        <{/if}>
+                        <li><a href="<{link ctl='passport:loginout'}>">退出</a></li>
+                    </ul>
+                    <{else}>
+                    <div>
+                        <a target="_blank" href="<{link ctl='passport'}>" mini-login="login"><span class="login_ico denglu_ico"></span>登录</a>  |
+                        <a target="_blank" href="<{link ctl='passport:reg'}>">注册</a>
+                    </div>
+                    <{/if}>
+                </div>
+                <div class="rt">
+                    <!-- <{if $CONFIG.site.mobile && $CONFIG.mobile.url}>
+                    <font class="tpApp"><a href="<{link ctl='app'}>" class="appLink"><span class="phoneIcon"></span>手机版</a>
+                    <div class="tpApp_box">
+                        <div class="lt">
+                        <img src="http://qr.liantu.com/api.php?&bg=ffffff&fg=666666&w=300&text=<{$CONFIG.mobile.url}>"/>
+                        </div>
+                        <div class="rt">
+                            <p><a target="_blank" href="<{link ctl='app:iphone' http='www'}>" class="btn" >苹果手机客户端</a></p>
+                            <p><a target="_blank" href="<{link ctl='app:android' http='www'}>" class="btn">安卓手机客户端</a></p>
+                        </div>
+                        <div class="cl"></div>
+                    </div>
+                    </font>|
+                    <{/if}> -->
+                    <!-- <a href="<{link ctl='trade/cart'}>"><span class="login_ico shipCar_ico"></span>购物车<{if $COOKIE.CART_NUMBER}>(<font class="fontcl2"><{$COOKIE.CART_NUMBER}></font>)<{/if}></a>| -->
+                     <font  class="tp_contactus"><a href="javascript:void(0)" class="over ">客户服务<span class="login_ico con_ico"></span></a>
+                        <div class="tp_contactus_box">
+                            <p class="tel">装修热线:<font class="fontcl1"><{$CONFIG.site.phone}></font></p>
+                            <ul class="tpService">
+                                <li>
+                                    <span class="login_ico tpSer1"></span>
+                                    <p><a href="<{link ctl="tenders"}>">免费招标</a></p>
+                                </li>
+                                <li>
+                                    <span class="login_ico tpSer2"></span>
+                                    <p><a href="<{link ctl="zxb"}>">装修保</a></p>
+                                </li>
+                                <li>
+                                    <span class="login_ico tpSer3"></span>
+                                    <p><a href="<{link ctl='about:about'}>">关于我们</a></p>
+                                </li>
+                            </ul>
+                            <div class="cl"></div>
+                            <div class="cont_bt">
+                            <img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" class="cont_ewm lt"/>
+                            <p class="lt bt">扫描二维码  关注官方微信</p>
+                            </div>
+                        </div>
+                    </font>|
+                    <font><span class="ico_list in_t_tel_ico"></span>装修热线 ：<b class="fontcl2"><{$CONFIG.site.phone}></b></font>
+                </div>
+            </div>
         </div>
+        <script type="text/javascript">
+        $(document).ready(function() {  
+            //头部登录后效果
+            $(".top_nav_login li").mouseover(function(){
+                $(this).find('.top_nav_login_son').show();
+            }).mouseout(function(){
+                $(this).find('.top_nav_login_son').hide();
+            }); 
+             $("font.tpApp").mouseover(function(){
+                $(this).find('a.appLink').addClass('on');
+                $('font.tpApp ').find('.tpApp_box').show();
+            }).mouseout(function(){
+                $(this).find('a.appLink').removeClass('on');
+                $('font.tpApp ').find('.tpApp_box').hide();
+            });
+            
+            $("font.tp_contactus ").mouseover(function(){
+                $(this).find('a.over').addClass('on');
+                $('font.tp_contactus ').find('.tp_contactus_box').show();
+                $('font.tp_contactus ').find('span.con_ico').addClass('con_ico_over');
+            }).mouseout(function(){
+                $(this).find('a.over').removeClass('on');
+                $('font.tp_contactus ').find('.tp_contactus_box').hide();
+                $('font.tp_contactus ').find('span.con_ico').removeClass('con_ico_over');
+            });
+        })
+        </script>
+    </div>
+    <div class="nav_nav">
+        <div class="nav_right">
+            <ul class="nav nav-pills" role="tablist">
+              <li role="presentation"><a class="" href="/">首页</a></li>
+              <li role="presentation" class="dropdown">
+                <a class="" data-toggle="dropdown" href="<{link ctl='tenders'}>" aria-expanded="false">
+                  靠谱装修 
+                  <!-- <span class="caret"></span> -->
+                </a>
+                <!-- <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">装修公司</a></li>
+                  <li><a href="#">找设计师</a></li>
+                  <li><a href="#">找工人</a></li>
+                </ul> -->
+              </li>
+              <li role="presentation" class="dropdown">
+                <a class="" data-toggle="dropdown" href="<{link ctl='activity'}>" aria-expanded="false">
+                  优惠信息 
+                  <!-- <span class="caret"></span> -->
+                </a>
+                <!-- <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">装修公司</a></li>
+                  <li><a href="#">找设计师</a></li>
+                  <li><a href="#">找工人</a></li>
+                </ul> -->
+              </li>
+              <li role="presentation" class="dropdown">
+                <a class="" data-toggle="dropdown" href="<{link ctl='article'}>" aria-expanded="false">
+                  学装修 
+                  <!-- <span class="caret"></span> -->
+                </a>
+               <!--  <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">装修公司</a></li>
+                  <li><a href="#">找设计师</a></li>
+                  <li><a href="#">找工人</a></li>
+                </ul> -->
+              </li>
+              <li role="presentation" class="dropdown">
+                <a class="" data-toggle="dropdown" href="<{link ctl='case:decorationCase'}>" aria-expanded="false">
+                  效果图 
+                  <!-- <span class="caret"></span> -->
+                </a>
+               <!--  <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">装修公司</a></li>
+                  <li><a href="#">找设计师</a></li>
+                  <li><a href="#">找工人</a></li>
+                </ul> -->
+              </li>
+            </ul>
+        </div>
+        <div class="nav_left"><a href="/"><img src="/themes/fangTo8to/static/images/logo.png" alt=""></a></div>
+    </div>
+    <div class="zh_content">
         <div class="center_one">
             <div class="father one">
-                <nav>
-                    <ul>
-                        <li><a target="_blank" href="/">官网首页</a></li>
-                        <li><a target="_blank" href="<{link ctl='tenders:znbj'}>">设计与报价</a></li>
-                        <li><a target="_blank" href="<{link ctl='article'}>">学装修知识</a></li>
-                        <li><a target="_blank" href="<{link ctl='case:decorationCase'}>">看装修美图</a></li>
-                        <li><a target="_blank" href="<{link ctl='activity'}>">找装修优惠</a></li>
-                        <li><a target="_blank" href="<{link ctl='about:about'}>">品牌故事</a></li>
-                    </ul>
-                </nav>
                 <a class="bu">立即报名</a>
             </div>
         </div>
@@ -168,14 +320,14 @@
     </body>
     </html>
     <script>
-          jQuery(".bu").on('click',function(){
+        jQuery(".bu").on('click',function(){
             layer.open({
                 type: 2,    
                 title:'',
                 area: ['1030px', '465px'], //宽高
                 content: ['http://www.eecn.cc/index.php?tenders-popup.html','no']
             });
-        })
+        });
     </script>
 
     

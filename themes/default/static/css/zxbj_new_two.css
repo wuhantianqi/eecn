@@ -56,7 +56,7 @@ i {
 	float: left;
 	font-size: 12px;
 }
-#phoneInput p i{
+#phoneInput p i,.form_line_wen i{
 	float: left;
 	width: 12px;
 	height: 12px;
@@ -130,6 +130,7 @@ select.text{
 }
 .form_line_wen{
     float:left;
+    font-size: 12px;
 }
 .ele_b {
     margin-left: -10px;
