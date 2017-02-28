@@ -48,6 +48,10 @@ class Ctl_Tenders extends Ctl
     public function zh(){
         $this->tmpl = 'tenders/zh.html';
     }
+    // 新转化页
+    public function newDesign(){
+        $this->tmpl = 'tenders/newdesign.html';
+    }
     public function detail($tenders_id)
     {
         if(!$tenders_id = (int)$tenders_id){
@@ -256,6 +260,67 @@ class Ctl_Tenders extends Ctl
 					}
 				}
             }
+        }else{
+            $this->err->add('非法的数据提交', 201); 
+        }          
+    }
+
+    /*测试表单提交*/
+    public function save1()
+    {   
+        if($data= $this->checksubmit($POST['data'])){
+            $data['uid'] = (int)$this->uid;
+            if(empty($data['city_id'])){
+                $data['city_id'] = $this->request['city_id'];
+            }
+            if(empty($data['contact']) && ($this->uid)){
+                $data['contact'] = $this->MEMBER['uname'];
+            }
+            if($attach = $_FILES['huxing']){
+                if(UPLOAD_ERR_OK == $attach['error']){
+                    if($a = K::M('magic/upload')->upload($attach, 'tenders')){
+                        $data['huxing'] = K::M('content/html')->encode($a['photo']);
+                    }
+                }
+            }  
+
+            $data['city_id'] = empty($data['city_id']) ? $this->request['city_id'] : $data['city_id'];
+            if($tenders_id = K::M('tenders/tenders')->create($data)){
+                if($attr = $this->GP('attr')){
+                    K::M('tenders/attr')->update($tenders_id, $attr);
+                }
+                $this->pagedata['tenders_id'] = $tenders_id;
+                $smsdata = $maildata = array('contact'=>$data['contact'] ? $data['contact'] : '业主','mobile'=>$data['mobile']);
+
+                K::M('sms/sms')->send($data['mobile'], 'tenders', $smsdata);
+                K::M('sms/sms')->admin('admin_tenders', $smsdata);
+                K::M('helper/mail')->sendadmin('admin_tenders',$maildata);
+                $this->tmpl = 'tenders/success.html';
+                $wx_tenders_qr = false;
+
+                if($wechatCfg = $this->system->config->get('wechat')){
+                    if($client = K::M('weixin/weixin')->admin_wechat_client()){
+                        if($client->weixin_type == 1){
+                            $data = array('uid'=>$uid, 'type'=>'tenders', 'addon'=>array('tenders_id'=>$tenders_id));
+                            if($scene_id = K::M('weixin/authcode')->create($data)){
+                                if($ticket = $client->getQrcodeTicket(array('scene_id'=>$scene_id, 'expire'=>1800))){
+                                    $wx_tenders_qr = $client->getQrcodeImgUrlByTicket($ticket);
+                                    $this->pagedata['wx_tenders_qr'] = $wx_tenders_qr;
+                                }
+                            }
+                        }
+                    }
+                }
+                $this->err->set_data('tenders_id', $tenders_id);
+                $this->err->set_data('wx_tenders_qr', $wx_tenders_qr);
+                $this->err->set_data('show_content', $this->output(true));
+                $this->tmpl = null;
+                if($this->uid){
+                    $this->err->set_data('forward',  $this->mklink('ucenter/member/yuyue:tendersDetail',array($tenders_id)));
+                }                        
+                $this->err->add('恭喜您发布招标成功！');
+            }
+
         }else{
             $this->err->add('非法的数据提交', 201); 
         }          

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <{include file="block/sheader.html"}>
+    <link type="text/css" rel="stylesheet" href="/themes/default/static/css/reste.css?<{$VER}>"/>
+    <link type="text/css" rel="stylesheet" href="/themes/default/static/css/common.css?<{$VER}>"/>
+    <script type="text/javascript" src="/themes/default/static/js/activitysubmit.js?<{$VER}>" ></script>
+    <script type="text/javascript" src="/themes/default/static/js/sitecommon.js?<{$VER}>" ></script>
+    <script type="text/javascript">
+    // var i = 1940;
+    // window.setInterval(function () {
+    //     i++;
+    //     document.getElementById('t').innerHTML = i;
+    // }, 5000);
+    $(document).ready(function () {
+        $(".fixedBarClose").click(function () {
+            $(".fixedBar").slideUp(200);
+        });
+    });
+   
+    //手机点击免费申请
+    function FreeApply() {    
+        var applyUser = $('.formCompanyPage li').eq(0).find("input");
+        var mobile = $('.formCompanyPage li').eq(1).find("input");
+        // var leval = $('#_applyForm input[name="leval"]:checked');
+        // var houseArea = $('#_applyForm input[name="houseArea"]');
+        // var cityId = $('#_applyForm select[name="cityId"] option:selected');
+        // var houseCityId = $('#_applyForm select[name="houseCityId"] option:selected');
+        // var cityName = $('#_applyForm input[name="cityName"]');
+
+        if(isEmpty(applyUser.val())){
+            layer.msg('请输入您的姓名');
+            applyUser.focus();
+            return false;
+        }
+        if(isEmpty(mobile.val()) || !isMoblie(mobile.val())){
+            layer.msg('请输入正确的手机号码');
+            mobile.focus();
+            return false;
+        }
+        $("#form").submit();
+        // $.post( "<{link ctl='tenders:save1'}>", $("#form").serialize())
+        //   .done(function( data ) {
+        //     console.log( "Data Loaded: " + data );
+        //   });
+        // var request = $.ajax({
+        //   url: "<{link ctl='tenders:save1'}>",
+        //   method: "POST",
+        //   data: $("#form").serialize(),
+        //   dataType: "json"
+        // });
+         
+        // request.done(function( msg ) {
+        //   console.log(msg);
+        // });
+         
+        // request.fail(function( jqXHR, textStatus ) {
+        //   alert( "Request failed: " + textStatus );
+        // });
+        /* if(!leval || !leval.val()){
+            alert('请选择装修档次');
+            $('#_applyForm input[name="leval"]').focus();
+            return false;
+        }
+        if(!isNumber(houseArea.val()) || houseArea.val() <= 0){
+            alert('请填写面积');
+            houseArea.focus();
+            return false;
+        }
+        if(!houseCityId || !isNumber(houseCityId.val()) || houseCityId.val()<0){
+            alert('请选择省份');
+            $('#_applyForm select[name="houseCityId"]').focus();
+            return false;
+        }
+        if(!cityId || !isNumber(cityId.val()) || cityId.val()<0){
+            alert('请选择城市');
+            $('#_applyForm select[name="cityId"]').focus();
+            return false;
+        } */
+        
+    };
+
+    
+    function reservationIndex() {
+        var user2 = $("#name2").val();
+        var mobile = $("#phone2").val();
+
+        if (isEmpty(user2)) {
+            alert('请输入您的姓名');
+            $("#name2").focus();
+            return false;
+        }
+        if (!isMoblie(mobile)) {
+            alert("请输入您的电话");
+            return false;
+        }
+        if(!isApplySubmit){
+             alert("请勿重复提交或者请刷新页面重试！");
+             return false;
+        }
+        isApplySubmit = false;
+        saveactivity("editform", mobile ,"ok.html",0);
+        isApplySubmit = true;
+    }
+    </script>
+</head>
+<body>
+    <!-- 表单提交提示框 -->
+    <iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+    <div class="navBox">
+        <div class="content">
+            <a href="http://www.bao315.com/"><img src="/themes/fangTo8to/static/images/logo.png"></a>
+            <ul class="nav">
+                <li class="navItems1"><a href="#">免费设计</a></li>
+                <li><a href="<{link ctl='tenders:vznbj'}>">免费报价</a></li>
+                <li><a href="<{link ctl='tenders'}>">找装修公司</a></li>
+                <li><a href="<{link ctl='case:decorationCase'}>">效果图</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="bannerDesign">
+        <div class="content">
+            <h1>装修风格怎么选</h1>
+            <h2 class="bannerDesignTitle"><span>免费提供4套设计方案对比！</span></h2>
+            <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post" id="form">
+            <input type="hidden" name="data[from]" value="ZNBJFROM" />
+
+            <div id="designForm" class="getProgram">
+                <h2>申请免费设计</h2>
+                <p>今日已有 <span class="red">1940</span> 人申请免费量房、设计、报价服务</p>
+                <ul class="formCompanyPage">
+                    <li>
+                        <span>您的称呼:</span>
+                        <input type="text" name="data[contact]" class="text full" placeholder="请输入您的称呼" />
+                    </li>
+                    <li>
+                        <span>您的电话:</span>
+                        <input type="text" name="data[mobile]" class="text full" placeholder="请输入您的常用手机号码" />   
+                    </li>
+                    <li class="grade">
+                        <span>装修档次:</span>
+                        <label><input name="leval" type="radio" value="高档" /> 高档</label>
+                        <label><input name="leval" type="radio" value="中档" /> 中档</label>
+                        <label><input name="leval" type="radio" value="经济" /> 经济</label>
+                    </li>
+                    <li>
+                        <span>建筑面积:</span>
+                        <input type="text" class="text area_text" name="data[house_mj]" id="square">
+                        <i>M<sup style="vertical-align: super;">2</sup></i>
+                    </li>
+                    <!-- <li>
+                        <span>所在城市:</span>
+                        <select name="houseCityId" id="housecitystr_province"></select>
+						<select name="cityId" id="housecitystr_city"></select>
+						<input name="cityName" id="_cityName" type="hidden">
+						
+                        <script type="text/javascript"> 
+                        	$(function(){
+                        		$('#housecitystr_city').on('change',function(){
+                        			$('#_cityName').val($('#housecitystr_city option:selected').text());
+                        		});
+                        	});
+                        	initProvinceCity("housecitystr_province",null,"housecitystr_city",null,"http://www.bao315.com/area/province_city.html");
+                       	</script>
+                    </li> -->
+                    <li>
+                        <input type="button" value="立即申请免费设计" onclick="FreeApply();">
+                    </li>
+                </ul>
+                <div id="rollADBox">
+                    <div id="rollAD">
+                        <ul id="rollText"></ul>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    var minTime, maxTime, divTop, newTop = 0;
+                    var textDiv, textDat, textDatH;
+                    window.onload = function () {
+                        var arr = new Array("王", "赵", "钱", "孙", "李", "周", "吴", "郑", "陈", "冯", "卫");
+                        var arrmobile = new Array("1395925", "1566597", "1377420", "1588020", "1708589", "1895016", "1571075", "1536157", "1300885", "1363210", "1368885");
+                        var ul = $('#rollText');
+                        var len1 = arr.length;
+                        //var len = len1;
+                        var tempmobile = "";
+                        var index = parseInt(Math.random() * (1));
+                        for (var i = 0; i < len1; i++) {
+
+                            if (tempmobile.indexOf(arrmobile[index]) == -1) {
+                                tempmobile += arrmobile[index];
+                                var li = "<li>" + arr[index] + "先生  " + arrmobile[index] + "**** 已获得 <span class=\"red\">4套</span> 设计方案</li>";
+                                ul.append(li);
+                            }
+                            //arr.pop(index);
+                            //len = arr.length;
+                            index = parseInt(Math.random() * (len1 - i));
+                        }
+                        textDiv = document.getElementById("rollText");
+                        var textList = textDiv.getElementsByTagName("li");
+                        if (textList.length > 2) {
+                            textDat = textDiv.innerHTML;
+                            var br = textDat.toLowerCase().indexOf("<br", textDat.toLowerCase().indexOf("<br") + 3);
+                            textDiv.innerHTML = textDat + textDat + textDat.substr(0, br);
+                            textDiv.style.cssText = "position:absolute; top:0";
+                            textDatH = textDiv.offsetHeight; MaxRoll();
+                        }
+                    };
+                    function MinRoll() {
+                        newTop++;
+                        if (newTop <= divTop + 60) {
+                            textDiv.style.top = "-" + newTop + "px";
+                        } else {
+                            clearInterval(minTime);
+                            maxTime = setTimeout(MaxRoll, 3000);
+                        }
+                    }
+                    function MaxRoll() {
+                        divTop = Math.abs(parseInt(textDiv.style.top));
+                        if (divTop >= 0 && divTop < textDatH - 60) {
+                            minTime = setInterval(MinRoll, 1);
+                        } else {
+                            textDiv.style.top = 0; divTop = 0; newTop = 0; MaxRoll();
+                        }
+                    }
+                </script>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="designMain">
+        <div class="content">
+            <h2>优优美家提供4套设计方案PK！眼见为实，所见即所得！</h2>
+        </div>
+    </div>
+    <div class="advantage">
+        <div class="content">
+            <h2>【装修为什么选择优优美家？】</h2>
+            <dl>
+                <dt>装修服务覆盖全国</dt>
+                <dd>200城</dd>
+            </dl>
+            <dl>
+                <dt>入住正规装修公司</dt>
+                <dd>近2万家</dd>
+            </dl>
+            <dl>
+                <dt>在线知名设计师 </dt>
+                <dd>近100万</dd>
+            </dl>
+            <dl>
+                <dt>装修成功案例</dt>
+                <dd>近100万 </dd>
+            </dl>
+            <dl>
+                <dt>业主交易金额</dt>
+                <dd>破100亿</dd>
+            </dl>
+            <dl>
+                <dt>免费装修保障金</dt>
+                <dd>500万</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="sub_footer">
+        <p><{calldata mdl="article/article" city_id=$request.city_id from='about' limit="6"}><a href="<{link ctl='about' arg0=$item.page}>"><{$item.title}></a> <{if !$last}>|<{/if}> <{/calldata}></p>
+        <p>免责声明：本网站部分内容由用户自行上传，如权利人发现存在误传其作品情形，请及时与本站联系。</p>
+        <p>Copyright &copy; 2011-2015 All Rights Reserved 优优美家装修网和东启创拓公司 保留所有权利</p>
+        <p>    <!-- 百度商桥PC版 -->
+        <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdef871b137bab62bd2f4be17c7942109' type='text/javascript'%3E%3C/script%3E")); </script>优优美家装修家居 ICP备案：<{$CONFIG.site.icp}></p>
+    </div>
+    <!--底边内容结束-->
+    <!--<{widget id="public/kefu"}>-->
+    <link rel="stylesheet" href="<{$pager.res}>/script/bxslider/jq.bxslider.css" type="text/css" />
+    <script type="text/javascript"  src="<{$pager.res}>/script/bxslider/jq.bxslider.min.js"></script>
+    <script type="text/javascript">
+    (function(K, $){
+    $(document).ready(function(){
+        $('[bxSlider]').bxSlider({ mode: 'fade',captions: true, auto:true});
+    });
+    })(window.KT, window.jQuery);
+    </script>
+    <p class="none"><{$CONFIG.site.tongji}></p>
+    </body>
+    </html>
