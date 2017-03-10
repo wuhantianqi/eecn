@@ -292,16 +292,16 @@
 				<ul>
 					<{KT name="仿土巴兔首页热点新闻" city_id=$request.city_id limit=4}>
 					<li>
-						<h4><a href="<{link ctl='article:detail' arg0=$item.article_id}>" target="_blank"><{$item.title|cutstr:30}></a></h4>
+						<h4><a href="<{link ctl='article:detail' arg0=$item.article_id}>" target="_blank"><{$item.title|cutstr:78}></a></h4>
 						<p><{$item.desc|cutstr:70}></p>
 					</li>
 					<{/KT}>
 				</ul>
 			</li>
 			<li class="Hotspot_li">
-				<h3><p>武汉新闻</p></h3>
+				<h3><p>本地新闻</p></h3>
 				<{calldata mdl="company/news" city_id=$request.city_id order="dateline:DESC" limit="7"}>
-				<p><a href="<{link ctl='news:detail' arg0=$item.news_id}>" target="_blank"><{$item.title|cutstr:25}></a>
+				<p><a href="<{link ctl='news:detail' arg0=$item.news_id}>" target="_blank"><{$item.title|cutstr:28}></a>
 				</p>
 				<{/calldata}>
 			</li>

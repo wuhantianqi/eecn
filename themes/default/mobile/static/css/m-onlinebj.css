@@ -147,6 +147,14 @@ a{
     font-size: 12px;
     line-height: 22px;
 }
+.zh-m-form>p:last-child i{
+	float: left;
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+    margin-right: 4px;
+    background: url(../images/gantanhao.png) no-repeat;
+}
 .zh-m-form>p .strong{
 	color: #ff4401;
 }

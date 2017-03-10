@@ -50,12 +50,12 @@ a[title=站长统计]{
 	width:199px;
 	height:80px;
 	margin-left: 20px;
-    padding-top: 10px;
 }
 .nav_nav .nav_right{
-	width:560px;
-	float:right;
+	width:603px;
 	margin-top: 30px;
+	position: absolute;
+	right:0px;
 }
 .nav_nav .nav_right .nav-pills{
 	width: 560px;
@@ -1198,11 +1198,14 @@ select.text:last-child{
     background: #FFF;
 }
 .Hotspot .Hotspot_ul{
+	width: 1200px;
+	height: 308px;
+	border: 1px solid #e0e0e0;
 	margin-top:32px;
 }
 .Hotspot .Hotspot_ul .Hotspot_li{
 	float:left;
-	margin-left:20px;
+	padding-left:25px;
 }
 .Hotspot .Hotspot_ul .Hotspot_li img{
 	border: 2px solid #fff;
@@ -1215,19 +1218,26 @@ select.text:last-child{
 	width:400px;
 	height:300px;
 	margin-left:0px;
+	padding-left:0px;
 }
 .Hotspot .Hotspot_ul .Hotspot_li:nth-child(2){
-	width:550px;
+	width:515px;
 }
 .Hotspot .Hotspot_ul .Hotspot_li:last-child{
-	width:210px;
+	width: 220px;
+    margin-top: 8px;
+    margin-left: 10px;
+    padding-left: 14px;
+	border-left: 1px solid #e0e0e0;
 }
 .Hotspot .Hotspot_ul .Hotspot_li ul li{
-	margin-bottom:14px;
+	margin-bottom: 10px;
+    margin-top: 10px;
 	border-bottom: 1px solid #f8f8f8;
 }
 .Hotspot .Hotspot_ul .Hotspot_li ul li:last-child{
 	margin-bottom: 0px;
+	border-bottom: none;
 }
 .Hotspot .Hotspot_ul .Hotspot_li ul li h4{
 	font-size:18px;	
@@ -1244,13 +1254,14 @@ select.text:last-child{
 }
 .Hotspot .Hotspot_ul .Hotspot_li h3{
 	width:100%;
-	height:42px;
+	height:35px;
 	border-bottom: 1px solid #f8f8f8;
 }
 .Hotspot .Hotspot_ul .Hotspot_li:last-child h3 p{
 	width:120px;
-	height:42px;
-	font-size:20px;
+	height:35px;
+	font-size:18px;
+	font-weight: 100;
 	border-bottom: 1px solid #00AF62;
 }
 .Hotspot .Hotspot_ul .Hotspot_li:last-child p{

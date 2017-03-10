@@ -34,9 +34,10 @@ class Ctl_Ucenter_Company_Youhui extends Ctl_Ucenter
     public function create()
     {
         $company = $this->ucenter_company();
-        if(K::M('member/integral')->check('youhui',  $this->MEMBER) === false){
-            $this->err->add('很抱歉您的账户余额不足！', 201);
-        }else if($data = $this->checksubmit('data')){
+        // if(K::M('member/integral')->check('youhui',  $this->MEMBER) === false){
+        //     $this->err->add('很抱歉您的账户余额不足！', 201);
+        // }else 
+        if($data = $this->checksubmit('data')){
             $allow_youhui = K::M('member/group')->check_priv($company['group_id'], 'allow_youhui');
             if($allow_youhui < 0){
                 $this->err->add('您是【'.$company['group_name'].'】没有权限添加优惠信息', 333);

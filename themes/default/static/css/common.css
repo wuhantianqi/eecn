@@ -1019,7 +1019,44 @@
 .toTop:hover {
 	background-position: -48px 0;
 }
-
+.trademark{
+	width: 100%;
+	height: 33px;
+	background:#1f1f1f;
+	margin:0 auto;
+	padding-bottom:10px;
+}
+.trademark ul{
+	width:280px;
+	height: auto;
+	margin:0 auto;
+}
+.trademark ul li{
+	float:left;
+	margin-left:20px;
+	background-image: url(../images/global.png);
+}
+.trademark ul li:first-child{
+    background-position: -185px -102px;
+    width: 32px;
+    height: 33px;
+    margin-top: -1px;
+}
+.trademark ul li:nth-child(2){
+	background-position: -156px -135px;
+    width: 28px;
+    height: 29px;
+}
+.trademark ul li:nth-child(3){
+	background-position: -156px -102px;
+    width: 28px;
+    height: 31px;
+}
+.trademark ul li:nth-child(4){
+	background-position: 0 -225px;
+    width: 90px;
+    height: 32px;
+}
 
 
 

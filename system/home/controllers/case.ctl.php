@@ -101,6 +101,29 @@ class Ctl_Case extends Ctl
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink('case:items', array(implode('-', $attr_value_ids), $order, '{page}'), $params));
         }
+        //获取公装下面的所有ID分类
+        $frock = array();
+        foreach ($attr_values as  $val) {
+            if( $val['attr_id'] ==16 ){
+                foreach ($val['values'] as  $value) {
+                   $frock[] =  $value['attr_value_id'];
+                }
+            }
+        }
+        $attr_vi = explode('-', trim($m[1], '-'));  //获取url的公装分类
+        if( in_array($attr_vi['3'], $frock)){       //判断是否是工装
+            foreach ($attr_values as $key => $value) {
+                if( $value['attr_id'] != 16 ){
+                    unset($attr_values[$key]);
+                }
+            }
+        }else{
+            foreach ($attr_values as $key => $value) {
+                if( $value['attr_id'] == 16 ){
+                    unset($attr_values[$key]);
+                }
+            }
+        }
         $this->pagedata['attr_values'] = $attr_values;
         $this->pagedata['order_list'] = $order_list;
         $this->pagedata['pager'] = $pager;

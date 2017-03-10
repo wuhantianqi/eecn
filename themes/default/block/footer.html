@@ -34,9 +34,504 @@
         </ul>
     </div>
     <{include file="block/sfooter.html"}>
-    <!-- 底部弹出表单 -->
     <!--底部弹出表单-->
- <div class="appoinment-bottom show" id="appoinment-bottom" style="left:-100%;">
+
+
+
+
+    <!-- 土 -->
+    <!-- <div class="bottom_slide_box" style="left: 0px; bottom: -370px;">-->
+        <!-- 以下是隐藏点击层 -->
+        <!-- <div class="bottom_slide_content"> -->
+            <!-- 关闭按钮不显示 (功能正常)-->
+            <!-- <div class="bottom_slide_close"></div> -->   
+       <!--  <div class="bottom_slide_click"></div>
+        <div class="slide_box_shade"></div>
+        <div class="zxbj_details">
+            <div class="all_Calc_Container Calc_Container_zxys">
+                <div class="bottom_slide_img"></div>
+                <div class="bottom_slide_down bottom_slide_up" style="top: -43.4933px;"></div>
+                <div class="zxbj_zxys">
+                    <div class="con_bj clear"> --><!-- calculate -->
+                        <!-- <div class="con_bj_cal col_l">
+                            <h3 class="calputer_tit">装修计算器<span>今天已有 <em class="zxys_num_man">1017</em> 位业主获取了装修预算</span></h3>
+                            <form id="new_zxys_info">
+                                <div class="mod_form bj_form">
+                                    <div class="form_line">
+                                        <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
+                                        <div class="element">
+                                            <div class="province-town clear">
+                                                <input type="hidden" name="dangci" value="jianzhuang">
+                                                <select id="zxys_Shen" name="shen" class="select_Shen" onchange="changeProvince('zxys_Shen','zxys_City','zxys_Town');" style="border-color: rgb(221, 221, 221);">
+                                                    <option value="">省/市</option>
+                                                    <option value="安徽">A 安徽</option><option value="北京">B 北京</option><option value="重庆">C 重庆</option><option value="福建">F 福建</option><option value="广西">G 广西</option><option value="贵州">G 贵州</option><option value="广东">G 广东</option><option value="甘肃">G 甘肃</option><option value="海南">H 海南</option><option value="湖北">H 湖北</option><option value="黑龙江">H 黑龙江</option>
+                                                    <option value="河南">H 河南</option><option value="河北">H 河北</option><option value="湖南">H 湖南</option><option value="江苏">J 江苏</option><option value="吉林">J 吉林</option><option value="江西">J 江西</option><option value="辽宁">L 辽宁</option><option value="内蒙古">N 内蒙古</option>
+                                                    <option value="宁夏">N 宁夏</option><option value="澳门">O 澳门</option><option value="青海">Q 青海</option><option value="四川">S 四川</option><option value="陕西">S 陕西</option><option value="上海">S 上海</option><option value="山东">S 山东</option><option value="山西">S 山西</option><option value="台湾">T 台湾</option><option value="天津">T 天津</option><option value="西藏">X 西藏</option><option value="香港">X 香港</option><option value="新疆">X 新疆</option><option value="云南">Y 云南</option><option value="浙江">Z 浙江</option>
+                                                </select>
+                                                <select id="zxys_City" name="city" class="select_City">
+                                                    <option value="">市/地区</option>
+                                                </select>
+                                                <div style="display:none">
+                                                    <select class="langSelect" id="zxys_Town" name="town">
+                                                        <option value="">县/市</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form_line">
+                                        <label for="" class="label"><em class="label_start">*</em>房屋面积：</label>
+                                        <div class="element"><div class="text_wrap">
+                                            <input type="text" class="text area_text" name="square" id="zxys_square"><em class="text_lbl">输入您的房屋面积</em><em class="unit" style="color: black;">m²</em>
+                                        </div>
+                                        <p class="text_area">* 输入面积小于30㎡时，报价结果按30㎡计算</p>
+                                    </div>
+                                </div>
+                                <div class="form_line">
+                                    <label for="" class="label"><em class="label_start">*</em>房屋户型：</label>
+                                    <div class="element">
+                                        <div class="zxgs-hx clear">
+                                            <select name="shi" id="zxys_shi" class="first_line">
+                                                <option value="1">1室</option>
+                                                <option value="2">2室</option>
+                                                <option value="3">3室</option>
+                                                <option value="4">4室</option>
+                                                <option value="5">5室</option>
+                                                <option value="6">6室</option>
+                                            </select>
+                                            <select name="ting" id="zxys_ting" class="first_line">
+                                                <option value="1">1厅</option>
+                                                <option value="2">2厅</option>
+                                                <option value="3">3厅</option>
+                                                <option value="4">4厅</option>
+                                                <option value="5">5厅</option>
+                                                <option value="6">6厅</option>
+                                            </select>
+                                            <select name="chu" id="zxys_chu" class="first_line">
+                                                <option value="1">1厨</option>
+                                                <option value="2">2厨</option>
+                                                <option value="3">3厨</option>
+                                            </select>
+                                            <select name="wei" id="zxys_wei" class="second_line">
+                                                <option value="1">1卫生间</option>
+                                                <option value="2">2卫生间</option>
+                                                <option value="3">3卫生间</option>
+                                                <option value="4">4卫生间</option>
+                                                <option value="5">5卫生间</option>
+                                                <option value="6">6卫生间</option>
+                                            </select>
+                                            <select name="yangtai" id="zxys_yangtai" class="second_line">
+                                                <option value="1">1阳台</option>
+                                                <option value="2">2阳台</option>
+                                                <option value="3">3阳台</option>
+                                                <option value="4">4阳台</option>
+                                                <option value="5">5阳台</option>
+                                                <option value="6">6阳台</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form_line" id="zxys_phoneInput">
+                                    <label for="" class="label"><em class="label_start">*</em>手机号码 ：</label>
+                                    <div class="element">
+                                        <ul class="choosebjway clear">
+                                            <li class="blueradio"><p><em></em>手机报价</p></li>
+                                            <li><p><em></em>微信人工报价</p></li>
+                                        </ul>
+                                        <div class="text_wrap">
+                                            <input id="zxys_phonenumber" type="text" class="text phonetext" name="phone"><em class="text_lbl">报价结果将发送到您的手机</em>
+                                        </div>
+                                        <div class="suspend-wechat clear"><p class="sus-head">微信加好友 获取详细报价</p>
+                                            <div class="sus-headimg">
+                                                <div class="headdetail"></div>
+                                                <div class="worddetail">
+                                                    <p>深圳装修顾问-馨馨</p>
+                                                </div>
+                                                <p>4年行业经验，24h可咨询</p><em class="pre-weixin-arrow-animated" style="left: 179.17px;"></em>
+                                            </div>
+                                            <div class="sus-quocode"><div>
+                                        </div>
+                                        <p>10秒闪电通过好友</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_line">
+                            <a href="javascript:void(0);" class="calc-btn-start" id="zxys_calc_btn"><label for="zxys_calc_btn" id="zxys_btn_calc" class="calcstart">开始计算</label> --><!-- 开始计算 -->
+                         <!--    <input type="hidden" id="zxys_myptag" name="ptag" value="1_1_1_99"></a>
+                                                 </div>
+                                             </div>
+                                         </form>
+                                         </div>  -->
+                <!-- results -->
+                    <!-- <div class="con_bj_res col_l"> -->
+                    <!--<h3>计算结果</h3>-->
+                        <!-- <div class="zxys_result">
+                            <span class="zxys-result-span">您的装修预算</span><b id="bprice">？</b><span>元</span>
+                        </div>
+                        <div class="zxgs-list">
+                            <ul class="zxgs-list-before">
+                                <li class="">
+                                    <span>材料费：</span><strong id="materialPay"><em>？</em>元</strong>
+                                </li>
+                                <li class="">
+                                    <span>人工费：</span><strong id="artificialPay"><em>？</em>元</strong>
+                                </li>
+                                <li class="">
+                                    <span>设计费：</span><strong id="designPay"><em>？</em>元</strong>
+                                </li>
+                                <li class="">
+                                    <span>质检费：</span><strong id="qualityPay"><em>？</em>元</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bj_explain zxys_explain" style="display:none">
+                            <p class="attention holiday-text"><b>*</b>稍候装修管家将回电您，免费提供装修咨询服务</p>
+                            <p class="text-none"><b>*</b>因材料品牌及工程量不同，具体报价以量房实测为准</p>
+                        </div>
+                        <div class="result-head">
+                            <p>报价短信已发送到您的手机，请注意查收！</p>
+                            <p class="recall holiday-text">稍后装修管家将回电您，免费提供装修咨询服务</p>
+                        </div>
+                        <div class="result-contain-bt">
+                            <p class="result-con-head">装修怕上当？问问靠谱的人</p>
+                            <div class="weixin-portrait-gif"></div>
+                            <div class="weixin-arrow-animated" style="left: 154.659px;"></div>
+                            <div class="left">
+                                <p><span class="bottom-zxgw-city">深圳装修顾问  </span><span class="kfname bottom-kfname">土巴兔-馨馨</span></p><p class="wechat-slogan">（四年装修行业经验）</p>
+                            </div>
+                            <div class="right">
+                                <p class="clear"><em></em>微信扫一扫 加好友</p>
+                            </div>
+                            <p class="result-bottom"><span>24小时咨询</span>咨询装修报价、户型设计等装修疑问</p>
+                        </div>
+                        <div class="result-contain-dg" style="display: none;"></div>
+                                            </div>
+                                            <div class="tdc-box"><div class="tdc-box-img"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            .bottom_slide_box {
+                                height: 390px;
+                                position: fixed;
+                                bottom: -370px;
+                                z-index: 7999;
+                                width: 100%;
+                                _position: absolute;
+                                _left: expression(eval(document.documentElement.scrollLeft));
+                                _top: expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - 215));
+                            }
+                            .bottom_slide_click {
+                                position: absolute;
+                                cursor: pointer;
+                                width: 100%;
+                                height: 91px;
+                                top: -70px;
+                                left: 0; -->
+    <!-- }
+    .bottom_slide_box .slide_box_shade {
+    height: 435px;
+    background: #15161a;
+    position: absolute;
+    bottom: 0px;
+    z-index: 5;
+    width: 100%;
+    opacity: 0.78;
+    filter: alpha(opacity=78);
+    -ms-filter: alpha(opacity=78);
+    }
+    .zxbj_details {
+    background: none;
+    padding-top: 140px;
+    }
+    .all_Calc_Container {
+    z-index: 7;
+    position: absolute;
+    left: 50%;
+    margin-left: -550px;
+    top: 16px;
+    width: 980px;
+    }
+    .bottom_slide_box .Calc_Container_zxys .bottom_slide_img {
+    width: 720px;
+    height: 120px;
+    z-index: 7;
+    position: absolute;
+    left: 85px;
+    top: -116px;
+    background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_bj.png?v=20161107) no-repeat;
+    _background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_bj.gif?v=20161107) no-repeat;
+    }
+    .bottom_slide_up {
+    background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_ud.png) no-repeat -47px -3px;
+    _background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_ud.gif) no-repeat -47px -3px;
+    }
+    .bottom_slide_down {
+    position: absolute;
+    right: 95px;
+    top: -50px;
+    background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_ud.png) no-repeat -1px -4px;
+    _background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_ud.gif) no-repeat -1px -4px;
+    width: 42px;
+    height: 43px;
+    cursor: pointer;
+    }
+    .all_Calc_Container .con_bj {
+    box-shadow: none;
+    }
+    
+    .bottom_slide_box .con_bj {
+    position: relative;
+    background-color: #fefefe;
+    }
+    .col_l {
+    float: left;
+    }
+    .con_bj_cal {
+    position: relative;
+    width: 409px;
+    }
+    .con_bj_cal {
+    border-right: 1px solid #CCC;
+    }
+    .bottom_slide_box .con_bj_cal {
+    padding: 24px 40px 20px 40px;
+    height: 330px;
+    }
+    .con_bj h3 {
+    font-size: 20px;
+    color: #333;
+    }
+    .calputer_tit span {
+    margin-left: 10px;
+    color: #f36f20;
+    font-size: 12px;
+    }
+    .bj_form {
+    width: 370px;
+    padding-top: 15px;
+    font-size: 14px;
+    }
+    .mod_form .label {
+    width: 24.6%;
+    padding-right: 8px;
+    margin-left: -8px;
+    float: left;
+    text-align: right;
+    line-height: 34px;
+    }
+    .bj_form .label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    margin-left: 0;
+    }
+    .label_start {
+    float: right;
+    font-size: 24px;
+    color: #fe5f00;
+    font-family: Arial;
+    margin-top: 5px;
+    }
+    .bottom_slide_box .bj_form .element {
+    width: 265px;
+    position: relative;
+    padding-bottom: 0;
+    float: right;
+    }
+    .bj_form .text_wrap {
+    position: static;
+    }
+    .bottom_slide_box .element .province-town, .bottom_slide_box .element .text_wrap, .bottom_slide_box .element .zxgs-hx {
+    padding-bottom: 10px;
+    }
+    .bj_form .area_text {
+    width: 223px;
+    padding: 7px 20px 7px 10px;
+    }
+    .element .text_wrap .area_text {
+    width: 210px;
+    }
+    
+    .mod_form .text_wrap .text_lbl {
+    color: #bbb;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    }
+    .bj_form .text_wrap .text_lbl {
+    left: 11px;
+    }
+    .bj_form .text_wrap .unit {
+    position: absolute;
+    right: 34px;
+    top: 7px;
+    margin: 0;
+    color: #bbb;
+    }
+    .element select {
+    border: 1px solid #CCC;
+    }
+    .province-town select {
+    padding-left: 7px;
+    width: 116px;
+    height: 39px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    }
+    .select_Shen {
+    float: left;
+    }
+    .bottom_slide_box .con_bj_res {
+    width: 340px;
+    color: #333;
+    font-size: 14px;
+    margin-left: 100px;
+    margin-top: 13px;
+    padding: 0;
+    }
+    .zxbj_zxys .zxys_result {
+    font-size: 20px;
+    text-align: center;
+    }
+    .zxys_result span.zxys-result-span {
+    font-size: 20px;
+    color: #333;
+    }
+    .zxbj_zxys .zxys_result b {
+    font-size: 30px;
+    color: #ff5a00;
+    display: inline-block;
+    width: 65px;
+    text-align: center;
+    }
+    .zxbj_zxys .zxys_result span {
+    font-size: 15px;
+    }
+    .bottom_slide_box .zxgs-list {
+    width: 338px;
+    height: 188px;
+    border: 1px solid #f0f0f0;
+    margin-top: 12px;
+    }
+    .bottom_slide_box .bottom_slide_content .zxgs-list {
+    border: 1px solid #e8e8e8;
+    }
+    .bottom_slide_box .zxgs-list .zxgs-list-before {
+    width: 145px;
+    margin: 32px 0px 0px 115px;
+    }
+    
+    .zxgs-list-before {
+    text-align: center;
+    }
+    .zxbj_zxys .zxgs-list .zxgs-list-before li {
+    width: 109px;
+    }
+    .bottom_slide_box .zxgs-list .zxgs-list-before li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 13px;
+    }
+    .zxbj_zxys .zxgs-list .zxgs-list-before li span {
+    float: left;
+    }
+    .bottom_slide_content .zxbj_zxys .zxgs-list .zxgs-list-before li em {
+    color: #f36f20;
+    }
+    .bottom_slide_box .zxys_explain {
+    margin-top: 5px;
+    }
+    .bottom_slide_content .attention {
+    color: #f36f20;
+    }
+    .result-head, .result-contain-bt, .bot-showwechat.bot-wechat-result .zxys_result, .bot-showwechat.bot-wechat-result .zxgs-list, .bot-showwechat.bot-wechat-result .zxys_explain, .bot-showwechat.bot-wechat-result+.wechat-img, .bot-showwechat.bot-wechat-result+.wechat-img-dg {
+    display: none;
+    }
+    .result-head {
+    margin-top: 17px;
+    text-align: right;
+    font-size: 14px;
+    color: #333;
+    }
+    .result-head .recall {
+    padding-right: 13px;
+    color: #eb5628;
+    font-size: 12px;
+    }
+    .weixin-portrait-gif {
+    position: absolute;
+    background: url(http://static.to8to.com/img/to8to_img/wx_xh/wxxh_portrait.gif?v=201612292110);
+    left: 20px;
+    top: 54px;
+    width: 138px;
+    height: 100px;
+    }
+    .weixin-arrow-animated {
+    position: absolute;
+    background: url(http://img.to8to.com/to8to_img/show_wechat.png?=201701031754) no-repeat -479px -392px;
+    width: 23px;
+    height: 14px;
+    top: 95px;
+    left: 153px;
+    }
+    .result-bottom {
+    height: 25px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin: 10px 0px -10px;
+    }
+    .result-contain-dg {
+    display: none;
+    position: absolute;
+    background: url(http://static.to8to.com/img/to8to_img/wx_xh/zxbj_wxxh.png?v=201701031754) no-repeat;
+    background-position: 0 -190px;
+    width: 110px;
+    height: 110px;
+    top: 133px;
+    right: 78px;
+    }
+    .bottom_slide_box .tdc-box {
+    position: absolute;
+    width: 185px;
+    height: 304px;
+    left: 984px;
+    bottom: 30px;
+    z-index: 10;
+    }
+    .bottom_slide_box .tdc-box-img {
+    width: 185px;
+    height: 304px;
+    background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_box2.png?v=201612051759) no-repeat;
+    _background: url(http://img.to8to.com/to8to_img/zxbj/bottom_slide_box2.gif?v=201612051759) no-repeat;
+    }
+    .clear:after {
+    clear: both;
+    content: '';
+    height: 0;
+    display: block;
+    }
+    
+    </style>
+    <script src="http://static.to8to.com/gb_js/GlobalProvinces.js?v=1460516531" type="text/javascript"></script>
+    <script src="http://static.to8to.com/assets/common/widgets/bottom_up_slide/zxbj_bottom_slide.js?v=1486369606" type="text/javascript"></script> -->
+<!-- 土 -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="appoinment-bottom show" id="appoinment-bottom" style="left:-100%;">
   <div class="page-container">
     <a href="javascript:;" target="_blank"><img class="logo" src="%THEME%/static/images/learn/include-bottom-logo.png"></a>
     <form action="<{link ctl='tenders:save'}>" mini-form="tenders_tzx" id="tenders-tzx" method="post">
@@ -44,19 +539,19 @@
       <div class="apply-form">
         <p class="tip">已有<em class="ifocus">12860</em>位业主 成功报名</p>
         
-	        <input type="hidden" name="data[from]" value="BOTTOMFROM">
-	        <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
+            <input type="hidden" name="data[from]" value="BOTTOMFROM">
+            <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
         <div class="form-left">
-	        <input type="text" placeholder="称呼" name="data[contact]"  />
-	        <div class="square"><input name="data[house_mj]" type="text" placeholder="建筑面积" /><span>㎡</span></div>
+            <input type="text" placeholder="称呼" name="data[contact]"  />
+            <div class="square"><input name="data[house_mj]" type="text" placeholder="建筑面积" /><span>㎡</span></div>
         </div>
         <div class="form-right">
-        	<input type="text" placeholder="手机号码" name="data[mobile]" />
-        	<div class="ch-sel-group">
-        		<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
-        	</div>
+            <input type="text" placeholder="手机号码" name="data[mobile]" />
+            <div class="ch-sel-group">
+                <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+            </div>
         </div>
-	        <input type="submit" value="" />
+            <input type="submit" value="" />
         
       </div> 
       <div class="qrcode-box">
@@ -70,7 +565,7 @@
     <div class="close_button"><a href="javascript:;">×</a></div>
   </div>
 </div>
-<!--缩略版-->
+缩略版
 <div class="appoinment-bottom-collapse">
   <a href="javascript:;"><img src="%THEME%/static/images/learn/include-bottom-collapse.png"></a>
 </div>
@@ -106,6 +601,8 @@
     })
     
 </script>
+
+
 <!-- 底部弹出表单结束 -->
 <div class="clear"></div>
 <div class="footer_buttom">

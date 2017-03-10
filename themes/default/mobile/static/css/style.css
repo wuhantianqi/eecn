@@ -49,6 +49,17 @@ a.city_link{ font-size:12px;}
 .app_menu li{ padding:5px; border-bottom:1px dashed #ccc;}
 .app_menu img.pic{ width:90px; height:90px; margin-right:2%; margin-top:10px;}
 .app_menu h2{ white-space:nowrap; overflow:hidden;}
+.app_menu h2 .yuyue{
+	width: 30%;
+    height: 26px;
+    color:#FFF;
+    margin-top: 3px;
+    line-height: 26px;
+    text-align: center;
+    background: #f36f21;
+    float: right;
+    font-size: 14px;
+}
 .app_menu p span{ margin-right:5%;}
 .app_menu li del{ color:#999; font-size:12px;}
 /*公共列表ul样式结束*/

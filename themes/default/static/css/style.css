@@ -83,8 +83,7 @@ span.login_litico{ width:6px; height:5px; background-position:-350px -97px; marg
 .main_nav ul li a.current{ background:#01841f;}
 .main_nav ul li .main_nav_son{ position:absolute; left:0px; top:38px;}
 ul.main_nav_son { width:118px; z-index:100;}
-ul.main_nav_son li a{ background:#01841f; padding-left:20px; width:100px; text-align:left;font-size:14px; line-height:35px; height:35px;}
-ul.main_nav_son li a:hover{ background:#1a9638;}
+ul.main_nav_son li a{ padding-left:20px; width:100px; text-align:left;font-size:14px; line-height:35px; height:35px;}
 .phoneIcon{ display:inline-block;  background:url(../images/phoneIcon.png) no-repeat; vertical-align:middle; width:18px; height:18px;}
 .tpApp{ position:relative;}
 .tpApp a.appLink{ display:inline-block; height:22px; line-height:22px; padding:0px 5px; border:1px solid #f3f3f3;}
@@ -131,8 +130,9 @@ p.sub_nav_prt{ line-height:40px;}
 /*灰色1000px头部样式结束 */
 
 /*灰色1000px底部样式开始 */
-.sub_footer{ text-align:center; overflow:hidden; background:#000; border-top:2px solid #ff4401; padding:10px 0px; color:#858585;}
+.sub_footer{ text-align:center; overflow:hidden; background:#1f1f1f;; border-top:2px solid #ff4401; padding:10px 0px; color:#858585;}
 .sub_footer p{ line-height:32px;}
+.sub_footer p:last-child{ line-height:20px;}
 .sub_footer p a{ margin:0px 5px;color:#FFF;font-size:14px;}
 .sub_footer .main_footer_bm_ico{ width:165px; height:25px; background-position:-15px -35px;}
 /*灰色1000px底部样式结束 */
@@ -677,6 +677,8 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 }
 .mainwd_float_wen{
 	position: relative;
+    width: 1100px;
+    margin: 0 auto;
 }
 .main_content_yan{
 	width:900px;
