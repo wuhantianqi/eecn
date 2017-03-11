@@ -1,0 +1,227 @@
+﻿<{include file="block/header.html"}>
+<style>
+.yf-main-one{width:100%;height:680px;background:url('%THEME%/static/images/houseInspection/top_bg.jpg');}
+.yf-banner{position:relative;width:1200px;height: 680px;margin:0 auto;}
+.yf-banner-btn{position:absolute;top:550px;left:450px;width:300px;height:70px;background:url('%THEME%/static/images/houseInspection/top_banner_btn.png') no-repeat;cursor:pointer;}
+.yf-banner-btn:hover{background:url('%THEME%/static/images/houseInspection/top_banner_btn1.png') no-repeat;}
+.yf-main-two{width:1200px;margin: 0 auto;text-align: center;}
+.yf-kunrao{margin-top: 70px;font-size: 35px;}
+.yf-underline{display: inline-block;width: 162px;height: 4px;background: #0a9261;}
+.yf-four-kr{position:relative;width:1200px;height: 250px;margin-top:35px;}
+.yf-two-people{position: absolute;bottom: 0px;left: 384px;}
+.yf-one-question{position: absolute;top: 0px;left: 0px; background:url("%THEME%/static/images/houseInspection/yf-one-question.png") no-repeat;width:296px;height:90px; }
+.yf-one-question:hover{background:url("%THEME%/static/images/houseInspection/yf-one-question1.png") no-repeat;}
+
+.yf-two-question{position: absolute;top: 0px;right: 0px;background:url("%THEME%/static/images/houseInspection/yf-two-question.png") no-repeat;width:364px;height:90px;}
+.yf-two-question:hover{background:url("%THEME%/static/images/houseInspection/yf-two-question2.png") no-repeat;}
+
+.yf-three-question{position: absolute;bottom: 0px;left: 0px;background:url("%THEME%/static/images/houseInspection/yf-three-question.png") no-repeat;width:375px;height:90px;}
+.yf-three-question:hover{background:url("%THEME%/static/images/houseInspection/yf-three-question3.png") no-repeat;}
+
+.yf-four-question{position: absolute;bottom: 0px;right: 0px;background:url("%THEME%/static/images/houseInspection/yf-four-question.png") no-repeat;width:320px;height:90px;}
+.yf-four-question:hover{background:url("%THEME%/static/images/houseInspection/yf-four-question4.png") no-repeat;}
+.yf-gpz{margin-top:37px;background: #e6e6e6;}
+.yf-wbyf{margin-top:80px;}
+.wbyf{position:relative;}
+.yf-txsq{position: absolute;top: 213px;left: 102px;width:70px;height:70px;background:url('%THEME%/static/images/houseInspection/txsq-70.png') no-repeat;}
+.yf-txsq:hover{position: absolute;top: 203px;left: 97px;width:90px;height:90px;background:url('%THEME%/static/images/houseInspection/txsq-90.png') no-repeat;}
+.yf-qdsj{position: absolute;top: 213px;left: 336px;width:70px;height:70px;background:url('%THEME%/static/images/houseInspection/qdsj-70.png') no-repeat;}
+.yf-qdsj:hover{position: absolute;top: 203px;left: 326px;width:90px;height:90px;background:url('%THEME%/static/images/houseInspection/qdsj-90.png') no-repeat;}
+.yf-yysj{position: absolute;top: 213px;left: 566px;width:70px;height:70px;background:url('%THEME%/static/images/houseInspection/yysj-70.png') no-repeat;}
+.yf-yysj:hover{position: absolute;top: 203px;left: 557px;width:90px;height:90px;background:url('%THEME%/static/images/houseInspection/yysj-90.png') no-repeat;}
+.yf-smfw{position: absolute;top: 213px;left: 796px;width:70px;height:70px;background:url('%THEME%/static/images/houseInspection/smfw-70.png') no-repeat;}
+.yf-smfw:hover{position: absolute;top: 203px;left: 786px;width:90px;height:90px;background:url('%THEME%/static/images/houseInspection/smfw-90.png') no-repeat;}
+.yf-hqbg{position: absolute;top: 213px;left: 1029px;width:70px;height:70px;background:url('%THEME%/static/images/houseInspection/hqbg-70.png') no-repeat;}
+.yf-hqbg:hover{position: absolute;top: 203px;left: 1029px;width:90px;height:90px;background:url('%THEME%/static/images/houseInspection/hqbg-90.png') no-repeat;}
+.yf-wbyf-btn{position:absolute;top: 352px;left: 450px;width:300PX;height:40px;background:url('%THEME%/static/images/houseInspection/yf-wbyf-btn.png') no-repeat;cursor: pointer;}
+.yf-wbyf-btn:hover{background:url('%THEME%/static/images/houseInspection/yf-wbyf-btn1.png') no-repeat;}
+.yf-xfys{margin-top:80px;}
+.yf-xfys-box{width:100%;margin-top:40px;padding-top:1px;border-top: 2px solid #0a9261;overflow:hidden;}
+
+.yf-question{float:left;width:240px;height:295px;background:#fafafa;list-style:none;}
+.yf-question-tit{font-size:24px;color:#333;}
+.yf-question-cont{line-height:28px;margin-top:40px;padding:0 24px;font-size:14px;color:#333;text-align:left;}
+.yf-question:hover,.yf-question:hover .yf-question-tit,.yf-question:hover .yf-question-cont{color:#fff;background:#ff6600;}
+.yf-question-img1{display: block;width:50px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-mcwt.png') no-repeat;margin: 40px auto}
+.yf-question:hover .yf-question-img1{background:url('%THEME%/static/images/houseInspection/yf-mcwt1.png') no-repeat;}
+.yf-question-img2{display: block;width:50px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-dl.png') no-repeat;margin: 40px auto}
+.yf-question:hover .yf-question-img2{background:url('%THEME%/static/images/houseInspection/yf-dl1.png') no-repeat;}
+.yf-question-img3{display: block;width:50px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-ls.png') no-repeat;margin: 40px auto}
+.yf-question:hover .yf-question-img3{background:url('%THEME%/static/images/houseInspection/yf-ls1.png') no-repeat;}
+.yf-question-img4{display: block;width:50px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-lf.png') no-repeat;margin: 40px auto}
+.yf-question:hover .yf-question-img4{background:url('%THEME%/static/images/houseInspection/yf-lf1.png') no-repeat;}
+.yf-question-img5{display: block;width:50px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-aqyh.png') no-repeat;margin: 40px auto}
+.yf-question:hover .yf-question-img5{background:url('%THEME%/static/images/houseInspection/yf-aqyh1.png') no-repeat;}
+
+.yf-main-three{width:100%;height:160px;text-align: center;margin-top: 60px;background: -webkit-linear-gradient(left, #54C15F , #1E9E6B);background: -o-linear-gradient(right, #54C15F, #1E9E6B);background: -moz-linear-gradient(right, #54C15F, #1E9E6B);background: linear-gradient(to right, #54C15F , #1E9E6B);}
+.yf-main-four{width:1200px;margin: 40px auto 0;text-align: center;overflow: hidden;}
+.main-four-box{position: relative;}
+.yf-zyyf-btn{position: absolute;top:380px;right: 350px;width:152px;height:82px;background:url('%THEME%/static/images/houseInspection/yf-zyyf-btn.png') no-repeat;cursor: pointer;}
+.yf-zyyf-btn:hover{background:url('%THEME%/static/images/houseInspection/yf-zyyf-btn1.png') no-repeat;}
+.yf-pzyy{padding-top: 62px;font-size: 48px;color: #333;}
+.yf-wmgdn{margin-top: 40px;font-size:30px;color: #333;}
+.yf-anli{margin-top: 40px;margin-bottom: 100px;overflow: hidden;}
+.yf-al-one{float:left;}
+.yf-al-two{float:left;margin-left:90px;}
+.yf-al-three{float:left;margin-left:90px;}
+.buttom-box{position:relative;width:1200px;height:100px;margin: 0 auto;}
+.yf-buttom-btn{position:absolute;right:0px;top: 25px;width:220px;height:50px;background:url('%THEME%/static/images/houseInspection/yf-buttom-btn.png') no-repeat;cursor: pointer;}
+.yf-buttom-btn:hover{background:url('%THEME%/static/images/houseInspection/yf-buttom-btn1.png') no-repeat;}
+</style>
+<div class="yf-main-one">
+	<div class="yf-banner">
+		<img src="%THEME%/static/images/houseInspection/top_banner.jpg" />
+		<i class="yf-banner-btn yf-form"/></i>
+		<div style="position:absolute;top:370px;left:300px;width:600px;height:117px;background:rgba(0,0,0,0.3);">
+			<p style="height:48px;line-height:48px;padding:0 45px;margin-top:10px;font-size:24px;color:#FFF;">空鼓、脱皮、漏水、裂缝等房屋质量问题一网打尽，严格按照符合行业标准有效的验房结果报告</p>
+		</div>
+	</div>
+</div>
+
+<div class="yf-main-two">
+	<h1 class="yf-kunrao">你是否也因为以下的问题而感到困扰？</h1>
+	<i class="yf-underline"></i>
+	<div class="yf-four-kr">
+		<img src="%THEME%/static/images/houseInspection/yf-two-people.png" class="yf-two-people"/>
+		<a target="_bank" href="http://www.mjia.cc/content-detail-1026.html"><i class="yf-one-question"></i></a>
+		<a target="_bank" href="http://www.mjia.cc/content-detail-1027.html"><i class="yf-two-question"></i></a>
+		<a target="_bank" href="http://www.mjia.cc/content-detail-1028.html"><i class="yf-three-question"></i></a>
+		<a target="_bank" href="http://www.mjia.cc/content-detail-1029.html"><i class="yf-four-question"></i></a>
+	</div>
+
+	<h1 class="yf-kunrao">优优美家，注重高品质装修验房</h1>
+	<i class="yf-underline"></i>
+	<div class="yf-gpz" style="width:1200px;height:300px;"/>
+		<div style="float:left;width:600px;">
+			<p style="height:80px;line-height:80px;font-size:24px;color:#333;background:#f2f2f2;"><i style="display:inline-block;background:url('%THEME%/static/images/houseInspection/yf-gpz1.png') no-repeat;width:180px;height:80px;float:left;"></i>专业团队，多年经验，品质保证</p>
+			<p style="height:80px;line-height:80px;font-size:24px;color:#333;background:#f2f2f2;margin-top:30px;"><i style="display:inline-block;background:url('%THEME%/static/images/houseInspection/yf-gpz2.png') no-repeat;width:180px;height:80px;float:left;"></i>建立业主口碑，不以推销为目的</p>
+			<p style="height:80px;line-height:80px;font-size:24px;color:#333;background:#f2f2f2;margin-top:30px;"><i style="display:inline-block;background:url('%THEME%/static/images/houseInspection/yf-gpz3.png') no-repeat;width:180px;height:80px;float:left;"></i>免费服务，专业力度不减</p>
+		</div>
+		<div style="float:right;width:600px;">
+			<p style="margin-top:50px;font-size:30px;font-weight:bold;color:#ff6600;">当日申请，当日安排</p>
+			<p style="margin-top:30px;font-size:18px;color:#333;">填写申请表后，客服小妹将在2小时内与您取得联系</p>
+			<p style="display:inline-block;width:432px;height:32px;line-height:32px;margin-top:30px;padding:20px;font-size:24px;color:#ff6600;border:1px dashed #333;">在3日内安排验房人员上门验房</p>
+		</div>
+	</div>
+	<div class="wbyf">
+		<img src="%THEME%/static/images/houseInspection/yf-wbyf.png" class="yf-wbyf"/>
+		<i class="yf-txsq"></i>
+		<i class="yf-qdsj"></i>
+		<i class="yf-yysj"></i>
+		<i class="yf-smfw"></i>
+		<i class="yf-hqbg"></i>
+		<i class="yf-wbyf-btn yf-form"/></i>
+	</div>
+
+	<img src="%THEME%/static/images/houseInspection/yf-xfys-question.png" class="yf-xfys"/>
+	<div class="yf-xfys-box">
+		<ul>
+			<li class="yf-question">
+				<a target="_bank" href="http://www.mjia.cc/content-detail-1030.html">
+					<i class="yf-question-img1"/></i>
+					<p class="yf-question-tit">01、门窗问题</p>
+					<p class="yf-question-cont">包括检查轨道是否顺畅、玻璃是否完好、窗框是否变形等</p>
+				</a>
+			</li>
+			<li class="yf-question">
+				<a target="_bank" href="http://www.mjia.cc/content-detail-1031.html">
+					<i class="yf-question-img2"/></i>
+					<p class="yf-question-tit">02、电路</p>
+					<p class="yf-question-cont">包括走线是否正确，插座口是否有接地线等</p>
+				</a>
+			</li>
+			<li class="yf-question">
+				<a target="_bank" href="http://www.mjia.cc/content-detail-1032.html">
+					<i class="yf-question-img3"/></i>
+					<p class="yf-question-tit">03、漏水</p>
+					<p class="yf-question-cont">包括铁丝网外漏，钢筋外漏，接口是否漏水、下水是否顺畅等</p>
+				</a>
+			</li>
+			<li class="yf-question">
+				<a target="_bank" href="http://www.mjia.cc/content-detail-1033.html">
+					<i class="yf-question-img4"/></i>
+					<p class="yf-question-tit">04、裂缝</p>
+					<p class="yf-question-cont">裂缝分为强度裂缝、沉降裂缝、温度裂缝、变形裂缝等问题</p>
+				</a>
+			</li>
+			<li class="yf-question">
+				<a target="_bank" href="http://www.mjia.cc/content-detail-1105.html">
+					<i class="yf-question-img5"/></i>
+					<p class="yf-question-tit">05、空鼓</p>
+					<p class="yf-question-cont">包括墙面空鼓、瓷砖拱起等问题</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="yf-main-three">
+	<img src="%THEME%/static/images/houseInspection/yf-xzcmj.png" />
+</div>
+
+<div class="yf-main-four">
+	<div class="main-four-box">
+		<div style="float:left;width:350px;">
+			<span style="display:inline-block;width:350PX;border-left:2px solid #0a9261;">
+				<p style="font-size:36px;color:#333;height:50px;line-height:50px;">优优美家专业验房</p>
+				<p style="font-size:36px;color:#333;height:50px;line-height:50px;">15大项  30小项</p>
+			</span>
+			<span style="display:inline-block;line-height:35px;margin-top:320px;text-align:left;">
+				<p style="font-size:20px;color:#666;">我们会提供15大项,30小项的专业检测服务，同时提供严格符合行业标准的验房结果报告，确保您的入住安稳无忧。</p>
+				<p style="margin-top:20px;font-size:18px;font-weight:600;color:#333;"><i style="display:inline-block;width:4px;height:16px;margin-right: 20px;background:#0a9261;vertical-align: middle;"></i>线上申请，方便省心</p>
+				<p style="margin-top:20px;font-size:18px;font-weight:600;color:#333;"><i style="display:inline-block;width:4px;height:16px;margin-right: 20px;background:#0a9261;vertical-align: middle;"></i>团队专业，项目齐全</p>
+				<p style="margin-top:20px;font-size:18px;font-weight:600;color:#333;"><i style="display:inline-block;width:4px;height:16px;margin-right: 20px;background:#0a9261;vertical-align: middle;"></i>结果准确，标准严苛</p>
+			</span>
+		</div>
+		<div style="float:right;">
+			<img src="%THEME%/static/images/houseInspection/yf-zyyf.png"/>
+		</div>
+		<i class="yf-zyyf-btn yf-form"></i>
+	</div>
+</div>
+
+<div style="width:100%;margin-top: 80px;background:url('%THEME%/static/images/houseInspection/repeat-bg.png');">
+
+	<div style="width:1200px;margin:0 auto;text-align: center;">
+		<h1 class="yf-pzyy">来自优优美家的品质邀约</h1>
+		<h1 class="yf-wmgdn">我们更懂你</h1>
+		<div class="yf-anli">
+			<ul>
+				<li style="float:left;width:340px;height:400px;background:#fff;list-style:none;">
+					<span style="display:inline-block;padding:24px;text-align:left;">
+					<h1 style="font-size:18px;color:#666;"><i style="display:inline-block;width:8px;height:20px;background:#0a9261;margin-right:20px;vertical-align:middle;"></i>万科朗苑——李先生</h1>
+					<p style="margin-top:20px;line-height:24px;font-size:12px;color:#666;">我跟老公都不懂验房，准备找个验房公司，朋友推荐说优优美家有这个服务，于是抱着试一试的心态，谁知道比我们预想的好太多，必须赞！</p></span>
+					<img src="%THEME%/static/images/houseInspection/yf-al-one.jpg""/>
+				</li>
+				<li style="float:left;width:340px;height:400px;margin-left:90px;background:#fff;list-style:none;">
+					<img src="%THEME%/static/images/houseInspection/yf-al-two.jpg""/>
+					<span style="display:inline-block;padding:24px;text-align:left;">
+					<h1 style="font-size:18px;color:#666;"><i style="display:inline-block;width:8px;height:20px;background:#0a9261;margin-right:20px;vertical-align:middle;"></i>文庭雅苑——张先生</h1>
+					<p style="margin-top:20px;line-height:24px;font-size:12px;color:#666;">优优美家的服务真是贴心，免费验房真的是很方便，本来我是不轻易帮人宣传的，但优优美家让我觉得很不错，有需要验房的推荐优优美家装修平台！</p></span>	
+				</li>
+				<li style="float:left;width:340px;height:400px;margin-left:90px;background:#fff;list-style:none;">
+					<span style="display:inline-block;padding:24px;text-align:left;">
+					<h1 style="font-size:18px;color:#666;"><i style="display:inline-block;width:8px;height:20px;background:#0a9261;margin-right:20px;vertical-align:middle;"></i>阳光年华——王先生</h1>
+					<p style="margin-top:20px;line-height:24px;font-size:12px;color:#666;">平时工作也很忙，收房之后一直没时间管这些事，后来看到网上说优优美家的服务还不错，于是就填了资料，他们的效率很高，现在我已经住进我的新房了。</p></span>
+					<img src="%THEME%/static/images/houseInspection/yf-al-three.jpg""/>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	$(".yf-form").on('click',function(){
+		layer.open({
+			type: 2,	
+			title:'',
+		    area: ['1030px', '465px'], //宽高
+		    content: ['<{link ctl="tenders:popup" arg0=THREEONE}>','no']
+		});
+	})
+})
+</script>
+<{include file="block/footer.html"}>

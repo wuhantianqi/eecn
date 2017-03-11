@@ -27,4 +27,9 @@ class Ctl_Newactivity extends Ctl
     {
         $this->tmpl = 'newactivity/m-house-keeper.html';
     }
+    //免费验房
+    public function houseInspection()
+    {
+        $this->tmpl = 'newactivity/houseInspection.html';
+    }
 }
