@@ -1,0 +1,77 @@
+﻿@charset "utf-8";
+/*重新浏览器默认标签样式文件*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/*默认背景色*/
+html{
+    background: #f6f6f6;
+}
+/*默认字体颜色及字号*/
+body {
+    font: 14px \5FAE\8F6F\96C5\9ED1,"microsoft yahei", tahoma, arial, \5B8B\4F53, "simsun",sans-serif; /* Microsoft YaHei, SimSun */
+    color: #1b1d1d;
+}
+
+/*所有页面主体的三个栅格尺寸 */
+.main-cont, .page-container{
+    width: 1180px;
+    margin: 0 auto;
+}
+.second-grid{
+    width: 1080px;
+    margin:0 auto;
+}
+.third-grid{
+    width: 990px;
+    margin: 0 auto;
+}
+
+i,address, cite, dfn, em, var {
+    font-style: normal;
+}
+ul, ol, li {
+    list-style: none;
+}
+img {
+    border: none;
+    vertical-align: middle;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+a {
+    text-decoration: none;
+    /*默认链接颜色*/
+    color: #00B7B1;
+    cursor: pointer;
+}
+a:hover{
+    color: #0ec9c3;
+}
+input, textarea, select {
+    /*去掉输入框浏览器默认样式*/
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    appearance: none;
+}
+select{
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+select::-ms-expand { display: none; } /* 去除IE10+的select默认下拉按钮 */
+input:focus, textarea:focus {
+    outline: none;
+}
+/* 防止IE10以上浏览器的输入框会自带 X 按钮 */
+input::-ms-clear {
+    display: none;
+}

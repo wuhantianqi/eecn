@@ -1,0 +1,110 @@
+﻿@charset "utf-8";
+/*
+*last edit:wanglianjie;
+change date:2016-2-25;
+change long:
+    1.添加IE8下placeholder js修复引起的样式失效
+*/
+.apply_form > * {
+    border-color: #e5e5e5;
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+.ie9 .apply_form input[type=text],.ie8 .apply_form input[type=text]{
+    width:100%;
+    margin-right:10px;
+}
+.apply_form > input[type="text"] {
+    color: #333;
+}
+.apply_form > input[name="apply"]{
+    background-color: #00b7b1;
+    color: #fff;
+    font-size: 18px;
+}
+.aside-apply .title{
+    margin:10px 0 10px ;
+}
+/* Created in September */
+.apply_form button, .apply_form input, .apply_form select, .apply_form textarea, .apply_form .select .selected {
+    font-family: inherit;
+    color: inherit;
+}
+.apply_form input[type="text"], .apply_form input[type="submit"] {
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}
+.apply_form input[type="submit"] {
+    background: #ff8c1b;
+    font-size: 16px;
+    color: #FFF;
+}
+.apply_form input[type="button"]{
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    height: 45px;
+}
+.apply_form input[type="text"]{
+    color:#999;
+}
+.apply_form .select .selected {
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    line-height: 27px;
+    box-sizing: border-box
+}
+.apply_form input[type="button"], .apply_form input[type="submit"], .apply_form .select {
+    cursor: pointer;
+}
+.apply_form .select {
+    position: relative;
+}
+
+.apply_form .select .selected span:nth-of-type(2) {
+    float: right;
+}
+.apply_form .select .select_option {
+    position: absolute;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    overflow: auto;
+    height: 200px;
+    background-color: #fff;
+}
+.apply_form .select .select_option .options_title {
+    cursor: auto;
+    line-height: 30px;
+    margin: 2px 0;
+    padding-left: 12px;
+    background-color: #e9eded;
+    font-family: Courier, monospace, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.apply_form .select .selected {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.apply_form .select .select_option .options_option {
+    padding-left: 12px;
+    font-size: 13px;
+    line-height: 27px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.apply_form .select .select_option .options_option:hover {
+    background-color: #e9eded;
+}
+

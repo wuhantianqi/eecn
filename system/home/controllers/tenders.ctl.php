@@ -52,6 +52,11 @@ class Ctl_Tenders extends Ctl
     public function newDesign(){
         $this->tmpl = 'tenders/newdesign.html';
     }
+    // 全网通用弹出层表单
+    public function globalform($tenders){
+        $this->pagedata['data'] = $tenders;
+        $this->tmpl = 'tenders/globalform.html';
+    }
     public function detail($tenders_id)
     {
         if(!$tenders_id = (int)$tenders_id){

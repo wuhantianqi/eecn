@@ -1,0 +1,113 @@
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/new_global.css">
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_new_two.css"/>
+<link rel="stylesheet" type="text/css" href="/themes/default/static/css/zxbj_n_alink.css">
+<link rel="stylesheet" href="/themes/default/static/css/layer-need.css" />
+<div class="dialog">
+	<ul>
+		<li>
+			<div class="con_bj_cal col_l pop-sheji">
+			<h3>立即申请</h3>
+            <form action="<{link ctl='tenders:save'}>" id="sheji-form" method="post">
+                <input type="hidden" name="data[from]" value="<{$data|default:'TZX'}>DESIGN" />
+				<div class="mod_form bj_form">
+					<!-- <div class="form_line">
+                            <label for="" class="label"><em class="label_start">*</em>所在城市：</label>
+                            <div class="element">
+                                <div class="clear">
+                                    <input type="hidden"  value="jianzhuang">
+                                    <select id="User_Shen"  class="select select_s col_l">
+                                        <option value="">武汉</option>
+                                    </select>
+                                    <select id="User_City"  class="select select_s col_l">
+                                        <option value="">江汉区</option>
+                                        <option value="">江岸区</option>
+                                        <option value="">洪山区</option>
+                                        <option value="">武昌区</option>
+                                        <option value="">汉阳区</option>
+                                        <option value="">江夏区</option>
+                                        <option value="">黄陂区</option>
+                                        <option value="">汉南区</option>
+                                        <option value="">硚口区</option>
+                                        <option value="">青山区</option>
+                                        <option value="">新洲区</option>
+                                        <option value="">东西湖区</option>
+                                        <option value="">蔡甸区</option>                                       
+                                    </select>
+                                    <div style="display:none"><select class="langSelect" id="User_Town" ><option value="">县/市</option></select></div>
+                                </div>
+                            </div>
+                        </div> -->
+					<div class="form_line">
+                        <label for="" class="label"><em class="label_start">*</em>您的称呼：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" name="data[contact]" placeholder="请输入您的称呼">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line">
+                        <label for="" class="label"><em class="label_start">*</em>手机号码：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" name="data[mobile]" placeholder="填手机号码，抢免费设计名额">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line">
+                        <label for="" class="label">小区名称：</label>
+                        <div class="element">
+                        	<div class="text_wrap">
+                                <input type="text" class="text area_text" name="data[home_name]" placeholder="请输入您的小区名称">                          
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_line check-box">
+                        <input type="checkbox" value="" checked="checked" >
+						    	我已阅读并接受<a href="help-yonghuxieyi.html" target="_blank">《装修常见问题条款》</a>
+                    </div>
+					<input type="submit" value="立即申请" />
+				</div>
+			</form>
+			</div>
+		</li>
+		
+	</ul>
+    <!-- 弹出提示层 -->
+    <div class="t_top">申请成功！优优美家装修网客服将于24小时内联系您，请您保持手机畅通</div>
+</div>
+<style>
+    .dialog>ul {
+        float: left;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .dialog>ul>li {
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+    }
+    .con_bj_cal {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        padding-top: 15px;
+        border-right: none;
+    }
+    .bj_form {
+        width: 370px;
+        padding-top: 30px;
+        font-size: 14px;
+        margin: 0 auto;
+    }
+</style>
+<script src="/themes/default/static/js/jquery-3.1.0.min.js"></script>
+<script src="/themes/default/static/js/jquery.validate.min.js"></script>
+<script src="/themes/default/static/js/jquery.form.js"></script>
+<script src="/themes/default/static/js/layer-need.js"></script>
+
+
+
+
+
+

@@ -32,4 +32,8 @@ class Ctl_Newactivity extends Ctl
     {
         $this->tmpl = 'newactivity/houseInspection.html';
     }
+        // 旧房翻新
+    public function fx(){
+        $this->tmpl = 'newactivity/fx.html';
+    }
 }
