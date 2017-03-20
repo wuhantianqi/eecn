@@ -160,7 +160,7 @@ class Ctl_Company extends Ctl
         $company = $this->check_company($company_id);
         $pager = $filter = array();
         $pager['page'] = $page = max((int)$page, 1);
-        $pager['limit'] = $limit = 9;
+        $pager['limit'] = $limit = 12;
         $pager['count'] = $count = 0;
         $filter = array('company_id'=>$company_id, 'closed'=>0);
         if($items = K::M('designer/designer')->items($filter, null, $page, $limit, $count)){
