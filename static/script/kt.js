@@ -243,9 +243,10 @@ $(document).ready(function(){
 		// }
 		// window.__MINI_LOAD = true;
 
-		Widget.MsgBox.success("数据处理中...");
-		Widget.MsgBox.load("数据处理中..");
-
+		/*  屏蔽了数据处理。加快表单提示信息
+			Widget.MsgBox.success("数据处理中...");
+			Widget.MsgBox.load("数据处理中..");
+		*/
 		if($(this).find("[name='MINI']").size()<1){
 			$(this).prepend('<input type="hidden" name="MINI" value="form" />');
 		}
