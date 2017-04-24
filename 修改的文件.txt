@@ -1,0 +1,39 @@
+2016/08/25
+装修公司
+D:\wamp\www\wwwroot\themes\fangTo8to\gs\items                         http://www.youyou.com/index.php?gs.html
+	D:\wamp\www\wwwroot\themes\fangTo8to\gs\items
+	D:\wamp\www\wwwroot\themes\default\static\css\style
+	D:\wamp\www\wwwroot\themes\fangTo8to\static\css\append
+	D:\wamp\www\wwwroot\themes\default\static\css\public
+
+D:\wamp\www\wwwroot\themes\default\designer\items                     http://www.youyou.com/index.php?designer.html
+	D:\wamp\www\wwwroot\themes\default\static\css\style
+D:\wamp\www\wwwroot\themes\default\gz\items
+D:\wamp\www\wwwroot\themes\default\mechanic\items                     http://www.youyou.com/index.php?mechanic.html
+D:\wamp\www\wwwroot\themes\default\youhui\items
+
+优惠活动
+D:\wamp\www\wwwroot\themes\default\activity\items
+设计与报价
+D:\wamp\www\wwwroot\themes\default\tenders\index
+我搜我家
+D:\wamp\www\wwwroot\themes\fangTo8to\home\items               小区楼盘
+学装修
+D:\wamp\www\wwwroot\themes\fangTo8to\diary\items
+
+
+2016/08/26      
+装修公司内页         
+http://www.youyou.com/index.php?company-about-50.html      企业介绍 
+	D:\wamp\www\wwwroot\themes\default\company\style\default\style
+http://www.youyou.com/index.php?company-news-50.html       企业新闻
+
+我搜我家内页  
+	小区楼盘
+	http://www.youyou.com/index.php?home-detail-106.html
+	团装小区内页  
+	http://www.youyou.com/index.php?home-tuanDetail-8.html
+学装修内页
+	http://www.youyou.com/index.php?ask.html          知识问答
+	http://www.youyou.com/index.php?article-detail-172.html   学装修内页
+	     

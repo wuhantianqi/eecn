@@ -1,0 +1,69 @@
+首页左上角
+	ILTZ COMPANY             		      首页找公司
+	ILTKPROGRAMME           		      首页看方案
+	ILTSCOST                		      首页审报价
+	ILTGCONSTRUCTION          		      首页管施工
+首页精选装修公司
+	IJR COMPANY                           首页找靠谱公司
+	IJR DESIGNCOST                        首页设计与报价
+装修公司列表页
+	RENOVATION COMPANY                    装修公司列表页找靠谱公司
+	RENOVATION DESIGNCOST                 装修公司列表页设计与报价
+	RENOVATION DESIGN					  装修公司列表页弹出框免费设计
+	RENOVATION OFFER					  装修公司列表页弹出框免费报价
+装修公司首页
+	IRENOVATION COMPANY                   装修公司首页找靠谱公司
+	IRENOVATION DESIGNCOST                装修公司首页设计与报价	
+网站底部弹出框 
+	BOTTOMFROM                            底部弹出框
+靠谱装修页面
+	RRT DESIGNCOST                        靠谱装修页面设计与报价
+	RRT COMPANY                           靠谱装修页面找靠谱公司
+	RRT DESIGNCOST                        靠谱装修页面设计与报价
+
+
+动态弹出框
+	 DESIGN
+	 OFFER
+
+效果图栏目页面
+		EFFECT DESIGN                    效果图页面弹框免费设计
+		EFFECT OFFER                     效果图页面弹框免费报价
+效果图列表页面
+		EFFECTLIST DESIGN                效果图列表页弹框免费设计
+		EFFECTLIST OFFER                 效果图列表页弹框免费报价
+效果图详情图片页表单
+		DETAILSPICTURE                   效果图详情图片页右侧表单
+
+智能报价单独页面
+	ZNBJFROM                             智能报价单独页面表单
+三分钟学装修页面
+	THREEONE DESIGN                      第二屏装修的钱去哪儿了弹出表单免费设计
+	THREEONE OFFER                       第二屏装修的钱去哪儿了弹出表单免费报价
+装修管家页面
+	HOUSEKEEPER                          申请装修管家服务表单
+	                                     旧房翻新也是用的这个标签
+装修保页面
+	ZXB
+学装修文章内页右侧表单
+	http://www.alyeecn.cc/index.php?article-detail-286.html
+	XARTICLELR                           学装修文章内页右侧表单  
+学装修文章列表左侧表单
+	http://www.alyeecn.cc/index.php?article-items-65-1.html
+	XARTICLELISTL                        学装修文章列表左侧表单
+
+
+
+
+
+
+
+
+
+
+	ALTER TABLE  `jh_tenders` CHANGE  `from`  `from` ENUM(  'TZX',  'TBJ',  'TSJ',  'TJC',  'ZXB',  'TZB',  'TLF',  'ILTZCOMPANY',  'ILTKPROGRAMME',  'ILTSCOST',  'ILTGCONSTRUCTION', 'IJRCOMPANY',  'IJRDESIGNCOST',  'RENOVATIONCOMPANY',  'RENOVATIONDESIGNCOST',  'RENOVATIONDESIGN',  'RENOVATIONOFFER',  'IRENOVATIONCOMPANY', 'IRENOVATIONDESIGNCOST',  'BOTTOMFROM',  'RRTDESIGNCOST',  'RRTCOMPANY',  'RRTDESIGNCOST',  'EFFECTDESIGN',  'EFFECTOFFER',  'EFFECTLISTDESIGN',  'EFFECTLISTOFFER', 'DETAILSPICTURE',  'ZNBJFROM',  'THREEONEDESIGN',  'THREEONEOFFER',  'HOUSEKEEPER',  'XARTICLELR',  'XARTICLELISTL' ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT  'TZX';
+	                         
+
+
+
+                             

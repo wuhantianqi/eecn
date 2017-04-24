@@ -1,0 +1,289 @@
+<{include file="block/small-header.html"}>
+<style type="text/css">html{height: 100%;}</style>
+
+<!--面包屑导航开始-->
+<div class="case_crumbs">
+	<p><span class="ico_list breadna"></span>您的位置：<a href="index"><{$CONFIG.site.title}></a>
+		&gt;<a href="<{link ctl='case:items'}>">装修案例</a>
+		&gt;<a href="<{link ctl='case:detail' arg0=$detail.case_id}>"><{$detail.title}></a>
+	</p>
+</div>
+<div class="picture" style="padding-right:5px;"><!--id="galleria"-->
+	<div class="pic_container">
+		<div style="width:280px;" class="pic_right_content" id="case_right_content">
+			<{widget id="tenders/fast" title="免费装修设计" from="DETAILSPICTURE"}>
+			<div class="mb10 area">
+				<div class="pding">
+					<div class="sub_case_yuyue">
+						<{if $company}>
+						<a href="<{$company.company_url}>" class="lt it_company_a"><img src="<{$pager.img}>/<{$company.thumb}>" /></a>
+						<div class="lt it_company_div">
+							<p><a href="<{$company.company_url}>" class="tit"><{$company.name}></a>
+							</p>
+							<a href="<{link ctl='gs:yuyue' arg0=$company.company_id http='ajax'}>" mini-load="免费预约" class="btn  btn_main_sm">免费预约</a>
+						</div>
+						<{elseif $designer}>
+						<a href="<{link ctl='blog' arg0=$designer.uid}>" class="lt"><img src="<{$pager.img}>/<{$designer.face_80}>" /></a>
+						<div class="lt">
+							<p><a href="<{link ctl='blog' arg0=$designer.designer_id}>" class="tit"><{$designer.name}></a>
+							</p>
+							<a href="<{link ctl='designer:yuyue' arg0=$designer.uid http='ajax'}>" mini-load="免费预约" class="btn  btn_main_sm">免费预约</a>
+						</div>
+						<{elseif $gz}>
+						<a href="<{link ctl='gz:detail' arg0=$gz.uid}>" class="lt"><img src="<{$pager.img}>/<{$gz.face_80}>" /></a>
+						<div class="lt">
+							<p><a href="<{link ctl='gz:detail' arg0=$gz.uid}>" class="tit"><{$gz.name}></a>
+							</p>
+							<a href="<{link ctl='gz:yuyue' arg0=$gz.uid http='ajax'}>" mini-load="免费预约"  class="btn  btn_main_sm">免费预约</a>
+						</div>
+						<{/if}>
+						<div class="cl"></div>
+					</div>
+				</div>
+				<div class="pding case_linian colorbg">
+					<p>设计理念:<{$detail.intro}></p>
+				</div>
+				<div class="pding"><{widget id="attr/attr" from='zx:case' value=$detail.attrvalues tpl='show.html'}></div>
+			</div>
+			<div class="mb20 pding area">
+				<h3>相关案例</h3>
+				<div class="sub_case_rtpic">
+					<{calldata mdl="case/case" order="views:DESC" city_id=$request.city_id limit=9}><a href="<{link ctl='case-detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
+					<{/calldata}>
+				</div>
+			</div>
+			<{if $CONFIG.comment.case_type == 'sns'}>
+			<{$CONFIG.comment.snscomment}>
+			<{elseif $CONFIG.comment.case_type == 'comment'}>
+			<div class="mb20 pding area">
+				<h3>评论(共<font class="fontcl2"><{$pager.count|default:'0'}></font>条)</h3>
+				<form class="pinglun" id='comment_form'>
+					<div>
+						<textarea class="text" name="content" placeholder="随便说点什么..."></textarea>
+						<br />
+						<{if $comment_yz}>
+						<p>验证码&nbsp;
+							<input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+						</p>
+						<p class="yanma"><img verify="#comment-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="comment-verify"/><a verify="#comment-verify">点击刷新验证码</a>
+						</p>
+						<{/if}>
+						<input type="submit" mini-submit='#comment_form' action="<{link ctl='case:comment' arg0=$detail.case_id}>" name="fbpl" value="发表评论" class="text btn pinglun_btn" />
+					</div>
+					<div class="cl"></div>
+				</form>
+				<div class="new_pinglun">
+					<p class="tit">最新评论</p>
+					<ul>
+						<{foreach $items as $item}>
+						<li>
+							<img src="<{$pager.img}>/<{$user_list[$item.uid].face_32}>" class="lt" /><{$user_list[$item.uid].uname}>
+							<div class="rt">
+								<p class="graycl"><{$item.dateline|format}></p>
+								<p><{if $item.audit == 0}>
+								<p class="tips"><span class="lock">该评论正在审核中</span></p>
+								<{else}><{$item.content}><{/if}>
+								</p>
+							</div>
+						</li>
+						<{/foreach}>
+						<{if $pager.pagebar}>
+						<div class="page hoverno"><{$pager.pagebar}></div>
+						<{/if}>
+					</ul>
+				</div>
+			</div>
+			<{/if}>
+		</div>
+		<div class="img_content init" style="margin-right:290px;">
+			<div class="img_box img_box_deta">
+						<div class="zh-carousel">
+							<ul class="zh-carousel-ul" style="height:600px;">
+								<{foreach $photos as $item}>
+								<li>
+									<a href="#"><img src="<{$pager.img}>/<{$item.photo}>" /></a>
+								</li>
+								<{/foreach}>
+								
+							</ul>
+							<div class="control-bg">
+								<div class="zh-run-box">
+									<ul class="zh-control-ul">										
+										<{foreach $photos as $item}>
+										<li><img src="<{$pager.img}>/<{$item.photo}>_small.jpg"/></li>
+										<{/foreach}>									
+									</ul>
+								</div>
+								<a class="zh-control-prev"></a>
+								<a class="zh-control-next"></a>
+							</div>
+						</div>
+						<a class="zh-carousel-prev"></a>
+						<a class="zh-carousel-next"></a>
+
+				<script type="text/javascript">						
+					$(function(){		//原图显示，原图的高度最好不要超过590px
+						var $carouselLi = $(".zh-carousel .zh-carousel-ul li");
+						
+						var $controlUl=$(".zh-control-ul");
+						var $control =$(".zh-carousel .zh-control-ul li");
+						
+						var $prev = $(".zh-carousel-prev");
+						var $next = $(".zh-carousel-next");
+						
+						var $prevCon=$(".zh-control-prev");
+						var $nextCon=$(".zh-control-next");
+						var $controlBg=$(".control-bg");
+						
+						var $imgBox=$(".img_box");
+						var $boxHeight=$(".img_box").css("height");
+						var $fatherHeights = $('.zh-carousel-ul');
+						
+						$carouselLi.eq(0).find('img').load(function(){
+							$imgBox.css("height",parseInt($carouselLi.eq(0).css("height"))+120);
+						})
+						var timer=null;
+						var iNow =0;
+						var iNow2 =1;
+						
+						$control.eq(0).addClass("active");
+						
+						$control.click(
+							function(){
+				//				clearInterval(timer);
+								$index = $(this).index();
+								iNow = $index;
+								$boxHeight=$carouselLi.eq(iNow).css("height");
+								$imgBox.css("height",parseInt($boxHeight)+120);
+								$fatherHeights.css("height",parseInt($boxHeight)+40);
+								reBulid(iNow);
+							}			
+						)
+						$prev.click(function(){
+				//			clearInterval(timer);
+							if(iNow==0){
+								iNow=$carouselLi.length-1;
+							}
+							else{
+								iNow--;
+							}
+							$boxHeight=$carouselLi.eq(iNow).css("height");
+							$imgBox.css("height",parseInt($boxHeight)+120);
+							$fatherHeights.css("height",parseInt($boxHeight)+40);
+							reBulid(iNow);
+						})
+						
+						$next.click(function(){
+				//			clearInterval(timer);
+							if(iNow==$carouselLi.length-1){
+								
+								iNow=0;
+							}
+							else{
+								iNow++;
+							}
+							$boxHeight=$carouselLi.eq(iNow).css("height");
+							$imgBox.css("height",parseInt($boxHeight)+120);
+							$fatherHeights.css("height",parseInt($boxHeight)+40);
+							reBulid(iNow);
+						})
+
+						function auto(){
+							if(iNow==$carouselLi.length-1){
+								
+								iNow=0;
+							}
+							else{
+								iNow++;
+							}
+							reBulid(iNow);
+						}
+						
+						function reBulid(num){
+							$carouselLi.each(function(){
+								$carouselLi.fadeOut();
+							})
+							$control.each(function(){
+								$control.removeClass("active");
+							})
+							
+							$carouselLi.eq(iNow).fadeIn();
+							$control.eq(iNow).addClass("active");
+						}
+						var $prevCon=$(".zh-control-prev"); 											
+						var $nextCon=$(".zh-control-next");
+						
+						var ulWidth=$control.length*72;
+						
+						(function(){	
+							$prevCon.click(function(){
+								if(iNow2==1){
+									return false;
+								}
+								else{
+									iNow2--;
+									$controlUl.animate({
+									left:-(iNow2-1)*72
+								},200);
+								
+								}
+							})
+							
+							$nextCon.click(function(){
+								
+								var ulLeft=Math.abs(parseInt($controlUl.css("left")));
+								if((ulLeft+1008)>=ulWidth){
+									return false;
+								}
+								else{
+									$controlUl.animate({
+										left:-iNow2*72
+									},200);
+									iNow2++;
+								}
+							})
+						})()
+
+					});
+					function fatherHeight(){
+						//获取大图下面的第一张图片高度并赋值给ul父元素
+						var he =$(".zh-carousel-ul li:first-child").height();	
+						$(".zh-carousel-ul").height(he+40);
+					}
+				</script>		
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="%THEME%/static/script/customcrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+(function(K, $){
+$(document).ready(function(){
+var GH = $(window).height()-100;
+$(".pic_right_content").height(GH-20);
+Galleria.configure({
+    transition: 'fade',thumbCrop:true,height:GH,thumbPosition:"bottom center",extend: function() {
+            var gallery = this; // "this" is the gallery instance
+            $(window).resize(function() {gallery.play();});
+            $(".galleria-theme-classic .galleria-stage").css("bottom", "70px");
+        },
+});
+Galleria.run('#galleria');
+$(window).load(function(){
+	$("#case_right_content").mCustomScrollbar({theme:"dark-2",axis:"yx", scrollButtons:{enable:true}});
+});
+});
+$("[like]").click(function(){
+    var case_id = $(this).attr("like");
+    $.getJSON("<{link ctl='case:like' arg0=$detail.case_id}>", function(ret){
+        if(ret.error){
+            Widget.MsgBox.error(ret.message.join(","));
+        }else{
+            Widget.MsgBox.success(ret.message.join(","));
+        }
+    });
+});
+})(window.KT, window.jQuery); 
+</script>
+

@@ -914,6 +914,7 @@ p.indexMore a{color:#ff4400; display:block;}
 }
 
 .zh-m-form input[type=submit]{
+    list-style: none;
 	margin-top: 0.2rem;
 	border-radius: 5px;
 	background-color: #ff4401;

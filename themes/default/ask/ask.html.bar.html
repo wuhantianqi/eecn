@@ -1,0 +1,152 @@
+<{include file="block/header.html"}>
+<!--面包屑导航开始-->
+<div class="main_topnav mb20">
+	<div class="mainwd">
+		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+			><a href="<{link ctl='ask'}>">知识问答</a>
+		</p>
+	</div>
+</div>
+<!--面包屑导航结束-->
+<div class="mainwd">
+	<!--主体左边内容开始-->
+	<div class="main_content lt main_content_ask">
+		<div class="mb10 area question_box">			
+             <form action="<{link ctl='ask:save' http='ajax'}>" mini-form="ask"  method="post">
+               <textarea id='data_title' name='data[content]' class="mb10" placeholder="请在这里输入您的问题，有问必答"></textarea>	
+                   <div class="lt">
+					<span>问题分类：</span>              
+					<select class="text"  id='cate_select' onchange="change(this.value)" >
+                    	 <option value="cat_all" id='cat_all' selected="selected">--全部--</option>
+						 <{foreach $cates as $item}>
+                            <{if $item.parent_id == 0}>
+                                    <option value='<{$item.cat_id}>'><{$item.title}></option>
+                            <{/if}>
+                        <{/foreach}>
+					</select>
+                    <{foreach $cates as $item}>
+                    	 <{if $item.parent_id == 0}>
+                            <select class="text" id = '<{$item.cat_id}>' onchange = "changes(this.value)" style="display:none">
+                            	 <option class = 'parent_all'  value="parent_all">--全部--</option>
+                                 <{foreach $cates as $it2}>
+                                        <{if $it2.parent_id == $item.cat_id}>
+                                            <option  value='<{$it2.cat_id}>'><{$it2.title}></option>
+                                        <{/if}>
+                                 <{/foreach}>
+                            </select>
+                         <{/if}>
+                    <{/foreach}>
+                     
+                  <input type="hidden" id='cat_value' name="cat_id" value="0" /> 
+                 		<{if $ask_yz}>
+                            验证码:
+                                    <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                                    <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+                                
+                        <{/if}>
+                    </div>
+                    <div class="rt">
+                        
+                        <input type="submit" class="btn" value="提交问题"  />
+                    </div>
+                    <div class="cl"></div>
+                </form>
+                
+                <script>
+					$(document).ready(function(){
+                       $("#cat_all").attr("selected",true);
+					   $('#cat_value').val(0);
+                    });
+					
+                	function change(cat_id){
+						<{foreach $cates as $item}>
+							<{if $item.parent_id == 0}>
+								   if(cat_id == <{$item.cat_id}>){
+										 $("#"+<{$item.cat_id}>).show();  
+								   }else{
+										 $("#"+<{$item.cat_id}>).hide();  
+								   }
+                            <{/if}>
+						<{/foreach}>
+						$(".parent_all").attr("selected",true);
+						$('#cat_value').val(cat_id);
+					}
+					
+					function changes(val){
+						if(isNaN(val)){
+							val = 	$('#cate_select option:selected').val();
+						}
+						$('#cat_value').val(val);
+					}
+                </script>
+                <!--主体右边内容开始-->
+				<!-- <div class="side_content rt">
+					<div class="mb10 qu_choose">
+						<p><span class="ico_list lt"></span>总有一个人能帮您</p>
+						<a href="<{link ctl='ask:make'}>" class="tiwen btn">我要提问</a>
+						<a href="<{link ctl='ask:items' arg0=1 arg1=2}>" class="huida btn">我要回答</a>
+					</div>
+					
+				</div> -->
+		</div>
+		<div class="mb20">
+			<div class="side_content area lt">
+				<h3 class="side_tit">所有问题分类</h3>
+				<ul class="question_fenlei pding">
+                	<{foreach $cates as $item}>
+                        <{if $item.parent_id == 0}>
+                            <li>
+                            	<h3><a href="<{link ctl='ask:items' arg0=$item.cat_id}>" class="fontcl2"><{$item.title}></a></h3>
+                                <{foreach $cates as $it2}>
+                                <{if $it2.parent_id == $item.cat_id}>
+                                	<a href="<{link ctl='ask:items' arg0=$it2.cat_id}>"><{$it2.title}></a>
+                                <{/if}>
+                                <{/foreach}>
+                            </li>
+                        <{/if}>
+                    <{/foreach}>
+					
+				</ul>
+			</div>
+			<div class="question_show  rt">
+				<div class="area mb10">
+					<h3 class="side_tit"><font class="lt">已解决问题</font><a href="<{link ctl='ask:items' arg0=1 arg1=1}>" class="rt">更多</a>
+					</h3>
+					<ul class="pding question_list">
+                    	 <{calldata mdl="ask/ask" answer_id='>:0' order="ask_id:desc" limit="15"}> 
+                            <li><a target="_blank" href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="lt"><span class="ico_list over_qe"></span><{$item.title|cutstr:50}></a>
+							<span class="rt">回答(<font class="fontcl2"><{$item.answer_num}></font>)</span></li>
+                         <{/calldata}>
+					</ul>
+				</div>
+				<div class="area">
+					<h3 class="side_tit"><font class="lt">未解决问题</font><a href="<{link ctl='ask:items' arg0=1 arg1=2}>" class="rt">更多</a>
+					</h3>
+					<ul class="pding question_list">
+                    		<{calldata mdl="ask/ask" answer_id='0' order="ask_id:desc" limit="15"}> 
+                            	<li><a  target="_blank" href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="lt"><span class="ico_list no_qe"></span><{$item.title|cutstr:50}></a>
+							<span class="rt fontcl2"><{$item.dateline|format}></span></li>
+                            <{/calldata}>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<!--主体左边内容结束-->
+    <script>
+	$("[verify]").click(function(){
+		$($(this).attr("verify")).attr("src", "index.php?magic-verify&_"+Math.random());
+	});
+	</script>
+	<{include file="ask/block/right.html"}>
+<{include file="block/footer.html"}>
+
+
+
+<!-- <div class="mb10 qu_choose">
+	<p><span class="ico_list lt"></span>总有一个人能帮您解决装修问题</p>
+	<a href="<{link ctl='ask:make'}>" class="tiwen btn">我要提问</a>
+	<a href="<{link ctl='ask:items' arg0=1 arg1=2}>" class="huida btn">我要回答</a>
+</div> -->

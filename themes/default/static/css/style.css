@@ -864,6 +864,10 @@ ul.main_tuanz li{ margin:10px 0px 5px 16px;}
 
 /*---------------------------------------------------在建工地列表页面样式开始---------------------------------------------------*/
 .main_site a.pic img{ width:200px; height:150px;}
+.zjgd .main_site a.pic img{
+	width: 220px;
+    height: 165px;
+}
 .main_site_rt{ width:75%;}
 .main_site_rt_top a.btn{ margin-top:20px;}
 .fengge_ico{ width:15px; height:15px; background-position:-15px -75px;}
