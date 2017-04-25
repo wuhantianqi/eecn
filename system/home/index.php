@@ -10,6 +10,7 @@ define('__APP__', 'home');
 define('__APP_DIR', dirname(__FILE__).DIRECTORY_SEPARATOR);
 define('__CORE_DIR',dirname(__APP_DIR).DIRECTORY_SEPARATOR);
 if(!file_exists(__CORE_DIR.'data/install.lock')){
+
     header('Location:./install/index.php');
     exit();
 }
