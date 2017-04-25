@@ -118,7 +118,7 @@ form.tenders select.two:last-child{ float:right;}
 #dt-hd-navs-wrap .dt-hd-navs{ overflow:hidden; position:absolute; top:5%; width:100%;    }
 #dt-hd-navs-wrap .dt-hd-navs li{ width:25%; float:left; margin-bottom:15px; font-size:13px;text-align: center;}
 .menuin {display: block;-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;-webkit-animation-duration: 300ms;animation-duration: 300ms;-webkit-animation-name: menuin;animation-name: menuin;-webkit-transform-origin: 50% 50%;}
-.menuout {display: block;-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;-webkit-animation-duration: 300ms;animation-duration: 300ms;-webkit-animation-name: menuouanimation-name: menuout;-webkit-transform-origin: 50% 50%;}
+.menuout {display: block;-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;-webkit-animation-duration: 300ms;animation-duration: 300ms;-webkit-animation-name: menuout;animation-name: menuout;-webkit-transform-origin: 50% 50%;}
 .tenders_pic img{ margin:0px auto; width:100%; text-align:center;}
 .clearfix{ overflow:hidden;}
 .clearfix label{ position:relative;}
@@ -547,7 +547,7 @@ font.site_step{ color:#fe7902; border:1px solid #fe7902; padding:0px 5px;}
 
 /*购物车样式开始*/
 .dim_btn{ background:#bf9d5b; width:100%; border:1px solid #b58129; font-size:16px;}
-.sub_goods_gm p{ border-bottom:1px dashed #ccc; line-height:40px;m}
+.sub_goods_gm p{ border-bottom:1px dashed #ccc; line-height:40px;}
 .sub_goods_gm a.btn{ width:48%; margin:10px 0px;}
 .count_ico{ display:inline-block; width:27px; height:27px; background:url(../images/count_ico.png) no-repeat;  vertical-align:middle; }
 .buy_count_text{width:36px;height:25px;border:1px solid #ccc;line-height:26px;text-align:center; font-size:12px; border-left:0px; border-right:0px;}
@@ -793,3 +793,66 @@ form .text {
 	margin-bottom:2rem;
 }
 /*注册页修改*/
+/*ceform  banner图*/
+.mb10 img{
+	width: 100%;
+	height: 160px;
+}
+.content{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	background-color:rgba(169,240,209,.3);
+}
+
+.content form fieldset{
+	border: 2px solid rgba(255,247,248,.5);
+
+}
+.content form ul li input{
+	padding-left: 15px;
+	height: 50px;
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	text-rendering: auto;
+	width: 100%;
+	margin: 6px 0;
+	margin-right: 10px;
+	box-sizing: border-box;
+}
+.content form div label select{
+
+	outline: none;
+	border: none;
+	text-rendering: auto;
+	height: 50px;
+
+}
+.content form div label{
+	overflow: hidden;
+}
+.content form .shit label select{
+	float: left;
+	width: 40%;
+	margin: 0 10px;
+}
+.content form .shit label .shit_f{
+	border-radius: 6px 0 0 6px;
+	position: relative;
+}
+.content form .shit label .shit_f:before{
+	content: '';
+	position: absolute;
+	left:4px ;
+	top: 12px;
+	width: 1px;
+	border-right: solid 1px #000;
+	height: 26px;
+	z-index: 9999;
+	display: block;
+}
+
+.content form .shit label .shit_l{
+	border-radius:  0 6px 6px  0;
+}
