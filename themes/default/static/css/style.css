@@ -654,7 +654,10 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 .main_content_youhui{
 	margin-top:30px;
 }
-.main_content_ask{margin-top:0px;}
+.main_content_ask{
+	margin-top:0px;
+	width: 100%;
+}
 .wo_qu{
 	margin-top:0px;
 }
@@ -726,8 +729,16 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 }
 .choose_option table{ width:100%;margin-top:30px;}
 .wo_qu table{margin-top:0px;}
-.choose_option td{ vertical-align:top;     padding: 5px 0px 5px 10px;}
+.choose_option td{ 
+	width: 1088px;
+	vertical-align:top; padding: 5px 0px 5px 10px;
+}
+.choose-riji td{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
 .choose_option td.tit{width:70px;     font-size: 14px;}
+
 /*筛选框样式结束*/
 /*装修公司展示开始*/
 .zh-gs-show{width: 100%;}
@@ -1114,6 +1125,9 @@ form.pinglun div.rt{
     float: left;
     margin-left: 30px;
 }
+form.pinglun div.riji-rt{
+	margin-left: 0px;
+}
 form.pinglun textarea{ 
 	width: 99%;
     height: 80px;
@@ -1121,7 +1135,7 @@ form.pinglun textarea{
 }
 .yanma{line-height:35px;margin-top: 5px;}
 .yanma a{margin-left:5px;}
-form.pinglun .pinglun_btn{background:#eee; width:100%; line-height:22px; font-size:14px;height:30px; border:1px solid #bbb;}
+form.pinglun .pinglun_btn{background:#eee; width:100%; line-height:22px; font-size:14px;height:30px; border:1px solid #bbb; margin: 20px 0px;}
 form.pinglun .pinglun_btn_bottom{width:150px;}
 .pinglun_btn:hover{ color:#333;}
 .new_pinglun p.tit{ border-bottom:1px solid #ddd; font-size:16px;}
@@ -1554,7 +1568,13 @@ p.img{ text-align:center; margin:10px auto;}
 	background: #f8f8f8;
 	color:#999;
 }
-
+.question_box form .lt{
+	line-height: 0px;
+}
+.question_box form .lt select.text{
+	width: 78px;
+	margin-top: 0px;
+}
 .question_box h2{ color:#fff;}
 .question_box textarea{ 
 	width:98%; height:100px;    margin-left: 3px;
@@ -1566,7 +1586,7 @@ p.img{ text-align:center; margin:10px auto;}
 .question_box .btn:hover{ opacity:1;}
 .question_fenlei h3{ color:#fc9130;}
 .question_fenlei a{ margin:5px 10px 0px 0px;}
-.question_show{     width: 730px;
+.question_show{     width: 780px;
     margin-right: 20px;}
 .question_list li{border-bottom:1px dashed #ddd; overflow:hidden; line-height:34px; }
 .question_list li a{ font-size:14px;}
@@ -1605,6 +1625,12 @@ p.img{ text-align:center; margin:10px auto;}
 /*---------------------------------------------------知识问答-待回答问题页面样式开始---------------------------------------------------*/
 .qita_question { border-bottom:1px solid #ddd;margin-top: 20px;}
 /*.huida_box{ background:#f3f3f3;}*/
+.mainwd .main_content{
+	width: 100%;
+}
+.mainwd .main-rileiye{
+	width: 900px;
+}
 .huida_box h2{ color:#333;}
 .huida_box .btn{ background:#eee; border:1px solid #ddd;}
 .color_qu{ width:15px; height:28px; background-position:-290px -75px;}

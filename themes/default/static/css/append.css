@@ -12,7 +12,6 @@
 .jh-key ul li a.hovered i { font-size: 0; line-height: 0; background: url(../images/shop/public.png) no-repeat 0px -40px; display: block; width: 9px; height: 9px; position: absolute; z-index: 1; right: 0px; bottom: 0px;}
 
 /*购买数量和库存*/
-.jh-figure-input {}
 .jh-figure-input a { background: url(../images/shop/public.png) no-repeat; width: 13px; height: 13px; }
 .jh-figure-input a.decrease { background-position: 0px -60px; margin:10px 5px 9px 0;}
 .jh-figure-input a:hover.decrease { background-position: -13px -60px;} 
