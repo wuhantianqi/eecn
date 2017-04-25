@@ -90,14 +90,16 @@ class Index extends kernel
         $siteCfg = $this->config->get('site');
         $mobileCfg = $this->config->get('mobile');
         if($siteCfg['mobile'] && $request['url'] == trim($mobileCfg['url'], '/')){
-            if(empty($request['ismobile']) && !$this->cookie->get('force_mobile')){
-                $request['ctl'] = 'app';
-                if(!in_array($request['act'], array('index', 'android', 'iphone'))){
-                    $request['act'] = 'index';
-                }
-            }else if(!preg_match('/^mobile\/(.*)$/i', $request['ctl'])){
-                $request['ctl'] = 'mobile/'.$request['ctl'];
-            }
+                                 
+            $request['ctl'] = 'mobile/'.$request['ctl'];
+            // if(empty($request['ismobile']) && !$this->cookie->get('force_mobile')){
+            //     $request['ctl'] = 'app';
+            //     if(!in_array($request['act'], array('index', 'android', 'iphone'))){
+            //         $request['act'] = 'index';
+            //     }
+            // }else if(!preg_match('/^mobile\/(.*)$/i', $request['ctl'])){
+            //     $request['ctl'] = 'mobile/'.$request['ctl'];
+            // }
         }else if($request['ismobile'] && empty($request['isrobot']) && $siteCfg['mobile']){
             if($mobileCfg['forward'] && !$this->cookie->get('force_web')){
                 header("Location:".$mobileCfg['url']);
