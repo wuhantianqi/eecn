@@ -91,7 +91,9 @@ class Index extends kernel
         $mobileCfg = $this->config->get('mobile');
         if($siteCfg['mobile'] && $request['url'] == trim($mobileCfg['url'], '/')){
                                  
-            $request['ctl'] = 'mobile/'.$request['ctl'];
+            if(!preg_match('/^mobile\/(.*)$/i', $request['ctl'])){
+                $request['ctl'] = 'mobile/'.$request['ctl'];
+            }
             // if(empty($request['ismobile']) && !$this->cookie->get('force_mobile')){
             //     $request['ctl'] = 'app';
             //     if(!in_array($request['act'], array('index', 'android', 'iphone'))){
