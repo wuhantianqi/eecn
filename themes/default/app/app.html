@@ -1,4 +1,34 @@
-<{include file="block/header.html"}>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<title><{if $seo_sub_title}><{$seo_sub_title}>_<{/if}><{if $seo_title}><{$seo_title}><{elseif $SEO.title}><{$SEO.title}><{else}><{$CONFIG.site.title}><{/if}></title>
+<meta name="keywords" content="<{if $seo_keywords}><{$seo_keywords}><{elseif $SEO.keywords}><{$SEO.keywords}><{/if}>" />
+<meta name="description" content="<{if $seo_description}><{$seo_description}><{elseif $SEO.description}><{$SEO.description}><{/if}>" />
+<meta property="qc:admins" content="674405213603241636" />
+<link rel="stylesheet" href="<{$pager.res}>/ui/j.ui.css?<{$VER}>" type="text/css" />
+<link rel="stylesheet" href="<{$pager.res}>/style/kt.widget.css?<{$VER}>" type="text/css" />
+<link rel="stylesheet" href="<{$pager.res}>/style/common.css?<{$VER}>" type="text/css" />
+<link type="text/css" rel="stylesheet" href="/themes/default/static/css/public.css?<{$VER}>" />
+<link type="text/css" rel="stylesheet" href="/themes/default/static/css/style.css?<{$VER}>" />
+<link rel="stylesheet" type="text/css" href="%THEME%/static/css/append.css?<{$VER}>"/>
+<script type="text/javascript">window.URL={"domain":"<{$CONFIG.site.domain}>","url":"<{$CONFIG.siteurl}>", "res":"<{$pager.res}>", "img":"<{$pager.img}>","city":"<{$request.city.siteurl}>"};window.G={"city":"<{$request.city.city_name}>"};</script>
+<script type="text/javascript"  src="<{$pager.res}>/script/kt.j.js?<{$VER}>"></script>
+<script type="text/javascript"  src="<{$pager.res}>/script/kt.js?<{$VER}>"></script>
+<script type="text/javascript"  src="<{$pager.res}>/ui/j.ui.js?<{$VER}>"></script>
+<script type="text/javascript"  src="<{$pager.res}>/script/widget.login.js?<{$VER}>"></script>
+<script type="text/javascript"  src="<{$pager.res}>/script/widget.msgbox.js?<{$VER}>"></script>
+<script type="text/javascript"  src="/themes/default/static/js/scroll.js?<{$VER}>"></script>
+<script src="/themes/default/static/js/layer/layer.js"></script>
+<{include file="block/css_append.html"}>
+<{$tpl_head_append}>
+
+</head>
+<body class="pagewd">
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<!--头部内容开始-->
+<{include file="block/top-header.html"}>
 
 <div class="appcontent_bg1">
 	<div class="mainwd"> <img src="%THEME%/static/images/appImg1.jpg" /> </div>
@@ -9,5 +39,15 @@
 <div class="appcontent_bg3">
 	<div class="mainwd"> <img src="%THEME%/static/images/appImg3.jpg" /> </div>
 </div>
+<!-- 百度商桥 -->
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bde4d98e44ef7853298257668e9e4f27";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 <!--底部内容开始--> 
-<{include file="block/footer.html"}> 
