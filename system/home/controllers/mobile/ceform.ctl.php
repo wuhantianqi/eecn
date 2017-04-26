@@ -9,8 +9,7 @@ class Ctl_Mobile_Ceform extends Ctl_Mobile
 {
   public function index()
     {
-		$pager['tender_hide'] = 1;
-		$this->pagedata['pager'] = $pager;
+		$this->seo->init('mobile_form');
         $this->tmpl = 'mobile/newpage/ceform.html';
     }
 
