@@ -1,0 +1,46 @@
+<{assign var="is_index_home" value=true}>
+<{include file="mobile/block/header.html"}>
+<iframe id="miniframe" name="miniframe" style="display:none;"></iframe>
+<div class="content">
+<div class="banner">
+	<img src="/themes/default/mobile/static/images/tenders_banner.png" />
+</div>
+<div class="pding tenders-form">
+	<form class="tenders" action="<{link ctl='mobile/tenders:save'}>" mini-form="tenders" method="post">
+		<h2>今日已有<span class="stress">168</span>人申请验房</h2>
+		<input type="hidden" name="data[from]" value="TZB" />
+		<label>
+			<span>您的称呼:</span>
+			<input type="text" name="data[contact]" placeholder="必填" />
+		</label>
+		<label>
+			<span>您的手机:</span>
+			<input type="text" name="data[mobile]" placeholder="必填" />
+			
+		</label>
+		<label>
+			<span>房屋面积:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+			<span class="square">㎡</span>
+		</label>
+		<label>
+			<span>小区名称:</span>
+			<input type="text" name="data[house_mj]" placeholder="选填" />
+		</label>
+		<input type="submit" class="btn mainbtn_full tenders_btn" value="免费申请 " />
+		<p><span class="stress">同一小区同批验房须达到10户，可安排免费验房</span>，为了您的利益以及我们的口碑，您的隐私将被严格保密。</p>
+	</form>
+</div>
+<div class="ch-sub-main">
+	<div class="tenders-severs">
+		<section class="mfyf_bg mfyf-bottom">
+		    <figure class="mfyf_banner"><img class="lazy" data-original="//img.to8to.com/wap/v2/freeyf_06.jpg?v=111" alt="公益验房" src="//img.to8to.com/wap/v2/freeyf_06.jpg?v=111" style="display: inline;"></figure>
+		    <figure class="mfyf_banner mart25"><img data-original="//img.to8to.com/wap/v2/freeyf_09.jpg?v=111" alt="公益验房" class="width78 lazy" src="//img.to8to.com/wap/v2/freeyf_09.jpg?v=111" style="display: inline;"></figure>
+		    <figure class="mfyf_banner mart10"><img data-original="//img.to8to.com/wap/v2/freeyf_13.jpg?v=111" alt="公益验房" class="width78 lazy" src="//img.to8to.com/wap/v2/freeyf_13.jpg?v=111" style="display: inline;"></figure>
+		    <figure class="mfyf_banner mart10"><img data-original="//img.to8to.com/wap/v2/freeyf_16.jpg?v=111" alt="公益验房" class="width78 lazy" src="//img.to8to.com/wap/v2/freeyf_16.jpg?v=111" style="display: inline;"></figure>
+		    <figure class="mfyf_banner mart10"><img data-original="//img.to8to.com/wap/v2/freeyf_18.jpg?v=111" alt="公益验房" class="width78 lazy" src="//img.to8to.com/wap/v2/freeyf_18.jpg?v=111" style="display: inline;"></figure>
+		    <figure class="mfyf_banner mart25"><img data-original="//img.to8to.com/wap/v2/freeyf_20.jpg?v=111" alt="公益验房" class="width78 lazy" src="//img.to8to.com/wap/v2/freeyf_20.jpg?v=111" style="display: inline;"></figure>
+		</section>
+	</div>
+</div>
+<{include file="mobile/block/footer.html"}>

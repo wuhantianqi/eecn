@@ -5,40 +5,29 @@
     <img src="/themes/default/mobile/static/images/design-11.png" />
 </div>
 <div class="fabiaoqu">
-        <form>
+        <form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
             <div class="touch-input2">
-                <input type="number" name="oarea" id="areaInput" placeholder="请输入您的姓名"><label for="areaInput">*</label>
+                <input type="text" name="data[contact]" id="xname" placeholder="请输入您的姓名"><label for="xname">*</label>
             </div>
             <div class="touch-input2">
-                <input type="number" name="oarea" id="areaInput" placeholder="请输入您的手机号码"><label for="areaInput">*</label>
+                <input type="text" name="oarea" placeholder="请输入房屋面积">
             </div>
-            <div class="jiting clearfix" id="jiting">
-                <label>
-                    <select name="" id="secshi" class="needsclick">
-                        <option value="1">1&nbsp;室</option>
-                        <option value="2">2&nbsp;室</option>
-                        <option value="3">3&nbsp;室</option>
-                        <option value="4">4&nbsp;室</option>
-                        <option value="5">5&nbsp;室</option>
-                        <option value="6">6&nbsp;室</option>
-                    </select>
-                </label>
+            <div class="touch-input2">
+                <input type="text" name="data[home_name]" placeholder="请输入小区名称">
             </div>
-            <div class="download-arrow1">
-                <input type="text" id="area" placeholder="请选择您的所在城市" readonly="" style="color: rgb(0, 0, 0);">
-            </div>
+            <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
             <!-- <div class="touch-input2">
                 <input type="number" name="oarea" id="areaInput" placeholder="请输入您的房屋面积"><label for="areaInput">m²</label>
             </div> -->
-            <div class="jiting clearfix" id="jiting">
+           <!--  <div class="jiting clearfix" id="jiting">
                 <label>
                     <select name="" id="secshi" class="needsclick"><option value="1">1&nbsp;室</option><option value="2">2&nbsp;室</option><option value="3">3&nbsp;室</option><option value="4">4&nbsp;室</option><option value="5">5&nbsp;室</option><option value="6">6&nbsp;室</option></select>
                 </label>
+            </div> -->
+            <div class="touch-input2">
+                <input type="text" name="data[mobile]" id="haoma" placeholder="请输入您的手机号码"><label for="haoma">获取验证码</label>
             </div>
-            <div>
-                <input type="tel" id="newPhone" name="phone" placeholder="输入号码，报价结果将发送到您的手机">
-            </div>
-            <input id="zxd-form-submit" class="ptag-set" type="button" dataptag="2_4_19_594" value="立即计算">
+            <input class="ptag-set" type="button" value="立即申请">
         </form>
     </div>
 <!-- <div class="content">
