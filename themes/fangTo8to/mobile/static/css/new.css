@@ -24,55 +24,54 @@ p.position {
     right: 0rem;
     top: 0rem;
     color: #666;
-    margin: 6px 15px;
+    margin: 6px 6px;
     line-height: 28px;
 }
 
 .sub_top>p>a.login_ico{
-    width: 33px;
-    height: 33px;
-    border-radius: 33px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
     margin-right: 0;
     background-image: url(/themes/default/mobile/static/images/user-entance.png);
     background-repeat: no-repeat;
-    background-size: 0.4rem 0.4rem;
-    background-position: 0.12rem 0.1rem;
+    background-size: 16px 16px;
+    background-position: 5px 4px;
     background-color: #ff4401;
 }
 
 .sub_top .four-k{
-	width: 33px;
-    height: 33px;
-    border-radius: 33px;
+	width: 25px;
+    height: 25px;
+    border-radius: 25px;
     padding-left: 0;
     position: absolute;
-    right: 56px;
-    top: 8px;
+    right: 40px;
+    top: 10px;
     background-image: url(/themes/default/mobile/static/images/four-k.png);
     background-repeat: no-repeat;
-    background-size: 0.4rem 0.4rem;
-    background-position: 0.12rem 0.11rem;
+    background-size: 16px 16px;
+    background-position: 4px 4px;
     background-color: #ff4401;
 }
 .sub_top .index-logo{
 	float: left;
-	width: 2.5rem;
-	height: 0.625rem;
-    margin-top: 0.26rem;
+	width: 116px;
+	height: 32px;
+    margin-top: 6px;
 	background-image: url(/themes/default/mobile/static/images/m_logo.png);
-	background-size: 3.6rem 1.1rem;
+	background-repeat: no-repeat;
 }
 .sub_top .location{
-	float: left;
-    height: 0.8rem;
-    line-height: 1.16rem;
-    /* padding-top: 0.16rem; */
+    float: left;
+    height: 36px;
+    line-height: 48px;
     font-size: 14px;
     padding-left: 0.6rem;
     background-image: url(/themes/default/mobile/static/images/adress-ico.png);
     background-repeat: no-repeat;
-    background-size: 0.6rem 0.6rem;
-    background-position: 0.1rem 0.26rem;
+    background-size: 22px;
+    background-position: 0.1rem 14px;
 }
 #dt-hd-navs-wrap{
 	position: fixed;
@@ -81,18 +80,6 @@ p.position {
 #dt-hd-navs-wrap .four-k{
 	right: 0.4rem;
 }
-/*.four-k .kou{
-	width: 0.25rem;
-	height: 0.25rem;
-	float: left;
-	border: 1px solid #888;
-	border-radius: 2px;
-	margin-right: 0.05rem;
-	margin-bottom: 0.05rem;
-}
-.four-k .kou:nth-child(2n){
-	margin-right: 0;
-}*/
 .cube {
     width: 100%;
     overflow: hidden;
@@ -188,6 +175,137 @@ p.position {
     border-left: none;
     border-right: none;
 }
+/* 列表图库 */
+.main-enter {
+    width: 100%;
+    padding-top: 15px;
+    background-color: #fff;
+}
+.bottom-half-pixel {
+    border-bottom: 0 !important;
+    background-position: bottom;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 50%, #d9d9d9 50%, #d9d9d9 100%);
+    -webkit-background-size: 100% 1px;
+    background-size: 100% 1px;
+    background-repeat: repeat-x !important;
+}
+.clearfix:after, .clearfix:before {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.main-enter li {
+    text-align: center;
+    float: left;
+    width: 25%;
+    line-height: 12px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.main-enter span.icon-zxtuku-enter {
+    background-position: 0 0;
+}
+.main-enter span {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 51px;
+    background-size: 50px;
+}
+.m3-icon, .main-enter span, .knowlage i {
+    background-image: url(http://img.to8to.com/wap/v2/m3icon.png);
+}
+.main-enter h2 {
+    padding-top: 8px;
+    font-size: 12px;
+}
+.main-enter span.icon-zxgl-enter {
+    background-position: 0 -58px;
+}
+.main-enter span.icon-zxgx-enter {
+    background-position: 0 -117px;
+}
+.main-enter span.icon-pptm-enter {
+    background-position: 0 -176px;
+}
+.main-enter span.icon-gyyf-enter {
+    background-position: 0 -234px;
+    margin-top: 6px;
+}
+.main-enter span.icon-hxsj-enter {
+    background-position: 0 -292px;
+    margin-top: 6px;
+}
+.main-enter span em {
+    background-color: red;
+    font-size: 11px;
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    padding: 2px 3px;
+    color: #fff;
+    border-radius: 8px;
+}
+/* 图标列表 */
+.knowlage {
+    width: 100%;
+    padding: 10px 0px;
+    background-color: #E7E7E7;
+    border-bottom: solid 1px #e3e3e3;
+}
+.knowlage li {
+    text-align: center;
+    float: left;
+    width: 33.33%;
+    height: 45px;
+    line-height: 45px;
+    border-left: 0 !important;
+    background-position: left;
+    background-image: linear-gradient(to left, transparent 0%, transparent 50%, #d9d9d9 50%, #d9d9d9 100%);
+    -webkit-background-size: 1px 100%;
+    background-size: 1px 100%;
+    background-repeat: repeat-y !important;
+    position: relative;
+    background-color: #fff;
+}
+.knowlage i.rj {
+    background-position: 0 -469px;
+}
+.knowlage i {
+    background-size: 50px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: -4px;
+}
+.knowlage span {
+    font-size: 13px;
+    display: inline-block;
+}
+.knowlage i.fs {
+    background-position: 0 -493px;
+    vertical-align: -5px;
+}
+.knowlage i.xz {
+    background-position: 0 -517px;
+}
+.knowlage i.xw {
+    background-position: 0 -538px;
+}
+.knowlage i.dk {
+    background-position: 0 -564px;
+}
+.knowlage i.mb {
+    background-position: 0px -587px;
+}
+
+
+
+
+
+
 .zbh {
     width: 100%;
     height: 2.6rem;
@@ -216,7 +334,7 @@ a {
     border-left: 1px dotted #E5E5E5;
 }    
 .activite li {
-    width: 5rem;
+    width: 50%;
     height: 2.8rem;
     float: left;
     position: relative;
@@ -260,8 +378,13 @@ a {
 .case {
     width: 100%;
     overflow: hidden;
-    padding: 0.3rem 0.3rem;
+    /*padding: 0.3rem 0.3rem;*/
     border-bottom: 1px dotted #E5E5E5;
+}
+.case-back{
+    width: 100%;
+    height: 10px;
+    background-color: #E7E7E7;
 }
 .wenz{
     width: 100%;
@@ -274,29 +397,32 @@ a {
     margin-bottom: 0.16rem;
     overflow: hidden;
 }
+.cast-list-jin{
+    padding: 0 10px;
+}
 .cast-left {
-    width: 4.6rem;
+    width: 49%;
     height: 4.6rem;
     overflow: hidden;
     float: left;
-    margin-right: 0.2rem;
+    margin-right: 2%;
 }
 .cast-left img {
-    width: 4.6rem;
+    width: 100%;
     height: 3.9rem;
 }
 .cast-right {
-    width: 4.6rem;
+    width: 49%;
     height: 4.6rem;
     overflow: hidden;
     float: left;
 }
 .cast-right img {
-    width: 4.6rem;
+    width: 100%;
     height: 3.9rem;
 }
 .cast-word {
-    width: 4.6rem;
+    width: 100%;
     height: 0.6rem;
     background: #F6F6F6;
     text-align: left;
@@ -319,8 +445,14 @@ a {
     color: #999;
     padding-left: 0.1rem;
 }
+.type-list{
+    width: 100%;
+    overflow: hidden;
+    padding: 0 10px;
+    padding-left: 25px;
+}
 .type-list a {
-    width: 2.1rem;
+    width: 30%;
     height: 1rem;
     line-height: 1rem;
     color: #444;
@@ -328,13 +460,13 @@ a {
     border-radius: 2px;
     background: #F6F6F6;
     float: left;
-    margin: 0.3rem 0.3rem 0 0;
+    margin: 0 10px 0.3rem 0;
     text-align: center;
 }
-.type-list a:nth-child(4), .type-list a:nth-child(8) {
+/*.type-list a:nth-child(4), .type-list a:nth-child(8) {
     margin-left: 0.1rem;
     margin-right: 0;
-}
+}*/
 .jingyan {
     width: 100%;
     overflow: hidden;
@@ -342,9 +474,9 @@ a {
     border-bottom: 1px dotted #E5E5E5;
 }
 .case-title {
-    width: 9.4rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
     color: #1B1D1D;
     font-size: 16px;
     text-align: left;
@@ -352,16 +484,19 @@ a {
 }
 .case-title a {
     width: 1.2rem;
-    height: 0.8rem;
+    height: 26px;
     display: block;
     color: #999;
     font-size: 14px;
     float: right;
     background: url(http://img.tugou.com/index/4.0/more.png) no-repeat right 7px;
-    background-size: 0.5rem 0.4rem;
+    background-size: 16px;
+}
+.case .case-title{
+    padding: 0 10px;
 }
 .swiper-container {
-    width: 9.4rem;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -407,7 +542,7 @@ a {
     background-size: 3.6rem 3.6rem;
 }
 .jy-list .swiper-slide {
-    width: 2.2rem;
+    width: 24%;
     height: 2.2rem;
     float: left;
     margin-right: 0.2rem;
@@ -433,11 +568,12 @@ a {
 .jy-list .swiper-slide:nth-child(4) {
     background: url(http://img.tugou.com/index/4.0/index-04.png) no-repeat center;
     background-size: 3.6rem 3.6rem;
+    margin-right: 0px;
 }
-.jy-list .swiper-slide:nth-child(5) {
+/*.jy-list .swiper-slide:nth-child(5) {
     background: url(http://img.tugou.com/index/4.0/index-05.png) no-repeat center;
     background-size: 3.6rem 3.6rem;
-}
+}*/
 .wenz .cast-list{
     height: 1.8rem;
     border-bottom: 1px dotted #E5E5E5; 
@@ -445,7 +581,7 @@ a {
     margin-bottom: 0.5rem;  
 }
 .wenz-left{
-    width: 2.5rem;
+    width: 22%;
     height: 1.5rem;
     overflow: hidden;
     float: left;
@@ -456,12 +592,12 @@ a {
     height: 100%
 }
 .wenz-right{
-    width: 6.7rem;
-    height: 2.39rem;
+    width: 74%;
+    height: 1.5rem;
     float: left;
 }
 .wenz-right .cast-word{
-    width: 6.7rem;
+    width: 100%;
     height: 2.39rem;
     background: #FFF; 
 }
@@ -471,7 +607,7 @@ a {
     text-overflow: ellipsis;
     margin-top: 0;
     height: 0.6rem;
-    line-height: 0.5rem;
+    line-height: 0.4rem;
 }
 .wenz-right .cast-word p:nth-child(2){
     display: -webkit-box !important;
@@ -490,6 +626,15 @@ a {
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 10;
+}
+.tenderes{ 
+    background: rgba(0, 0, 0, 0.7);
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 640px;
     z-index: 10;
 }
 .foot-kefu {
@@ -791,13 +936,12 @@ p.indexMore a{color:#ff4400; display:block;}
 
 .zh-m-form{
 	width: 100%;
-	padding: 0 0.3rem;
-	padding-top: 0.2rem;
-	padding-bottom: 0.2rem;
+/*	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;*/
 }
 
 .zh-m-form input{    
-	width: 99%;
+	width: 100%;
     height: 1.1rem;
     padding:0rem 0.6rem;
 	font-size: 14px;
@@ -809,16 +953,18 @@ p.indexMore a{color:#ff4400; display:block;}
 }
 .zh-m-form form{
 	margin-bottom: 0.4rem;
+    padding: 0 10px;
 }
 /*.zh-m-form input[type=text]{
 	border-bottom: none;
 }*/
 
-.zh-m-form form>p{
+.zh-m-form .zh-m-form-title{
 	font-size: 16px;
 	font-weight: 700;
 	text-align: left;
 	border-top: 2px solid #ffc119;
+    padding: 0px 10px;
 }
 /*css3动画效果*/
 .zh-m-form form h2{
@@ -968,9 +1114,9 @@ p.indexMore a{color:#ff4400; display:block;}
     padding-bottom: 20px;
 }
 .free-design-gift-wrap {
-    padding: 0 15px;
     position: relative;
     overflow: hidden;
+    padding: 0 10px;
 }
 .free-design-gift-box {
     box-sizing: border-box;
@@ -980,7 +1126,7 @@ p.indexMore a{color:#ff4400; display:block;}
     width: 48%;
     font-size: 14px;
     line-height: 16px;
-    height: 74px;
+    height: 60px;
 }
 .free-design-gift-box:nth-child(1) {
     float: left;
