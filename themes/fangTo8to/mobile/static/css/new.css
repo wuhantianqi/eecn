@@ -56,11 +56,12 @@ p.position {
 }
 .sub_top .index-logo{
 	float: left;
-	width: 116px;
+	width: 150px;
 	height: 32px;
     margin-top: 6px;
 	background-image: url(/themes/default/mobile/static/images/m_logo.png);
 	background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 .sub_top .location{
     float: left;
