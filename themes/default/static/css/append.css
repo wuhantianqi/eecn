@@ -53,55 +53,106 @@ dl.jh-point dd em.no { background-color: #FFE1E1; border-color: #CC6666; color:#
     float: left;
 }
 .main_list_left{
-    border: 1px solid rgb(238,238,238);
-    box-sizing: border-box;
+
+
     width: 15%;
+
+}
+.main_list_left .bor{
+    width: 100%;
+    border: 1px solid rgb(238,238,238);
     padding: 20px;
+    box-sizing: border-box;
 }
 
-.main_list_left h3 a{
+.main_list_left .bor h3 a{
     color: #01af63;
     font-size: 14px;
     font-weight: 400;
     display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 20px;
 
 }
-.main_list_left h3 .host1{
+.main_list_left .bor h3 a:hover .host1p{
+    background-position: 0 -148px;
+}
+.main_list_left .bor h3 a:hover .lt{
+    background-position: -25px -7px;
+}
+.main_list_left .bor h3 .host1{
 
     background: url("../images/ask.png") no-repeat;
 }
-.main_list_left h3 .host1p{
+.main_list_left .bor h3 .host1p{
     background-position: 0 -105px;
     width: 16px;
     height: 16px;
-    margin-left: -110px;
-    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    top: 5px;
     vertical-align: middle;
     display: inline-block;
 
 }
-.main_list_left h3 .lt{
-
+.main_list_left  h3 .lt{
+    position: absolute;
+    right: 0;
+    top: 10px;
     width: 5px;
     height: 9px;
     vertical-align: middle;
-    margin-top: 12px;
-    margin-left: 120px;
+
     color: #01af63;
     background: url("../images/global.png") -19px -7px;
 }
-
-.main_list_left .frist .frist_list a{
+.main_list_left  .frist .frist_list{
+    overflow: hidden;
+}
+.main_list_left  .frist .frist_list a{
     color: #666;
     float: left;
     margin-right: 8px;
     line-height: 24px;
     white-space: nowrap;
+    display: inline-block;
 }
-.main_list_left .frist a:hover{
+.main_list_left  .frist a:hover{
     color:#f25618 ;
 }
-
+.main_list_left .ask_shopping {
+    width: 100%;
+    margin-top: 30px;
+}
+.main_list_left .ask_shopping a{
+    display: block;
+    width: 100%;
+}
+.main_list_left .ask_shopping a img{
+    width: 100%;
+    height: 180px;
+}
+.main_list_left .ask_shopping_s a{
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 2px auto;
+}
+.main_list_left .ask_shopping_s a:hover{
+    color:#f25618 ;
+}
+.main_list_left .ask_shopping_s .now_pice{
+    font-size: 16px;
+    font-weight: 100;
+    color: #ec4444;
+}
+.main_list_left .ask_shopping_s .old_pice{
+    color: #999;
+    text-decoration: line-through;
+}
 
 /***************/
 
