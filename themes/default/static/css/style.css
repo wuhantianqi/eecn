@@ -2362,26 +2362,29 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
 .items_main .items_main_left .items_main_left_nav .nav_one{
     overflow: hidden;
     box-sizing: border-box;
-
     width: 100%;
+
 }
-.items_main .items_main_left .items_main_left_nav .nav_one li{
+.items_main .items_main_left .items_main_left_nav .nav_one>li{
     float: left;
     box-sizing: border-box;
-    border-bottom:1px solid rgb(232, 232, 232);
     width: 16.6666%;
 }
-.items_main .items_main_left .items_main_left_nav .nav_one li:nth-child(1),
-.items_main .items_main_left .items_main_left_nav .nav_one li:nth-child(2),
-.items_main .items_main_left .items_main_left_nav .nav_one li:nth-child(3),
-.items_main .items_main_left .items_main_left_nav .nav_one li:nth-child(4),
-.items_main .items_main_left .items_main_left_nav .nav_one li:nth-child(5){
+.items_main .items_main_left .items_main_left_nav .nav_one>li>a{
+    border-bottom:1px solid rgb(232, 232, 232);
+    box-sizing: border-box;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(1)>a,
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(2)>a,
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(3)>a,
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(4)>a,
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(5)>a{
     border-right:1px solid rgb(232, 232, 232);
 }
 
-.items_main .items_main_left .items_main_left_nav .nav_one li a{
+.items_main .items_main_left .items_main_left_nav .nav_one>li>a{
     display: inline-block;
-     width: 100%;
+    width: 100%;
     font-size: 20px;
     color: #989898;
     text-align: center;
@@ -2389,20 +2392,56 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
     line-height: 40px;
 
 }
-.items_main .items_main_left .items_main_left_nav  .nav_two {
-    width: 100%;
+.items_main .items_main_left .items_main_left_nav .nav_one>li ul{
+    width: 940px;
     overflow: hidden;
 
 }
-.items_main .items_main_left .items_main_left_nav  .nav_two li{
+.items_main .items_main_left .items_main_left_nav .nav_one>li ul li:hover{
+    background-color: #0A9261;
+
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li ul li:hover a{
+    color: #fff;
+}
+
+.dda{
+    display: none;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(2) ul{
+    margin-left: -156.66px;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(3) ul{
+    margin-left: -313.32px;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(4) ul{
+    margin-left: -469.98px;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:nth-child(5) ul{
+    margin-left: -626.64px;
+}
+.items_main .items_main_left .items_main_left_nav .nav_one>li:last-child ul{
+    margin-left: -783.3px;
+}
+
+
+.items_main .items_main_left .items_main_left_nav .nav_one>li ul li{
     float: left;
+    width: 90px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    margin-bottom: 10px;
+
 }
-.items_main .items_main_left .items_main_left_nav  .nav_two  li a{
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #989898;
+.items_main .items_main_left .items_main_left_nav .nav_one>li>a:hover{
+    color: #0A9261;
 }
+.items_main .items_main_left .items_main_left_nav .nav_one>li:hover>a{
+    border-bottom:none;
+    border-top: 2px solid #0A9261;
+}
+
 
 .items_main_left_list{
     width: 100%;
@@ -2760,5 +2799,271 @@ margin-top: 20px;
 
 
 .detail_content{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.detail_content_left,.detail_content_right{
+    float: left;
+}
+.detail_content_left{
+    width: 80%;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+.detail_content_right{
+    width: 20%;
+}
+ .shouzhi{
+    background: url("../images/detailico.png") -30px 0;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.detail_content_left_one .biaoti .wenzi{
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+.detail_content_left_one .biaoti{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #E2E2E2;
+}
+.detail_content_left_one .user_xinxi{
+    overflow: hidden;
+    font-size: 14px;
+}
+.detail_content_left_one .user_xinxi .fenlei{
+    float: left;
+    display: block;
+    margin-left: 40px;
+}
+.detail_content_left_one .user_xinxi a:hover{
+    text-decoration: underline;
+}
+.detail_content_left_one .user_xinxi .deta{
+    float: right;
+}
+.detail_content_left_one .qus{
+    margin: 10px 40px;
+    line-height: 26px;
+    font-size: 14px;
 
 }
+.detail_content_left_two{
+    font-size: 14px;
+}
+.detail_content_left_two a{
+
+    color: #0a9261;
+}
+.detail_content_left_two a:hover{
+    text-decoration: underline;
+}
+
+.good_idea{
+    margin-top: 20px;
+}
+ .user_n{
+    overflow: hidden;
+    margin-top: 20px;
+}
+ .user_n li{
+    float: left;
+    margin-left: 37px;
+    font-size: 14px;
+}
+ .user_n li p{
+
+    color: #0a9261;
+}
+ .user_n li p:last-child{
+    margin-top: 7px;
+    color: #000;
+}
+ .user_n li:last-child{
+    float: right;
+    width: 115px;
+    margin-top: 39px;
+    text-align: right;
+}
+ .user_n li img{
+    width: 54px;
+    height: 54px;
+}
+ .p11{
+
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 26px;
+}
+.hot{
+    margin-top: 20px;
+}
+.hot .hot_acitve{
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url(../images/detailico.png) -90px 0px;
+
+}
+.hot>p>span:last-child{
+margin-left: 40px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.hot ul li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #EAEAEA;
+
+    font-size: 14px;
+    margin-left: 40px;
+    overflow: hidden;
+}
+.hot ul li a {
+    color: red;
+}
+.hot ul li a:hover{
+    text-decoration: underline;
+}
+.hot ul li i{
+    width: 8px;
+    height: 8px;
+    display: block;
+    float: left;
+    margin-top: 7px;
+    margin-right: 8px;
+    background: url(../images/detailico.png) -115px 0px;
+}
+.other_ans{
+    margin-top: 20px;
+}
+.other_ans p{
+    overflow: hidden;
+}
+.other_ans p span:first-child{
+    width: 4px;
+    height: 25px;
+    background: #0a9261;
+    display: block;
+    float: left;
+}
+.other_ans p span:last-child{
+    display: block;
+    float: left;
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.left_chat{
+    margin-top: 20px;
+}
+.left_chat p{
+    overflow: hidden;
+}
+.left_chat p span:first-child{
+    width: 4px;
+    height: 25px;
+    background: #0a9261;
+    display: block;
+    float: left;
+}
+.left_chat p span:last-child{
+    display: block;
+    float: left;
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.left_chat ul{
+    width: 92%;
+    margin: 0 auto;
+    padding: 0px 38px;
+    margin-top: 18px;
+    background: #FFF;
+    font-size: 14px;
+}
+.left_chat ul li{
+    width: 98%;
+    margin: 8px 0;
+    border-bottom: 1px dashed #EAEAEA;
+    overflow: hidden;
+}
+.left_chat ul li span{
+    float: right;
+}
+.left_chat ul li a{
+    float: left;
+}
+.left_chat ul li a:hover{
+    text-decoration: underline;
+}
+.pro_top{
+    margin-top: 20px;
+}
+
+
+.pro_top .pro_top_one{
+    overflow: hidden;
+}
+.pro_top .pro_top_one span:first-child{
+    width: 4px;
+    height: 25px;
+    background: #0a9261;
+    display: block;
+    float: left;
+}
+.pro_top .pro_top_one span:last-child{
+    display: block;
+    float: left;
+    color: #666666;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.pro_top ul li p:first-child a img{
+    width: 50px;
+    height: 50px;
+
+}
+.pro_top ul li{
+    overflow: hidden;
+    margin-top: 20px;
+}
+.pro_top ul li p{
+    float: left;
+}
+.pro_top ul li p span{
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 12px;
+    color: #0A9261;
+    margin-top: -3px;
+}
+.pro_top ul li p:first-child{
+    margin-right: 10px;
+}
+.pro_top ul li p span a{
+    font-size: 16px;
+}
+.pro_top ul li p span a:hover{
+    text-decoration: underline;
+}
+.pro_top ul li p span i{
+    margin-right: 5px;
+    font-style: normal;
+}
+
+
+
+
+
