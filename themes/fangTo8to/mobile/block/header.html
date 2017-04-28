@@ -23,17 +23,17 @@
         <{include file="mobile/block/nav.html"}>
         <script type="text/javascript">
         	$(function(){
-        		$(".four-k").each(function(){
-        			$(this).click(function(){
-        				$("#dt-hd-navs-wrap").toggleClass("none");
-        			})
+    			$(".four-k").click(function(){
+    				$(".dt-hd-navs-wrap").fadeIn(250);
+    				$(".dt-hd-navs-wrap .dt-hd-navs").toggleClass("show-menus");
+    			})
+        		
+        		$(".dt-hd-navs-wrap").click(function(){
+        			$(".dt-hd-navs-wrap .dt-hd-navs").toggleClass("show-menus");
+        			$(".dt-hd-navs-wrap").fadeOut(250);
         		})
         		
-        		$("#dt-hd-navs-wrap").click(function(){
-        			$("#dt-hd-navs-wrap").toggleClass("none");
-        		})
-        		
-        		$("#dt-hd-navs-wrap>ul>li").click(function(){
+        		$(".dt-hd-navs-wrap>ul>li").click(function(){
         			event.stopPropagation();
         		})
         	})

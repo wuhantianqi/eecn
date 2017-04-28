@@ -114,9 +114,6 @@ form select.two{ width:49%;}
 form.tenders textarea{ width:99%; height:80px;}
 form.tenders select.two:first-child{ float:left;}
 form.tenders select.two:last-child{ float:right;}
-#dt-hd-navs-wrap{ position:fixed; left:0px; top:0px; right:0px; bottom:0px; z-index:30; background:#fff;border-top: 1px solid #e5e5e5;}
-#dt-hd-navs-wrap .dt-hd-navs{ overflow:hidden; position:absolute; top:5%; width:100%;    }
-#dt-hd-navs-wrap .dt-hd-navs li{ width:25%; float:left; margin-bottom:15px; font-size:13px;text-align: center;}
 .menuin {display: block;-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;-webkit-animation-duration: 300ms;animation-duration: 300ms;-webkit-animation-name: menuin;animation-name: menuin;-webkit-transform-origin: 50% 50%;}
 .menuout {display: block;-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;-webkit-animation-duration: 300ms;animation-duration: 300ms;-webkit-animation-name: menuout;animation-name: menuout;-webkit-transform-origin: 50% 50%;}
 .tenders_pic img{ margin:0px auto; width:100%; text-align:center;}
