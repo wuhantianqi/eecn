@@ -1,13 +1,26 @@
 $(document).ready(function(){
+	/**
+	 * ceform带手机验证码表单
+	 */
+	var ceform = $(".data-url").data("url");
+	$(document).on('click', '.ptag-set', function(){
+		
+		$.post(
+			ceform, 
+			$("#ceform").serialize(), 
+			function(data, textStatus, xhr) {
+			/*optional stuff to do after success */
+		});
+	})
 	//头部筛选列表
-	$(".choose_menu li").click(function(){
-		$(this).siblings().find('.sub_choose_menu').hide();
-		$(this).find(".sub_choose_menu").slideToggle(300);
-	});
+	// $(".choose_menu li").click(function(){
+	// 	$(this).siblings().find('.sub_choose_menu').hide();
+	// 	$(this).find(".sub_choose_menu").slideToggle(300);
+	// });
 	//搜索框下拉列表
-	$('.search_box').click(function(){
-		$(this).find('.search_choose').slideToggle(300);							  
-    });
+	// $('.search_box').click(function(){
+	// 	$(this).find('.search_choose').slideToggle(300);							  
+ //    });
 	
 	 
     //检查对象，#boxs是要随滚动条固定的ID
