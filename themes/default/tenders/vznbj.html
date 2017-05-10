@@ -9,12 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="/themes/fangTo8to/static/css/index.css?<{$VER}>"/>
 	<!-- 底部弹出表单 -->
 	<link rel="stylesheet" href="/themes/fangTo8to/static/css/appointment-bottom.css" />
-<!-- 	<div class="top-ad">
+	<div class="top-ad">
 		<ul>
 			<li><a target="_blank" href="<{link ctl='tenders:znbj'}>"><img src="/themes/fangTo8to/static/images/top-ad1.jpg"/></a></li>
 			<li><a target="_blank" href="<{link ctl='newactivity'}>"><img src="/themes/fangTo8to/static/images/top-ad2.jpg"/></a></li>
 		</ul>
-	</div> -->
+	</div>
 	<div class="nav_top">
 		<!--顶部内容-->
 		<div class="top_nav colorbg">
@@ -92,68 +92,60 @@
             </div>
         </div>
 	</div>
-	<div class="header_bottom nav_nav" style="width: 1200px;">
-            <div class="mainwd hoverno nav_right">
-                <p class="has_index"><a href="<{link ctl='index'}>" <{if $request.ctl=='index'}>class="current-index"<{/if}>>首&nbsp;&nbsp;页</a>
-                </p>
-                <ul>
-                    <li class="has_son">
-                        <a <{if $request.ctl=='article' || $request.ctl=='diary' || $request.ctl=='ask' }>class="mo-current"<{/if}> href="<{link ctl='tenders'}>">我要装修<em class="index_ico menu_ico"></em></a>
-                        <ul class="main_nav_son none">
-                            <li><a href="<{link ctl='gs'}>">口碑装修公司</a></li>
-                            <li><a href="<{link ctl='tenders'}>">免费设计报价</a></li>
-                            <li><a href="<{link ctl='tenders:newDesign'}>">0元看方案</a></li>
-                            <li><a href="<{link ctl='ask'}>">旧房翻新</a></li>
-                            <li><a href="<{link ctl='tenders:znbj'}>">在线智能报价</a></li>
-                        </ul>
-                    </li>
-                    <li class="has_son">
-                        <a <{if $request.ctl=='home' || $request.ctl=='site'}>class="mo-current"<{/if}> href="<{link ctl='home'}>">我搜我家<em class="index_ico menu_ico"></em></a>
-                        <ul class="main_nav_son none">
-                            <li><a href="<{link ctl='home'}>">热门小区</a></li>
-                            <li><a href="<{link ctl='home:tuan'}>">小区团装</a></li>
-                            <li><a href="<{link ctl='activity'}>">最新活动</a></li>
-                            <li><a href="<{link ctl='site'}>">参观工地</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li><a <{if $request.ctl=='tenders'}>class="current"<{/if}> href="<{link ctl='tenders'}>">设计与报价</a>
-                    </li>
-                    <li class="has_son">
-                        <a <{if $request.ctl=='gs' || $request.ctl=='designer' || $request.ctl=='gz'   || $request.ctl=='mechanic' || $request.ctl=='youhui'  }>class="current"<{/if}> href="<{link ctl='gs'}>">装修公司<i class=""></i><em class="index_ico menu_ico"></em></a>
-                        <ul class="main_nav_son none">
-                            <li><a href="<{link ctl='gs'}>">装修公司</a></li>
-                            <li><a href="<{link ctl='designer'}>">找设计师</a></li>
-                            <li><a href="<{link ctl='gz'}>">找工长</a></li>
-                            <li><a href="<{link ctl='mechanic'}>">找工人</a></li>
-                            <li><a href="<{link ctl='youhui'}>">优惠信息</a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="has_son"><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="mo-current"<{/if}> href="<{link ctl='article'}>">学装修<em class="index_ico menu_ico"></em></a>
-                    <ul class="main_nav_son none">
-                            <li><a href="<{link ctl='case:decorationCase'}>">装修效果图</a></li>
-                            <li><a href="<{link ctl='article'}>">装修百科</a></li>
-                            <li><a href="<{link ctl='ask'}>">装修问答</a></li>
-                            <li><a href="<{link ctl='diary'}>">装修经验</a></li>
-                        </ul>
-                    </li>
-                    <!-- <li><a <{if $request.ctl=='news'}>class="current"<{/if}> href="<{link ctl='news'}>">本地新闻</a>
-                                    </li> -->
-                    <!-- <li class="has_son">
-                        <a <{if $request.ctl=='mall' || $request.ctl=='mall/store'}>class="current"<{/if}>  href="<{link ctl='activity'}>">优惠活动<em class="index_ico menu_ico"></em></a>
-                        <ul class="main_nav_son none">
-                            <li><a href="<{link ctl='mall'}>">商城主页</a></li>
-                            <li><a  href="<{link ctl='mall/store'}>">商家列表</a></li>
-                            <li><a <{if $request.ctl=='activity' || $request.ctl=='mall/coupon'}>class="current"<{/if}> href="<{link ctl='activity'}>">优惠活动</a></li>
-                        </ul>
-                    </li> -->
-                </ul>
-                <div class="cl"></div>
-            </div>
-            <div class="nav_left"><a href="/"><img src="/themes/fangTo8to/static/images/logo.png" alt=""></a></div>
-        </div>
+	<div class="nav_nav">
+		<div class="nav_right">
+			<ul class="nav nav-pills" role="tablist">
+		      <li role="presentation"><a class="" href="/">首页</a></li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='tenders'}>" aria-expanded="false">
+		          靠谱装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='activity'}>" aria-expanded="false">
+		          优惠信息 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		        <!-- <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='article'}>" aria-expanded="false">
+		          学装修 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		      <li role="presentation" class="dropdown">
+		        <a class="" data-toggle="dropdown" href="<{link ctl='case:decorationCase'}>" aria-expanded="false">
+		          效果图 
+		          <!-- <span class="caret"></span> -->
+		        </a>
+		       <!--  <ul class="dropdown-menu" role="menu">
+		          <li><a href="#">装修公司</a></li>
+		          <li><a href="#">找设计师</a></li>
+		          <li><a href="#">找工人</a></li>
+		        </ul> -->
+		      </li>
+		    </ul>
+		</div>
+		<div class="nav_left"><a href="/"><img src="/themes/fangTo8to/static/images/logo.png" alt=""></a></div>
+	</div>
 	<hr />
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
 	 var jQ=jQuery.noConflict();
 		jQ(function(){   //顶端广告效果
 			(function(){
@@ -179,7 +171,7 @@
 				timer;
 			})();
 		})
-	</script> -->
+	</script>
 
 
 
@@ -349,18 +341,6 @@
             jq(window).on('resize', function(){
                 setMinHeight();
             })
-
-            //绿色导航
-            jq(".header_bottom ul li").mouseover(function(){
-                jq(this).addClass('current');
-                jq(this).find(".main_nav_son").show();
-                jq(this).find("em.menu_ico").addClass('menu_ico_over');
-            }).mouseleave(function(){
-                jq(this).removeClass('current');
-                jq(this).find(".main_nav_son").hide();
-                jq(this).find("em.menu_ico").removeClass('menu_ico_over');
-            });
-
         })
     </script>
 </div>

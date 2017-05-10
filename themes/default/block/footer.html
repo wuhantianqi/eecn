@@ -34,8 +34,9 @@
         </ul>
     </div>
     <{include file="block/sfooter.html"}>
+    <!-- 底部弹出表单 -->
     <!--底部弹出表单-->
-<div class="appoinment-bottom show" id="appoinment-bottom" style="left:-100%;">
+ <div class="appoinment-bottom show" id="appoinment-bottom" style="left:-100%;">
   <div class="page-container">
     <a href="javascript:;" target="_blank"><img class="logo" src="%THEME%/static/images/learn/include-bottom-logo.png"></a>
     <form action="<{link ctl='tenders:save'}>" mini-form="tenders_tzx" id="tenders-tzx" method="post">
@@ -43,19 +44,19 @@
       <div class="apply-form">
         <p class="tip">已有<em class="ifocus">12860</em>位业主 成功报名</p>
         
-            <input type="hidden" name="data[from]" value="BOTTOMFROM">
-            <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
+	        <input type="hidden" name="data[from]" value="BOTTOMFROM">
+	        <input type="hidden" name="data[comment]" value="招标来源于：网页底部浮动条">
         <div class="form-left">
-            <input type="text" placeholder="称呼" name="data[contact]"  />
-            <div class="square"><input name="data[house_mj]" type="text" placeholder="建筑面积" /><span>㎡</span></div>
+	        <input type="text" placeholder="称呼" name="data[contact]"  />
+	        <div class="square"><input name="data[house_mj]" type="text" placeholder="建筑面积" /><span>㎡</span></div>
         </div>
         <div class="form-right">
-            <input type="text" placeholder="手机号码" name="data[mobile]" />
-            <div class="ch-sel-group">
-                <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
-            </div>
+        	<input type="text" placeholder="手机号码" name="data[mobile]" />
+        	<div class="ch-sel-group">
+        		<{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
+        	</div>
         </div>
-            <input type="submit" value="" />
+	        <input type="submit" value="" />
         
       </div> 
       <div class="qrcode-box">
@@ -69,7 +70,7 @@
     <div class="close_button"><a href="javascript:;">×</a></div>
   </div>
 </div>
-<!-- 缩略版 -->
+<!--缩略版-->
 <div class="appoinment-bottom-collapse">
   <a href="javascript:;"><img src="%THEME%/static/images/learn/include-bottom-collapse.png"></a>
 </div>
@@ -105,8 +106,6 @@
     })
     
 </script>
-
-
 <!-- 底部弹出表单结束 -->
 <div class="clear"></div>
 <div class="footer_buttom">
@@ -116,7 +115,7 @@
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?32623d511dab098e970954caac35af01";
+          hm.src = "https://hm.baidu.com/hm.js?6f60878e87e633b1c4ea5c78eea1e5ed";
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
@@ -128,11 +127,14 @@
         <li></li>
         <li></li>
         <li></li>
-<!--         <li></li> -->
     </ul>
 </div>
 <{widget id="public/kefu"}>
 <!-- 友盟统计 -->
 <script src="https://s4.cnzz.com/z_stat.php?id=1260614058&web_id=1260614058" language="JavaScript"></script>
+<!-- 离线宝 -->
+<script>
+var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?6f60878e87e633b1c4ea5c78eea1e5ed"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })(); </script> 
+<script type="text/javascript" charset="utf-8" async src="http://lxbjs.baidu.com/lxb.js?sid=10603478"></script>
 </body>
 </html>
