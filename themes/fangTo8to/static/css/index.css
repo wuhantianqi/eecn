@@ -47,15 +47,15 @@ a[title=站长统计]{
 	margin:0px auto; 
 }
 .nav_nav .nav_left{
-	width:250px;
+	width:199px;
 	height:80px;
 	margin-left: 20px;
+    padding-top: 10px;
 }
 .nav_nav .nav_right{
-	width:501px;
+	width:560px;
+	float:right;
 	margin-top: 30px;
-	position: absolute;
-	right:0px;
 }
 .nav_nav .nav_right .nav-pills{
 	width: 560px;

@@ -1105,7 +1105,7 @@ p.indexMore a{color:#ff4400; display:block;}
 
 .zh-m-form input[type=submit]{
     -webkit-appearance: none;
-    margin-top: 0.2rem;
+    /*margin-top: 0.2rem;*/
     border-radius: 5px;
     background-color: #ff4401;
     border: none;
@@ -1215,6 +1215,11 @@ p.indexMore a{color:#ff4400; display:block;}
 .top-sct-zxrx .span-info {
     font-size: 14px;
     color: #333333;
+}
+.top-sct-zxrx .span-tel{
+    font-size: 16px;
+    color: #01af63;
+    font-weight: bold;
 }
 .top-sct-zxrx .icon-tel-green {
     display: inline-block;
