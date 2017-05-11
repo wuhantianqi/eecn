@@ -1,0 +1,60 @@
+<{assign var="is_index_home" value=true}>
+<!doctype html>
+<html>
+<{include file="mobile/block/sheader.html"}>
+<body>
+<div class="com_ben">
+	<img src="" alt="">
+</div>
+<div class="com_form">
+	<form action="">
+		<label class="com_form_sele">
+			<{widget id="data/region" city_id=$request.city_id class="text short"}>
+		</label>
+		<label  class="com_form_intx">
+			<p>m²</p>
+			<input type="text">
+		</label>
+		<label  class="com_form_selee">
+			<select name="" id="">
+				<option value="">一室</option>
+				<option value="">二室</option>
+			</select>
+			<select name="" id="">
+				<option value="">一厅</option>
+				<option value="">二厅</option>
+			</select>
+		</label>
+		<label class="com_form_sele">
+			<select name="" id="">
+				<option value="">一厨</option>
+				<option value="">二厨</option>
+			</select>
+			<select name="" id="" >
+				<option value="">一卫</option>
+				<option value="">二卫</option>
+			</select>
+			<select name="" id="">
+				<option value="">一阳台</option>
+				<option value="">二阳台</option>
+			</select>
+		</label>
+		<label  class="com_form_inp">
+			<input type="text" placeholder="输入号码，报价结果将发送您的手机">
+		</label>
+		<input type="submit" placeholder="立即计算">
+	</form>
+	<div class="myend">
+		<h1>装修报价</h1>
+		<h2><em>0</em><span>元</span></h2>
+		<p>人工费：<span>0</span>元</p>
+		<p>材料费：<span>0</span>元</p>
+		<p>设计费：<span>0</span>元</p>
+		<p>质检费：<span>0</span>元</p>
+	</div>
+	
+</div>
+
+
+
+<{include file="mobile/block/footer.html"}>

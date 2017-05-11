@@ -40,6 +40,12 @@ class Ctl_Mobile_Tenders extends Ctl_Mobile
         $this->pagedata['name'] = "wc";   //信息来源
         $this->tmpl = 'mobile/source/wc.html';
     }
+     // 计算报价页面
+    public function countForm()
+    {
+        // $this->pagedata['name'] = "wc";   //信息来源
+            $this->tmpl = 'mobile/newpage/m-coun-form.html';
+    }
     public function save()
     {
         if($data= $this->checksubmit('data')){
