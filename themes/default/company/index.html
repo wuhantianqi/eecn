@@ -110,8 +110,34 @@
 			</div>
 		</div>
 	</div>
-	<div class="zh_compan_form">
-		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
+	<div class="zh_compan_form  x_form_">
+		<form action="<{link ctl='tenders:save' http="ajax"}>" mini-form="fast-tenders" method="post">
+		<input type="hidden" name="data[from]" value="<{$data.from|default:'TZX'}>COMPANY" />
+			<p>马上预约，享免费上门量房服务</p>
+			<label >
+			<!-- 	<p>您的称呼	<em style="color: red">*</em>	</p> -->
+				<input type="text" name="data[contact]" placeholder="您的称呼">
+			</label>
+			<label >
+			<!-- 	<p>手机号码	<em style="color: red">*</em>	</p> -->
+				<input type="text" name="data[mobile]" placeholder="请填写手机号码，抢先预约">
+			</label>
+			<label  class="form_cit">
+				<!-- <p>所在城市	<em style="color: red">*</em>	</p> -->
+				<{widget id="data/region" city_id=$request.city_id class="text short"}>
+			</label>
+			<label class="form_city">
+				<select name="data[budget_id]">
+					<option value="0">装修预算</option>
+					<{widget id="tenders/setting" type="budget"}>
+				</select>
+			</label>
+			<label >
+					<!-- <p>所在小区	<em style="color: red">*</em>	</p> -->
+				<input type="text" name="data[home_name]" placeholder="您所在的小区">
+			</label>
+			<input  type="submit" value="马上预约">
+		</form>
 	</div>
 </div>
 <div class="cl"></div>
