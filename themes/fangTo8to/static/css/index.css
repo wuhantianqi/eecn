@@ -934,7 +934,7 @@ select.text:last-child{
 }
 .company-form{
 	text-align: center;
-	height: 332px;
+	/*height: 310px;*/
 }
 .company-form .controller{
 	width:100%;

@@ -447,7 +447,7 @@ span.breadna{ width:10px; height:15px; background-position:0px 0px;}
 	position: relative;
 }
 .main_content_from .company-form{
-	height: 390px;
+	/*height: 390px;*/
 }
 .main_content_from div:first-child{
 	background: #eee;
@@ -1331,7 +1331,7 @@ ul.news li span.rt{ color:#999;}
 }
 #fixedMenu_keleyi_com .company-form ul li{
 	height:60px;
-	line-height:60px;
+	/*line-height:60px;*/
 	margin-left:10px;
 }
 #fixedMenu_keleyi_com .company-form ul li:first-child{

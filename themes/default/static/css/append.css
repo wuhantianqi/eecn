@@ -45,7 +45,6 @@ dl.jh-point dd em.no { background-color: #FFE1E1; border-color: #CC6666; color:#
 
 /*问答列表样式*/
 .main_list{
-    width: 1200px;
     overflow: hidden;
     margin: 0 auto;
 }

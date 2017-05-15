@@ -16,7 +16,7 @@
 				<tr>
 					<td class="tit">区域：</td>
 					<td>
-                        <a href="<{$area_all_link}>" <{if empty($pager.area_id)}>class="current"<{/if}>>不限</a>
+                        <a href="<{$area_all_link}>" <{if empty($pager.area_id)}>class="current"<{/if}> 不限</a>
 						<{foreach $area_list  as $v}>
                         <a href="<{$v.link}>" <{if $v.area_id==$pager.area_id}>class="current"<{/if}>><{$v.area_name}></a>
                         <{/foreach}>
@@ -40,6 +40,7 @@
                 <{foreach $v.values as $vv}>
                 	<a  href="<{$vv.link}>"  <{if $vv.checked}>class="current"<{/if}>><{$vv.title}></a>
                 <{/foreach}>
+					</td>
                 </tr>
                 <{/foreach}>                
 			</table>
