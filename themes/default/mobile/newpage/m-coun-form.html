@@ -1,6 +1,4 @@
 <{assign var="is_index_home" value=true}>
-<!doctype html>
-<html>
 <{include file="mobile/block/sheader.html"}>
 <body>
 <div class="com_ben">
@@ -15,42 +13,65 @@
 			<p>m²</p>
 			<input type="text">
 		</label>
+		<div class="jg">
+			建筑面积不能超过1000
+		</div>
 		<label  class="com_form_selee">
-			<select name="" id="">
-				<option value="">一室</option>
-				<option value="">二室</option>
+			<select name="shi"  id="shi">
+				<option value="1">一室</option>
+				<option value="2">二室</option>
+				<option value="3">三室</option>
+				<option value="4">四室</option>
+				<option value="5">五室</option>
+				<option value="6">六室</option>
 			</select>
-			<select name="" id="">
-				<option value="">一厅</option>
-				<option value="">二厅</option>
+			<select name="ting" id="ting">
+				<option value="1">一厅</option>
+				<option value="2">二厅</option>
+				<option value="3">三厅</option>
+				<option value="4">四厅</option>
+				<option value="5">五厅</option>
+				<option value="6">六厅</option>
 			</select>
 		</label>
 		<label class="com_form_sele">
-			<select name="" id="">
-				<option value="">一厨</option>
-				<option value="">二厨</option>
+			<select name="chu"  id="chu">
+				<option value="1">一厨</option>
+				<option value="2">二厨</option>
+				<option value="3">三厨</option>
+				<option value="4">四厨</option>
+				<option value="5">五厨</option>
+				<option value="6">六厨</option>
 			</select>
-			<select name="" id="" >
-				<option value="">一卫</option>
-				<option value="">二卫</option>
+			<select name="wei" id="wei">
+				<option value="1">一卫</option>
+				<option value="2">二卫</option>
+				<option value="3">三卫</option>
+				<option value="4">四卫</option>
+				<option value="5">五卫</option>
+				<option value="6">六卫</option>
 			</select>
-			<select name="" id="">
-				<option value="">一阳台</option>
-				<option value="">二阳台</option>
+			<select name="yangtai" id="yangtai">
+				<option value="1">一阳台</option>
+				<option value="2">二阳台</option>
+				<option value="3">三阳台</option>
+				<option value="4">四阳台</option>
+				<option value="5">五阳台</option>
+				<option value="6">六阳台</option>
 			</select>
 		</label>
 		<label  class="com_form_inp">
 			<input type="text" placeholder="输入号码，报价结果将发送您的手机">
 		</label>
-		<input type="submit" placeholder="立即计算">
+		<input type="button" value="立即计算">
 	</form>
 	<div class="myend">
 		<h1>装修报价</h1>
 		<h2><em>0</em><span>元</span></h2>
-		<p>人工费：<span>0</span>元</p>
-		<p>材料费：<span>0</span>元</p>
-		<p>设计费：<span>0</span>元</p>
-		<p>质检费：<span>0</span>元</p>
+		<p id="rengongf">人工费：<span>0</span>元</p>
+		<p id="cailiaof">材料费：<span>0</span>元</p>
+		<p id="shejif">设计费：<span>0</span>元</p>
+		<p id="zhijianf">质检费：<span>0</span>元</p>
 	</div>
 	
 </div>

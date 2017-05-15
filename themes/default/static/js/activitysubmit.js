@@ -20,7 +20,7 @@ function saveactivity(fromId,mobile,okUrl,isReload) {
         	if (responseValue.errcode==0 ) {
         		$(':input','#'+fromId).not(':button, :submit, :reset,:radio,:hidden').val('').removeAttr('checked');
                 $("input[name='houseRemark']").val('');
-				alert("恭喜您，申请成功！\n您申请的联系电话为 " + mobile + "，保驾护航网的客服将会在一个工作日之内与您取得联系！");
+				alert("恭喜您，申请成功！\n您申请的联系电话为 " + mobile + "，优优美家的客服将会在一个工作日之内与您取得联系！");
 				if(isReload){
 					location.reload(true);
 				}
@@ -34,7 +34,7 @@ function saveactivity(fromId,mobile,okUrl,isReload) {
             }
             else {
                 if (responseValue.errmsg == undefined || responseValue.errmsg == "") {
-                    alert('提交申请失败，请重新申请或直接联系保驾护航网客服热线：400-175-7315！');
+                    alert('提交申请失败，请重新申请或直接联系优优美家客服热线：027-87011088');
                 }
                 else {
                     alert(responseValue.errmsg);
@@ -45,7 +45,7 @@ function saveactivity(fromId,mobile,okUrl,isReload) {
             }
         },
         error: function (responseValue) {
-            alert("恭喜您，申请成功！\n您申请的联系电话为 " + mobile + "，保驾护航网的客服将会在一个工作日之内与您取得联系！");
+            alert("恭喜您，申请成功！\n您申请的联系电话为 " + mobile + "，优优美家客服将会在一个工作日之内与您取得联系！");
             if(isReload){
 				location.reload(true);
 			}
