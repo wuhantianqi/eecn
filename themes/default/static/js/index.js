@@ -73,5 +73,7 @@ $(".index_paih p.tit a").mouseover(function(){
 $(".index_paih p.tit a").eq(0).mouseover(); 
 
 
+    
+    
 
 });

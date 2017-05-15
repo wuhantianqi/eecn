@@ -1,110 +1,92 @@
 <{include file="block/header.html"}>
 <!--面包屑导航开始-->
 <div class="main_topnav mb20">
-	<div class="mainwd">
-		<p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
-			><a href="<{link ctl='ask'}>">知识问答</a>
-			><a href="<{link ctl='ask:make'}>">我要提问</a>
-		</p>
-	</div>
+    <div class="mainwd">
+        <p><span class="ico_list breadna"></span>您的位置：<a href="<{link ctl='index'}>"><{$CONFIG.site.title}></a>
+            ><a href="<{link ctl='ask'}>">知识问答</a>
+            ><a href="<{link ctl='ask:make'}>">我要提问</a>
+        </p>
+    </div>
 </div>
 <!--面包屑导航结束-->
-<div class="mainwd">
-	<!--主体左边内容开始-->
-	<div class="main_content lt">
-		<div class="mb10 area question_box question_box_zhu">
-			<form id='data_form' mini-form="ask" enctype="multipart/form-data"  action="<{link ctl='ask:save'  http=ajax}>" method="post">
-				<h2><b>告诉我们您的疑问</b></h2>
-				<textarea class="mb10 qu_tit" name='data[title]' placeholder="请在这里输入您的标题，有问必答" ></textarea>
-				<p>问题补充(选填)</p>
-				<textarea placeholder="您可以在这里继续补充问题细节" name='data[intro]' class="buc"></textarea>
-				<p class="add_tu mb10 hoverno">
-                	
+<div class="make_main_list">
+        <div class="make_left">
+           <div class="make_left_biaoti">
+               <h2>
+                   <i></i>
+                   请简要概括您遇到的问题
+               </h2>
+               <ul>
+                   <li>
+                       <font style="color:#0a9061;">200</font>位装修专家
+                   </li>
+                   <li>
+                       <font style="color:#0a9061;">2</font>万家正规装修公司
+                   </li>
+                   <li>
+                       <font style="color:#0a9061;">200</font>万参谋家网友在线为您解答！
+                   </li>
+               </ul>
+           </div>
+            <form action="">
+                <div class="form_first">
+                    <textarea name="" placeholder="在这里输入您的问题，又问必答"></textarea>
+                </div>
+               <div class="form_sencd">
+                   <textarea name="" placeholder="详细的描述您的问题，有利于更好的回答"></textarea>
+               </div>
 
-<input class="input w-200" type="file" name="data[thumb]"></input>
-                </p>
-				<div class="lt">
-					<span>问题分类：</span>
-					<select class="text"  id='cate_select' onchange="change(this.value)" >
-                    	 <option value="cat_all" id='cat_all' selected="selected">--全部--</option>
-						 <{foreach $cates as $item}>
-                            <{if $item.parent_id == 0}>
-                                    <option value='<{$item.cat_id}>'><{$item.title}></option>
-                            <{/if}>
-                        <{/foreach}>
-					</select>
-                    <{foreach $cates as $item}>
-                    	 <{if $item.parent_id == 0}>
-                            <select class="text" id = '<{$item.cat_id}>' onchange = "changes(this.value)" style="display:none">
-                            	 <option class = 'parent_all'  value="parent_all">--全部--</option>
-                                 <{foreach $cates as $it2}>
-                                        <{if $it2.parent_id == $item.cat_id}>
-                                            <option  value='<{$it2.cat_id}>'><{$it2.title}></option>
-                                        <{/if}>
-                                 <{/foreach}>
+            </form>
+            <div class="make_left_point">
+                <span>问题分类</span>
+                <span>
+                    <select name="">
+                        <option value="" selected="selected">--全部--</option>
+                        <option value="">家装设计</option>
+                        <option value="">装修流程</option>
+                        <option value="">家居产品</option>
+                        <option value="">装饰材料</option>
+                        <option value="">工装设计</option>
+                        <option value="">房产知识</option>
+                    </select>
+                </span>
+                <span>
+                    <input type="submit" value="提交问题">
+                </span>
+            </div>
+
+        </div>
+        <div class="make_right">
+            <div class="make_right_form">
+                <form action="">
+                    <ul>
+
+                        <li><input type="text" placeholder="请输入您的装修面积"> <i>m²</i></li>
+                        <li>
+                            <select name="湖北" >
+                                <option value="">湖北</option>
+                                <option value="">北京</option>
+                                <option value="">山西</option>
                             </select>
-                         <{/if}>
-                    <{/foreach}>
-                  <input type="hidden" id='cat_value' name="cat_id" value="0" /> 
-                  		<{if $ask_yz}>
-                            验证码:
-                                <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
-                                <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
-                                
-                        <{/if}>
-				</div>
-				<div class="rt">
-					<input id='data_submit' type="submit" class="btn" value="提交问题"  />
-				</div>
-				<div class="cl"></div>
-			</form>
-		</div>
-	</div>
-     			<script>
-					$(document).ready(function(){
-                       $("#cat_all").attr("selected",true);
-					   $('#cat_value').val(0);
-                    });
-					
-                	function change(cat_id){
-						<{foreach $cates as $item}>
-							<{if $item.parent_id == 0}>
-								   if(cat_id == <{$item.cat_id}>){
-										 $("#"+<{$item.cat_id}>).show();  
-								   }else{
-										 $("#"+<{$item.cat_id}>).hide();  
-								   }
-                            <{/if}>
-						<{/foreach}>
-						$(".parent_all").attr("selected",true);
-						$('#cat_value').val(cat_id);
-					}
-					
-					function changes(val){
-						if(isNaN(val)){
-							val = 	$('#cate_select option:selected').val();
-						}
-						$('#cat_value').val(val);
-					}
-                </script>
-	<!--主体左边内容结束-->
-	
-	<!--主体右边内容开始-->
-	<div class="side_content rt">
-		<div class="mb10 qu_choose">
-			<p><span class="ico_list lt"></span>总有一个人能帮您解决装修问题</p>
-			<a href="<{link ctl='ask:make'}>" class="tiwen btn">我要提问</a>
-			<a href="<{link ctl='ask:items' arg0=1 arg1=2}>" class="huida btn">我要回答</a>
-		</div>
-		
-	</div>
-	<div class="cl"></div>
-	<!--主体右边内容结束-->
-</div>
-	<script>
-	$("[verify]").click(function(){
-		$($(this).attr("verify")).attr("src", "index.php?magic-verify&_"+Math.random());
-	});
-	</script>
+                            <select name="武汉">
+                                <option value="">武汉</option>
+                                <option value="">孝感</option>
+                                <option value="">十堰</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="请输入您的称呼">
+                        </li>
+                        <li>
+                            <input type="text" placeholder="请输入您的手机号码">
+                        </li>
+                        <li>
+                            <input type="submit" value="点击获取设计方案">
+                        </li>
+                    </ul>
+                </form>
+        </div>
 
+</div>
+</div>
 <{include file="block/footer.html"}>
