@@ -731,8 +731,10 @@ span.zcf_title, .zgs_cl_right .zgs_clr_newOrder h2 {
 .wo_qu table{margin-top:0px;}
 .choose_option td{ 
 	width: 1088px;
-	vertical-align:top; padding: 5px 0px 5px 10px;
+	vertical-align:top;
+    /*padding: 5px 0px 5px 10px;*/
 }
+
 .choose-riji td{
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -1182,7 +1184,7 @@ form.pinglun .pinglun_btn_bottom{width:150px;}
 .about_lt ul li a{font-size:16px;border-left:4px solid #f5f5f5; display:block; }
 .about_lt ul li a.current{  background:#fff; border-left:4px solid #ff4401;color:#ff4401;}
 .about_lt ul li a:hover{text-decoration:none;color:#ff4401;}
-.about_rt{ width:797px; border:1px solid #ddd; background:#fbfbfb; min-height:500px;}
+.about_rt{ width:779px; border:1px solid #ddd; background:#fbfbfb; min-height:500px;box-sizing: border-box;margin-left: 20px;}
 .about_rt h2{ font-weight:bold; color:#666; border-bottom:1px solid #ddd; line-height:40px;}
 .about_rt p{ font-size:14px; text-indent:2em;}
 /*---------------------------------------------------关于我们样式结束---------------------------------------------------*/

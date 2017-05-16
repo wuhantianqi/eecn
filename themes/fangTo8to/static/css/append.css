@@ -243,13 +243,16 @@ ul.main_worker_ul li.first{ padding:20px;}
 /*.to_choose_option td{ padding:5px 0px 5px 20px; }*/
 .to_choose_option td.tit{  width:70px;}
 .to_choose_option a{     
-	display: inline-block;
+	/*display: inline-block;*/
 	height: 40px;
 	line-height: 40px;
 	width: 70px;
 	text-align: left;
 	text-decoration: none;
 	text-indent: 2em;
+}
+.xxxp table a{
+	display: inline-block;
 }
 .to_choose_option table{ 
 	border:1px solid #eaeaea;
@@ -341,7 +344,7 @@ h2.subSite_Tit a:first-child.on{ border-left:none;}
 .site_gz div.rt{ width:900px;}
 .site_gz div.rt p{ height:30px; overflow:hidden;}
 .site_gz div.rt p a{ font-size:14px;}
-.sitePic_Tit{ display:inlne-block; clear:both; padding:5px 10px; background:#f0f0f0; color#333; font-size:14px;}
+.sitePic_Tit{ display:inline-block; clear:both; padding:5px 10px; background:#f0f0f0; color:#333; font-size:14px;}
 .subSite_pic img{ max-width:980px; height:auto; display:block; margin:10px 0px;}
 .subSite_qhcase{ position:relative;  margin:20px 10px 10px 30px;; padding-left:40px; border-left:1px solid #ccc;}
 .subSite_qhcase_b{ padding-top:10px; position:relative;}
@@ -476,7 +479,7 @@ em{ font-style:normal;}
 .index_xgt_gzxgt ul li a{ float:left; width: 152px; height: 140px ; text-align: center; color: #000}
 .index_xgt_gzxgt ul li a:hover{color:#f76d4e;}
 .index_xgt_gzxgt ul li a img{width: 80px; height: 80px; margin:20px auto 0;}
-.index_xgt_gzxgt ul li a span{display: inline-block; height:14px; line-height: 14px; margin-top:10px; width: 152px};
+.index_xgt_gzxgt ul li a span{display: inline-block; height:14px; line-height: 14px; margin-top:10px; width: 152px}
 
 
 

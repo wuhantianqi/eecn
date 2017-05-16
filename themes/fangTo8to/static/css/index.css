@@ -90,7 +90,7 @@ a[title=站长统计]{
 	color:#ff4301;
 }
 .nav-pills>li:hover a{
-	color: #fff;
+	color: #ff4301;
 }
 .nav>li {
     position: relative;
@@ -845,10 +845,42 @@ select.text:last-child{
 	margin-left:70px;
 	margin-top: 20px;
 	position: relative;
-	transition: 1s;
+	z-index: 5;
+	transition: 0.3s;
+
+
+}
+.xpicture ul li:before{
+	content: "";
+	width:80px;
+	height:80px;
+	border-radius: 80px;
+	position: absolute;
+	z-index: 2;
+	left:0;
+	top:0;
+	box-sizing: border-box;
+
 }
 .xpicture ul li:hover{
-	transform: rotate(360deg);
+	transform:scale(0.8);
+}
+.xpicture ul li:hover:before{
+	animation: sonar 1s ease-out 75ms;
+}
+@keyframes sonar {
+	0% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 0.2;
+		box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255, 255, 255, 0.3);
+	}
+	100% {
+		box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255, 255, 255, 0.3);
+		-webkit-transform: scale(1.3);
+		opacity: 0;
+	}
 }
 .xpicture ul div:first-child li{
 	margin-left:30px;

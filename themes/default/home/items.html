@@ -28,7 +28,9 @@
                 <td><a href="<{$v.link}>" <{if $v.checked}>class="current"<{/if}>>不限</a>
                 <{foreach $v.values as $vv}>
                     <a  href="<{$vv.link}>"  <{if $vv.checked}>class="current"<{/if}>><{$vv.title}></a>
+
                 <{/foreach}>
+                </td>
                 </tr>
                 <{/foreach}>
 			</table>
