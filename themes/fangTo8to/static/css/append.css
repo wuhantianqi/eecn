@@ -11,7 +11,7 @@
 .btn_sub_apply{ width:100%;line-height:32px; height:36px;background:#FF4401; font-size:18px;}
 .btn{border-radius:0px; border:none; }
 .choose_option a.current, .choose_option a:hover{ background:#ff4401;}
-.tenders_zb_form{ border:2px solid #fffff; margin-top: 70px;}
+.tenders_zb_form{ border:2px solid #fff; margin-top: 70px;}
 .zbform{ border:0px solid #ff4401; background:#666;}
 
 .main_nav_content .zbform{ background:rgba(65, 61, 61, 0.2); width: 221px;height: 480px; border: 0;}
@@ -51,6 +51,9 @@ ul.paihang li .ph_num_cl{ background:#ff4401;}
 /*ul样式1*/
 ul.line_type li:hover{ border:1px solid #ff4401;}
 a:hover{ color:#ff4401;}
+
+
+
 /*首页样式修改*/
 .top_nav{ background:#f8f8f8; border-bottom:1px solid #e3e3e3;}
 .search_box input.btn{ background:#01af63;}

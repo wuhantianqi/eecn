@@ -87,7 +87,7 @@ a[title=站长统计]{
     border-radius: 5px;
 }
 .nav-pills>li:hover{
-	background:#ff4301;
+	color:#ff4301;
 }
 .nav-pills>li:hover a{
 	color: #fff;
@@ -1499,3 +1499,80 @@ select.text:last-child{
     width: 90px;
     height: 32px;
 }
+
+
+/*修改首页菜单导航*/
+.index_main_nav{
+	width: 1200px;
+	margin: 0 auto;
+
+}
+.index_main_nav_father{
+	float: right;
+}
+.index_main_nav_father>ul>li{
+	float: left;
+	margin-top: 15px;
+	position:relative ;
+	width: 124px;
+
+	box-sizing: border-box;
+}
+.index_main_nav_father>ul>li:hover{
+
+	background-color: #fff;
+}
+.index_main_nav_father>ul>li:hover ul{
+	display: block;
+
+
+}
+.index_main_nav_father>ul>li:hover>a{
+	color: rgb(255,68,1);
+}
+.index_main_nav_father>ul>li:hover i{
+	background: url(../images/global.png) -201px 0;
+}
+.index_main_nav_father>ul>li>a{
+	display: inline-block;
+	font-size: 16px;
+	padding: 10px 28px;
+
+
+}
+.index_main_nav_father>ul>li .v{
+	right: 30px;
+}
+.index_main_nav_father>ul>li>i{
+	position: absolute;
+	right: 14px;
+	top: 23px;
+	width: 8px;
+	height: 7px;
+	background: url(../images/global.png) -77px 0;
+}
+.index_main_nav_father>ul>li>ul{
+	text-align: center;
+	font-size: 14px;
+	z-index: 99999;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	display: none;
+	box-sizing: border-box;
+	width: 124px;
+	background-color: #fff;
+
+
+}
+.index_main_nav_father ul li ul li{
+padding: 5px 15px 5px;
+}
+.index_main_nav_father ul li ul li:hover{
+	background-color: rgb(255,68,1);
+}
+.index_main_nav_father ul li ul li:hover a{
+	color: #fff;
+}
+
+/*修改首页菜单导航*/
