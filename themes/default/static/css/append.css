@@ -48,6 +48,9 @@ dl.jh-point dd em.no { background-color: #FFE1E1; border-color: #CC6666; color:#
     overflow: hidden;
     margin: 0 auto;
 }
+.wend{
+    width: 1200px;
+}
 .main_list_left ,.main_list_right,.main_list_content{
     float: left;
 }
