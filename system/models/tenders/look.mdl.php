@@ -34,7 +34,7 @@ class Mdl_Tenders_Look extends Mdl_Table
         return $this->db->update($this->_table, $data, $this->field($this->_pk, $pk));
     }
    
-    public function items_by_tenders($tenders_id, $p=1, $l=200, &$count=0)
+    public function items_by_tenders($tenders_id, $p=1, $l=4, &$count=0)
     {
         if(!$tenders_id = (int)$tenders_id){
             return false;

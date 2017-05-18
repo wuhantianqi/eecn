@@ -1,21 +1,20 @@
 <{assign var="is_index_home" value=true}>
-<{include file="mobile/block/sheader.html"}>
-<body>
-<div class="com_ben">
-	<img src="" alt="">
+<{include file="mobile/block/header.html"}>
+<script language="javascript" type="text/javascript" src="/themes/default/mobile/static/js/layer_mobile/layer.js"></script>
+<div class="banner">
+    <img src="/themes/default/mobile/static/images/design-11.png" />
 </div>
 <div class="com_form">
-	<form action="">
+	<form>
+		<input type="hidden" id="furl" value="<{link ctl='mobile/tenders:save'}>">
+		<input type="hidden" name="data[from]" value="TZB" />
 		<label class="com_form_sele">
 			<{widget id="data/region" city_id=$request.city_id class="text short"}>
 		</label>
 		<label  class="com_form_intx">
 			<p>m²</p>
-			<input type="text">
+			<input type="text" name="data[house_mj]">
 		</label>
-		<div class="jg">
-			建筑面积不能超过1000
-		</div>
 		<label  class="com_form_selee">
 			<select name="shi"  id="shi">
 				<option value="1">一室</option>
@@ -61,7 +60,13 @@
 			</select>
 		</label>
 		<label  class="com_form_inp">
-			<input type="text" placeholder="输入号码，报价结果将发送您的手机">
+			<input type="text" placeholder="请输入姓名" name="data[contact]">
+		</label>
+		<label  class="com_form_inp comphone">
+			<input type="text" placeholder="输入号码，报价结果将发送您的手机" name="data[mobile]">
+		</label>
+		<label  class="com_form_inp">
+			<input type="text" placeholder="小区名称" name="data[home_name]">
 		</label>
 		<input type="button" value="立即计算">
 	</form>
@@ -73,9 +78,6 @@
 		<p id="shejif">设计费：<span>0</span>元</p>
 		<p id="zhijianf">质检费：<span>0</span>元</p>
 	</div>
-	
 </div>
-
-
 
 <{include file="mobile/block/footer.html"}>

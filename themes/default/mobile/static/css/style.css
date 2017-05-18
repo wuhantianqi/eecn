@@ -1022,10 +1022,9 @@ form .text {
 .com_form  form .com_form_inp  input{
 	border: none;
 	height: 40px;
-	width: 100%;
+	width: 99%;
 	padding-left: 5px;
 	outline: none;
-
 }
 .com_form  form input[type="button"]{
 	width: 100%;

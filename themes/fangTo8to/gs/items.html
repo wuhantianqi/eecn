@@ -141,97 +141,13 @@
 	        <div class="zgs_clr_ad">
                <{adv id="60" name="eecn/装修公司列表页右下角广告位2" city_id=$request.city_id}>
             </div>
-			<!-- <div class="banner">
-				<div class="old-banner-right">
-					<ul>
-						<li>
-							<a class="list-item" href="<{link ctl='newactivity'}>" target="_blank">
-					          <span class="item-img-1"></span>
-					          <p class="item-p-1">装修小白学装修</p>
-					          <p class="item-p-2">专注优质装修服务，三分钟学装修</p>
-					        </a>
-						</li>
-						<li>
-							<a class="list-item" href="<{link ctl='newactivity:housekeeper'}>" target="_blank" style="height: 114px;">
-					          <span class="item-img-2"></span>
-					          <p class="item-p-1">装修管家全程监管</p>
-					          <p class="item-p-2">一对一帮您解决装修中的大小麻烦事</p>
-					        </a>
-						</li>
-						<li>
-							<a class="list-item" href="<{link ctl='zxb'}>" target="_blank">
-					          <span class="item-img-3"></span>
-					          <p class="item-p-1">优优美家装修保</p>
-					          <p class="item-p-2">提供一站式装修资金安全解决方案</p>
-					        </a>
-						</li>
-					</ul>
-				</div>
-			</div> -->
 		</div>
 	</div>
 	<!--主体左边内容结束-->
-	<!--主体右边内容开始-->
-	<!-- <div class="side_content rt"> -->
-		<!-- <div class="mb10 area">
-			<h3 class="side_tit">装修公司排行榜</h3>
-			<ul class="pding paihang">
-				<{calldata mdl="company/company"  city_id=$request.city_id limit=8}>
-				<li>
-					<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{$item.company_url}>"><{$item.name|cutstr:35}></a>
-					</span>
-					<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
-				</li>
-				<{/calldata}>
-			</ul>
-		</div>
-		<div class="mb10 area">
-			<h3 class="side_tit">设计师排行榜</h3>
-			<ul class="pding paihang">
-				<{calldata mdl="designer/designer" city_id=$request.city_id limit=5}>
-				<li>
-					<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='blog'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a>
-					</span>
-					<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
-				</li>
-				<{/calldata}>
-			</ul>
-		</div>
-		<div class="mb10 area">
-			<h3 class="side_tit">工长排行榜</h3>
-			<ul class="pding paihang">
-				<{calldata mdl="gz/gz" city_id=$request.city_id limit=5}>
-				<li>
-					<span class="lt"><font class="paihang_num<{if $iteration<=3}> ph_num_cl<{/if}>"><{$iteration}></font><a href="<{link ctl='gz-detail'  arg0=$item.uid}>"><{$item.name|cutstr:35}></a>
-					</span>
-					<span class="rt">招标数：<font class="fontcl2"><{$item.tenders_num}></font></span>
-				</li>
-				<{/calldata}>
-			</ul>
-		</div>
-		<div class="mb20"><{adv id="10" name="全站右侧招商图片广告" city_id=$request.city_id}></div>
-	</div>
-	<div class="cl"></div> -->
-	<!--主体右边内容结束-->
+
 </div>
 <script type="text/javascript">
-// (function(K, $){
-//     //活动专题页面 定位导航
-//     $(function () {
-//         var ie6 = document.all;
-//         var dv = $('#fixedMenu_keleyi_com'), st;
-//         dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
-//         $(window).scroll(function () {
-//             st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
-//             if (st > parseInt(dv.attr('otop'))) {
-//             if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
-//             dv.css({ position: 'absolute', top: st });
-//             }
-//             else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', top: 0 , right: 191 });
-//             } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
-//         });
-//     });    
-// })(window.KT, window.jQuery)    
+    
 $(document).on('click','.btn_sub_big',function(){
 	layer.open({
 		type: 2,	
