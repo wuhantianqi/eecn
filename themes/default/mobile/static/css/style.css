@@ -973,11 +973,16 @@ form .text {
 .com_ben{
 	width: 100%;
 	height: auto;
+
 }
 .com_ben img{
 	width: 100%;
   }
-  .com_form form{
+.com_form{
+	background-color: rgb(248,248,248);
+}
+.com_form form{
+
 	  margin-top: 20px;
   	padding: 0 15px;
   }
@@ -985,14 +990,14 @@ form .text {
 	width: 32%;
 	border: none;
 	height: 40px;
-	padding-left: 30px;
+	padding-left: 3px;
 }
 
 .com_form form .com_form_selee select{
 	width: 48%;
 	border: none;
 	height: 40px;
-	padding-left: 50px;
+	padding-left: 2px;
 }
 .com_form form label{
 	display: block;
@@ -1002,7 +1007,8 @@ form .text {
 	height: 42px;
 	margin-bottom: 5px;
 	border-radius: 5px;
-	padding-left: 2px; 
+	padding-left: 2px;
+	background-color: #fff;
 }
 .com_form form .com_form_intx{
 	position: relative;
@@ -1040,11 +1046,23 @@ form .text {
 
 }
 .com_form .myend{
-	width: 100%;
+	width: 94%;
 	padding: 0 15px;
 	text-align: center;
-	margin-top: 10px;
 
+	margin:3%;
+	border: solid 1px #e3e3e3;
+	border-radius: 6px;
+	background: #fff url("/themes/default/mobile/static/images/bg_07.jpg") no-repeat;
+	background-size: contain;
+
+
+}
+.com_form .myend h2{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-size: 25px;
+	color:rgba(255,68,1,.5);
 }
 
 .ondp{
