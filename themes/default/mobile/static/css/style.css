@@ -2576,20 +2576,16 @@ form .text {
     width: 100%;
     height: auto;
 }
-
 .com_ben img {
     width: 100%;
 }
-
 .com_form {
     background-color: rgb(248, 248, 248);
 }
-
 .com_form form {
     margin-top: 20px;
     padding: 0 15px;
 }
-
 .com_form form .com_form_sele select {
     -webkit-appearance: none;
     width: 32%;
@@ -2598,7 +2594,6 @@ form .text {
     padding-left: 3px;
     background-color: transparent;
 }
-
 .com_form form .com_form_selee select {
     -webkit-appearance: none;
     width: 48%;
@@ -2618,18 +2613,41 @@ form .text {
     border-radius: 5px;
     padding-left: 2px;
     background-color: #fff;
+    position: relative;
 }
-
+.com_form form label  img{
+    position: absolute;
+    width: 10px;
+    height: 5px;
+}
+.i1{
+    top: 17px;
+    left: 99px;
+}
+.i2{
+    top: 17px;
+    right: 10px;
+}
+.i3{
+    top: 17px;
+    left: 99px;
+}
+.i4{
+    top: 17px;
+    left: 210px;
+}
+.i5{
+    top: 17px;
+    right: 10px;
+}
 .com_form form .com_form_intx {
     position: relative;
 }
-
 .com_form form .com_form_intx p {
     position: absolute;
     top: 3px;
     right: 15px;
 }
-
 .com_form form .com_form_intx input {
     -webkit-appearance: none;
     height: 40px;
@@ -2638,7 +2656,6 @@ form .text {
     outline: none;
     padding-left: 5px;
 }
-
 .com_form form .com_form_inp input {
     -webkit-appearance: none;
     border: none;
@@ -2647,7 +2664,6 @@ form .text {
     padding-left: 5px;
     outline: none;
 }
-
 .com_form form input[type="button"] {
     -webkit-appearance: none;
     width: 100%;
@@ -2661,7 +2677,6 @@ form .text {
     border-radius: 5px;
     font-size: 16px;
 }
-
 .com_form .myend {
     width: 94%;
     padding: 0 15px;
@@ -2672,14 +2687,12 @@ form .text {
     background: #fff url("/themes/default/mobile/static/images/bg_07.jpg") no-repeat;
     background-size: contain;
 }
-
 .com_form .myend h2 {
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 25px;
     color: rgba(255, 68, 1, .5);
 }
-
 .ondp {
     width: 50%;
     text-align: left;
