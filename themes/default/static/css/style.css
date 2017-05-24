@@ -1,4 +1,4 @@
-﻿/*绿色1200px头部样式开始 */
+/*绿色1200px头部样式开始 */
 .top_nav{ height:32px; border-bottom:1px solid #ddd; line-height:32px; width:100%; color:#bbb;min-width: 1200px;}
 .top_nav a{ margin:0px 5px;}
 .login_ico{ background:url(../images/login_ico.png) no-repeat; vertical-align:middle; display:inline-block;}
@@ -158,6 +158,92 @@ p.sub_nav_prt{ line-height:40px;}
 .rightNav li .hidden .hiddenQq a{ display:block; margin:8px 1px; text-align:center;}
 .rightNav li .hidden .hiddenTel{ font-size:18px; display:block; min-width:150px;}
 .rightNav li .hidden .hiddenWx img{ width:120px; height:120px;}
+.rightNav .hb{
+	position: absolute;
+	top: 0;
+	right: 60px;
+}
+.rightNav .menban{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background: #000;
+	opacity: .6;
+	display: none;
+}
+.rightNav .dk_hb{
+	width: 402px;
+    padding-top: 250px;
+    height: 285px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -190px;
+    margin-top: -267.5px;
+    z-index: 99999;
+	background: url(../images/xrhb_bg_new.png) no-repeat;
+	display: none;
+}
+.rightNav .xr_phone{
+	    display: block;
+    width: 250px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #c6a692;
+    height: 38px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 1px 1px 3px #f5ecbd inset;
+    background: #f5ecbd;
+	outline: none;
+	border: none;
+}
+.rightNav .openbt{
+	    display: block;
+    width: 96px;
+    height: 96px;
+    line-height: 96px;
+    text-align: center;
+    margin: 0 auto;
+
+    color: #e33220;
+    font-size: 54px;
+    margin-top: 7px;
+    border-radius: 50%;
+
+    text-indent: -99999999px;
+}
+.rightNav .hb_close{
+	    position: absolute;
+    right: 16px;
+    top: 20px;
+    width: 17px;
+    height: 17px;
+    background: transparent url(../images/hb_close.png) 0 0 no-repeat;
+    display: block;
+}
+.rightNav .suc-d{
+	position: fixed;
+    width: 340px;
+    height: 330px;
+    background: url(../images/hb_success_new.png) no-repeat #e1e1e1;
+    padding: 360px 30px 0 30px;
+    left: 50%;
+    top: 50%;
+    margin-top: -345px;
+    margin-left: -200px;
+    z-index: 99999;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color: #333;
+    line-height: 18px;
+    display: none;
+}
 /*右侧导航样式结束 */
 /*隐藏商桥浮动图片*/
 .nb_icon_wrap{display:none;!important;}

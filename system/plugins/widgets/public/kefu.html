@@ -34,13 +34,31 @@
                 <p>返回顶部</p>
             </div>
         </li>
-         <li class="re_top">
-            <div class="show top">
-                <span class="ico icoTop"></span>
-                <p>返回顶部</p>
-            </div>
-        </li>
     </ul>
+    
+    <div class="hb">
+    		<a href="javascript:;"><img src="/themes/default/static/images/shake.gif" alt=""></a>
+    </div>
+    <div class="menban">
+    </div>
+    <div class="dk_hb">
+    	<p>
+    		<input type="text" class="xr_phone" placeholder="请输入您的手机号码" maxlength="11">
+    	</p>
+    	<a href="javascript:;" class="openbt">开</a>
+    	<a href="javascript:;" class="hb_close"></a>
+    </div>
+    <div class="suc-d">
+    	<p style="text-align:center; font-size:14px; font-weight:700;padding-bottom:4px;">使用说明</p>
+    	<p>1.优惠券码将在提交领取信息后发到优优美家网的个人中心，手机号快速登陆查看，自动与手机绑定，一个手机仅限申请一张。</p>
+    	<p>2.本券适合于优优美家提供的装修服务，领券用户享受网站推荐的设计师免费上门量房、出初步平面图和报价等服务，并赠送第三方监理多次施工节点验收服务。签署装修合同前，出示优惠券码。合同金额四万以上者，可享受价值1000元的减免优惠。</p>
+    	<p>3.本券不可用于订金抵扣，不兑现，不找零，不与其他优惠叠加使用。</p>
+    	<p>4.本券有效期至2017年12月31日，有效期内签订装修合同即生效。</p>
+    	<p>5.一个装修地点限用一张优惠券，签约前出示有效，逾期作废。</p>
+    	<p>6.本券不适用局部装修及工装。</p>
+  
+    	<a href="javascript:;" class="hb_close"></a>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -77,5 +95,51 @@ $(document).ready(function(){
         }, 200);
         return false;
     }); 
+	
+//	输入框判断
+		var tx;
+	$('.rightNav .dk_hb input').blur(function(){
+		 
+		var vale = $(this).val();
+		var length = vale.length;
+	  var mobile = /^1{1}[34578]{1}\d{9}$/; 
+		
+		if(length  == 11 && mobile.test(vale)){
+			tx = true;
+		}
+	})
+//	点击跳动的红包弹出
+		$(".rightNav .hb a").click(function(){
+			$('.rightNav .menban').css('display','block');
+			$('.rightNav .dk_hb').css('display','block');
+			
+		});
+//	点击关闭 关闭红包
+	$(".rightNav .dk_hb .hb_close").click(function(){
+			$('.rightNav .menban').css('display','none');
+			$('.rightNav .dk_hb').css('display','none');
+			
+		});
+//	点击开
+	$(".rightNav .dk_hb .openbt").click(function(){
+		
+		if(tx == true){
+	
+			$('.rightNav .dk_hb').css('display','none');
+			$('.rightNav .suc-d').css('display','block');
+		}else{
+			alert('请输入正确的手机号码');
+		}
+	
+			
+		});
+	
+		$(".rightNav .suc-d .hb_close").click(function(){
+			$('.rightNav .menban').css('display','none');
+			$('.rightNav .suc-d').css('display','none');
+			
+		});
+	
+	
 });
 </script>
