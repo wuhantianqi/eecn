@@ -12,60 +12,34 @@
 <div class="main_list wend">
     <div class="main_list_left">
         <div class="bor">
-            <div class="frist">
-                <h3>
-                    <a href=""><i class="host1 host1p"></i>家装设计<i class="lt"> </i></a>
-                </h3>
-                <div class="frist_list">
-                    <a href="">装修风水</a>
-                    <a href="">装修风格</a>
-                    <a href="">客厅</a>
-                    <a href="">卧室</a>
-                    <a href="">玄关</a>
-                    <a href="">过道</a>
-                    <a href="">卧室</a>
-                    <a href="">书房</a>
-                    <a href="">卫生间</a>
-                    <a href="">儿童房</a>
-                </div>
-            </div>
-            <div class="frist">
-                <h3>
-                    <a href=""><i class="host1 host1p"></i>家装设计<i class="lt"> </i></a>
-                </h3>
-                <div class="frist_list">
-                    <a href="">装修风水</a>
-                    <a href="">装修风格</a>
-                    <a href="">客厅</a>
-                    <a href="">卧室</a>
-                    <a href="">玄关</a>
-                    <a href="">过道</a>
-                    <a href="">卧室</a>
-                    <a href="">书房</a>
-                    <a href="">卫生间</a>
-                    <a href="">儿童房</a>
-                </div>
-            </div>
-            <div class="frist">
-                <h3>
-                    <a href=""><i class="host1 host1p"></i>家装设计<i class="lt"> </i></a>
-                </h3>
-                <div class="frist_list">
-                    <a href="">装修风水</a>
-                    <a href="">装修风格</a>
-                    <a href="">客厅</a>
-                    <a href="">卧室</a>
-                    <a href="">玄关</a>
-                    <a href="">过道</a>
-                    <a href="">卧室</a>
-                    <a href="">书房</a>
-                    <a href="">卫生间</a>
-                    <a href="">儿童房</a>
-                </div>
-            </div>
-
+            <{foreach $cates as $item}>
+                <{if $item.parent_id == 0}>
+                    <div class="frist">
+                        <h3>
+                            <a href="<{link ctl='ask:items' arg0=$item.cat_id}>"><i class="host1 host1p"></i><{$item.title}><i class="lt"> </i></a>
+                        </h3>
+                        <div class="frist_list"> 
+                            <{foreach $cates as $it2}>
+                                <{if $it2.parent_id == $item.cat_id}>                   
+                                    <a href="<{link ctl='ask:items' arg0=$it2.cat_id}>"><{$it2.title}></a>
+                                <{/if}>
+                            <{/foreach}>
+                        </div>
+                    </div>
+                <{/if}>
+            <{/foreach}>   
         </div>
         <div class="ask_shopping">
+            <a href="">
+                <img src="/themes/default/static/images/lf_gh_01.jpg" alt="">
+            </a>
+            <div class="ask_shopping_s">
+                <a href="">simon西蒙开关插座面板55系列 五孔10只装二三插面板</a>
+                <em class="now_pice">&yen;89</em>
+                <em class="old_pice">&yen;170</em>
+            </div>
+        </div>
+        <!-- <div class="ask_shopping">
             <a href="">
                 <img src="/themes/default/static/images/lf_gh_01.jpg" alt="">
             </a>
@@ -84,64 +58,72 @@
                 <em class="now_pice">&yen;89</em>
                 <em class="old_pice">&yen;170</em>
             </div>
-        </div>
-        <div class="ask_shopping">
-            <a href="">
-                <img src="/themes/default/static/images/lf_gh_01.jpg" alt="">
-            </a>
-            <div class="ask_shopping_s">
-                <a href="">simon西蒙开关插座面板55系列 五孔10只装二三插面板</a>
-                <em class="now_pice">&yen;89</em>
-                <em class="old_pice">&yen;170</em>
-            </div>
-        </div>
+        </div> -->
 
     </div>
     <div class="main_list_content">
+        <form method="post" action="http://www.mjia.cc/ask-items.html" style="display: block;">
             <div class="main_list_content_find">
                 <i></i>
-                <input type="text" placeholder="提问请先搜索，看看有没有相似问题">
-                <button>搜索答案</button>
+                <input type="text" name="s" class="input_4" placeholder="提问请先搜索，看看有没有相似问题">
+                <button class="button_search_4">搜索答案</button>
             </div>
+        </form>
         <div class="main_list_content_wenda">
             <h2>精华问答</h2>
         </div>
         <div class="main_list_content_tuwen">
-
-                <a href="#" class="main_list_content_img">
-                    <img src="/themes/default/static/images/529_8410.jpg" alt="">
+            <{calldata mdl="ask/ask" answer_id='=:1' order="ask_id:desc" limit="1"}> 
+                <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="main_list_content_img">
+                    <img src="<{$pager.img}>/<{$item.thumb}>" alt="">
                     <span class="miaoshu">
-                        <span>没有阳光的房间该怎么装修？</span>
+                        <span><{$item.title|cutstr:50}></span>
                     </span>
                 </a>
-
-
+            <{/calldata}>
+            
             <div class="main_list_content_txt">
+                <{calldata mdl="ask/ask" answer_id='=:2' order="ask_id:desc" limit="1"}> 
                 <div>
                     <span>热门</span>
-                    <a href="">谁知道简答装修装什么灯好</a>
+                    <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><{$item.title|cutstr:50}></a>
                 </div>
                 <div class="main_list_content_txt_wen">
                     <i class="yin"></i>
-                    简单装修推荐选择简欧风格的吸顶灯，这样看起来会比较搭，简欧风格的灯也比较好搭配装修，看起来造型比较简单，但是却不失装饰的效果，而且灯具使用非常的方便，灯光多色可选，能满足日常的生活需要。 ...
+                    <{$item.intro|cutstr:210}>
                 </div>
+                <{/calldata}>
                 <div>
                     <ul>
-                        <li><a href=""><i></i>亲们说说两室一厅怎么装修</a></li>
-                        <li><a href=""><i></i>跃层阁楼装修怎么做效果比较好一些</a></li>
-                        <li><a href=""><i></i>求告知美式装修有哪几种风格</a></li>
-                        <li><a href=""><i></i>小户型复式床怎么装修</a></li>
+                        <{calldata mdl="ask/ask" answer_id='>:3' order="ask_id:desc" limit="4"}> 
+                            <li><a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><i></i><{$item.title|cutstr:50}></a></li>
+                        <{/calldata}>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="main_list_wend">
             <h2>问答专辑 </h2>
-            <a href="" class="list_more">更多 <i></i></a>
+            <a href="<{link ctl='ask:items' arg0=1 arg1=1}>" class="list_more">更多 <i></i></a>
         </div>
         <div class="main_list_frist">
             <ul>
-                <li>
+                <{calldata mdl="ask/ask" answer_id='>:8' order="ask_id:desc" limit="4"}> 
+                    <li>
+                        <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" alt=""></a>
+                        <div class="flo">
+                            <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><{$item.title|cutstr:25}></a>
+                            <div>
+                                <i></i><{$item.views}>
+                            </div>
+                            <div class="zi">
+                                <{$item.intro|cutstr:80}>
+                            </div>
+                        </div>
+                    </li>
+                <{/calldata}>
+
+                <!-- <li>
                     <a href=""><img src="/themes/default/static/images/112.jpg" alt=""></a>
                     <div class="flo">
                         <a href="">餐厅这样才温馨</a>
@@ -153,51 +135,30 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <a href=""><img src="/themes/default/static/images/112.jpg" alt=""></a>
-                    <div class="flo">
-                        <a href="">餐厅这样才温馨</a>
-                        <div>
-                            <i></i>722
-                        </div>
-                        <div class="zi">
-                            在现代家居中，餐厅正日益成为重要的活动场所。布置好餐厅，既能创造一个舒适的就餐环境，还可以给居室增添 ...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href=""><img src="/themes/default/static/images/112.jpg" alt=""></a>
-                    <div class="flo">
-                        <a href="">餐厅这样才温馨</a>
-                        <div>
-                            <i></i>722
-                        </div>
-                        <div class="zi">
-                            在现代家居中，餐厅正日益成为重要的活动场所。布置好餐厅，既能创造一个舒适的就餐环境，还可以给居室增添 ...
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href=""><img src="/themes/default/static/images/112.jpg" alt=""></a>
-                    <div class="flo">
-                        <a href="">餐厅这样才温馨</a>
-                        <div>
-                            <i></i>722
-                        </div>
-                        <div class="zi">
-                            在现代家居中，餐厅正日益成为重要的活动场所。布置好餐厅，既能创造一个舒适的就餐环境，还可以给居室增添 ...
-                        </div>
-                    </div>
-                </li>
+                -->
             </ul>
         </div>
         <div class="main_list_wend">
             <h2>大家都在问 </h2>
-            <a href="" class="list_more">更多 <i></i></a>
+            <a href="<{link ctl='ask:items' arg0=1 arg1=1}>" class="list_more">更多 <i></i></a>
         </div>
         <div class="wenda">
             <ul>
-                <li>
+                <{calldata mdl="ask/ask" answer_id='>:13' order="ask_id:desc" limit="4"}>
+                    <li>
+                        <div class="biaoti">
+                            <em><{$item.answer_num}></em>回答
+                        </div>
+                        <div class="wenti">
+                            <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="etc"><{$item.title|cutstr:50}></a>
+                            <div class="info_da"><{$item.dateline|format}></div>
+                        </div>
+                    </li>
+                <{/calldata}>
+
+
+                
+                <!-- <li>
                     <div class="biaoti">
                         <em>3</em>回答
                     </div>
@@ -206,87 +167,7 @@
                         <div class="info_da">2017-01-11 12:21:49</div>
                     </div>
                 </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
+                -->
             </ul>
 
         </div>
@@ -295,7 +176,20 @@
         </div>
         <div class="xinzenghuid">
             <ul>
-                <li class="one">
+                <{calldata mdl="ask/ask" answer_id='>:18' order="ask_id:desc" limit="10"}>
+                    <li>
+                        <div class="sec_lihd">
+                            <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="company_lid"><{$item.title|cutstr:50}></a>
+                            <!-- <a href="" class="ques_lnk"></a> -->
+                        </div>
+                        <div class="sec">
+                            <div class="secc_lian"><{$item.intro|cutstr:40}></div>
+                            <div class="secc_time"><{$item.dateline|format}></div>
+                        </div>
+                    </li>
+                <{/calldata}>
+
+                <!-- <li class="one">
                     <div class="sec_lihd">
                         <a href="" class="company_lid">超级无敌小小婧</a>回答
                         <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
@@ -307,124 +201,8 @@
                             7小时前
                         </div>
                     </div>
-                </li>
-                <li >
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li class="one">
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li >
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li class="one">
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li >
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li class="one">
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li >
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li class="one">
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
-                <li >
-                    <div class="sec_lihd">
-                        <a href="" class="company_lid">超级无敌小小婧</a>回答
-                        <a href="" class="ques_lnk">杭州天都城天星苑二手房房价高吗？</a>
-                    </div>
-                    <div class="sec">
-                        <div class="secc_lian">你好，杭州天都城天星苑属于小高层，入住率很高，电梯新房，小区环境优雅，设计风格别具一格，品质有保障。位于临平余杭星桥镇广厦天都城。交通便捷，购物方便，风景优美。二手房本月均价：7045元/平方米，
-                        </div>
-                        <div class="secc_time">
-                            7小时前
-                        </div>
-                    </div>
-                </li>
+                </li> -->
+                
             </ul>
         </div>
     </div>
@@ -454,16 +232,19 @@
             </div>
             <div class="secd_two">
                 <ul>
-                    <li>
-                        <span>1</span>
-                        <a href=""><img src="/themes/default/static/images/213.jpg" alt=""></a>
-                        <div class="rank_name">
-                            <a href="">皇室装饰</a>
-                            <p>回答数：2733</p>
+                    <{KT name="仿土巴兔首页推荐装修公司" city_id=$request.city_id limit="6"}>
+                        <li>
+                            <!-- <span><{$key}></span> -->
+                            <a href="<{$item.link}>" target="_blank"><img src="<{$pager.img}>/<{$item.logo}>" /></a>
+                            <div class="rank_name">
+                                <a href=""><{$item.name}></a>
+                                <p>浏览量：<{$item.views}></p>
 
-                        </div>
-                    </li>
-                    <li>
+                            </div>
+                        </li>
+                    <{/KT}>
+                    
+                    <!-- <li>
                         <span>2</span>
                         <a href=""><img src="/themes/default/static/images/213.jpg" alt=""></a>
                         <div class="rank_name">
@@ -507,7 +288,7 @@
                             <p>回答数：2733</p>
 
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -521,7 +302,12 @@
                 最新标签
             </div>
             <div class="main_list_right_four_two">
-                <a href="">小米小米</a>
+                <{foreach $cate_list as $item}>
+                    <{if $item.parent_id == 0}>
+                    <a href="<{link ctl='ask:items' arg0=$item.cat_id arg1=$pager.type arg2=1}>" <{if $item.current == 'current'}>class="current"<{/if}>><{$item.title}></a>
+                    <{/if}>
+                <{/foreach}>
+                <!-- <a href="">小米小米</a>
                 <a href="">华为华为</a>
                 <a href="">小米</a>
                 <a href="">华为</a>
@@ -540,7 +326,7 @@
                 <a href="">小米</a>
                 <a href="">华为</a>
                 <a href="">小米</a>
-                <a href="">华为</a>
+                <a href="">华为</a> -->
 
             </div>
         </div>

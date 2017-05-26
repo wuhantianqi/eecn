@@ -55,11 +55,6 @@ class Ctl_Youhui extends Ctl
 			$this->tmpl = 'youhui/detail.html';
 		}
 	}
-//	汪琪
-  public function activity()
-    {
-        $this->tmpl = 'youhui/activity.html';
-    }
 
 	public function  sign($youhui_id)
 	{

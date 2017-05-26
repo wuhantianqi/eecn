@@ -20,8 +20,8 @@
                     	 <option value="cat_all" id='cat_all' selected="selected">--全部--</option>
 						 <{foreach $cates as $item}>
                             <{if $item.parent_id == 0}>
-                                    <option value='<{$item.cat_id}>'><{$item.title}></option>
-                            <{/if}>
+                                <option value='<{$item.cat_id}>'><{$item.title}></option>
+                            <{/if}>              
                         <{/foreach}>
 					</select>
                     <{foreach $cates as $item}>
@@ -45,8 +45,7 @@
                                 
                         <{/if}>
                     </div>
-                    <div class="rt">
-                        
+                    <div class="rt">                       
                         <input type="submit" class="btn" value="提交问题"  />
                     </div>
                     <div class="cl"></div>

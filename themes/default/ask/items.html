@@ -13,36 +13,21 @@
     <div class="items_main_left">
         <div class="items_main_left_nav" >
             <ul class="nav_one" id="nav_list">
-                <li class="a"><a href="" >家装设计</a>
-                    <ul class="dda">
-                        <li><a href="">1装修风水</a></li>
-                        <li><a href="">装修风格</a></li>
-                        <li><a href="">客厅</a></li>
-                        <li><a href="">玄关</a></li>
-                        <li><a href="">过道</a></li>
-                        <li><a href="">卧室</a></li>
-                        <li><a href="">装修风水</a></li>
-                        <li><a href="">装修风格</a></li>
-                        <li><a href="">客厅</a></li>
-                        <li><a href="">玄关</a></li>
-                        <li><a href="">过道</a></li>
-                        <li><a href="">卧室</a></li>
-                        <li><a href="">装修风水</a></li>
-                        <li><a href="">装修风格</a></li>
-                        <li><a href="">客厅</a></li>
-                        <li><a href="">玄关</a></li>
-                        <li><a href="">过道</a></li>
-                        <li><a href="">卧室</a></li>
-                        <li><a href="">装修风水</a></li>
-                        <li><a href="">装修风格</a></li>
-                        <li><a href="">客厅</a></li>
-                        <li><a href="">玄关</a></li>
-                        <li><a href="">过道</a></li>
-                        <li><a href="">卧室</a></li>
-                    </ul>
-
-                </li>
-                <li class="a"><a href="" >装修流程</a>
+                <{foreach $cate_list as $item}>
+                    <{if $item.parent_id == 0}>
+                        <li class="a">                           
+                            <a href="<{link ctl='ask:items' arg0=$item.cat_id arg1=$pager.type arg2=1}>" <{if $item.current == 'current'}>class="current"<{/if}>><{$item.title}></a>
+                            <ul class="dda">
+                                <{foreach $cate_list as $items}>
+                                    <{if $items.parent_id != 0 && $items.parent_id == $pager.parent_id}> 
+                                        <li><a href="<{link ctl='ask:items' arg0=$item.cat_id arg1=$pager.type arg2=1}>" <{if $items.current == 'current'}>class="current"<{/if}>><{$items.title}></a></li>
+                                    <{/if}>  
+                                <{/foreach}>                             
+                            </ul>
+                        </li>
+                    <{/if}>
+                <{/foreach}>
+                <!-- <li class="a"><a href="" >装修流程</a>
                     <ul class="dda">
                         <li><a href="">1</a></li>
                         <li><a href="">2</a></li>
@@ -184,7 +169,7 @@
                         <li><a href="">过道</a></li>
                         <li><a href="">卧室</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
 
 

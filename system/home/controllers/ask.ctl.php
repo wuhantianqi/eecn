@@ -12,6 +12,27 @@ class Ctl_Ask extends Ctl
 		$access = $this->system->config->get('access');
 		$this->pagedata['ask_yz'] = $access['verifycode']['ask'];
         $this->pagedata['cates'] = K::M('ask/cate')->fetch_all();
+        /*最新标签 start*/
+        $cate_list = K::M('ask/cate')->fetch_all();
+        foreach($cate_list as $k => $v){
+            if($v['cat_id'] == 0){
+                $cate_list[$k]['current'] = 'current';
+                if($v['parent_id'] != '0'){
+                    $cate_list[$v['parent_id']]['current'] = 'current';
+                    $pager['parent_id'] = $v['parent_id'];
+                    $filter['cat_id'][] = $cat_id;
+                }else{
+                    $pager['parent_id'] = $v['cat_id'];
+                    foreach($cate_list as $kk => $vv){
+                        if($vv['parent_id'] == $cat_id){
+                            $filter['cat_id'][] = $vv['cat_id'];
+                        }
+                    }
+                }
+            }
+        }
+        $this->pagedata['cate_list'] =$cate_list;
+        /*最新标签 start*/
 		$this->seo->init('ask');
         $this->tmpl = 'ask/ask.html';
     }

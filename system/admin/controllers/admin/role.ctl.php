@@ -41,6 +41,7 @@ class Ctl_Admin_Role extends Ctl
 
 	public function save()
 	{
+		$this->err->add('888888888888');
 		if(!$data = $this->GP('data')){
 			$this->err->add('非法的数据提交',201);
 		}else if($ID = intval($this->GP('role_id'))){
