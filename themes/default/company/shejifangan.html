@@ -1,0 +1,320 @@
+<{include file="company/block/header.html"}>
+<{if $blue}>
+<!-- 临时页面 -->
+<div class="company-zh-banner company-blue">
+	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
+</div>
+<div class="company_content_blue">
+	<div class="company_top company_top_blue">
+		<div>
+			<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
+			<div class="company_top_lt lt">
+				<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="zh-company-about">
+			<div class="zh-company-wrap">
+			<p>
+				<{$company.desc}>
+			</p>
+			</div>
+		</div>
+		<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
+	</div>
+	<div class="company_top_blue_right">
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
+		<div class="company_white"></div>
+		<div class="company_banner_left">
+			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
+		</div>
+		<div class="company_left_went">
+			<h2>热门装修资讯</h2>
+			<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8"}>
+				<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></p>
+                   <!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
+           <{/KT}>			
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<{else}>
+<!--装修公司头部开始-->
+<div class="company-zh-banner">
+	<div>
+
+
+		<div class="conpany-gai-top">
+			<div class="conpany-gai-top-center">
+				<div class="company-gai-top-n">
+					<span class="cg-logo"><img src="%THEME%/static/images/112.jpg" alt="武汉鑫大众装饰设计工程有限公司"></span>
+					<div class="cg-name">
+						<h1>武汉鑫大众装饰设计工程有限公司</h1>
+						<p>口碑值<a href="javascript:;">5220</a></p>
+					</div>
+					<div class="cg-qufiction">
+						<dl>
+							<dd>
+								<i class="zdq_3" title="该公司营业执照已认证"></i>
+								<i class="zdq_4" title="认证公司"></i>
+								<i class="zdq_5_no"></i>
+								<span title="该公司已缴纳50000保障金">
+									<i class="zdq_2"></i>
+									<em>5000元</em>
+								</span>
+							</dd>
+						</dl>
+					</div>
+					<div class="share_sns">
+						<dl>
+							<dt>分享到：</dt>
+							<dd>
+								<a class="sina_sns" href="javasript:;" title="分享到新浪微博"></a>
+								<a class="qzone_sns" href="javasript:;" title="分享到QQ空间"></a>
+								<a class="txwb_sns" href="javasript:;" title="分享到腾讯微博"></a>
+							</dd>
+						</dl>
+					</div>
+			</div>
+			</div>
+			<div class="conpany-bootm">
+				<div class="conpany-menu">
+					<ul>
+							<li class="oooon"><a href="<{link ctl='company-50'}>">首页</a></li>
+							<li ><a href="<{link ctl='company-introduction'}>">公司介绍</a></li>
+							<li ><a href="<{link ctl='company-shejifangan'}>">装修案例</a></li>
+							<li ><a href="<{link ctl='company-zaijiangongdi'}>">在建工地</a></li>
+						
+							<li ><a href="<{link ctl='company-shejituandui'}>">设计团队</a></li>
+					</ul>
+					<a href="javascript:;" class="zg-freeD">免费设计与报价<b></b></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="company-bootm"></div>
+<div class="cl"></div>
+
+<!--主题部分-->
+<div class="main_frame">
+		
+		<div class="zgs_innerpage_right">
+			<ul>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<div style="text-align: center;">
+							<img src="/themes/default/static/images/112.jpg" alt="" style="width: 313px;
+    height: 200px;">
+						</div>
+					</a>
+					<div class="anli_detail">
+						<p>
+							金帝城市岸泊
+							<span>2017-02-09</span>
+						</p>
+						<dl>
+							<dd>
+								别墅	
+								<em>|</em>
+							</dd>
+							<dd>
+								美式	
+								<em>|</em>
+							</dd>
+							<dd>
+								半包	
+								<em>|</em>
+							</dd>
+							<dd>
+								16万	
+								
+							</dd>
+						</dl>
+					</div>
+				</li>
+			</ul>
+			<div class="pages">
+				<strong>1</strong>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a href="">4</a>
+				<i>...</i>
+				<a href="" class="last">18</a>
+				<a href="" class="next">
+					下一页
+					<b></b>
+				</a>
+				
+			</div>
+		</div>
+	
+</div>
+
+
+<{/if}>
+<{include file="company/block/footer.html"}>

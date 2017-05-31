@@ -1195,6 +1195,14 @@ i.ystar_2{
 	    float: left;
     width: 100px;
     text-align: center;
+	    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 14px;
+    position: relative;
+    top: 36px;
+    line-height: 14px;
+    font-weight: bold;
 }
 .cov_text em{
 	    float: left;
@@ -1209,6 +1217,730 @@ i.ystar_2{
     line-height: 20px;
     font-size: 18px;
 }
+
+.construct_case .case_list{
+	margin-top: -1px;
+}
+.construct_case .case_list_item{
+	padding: 30px 0;
+    border-top: 1px dotted #e8e8e8;
+}
+.case_main{
+	    height: 200px;
+    position: relative;
+	overflow: hidden;
+}
+.case_main .case_pics{
+	    width: 200px;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+}
+.case_main .case_details{
+	margin-left: 20px;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+	position: relative;
+}
+.case_main .case_name{
+	    font-size: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.case_main .case_name .case_details_name{
+	float: left;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 370px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.case_main .case_tag{
+	    color: #999;
+    max-width: 535px;
+	overflow: hidden;
+}
+.case_main .case_tag span{
+	    float: left;
+    margin-right: 10px;
+}
+.case_main .case_progress{
+
+	    margin-top: 30px;
+}
+.case_main .case_progress ul{
+	border-top: 2px solid #eee;
+}
+.case_main .case_progress .on_li{
+	    color: #00af62;
+}
+.case_main .progress_dot{
+	background: url(../images/zgs_global.png) no-repeat;
+	    overflow: hidden;
+}
+.case_main .case_progress .on_li .progress_dot{
+			color: #00af62;
+     background-position: -131px -88px; 
+}
+.case_main{
+	position: relative;
+}
+.case_main .case_progress .progress_dot{
+	    display: block;
+    width: 13px;
+    height: 13px;
+    background-position: -145px -88px;
+    margin: 0 auto;
+    position: relative;
+    top: -7px;
+}
+.case_main .case_progress li{
+	    float: left;
+    color: #333;
+    font-size: 14px;
+    width: 56px;
+    margin-right: 50px;
+}
+
+.case_main .site-detail{
+	    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.case_main p{
+	    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+.fl{
+	    float: left;
+}
+.case_main .site-detail .sd1{
+	padding-right: 20px;
+    font-size: 14px;
+    color: #666;
+    border-right: 1px solid #e5e5e5;
+}
+.case_main .site-detail .sd2{
+	    padding-left: 20px;
+    font-size: 14px;
+    color: #666;
+}
+.case_main .site-detail span{
+	    height: 30px;
+    line-height: 30px;
+}
+
+.yuyuecanguan{
+	        position: absolute;
+    top: 80px;
+    right: 0;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    background: #ff7700;
+    border-radius: 4px;
+    text-align: center;
+}
+.yuyuecanguan:hover{
+	background-color:rgba(255,119,0,.7); 
+	color: #fff;
+}
+.case_pics img{
+	width: 100%;
+	height: 100%;
+}
+
+/*公司简介*/
+.cont_all{
+	    width: 980px;
+    margin: 38px auto;
+    font-size: 12px;
+    color: #666;
+	
+	overflow: hidden;
+}
+
+.cont_r{
+	  width: 980px;
+    float: left;
+    overflow: hidden;
+}
+
+.cont_r .detail{
+	margin-top: 53px;
+}
+.cont_r .sign_title{
+	color: #333;
+    font-size: 18px;
+}
+.cont_r .antro .describe .gongsilogo{
+	    margin-right: 20px;
+    margin-bottom: 16px;
+}
+.cont_r .antro .gongsilogo{
+	float: left;
+    width: 150px;
+    height: 150px;
+}
+.cont_r .antro .describe .gongsilogo img{
+	    width: 150px;
+    height: 150px;
+}
+.cont_r .antro .content{
+	margin-top: 16px;
+}
+.cont_r .detail table{
+	    margin-top: 16px;
+    border: 1px solid #f4f4f4;
+    width: 980px;
+    font-size: 14px;
+    color: #333;
+}
+table{
+	    border-collapse: collapse;
+    border-spacing: 0;
+}
+.cont_r .detail table tr .thead{
+	    width: 148px;
+    padding-left: 20px;
+    background: #f8f8f8;
+    color: #666;
+}
+.cont_r .detail table td{
+	    border-bottom: 1px dotted #e6e6e6;
+}
+.cont_r .detail table tr .content{
+	    width: 558px;
+}
+.cont_r .detail table tr .content{
+	    padding: 14px 14px 14px 30px;
+}
+/*公司简介*/
+
+/*设计方案*/
+
+.main_frame{
+	    width: 980px;
+    margin: 40px auto;
+	overflow: hidden;
+}
+
+.zgs_innerpage_right{
+	    
+    width: 980px;
+    overflow: hidden;
+}
+.zgs_innerpage_right ul{
+	    margin-left: -20px;
+    float: left;
+}
+.zgs_innerpage_right ul li{
+	    float: left;
+    margin: 0 0 20px 20px;
+    display: inline;
+    position: relative;
+    background-color: #f8f8f8;
+    width: 313px;
+    overflow: hidden;
+    height: 270px;
+}
+.zgs_innerpage_right ul li a{
+	    float: left;
+    width: 240px;
+    height: 168px;
+    position: relative;
+}
+.zgs_innerpage_right .anli_detail{
+	    clear: left;
+    float: left;
+    margin: 36px 0 15px 7px;
+}
+.zgs_innerpage_right .anli_detail p{
+	    font-size: 14px;
+    color: #333;
+    margin-bottom: 3px;
+}
+.zgs_innerpage_right .anli_detail p span{
+	font-size: 12px;
+    color: #999;
+    margin-left: 10px;
+}
+.zgs_innerpage_right .anli_detail dl{
+	    color: #999;
+}
+.zgs_innerpage_right .anli_detail dl dd{
+	    float: left;
+}
+.zgs_innerpage_right .anli_detail dl dd em{
+	    margin: 0 10px;	
+}
+.pages{
+	    padding-top: 60px;
+    margin-top: 0!important;
+    text-align: center;
+    clear: both;
+}
+.pages strong{
+	    background: #01a469;
+    padding: 3px 6px;
+	    width: 28px;
+    height: 34px;
+    background-color: #01af63!important;
+    color: #fff!important;
+    font-weight: 400!important;
+    line-height: 34px;
+    border: 0 !important;
+}
+.pages a{
+
+
+    padding: 3px 6px;
+    cursor: pointer;
+	    width: 26px;
+    border: 1px solid #eee!important;
+    color: #999!important;
+    background-color: #fff;
+}
+.pages .prev, .pages .next{
+	    position: relative;
+    width: 79px;
+}
+.pages .next b{
+	    right: 15px;
+    float: right;
+    background-position: -180px 0;
+}
+.pages .next b, .pages .prev b{
+	    position: absolute;
+    width: 6px;
+    height: 11px;
+    margin-top: 11px;
+	background: url(../images/global.png) no-repeat;
+}
+.pages .next b{
+	    right: 15px;
+    float: right;
+    background-position: -180px 0;
+}
+.pages a, .pages strong, .pages em{
+	    height: 32px;
+    padding: 3px 6px;
+    margin: 0 0 0 -1px !important;
+    line-height: 32px;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+.pages i{
+	    width: 40px;
+    height: 40px;
+    line-height: 34px;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+/*设计方案*/
+
+/*在建工地*/
+.zjgd_main{
+	width: 1000px;
+	margin: 40px auto;
+	overflow: hidden;
+}
+.zjgd_left{
+	width: 750px;
+	float: left;
+}
+.zjgd_right{
+	width: 250px;
+	float: left;
+	    margin-top: 30px;
+}
+ .zjgd_case_list{
+	margin-top: -1px;
+}
+ .zjgd_case_list_item{
+	
+	 padding-bottom: 30px;
+	 padding-top: 30px;
+}
+.zjgd_case_main{
+	    height: 200px;
+    position: relative;
+	overflow: hidden;
+}
+.zjgd_case_main .zjgd_case_pics{
+	    width: 190px;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+}
+.zjgd_case_main .zjgd_case_details{
+	margin-left: 15px;
+	margin-right: 5px;
+    float: left;
+    height: 200px;
+    overflow: hidden;
+	position: relative;
+}
+.zjgd_case_main .zjgd_case_name{
+	    font-size: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.zjgd_case_main .zjgd_case_name .zjgd_case_details_name{
+	float: left;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 370px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.zjgd_case_main .zjgd_case_tag{
+	    color: #999;
+    max-width: 535px;
+	overflow: hidden;
+}
+.zjgd_case_main .zjgd_case_tag span{
+	    float: left;
+    margin-right: 10px;
+}
+.zjgd_case_main .zjgd_case_progress{
+
+	    margin-top: 30px;
+}
+.zjgd_case_main .zjgd_case_progress ul{
+	border-top: 2px solid #eee;
+}
+.zjgd_case_main .zjgd_case_progress .zjgd_on_li{
+	    color: #00af62;
+}
+.zjgd_case_main .zjgd_progress_dot{
+	background: url(../images/zgs_global.png) no-repeat;
+	    overflow: hidden;
+}
+.zjgd_case_main .zjgd_case_progress .zjgd_on_li .zjgd_progress_dot{
+			color: #00af62;
+     background-position: -131px -88px; 
+}
+.zjgd_case_main{
+	position: relative;
+}
+.zjgd_case_main .zjgd_case_progress .zjgd_progress_dot{
+	    display: block;
+    width: 13px;
+    height: 13px;
+    background-position: -145px -88px;
+    margin: 0 auto;
+    position: relative;
+    top: -7px;
+}
+.zjgd_case_main .zjgd_case_progress li{
+	    float: left;
+    color: #333;
+    font-size: 14px;
+    width: 56px;
+    margin-right: 50px;
+}
+
+.zjgd_case_main .zjgd_site-detail{
+	    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.zjgd_case_main p{
+	    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+.zjgd_fl{
+	    float: left;
+}
+.zjgd_case_main .zjgd_site-detail .zjgd_sd1{
+	padding-right: 20px;
+    font-size: 14px;
+    color: #666;
+    border-right: 1px solid #e5e5e5;
+}
+.zjgd_case_main .zjgd_site-detail .zjgd_sd2{
+	    padding-left: 20px;
+    font-size: 14px;
+    color: #666;
+}
+.zjgd_case_main .zjgd_site-detail span{
+	    height: 30px;
+    line-height: 30px;
+}
+
+.zjgd_yuyuecanguan{
+	        position: absolute;
+    top: 170px;
+    right:15px;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    background: #ff7700;
+    border-radius: 4px;
+    text-align: center;
+}
+.zjgd_yuyuecanguan:hover{
+	background-color:rgba(255,119,0,.7); 
+	color: #fff;
+}
+.zjgd_case_pics img{
+	width: 100%;
+	height: 100%;
+}
+.zjgd_right_form{
+
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+.zjgd_right_form_box{
+	padding: 20px;
+    height: 248px;
+}
+.zjgd_right_form_box h2{
+	    color: #00b371;
+    text-align: center;
+}
+.zjgd_right_form_box p{
+	    line-height: 28px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+.zjgd_orange{
+	color: #ff7700;
+}
+.zjgd_mt_30{
+	margin-top: 30px;
+}
+.zjgd_right_form_box .input-box{
+	    height: 60px;
+    margin: 0 auto;
+}
+.w-220{
+	    width: 220px;
+}
+.zjgd_right_form_box .input-box input{
+	    padding: 8px;
+    height: 22px;
+    font-size: 14px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+.w-202{
+	width: 195px;
+}
+input{
+	    outline: none;
+}
+.zjgd_btns{
+	    display: inline-block;
+    padding: 3px 0;
+
+    width:212px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #f37f1f;
+	border: none;
+    line-height: 40px;
+	    cursor: pointer;
+}
+.zjgd_right_form  .side-icon{
+
+    height: 72px;
+    border-top: 1px solid #e5e5e5;
+}
+.zjgd_right_form  .side-icon ul li{
+	    float: left;
+	margin: 0 5px;
+}
+.zjgd_right_form  .side-icon ul li a{
+	    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #666;
+}
+.zjgd_right_form  .side-icon ul li a:hover{
+    color: #00b371;
+}
+.w-79{
+	    width: 79px;
+}
+.zjgd_right_form  .side-icon em {
+	display: inline-block;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/css-sprite-1.png) no-repeat;
+    vertical-align: middle;
+}
+.zjgd_right_form  .side-icon em.side-icon1{
+	    background-position: 0 -18px;
+}
+.zjgd_right_form  .side-icon em.side-icon2{
+	 background-position: -18px -18px;
+}
+.zjgd_right_form  .side-icon em.side-icon3{
+	    background-position:-38px -18px;
+}
+.zjgd_right_form  .side-icon em.side-icon4{
+	    background-position:-56px -18px;
+}
+.zjgd_right_form  .side-icon em.side-icon5{
+	    background-position: -74px -18px;
+}
+.zjgd_right_form  .side-icon em.side-icon6{
+	    background-position:-91px -18px;
+}
+
+.zjgd_right_bottom{
+	width: 100%;
+	height: 200px;
+	margin-top: 30px;
+}
+.zjgd_right_bottom img{
+	width: 100%;
+	height: 100%;
+}
+/*在建工地*/
+
+/*设计团队*/
+.sheji_team_main{
+	width: 1000px;
+	margin: 30px auto;
+	overflow: hidden;
+}
+.sheji_team_left, .sheji_team_content{
+	float: left;
+}
+.sheji_team_left .sheji_y{
+	margin-top: 20px;
+}
+.sheji_team_left .sheji_y a img{
+	    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+.sheji_team_left .sheji_yuyue{
+	    display: inline-block;
+    margin-top: 25px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    background: #ff7700;
+    text-align: center;
+    border-radius: 4px;
+}
+.sheji_team_left{
+padding: 0 20px;
+    height: 214px;	
+}
+.sheji_team_content{
+	    margin-left: 20px;
+    width: 550px;
+    height: 214px;
+}
+.sheji_name{
+	    margin-top: 20px;
+    width: 70%;
+}
+.sheji_name p a span{
+	    margin-right: 20px;
+    font-size: 24px;
+    color: #333;
+}
+.sheji_name p em{
+	background: url(../images/css-sprite-1.png) no-repeat;
+}
+.sheji_name p .she_icon1{
+	    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+	background-position: -66px -76px;
+}
+.sheji_name p .she_icon2{
+	    display: inline-block;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+	background-position: -86px -76px;
+}
+.sheji_name p p{
+	    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+.sheji_team_content>p{
+	    margin-top: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #333;
+}
+.sheji_team_content>p a{
+	    font-size: 14px;
+    color: #333;
+}
+.sheji_team_right{
+	    float: right;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+.sheji_team_right>div{
+	position: relative;
+}
+.sheji_team_right>div img{
+	    width: 200px;
+    height: 178px;
+}
+.sheji_team_right>div div{
+	    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.sheji_team_right>div div a{
+	display: inline-block;
+    margin-top: 70px;
+    margin-left: 23px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+}
+.sheji_team_list{
+	   padding: 30px 0;
+    border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+}
+/*设计团队*/
 
 
 

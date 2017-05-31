@@ -200,7 +200,23 @@ class Ctl_Company extends Ctl
         $this->seo->init('company');
         $this->tmpl = 'company/comment.html';
     }
-
+//	汪琪
+		public function introduction()
+    {
+        $this->tmpl = 'company/introduction.html';
+    }
+		public function shejifangan()
+    {
+        $this->tmpl = 'company/shejifangan.html';
+    }
+		public function zaijiangongdi()
+    {
+        $this->tmpl = 'company/zaijiangongdi.html';
+    }
+	public function shejituandui()
+    {
+        $this->tmpl = 'company/shejituandui.html';
+    }
     public function savecomment($company_id=null)
     {
         $this->check_login();
