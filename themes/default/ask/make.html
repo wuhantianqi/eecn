@@ -28,57 +28,67 @@
                    </li>
                </ul>
            </div>
-            <form action="">
+            <form id='data_form' mini-form="ask" enctype="multipart/form-data"  action="<{link ctl='ask:save'  http=ajax}>" method="post">
                 <div class="form_first">
-                    <textarea name="" placeholder="在这里输入您的问题，又问必答"></textarea>
+                    <textarea name='data[title]' placeholder="在这里输入您的问题，又问必答"></textarea>
                 </div>
-               <div class="form_sencd">
-                   <textarea name="" placeholder="详细的描述您的问题，有利于更好的回答"></textarea>
-               </div>
+                <div class="form_sencd">
+                   <textarea name='data[intro]' placeholder="详细的描述您的问题，有利于更好的回答"></textarea>
+                </div>
 
+            
+              <div class="make_left_point">
+                  <span>问题分类</span>
+                  <span>
+                    <select class="text"  id='cate_select' onchange="change(this.value)" >
+                      <option value="cat_all" id='cat_all' selected="selected">--全部--</option>
+                      <{foreach $cates as $item}>
+                        <{if $item.parent_id == 0}>
+                          <option value='<{$item.cat_id}>'><{$item.title}></option>
+                        <{/if}>
+                      <{/foreach}>
+                    </select> 
+                    <{foreach $cates as $item}>
+                         <{if $item.parent_id == 0}>
+                              <select class="text" id = '<{$item.cat_id}>' onchange = "changes(this.value)" style="display:none">
+                                 <option class = 'parent_all'  value="parent_all">--全部--</option>
+                                   <{foreach $cates as $it2}>
+                                          <{if $it2.parent_id == $item.cat_id}>
+                                              <option  value='<{$it2.cat_id}>'><{$it2.title}></option>
+                                          <{/if}>
+                                   <{/foreach}>
+                              </select>
+                           <{/if}>
+                      <{/foreach}>
+                      <input type="hidden" id='cat_value' name="cat_id" value="0" /> 
+                      <{if $ask_yz}>
+                          验证码:
+                              <input class="text short" type="text" name="verifycode" placeholder="请输入验证码"/>
+                              <img verify="#pass-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="pass-verify"/>
+                              
+                      <{/if}>
+                  </span>
+                  <span>
+                      <input type="submit" value="提交问题">
+                  </span>
+              </div>
             </form>
-            <div class="make_left_point">
-                <span>问题分类</span>
-                <span>
-                    <select name="">
-                        <option value="" selected="selected">--全部--</option>
-                        <option value="">家装设计</option>
-                        <option value="">装修流程</option>
-                        <option value="">家居产品</option>
-                        <option value="">装饰材料</option>
-                        <option value="">工装设计</option>
-                        <option value="">房产知识</option>
-                    </select>
-                </span>
-                <span>
-                    <input type="submit" value="提交问题">
-                </span>
-            </div>
 
         </div>
         <div class="make_right">
             <div class="make_right_form">
-                <form action="">
+                <form action="<{link ctl='tenders:save' http='base'}>" mini-form='tenders_tzx' id="tenders-tzx" method="post">
+                  <input type="hidden" name="data[from]" value="RRTDESIGNCOST" />
                     <ul>
-
-                        <li><input type="text" placeholder="请输入您的装修面积"> <i>m²</i></li>
+                        <li><input type="text" name="data[house_mj]" placeholder="请输入您的装修面积"> <i>m²</i></li>
                         <li>
-                            <select name="湖北" >
-                                <option value="">湖北</option>
-                                <option value="">北京</option>
-                                <option value="">山西</option>
-                            </select>
-                            <select name="武汉">
-                                <option value="">武汉</option>
-                                <option value="">孝感</option>
-                                <option value="">十堰</option>
-                            </select>
+                            <{widget id="data/region" city_id=$data.city_id|default:$request.city_id class="text short"}>
                         </li>
                         <li>
-                            <input type="text" placeholder="请输入您的称呼">
+                            <input type="text" name="data[contact]" placeholder="请输入您的称呼">
                         </li>
                         <li>
-                            <input type="text" placeholder="请输入您的手机号码">
+                            <input type="text" name="data[mobile]" placeholder="请输入您的手机号码">
                         </li>
                         <li>
                             <input type="submit" value="点击获取设计方案">
