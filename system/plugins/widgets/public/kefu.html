@@ -96,18 +96,6 @@ $(document).ready(function(){
         return false;
     }); 
 	
-//	输入框判断
-		var tx;
-	$('.rightNav .dk_hb input').blur(function(){
-		 
-		var vale = $(this).val();
-		var length = vale.length;
-	  var mobile = /^1{1}[34578]{1}\d{9}$/; 
-		
-		if(length  == 11 && mobile.test(vale)){
-			tx = true;
-		}
-	})
 //	点击跳动的红包弹出
 		$(".rightNav .hb a").click(function(){
 			$('.rightNav .menban').css('display','block');
@@ -122,23 +110,36 @@ $(document).ready(function(){
 		});
 //	点击开
 	$(".rightNav .dk_hb .openbt").click(function(){
+        var hbaoval = $('.rightNav .dk_hb input').val();          
+        var mobile = /^1{1}[34578]{1}\d{9}$/; 
+        
+        if( hbaoval.length  == 11 && mobile.test(hbaoval)){
+            $('.rightNav .dk_hb').css('display','none');
+            $('.rightNav .suc-d').css('display','block');
+            var request = $.ajax({
+              url: "http://www.eecn.cc/index.php?tenders-save.html",
+              method: "POST",
+              data:{
+                "data[mobile]": hbaoval
+              },
+              dataType: "json"
+            });
+            request.done(function( msg ) {
+                layer.alert(msg.message['0']);
+            });
+            $('.rightNav .dk_hb input').val(""); 
+        }else{
+            layer.alert('请输入正确的手机号码');
+        }
+			
+	});
+	
+	$(".rightNav .suc-d .hb_close").click(function(){
+		$('.rightNav .menban').css('display','none');
+		$('.rightNav .suc-d').css('display','none');
 		
-		if(tx == true){
-	
-			$('.rightNav .dk_hb').css('display','none');
-			$('.rightNav .suc-d').css('display','block');
-		}else{
-			alert('请输入正确的手机号码');
-		}
-	
-			
-		});
-	
-		$(".rightNav .suc-d .hb_close").click(function(){
-			$('.rightNav .menban').css('display','none');
-			$('.rightNav .suc-d').css('display','none');
-			
-		});
+	});
+
 	
 	
 });
