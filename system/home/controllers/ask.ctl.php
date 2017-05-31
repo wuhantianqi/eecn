@@ -44,7 +44,7 @@ class Ctl_Ask extends Ctl
         $pager['type'] = $type = (int)$type;
         $pager['page'] = max(intval($page), 1);
         $pager['limit'] = $limit = 30;
-		$cate_list = K::M('ask/cate')->fetch_all();
+        $cate_list = K::M('ask/cate')->fetch_all();
 		foreach($cate_list as $k => $v){
 			if($v['cat_id'] == $cat_id){
 				$cate_list[$k]['current'] = 'current';
@@ -73,13 +73,56 @@ class Ctl_Ask extends Ctl
         if ($items = K::M('ask/ask')->items($filter, null, $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink('ask:items', array($cat_id, $type, '{page}')), array());
-            $this->pagedata['items'] = $items;
+            $this->pagedata['itemses'] = $items;
         }
+
+        /*将文章大类再进行细分 start*/
+        $this->pagedata['cate_list_menu'] = $this->list_menu($cate_list);
+        /*将文章大类再进行细分 end*/
+        /*最新标签 start*/
+        $cate_list = K::M('ask/cate')->fetch_all();
+        foreach($cate_list as $k => $v){
+            if($v['cat_id'] == 0){
+                $cate_list[$k]['current'] = 'current';
+                if($v['parent_id'] != '0'){
+                    $cate_list[$v['parent_id']]['current'] = 'current';
+                    $pager['parent_id'] = $v['parent_id'];
+                    $filter['cat_id'][] = $cat_id;
+                }else{
+                    $pager['parent_id'] = $v['cat_id'];
+                    foreach($cate_list as $kk => $vv){
+                        if($vv['parent_id'] == $cat_id){
+                            $filter['cat_id'][] = $vv['cat_id'];
+                        }
+                    }
+                }
+            }
+        }
+        $this->pagedata['cate_list'] =$cate_list;
+        /*最新标签 start*/
         $this->pagedata['pager'] = $pager;
 		$this->pagedata['cate_list'] =$cate_list;
         $cate = $cate_list[$cat_id];
         $this->seo->init('ask_items', array('cate_name'=>$cate['title']));
         $this->tmpl = 'ask/items.html';
+    }
+
+    /*递归调用分类*/
+    public function list_menu($data){
+        $treeList = array();
+        foreach ($data as $key => $value) {
+            if($value['parent_id']==0){
+                $treeList[$key] = $value;
+            }
+        }
+        foreach ($treeList as $ke => $valu) {
+            foreach ($data as $k => $val) {
+                if(  ($valu['cat_id'] == $val['parent_id'])  ){
+                    $treeList[$ke]['_channel'][$k] =$val;
+                }
+            } 
+        }
+        return $treeList;
     }
 
     public function make()

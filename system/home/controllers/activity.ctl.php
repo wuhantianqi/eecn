@@ -21,7 +21,7 @@ class Ctl_Activity extends Ctl
         $filter['city_id'] = $this->request['city_id'];
 		$filter['audit'] = 1;
          // 优惠信息
-        if ($items = K::M('company/youhui')->items($filter, null, $page, $limit, $count)) {
+        if ($items = K::M('company/youhui')->items($filter, array('dateline'=>'desc'), $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink(null, array('{page}')));
             $this->pagedata['itemses'] = $items;
@@ -40,7 +40,7 @@ class Ctl_Activity extends Ctl
             $filter['cate_id'] = $cat_id;
         }
         // 优惠活动
-        if ($items = K::M('activity/activity')->items($filter, null, $page, $limit, $count)) {
+        if ($items = K::M('activity/activity')->items($filter, array('dateline'=>'desc'), $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink('activity:items', array($cat_id, '{page}')));
             $this->pagedata['items'] = $items;
@@ -66,7 +66,7 @@ class Ctl_Activity extends Ctl
         $filter['city_id'] = $this->request['city_id'];
         $filter['audit'] = 1;
          // 优惠信息
-        if ($items = K::M('company/youhui')->items($filter, null, $page, $limit, $count)) {
+        if ($items = K::M('company/youhui')->items($filter, array('dateline'=>'desc'), $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink(null, array('{page}')));
             $this->pagedata['itemses'] = $items;
@@ -85,12 +85,12 @@ class Ctl_Activity extends Ctl
             $filter['cate_id'] = $cat_id;
         }
         // 优惠活动
-        if ($items = K::M('activity/activity')->items($filter, null, $page, $limit, $count)) {
+        if ($items = K::M('activity/activity')->items($filter, array('dateline'=>'desc'), $page, $limit, $count)) {
             $pager['count'] = $count;
             $pager['pagebar'] = $this->mkpage($count, $limit, $page, $this->mklink('activity:items', array($cat_id, '{page}')));
             $this->pagedata['items'] = $items;
         }
-       
+
         $this->pagedata['cate'] = $cate;
         $this->pagedata['pager'] = $pager;
         $this->pagedata['cate_list'] = $cate_list = K::M("activity/cate")->fetch_all();

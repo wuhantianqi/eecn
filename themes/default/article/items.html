@@ -19,10 +19,10 @@
 		<div class="area pding mb10 cont_item_rt">
 			<ul class="article_list">
 				<{calldata mdl="article/cate" parent_id=8 hidden='0'  from='article'}>
-				<li>
-					<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
-					<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id arg1=1}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
-				</li>
+  				<li>
+  					<h3><span class="ico_list shu_ico"></span><{$item.title}></h3>
+  					<{calldata mdl="article/cate" hidden='0' parent_id=$item.cat_id}><a href="<{link ctl='article:items' arg0=$item.cat_id arg1=1}>"<{if $cate.cat_id==$item.cat_id}>  class="current"<{/if}>><{$item.title}></a><{/calldata}>
+  				</li>
 				<{/calldata}>
 			</ul>
 		</div>
@@ -48,8 +48,10 @@
             </li>
             <{/foreach}>
    		</ul>
+      <{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
    </div>
    <div class="cl"></div>
+
 </div>
 <script type="text/javascript"  src="/static/jquery.pin/jquery.pin.js?<{$VER}>"></script>
 <script>

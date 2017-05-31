@@ -1394,14 +1394,15 @@ ul.news li span.rt{ color:#999;}
 
 /*---------------------------------------------------活动专题页样式开始---------------------------------------------------*/
 .aczt_banner{ height:350px; margin:0px auto 2px auto; text-align:center; overflow:hidden;}
-.aczt_nav { width:1000px; z-index:100;  height:60px; background:#eee; overflow:hidden;}
+.aczt_nav { width:1000px; z-index:100;  height:60px; background: rgb(0,153,102); overflow:hidden;}
 .aczt_nav ul li{ 
 	height: 40px;
 	margin-top:10px;
     float: left;
     margin-right: 19px;
     font-size: 14px;
-    line-height: 40px;
+    line-height: 35px;
+    color: #fff;
 }
 .aczt_nav ul li:first-child{
 	width: 110px;
@@ -1410,12 +1411,17 @@ ul.news li span.rt{ color:#999;}
 	text-align: center;
 	line-height: 60px;
 	font-size: 16px;
-	border-right:1px solid #d5d5d5;
+    /*background-color: #006633;*/
+	/*border-right:1px solid #d5d5d5;*/
 }
 .aczt_nav ul li a{ display:inline-block; padding:0px 20px; line-height:38px; color:#fff; font-size:16px;}
+.aczt_nav ul li .btn{
+    background: #01af63;
+    color:#fff;
+}
 .aczt_nav ul li .gray_btn{
-	background: #aaa;
-	color:black;
+	background: rgb(255, 68, 1);
+	color:#fff;
 }
 #fixedMenu_keleyi_com .company-form ul li{
 	height:60px;
@@ -2561,6 +2567,7 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
     border-bottom: 2px solid #0a9261;
 }
 .items_main_left_list_ans ul li{
+    width: 100%;
     border-top:1px solid rgb(232, 232, 232);
     padding:20px 0;
 }
@@ -2579,6 +2586,7 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
     padding: 0;
     font-size: 20px;
     color: #000;
+    text-indent: 1em;
 }
 .items_main_left_list_ans ul li h3 a:hover{
     color:#0a9261 ;
@@ -2598,7 +2606,7 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
     margin: 0 auto;
     color: #0A9261;
 }
-.items_main_left_list_bot a{
+/*.items_main_left_list_bot a{
     width: 25px;
     height: 24px;
     line-height: 24px;
@@ -2606,7 +2614,7 @@ table.shop_car tr.last td p.rt span{ margin-right:30px;}
     display: inline-block;
     color: #0A9261;
     margin-left: 5px;
-}
+}*/
 .items_main_left_list_bot .bot_prve,.items_main_left_list_bot .bot_next{
     width: 50px;
     height: 24px;

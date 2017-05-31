@@ -13,11 +13,12 @@
                 <li>验证码：<input class="text short" style="width:80px;" type="text" name="verifycode" placeholder="请输入验证码"/>
                         <img title="点击刷新验证码" verify="#yuyue-verify" src="/index.php?magic-verify&_=<{$pager.dateline}>" id="yuyue-verify"/>
                 </li>
-                <li><{if $detail.end_time>time()}>
-                        <input type="submit" mini-submit='#sign_form' action="<{link ctl='activity:yuyue' arg0=$detail.activity_id}>" name="fbpl" value="立即报名" class="btn"/>
-                        <{else}>
-                         <input type="button" value="报名结束" class="btn gray_btn"/>
-                        <{/if}>
+                <li>
+                    <{if $detail.end_time>time()}>
+                    <input type="submit" mini-submit='#sign_form' action="<{link ctl='activity:yuyue' arg0=$detail.activity_id}>" name="fbpl" value="立即报名" class="btn gray_btn"/>
+                    <{else}>
+                     <input type="button" value="报名结束" class="gray_btn"/>
+                    <{/if}>
                 </li>
 
             <!-- <table cellpadding="0" cellspacing="0">
@@ -64,8 +65,8 @@
             <{/foreach}>
 		</ul> -->
 	</div>
-	<div class="aczt_top mb10 aczt_top_detail_wenit">
-		<!-- <a href="#" class="lt pic"><img src="<{$pager.img}>/<{$detail.thumb}>" /></a> -->
+	<!-- <div class="aczt_top mb10 aczt_top_detail_wenit">
+		<a href="#" class="lt pic"><img src="<{$pager.img}>/<{$detail.thumb}>" /></a>
 		<div class="aczt_list_rt pding aczt_list_rt_detail">
 			<h1><{$detail.title}></h1>
 			<p>活动开始时间 ：<{$detail.bg_time|format:'Y-m-d'}></p>
@@ -79,7 +80,7 @@
             <span>报名人数：<b class="fontcl2"><{$detail.sign_num}></b>名</span></h2>
 		</div>
         <div class="aczt_list_rt_detail_right"><{include file='activity/left.html'}></div>
-	</div>
+	</div> -->
 	<!-- <div class="mb10">
 		<div class="aczt_list_box aczt_left_box ">
 			<h1 ><a name="li1">活动报名</a></h1>
