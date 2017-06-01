@@ -655,8 +655,9 @@ dl.jh-point dd em.no { background-color: #FFE1E1; border-color: #CC6666; color:#
     height: 100%;
 }
 .main_list_right .main_list_right_second .secd_two ul li .rank_name{
-    float: right;
+    float: left;
     color: #999;
+	margin-left: 15px;
 }
 .main_list_right .main_list_right_second .secd_two ul li .rank_name a{
     display: block;
