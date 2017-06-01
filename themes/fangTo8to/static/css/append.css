@@ -1,4 +1,4 @@
-﻿/*公共样式修改*/
+/*公共样式修改*/
 .fontcl1{ color:#ff4401;}
 .fontcl2{ color:#ff4401; font-size: 14px;}
 .btn_main_big{ width:100px; line-height:32px; background:#01af63; font-size:16px;}
@@ -305,8 +305,13 @@ ul.main_worker_ul li.first{ padding:20px;}
 	color:#FFF;
 	font-size:14px;
 }
-.rightNav li .show.qq:hover,.rightNav li .show.baojia:hover,.rightNav li .show.weixin:hover{ text-decoration:none;border: 1px solid #01af63;background: #01af63 none repeat scroll 0 0;}
-.rightNav li .show.qq:hover p,.rightNav li .show.baojia:hover p,.rightNav li .show.weixin:hover p{color:#fff;}
+
+.rightNav li .dian p{
+
+	font-size: 12px;
+}
+.rightNav li .show.qq:hover,.rightNav li .show.baojia:hover,.rightNav li .show.weixin:hover,.rightNav li .show.dian:hover{ text-decoration:none;border: 1px solid #01af63;background: #01af63 none repeat scroll 0 0;}
+.rightNav li .show.qq:hover p,.rightNav li .show.baojia:hover p,.rightNav li .show.weixin:hover p,.rightNav li .show.dian:hover p{color:#fff;}
 /*.rightNav li .show span.icoQq:hover{ background:rgba(0, 0, 0, 0) url("../images/slide_help.png") no-repeat scroll -122px 11px}*/
 .rightNav li .show.qq:hover span{ background:rgba(0, 0, 0, 0) url("../images/slide_help.png") no-repeat scroll -122px 11px}
 .rightNav li .show.baojia:hover span{ background:rgba(0, 0, 0, 0) url("../images/slide_help.png") no-repeat scroll -121px -47px}
@@ -314,6 +319,18 @@ ul.main_worker_ul li.first{ padding:20px;}
 .rightNav li .show.weixin:hover span{ background:rgba(0, 0, 0, 0) url("../images/slide_help.png") no-repeat scroll -121px -105px}
 /*.rightNav li .show.current{ background: #01af63 none repeat scroll 0 0;border: 1px solid #01af63;color: #fff; !important;}*/
 .rightNav li .show .icoQq.current{rgba(0, 0, 0, 0) url("../images/slide_help.png") no-repeat scroll -122px 11px }
+.rightNav li .show .dianh{
+	rgba(0, 0, 0, 0);
+	background: url(../images/icolist.png) no-repeat;
+	background-position:-20px -178px;
+}
+.rightNav li .show:hover .dianh{
+	background-position:-40px -178px;
+}
+.rightNav li .show .yd{
+	margin-top: 15px;
+	margin-left: 20px;	
+}
 /*装修案例样式开始*/
 .case_aterfall_li{ padding:0px; box-shadow:none; border:none; margin:0px 5px 10px; width:290px; background:#fff;}
 .case_aterfall_li a img{ width:290px; height:auto;}

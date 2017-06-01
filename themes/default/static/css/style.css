@@ -142,6 +142,7 @@ p.sub_nav_prt{ line-height:40px;}
 .rightNav li{ margin-bottom:1px; width:auto; height:auto; cursor:pointer; position:relative;}
 .rightNav li .show{ display:block;width:58px; height:58px;background:#fff none repeat scroll 0 0; text-align:center;border:1px solid #eee;}
 .rightNav li .show span.ico{ display:block; width:56px; height:36px; }
+.rightNav li .show span.icoo{display:block; width:20px; height:20px;}
 .rightNav li .show span.icoQq{ background-position: 0px -11px;background:url(../images/consult.gif) no-repeat scroll 2px 2px;}
 .rightNav li .show span.icoWx{ background-position: 0px -76px; background:url(../images/ico_code.gif) no-repeat scroll center center;}
 .rightNav li .show span.icoTel{ background-position: 0px -153px; background:url(../images/slide_help.png) no-repeat scroll 12px -48px;}
@@ -152,7 +153,12 @@ p.sub_nav_prt{ line-height:40px;}
 .rightNav li .show p{ height:30px; line-height:30px; text-align:center; color:#808080; font-size:12px; margin: -4px;}
 /*.rightNav li .show.current{ background:#ff4401;}*/
 .rightNav li .hidden{ position:absolute;right:80px; top:5px;  text-align:center;border:1px solid #ddd; padding:5px; background:#fff; display:none; box-shadow:0px 0px 3px #ccc;}
-.rightNav li .hidden .hidden_cont p.title{ font-size:14px; color:#333; font-weight:bold;}
+.rightNav li .hidden .hidden_cont p.title{ font-size:12px; color:#333; font-weight:bold;}
+.rightNav li .hidden .hidden_cont p.titlee{
+    width: 120px;
+    font-size: 12px;
+    color: #01af63;
+}
 .rightNav li .hidden .hidden_cont{ position:relative; min-width:80px;}
 .rightNav li .hidden .hidden_cont span.span_ab{ display:inline-block; width:9px; height:9px; position:absolute; top:0px; right:-13px; background:url(../images/rightNav_ab.png) no-repeat;}
 .rightNav li .hidden .hiddenQq a{ display:block; margin:8px 1px; text-align:center;}
