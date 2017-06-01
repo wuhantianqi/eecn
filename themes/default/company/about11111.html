@@ -1,0 +1,46 @@
+<{assign var="seo_sub_title" value="公司简介"}>
+<{include file="company/block/header.html"}>
+<{include file="company/block/header_nav.html"}>
+<!--装修公司头部结束-->
+<div class="subwd">
+	<!-- <{include file="company/block/info.html"}> -->
+	<div class="mb20 company_rt rt area ">
+		<div class="pding">
+			<h3 class="sub_com_title"><b>企业简介</b></h3>
+			<div class="sub_com_contro">
+                <div><{if $company.video}><embed src="<{$company.video}>" quality="high" width="1000" height="480" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed><{/if}></div><{$company.info}>
+            </div>
+			<h3 class="sub_com_title"><b>企业资质</b></h3>
+			<div class="sub_com_contro">
+                <{foreach $photo_list as $v}>
+                <{if $v.type == 1}>
+				<div class="zizhi_box"><img src="<{$pager.img}>/<{$v.photo}>" /><p class="tit"><{$v.title}></p></div>
+                <{/if}>
+                <{/foreach}>
+				<div class="cl"></div>
+			</div>
+			<h3 class="sub_com_title"><b>企业荣誉</b></h3>
+			<div class="sub_com_contro">
+                <{foreach $photo_list as $v}>
+                <{if $v.type == 2}>
+				<div class="zizhi_box"><img src="<{$pager.img}>/<{$v.photo}>" /><p class="tit"><{$v.title}></p></div>
+                <{/if}>
+                <{/foreach}>
+				<div class="cl"></div>
+			</div>
+			<h3 class="sub_com_title"><b>联系我们</b></h3>
+			<div class="sub_com_contro">
+				<p>公   司：<{$company.name}></p>
+				<p>电   话：<{$company.show_phone}></p>
+				<p>Q   Q：<{$company.show_qq}></p>
+				<p>地  址:<{$company.addr}></p>
+                <{if $company.lng && $company.lat}>
+				<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
+                <{/if}>
+			</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+</div>
+<!--底边内容开始-->
+<{include file="company/block/footer.html"}>

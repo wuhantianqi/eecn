@@ -13,7 +13,16 @@ $(document).ready(function(){
 					}).mouseleave(function(){
 						$(this).find(".main_nav_son").hide();
 					});
-			
+			//弹出全屏表单  
+			$(document).on('click','.btn_sub_big',function(){
+				layer.open({
+					type: 2,	
+					title:'',
+				    area: ['1030px', '465px'], //宽高
+				    content: ['<{link ctl="tenders:popup" arg0=RENOVATION}>','no']
+				});
+			})
+
 			//首页banner左边切换
             $(".index_banner_lt p.index_banner_tit a").mouseover(function(){
 				var index=$(this).index();

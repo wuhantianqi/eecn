@@ -64,7 +64,7 @@ class Ctl_Company extends Ctl
         // 如果选择blue蓝色模板就是跳转到临时模板
         $blue = substr($company['skin_cfg']['photo'],-8,-4);
         $this->pagedata['blue'] = $blue === "blue" ? 1 : 0;  
-        $this->tmpl = 'company/index-1.html';
+        $this->tmpl = 'company/index.html';
         
     }
 
@@ -201,22 +201,22 @@ class Ctl_Company extends Ctl
         $this->tmpl = 'company/comment.html';
     }
 //	汪琪
-		public function introduction()
-    {
-        $this->tmpl = 'company/introduction.html';
-    }
-		public function shejifangan()
-    {
-        $this->tmpl = 'company/shejifangan.html';
-    }
-		public function zaijiangongdi()
-    {
-        $this->tmpl = 'company/zaijiangongdi.html';
-    }
-	public function shejituandui()
-    {
-        $this->tmpl = 'company/shejituandui.html';
-    }
+	// 	public function introduction()
+ //    {
+ //        $this->tmpl = 'company/introduction.html';
+ //    }
+	// 	public function shejifangan()
+ //    {
+ //        $this->tmpl = 'company/shejifangan.html';
+ //    }
+	// 	public function zaijiangongdi()
+ //    {
+ //        $this->tmpl = 'company/zaijiangongdi.html';
+ //    }
+	// public function shejituandui()
+ //    {
+ //        $this->tmpl = 'company/shejituandui.html';
+ //    }
     public function savecomment($company_id=null)
     {
         $this->check_login();

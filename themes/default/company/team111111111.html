@@ -1,0 +1,29 @@
+<{assign var="seo_sub_title" value="设计团队"}>
+<{include file="company/block/header.html"}>
+<{include file="company/block/header_nav.html"}>
+<!--装修工长头部结束-->
+<div class="subwd">
+	<div class="mb20">
+		<h3><b>设计团队</b></a></h3>
+		<ul class="line_type sub_com_de_list sub_com_de_list_tuidui">
+            <{foreach $items as $item}>
+			<li>
+				<a href="<{link ctl='blog' arg0=$item.uid}>" class="lt pic"><img src="<{$pager.img}>/<{$item.face}>" /></a>
+				<div class="sub_com_de_rt main_list_rt ">
+					<p><a href="<{link ctl='blog' arg0=$item.uid}>" class="tit"><{$item.name}></a></p>
+					<p>等级：<{$item.group_name}></p>
+				<!-- 	<p>口碑：<{$item.score}></p>
+					<p>预约：<{$item.yuyue_num}></p>
+					<p>案例：<{$item.case_num}>套</p> -->
+					<p><a href="<{link ctl='designer:yuyue' arg0=$item.uid}>" mini-load="免费预约设计" mini-width="400" class="btn btn_sub_smler">我要预约</a></p>
+				</div>
+				<div class="cl"></div>
+			</li>
+            <{/foreach}>
+		</ul>
+		<div class="cl"></div>
+		<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+	</div>
+</div>
+<!--底边内容开始-->
+<{include file="company/block/footer.html"}>

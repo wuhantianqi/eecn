@@ -1,46 +1,195 @@
-<{assign var="seo_sub_title" value="公司简介"}>
 <{include file="company/block/header.html"}>
-<{include file="company/block/header_nav.html"}>
-<!--装修公司头部结束-->
-<div class="subwd">
-	<!-- <{include file="company/block/info.html"}> -->
-	<div class="mb20 company_rt rt area ">
-		<div class="pding">
-			<h3 class="sub_com_title"><b>企业简介</b></h3>
-			<div class="sub_com_contro">
-                <div><{if $company.video}><embed src="<{$company.video}>" quality="high" width="1000" height="480" align="middle" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed><{/if}></div><{$company.info}>
-            </div>
-			<h3 class="sub_com_title"><b>企业资质</b></h3>
-			<div class="sub_com_contro">
-                <{foreach $photo_list as $v}>
-                <{if $v.type == 1}>
-				<div class="zizhi_box"><img src="<{$pager.img}>/<{$v.photo}>" /><p class="tit"><{$v.title}></p></div>
-                <{/if}>
-                <{/foreach}>
-				<div class="cl"></div>
+<{if $blue}>
+<!-- 临时页面 -->
+<div class="company-zh-banner company-blue">
+	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
+</div>
+<div class="company_content_blue">
+	<div class="company_top company_top_blue">
+		<div>
+			<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
+			<div class="company_top_lt lt">
+				<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
 			</div>
-			<h3 class="sub_com_title"><b>企业荣誉</b></h3>
-			<div class="sub_com_contro">
-                <{foreach $photo_list as $v}>
-                <{if $v.type == 2}>
-				<div class="zizhi_box"><img src="<{$pager.img}>/<{$v.photo}>" /><p class="tit"><{$v.title}></p></div>
-                <{/if}>
-                <{/foreach}>
-				<div class="cl"></div>
-			</div>
-			<h3 class="sub_com_title"><b>联系我们</b></h3>
-			<div class="sub_com_contro">
-				<p>公   司：<{$company.name}></p>
-				<p>电   话：<{$company.show_phone}></p>
-				<p>Q   Q：<{$company.show_qq}></p>
-				<p>地  址:<{$company.addr}></p>
-                <{if $company.lng && $company.lat}>
-				<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
-                <{/if}>
+			<div class="cl"></div>
+		</div>
+		<div class="zh-company-about">
+			<div class="zh-company-wrap">
+			<p>
+				<{$company.desc}>
+			</p>
 			</div>
 		</div>
+		<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
 	</div>
-	<div class="cl"></div>
+	<div class="company_top_blue_right">
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
+		<div class="company_white"></div>
+		<div class="company_banner_left">
+			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
+		</div>
+		<div class="company_left_went">
+			<h2>热门装修资讯</h2>
+			<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8"}>
+				<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></p>
+                   <!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
+           <{/KT}>			
+		</div>
+	</div>
 </div>
-<!--底边内容开始-->
+<div class="clear"></div>
+<{else}>
+<!--装修公司头部开始-->
+<div class="company-zh-banner">
+
+
+
+		<div class="conpany-gai-top">
+			<div class="conpany-gai-top-center">
+				<div class="company-gai-top-n">
+					<span class="cg-logo"><img src="<{$pager.img}>/<{$company.thumb}>" alt="<{$company.title}>"></span>
+					<div class="cg-name">
+						<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.title}></a></h1>
+						<p>口碑值<a href="javascript:;"><{$company.score}></a></p>
+					</div>
+					<div class="cg-qufiction">
+						<dl>
+							<dd>
+								<{if $company.verify_name == 2}>
+								<span class="com_rz_ico ico_list"></span>
+				                <{elseif $company.verify_name == 1}>
+				                <span class="ps_rz_ico ico_list"></span>
+				                <{/if}>
+				                <{if $company.is_vip}><span class="tuiguang_ico ico_list"></span><{/if}>
+				                <{if $company.xiaobao}><span class="bz_metals"><{$company.xiaobao}>元<font class="ico_list"></font></span><{/if}>
+							</dd>
+						</dl>
+					</div>
+					<div class="share_sns">
+						<dl>
+							<dt>分享到：</dt>
+							<dd>
+								<a class="sina_sns" href="javasript:;" title="分享到新浪微博"></a>
+								<a class="qzone_sns" href="javasript:;" title="分享到QQ空间"></a>
+								<a class="txwb_sns" href="javasript:;" title="分享到腾讯微博"></a>
+							</dd>
+						</dl>
+					</div>
+			</div>
+			</div>
+			<div class="conpany-bootm">
+				<div class="conpany-menu">
+					<ul>
+							<li class="oooon"><a href="www.eecn.cc">首页</a></li>
+							<li ><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">公司介绍</a></li>
+							<li ><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>">装修案例</a></li>
+							<li ><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>">在建工地</a></li>
+						
+							<li ><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">设计团队</a></li>
+					</ul>
+					<a href="javascript:;" class="zg-freeD btn_sub_big">免费设计与报价<b></b></a>
+				</div>
+			</div>
+		</div>
+
+</div>
+	<div class="company-bootm"><{$company.slogan}></div>
+<div class="cl"></div>
+
+<!--主题部分-->
+	<div class="cont_all">
+			<div class="cont_r">
+					<div class="antro">
+					<p class="sign_title">公司简介</p>
+					<div class="content">
+						<div class="describe">
+							<{$company.info}>
+						</div>
+					</div>
+				</div>
+					<div class="detail">
+					<p class="sign_title">详细信息</p>
+					<table>
+						<tbody>
+							<tr>
+								<td class="thead">公司规模</td>
+								<td class="content">2家门店/70-100人设计团队/100支以上施工队</td>
+							</tr>
+							<tr>
+								<td class="thead">装后服务</td>
+								<td class="content">
+1个工作日内给予网站回复</td>
+							</tr>
+							<tr>
+								<td class="thead">初期设计/量房</td>
+								<td class="content">免费上门量房，量房后3天内出方案</td>
+							</tr>
+							<tr>
+								<td class="thead">初期预算/洽谈方式</td>
+								<td class="content">免费出预算/门店洽谈/预算不可带走</td>
+							</tr>
+							<tr>
+								<td class="thead">深化设计</td>
+								<td class="content">设计合同签订后，施工合同签订前，提供不少于8张基本图纸</td>
+							</tr>
+								<tr>
+								<td class="thead">材料质量</td>
+								<td class="content">假一罚十</td>
+								</tr>
+								<tr>
+								<td class="thead">合同规范性</td>
+								<td class="content">使用政府示范合同，所有整改或变更项目均签署《项目变更单》及《施工进度调整单》开工后提供完整《施工节点及材料进场表》</td>
+								</tr>
+								<tr>
+								<td class="thead">特色服务</td>
+								<td class="content">把家交给我，你安心去上班。</td>
+								</tr>
+						</tbody>
+					</table>
+					</div>
+					<!-- <div class="detail">
+						<p class="sign_title">公司服务</p>
+						<table>
+							<tbody>
+								<tr>
+									<td class="thead">服务区域</td>
+									<td class="content">汉口，汉阳，武昌，洪山，江汉</td>
+								</tr>
+								<tr>
+									<td class="thead">承接价位</td>
+									<td class="content">5-8万,8-12万,12-18万,18-30万,30-100万,100万以上</td>
+								</tr>
+								<tr>
+									<td class="thead">专长风格</td>
+									<td class="content">简约,美式,地中海</td>
+								</tr>
+								
+								</tbody>
+						</table>
+					</div> -->
+					<div class="detail">
+					<p class="sign_title">联系我们</p>
+					<table>
+						<tbody>
+							<tr>
+								<td class="thead">公司地址</td>
+								<td class="content"><{$company.addr}></td>
+							</tr>
+							<tr>
+								<td class="thead">联系电话</td>
+								<td class="content"><{$company.show_phone}></td>
+							</tr>
+						
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+
+<{/if}>
 <{include file="company/block/footer.html"}>

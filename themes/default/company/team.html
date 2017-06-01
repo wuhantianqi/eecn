@@ -1,29 +1,235 @@
-<{assign var="seo_sub_title" value="设计团队"}>
 <{include file="company/block/header.html"}>
-<{include file="company/block/header_nav.html"}>
-<!--装修工长头部结束-->
-<div class="subwd">
-	<div class="mb20">
-		<h3><b>设计团队</b></a></h3>
-		<ul class="line_type sub_com_de_list sub_com_de_list_tuidui">
-            <{foreach $items as $item}>
-			<li>
-				<a href="<{link ctl='blog' arg0=$item.uid}>" class="lt pic"><img src="<{$pager.img}>/<{$item.face}>" /></a>
-				<div class="sub_com_de_rt main_list_rt ">
-					<p><a href="<{link ctl='blog' arg0=$item.uid}>" class="tit"><{$item.name}></a></p>
-					<p>等级：<{$item.group_name}></p>
-				<!-- 	<p>口碑：<{$item.score}></p>
-					<p>预约：<{$item.yuyue_num}></p>
-					<p>案例：<{$item.case_num}>套</p> -->
-					<p><a href="<{link ctl='designer:yuyue' arg0=$item.uid}>" mini-load="免费预约设计" mini-width="400" class="btn btn_sub_smler">我要预约</a></p>
-				</div>
-				<div class="cl"></div>
-			</li>
-            <{/foreach}>
-		</ul>
-		<div class="cl"></div>
-		<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>
+<{if $blue}>
+<!-- 临时页面 -->
+<div class="company-zh-banner company-blue">
+	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
+</div>
+<div class="company_content_blue">
+	<div class="company_top company_top_blue">
+		<div>
+			<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
+			<div class="company_top_lt lt">
+				<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
+			</div>
+			<div class="cl"></div>
+		</div>
+		<div class="zh-company-about">
+			<div class="zh-company-wrap">
+			<p>
+				<{$company.desc}>
+			</p>
+			</div>
+		</div>
+		<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
+	</div>
+	<div class="company_top_blue_right">
+		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
+		<div class="company_white"></div>
+		<div class="company_banner_left">
+			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
+			<div class="company_white"></div>
+			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
+		</div>
+		<div class="company_left_went">
+			<h2>热门装修资讯</h2>
+			<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8"}>
+				<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></p>
+                   <!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
+           <{/KT}>			
+		</div>
 	</div>
 </div>
-<!--底边内容开始-->
+<div class="clear"></div>
+<{else}>
+<!--装修公司头部开始-->
+<div class="company-zh-banner">
+
+
+
+		<div class="conpany-gai-top">
+			<div class="conpany-gai-top-center">
+				<div class="company-gai-top-n">
+					<span class="cg-logo"><img src="<{$pager.img}>/<{$company.thumb}>" alt="<{$company.title}>"></span>
+					<div class="cg-name">
+						<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.title}></a></h1>
+						<p>口碑值<a href="javascript:;"><{$company.score}></a></p>
+					</div>
+					<div class="cg-qufiction">
+						<dl>
+							<dd>
+								<{if $company.verify_name == 2}>
+								<span class="com_rz_ico ico_list"></span>
+				                <{elseif $company.verify_name == 1}>
+				                <span class="ps_rz_ico ico_list"></span>
+				                <{/if}>
+				                <{if $company.is_vip}><span class="tuiguang_ico ico_list"></span><{/if}>
+				                <{if $company.xiaobao}><span class="bz_metals"><{$company.xiaobao}>元<font class="ico_list"></font></span><{/if}>
+							</dd>
+						</dl>
+					</div>
+					<div class="share_sns">
+						<dl>
+							<dt>分享到：</dt>
+							<dd>
+								<a class="sina_sns" href="javasript:;" title="分享到新浪微博"></a>
+								<a class="qzone_sns" href="javasript:;" title="分享到QQ空间"></a>
+								<a class="txwb_sns" href="javasript:;" title="分享到腾讯微博"></a>
+							</dd>
+						</dl>
+					</div>
+			</div>
+			</div>
+			<div class="conpany-bootm">
+				<div class="conpany-menu">
+					<ul>
+							<li class="oooon"><a href="www.eecn.cc">首页</a></li>
+							<li ><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">公司介绍</a></li>
+							<li ><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>">装修案例</a></li>
+							<li ><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>">在建工地</a></li>
+						
+							<li ><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">设计团队</a></li>
+					</ul>
+					<a href="javascript:;" class="zg-freeD btn_sub_big">免费设计与报价<b></b></a>
+				</div>
+			</div>
+		</div>
+</div>
+	<div class="company-bootm"><{$company.slogan}></div>
+<div class="cl"></div>
+
+<!--主题部分-->
+<div class="sheji_team_main">
+		<{foreach $items as $item}>
+		<div class="sheji_team_list">
+				<div class="sheji_team_left">
+					<div class="sheji_y">
+						<a href="<{link ctl='blog' arg0=$item.uid}>">
+							<img src="<{$pager.img}>/<{$item.face}>" alt="">
+						</a>
+					</div>
+					<a href="<{link ctl='designer:yuyue' arg0=$item.uid}>" mini-load="免费预约设计" mini-width="400" class="sheji_yuyue btn_sub_smler">预约设计</a>
+				</div>
+				<div class="sheji_team_content">
+					<div class="sheji_name">
+						<p>
+							<a href="">
+								<span><{$item.uname}></span>
+							</a>	
+							<em class="she_icon1"></em>
+							<em class="she_icon2"></em>
+							<p>职位：<{$item.group_name}></p>
+						</p>
+					</div>
+					<p>个人简介: <{$item.about}></p>
+				</div>
+<!-- 				<div class="sheji_team_right">
+					<div>
+						<img src="/themes/default/static/images/112.jpg" alt="">
+						<div>
+							<a href="">查看作品集</a>
+						</div>
+					</div>
+				</div> -->
+		</div>
+		<{/foreach}>
+		<!-- <div class="sheji_team_list">
+				<div class="sheji_team_left">
+					<div class="sheji_y">
+						<a href="">
+							<img src="/themes/default/static/images/112.jpg" alt="">
+						</a>
+					</div>
+					<a href="" class="sheji_yuyue">预约设计</a>
+				</div>
+				<div class="sheji_team_content">
+					<div class="sheji_name">
+						<p>
+							<a href="">
+								<span>邓嫣红</span>
+							</a>	
+							<em class="she_icon1"></em>
+							<em class="she_icon2"></em>
+							<p>所在公司：嘉禾装饰_武汉嘉禾装饰装修集团</p>
+						</p>
+					</div>
+					<p>个人简介: 多年给我感觉设计就是家的心灵所归之处，或许需要古典奢华来展现雍容的气质和历史的积淀；或许需要现代简约来体现SOHO清新的时尚感觉；或许需要地中海深蓝般的与世宁静及薰衣草的浪漫磬香；或许更需要美式新古典来渲染自己厚 ...<a href="">[查看详情]</a></p>
+				</div>
+				<div class="sheji_team_right">
+					<div>
+						<img src="/themes/default/static/images/112.jpg" alt="">
+						<div>
+							<a href="">查看作品集</a>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="sheji_team_list">
+				<div class="sheji_team_left">
+					<div class="sheji_y">
+						<a href="">
+							<img src="/themes/default/static/images/112.jpg" alt="">
+						</a>
+					</div>
+					<a href="" class="sheji_yuyue">预约设计</a>
+				</div>
+				<div class="sheji_team_content">
+					<div class="sheji_name">
+						<p>
+							<a href="">
+								<span>邓嫣红</span>
+							</a>	
+							<em class="she_icon1"></em>
+							<em class="she_icon2"></em>
+							<p>所在公司：嘉禾装饰_武汉嘉禾装饰装修集团</p>
+						</p>
+					</div>
+					<p>个人简介: 多年给我感觉设计就是家的心灵所归之处，或许需要古典奢华来展现雍容的气质和历史的积淀；或许需要现代简约来体现SOHO清新的时尚感觉；或许需要地中海深蓝般的与世宁静及薰衣草的浪漫磬香；或许更需要美式新古典来渲染自己厚 ...<a href="">[查看详情]</a></p>
+				</div>
+				<div class="sheji_team_right">
+					<div>
+						<img src="/themes/default/static/images/112.jpg" alt="">
+						<div>
+							<a href="">查看作品集</a>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="sheji_team_list">
+				<div class="sheji_team_left">
+					<div class="sheji_y">
+						<a href="">
+							<img src="/themes/default/static/images/112.jpg" alt="">
+						</a>
+					</div>
+					<a href="" class="sheji_yuyue">预约设计</a>
+				</div>
+				<div class="sheji_team_content">
+					<div class="sheji_name">
+						<p>
+							<a href="">
+								<span>邓嫣红</span>
+							</a>	
+							<em class="she_icon1"></em>
+							<em class="she_icon2"></em>
+							<p>所在公司：嘉禾装饰_武汉嘉禾装饰装修集团</p>
+						</p>
+					</div>
+					<p>个人简介: 多年给我感觉设计就是家的心灵所归之处，或许需要古典奢华来展现雍容的气质和历史的积淀；或许需要现代简约来体现SOHO清新的时尚感觉；或许需要地中海深蓝般的与世宁静及薰衣草的浪漫磬香；或许更需要美式新古典来渲染自己厚 ...<a href="">[查看详情]</a></p>
+				</div>
+				<div class="sheji_team_right">
+					<div>
+						<img src="/themes/default/static/images/112.jpg" alt="">
+						<div>
+							<a href="">查看作品集</a>
+						</div>
+					</div>
+				</div>
+		</div> -->
+	<{if $pager.pagebar}><div class="page hoverno"><{$pager.pagebar}></div><{/if}>	
+</div>
+
+
+<{/if}>
 <{include file="company/block/footer.html"}>
