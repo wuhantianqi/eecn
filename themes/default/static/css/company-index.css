@@ -723,7 +723,6 @@ img {
 
 .company-gai-top-n dl dd a {
 	overflow: hidden;
-	background: url(../images/zgs_global.png) no-repeat;
 }
 
 .company-gai-top-n .cg-qufiction dl dd em {
@@ -732,6 +731,10 @@ img {
 	display: inline;
 	line-height: 16px;
 	color: #666;
+}
+
+.share_sns .bdshare-button-style0-16 .bds_more {
+	margin: 0 5px;
 }
 
 .company-gai-top-n .share_sns {

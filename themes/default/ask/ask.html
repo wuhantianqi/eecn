@@ -29,7 +29,7 @@
                 <{/if}>
             <{/foreach}>   
         </div>
-        <div class="ask_shopping">
+        <!-- <div class="ask_shopping">
             <a href="">
                 <img src="/themes/default/static/images/lf_gh_01.jpg" alt="">
             </a>
@@ -38,7 +38,7 @@
                 <em class="now_pice">&yen;89</em>
                 <em class="old_pice">&yen;170</em>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="ask_shopping">
             <a href="">
                 <img src="/themes/default/static/images/lf_gh_01.jpg" alt="">
@@ -108,7 +108,7 @@
         </div>
         <div class="main_list_frist">
             <ul>
-                <{calldata mdl="ask/ask" answer_id='>:8' order="ask_id:desc" limit="4"}> 
+                <{calldata mdl="ask/ask" answer_id='>:1' order="ask_id:asc" limit="4"}> 
                     <li>
                         <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" alt=""></a>
                         <div class="flo">
@@ -138,7 +138,7 @@
                 -->
             </ul>
         </div>
-        <div class="main_list_wend">
+        <!-- <div class="main_list_wend">
             <h2>大家都在问 </h2>
             <a href="<{link ctl='ask:items' arg0=1 arg1=1}>" class="list_more">更多 <i></i></a>
         </div>
@@ -158,25 +158,16 @@
 
 
                 
-                <!-- <li>
-                    <div class="biaoti">
-                        <em>3</em>回答
-                    </div>
-                    <div class="wenti">
-                        <a href="" class="etc">光缆接续怎么算知道的告诉下</a>
-                        <div class="info_da">2017-01-11 12:21:49</div>
-                    </div>
-                </li>
-                -->
+               
             </ul>
 
-        </div>
+        </div> -->
         <div class="main_list_content_wenda">
             <h2>新增问答</h2>
         </div>
         <div class="xinzenghuid">
             <ul>
-                <{calldata mdl="ask/ask" answer_id='>:18' order="ask_id:desc" limit="10"}>
+                <{calldata mdl="ask/ask" answer_id='>:5' order="ask_id:asc" limit="10"}>
                     <li>
                         <div class="sec_lihd">
                             <a href="<{link ctl='ask:detail' arg0=$item.ask_id}>" class="company_lid"><{$item.title|cutstr:50}></a>
