@@ -1,132 +1,154 @@
-<{include file="company/block/header.html"}>
-<{if $blue}>
-<!-- 临时页面 -->
-<div class="company-zh-banner company-blue">
-	<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
-</div>
-<div class="company_content_blue">
-	<div class="company_top company_top_blue">
-		<div>
-			<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
-			<div class="company_top_lt lt">
-				<p title="<{$company.addr}>">地址：<{$company.addr|cutstr:60}></p>    
-			</div>
-			<div class="cl"></div>
+<{include file="company/block/header.html" }>
+	<{if $blue}>
+		<!-- 临时页面 -->
+		<div class="company-zh-banner company-blue">
+			<{adv id="54" name="装修公司首页顶部广告位" city_id=$request.city_id}>
 		</div>
-		<div class="zh-company-about">
-			<div class="zh-company-wrap">
-			<p>
-				<{$company.desc}>
-			</p>
-			</div>
-		</div>
-		<div style="height:400px;width:100%"><{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}></div>
-	</div>
-	<div class="company_top_blue_right">
-		<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION"}>
-		<div class="company_white"></div>
-		<div class="company_banner_left">
-			<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
-			<div class="company_white"></div>
-			<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
-			<div class="company_white"></div>
-			<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
-		</div>
-		<div class="company_left_went">
-			<h2>热门装修资讯</h2>
-			<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8"}>
-				<p><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.title|cutstr:30}></a></p>
-                   <!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
-           <{/KT}>			
-		</div>
-	</div>
-</div>
-<div class="clear"></div>
-<{else}>
-<!--装修公司头部开始-->
-<div class="company-zh-banner">
-
-
-
-		<div class="conpany-gai-top">
-			<div class="conpany-gai-top-center">
-				<div class="company-gai-top-n">
-					<span class="cg-logo"><img src="<{$pager.img}>/<{$company.thumb}>" alt="<{$company.title}>"></span>
-					<div class="cg-name">
-						<h1><a href="<{$company.company_url}>" title="<{$company.title}>"><{$company.title}></a></h1>
-						<p>口碑值<a href="javascript:;"><{$company.score}></a></p>
+		<div class="company_content_blue">
+			<div class="company_top company_top_blue">
+				<div>
+					<img src="<{$pager.img}>/<{$company.thumb}>" class="lt pic" />
+					<div class="company_top_lt lt">
+						<p title="<{$company.addr}>">地址：
+							<{$company.addr|cutstr:60}>
+						</p>
 					</div>
-					<div class="cg-qufiction">
-						<dl>
-							<dd>
-								<{if $company.verify_name == 2}>
-								<span class="com_rz_ico ico_list"></span>
-				                <{elseif $company.verify_name == 1}>
-				                <span class="ps_rz_ico ico_list"></span>
-				                <{/if}>
-				                <{if $company.is_vip}><span class="tuiguang_ico ico_list"></span><{/if}>
-				                <{if $company.xiaobao}><span class="bz_metals"><{$company.xiaobao}>元<font class="ico_list"></font></span><{/if}>
-							</dd>
-						</dl>
+					<div class="cl"></div>
+				</div>
+				<div class="zh-company-about">
+					<div class="zh-company-wrap">
+						<p>
+							<{$company.desc}>
+						</p>
 					</div>
-					<div class="share_sns">
-						<dl>
-							<dt>分享到：</dt>
-							<dd>
-								<a class="sina_sns" href="javasript:;" title="分享到新浪微博"></a>
-								<a class="qzone_sns" href="javasript:;" title="分享到QQ空间"></a>
-								<a class="txwb_sns" href="javasript:;" title="分享到腾讯微博"></a>
-							</dd>
-						</dl>
-					</div>
-			</div>
-			</div>
-			<div class="conpany-bootm">
-				<div class="conpany-menu">
-					<ul>
-							<li class="oooon"><a href="www.eecn.cc">首页</a></li>
-							<li ><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">公司介绍</a></li>
-							<li ><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>">装修案例</a></li>
-							<li ><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>">在建工地</a></li>
-						
-							<li ><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">设计团队</a></li>
-					</ul>
-					<a href="javascript:;" class="zg-freeD btn_sub_big">免费设计与报价<b></b></a>
+				</div>
+				<div style="height:400px;width:100%">
+					<{widget id="data/mapmarker" lng=$company.lng lat=$company.lat}>
 				</div>
 			</div>
-		</div>
-
-</div>
-	<div class="company-bootm"><{$company.slogan}></div>
-<div class="cl"></div>
-
-<!--主题部分-->
-<div class="main_content">
-	<div class="cpy_intro">
-			<div class="part_banner">
-				<{calldata mdl="company/banner" company_id=$company.company_id limit="1" nocache=true}>
-			<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" width="720" height="250"></a>
-			<{/calldata}>
+			<div class="company_top_blue_right">
+				<{widget id="tenders/companyForm" title="装修四大困惑" from="IRENOVATION" }>
+					<div class="company_white"></div>
+					<div class="company_banner_left">
+						<{adv id="55" name="eecn/装修公司首页右下角广告位1" city_id=$request.city_id}>
+							<div class="company_white"></div>
+							<{adv id="56" name="eecn/装修公司首页右下角广告位2" city_id=$request.city_id}>
+								<div class="company_white"></div>
+								<{adv id="57" name="eecn/装修公司首页右下角广告位3" city_id=$request.city_id}>
+					</div>
+					<div class="company_left_went">
+						<h2>热门装修资讯</h2>
+						<{KT id="14" name="学装修首页热点推荐-置顶" city_id=$request.city_id limit="8" }>
+							<p>
+								<a href="<{link ctl='article:detail' arg0=$item.article_id}>">
+									<{$item.title|cutstr:30}>
+								</a>
+							</p>
+							<!--  <p style="text-indent: 2em;"><a href="<{link ctl='article:detail' arg0=$item.article_id}>"><{$item.desc|cutstr:50}><font class="fontcl2">[阅读全文]</font></a></p> -->
+							<{/KT}>
+					</div>
 			</div>
-			<div class="cpy_deta ">
-					<div class="scro_deta">
+		</div>
+		<div class="clear"></div>
+		<{else}>
+			<!--装修公司头部开始-->
+			<div class="company-zh-banner">
+
+
+
+				<div class="conpany-gai-top">
+					<div class="conpany-gai-top-center">
+						<div class="company-gai-top-n">
+							<span class="cg-logo"><img src="<{$pager.img}>/<{$company.thumb}>" alt="<{$company.title}>"></span>
+							<div class="cg-name">
+								<h1>
+									<a href="<{$company.company_url}>" title="<{$company.title}>">
+										<{$company.title}>
+									</a>
+								</h1>
+
+							</div>
+							<div class="cg-qufiction">
+								<dl>
+									<dd>
+										<{if $company.verify_name==2 }>
+											<span class="com_rz_ico ico_list"></span>
+											<{elseif $company.verify_name==1 }>
+												<span class="ps_rz_ico ico_list"></span>
+												<{/if}>
+													<{if $company.is_vip}><span class="tuiguang_ico ico_list"></span>
+														<{/if}>
+															<{if $company.xiaobao}><span class="bz_metals"><{$company.xiaobao}>元<font class="ico_list"></font></span>
+																<{/if}>
+									</dd>
+								</dl>
+							</div>
+							<div class="share_sns">
+								<dl>
+									<dt>分享到：</dt>
+									<dd>
+										<a class="sina_sns" href="javasript:;" title="分享到新浪微博"></a>
+										<a class="qzone_sns" href="javasript:;" title="分享到QQ空间"></a>
+										<a class="txwb_sns" href="javasript:;" title="分享到腾讯微博"></a>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="conpany-bootm">
+						<div class="conpany-menu">
+							<ul>
+								<li class="oooon"><a href="www.eecn.cc">首页</a></li>
+								<li><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>">公司介绍</a></li>
+								<li><a href="<{link ctl='company:cases' arg0=$company.company_id company=$company}>">装修案例</a></li>
+								<li><a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>">在建工地</a></li>
+
+								<li><a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>">设计团队</a></li>
+							</ul>
+							<a href="javascript:;" class="zg-freeD btn_sub_big">免费设计与报价<b></b></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="company-bootm">
+				<div>
+					<{$company.slogan}>
+				</div>
+
+			</div>
+			<div class="cl"></div>
+
+			<!--主题部分-->
+			<div class="main_content">
+				<div class="cpy_intro">
+					<div class="part_banner">
+						<{calldata mdl="company/banner" company_id=$company.company_id limit="1" nocache=true}>
+							<a href="<{$item.link}>" title="<{$item.title}>" target="_blank"><img src="<{$pager.img}>/<{$item.photo}>" width="720" height="250"></a>
+							<{/calldata}>
+					</div>
+					<div class="cpy_deta ">
+						<div class="scro_deta">
 							<div class="support1">
 								<ul>
-									<li><a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text1">
-										<em class="support1_bg1"></em>
-										支持免费量房
-										<span class="gt_gray"> > </span>
-									</a></li>
-									<li ><a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text2">
-											<em class="support1_bg2"></em>
-										支持满意后付款
-										<span class="gt_gray"> > </span>
-									</a></li>
-									<li><a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text3">
-										<em class="support1_bg3"></em>
-										支持先行赔付
-										<span class="gt_gray"> > </span>
-									</a></li>
+									<li>
+										<a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text1">
+											<em class="support1_bg1"></em> 支持免费量房
+											<span class="gt_gray"> > </span>
+										</a>
+									</li>
+									<li>
+										<a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text2">
+											<em class="support1_bg2"></em> 支持满意后付款
+											<span class="gt_gray"> > </span>
+										</a>
+									</li>
+									<li>
+										<a target="_blank" href="<{link ctl='tenders:znbj'}>" class="support_text3">
+											<em class="support1_bg3"></em> 支持先行赔付
+											<span class="gt_gray"> > </span>
+										</a>
+									</li>
 								</ul>
 							</div>
 							<div class="grade_deta">
@@ -135,7 +157,7 @@
 										<a href="javascript:;">
 											<dt>动态评分</dt>
 											<dd>
-												<span>设计水平</span>
+												<span>信誉指数</span>
 												<i class="ystar_1"></i>
 												<i class="ystar_1"></i>
 												<i class="ystar_1"></i>
@@ -144,7 +166,7 @@
 												<b>4.5</b>
 											</dd>
 											<dd>
-												<span>服务态度</span>
+												<span>口碑指数</span>
 												<i class="ystar_1"></i>
 												<i class="ystar_1"></i>
 												<i class="ystar_1"></i>
@@ -152,69 +174,77 @@
 												<i class="ystar_1"></i>
 												<b>5</b>
 											</dd>
-												<dd>
-												<span>施工质量</span>
-												<i class="ystar_1"></i>
-												<i class="ystar_1"></i>
-												<i class="ystar_1"></i>
-												<i class="ystar_1"></i>
-												<i class="ystar_2"></i>
-												<b>4.5</b>
-											</dd>
+
 										</a>
 									</dl>
-									
+
 								</div>
 							</div>
-					</div>
-					<div class="cpy_txt">
+						</div>
+						<div class="cpy_txt">
 							<p class="intro_title">公司简介</p>
-							<p class="intro_text"><{$company.desc|cutstr:100}><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>" class="intro_more">更多</a></p>
-					</div>
-					<div class="order_free">
-						<input value="申请免费量房服务" class="order_btn btn_sub_big">
-						<div class="order_hotline">
-							预约热线：
-							<span class="num1"><{$CONFIG.site.phone}></span>
-								已有<span class="num1">98334</span>人咨询
+							<p class="intro_text">
+								<{$company.desc|cutstr:100}><a href="<{link ctl='company:about' arg0=$company.company_id company=$company}>" class="intro_more">更多</a></p>
+						</div>
+						<div class="order_free">
+							<input value="申请免费量房服务" class="order_btn btn_sub_big">
+							<div class="order_hotline">
+								预约热线：
+								<span class="num1"><{$CONFIG.site.phone}></span> 已有
+								<span class="num1">98334</span>人咨询
+							</div>
 						</div>
 					</div>
-			</div>
-		
-	</div>
-	<div class="amount_house">
-		<div class="amount_l">
-			<div class="team_title">
-				<span class="team_txt">免费量房</span>
-				<span class="vertical_bar"></span>
-				<a href="javascript:;" class="click_apply apply btn_sub_big">
+
+				</div>
+				<div class="amount_house">
+					<div class="amount_l">
+						<div class="team_title">
+							<span class="team_txt">免费量房</span>
+							<span class="vertical_bar"></span>
+							<a href="javascript:;" class="click_apply apply btn_sub_big sq_bt">
 					点击申请
 					<span class="gt_green"> > </span>
-				</a>
-			</div>
-			<div class="amout_list">
-				<ul class="amt_title">
-					<li>业主</li>
-					<li>区域</li>
-					<li>户型</li>
-					<li>面积</li>
-					<li>预算</li>
-					<span>详情</span>
-				</ul>
-				<{calldata mdl="tenders/tenders" city_id=$request.city_id limit="5"}>
-				<a href="javascript:;">
-					<ul class="amt_list1">
-						<li><{$item.contact}></li>
-						<li><{$item.city_name}></li>
-						<li><{$item.house_type_title}></li>
-						<li><{$item.house_mj}><span class="unit">m <sup>2</sup></span></li>
-						<li><{$item.title|cutstr:20}></li>
-						<li><a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>">查看</a></li>
-					</ul>
-				</a>
-                <{/calldata}>
 				
-				<!-- <a href="javascript:;">
+				</a>
+							<span class="clear"></span>
+						</div>
+						<div class="amout_list">
+							<ul class="amt_title">
+								<li>业主</li>
+								<li>区域</li>
+								<li>户型</li>
+								<li>面积</li>
+								<li>地址</li>
+								<li>详情</li>
+							</ul>
+							<{calldata mdl="tenders/tenders" city_id=$request.city_id limit="5" }>
+								<a href="javascript:;" class="liangf_x">
+									<ul class="amt_list1">
+										<li>
+											<{$item.contact}>
+										</li>
+										<li>
+											<{$item.city_name}>
+										</li>
+										<li>
+											<{$item.house_type_title}>
+										</li>
+										<li>
+											<{$item.house_mj}><span class="unit">m <sup>2</sup></span>
+										</li>
+										<li>
+											<{$item.title|cutstr:20}>
+										</li>
+										<li>
+											<a href="<{link ctl='tenders:detail' arg0=$item.tenders_id}>">查看</a>
+
+										</li>
+									</ul>
+								</a>
+								<{/calldata}>
+
+									<!-- <a href="javascript:;">
 					<ul class="amt_list1">
 						<li>陈(先生)</li>
 						<li>深圳市南山区</li>
@@ -250,66 +280,74 @@
 						<li>30万以上</li>
 					</ul>
 				</a> -->
-		
-			</div>
-		</div>
-		<div class="amount_r">
-			<div class="r_title">
-				<span class="title_txt">装修优惠</span>
-				<div class="fix_r">
-					<a href="<{link ctl='company:youhui' arg0=$company.company_id company=$company}>" class="amtr_more">
+
+						</div>
+					</div>
+					<div class="amount_r">
+						<div class="r_title">
+							<span class="title_txt">装修优惠</span>
+							<div class="fix_r">
+								<a href="<{link ctl='company:youhui' arg0=$company.company_id company=$company}>" class="amtr_more">
 						更多
 						<span class="gt_gray"> > </span>
 					</a>
-				</div>
-				
-			</div>
-			<div class="active_bg3">
-				<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
-					<div class="img-wrap">
-						<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" />
+							</div>
+
+						</div>
+						<div class="active_bg3">
+							<{calldata mdl='company/youhui' company_id=$company.company_id limit=1 noext=true nocache=true}>
+
+								<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /><p class="act_title"><{$item.title|cutstr:50}></p></a>
+								<p class="validity">有效期：
+									<{$item.status_title}>
+								</p>
+								<!--
+<div class="img-wrap">
+	<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.thum}>" />
 						<p><{$item.title|cutstr:50}></p>
-						</a> 
-					</div>
-	            <{/calldata}>
-				<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>"><img src="<{$pager.img}>/<{$item.photo}>" /><p class="act_title"><{$item.title|cutstr:50}></p></a>
-				<p class="validity">有效期：<{$item.status_title}></p>
-				<div  class="act_details">
-					<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>">
-						<p><img src="<{$pager.img}>/<{$item.photo}>" /></p>
-						</a> 
-				</div>
-<!-- 				<p class="download_after">(发送后，凭优惠短信即可享受此优惠活动)</p>
+						</a>
+</div>
+-->
+								<{/calldata}>
+
+									<!--
+									<div class="act_details">
+										<a href="<{link ctl='youhui:detail' arg0=$item.youhui_id}>">
+											<p><img src="<{$pager.img}>/<{$item.photo}>" /></p>
+										</a>
+									</div>
+-->
+									<!-- 				<p class="download_after">(发送后，凭优惠短信即可享受此优惠活动)</p>
 					<span class="downto_black">已过期</span> -->
-			</div>
-		</div>
-	</div>
-	<div class="design_plan">
-		<div class="team_title">
-			<span class="team_txt">设计方案</span>
-			<!-- <span class="plan_num1">(150)</span> -->
-			<a href="<{link ctl='company:cases' arg0=$company.company_id}>" class="order_more">
+						</div>
+					</div>
+				</div>
+				<div class="design_plan">
+					<div class="team_title">
+						<span class="team_txt">设计方案</span>
+						<!-- <span class="plan_num1">(150)</span> -->
+						<a href="<{link ctl='company:cases' arg0=$company.company_id}>" class="order_more">
 				更多
 				<span class="gt_gray">></span>
 			</a>
-		</div>
-		<div class="blog_main_r">
-			<ul >
-				<{foreach $items as $item}>         	
-		            <{if $item.lastphotos}>
-		                 <{foreach from=$item.lastphotos key=key item=item2}>
-		                 		<li>
-									<a href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$photos[$item2].photo}>" />
+					</div>
+					<div class="blog_main_r">
+						<ul>
+							<{foreach $items as $item}>
+								<{if $item.lastphotos}>
+									<{foreach from=$item.lastphotos key=key item=item2}>
+										<li>
+											<a href="<{link ctl='case:detail' arg0=$item.case_id}>"><img src="<{$pager.img}>/<{$photos[$item2].photo}>" />
 										<div class="exp">
 												<div class="exp_t"><{$item.title}></div>
 										</div>
 									</a>
-								</li>
-		                 <{/foreach}>
-		            <{/if}>               
-		         <{/foreach}>
+										</li>
+										<{/foreach}>
+											<{/if}>
+												<{/foreach}>
 
-				<!-- <li>
+													<!-- <li>
 					<a href="javascript:;">
 						<img src="/themes/default/static/images/529_8410.jpg" alt="">
 						<div class="exp">
@@ -339,42 +377,44 @@
 						</div>
 					</a>
 				</li> -->
-			</ul>
-		</div>
-	</div>
-	<div class="design_team">
-		<div class="team_title">
-			<span class="team_txt">设计团队</span>
-			<!-- <span class="plan_num1">(79)</span> -->
-			<a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>" class="order_more">
+						</ul>
+					</div>
+				</div>
+				<div class="design_team">
+					<div class="team_title">
+						<span class="team_txt">设计团队</span>
+						<!-- <span class="plan_num1">(79)</span> -->
+						<a href="<{link ctl='company:team' arg0=$company.company_id company=$company}>" class="order_more">
 				更多
 				<span class="gt_gray">></span>
 			</a>
-		</div>
-		<div class="team_list">
-			<ul>
-				<{calldata mdl='designer/designer' company_id=$company.company_id limit=4 nocache=true}>
-				<li>
-					<div class="designer_pic1">
-						<a href="<{link ctl='blog' arg0=$item.uid}>">
+					</div>
+					<div class="team_list">
+						<ul>
+							<{calldata mdl='designer/designer' company_id=$company.company_id limit=4 nocache=true}>
+								<li>
+									<div class="designer_pic1">
+										<a href="<{link ctl='blog' arg0=$item.uid}>">
 							<img src="<{$pager.img}>/<{$item.face}>" alt="" width="100" height="100">
 						</a>
-						<div class="shade"></div>
-						<div class="designer_cov"></div>
-						<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>"  mini-width='500' mini-load="我要预约" class="cov_text">
-							<span>预约设计</span>
-						</a>
-					</div>
-					<p class="designer_name1">
-						<a href="<{link ctl='blog' arg0=$item.uid}>"><{$item.name}></a>
-					</p>
-					<p class="job_title">
-						<{$item.group_name}>
-					</p>
-				</li>
-	            <{/calldata}>
-				
-				<!-- <li>
+										<div class="shade"></div>
+										<div class="designer_cov"></div>
+										<a href="<{link ctl='designer:yuyue' arg0=$item.uid http='ajax'}>" mini-width='500' mini-load="我要预约" class="cov_text">
+											<span>预约设计</span>
+										</a>
+									</div>
+									<p class="designer_name1">
+										<a href="<{link ctl='blog' arg0=$item.uid}>">
+											<{$item.name}>
+										</a>
+									</p>
+									<p class="job_title">
+										<{$item.group_name}>
+									</p>
+								</li>
+								<{/calldata}>
+
+									<!-- <li>
 					<div class="designer_pic1">
 						<a href="javascript:;">
 							<img src="/themes/default/static/images/112.jpg" alt="" width="100" height="100">
@@ -469,40 +509,45 @@
 						<a href="javascript:;">项目经理</a>
 					</p>
 				</li> -->
-			</ul>
-		</div>
-	</div>
-	<div class="construct_case">
-		<div class="team_title">
-			<span class="team_txt">装修工地</span>
-			<!-- <span class="plan_num1">（2206）</span> -->
-			<a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>" class="order_more">更多<span class="gt_gray">></span></a>
-		</div>
-		<ul class="case_list">
-            <{calldata mdl='home/site' company_id=$company.company_id limit=3 noext=true nocache=true}>
-			<li>
-				<div class="main_site main_list">
-					<a href="<{link ctl='site:detail' arg0=$item.site_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
-					<div class="main_site_rt main_list_rt rt">
-						<h3><p class="lt"><b><a <{if $item.home_id}>href="<{link ctl='home:detail' arg0=$item.home_id}>"<{/if}>><{$item.home_name}></a></b></p></h3>
-						<div class="main_site_rt_top">
-							<div class="lt">
-								<p><span class="ico_list fengge_ico"></span>价格：<{$item.price}>万元</p>
-								<p><span class="ico_list company_ico"></span>小区：<{$item.home_name}></p>
-							</div>
-							<a href="<{link ctl='site:yuyue' arg0=$item.site_id}>" mini-width='500' mini-load="我要参观工地" class="btn_sub_sm btn rt">我要参观</a>
-						</div>
-						<div class="cl"></div>
-						<div class="site_step">
-							<p class="step bar"><span class="bar step_color step<{$item.status}>"></span></p>
-							<p><span class="step">开工大吉</span><span class="step">水电改造</span><span class="step">泥瓦阶段</span><span class="step">木工阶段</span><span class="step">油漆阶段</span><span class="step">安装阶段</span><span class="step">验收完成</span></p>
-						</div>
+						</ul>
 					</div>
-					<div class="cl"></div>
 				</div>
-			</li>
-            <{/calldata}>
-			<!-- <li class="case_list_item">
+				<div class="construct_case">
+					<div class="team_title">
+						<span class="team_txt">装修工地</span>
+						<!-- <span class="plan_num1">（2206）</span> -->
+						<a href="<{link ctl='company:site' arg0=$company.company_id company=$company}>" class="order_more">更多<span class="gt_gray">></span></a>
+					</div>
+					<ul class="case_list">
+						<{calldata mdl='home/site' company_id=$company.company_id limit=3 noext=true nocache=true}>
+							<li>
+								<div class="main_site main_list zxgd_d">
+									<a href="<{link ctl='site:detail' arg0=$item.site_id}>"><img src="<{$pager.img}>/<{$item.thumb}>" /></a>
+									<div class="main_site_rt main_list_rt rt">
+										<h3>
+											<p class="lt"><b><a <{if $item.home_id}>href="<{link ctl='home:detail' arg0=$item.home_id}>"<{/if}>><{$item.home_name}></a></b></p>
+										</h3>
+										<div class="main_site_rt_top">
+											<div class="lt">
+												<p><span class="ico_list fengge_ico"></span>价格：
+													<{$item.price}>万元</p>
+												<p><span class="ico_list company_ico"></span>小区：
+													<{$item.home_name}>
+												</p>
+											</div>
+											<a href="<{link ctl='site:yuyue' arg0=$item.site_id}>" mini-width='500' mini-load="我要参观工地" class="btn_sub_sm btn rt">我要参观</a>
+										</div>
+										<div class="cl"></div>
+										<div class="site_step">
+											<p class="step bar"><span class="bar step_color step<{$item.status}>"></span></p>
+											<p><span class="step">开工大吉</span><span class="step">水电改造</span><span class="step">泥瓦阶段</span><span class="step">木工阶段</span><span class="step">油漆阶段</span><span class="step">安装阶段</span><span class="step">验收完成</span></p>
+										</div>
+									</div>
+									<div class="cl"></div>
+								</div>
+							</li>
+							<{/calldata}>
+								<!-- <li class="case_list_item">
 				<div class="case_main ">
 					<div class="case_pics">
 						<a href="javascript:;"><img src="/themes/default/static/images/112.jpg" alt=""></a>
@@ -652,30 +697,31 @@
 					<a href="javascript:;" class="yuyuecanguan">免费预约参观</a>
 				</div>
 			</li> -->
-		</ul>
-	</div>
-</div>
-<{/if}>
-<div class="zh-tool-wrap">
-	<div class="tool">
-		<p></p>
-		<ul>
-			<li><a href="<{link ctl='tools:tuliao'}>" target="_blank"><span></span>涂料计算器</a></li>
-			<li><a href="<{link ctl='tools:diban'}>" target="_blank"><span></span>地板计算器</a></li>
-			<li><a href="<{link ctl='tools:bizhi'}>" target="_blank"><span></span>壁纸计算器</a></li>
-			<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
-			<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
-		</ul>
-	</div>
-</div>
-<{include file="company/block/footer.html"}>
-<script>
-	$(document).on('click','.btn_sub_big',function(){
-				layer.open({
-					type: 2,	
-					title:'',
-				    area: ['1030px', '465px'], //宽高
-				    content: ['<{link ctl="tenders:popup" arg0=RENOVATION}>','no']
-				});
-			})
-</script>
+					</ul>
+				</div>
+			</div>
+			<{/if}>
+				<div class="zh-tool-wrap">
+					<div class="tool">
+						<p></p>
+						<ul>
+							<li><a href="<{link ctl='tools:tuliao'}>" target="_blank"><span></span>涂料计算器</a></li>
+							<li><a href="<{link ctl='tools:diban'}>" target="_blank"><span></span>地板计算器</a></li>
+							<li><a href="<{link ctl='tools:bizhi'}>" target="_blank"><span></span>壁纸计算器</a></li>
+							<li><a href="<{link ctl='tools:qiangzhuan'}>" target="_blank"><span></span>墙砖计算器</a></li>
+							<li><a href="<{link ctl='tools:chuanlian'}>" target="_blank"><span></span>窗帘计算器</a></li>
+						</ul>
+					</div>
+				</div>
+				<{include file="company/block/footer.html" }>
+					<script>
+						$(document).on('click', '.btn_sub_big', function() {
+							layer.open({
+								type: 2,
+								title: '',
+								area: ['1030px', '465px'], //宽高
+								content: ['<{link ctl="tenders:popup" arg0=RENOVATION}>', 'no']
+							});
+						})
+
+					</script>

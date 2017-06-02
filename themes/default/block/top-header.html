@@ -1,51 +1,52 @@
 <div class="top_nav colorbg">
-    <div class="mainwd">
-        <p class="lt" style="color:#666;">武汉市东启创拓信息技术有限公司</p>
-        <div class="rt" style="margin-left:10px;">
-            <{if $MEMBER.uid}>
-            <ul class="top_nav_login hoverno">
-                <li>
-                    <a href="<{link ctl='ucenter/member:index'}>"><span class="login_ico denglu_ico"></span>个人中心<span class="ico_list login_litico"></span></a>
-                    <div class="top_nav_login_son">
-                        <a href="<{link ctl='ucenter/member:index'}>">个人中心</a>
-                        <a href="<{link ctl='ucenter/member/diary:index'}>">装修日记</a>
-                        <a href="<{link ctl='ucenter/member/ask:index'}>">装修问答</a>
-                        <a href="<{link ctl='ucenter/member/yuyue:tenders'}>">我的招标</a>
-                        <a href="<{link ctl='ucenter/member/yuyue:company'}>">我的预约</a>
-                        <a href="<{link ctl='passport:loginout'}>">退出</a>
-                    </div>
-                </li>
-                <{if $MEMBER.from == 'company'}>
-                <li>
-                    <a href="<{link ctl='ucenter/company:index'}>"><span class="ico_list in_t_s_ico"></span>公司管理<span class="ico_list login_litico"></span></a>
-                    <div class="top_nav_login_son">
-                        <a href="<{link ctl='ucenter/company:info'}>">公司设置</a>
-                        <a href="<{link ctl='ucenter/company/case:index'}>">案例管理</a>
-                        <a href="<{link ctl='ucenter/company/youhui:index'}>">优惠信息</a>
-                        <a href="<{link ctl='ucenter/company/yuyue:company'}>">预约管理</a>
-                    </div>
-                </li>
-                <{elseif $MEMBER.from == 'shop'}>
-                <li>
-                    <a href="<{link ctl='ucenter/shop:index'}>"><span class="ico_list in_t_s_ico"></span>商铺管理<span class="ico_list login_litico"></span></a>
-                    <div class="top_nav_login_son">
-                        <a href="<{link ctl='ucenter/shop:info'}>">商铺设置</a>
-                        <a href="<{link ctl='ucenter/shop/order:index'}>">订单管理</a>
-                        <a href="<{link ctl='ucenter/shop/yuyue:shop'}>">预约管理</a>
-                    </div>
-                </li>
-                <{/if}>
-                <li><a href="<{link ctl='passport:loginout'}>">退出</a></li>
-            </ul>
-            <{else}>
-            <div>
-                <a target="_blank" href="<{link ctl='passport'}>" mini-login="login"><span class="login_ico denglu_ico"></span>登录</a>  |
-                <a target="_blank" href="<{link ctl='passport:reg'}>">注册</a>
-            </div>
-            <{/if}>
-        </div>
-        <div class="rt">
-            <!-- <{if $CONFIG.site.mobile && $CONFIG.mobile.url}>
+
+	<div class="mainwd">
+		<p class="lt" style="color:#666;">武汉市东启创拓信息技术有限公司</p>
+		<div class="rt" style="margin-left:10px;">
+			<{if $MEMBER.uid}>
+				<ul class="top_nav_login hoverno">
+					<li>
+						<a href="<{link ctl='ucenter/member:index'}>"><span class="login_ico denglu_ico"></span>个人中心<span class="ico_list login_litico"></span></a>
+						<div class="top_nav_login_son">
+							<a href="<{link ctl='ucenter/member:index'}>">个人中心</a>
+							<a href="<{link ctl='ucenter/member/diary:index'}>">装修日记</a>
+							<a href="<{link ctl='ucenter/member/ask:index'}>">装修问答</a>
+							<a href="<{link ctl='ucenter/member/yuyue:tenders'}>">我的招标</a>
+							<a href="<{link ctl='ucenter/member/yuyue:company'}>">我的预约</a>
+							<a href="<{link ctl='passport:loginout'}>">退出</a>
+						</div>
+					</li>
+					<{if $MEMBER.from=='company' }>
+						<li>
+							<a href="<{link ctl='ucenter/company:index'}>"><span class="ico_list in_t_s_ico"></span>公司管理<span class="ico_list login_litico"></span></a>
+							<div class="top_nav_login_son">
+								<a href="<{link ctl='ucenter/company:info'}>">公司设置</a>
+								<a href="<{link ctl='ucenter/company/case:index'}>">案例管理</a>
+								<a href="<{link ctl='ucenter/company/youhui:index'}>">优惠信息</a>
+								<a href="<{link ctl='ucenter/company/yuyue:company'}>">预约管理</a>
+							</div>
+						</li>
+						<{elseif $MEMBER.from=='shop' }>
+							<li>
+								<a href="<{link ctl='ucenter/shop:index'}>"><span class="ico_list in_t_s_ico"></span>商铺管理<span class="ico_list login_litico"></span></a>
+								<div class="top_nav_login_son">
+									<a href="<{link ctl='ucenter/shop:info'}>">商铺设置</a>
+									<a href="<{link ctl='ucenter/shop/order:index'}>">订单管理</a>
+									<a href="<{link ctl='ucenter/shop/yuyue:shop'}>">预约管理</a>
+								</div>
+							</li>
+							<{/if}>
+								<li><a href="<{link ctl='passport:loginout'}>">退出</a></li>
+				</ul>
+				<{else}>
+					<div>
+						<a target="_blank" href="<{link ctl='passport'}>" mini-login="login"><span class="login_ico denglu_ico"></span>登录</a> |
+						<a target="_blank" href="<{link ctl='passport:reg'}>">注册</a>
+					</div>
+					<{/if}>
+		</div>
+		<div class="rt">
+			<!-- <{if $CONFIG.site.mobile && $CONFIG.mobile.url}>
         	<font class="tpApp"><a href="<{link ctl='app'}>" class="appLink"><span class="phoneIcon"></span>手机版</a>
             <div class="tpApp_box">
             	<div class="lt">
@@ -59,59 +60,64 @@
             </div>
             </font>|
             <{/if}> -->
-            <!-- <a href="<{link ctl='trade/cart'}>"><span class="login_ico shipCar_ico"></span>购物车<{if $COOKIE.CART_NUMBER}>(<font class="fontcl2"><{$COOKIE.CART_NUMBER}></font>)<{/if}></a>| -->
-             <font  class="tp_contactus"><a href="javascript:void(0)" class="over ">客户服务<span class="login_ico con_ico"></span></a>
-                <div class="tp_contactus_box">
-                    <p class="tel">装修热线:<font class="fontcl1"><{$CONFIG.site.phone}></font></p>
-                    <ul class="tpService">
-                        <li>
-                            <span class="login_ico tpSer1"></span>
-                            <p><a href="<{link ctl="tenders"}>">免费招标</a></p>
-                        </li>
-                        <li>
-                            <span class="login_ico tpSer2"></span>
-                            <p><a href="<{link ctl="zxb"}>">装修保</a></p>
-                        </li>
-                        <li>
-                            <span class="login_ico tpSer3"></span>
-                            <p><a href="<{link ctl='about:about'}>">关于我们</a></p>
-                        </li>
-                    </ul>
-                    <div class="cl"></div>
-                    <div class="cont_bt">
-                    <img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" class="cont_ewm lt"/>
-                    <p class="lt bt">扫描二维码  关注官方微信</p>
-                    </div>
-                </div>
-            </font>|
-            <font><span class="ico_list in_t_tel_ico"></span>装修热线 ：<b class="fontcl2"><{$CONFIG.site.phone}></b></font>
-        </div>
-    </div>
+			<!-- <a href="<{link ctl='trade/cart'}>"><span class="login_ico shipCar_ico"></span>购物车<{if $COOKIE.CART_NUMBER}>(<font class="fontcl2"><{$COOKIE.CART_NUMBER}></font>)<{/if}></a>| -->
+			<font class="tp_contactus"><a href="javascript:void(0)" class="over ">客户服务<span class="login_ico con_ico"></span></a>
+				<div class="tp_contactus_box">
+					<p class="tel">装修热线:
+						<font class="fontcl1">
+							<{$CONFIG.site.phone}>
+						</font>
+					</p>
+					<ul class="tpService">
+						<li>
+							<span class="login_ico tpSer1"></span>
+							<p><a href="<{link ctl=" tenders "}>">免费招标</a></p>
+						</li>
+						<li>
+							<span class="login_ico tpSer2"></span>
+							<p><a href="<{link ctl=" zxb "}>">装修保</a></p>
+						</li>
+						<li>
+							<span class="login_ico tpSer3"></span>
+							<p><a href="<{link ctl='about:about'}>">关于我们</a></p>
+						</li>
+					</ul>
+					<div class="cl"></div>
+					<div class="cont_bt">
+						<img src="<{if $CONFIG.site.weixinqr}><{$pager.img}>/<{$CONFIG.site.weixinqr}><{else}>%THEME%/static/images/weixin.jpg<{/if}>" class="cont_ewm lt" />
+						<p class="lt bt">扫描二维码 关注官方微信</p>
+					</div>
+				</div>
+			</font>|
+			<font><span class="ico_list in_t_tel_ico"></span>装修热线 ：<b class="fontcl2"><{$CONFIG.site.phone}></b></font>
+		</div>
+	</div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {	
-    //头部登录后效果
-    $(".top_nav_login li").mouseover(function(){
-        $(this).find('.top_nav_login_son').show();
-    }).mouseout(function(){
-        $(this).find('.top_nav_login_son').hide();
-    }); 
-     $("font.tpApp").mouseover(function(){
-        $(this).find('a.appLink').addClass('on');
-        $('font.tpApp ').find('.tpApp_box').show();
-    }).mouseout(function(){
-        $(this).find('a.appLink').removeClass('on');
-        $('font.tpApp ').find('.tpApp_box').hide();
-    });
-	
-    $("font.tp_contactus ").mouseover(function(){
-        $(this).find('a.over').addClass('on');
-        $('font.tp_contactus ').find('.tp_contactus_box').show();
-        $('font.tp_contactus ').find('span.con_ico').addClass('con_ico_over');
-    }).mouseout(function(){
-        $(this).find('a.over').removeClass('on');
-        $('font.tp_contactus ').find('.tp_contactus_box').hide();
-        $('font.tp_contactus ').find('span.con_ico').removeClass('con_ico_over');
-    });
-})
+	$(document).ready(function() {
+		//头部登录后效果
+		$(".top_nav_login li").mouseover(function() {
+			$(this).find('.top_nav_login_son').show();
+		}).mouseout(function() {
+			$(this).find('.top_nav_login_son').hide();
+		});
+		$("font.tpApp").mouseover(function() {
+			$(this).find('a.appLink').addClass('on');
+			$('font.tpApp ').find('.tpApp_box').show();
+		}).mouseout(function() {
+			$(this).find('a.appLink').removeClass('on');
+			$('font.tpApp ').find('.tpApp_box').hide();
+		});
+
+		$("font.tp_contactus ").mouseover(function() {
+			$(this).find('a.over').addClass('on');
+			$('font.tp_contactus ').find('.tp_contactus_box').show();
+			$('font.tp_contactus ').find('span.con_ico').addClass('con_ico_over');
+		}).mouseout(function() {
+			$(this).find('a.over').removeClass('on');
+			$('font.tp_contactus ').find('.tp_contactus_box').hide();
+			$('font.tp_contactus ').find('span.con_ico').removeClass('con_ico_over');
+		});
+	})
+
 </script>
