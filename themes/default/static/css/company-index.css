@@ -1235,9 +1235,14 @@ i.ystar_2 {
 	line-height: 51px;
 }
 
+.amount_r .active_bg3 {
+	border: 2px solid #eee;
+	box-sizing: border-box;
+}
+
 .amount_r .active_bg3 a {
 	display: block;
-	width: 282px;
+	width: 278px;
 	height: 240px;
 }
 
@@ -1320,6 +1325,7 @@ i.ystar_2 {
 	line-height: 16px;
 	float: right;
 	margin-top: 17px;
+	margin-right: 15px;
 }
 
 .blog_main_r ul {
@@ -1892,7 +1898,7 @@ table {
 .pages em {
 	height: 32px;
 	padding: 3px 6px;
-	margin: 0 0 0 -1px !important;
+	margin: 0 8px;
 	line-height: 32px;
 	display: -moz-inline-box;
 	display: inline-block;
@@ -2072,7 +2078,7 @@ table {
 	right: 15px;
 	display: inline-block;
 	width: 120px;
-	height: 30px;
+	height: 27px;
 	line-height: 30px;
 	font-size: 14px;
 	color: #fff;
